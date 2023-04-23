@@ -1,0 +1,1921 @@
+
+[00:00:00.000 --> 00:00:05.520]   It's time for Twig this weekend Tech. We have a really fun panel for you. Mike Elgin is back.
+[00:00:05.520 --> 00:00:11.360]   Jeff Jarvis from Twig is visiting and Owen Thomas from the San Francisco Chronicle. He's kind of
+[00:00:11.360 --> 00:00:17.520]   a legend in tech circles. We've got a lot to talk about. Jeff Bezos is stepping down.
+[00:00:17.520 --> 00:00:24.000]   Is his successor up to the job? We'll talk about Apple and their AR glasses. We've got some of
+[00:00:24.000 --> 00:00:30.800]   the details and we'll also talk a little bit about that new bill against section 230.
+[00:00:30.800 --> 00:00:37.200]   Mike Masnick calls it a dumpster fire. We'll let Jeff Jarvis vent next.
+[00:00:37.200 --> 00:00:45.840]   Podcasts you love from people you trust. This is Twig.
+[00:00:52.560 --> 00:01:00.000]   This is Twig. This week in Tech. Episode 809 recorded Sunday, February 7th, 2021.
+[00:01:00.000 --> 00:01:08.320]   I'm only 10 minutes away. This week in Tech is brought to you by ExpressVPN. Stop handing over
+[00:01:08.320 --> 00:01:14.320]   your personal data to Big Tech. Protect yourself with the VPN I trust to keep me safe online.
+[00:01:14.320 --> 00:01:20.000]   For three extra months free with a one-year package go to expressvpn.com/twit.
+[00:01:20.720 --> 00:01:27.680]   And by Zip Recruiter. Hiring is challenging especially with everything else you have to consider today.
+[00:01:27.680 --> 00:01:33.040]   But there's one place where hiring is simple, fast and smart. That place is Zip Recruiter.
+[00:01:33.040 --> 00:01:39.600]   Try ZipRecruiter free at ziprecruiter.com/twit. Zip Recruiter. The smartest way to hire.
+[00:01:39.600 --> 00:01:45.680]   And by Barracuda. Hackers are always looking for the weakest link in your security configuration,
+[00:01:45.680 --> 00:01:50.880]   especially in your email security. Barracuda's new threat analyzer tool
+[00:01:50.880 --> 00:01:57.520]   helps you gain visibility into your particular vulnerabilities. Visit barracuda.com/twit.
+[00:01:57.520 --> 00:02:05.600]   And by Babbel. Babbel has made learning new languages fun and easy. With bite-sized lessons
+[00:02:05.600 --> 00:02:10.400]   you'll actually use in the real world. Purchase a three-month Babbel subscription and get an
+[00:02:10.400 --> 00:02:15.040]   additional three months free. Go to Babbel.com and use the promo code TWIT.
+[00:02:15.040 --> 00:02:27.040]   It's time for TWIT. This week in Tech. The show where we run through all the ads as quickly as we
+[00:02:27.040 --> 00:02:33.200]   can so we can watch the Super Bowl. No, no, it's not that show. We have carefully arranged
+[00:02:33.200 --> 00:02:39.120]   a panel of people who couldn't care less about the Super Bowl. Brilliant, brilliant. Starting
+[00:02:39.120 --> 00:02:46.560]   with Mike Algin who is still homebound in San Jose. No digital nomad he. But where are you going to go
+[00:02:46.560 --> 00:02:52.720]   do the gastronomad thing sometime soon? Yeah, we're hoping for summer. We're hoping for Europe
+[00:02:52.720 --> 00:02:58.880]   in the summer. And then after that we're hoping that because both the US and France have both said
+[00:02:58.880 --> 00:03:03.680]   that they're going to be fully vaccinated, which means all the people who are willing to be vaccinated
+[00:03:03.680 --> 00:03:09.520]   by mid to late summer. So we're counting on that. Provence is on the calendar.
+[00:03:09.520 --> 00:03:17.280]   Gastronomad.net. Click the experiences they're doing Provence. They're going to do Morocco,
+[00:03:17.280 --> 00:03:26.080]   Oaxaca, Barcelona. It all involves food, wine, and good friends. It's going to be a lot of fun.
+[00:03:26.080 --> 00:03:30.080]   The Oaxaca one is filling up. So I think we have a lot more spot left for that. Yeah, that's
+[00:03:30.080 --> 00:03:35.440]   during day of the dead. And we have all the top shaft and think that's a really good one.
+[00:03:35.440 --> 00:03:40.320]   If you are quick, you can get in on that one. Get in on it quick. Gastronomad.net.
+[00:03:40.320 --> 00:03:46.160]   Also with us normally we see him on a Wednesday. He is the Leonard Town Professor
+[00:03:46.160 --> 00:03:51.040]   for journalistic innovation at the Craig Newmark Graduate School of Journalism at the City
+[00:03:51.040 --> 00:03:55.600]   University of New York. Ladies and gentlemen, I give you Jeff Jarvis. Hey, Jeff. Who doesn't
+[00:03:55.600 --> 00:03:59.680]   care about football? Good to see you. Yeah, we had it. I was honored. I thought, oh,
+[00:03:59.680 --> 00:04:02.800]   good. I get to sit at the grownups table. I was so happy that my wife said, oh, yeah,
+[00:04:02.800 --> 00:04:05.440]   Super Bowl. They couldn't find anybody else. No, that's not what happened.
+[00:04:05.440 --> 00:04:13.440]   Your wife is mean. No, Jason asked me a while ago. She said, what about getting some of the
+[00:04:13.440 --> 00:04:18.720]   other hosts on the twit? And I said, well, I don't want to overwork them. But if somebody's willing
+[00:04:18.720 --> 00:04:23.520]   to once in a while, I think it's good. I mean, you do a lot of, you know, you do twig every week.
+[00:04:23.520 --> 00:04:27.440]   So I don't want to burn you out or anything, but it's great to have you. We always burn out your
+[00:04:27.440 --> 00:04:32.560]   public on me. No, no, no, no, no. He's nobody's saying, oh, too much, Jeff Jarvis. But we did.
+[00:04:32.560 --> 00:04:36.480]   And the other reason I wanted Mike and Jeff on is because we have a newbie. And I always like to,
+[00:04:36.480 --> 00:04:41.120]   if we've got somebody on his first time on twit, I want to make sure we've surrounded him in the
+[00:04:41.120 --> 00:04:49.600]   calm, cool waters of twit regulars. I thought it was for the hazing and the hazing. Oh, and Thomas
+[00:04:49.600 --> 00:04:55.840]   is here business editor at the San Francisco Chronicle. But a long time tech reporter from all over.
+[00:04:55.840 --> 00:05:01.120]   In fact, I just found out you were regular on our Silicon spin round table show, which is basically
+[00:05:01.120 --> 00:05:05.360]   twit for TV on tech TV way back in the day 21 years ago.
+[00:05:05.360 --> 00:05:10.720]   Funny. Thanks for having me. Yeah, it's great. I'm having flashbacks.
+[00:05:10.720 --> 00:05:13.440]   Yeah. Wow. Oh, and say, oh, and.
+[00:05:13.440 --> 00:05:18.480]   Yeah, he doesn't look like he's that old. He must have been like 12 when he was on. I don't,
+[00:05:18.480 --> 00:05:22.160]   I don't understand how that happened. I'll tell you how it happened.
+[00:05:22.160 --> 00:05:27.280]   Kathy Brooks, who was a bigger. Oh, yes. Yes. New me. She of the leather pants. Yes. Yes.
+[00:05:27.280 --> 00:05:33.200]   And she knew that I was working at Red Herring, whose office was three blocks away. So when
+[00:05:33.200 --> 00:05:38.800]   canceled or something came up, she could call me. I'd be there in 10 minutes. That's how it happened.
+[00:05:38.800 --> 00:05:46.480]   So really, on your resume, doesn't like football and within 10 minutes can be here is a very good
+[00:05:46.480 --> 00:05:51.040]   thing to have on your resume. Who was it? Tony Perkins that started Red Herring?
+[00:05:51.040 --> 00:05:56.960]   He did. Yeah. I love action. I love that. It was, yeah, it was back in the day. It was
+[00:05:56.960 --> 00:06:03.360]   startups before the bubble burst. Kind of. I mean, if you remember Jason Pontin with a ponytail,
+[00:06:03.360 --> 00:06:07.440]   then, yeah, then you were around in the 90s. Yeah. What did happen?
+[00:06:07.440 --> 00:06:13.760]   You've been sitting around. Yeah. He's, you know, I see him pop up on LinkedIn. He's still
+[00:06:14.800 --> 00:06:20.560]   working some conference and, you know, beat up ideas. Yeah. Yeah. So don't I?
+[00:06:20.560 --> 00:06:25.840]   There is a big football game later in the day, I believe. And it's funny because I always,
+[00:06:25.840 --> 00:06:32.720]   at least for the, for a while, we would always say, oh, and guess what tech company is going to be
+[00:06:32.720 --> 00:06:38.800]   buying a $5 million ad on the Super Bowl. Now it's more like, guess which tech company is not buying
+[00:06:39.760 --> 00:06:45.200]   a $5 million ad. But remember the, what was the, the dot com that was the first dot com to buy a
+[00:06:45.200 --> 00:06:49.680]   Super Bowl ad? Was it pets.com? I think that's not coming with my old friend Bill Gross.
+[00:06:49.680 --> 00:06:57.360]   Whatever happened to pets? I don't know. That's mean. I won't say it. Well, as Bill, Bill has done a
+[00:06:57.360 --> 00:07:04.000]   whole study of the key factor in success. And, and he found that it is timing. Yeah.
+[00:07:04.640 --> 00:07:10.800]   And he was too early. There are in fact pets.com type startups now.
+[00:07:10.800 --> 00:07:16.400]   Pets.com's biggest problem was it was very expensive to send a kitty litter through
+[00:07:16.400 --> 00:07:20.720]   their mail. But that's how we get our klitty litter now from Chewy. Yeah.
+[00:07:20.720 --> 00:07:26.640]   No, what Chewy exactly? I mean, it's a, it's exact same idea. There's no difference
+[00:07:26.640 --> 00:07:32.960]   between Chewy and pets.com. Yeah. It's, it's all the timing. So you want to see the, the very first
+[00:07:33.440 --> 00:07:39.760]   dot com Super Bowl ad. This was 20 years ago. They paid $1.2 million for the ad.
+[00:07:39.760 --> 00:07:52.560]   Featuring the infamous pets.com sock puppet.
+[00:07:55.760 --> 00:08:04.640]   You know, it's not a, it's not a bad ad. But it was in during the tech bubble burst.
+[00:08:04.640 --> 00:08:12.720]   Soon after this ad, they launched their IPO by November of that year at a business.
+[00:08:12.720 --> 00:08:17.680]   So that 1.2 million might have given them another week or two runway. That's all.
+[00:08:17.680 --> 00:08:24.160]   I can tell you a story about, about pets.com. I actually wrote this up. I looked at their web
+[00:08:24.160 --> 00:08:30.640]   traffic and I mapped it to their advertising spend. And they were completely divergent. In other
+[00:08:30.640 --> 00:08:36.400]   words, like the more they spent on, on advertising, the less web traffic they got.
+[00:08:36.400 --> 00:08:40.640]   Of course. Well, what was the, there was the opposite story for the, for the bubble,
+[00:08:40.640 --> 00:08:46.640]   because you, you bought audience. So this is the opposite. I mean, we've had a number of sponsors.
+[00:08:46.640 --> 00:08:52.080]   I'll mention names, Squarespace bought a lot of, they were the podcast company for a while.
+[00:08:52.080 --> 00:08:56.640]   They bought everybody. We, we were one of the first that they bought, spent a lot of money on us.
+[00:08:56.640 --> 00:09:02.400]   And then at some point, they just got, they bought a Super Bowl ad and they hired the dude to do
+[00:09:02.400 --> 00:09:07.440]   their ads. And like, obviously they spent so much, they could have bought a two year campaign for
+[00:09:07.440 --> 00:09:14.800]   what they spent on one Super Bowl ad. I just feel like it's a status thing. Is that right,
+[00:09:14.800 --> 00:09:17.200]   Owen? You think it's more of a, a status symbol?
+[00:09:17.920 --> 00:09:23.600]   I think TV advertising for an internet company in 2021 is brilliant, because you break through the
+[00:09:23.600 --> 00:09:29.280]   noise, you know, your Instagram and Facebook feeds are just clotted with ads and people talk about
+[00:09:29.280 --> 00:09:35.520]   it. There's a buzz factor. I think advertising in 20, in, you know, in 2000 was stupid because
+[00:09:35.520 --> 00:09:39.440]   they're just weren't enough people online. Like you have all these people watching the ad who
+[00:09:39.440 --> 00:09:45.360]   maybe have an AOL dial up account. They're not going to buy kitty litter online. So, you know,
+[00:09:45.360 --> 00:09:50.320]   I think actually there's an argument that now it makes more sense. Yeah, especially if you have
+[00:09:50.320 --> 00:09:54.880]   a broad product that like everyone can use and you know, like Squarespace is, is one of those
+[00:09:54.880 --> 00:10:00.960]   products. Everyone, you know, probably wants a website. I know, I know exactly who should do.
+[00:10:00.960 --> 00:10:04.240]   Here's a, here's an ad from last year's Super Bowl.
+[00:10:04.240 --> 00:10:12.640]   This, this was a viewer audio. Another success story.
+[00:10:12.640 --> 00:10:17.280]   I'll be there in a Quibi. A what? A Quibi. Less than 10 minutes.
+[00:10:17.280 --> 00:10:25.040]   The guy driving the getaway vehicle for the bank heist has decided to watch Quibi.
+[00:10:25.040 --> 00:10:30.880]   He was the only one. He was the only one. Big stories.
+[00:10:30.880 --> 00:10:39.120]   Bank, Bank heist was an allegory for the investors. Yes, we borrowed 1.8 million dollars,
+[00:10:39.120 --> 00:10:45.760]   billion dollars to create this turkey. Quibi launched in April after the Super Bowl ad and
+[00:10:45.760 --> 00:10:51.360]   closed six months later. I mean, they blamed the pandemic, right? They, you know, they, they said,
+[00:10:51.360 --> 00:10:57.120]   oh, well, it's supposed to be nobody's robbing banks in the pandemic. It's obvious, right?
+[00:10:57.120 --> 00:11:02.320]   But, you know, I think the real problem with Quibi is like it wasn't social at all. Like,
+[00:11:02.320 --> 00:11:06.320]   you couldn't even take a screenshot and share it. They like did something to block that.
+[00:11:06.320 --> 00:11:15.680]   It was textbook, everything wrong about it. Oh, media. Oh, media. All right. Owen and Mike and Jeff.
+[00:11:15.680 --> 00:11:21.600]   I was trying, I was listening to clubhouse the other day and I was trying to cast it to anything
+[00:11:21.600 --> 00:11:28.320]   besides my smartphone speakers. And apparently you can't. In fact, the whole point of clubhouse is
+[00:11:28.320 --> 00:11:32.240]   it's live. You can't record it. You can't listen on speakers. You have to listen on the phone.
+[00:11:32.240 --> 00:11:34.160]   Isn't that just about the same?
+[00:11:34.160 --> 00:11:41.440]   I think similar, except for you can do it, you can put a microphone up to your phone and
+[00:11:41.440 --> 00:11:45.600]   report that. Yeah. Well, you could do that with Quibi. You could all have a camcorder.
+[00:11:45.600 --> 00:11:51.200]   But look at Instagram. Instagram is super successful. And on Instagram, you can download photos.
+[00:11:51.200 --> 00:11:56.240]   Yeah, that's true. You can't even share to your own followers. If you put a web address in the
+[00:11:56.240 --> 00:12:01.440]   comments or the, you can't will click it. Exactly. It's, it's any social.
+[00:12:02.320 --> 00:12:08.640]   So I think, I think the question is like, what's the context and what's the environment with
+[00:12:08.640 --> 00:12:15.200]   clubhouse and Instagram safety? Like that feeling of like, this is a good place for me to share things
+[00:12:15.200 --> 00:12:19.840]   because it's not going to be ripped out of context. You know, that I think is really important.
+[00:12:19.840 --> 00:12:24.480]   And then you have, then you have TikTok, which facilitates sharing everywhere,
+[00:12:24.480 --> 00:12:27.680]   which is going to be the more successful in the long run.
+[00:12:29.120 --> 00:12:35.360]   It's a TikTok. Quibi. Quibi. Quibi. Quibi. It's going to be huge. Oh, one's
+[00:12:35.360 --> 00:12:38.880]   point about Quibi is that, right? If you see something you like, you want to share it. You can't
+[00:12:38.880 --> 00:12:42.080]   share it. Different from a conversational site. You can't share it. What is a content site? What
+[00:12:42.080 --> 00:12:48.880]   is a conversational site? What about clubhouse? Are any of you clubhouse members I am? I'm on
+[00:12:48.880 --> 00:12:57.360]   Android. I've been, I've been getting into clubhouse big time this week. Yeah. And, and so I, I,
+[00:12:57.360 --> 00:13:04.240]   it's invite only. It's audio only. You have, it's great. It's great if you are somebody who wants
+[00:13:04.240 --> 00:13:10.480]   to cultivate audience. It's actually not a great site for content, in my opinion. So compared to
+[00:13:10.480 --> 00:13:16.160]   podcasting, for example, which it has been compared to, but it's more like a conference call that
+[00:13:16.160 --> 00:13:22.800]   you listen to, which is like, sounds worse. But it's, but the, the amount of fluff on clubhouse is
+[00:13:22.800 --> 00:13:29.600]   astonishing. I've gone into so many rooms on clubhouse. And nobody says anything. Everyone,
+[00:13:29.600 --> 00:13:34.320]   it's a very, it's a very kind and gentle place. Everybody's very respectful and all that, which is,
+[00:13:34.320 --> 00:13:38.480]   they've tried to deliberately cultivate that. But in terms of bang for your buck,
+[00:13:38.480 --> 00:13:42.400]   you can spend. Well, they are. They talk to the sourdough starters.
+[00:13:42.400 --> 00:13:46.000]   Haven't yet seen that. Yeah, it's nothing good like that. There's one right now. I know.
+[00:13:46.000 --> 00:13:52.000]   Here's Master Bitcoin today. There's Sunday Satoshi service. There's a lot of Bitcoin.
+[00:13:52.960 --> 00:13:56.720]   Ward, here's one on cyber warfare, which would probably be interesting.
+[00:13:56.720 --> 00:14:02.640]   Kim.com is in that, which is kind of interesting. He's the founder of Meg,
+[00:14:02.640 --> 00:14:07.920]   mega visual artists and creatives talking more. I've listened to a few. You know, it's interesting.
+[00:14:07.920 --> 00:14:16.000]   If you look at the global calendar, there's a lot of Chinese. This is not yet banned in China.
+[00:14:16.720 --> 00:14:24.640]   And yeah, not yet. It could be banned by the end of the show. Yeah. Here's some Russian, but I noticed,
+[00:14:24.640 --> 00:14:28.640]   not maybe not today. Maybe they're all watching the Super Bowl. But during the week, there was a
+[00:14:28.640 --> 00:14:35.280]   lot of Chinese stuff. I listened to a number of really interesting shows from people in Taiwan,
+[00:14:35.280 --> 00:14:42.880]   mainland China and Hong Kong talking about China in a way that I had not heard in mainstream media.
+[00:14:42.880 --> 00:14:46.960]   So that's that safety thing you were talking about. Oh, and they feel like they probably can do it
+[00:14:46.960 --> 00:14:55.040]   because they can't be repeated or recorded. One of the founders of clubhouse was actually a reporter
+[00:14:55.040 --> 00:15:00.240]   whose beat was used to be Hong Kong. Oh, that explains it. So they absolutely know that they're
+[00:15:00.240 --> 00:15:06.240]   going to be banned any second. If they're still available in China a week from now, I'd be really
+[00:15:06.240 --> 00:15:16.640]   surprised. I would love to know if they're using some service that China doesn't want to block.
+[00:15:16.640 --> 00:15:22.400]   Like maybe they're using, maybe they're using Twilio on the back end and would break too many
+[00:15:22.400 --> 00:15:26.480]   things if they were to block it. I'm trying to remember because I did hear what the clubhouse
+[00:15:26.480 --> 00:15:33.760]   backend was. And it was kind of a surprise. Maybe that is what's going on. Because why wouldn't
+[00:15:33.760 --> 00:15:40.000]   they have blocked it immediately? Oh, I don't remember. It'll come to me before the show is over.
+[00:15:40.000 --> 00:15:45.360]   Or maybe they're waiting and watching and making a list of everyone in a clubhouse.
+[00:15:45.360 --> 00:15:52.160]   They might just see it as being a useful place to spy.
+[00:15:52.160 --> 00:16:01.120]   Well, it's the advantage of, I guess, audio covers. I'm a writer. So I guess I'm used to typing to talk.
+[00:16:02.320 --> 00:16:06.080]   I guess most people aren't and are intimidated by that. So just simply being able to talk to
+[00:16:06.080 --> 00:16:12.320]   have a conversation. But is it analogous to talk radio? It's just only a few people talk and the
+[00:16:12.320 --> 00:16:17.360]   rest of you listen. It's kind of like that. So basically how these things work is that one,
+[00:16:17.360 --> 00:16:23.600]   two or three people will start a room and they're on the stage. Nobody else can talk until they
+[00:16:23.600 --> 00:16:28.800]   choose somebody. And then as they're talking, people can press a button that says that they're
+[00:16:28.800 --> 00:16:34.480]   raising their hand. And then the moderators can choose or not choose people who raise their hands.
+[00:16:34.480 --> 00:16:40.000]   And oftentimes, because it's still kind of a, it's a very chummy kind of Silicon Valley vibe,
+[00:16:40.000 --> 00:16:46.320]   at least the rooms that are. Ooh, bros. Oftentimes they know, personally know the people who are in
+[00:16:46.320 --> 00:16:50.560]   the audience and they'll choose those people over people they don't know, for example.
+[00:16:50.560 --> 00:16:58.080]   But it's kind of like, it's tailor made for the pandemic because people are at home by themselves.
+[00:16:58.080 --> 00:17:04.560]   They don't have the water cooler. And so it's kind of great to be just listening and participating
+[00:17:04.560 --> 00:17:11.840]   in this conversation in the pandemic. Now whether this succeeds when the dust clears and we are no
+[00:17:11.840 --> 00:17:18.480]   longer sheltering in place, who knows? But right now it's not like talk radio, it's much more informal
+[00:17:18.480 --> 00:17:23.600]   and it's much more interactive. But it's still how often do you hear ribbon on it? A lot of women.
+[00:17:24.480 --> 00:17:28.720]   Yeah, there's a lot. So this is another interesting thing about it. There are a lot of women on Club
+[00:17:28.720 --> 00:17:34.320]   House. There are tons and tons and tons of Black Americans and also a lot of Africans as well.
+[00:17:34.320 --> 00:17:41.040]   Very, very tuned they uses it. Yeah. Regularly. Yeah. So it's kind of, it's kind of turned out
+[00:17:41.040 --> 00:17:49.520]   to be a great place for groups of people who are not, who don't have a big presence on sites like
+[00:17:49.520 --> 00:17:58.640]   Twitter. And so, including Chinese citizens, for example, but there's a lot of foreign language
+[00:17:58.640 --> 00:18:05.600]   rooms, which is really interesting. And so- Yeah, a lot of Dogecoin rooms right now.
+[00:18:05.600 --> 00:18:14.000]   I love on this morning and randomly Trump's former campaign manager, Brad Parscale,
+[00:18:14.000 --> 00:18:19.760]   Wow, was in a room. See, I would be fascinated. Now, you might ask, why are you talking about
+[00:18:19.760 --> 00:18:25.120]   this random Silicon Valley startup? Well, for one thing, it's a unicorn. But for another thing,
+[00:18:25.120 --> 00:18:33.200]   this past week, Elon Musk showed up and then Mark Zuckerberg showed up both on the stage of a
+[00:18:33.200 --> 00:18:40.160]   talk show that is apparently a regular clubhouse. When Zuckerberg showed up, there was a Musk,
+[00:18:40.160 --> 00:18:45.040]   was one Musk showed up. I think they had 5,000 people in the room. They spun off a second room
+[00:18:45.040 --> 00:18:52.560]   of 5,000 and then a third room of 5,000 people. So, it had been promoted ahead of time.
+[00:18:52.560 --> 00:19:00.320]   The other thing that's interesting is it's a Andreessen Horowitz venture. And a lot of Andreessen
+[00:19:00.320 --> 00:19:09.040]   Horowitz companies end up there, funded companies end up there. And so, it's another one of Andreessen
+[00:19:09.040 --> 00:19:15.200]   Horowitz has also started their own publishing empire. And I think this is part of what they're
+[00:19:15.200 --> 00:19:20.640]   doing. As Benedict Evans, who used to work there said, it's a media company that makes its money
+[00:19:20.640 --> 00:19:25.200]   as a VC. Yeah, we should mention it's Mark Andreessen, who of course created MetScape
+[00:19:25.200 --> 00:19:31.760]   and it's a venture fund. Are they late stage, early stage angel? I think they're a big VC,
+[00:19:31.760 --> 00:19:36.000]   right? They're a normal big VC. I mean, they do almost everything, but they're primarily early
+[00:19:36.000 --> 00:19:40.560]   stage. Early stage. They like to spot startups and kind of, you know,
+[00:19:40.560 --> 00:19:43.680]   anoint them. And I think it's definitely happening with Clubhouse.
+[00:19:43.680 --> 00:19:47.920]   Yeah. These are the fact that we're talking about Clubhouse interrelated to the fact that
+[00:19:47.920 --> 00:19:54.960]   Andreessen, yeah. And Zuckerberg and Elon are all, they're all in that club.
+[00:19:54.960 --> 00:20:02.160]   Mark Andreessen is on the board of Facebook. Right. Interesting. I think that's the one
+[00:20:02.720 --> 00:20:09.040]   kind of shady thing that you should be aware of is that it is actually part of a venture capital
+[00:20:09.040 --> 00:20:15.040]   firm's cloud that they can get you on Clubhouse and they can get you in their podcasts.
+[00:20:15.040 --> 00:20:20.560]   It has to be said that it's invite only. So somebody who's a user and who has built up some
+[00:20:20.560 --> 00:20:26.320]   points by using can invite you. Otherwise, you can't get in and it's only iPhone. So if you have
+[00:20:26.320 --> 00:20:29.440]   an Android phone, there's no Android app. Yeah, that's what I've had a bit of an invite.
+[00:20:29.440 --> 00:20:33.280]   I can't get on. Yeah, they're apparently going to do it Android soon. I'm sure there's a lot of
+[00:20:33.280 --> 00:20:38.240]   pressure. I'm sure they will. Yeah. You know, it's actually a classic startup trick.
+[00:20:38.240 --> 00:20:43.440]   Oh, yeah. I'm sure they I'm sure they could have done it. Create demand. Yeah.
+[00:20:43.440 --> 00:20:48.240]   But yeah, they're they're going to open the floodgates and suddenly there's going to say,
+[00:20:48.240 --> 00:20:54.000]   oh, we doubled our user base. Well, of course, because you added an entire new mobile OS,
+[00:20:54.000 --> 00:20:58.720]   Instagram did it right before Facebook bought them. And it definitely turbocharged their
+[00:20:58.720 --> 00:21:03.120]   growth statistics. I mean, I don't think that was lost on Facebook, but it, you know,
+[00:21:03.120 --> 00:21:06.320]   it makes for nice headlines when you when you have that boost.
+[00:21:06.320 --> 00:21:09.680]   Meanwhile, here's another Super Bowl ad from the year 2000.
+[00:21:09.680 --> 00:21:16.240]   You'll get used to this on when I jump around a lot. This is a company I've never heard of.
+[00:21:16.240 --> 00:21:25.040]   It's called Epidemic. We're in a, we're in a men's room. The attendant's looking at the guy.
+[00:21:25.040 --> 00:21:31.440]   He says he's giving the guy a buck. Now you can make money for something you're already doing
+[00:21:31.440 --> 00:21:37.440]   with epidemic.com. Just include a link when you send your email. If your friend buys you
+[00:21:37.440 --> 00:21:46.000]   your name, epidemic.com. So I got rich. The company got shut down six months later.
+[00:21:49.120 --> 00:21:55.920]   Yeah. Can we put an end to viral marketing in 2021? You mean the word viral?
+[00:21:55.920 --> 00:21:59.280]   Yeah. I mean, I think only Pfizer should be doing viral.
+[00:21:59.280 --> 00:22:08.640]   Yeah. At this point, computer.com spent half of its venture capital on Super Bowl ads in the year 2000
+[00:22:08.640 --> 00:22:13.840]   for ads like this. Last year, two men bravely launched computer.com.
+[00:22:13.840 --> 00:22:18.960]   Computer.com sells and explains computer stuff. Take your pills.
+[00:22:19.120 --> 00:22:24.880]   Computer.com is a great resource for scanners, printers, modems, blah, blah, blah.
+[00:22:24.880 --> 00:22:27.600]   Computer.com is what Daddy had to download pictures.
+[00:22:27.600 --> 00:22:32.800]   I said guys, will people know computer.com has to do with computers?
+[00:22:32.800 --> 00:22:38.720]   Think about it. Computer.com computer stuff. Computer stuff explains.
+[00:22:38.720 --> 00:22:45.760]   How much should that cost? More than a million dollars. They're zero dollars.
+[00:22:46.480 --> 00:22:52.320]   After raising 7 million in VC, they partnered with an ad agency to create three Super Bowl ads.
+[00:22:52.320 --> 00:22:59.600]   Six weeks before the game started. Mike Ford and Mike Zappie Zeppelen. Oh, it almost hurts.
+[00:22:59.600 --> 00:23:08.800]   I mean, you know, startups nowadays, they they raise money and they blow it all on Amazon web
+[00:23:08.800 --> 00:23:14.160]   servers. They blow it on Facebook and Instagram ads, you know, to to build up marketing lists.
+[00:23:15.440 --> 00:23:19.200]   But it's not it's not a splashy one and done like a Super Bowl ad.
+[00:23:19.200 --> 00:23:22.640]   There's a lot of status and having a Super Bowl ad. You know that when you go to work the next day,
+[00:23:22.640 --> 00:23:27.040]   people say, Hey, it's not the Super Bowl ad. That kind of thing. By the way, I just checked
+[00:23:27.040 --> 00:23:33.920]   and clubhouse is running on AWS. So I don't I don't know if China can't block AWS. I'm sure they could
+[00:23:33.920 --> 00:23:41.200]   if they wanted to. I sure will find out in the next few days. Let's take a little break. It's
+[00:23:41.200 --> 00:23:48.240]   great to see you. Mike Elgin from Elgin.com and Elgin's list. And of course, gastronomad.net.
+[00:23:48.240 --> 00:23:55.200]   Always a pleasure. I see you have your son's little talking head behind you. We'll talk.
+[00:23:55.200 --> 00:24:01.120]   Yeah. Yeah. That's that's a ukulele on that side. We'll talk about that in just a bit as well.
+[00:24:01.120 --> 00:24:04.800]   Jeff Jarvis is here. It's always great to have you normally on twig.
+[00:24:06.560 --> 00:24:11.920]   But you know, I can never get enough Jarvis in my life. That's for sure. And brand new.
+[00:24:11.920 --> 00:24:12.560]   And we're going to
+[00:24:12.560 --> 00:24:18.800]   Ormeleo. Oh, and Thomas business editor at the Chronicle, but with a long heritage long enough
+[00:24:18.800 --> 00:24:25.520]   to remember many of the companies we've just showed you. And what's out there? I never heard
+[00:24:25.520 --> 00:24:31.440]   about epidemic.com. That is not a good name for a viral marketing. Not well, not these days. No,
+[00:24:31.440 --> 00:24:38.640]   I don't think that it was a good name. Oh, gosh. Our show today brought to you by my
+[00:24:38.640 --> 00:24:45.200]   favorite VPN company Express VPN. Nowadays, everybody in Jeff don't say anything.
+[00:24:45.200 --> 00:24:50.880]   But people are a little nervous about who's watching you when you're online. You might be saying,
+[00:24:50.880 --> 00:24:55.520]   Oh, I'm going to use incognito mode. That doesn't hide you from anybody, especially
+[00:24:55.520 --> 00:25:00.320]   from Google when you're using incognito mode. If you're doing a Google search, they know it's you.
+[00:25:01.280 --> 00:25:04.960]   No one likes to be watched. Big tech knows where you're going. They know where you've been. And
+[00:25:04.960 --> 00:25:11.040]   you know what? It's none of their business. But when you use a VPN, you're hiding your IP address
+[00:25:11.040 --> 00:25:17.120]   and express VPN. Really the only there's no question you need a VPN. The only question is
+[00:25:17.120 --> 00:25:22.640]   which one? And that's why I'm here to tell you about Express VPN. Express VPN is simply put the
+[00:25:22.640 --> 00:25:28.560]   best, the most secure VPN. They do zero logging and I can prove it. Not only have they been
+[00:25:28.560 --> 00:25:35.360]   audited many times of price, water house, Cooper, their privacy policy, exactly spot on PWC even
+[00:25:35.360 --> 00:25:41.120]   vetted their trusted server technology Express VPN and invented this to make sure that there was
+[00:25:41.120 --> 00:25:47.680]   no way they could log and you would know it when you spin up your VPN server, Express VPN loads the
+[00:25:47.680 --> 00:25:53.040]   trusted server in RAM. And it's sandbox. So it can't write to hard drive. When you leave,
+[00:25:53.600 --> 00:26:00.640]   it's gone. It closes. It leaves RAM. There is zero trace literally zero trace of your visit.
+[00:26:00.640 --> 00:26:10.240]   Express VPN never logs traffic data, DNS queries, search queries. It is private. Absolutely. It
+[00:26:10.240 --> 00:26:13.520]   really works. And it does all this without slowing your connection. Look, you don't want to free
+[00:26:13.520 --> 00:26:18.000]   your cheap VPN. You want a VPN that invests in their servers and their bandwidth and their technology.
+[00:26:18.000 --> 00:26:25.280]   That's Express VPN. Number one rated by C net and wired. And and speed is important because you
+[00:26:25.280 --> 00:26:28.960]   don't want to feel like all I'm using this VPN and I'm suffering. In fact, you could put Express
+[00:26:28.960 --> 00:26:33.680]   VPN not only on your phone or your computer, you could put it on your router supports a great
+[00:26:33.680 --> 00:26:38.640]   number of routers and your entire home network will be protected. And the speed is so fast,
+[00:26:38.640 --> 00:26:48.000]   you'll never even know 160 locations, 94 countries, very fast, fast enough to watch HD video. So
+[00:26:48.000 --> 00:26:54.800]   that's another great use for Express VPN. You want to be you want to get some English TV just go to
+[00:26:54.800 --> 00:26:59.600]   England, come out of the come out into the world in London, and then fire up your Netflix. And
+[00:26:59.600 --> 00:27:05.680]   all of a sudden you can watch Netflix UK same thing in Japan. It's really an amazing solution.
+[00:27:05.680 --> 00:27:10.880]   So stop handing your personal data over to your internet service provider or any big tech company
+[00:27:10.880 --> 00:27:16.560]   protect yourself with the VPN I use to keep me safe online. All you have to do is go to express
+[00:27:16.560 --> 00:27:23.200]   VPN dot com slash Twit. Ex they spell it out ex PR E SS. Another reason I'm like them. And VPN
+[00:27:23.200 --> 00:27:28.480]   is spelled VPN in case you want to know Express VPN dot com slash Twit. You'll get three extra
+[00:27:28.480 --> 00:27:34.400]   months when you buy a one year package. It is my VPN is the one I trust. It's the one I recommend
+[00:27:34.400 --> 00:27:41.200]   Express VPN dot com slash Twit. And we think of so much for supporting Twit, you're supporting
+[00:27:41.200 --> 00:27:47.200]   Twit to when you use that special address. So do me a favor and and use that Express VPN dot com
+[00:27:47.200 --> 00:27:53.680]   slash Twit. Okay, we could talk about Apple, we could talk about Google, but I think we should
+[00:27:53.680 --> 00:28:01.440]   talk about since we're mentioned AWS Amazon. Jeff Bezos kind of a surprise that it happened
+[00:28:01.440 --> 00:28:10.720]   during Twig this week announced he's stepping down as CEO of Amazon. He said in a letter that he will
+[00:28:10.720 --> 00:28:15.520]   be spending more time with his money. No, he'll be spending more time with his philanthropies.
+[00:28:15.520 --> 00:28:24.480]   And with his space firm Blue Origin and the Washington Post. I don't think related to that,
+[00:28:24.480 --> 00:28:29.520]   but Marty Barron, the editor is he the editor in chief executive editor chief. Well, he's
+[00:28:29.520 --> 00:28:34.560]   a good writer because he's a boss also stepping down at the end of the month. Do you think Jeff Bezos
+[00:28:34.560 --> 00:28:42.560]   is going to take over? He doesn't want to work. He's the richest man in the world or at least
+[00:28:42.560 --> 00:28:48.080]   the second richest, depending on where Elon is this week. Amazon went out on a bang. He went out
+[00:28:48.080 --> 00:28:55.040]   on a bang with their best quarter ever, which I'm sure Jeff had something to do with. So the
+[00:28:55.040 --> 00:28:59.680]   question I think a lot of people are by the way, they also went out with a $62 million fine
+[00:28:59.680 --> 00:29:05.920]   for stiffing delivery drivers on their tips. Some people say that's really what's going on as Jeff
+[00:29:05.920 --> 00:29:14.400]   sees the attacks on big tech and like others like Larry Page and Sergey Brin, he's decided now is
+[00:29:14.400 --> 00:29:21.440]   the time to take his money and get out. Well, I think you guys had it exactly right on Twig.
+[00:29:22.640 --> 00:29:28.480]   It seems sudden, but it's actually been very gradual. He hasn't actually been running Amazon
+[00:29:28.480 --> 00:29:36.480]   completely for a long time. And so that the distance between where he was at as CEO and where
+[00:29:36.480 --> 00:29:40.720]   he's going to be at as the executive chairman is not that far of a distance.
+[00:29:40.720 --> 00:29:45.040]   That's one thing I've heard some people say is, oh, he's still running it from executive
+[00:29:45.040 --> 00:29:51.680]   chairman. So he has some distance from the point of view of regulators. Do you think he's still going
+[00:29:51.680 --> 00:29:57.120]   to be puppet master or do you think he hasn't been in a long time? Mike, he'll be puppet master
+[00:29:57.120 --> 00:30:04.160]   on the big, big decisions. But I think his successor knows exactly how he thinks and is going to be
+[00:30:04.160 --> 00:30:10.160]   very successful because it's the same kind of ruthless strategy that they've had for everything.
+[00:30:10.160 --> 00:30:15.280]   But really, Amazon is a whole bunch of different businesses, each of which is extremely complex.
+[00:30:15.280 --> 00:30:20.160]   And so he really hasn't been running the day to day of any of these businesses, but he has been
+[00:30:20.160 --> 00:30:24.320]   involved of course in the biggest decisions. And he'll probably continue to be involved in those
+[00:30:24.320 --> 00:30:31.680]   big decisions. Obviously, his weight on the board is going to be gigantic. So I think this makes a
+[00:30:31.680 --> 00:30:40.080]   ton of sense for Jeff Bezos. He's conquered the world. And now he wants to do the ego stuff.
+[00:30:40.080 --> 00:30:44.880]   I mean, he's getting his butt kicked in the space race with Elon Musk. He doesn't like that.
+[00:30:44.880 --> 00:30:51.120]   He's going to want to spend a lot more time and money on on on blue on blue origins. Yeah,
+[00:30:51.120 --> 00:30:55.440]   blue origin. Yeah, blue origin. And he's going to want to do a bunch of other things like that
+[00:30:55.440 --> 00:31:01.200]   as well. So I think it makes perfect sense. And I really, I think that for very careful Amazon
+[00:31:01.200 --> 00:31:06.720]   watchers, this is really not that big of a surprise. Hot take from Felix Salmon at Axios,
+[00:31:06.720 --> 00:31:12.400]   the role of executive chairman is designed to give the holder power without accountability.
+[00:31:13.040 --> 00:31:17.120]   Don't expect Bezos to step back from Amazon when it comes to anything strategically important.
+[00:31:17.120 --> 00:31:20.400]   You obviously, this is your beat, Owen. What do you think?
+[00:31:20.400 --> 00:31:26.080]   Well, he owns a big chunk of Amazon, of course, he's going to be the stock holder, right? I mean,
+[00:31:26.080 --> 00:31:31.120]   yeah, I mean, you know, he's not going to step back completely on things like, you know, big
+[00:31:31.120 --> 00:31:35.920]   acquisitions. But I think in terms of like the day to day, and in terms of being the
+[00:31:37.360 --> 00:31:42.640]   person who Congress calls to calls to the carpet, he can say, I'm not the CEO.
+[00:31:42.640 --> 00:31:49.440]   Andy, Andy, yeah. Yeah. Yeah. You know, I think also Andy Gassie is a very competent executive.
+[00:31:49.440 --> 00:31:55.440]   And you know, I do wonder if there was an opportunity maybe to be CEO somewhere else.
+[00:31:55.440 --> 00:32:02.720]   And this was part of the deal to to keep him there, no specifics. But it is a pattern. It would
+[00:32:02.720 --> 00:32:09.360]   explain some of the timing. Yeah. And you know, why keep Jassy there. Yeah, to keep Jassy.
+[00:32:09.360 --> 00:32:17.120]   Interesting. Yeah. AWS is a huge success. Andy, Andy, Jassy, the new CEO was running AWS.
+[00:32:17.120 --> 00:32:23.200]   You could say it's a reward for doing such a good job with perhaps Amazon's biggest division.
+[00:32:23.200 --> 00:32:27.760]   Or that's an interesting theory. Maybe it was a way of keeping Jassy from going somewhere else.
+[00:32:27.760 --> 00:32:30.160]   You know, I own the relationship.
+[00:32:30.960 --> 00:32:36.240]   Oh, sorry. Go ahead. I was going to ask, what's the relationship between Jassy and
+[00:32:36.240 --> 00:32:41.200]   their FOGLs, the CTO? How much was FOGLs involved in the start of AWS?
+[00:32:41.200 --> 00:32:45.840]   Do you think you're doing a brand? I'm getting a bread stones book back out. Oh, yeah.
+[00:32:45.840 --> 00:32:54.160]   I don't recall any clashes or friction there, but Jassy was the one who kind of really made it
+[00:32:54.160 --> 00:33:01.360]   a made it a business. I mean, I've been writing about Amazon Web Services when it was the system
+[00:33:01.360 --> 00:33:07.600]   they used to put affiliate links on your website. They called that Amazon Web Services. This is
+[00:33:07.600 --> 00:33:12.800]   the thing that started really small and grew and grew. I remember those associate links. You'd make
+[00:33:12.800 --> 00:33:17.120]   as an author, you'd make more money on the Amazon associate link than you would on your royalties.
+[00:33:17.120 --> 00:33:23.360]   Oh, I loved them. Yeah, absolutely. And that really was the grounding of Amazon Web Services.
+[00:33:23.360 --> 00:33:29.280]   Like, let's take little pieces of Amazon and expose them to the outside world so that others can
+[00:33:29.280 --> 00:33:33.040]   build things with it. Is Jassy a technologist or war with this business? No, he's an MBA,
+[00:33:33.040 --> 00:33:40.880]   but he's been running AWS since his inception in 2003. I mean, he's the one and only CEO of AWS.
+[00:33:40.880 --> 00:33:48.160]   He was part of a crew of MBAs who were brought on to Amazon, really their first big batch of
+[00:33:48.160 --> 00:33:53.200]   non-technical hires. And those are folks like Jason Kylar is now running Warner Media,
+[00:33:54.080 --> 00:34:01.920]   a lot of really talented people who kind of got in that early crew. And I think they brought a
+[00:34:01.920 --> 00:34:07.680]   lot of discipline to Amazon. One of the criticisms of Amazon back in the Amazon.bombedays is like,
+[00:34:07.680 --> 00:34:12.800]   there wasn't a focus on the profitability of individual items. There just wasn't a lot of
+[00:34:12.800 --> 00:34:19.200]   discipline. It was a lot of grow big, grow fast, which is probably the right move in those land
+[00:34:19.200 --> 00:34:24.640]   grab days of the early internet. But he's one of the people who brought rigor, I think, to Amazon.
+[00:34:24.640 --> 00:34:32.000]   He's also somewhat, and maybe this is from Brad's book, but it's also from a Wall Street Journal
+[00:34:32.000 --> 00:34:39.840]   article. He was along with Jeff Bezos, the guy who thought up AWS. I mean, he's not some guy they
+[00:34:39.840 --> 00:34:48.880]   brought in a run AWS. He joined Amazon in '97 when it was still just selling books. He was Bezos's
+[00:34:49.360 --> 00:34:52.640]   technical, this again, according to the Wall Street Journal technical assistant in the early
+[00:34:52.640 --> 00:35:00.720]   2000s. He was in that famous meeting in Jeff's living room where the idea for AWS was cooked up.
+[00:35:00.720 --> 00:35:09.120]   So he can take some ownership in that. Yeah, I think he's got enough technical credibility.
+[00:35:09.120 --> 00:35:13.360]   I mean, Bezos is not a technologist. No, he's a hedge fund. Yeah.
+[00:35:14.640 --> 00:35:20.800]   So in terms of having that technical credibility, that kind of product cred with Amazon's workforce,
+[00:35:20.800 --> 00:35:24.560]   which is really important for recruiting and morale, I think he's got it.
+[00:35:24.560 --> 00:35:28.000]   I would guess. I don't know. Maybe somebody knows better than me, but
+[00:35:28.000 --> 00:35:34.720]   what they're looking for at Amazon is not necessarily technical ability. You can hire engineers.
+[00:35:34.720 --> 00:35:41.040]   It's that strategic thinking that Bezos is so famous for. I mean, the very concept of Amazon
+[00:35:42.080 --> 00:35:48.160]   is somewhat brilliant. Apparently, when he was a hedge fund manager, he was trying to think of,
+[00:35:48.160 --> 00:35:52.640]   well, what's a business that the internet is going to completely explode?
+[00:35:52.640 --> 00:35:57.840]   And this was a, I've read this in an interview or maybe it was in Brad Stunze,
+[00:35:57.840 --> 00:36:02.880]   everything store. He said, no, it was a speech he gave. Ben Thompson refers to it on
+[00:36:02.880 --> 00:36:14.000]   Stratecary, actually. So speech he gave in 1997 or '98, he said, the biggest bookstore in the world,
+[00:36:14.000 --> 00:36:17.440]   physical brick and mortar bookstore in the world can only have a few hundred thousand volumes.
+[00:36:17.440 --> 00:36:23.280]   There are two and a half million books in the world. This is one business only that can only be
+[00:36:23.280 --> 00:36:30.160]   done right on the internet. And it was that insight, that strategic insight. This is Bezos
+[00:36:30.160 --> 00:36:35.760]   at a speech at Lake Forest College in 1998 was rebroadcast by C-Span.
+[00:36:35.760 --> 00:36:40.080]   The way that web usage was growing at 2300% a year.
+[00:36:40.080 --> 00:36:41.040]   Look, I have to keep it in mind.
+[00:36:41.040 --> 00:36:42.240]   It was before he was muscle-bound.
+[00:36:42.240 --> 00:36:44.800]   Look how yucky it is. Oh my god.
+[00:36:44.800 --> 00:36:48.240]   I know, he's put on like, you know, 40 pounds of muscles.
+[00:36:48.240 --> 00:36:50.000]   Yeah, and he's been lost a little bit of him.
+[00:36:50.000 --> 00:36:53.680]   He's been learning good at understanding exponential growth. It's just not something we see in our
+[00:36:53.680 --> 00:36:59.200]   everyday life. But things don't grow this fast outside of petri dishes. It just doesn't happen.
+[00:36:59.440 --> 00:37:02.240]   We're back at the viral market.
+[00:37:02.240 --> 00:37:07.360]   I said, okay, what's a business plan that might make sense in the context of that growth?
+[00:37:07.360 --> 00:37:11.520]   I made a list of 20 different products that you might be able to sell online.
+[00:37:11.520 --> 00:37:16.800]   I was looking for the first best product. And I chose books for lots of different reasons,
+[00:37:16.800 --> 00:37:22.560]   but one primary reason, and that is that there are more items in the book space than there
+[00:37:22.560 --> 00:37:28.080]   are items in any other category by far. There are over three million different books worldwide
+[00:37:28.080 --> 00:37:32.320]   in all languages. The number two product category in that regard is music.
+[00:37:32.320 --> 00:37:35.360]   They're about 300,000 active music CDs.
+[00:37:35.360 --> 00:37:41.440]   That's changed by the way. Apple has eight billion songs in its collection.
+[00:37:41.440 --> 00:37:44.640]   That's changed a little bit.
+[00:37:44.640 --> 00:37:47.760]   Human beings aren't good at understanding exponential growth.
+[00:37:47.760 --> 00:37:50.080]   It's just not something we see in our everyday life.
+[00:37:50.080 --> 00:37:52.960]   But things don't grow this fast outside of petri dishes.
+[00:37:52.960 --> 00:37:55.040]   He's repeating himself. That's what I wrote.
+[00:37:55.600 --> 00:38:01.040]   I also think it's very different in books as well, in part because of Amazon's create space,
+[00:38:01.040 --> 00:38:08.080]   which is Amazon's policies and products have actually expanded the number of authors and the
+[00:38:08.080 --> 00:38:11.760]   number of books by probably an order of magnetization.
+[00:38:11.760 --> 00:38:18.960]   Yes, good point. Just as Apple, breaking the album up into singles has expanded the number of...
+[00:38:18.960 --> 00:38:23.680]   I just put a paper up in the Amazon section of the rundown that I just saw on Twitter
+[00:38:24.480 --> 00:38:30.480]   that said that when publishers prevent books from going up on Google Books,
+[00:38:30.480 --> 00:38:36.080]   it hurts hard book sales immensely. If they're up on Google Books, they have 35% higher sales
+[00:38:36.080 --> 00:38:38.240]   for less than popular titles.
+[00:38:38.240 --> 00:38:40.240]   I just bought a book. I wrote them a book in the central world.
+[00:38:40.240 --> 00:38:44.160]   It made me mad. I bought a book that was published in the early 2000s,
+[00:38:44.160 --> 00:38:50.720]   called After the Ice. It's an anthropologist, archaeologist. Look at the evolution of humanity
+[00:38:50.720 --> 00:38:57.600]   from the year 20,000 to 5,000. I didn't want to buy this 700-page paperback.
+[00:38:57.600 --> 00:39:02.160]   I wanted to buy it on... Audible would be my first choice. My second choice would be Kindle.
+[00:39:02.160 --> 00:39:09.280]   It's not on either of them. I forced myself to buy a paper book. I absolutely agree with this.
+[00:39:09.280 --> 00:39:14.320]   This is clear that digitizing is good for books, right?
+[00:39:14.320 --> 00:39:18.640]   Yes, especially when it goes to that long tail you talked about.
+[00:39:19.760 --> 00:39:25.200]   The other thing Bezos came up with, and it's not a completely new concept, but I think he really
+[00:39:25.200 --> 00:39:32.640]   maximized it, is the flywheel. That's the idea that you have a business that feeds another business.
+[00:39:32.640 --> 00:39:40.640]   Amazon Web Services is part of that Amazon Prime. All of these things don't exist in a vacuum.
+[00:39:40.640 --> 00:39:47.760]   This is the famous Bezos napkin diagram as illustrated by Ben Thompson in his
+[00:39:47.760 --> 00:39:53.600]   trajectory column. The flywheel is each input you have anywhere on the flywheel
+[00:39:53.600 --> 00:39:56.400]   causes the business to grow faster and faster and faster.
+[00:39:56.400 --> 00:40:06.960]   Exactly. With Prime, it's that you've got this user base and you can add things. You can add video,
+[00:40:06.960 --> 00:40:13.760]   you can add audio, you can add music. It makes the subscription more valuable. It makes
+[00:40:13.760 --> 00:40:21.840]   people more likely to get it and to not cancel it. That in turn funds all these new businesses.
+[00:40:21.840 --> 00:40:27.520]   I think Amazon is such a mighty flywheel now that Bezos probably feels like he can
+[00:40:27.520 --> 00:40:34.720]   step back and work on other things. It's not just other businesses as well. The heft of Amazon and
+[00:40:34.720 --> 00:40:40.560]   the number of products that they move through have to be delivered has given Amazon the power
+[00:40:41.120 --> 00:40:49.520]   to force all delivery systems to deliver overnight. I think that's the biggest reason why people
+[00:40:49.520 --> 00:40:55.920]   buy things on Amazon. They know that Amazon has their credit card in their address already on file.
+[00:40:55.920 --> 00:41:01.680]   It's like a one-click thing and they know they're going to get it tomorrow. That's killer. Who else
+[00:41:01.680 --> 00:41:06.240]   can do that? When I think about buying something that's not an Amazon, I thought, well, this could
+[00:41:06.240 --> 00:41:15.200]   take two weeks. We've done research with newspapers that have commerce offerings and media that have
+[00:41:15.200 --> 00:41:23.200]   gone and they've found without a doubt that a prime logo available for today is a huge driver
+[00:41:23.200 --> 00:41:27.360]   of sales. If you don't have it, it's a huge depression. Really? How interesting.
+[00:41:27.360 --> 00:41:35.120]   The funny thing is for media, if you want audience, you're stuck with Google. If you want
+[00:41:35.120 --> 00:41:39.200]   to advertise or Facebook, if you want to advertise, you're stuck with Google. If you want to do
+[00:41:39.200 --> 00:41:43.920]   commerce, you're stuck with Amazon. That's why they get resentful because they never built this
+[00:41:43.920 --> 00:41:48.960]   stuff on their own and they're stuck with the big guys. It might be an interesting opportunity
+[00:41:48.960 --> 00:41:55.360]   for Amazon right now as Google steps back from Stadia a little bit. They closed down their
+[00:41:55.360 --> 00:42:00.880]   game design studio, which has two effects. One means there won't be any original games
+[00:42:00.880 --> 00:42:05.920]   for Stadia from Google, which is probably minor even though they did hire Jade Raymond from
+[00:42:05.920 --> 00:42:12.880]   EA, the creator of Assassin's Creed. They hired a really talented group of people and they're all
+[00:42:12.880 --> 00:42:19.600]   back on the street. Also, the second impact is it shakes people because they've seen Google
+[00:42:19.600 --> 00:42:27.360]   cancel things before. Probably, given there's a lot of competition for Stadia, gives people a
+[00:42:27.360 --> 00:42:32.400]   second thoughts about subscribing to Stadia, especially when Amazon is one of the company's
+[00:42:32.400 --> 00:42:43.680]   competing against Stadia. They asked Andy Jassy how important gaming is to Amazon and he doubled
+[00:42:43.680 --> 00:42:51.600]   down. He said, "Really?" He said, "We are committed to making video games just after a Bloomberg
+[00:42:51.600 --> 00:42:58.800]   profile of Amazon's game platform." Responding with Bloomberg reported about turmoil in the gaming
+[00:42:58.800 --> 00:43:04.160]   division, Andy Jassy told the staff he sees a bright future ahead. I imagine Google's
+[00:43:04.160 --> 00:43:07.840]   stumble with Stadia probably informs some of that as well.
+[00:43:07.840 --> 00:43:14.000]   I mean, it's ironic that in fact, the biggest mistake Google made with Stadia
+[00:43:14.000 --> 00:43:20.080]   was getting into content in the first place. When has Google ever been a good content?
+[00:43:20.080 --> 00:43:24.480]   Like starting YouTube, it's about Apple. We're going to have a studio and create all of our own
+[00:43:24.480 --> 00:43:37.920]   video. Right. But I think that what's very clear over the last 10 to 15 years is Amazon is so good
+[00:43:37.920 --> 00:43:44.080]   at entering new markets. They almost always hit it out of the park and when they do enter one,
+[00:43:44.080 --> 00:43:48.880]   they really know what they're doing. Unlike Google, which throws something against a wall,
+[00:43:48.880 --> 00:43:56.080]   sees if it's sticks, it usually doesn't stick and then they close it, Amazon, if they get into
+[00:43:56.080 --> 00:44:00.080]   game development, they're going to be in it for the long term. They're not going to lose
+[00:44:00.080 --> 00:44:07.520]   strategic. But Mike, games as the exception to that rule. I have been writing about Amazon's
+[00:44:07.520 --> 00:44:12.880]   game studio. Back in 2012, I was writing stories about what a mess it was, how they were trying
+[00:44:12.880 --> 00:44:19.360]   to recruit people from Zinga. Oh, no, no, no, and couldn't get them. I couldn't get them,
+[00:44:19.360 --> 00:44:24.320]   which tells you something. I mean, this Bloomberg article is reflects a state of affairs that's
+[00:44:24.320 --> 00:44:30.480]   been going on for almost a decade. And Andy Jassy clearly feels some loyalty to this
+[00:44:30.480 --> 00:44:36.160]   guy that he put in charge, Mike Friesini of Amazon game studio. But they have not had a
+[00:44:36.160 --> 00:44:43.680]   strategy. They have not had a hit. I think Jassy's ascension would be a great time
+[00:44:43.680 --> 00:44:50.640]   for them to reshuffle the ranks and move this Mike Friesini guy out. I think it is time.
+[00:44:50.640 --> 00:44:57.200]   The headline from Jason Schreier and Napria Anand at Bloomberg, Amazon can make just about
+[00:44:57.200 --> 00:45:04.160]   anything except a good video game. Video game's hard. It's a very weird business. It's not anything
+[00:45:04.160 --> 00:45:09.440]   like movie studios or anything else Amazon might have tried their hand at.
+[00:45:09.440 --> 00:45:14.640]   Although let's not forget Amazon does have a very famous failure in another tricky category,
+[00:45:14.640 --> 00:45:24.320]   the fire phone. But this is what Bezos said and actually says it's on every shareholder letter,
+[00:45:24.320 --> 00:45:29.360]   Ben Thompson called it out. We will make bold rather than timid investment decisions
+[00:45:29.360 --> 00:45:34.640]   where we see a sufficient probability of gaining market leadership advances or advantages.
+[00:45:34.640 --> 00:45:38.720]   Some of these investments will pay off. Others will not. And we will have learned another
+[00:45:38.720 --> 00:45:48.880]   valuable lesson in either case. The fire phone gave Amazon Alexa. That technology came up.
+[00:45:48.880 --> 00:45:52.800]   There you go. So which completely transcends.
+[00:45:52.800 --> 00:45:57.200]   There you go. Although one might say at this point, what is the future for Amazon's Echo?
+[00:45:58.960 --> 00:46:05.680]   Long term. Voice assistants have not exactly become taken off, have they?
+[00:46:05.680 --> 00:46:10.400]   Or have they? Well, I think Amazon's going to probably want to get into the augmented reality
+[00:46:10.400 --> 00:46:15.040]   business when that business becomes something that's very mainstream. Yeah, because there's
+[00:46:15.040 --> 00:46:20.320]   some interesting rumors from the information and Bloomberg about Apple in all of that.
+[00:46:20.320 --> 00:46:25.520]   Let me take a little break. Boy, you guys are smart. I'm having fun with this one. Thank you so
+[00:46:25.520 --> 00:46:29.360]   much for joining us. Owen, I hope you will make this a regular stop now because it's great to
+[00:46:29.360 --> 00:46:36.160]   have you. Not just when there's a Super Bowl on. Okay. Oh, you have a deal. Do you not like football?
+[00:46:36.160 --> 00:46:44.960]   Is that it? I've never been into sports ball. I just, you know, I guess I took that part of my
+[00:46:44.960 --> 00:46:51.040]   brain out and made more of the chat. Oh, an American show. Oh, and Tom, you know, in past years,
+[00:46:51.040 --> 00:46:57.520]   we've actually had Europeans on Super Bowl for that very reason. But even now, you can't even
+[00:46:57.520 --> 00:47:02.560]   get Europeans anymore. So we had to get Owen Thomas, business editor at the San Francisco Chronicle,
+[00:47:02.560 --> 00:47:07.120]   but a long time chronicler of what's going on in tech. It's great to have you here.
+[00:47:07.120 --> 00:47:12.800]   Jeff Jarvis, I don't need to introduce him from buzz machine.com, our regular host on this week in
+[00:47:12.800 --> 00:47:20.720]   Google. And Mike Elgin, longtime friend of Twit, former news director, now traveling the world
+[00:47:20.720 --> 00:47:28.000]   from his home in San Jose. I'm sorry. It's good. You're going to get out there. Maybe we'll meet in
+[00:47:28.000 --> 00:47:33.120]   Barbados. I'll convince Amira. We got to go to Barbados. Let's do it. Let's do it. Wouldn't that be fun?
+[00:47:33.120 --> 00:47:40.400]   That would be the beach. Let me talk about a zipper cruder, our sponsor, a fantastic
+[00:47:40.400 --> 00:47:47.280]   place to go to hire your employees. If you are in a position now to be hiring, first of all,
+[00:47:47.280 --> 00:47:54.400]   God bless you. We need more companies like you in America right now. But I think the time is
+[00:47:54.400 --> 00:47:57.600]   rapidly coming, where we're going to start to get back to work, get back to business.
+[00:47:57.600 --> 00:48:03.680]   And I want you to think about when it's time to hire, I want you to think about zip
+[00:48:03.680 --> 00:48:09.920]   recruiter. Companies are starting to figure out how we can survive in this epidemic from working
+[00:48:09.920 --> 00:48:15.760]   remotely to pivoting their business models, to moving to Barbados. Performance, performing
+[00:48:15.760 --> 00:48:20.640]   art companies are streaming right. We've seen Broadway. We've seen Opera streaming,
+[00:48:20.640 --> 00:48:26.160]   symphony concerts. Clothing companies are making N95 masks and hospital gowns.
+[00:48:26.160 --> 00:48:33.600]   Our liquor distillery down the street is making hand sanitizer, Griffo. I like their hand sanitizer
+[00:48:33.600 --> 00:48:38.160]   because it smells like whiskey. It's good. Brands are spending more on e-commerce advertising.
+[00:48:38.160 --> 00:48:45.520]   Because I think online sales are going to be coming back big time. Just look at Amazon's
+[00:48:46.240 --> 00:48:50.640]   results. So hiring is coming back. And if you are in charge of hiring,
+[00:48:50.640 --> 00:48:54.640]   you're probably thinking about this with a little trepidation because it's hard work.
+[00:48:54.640 --> 00:49:02.000]   Hiring means you're going to be pestered, pelted with phone calls, emails to your inbox, unless
+[00:49:02.000 --> 00:49:11.360]   you do zip recruiter. Zip recruiter makes hiring faster and easier. I want you to go to ziprecruiter.com/twit.
+[00:49:11.360 --> 00:49:17.680]   You can try it free. Four out of five employers who post on zip recruiter get a quality candidate
+[00:49:17.680 --> 00:49:24.640]   within the first day. That's because they use technology to match prospective employees with
+[00:49:24.640 --> 00:49:31.360]   your job. It also makes it really easy. All of the applications come into the zip recruiter interface.
+[00:49:31.360 --> 00:49:35.440]   The resumes are reformatted so you can scan them easily. You can use screening questions,
+[00:49:35.440 --> 00:49:40.560]   true/false multiple choice, even essay to eliminate people who don't fit. They'll help you narrow
+[00:49:40.560 --> 00:49:46.720]   down the right candidates fast. It makes it the easiest way to hire. We know that because we have
+[00:49:46.720 --> 00:49:52.560]   used zip recruiter for years to hire. I remember when we lost our bookkeeper and poor Lisa, who will
+[00:49:52.560 --> 00:49:56.240]   do it if we don't have somebody doing it, was depressed. She said, "I'm going to have to do the
+[00:49:56.240 --> 00:50:00.880]   bookkeeping in addition to everything else." I said, "Zip recruiter just posted. It was breakfast
+[00:50:00.880 --> 00:50:05.920]   by lunchtime. Before lunchtime, she started getting, "Oh, this candidate's really good. This was
+[00:50:05.920 --> 00:50:11.360]   really good. This was literally three or four really qualified candidates within an hour or two."
+[00:50:11.360 --> 00:50:16.720]   Now, I can't promise you that, but 80 percent of employers who post on zip recruiter get a great
+[00:50:16.720 --> 00:50:21.840]   candidate within the first day. Find out for yourself right now. Try zip recruiter free.
+[00:50:21.840 --> 00:50:27.280]   zip recruiter.com/twit. Thank you, zip recruiter for helping us. Helping Lisa.
+[00:50:27.280 --> 00:50:32.720]   zip recruiter.com/twit. Thank you for helping us by using that special address.
+[00:50:32.720 --> 00:50:39.680]   zip recruiter.com/twit. Let zip recruiter take the tough job of hiring.
+[00:50:39.680 --> 00:50:44.160]   Qualify candidates off your plate. Zip recruiter, the smartest way to hire.
+[00:50:44.160 --> 00:50:49.680]   Oh, you brought up something and I thought, "Oh, this would be a great subject for our next,
+[00:50:49.680 --> 00:50:58.880]   oh, augmented reality." So Bloomberg and the information both publishing the most details yet.
+[00:50:58.880 --> 00:51:07.840]   We've seen about glasses coming from Apple. And this was an information exclusive.
+[00:51:07.840 --> 00:51:13.840]   New mixed reality headset details. Swappable headbands, eye tracking.
+[00:51:13.840 --> 00:51:17.840]   Mark Gurman also had a lot of details. At this point, I think it has to be kind of,
+[00:51:17.840 --> 00:51:25.920]   at least somewhat true. They're saying $3,000. At least that's the price Apple is discussing.
+[00:51:27.760 --> 00:51:34.320]   They're also saying, "It makes Google Glass look like a guy." I know. You get two pairs of glass.
+[00:51:34.320 --> 00:51:39.680]   I don't want to make that mistake again. So these are, it's interesting. These are mixed reality.
+[00:51:39.680 --> 00:51:43.600]   At least according, again, this is all rumors. And I should also point out there,
+[00:51:43.600 --> 00:51:47.360]   probably these prototypes probably do exist in the Apple labs. We've heard enough about it,
+[00:51:47.360 --> 00:51:51.200]   but this doesn't mean Apple will ever come to market with it. Apple prototypes a lot of things.
+[00:51:51.200 --> 00:51:55.440]   They're always looking for the next big thing. They need to find another iPhone.
+[00:51:55.440 --> 00:52:02.560]   But I think this makes sense. Tim Cook has said many, many times in analyst calls and speeches,
+[00:52:02.560 --> 00:52:06.400]   augmented reality, augmented reality. He really thinks it's the next big thing.
+[00:52:06.400 --> 00:52:14.720]   The rumor is this device has 12 cameras. It has a accompanying thimble that you put on your
+[00:52:14.720 --> 00:52:21.360]   finger. The cameras recognize motion. You can use your fingers. They also show you the outside
+[00:52:21.360 --> 00:52:28.320]   world. So that's why this is not a virtual reality. You're not sealed in. But you see the world
+[00:52:28.320 --> 00:52:35.280]   around you as well as superimposed information. Dual 8K screens. The best I've seen from anybody,
+[00:52:35.280 --> 00:52:40.240]   including Oculus, is 4K. So this is a lot higher resolution. That's a good thing, by the way,
+[00:52:40.240 --> 00:52:44.640]   because you're only a few inches away from those screens. You want to make them look good. Mike,
+[00:52:44.640 --> 00:52:52.480]   go ahead. Yeah, no, I talked to Alex Heath, who got the scoop for the information about 45
+[00:52:52.480 --> 00:53:02.640]   minutes after this went live. So the thing to keep in mind is that there are variations in the
+[00:53:02.640 --> 00:53:09.200]   prototyping saw. For example, the most cameras were 14.
+[00:53:11.040 --> 00:53:20.400]   Most of the prototypes had at least a dozen. So the 8K screens is not 100% certain that
+[00:53:20.400 --> 00:53:25.120]   that's what it's going to be. There's good reasons for that. That's expensive and it drains battery
+[00:53:25.120 --> 00:53:29.120]   really fast. And that's going to be an issue too. In fact, the early prototypes we heard,
+[00:53:29.120 --> 00:53:33.200]   I don't know if Alex talked about this, the early prototypes we heard made your next
+[00:53:33.200 --> 00:53:40.240]   strain because they were so heavy that it would push your head down. That's not good. What else
+[00:53:40.240 --> 00:53:46.080]   did Alex tell you? Well, the other thing that we were sort of going back and forth about was the
+[00:53:46.080 --> 00:53:52.240]   fact that the, because they saw a very high res render and they were allowed by the source
+[00:53:52.240 --> 00:53:58.800]   to do a cartoonish low-res version. Oh, yes. But the render they saw did not have a top strap. Now,
+[00:53:58.800 --> 00:54:05.840]   typically, VR glasses that are heavy have a strap across the top of your head to help support the
+[00:54:05.840 --> 00:54:11.360]   weight, whereas this does not, which suggests maybe it's pretty light. Another thing that's
+[00:54:11.360 --> 00:54:16.880]   really interesting about this is that you talk about all those cameras. Some of them are for
+[00:54:16.880 --> 00:54:21.760]   looking at the outside world for augmented reality and mixed reality. Some of them are pointed at
+[00:54:21.760 --> 00:54:27.760]   your eye gaze. So the 8K display, you're not looking, you're not getting 16K coming at your face.
+[00:54:27.760 --> 00:54:33.680]   What you're getting is high res where you're looking. Oh, res where you're not looking. Well,
+[00:54:33.680 --> 00:54:38.000]   that makes sense. That's kind of how your eyes work. There's only a very narrow cone of
+[00:54:38.000 --> 00:54:45.120]   acuity and almost everything else is very fuzzy. Yeah, exactly. And so this is called
+[00:54:45.120 --> 00:54:48.880]   foveated rendering in the tray. That's how the foveated works. That's right.
+[00:54:48.880 --> 00:54:54.720]   Yeah. And so the other thing that's very interesting, you hit upon it, whereas these are
+[00:54:54.720 --> 00:55:02.800]   set up for virtual reality. And Apple has been very negative about virtual reality in the past,
+[00:55:02.800 --> 00:55:08.960]   and very, very, very positive about augmented reality. So I think there's a pretty good chance
+[00:55:08.960 --> 00:55:15.040]   that they're not going to be super into virtual reality, that these glasses are going to be used
+[00:55:15.040 --> 00:55:20.160]   for augmented reality, constantly showing you what's in the real world. Again, with mixed reality,
+[00:55:20.160 --> 00:55:24.640]   it's going to combine virtual and augmented reality and also 360 video, which these will be
+[00:55:24.640 --> 00:55:32.160]   great for. But I think what we can look forward to is a transition from sort of the precursor to
+[00:55:32.160 --> 00:55:36.240]   augmented reality, which currently exists in the iPad and the iPhone, there's all kinds of
+[00:55:36.240 --> 00:55:42.560]   development going on with with AR, all kinds of apps available for AR. This is going to transition
+[00:55:42.560 --> 00:55:48.000]   to these high end glasses. In fact, there's some speculation this may be a kind of developers version
+[00:55:48.000 --> 00:55:55.520]   to get the developers going. By the way, I'm sitting with two people who bought Google Glass.
+[00:55:55.520 --> 00:56:00.800]   Actually, I should include myself. I bought it, but never wore it, which is even stupider.
+[00:56:01.440 --> 00:56:06.720]   Yeah. I bought it and gave it to Jason Howell. Owen, did you buy Google Glass? Because if you did,
+[00:56:06.720 --> 00:56:12.400]   then it's complete. I resisted though. I wrote some really dumb things about Google Glass.
+[00:56:12.400 --> 00:56:19.920]   Like positive articles? Like this is going to be great. Yeah. Actually, you guys will howl,
+[00:56:19.920 --> 00:56:24.880]   but I wrote that path was going to be the killer app for Google Glass. What was?
+[00:56:26.400 --> 00:56:33.120]   Path the book. Oh, I loved that. I was a day more. I loved paths. And I made a decent argument for
+[00:56:33.120 --> 00:56:41.040]   it, but I was completely wrong on both accounts. By the way, path is still around. I think they
+[00:56:41.040 --> 00:56:45.680]   got bought by a Chinese or Japanese company. Oh, no, they're they're they're thoroughly dead.
+[00:56:45.680 --> 00:56:53.280]   They're dead. Yeah, they're dead. Dead. I feel like people keep asking Dave more to bring it back.
+[00:56:53.280 --> 00:56:57.760]   It was great. That's another timing one. If path were around today, I think it'd be killer.
+[00:56:57.760 --> 00:57:06.080]   So is Dave considering it? It doesn't seem like there's anything really happening,
+[00:57:06.080 --> 00:57:11.120]   but there might be an opening. I mean, people are, to the extent that it launched into this
+[00:57:11.120 --> 00:57:16.080]   kind of feeling of Facebook fatigue, like all of that is. Yeah. More than was at Facebook.
+[00:57:16.080 --> 00:57:21.200]   And path originally was only 50 friends, and then it expanded to what 150?
+[00:57:22.240 --> 00:57:25.680]   But it was like a very limited Facebook and more private Facebook, right?
+[00:57:25.680 --> 00:57:30.480]   And one of the things that had going for it is that Facebook's mobile app was pretty bad at the
+[00:57:30.480 --> 00:57:37.280]   time. Right. And path was all mobile. I love that. But I don't think someone will have that
+[00:57:37.280 --> 00:57:44.160]   window again. No. I think it bears to since we brought up Google Glass, you have to point out
+[00:57:44.160 --> 00:57:51.760]   the major difference besides the quality and all that stuff. Google Glass was a heads-up display.
+[00:57:51.760 --> 00:57:57.440]   So you move your head, the little screen that's floating in front of you moves as well with your
+[00:57:57.440 --> 00:58:03.040]   head. It's not anchored in any reality other than possibly proximity. So it could bring up
+[00:58:03.040 --> 00:58:08.560]   content if you're in a room or whatever. Whereas the Apple Glass, as we didn't mention, I don't
+[00:58:08.560 --> 00:58:14.880]   think it has LiDAR. So it can map 3D spaces in front of you. Just like the iPhone 12.
+[00:58:15.440 --> 00:58:22.560]   Just like the new iPad Pro. But the way I would express that is that those devices have it
+[00:58:22.560 --> 00:58:26.800]   because their glasses are going to have it. So this is part of the sort of getting the world
+[00:58:26.800 --> 00:58:30.880]   ready for all this stuff. This is also how Apple works, which is they slowly introduce
+[00:58:30.880 --> 00:58:34.720]   features into other products to perfect them and then they can go to the next level.
+[00:58:34.720 --> 00:58:38.960]   In fact, it's widely considered that the Apple Silicon, which they originally put in the iPhone
+[00:58:38.960 --> 00:58:43.840]   and the iPad that in the Macintosh is also critical to this. Can I tell you what I think?
+[00:58:43.840 --> 00:58:49.360]   >> Can I tell you what I think is going to be the killer app for this platform?
+[00:58:49.360 --> 00:58:56.320]   Apple has something called Bionic Virtual Meeting Room technology, which they patented.
+[00:58:56.320 --> 00:59:01.920]   So picture you're going to have a meeting and you don't want to do another Zoom call.
+[00:59:01.920 --> 00:59:05.600]   So you put on these goggles and the other people in the meeting are represented by
+[00:59:05.600 --> 00:59:12.400]   Memo D avatars that are 3D holographic and in the room that you're in. So they're sitting around
+[00:59:13.120 --> 00:59:16.640]   in your space physically. >> I don't want to be represented by my emoji.
+[00:59:16.640 --> 00:59:20.800]   I just really don't like it. >> By the way, I want to pitch you on a new story
+[00:59:20.800 --> 00:59:26.320]   that the killer app for Apple's AR glasses will be Snapchat. Can you think you'd want to write that
+[00:59:26.320 --> 00:59:29.200]   story? >> You just put on some snap spectacles.
+[00:59:29.200 --> 00:59:34.800]   >> I did because I don't have the glass. >> What I love is that you had those within
+[00:59:34.800 --> 00:59:37.440]   arms. >> Oh, yes. You never know when you're going to need these.
+[00:59:37.440 --> 00:59:42.160]   In fact, if you could bring your Google Glass back, because next time I want to put those on.
+[00:59:42.160 --> 00:59:45.200]   >> My Google Glass is up there right next to me. I won't get up again.
+[00:59:45.200 --> 00:59:53.680]   >> I hate to be the spoiler here, but I think this is going to be another big flop for Apple.
+[00:59:53.680 --> 01:00:03.200]   Do not think augmented virtual mixed reality. I don't think the market size is nearly as big as
+[01:00:03.920 --> 01:00:10.800]   wonderful as Facebook or any of these things. >> I agree with you. I thought VR was a complete
+[01:00:10.800 --> 01:00:16.240]   bust. >> Yes, VR, but augmented reality, I think. So let me take the attention.
+[01:00:16.240 --> 01:00:19.040]   >> Absolutely. >> But look at all ends, which is not good.
+[01:00:19.040 --> 01:00:25.040]   Look at Magic Leap, which I tried to develop a thing, not good. There's a long way to go in
+[01:00:25.040 --> 01:00:29.520]   this stuff. Go ahead, Mike. >> Yeah, absolutely a long way. I mean, 10 years,
+[01:00:30.720 --> 01:00:38.320]   but I think within 10, 12 years, I think augmented reality is going to replace smartphones.
+[01:00:38.320 --> 01:00:40.960]   >> You're both right, because Apple is going to ship these in a year or two.
+[01:00:40.960 --> 01:00:43.840]   Owen will be right then, and then maybe in the long run, there'll be a--
+[01:00:43.840 --> 01:00:48.800]   >> Well, what if there's a long way to go and it goes nowhere?
+[01:00:48.800 --> 01:00:53.920]   >> Right. Well, the other part of this news is that Apple is targeting 2025.
+[01:00:53.920 --> 01:00:58.720]   By the way, these glasses are targeted for next year, but the light version, where you're actually
+[01:00:58.720 --> 01:01:03.200]   looking through physical glass instead of looking at an 8K monitor for each eye,
+[01:01:03.200 --> 01:01:05.840]   is 2025. That's their target. They're not going to hit them.
+[01:01:05.840 --> 01:01:08.160]   >> I'm more interested in that. >> You don't think so?
+[01:01:08.160 --> 01:01:12.160]   >> Yeah. >> No, no, that's going to be the killer platform.
+[01:01:12.160 --> 01:01:13.600]   >> Yeah. >> That technology isn't there yet.
+[01:01:13.600 --> 01:01:16.160]   >> Yeah, if those glasses you're wearing right now, Mike,
+[01:01:16.160 --> 01:01:19.520]   could have augmented reality, some sort of heads-up display on them.
+[01:01:19.520 --> 01:01:26.880]   >> Well, it'll be much more than that. It'll be like the augmented reality where 3D
+[01:01:26.880 --> 01:01:30.080]   objects are anchored in space, like HoloLens or whatever.
+[01:01:30.080 --> 01:01:32.240]   >> Right. >> And it'll be very, very high-tech,
+[01:01:32.240 --> 01:01:36.800]   but we're talking three, four, five years where even the first versions of these hit.
+[01:01:36.800 --> 01:01:42.400]   But when they do hit, this is the thing that's going to replace smartphones
+[01:01:42.400 --> 01:01:44.400]   as the main computing device that people use.
+[01:01:44.400 --> 01:01:46.640]   >> That's clearly what Apple thinks. Yes.
+[01:01:46.640 --> 01:01:52.400]   >> The good news for Apple is that they're making another big bet on hardware that I think is going
+[01:01:52.400 --> 01:01:55.920]   to be much smarter in the long run, and that's AirPods.
+[01:01:55.920 --> 01:02:02.400]   And I think AirPods are actually going to be the thing that augments reality far more than any of
+[01:02:02.400 --> 01:02:05.600]   this video, this video, vision-dependent hardware.
+[01:02:05.600 --> 01:02:06.880]   >> I can't believe it. >> Because imagine-
+[01:02:06.880 --> 01:02:12.080]   >> I can't believe it. >> Yeah, I mean, right now, you can have Siri
+[01:02:12.080 --> 01:02:16.000]   read your text messages to you while you're listening to something and do something else.
+[01:02:16.000 --> 01:02:21.200]   And I think if you think about building on that experience, where it's not interruptive,
+[01:02:22.160 --> 01:02:29.520]   then I just think there's a lot more room for growth there in audio.
+[01:02:29.520 --> 01:02:36.240]   >> But in the augmented reality space, you're going to get 100% of what you get through earbuds,
+[01:02:36.240 --> 01:02:38.880]   because you're going to have the audio. You're going to have haptics.
+[01:02:38.880 --> 01:02:43.120]   So there's actually going to be an element of haptics. There's haptics in this prototype, by the way.
+[01:02:43.120 --> 01:02:48.160]   And you're going to get the visuals as well. So in terms of turn-by-turn directions,
+[01:02:48.160 --> 01:02:53.280]   yes, you can have it talk to you, but you are going to want to see those arrows floating in space,
+[01:02:53.280 --> 01:02:57.040]   telling you where to go. For children's applications, they're going to want their
+[01:02:57.040 --> 01:03:02.560]   Disney characters dancing all over the house. Whenever you're moving around in the world,
+[01:03:02.560 --> 01:03:05.760]   you just want information popping up and all this kind of stuff.
+[01:03:05.760 --> 01:03:09.920]   I think that the- I think you're right that augmented reality is going to be super, super
+[01:03:09.920 --> 01:03:16.560]   powerful, especially as the AI gets better. But I do think that the way to look at Apple's
+[01:03:17.600 --> 01:03:23.280]   augmented reality and virtual reality, mixed reality project is that it will combine
+[01:03:23.280 --> 01:03:30.640]   the best of the iPhone, the Apple Watch, and the AirPods, and all the things that you can do with
+[01:03:30.640 --> 01:03:37.520]   those devices into a single interface with the addition of holographic video. So it's really
+[01:03:37.520 --> 01:03:42.880]   all those things coming together, I think. >> I mean, I think you're right, Owen, that the
+[01:03:42.880 --> 01:03:46.880]   audio is going to be a big part of this is spatial audio. Clearly, that's what they're going for.
+[01:03:47.440 --> 01:03:53.360]   But couldn't it also be a technology like LIDAR that they're developing for down the road
+[01:03:53.360 --> 01:03:55.920]   a killer product that would include all of the above?
+[01:03:55.920 --> 01:04:01.680]   >> I mean, I think that they're going to have to create a lot of contextual technologies so that
+[01:04:01.680 --> 01:04:07.760]   they know where you are and what you're doing at a given time, and then they prompt you to display
+[01:04:07.760 --> 01:04:12.560]   something. And they're going to take that, strip away the video part that is useless, requires a
+[01:04:12.560 --> 01:04:17.920]   lot of hardware, put that into the audio product and make that super smart, super helpful,
+[01:04:17.920 --> 01:04:25.440]   the right information at the right time in your ear and abandon the video hardware.
+[01:04:25.440 --> 01:04:29.280]   >> Well, there's one other thing that might confirm this, which is that Apple clearly cares
+[01:04:29.280 --> 01:04:34.080]   about health. The Apple Watch turns out to be a health device as much as anything else.
+[01:04:34.080 --> 01:04:42.320]   And an in-ear piece of hardware has all sorts of access to health information that even a
+[01:04:42.320 --> 01:04:46.080]   watch doesn't have access to. So it would fit in with that as well.
+[01:04:46.080 --> 01:04:50.720]   >> I mean, can you imagine wearing one of these things and like bouncing around on a treadmill?
+[01:04:50.720 --> 01:04:53.120]   No, but you are going to have some kind of audio.
+[01:04:53.120 --> 01:04:53.680]   >> Absolutely. Yeah.
+[01:04:53.680 --> 01:05:02.480]   >> Absolutely. So I think the glasses we're getting to in five years will be almost as light as
+[01:05:02.480 --> 01:05:09.600]   anybody's plastic prescription glasses. They'll be great on a treadmill. But I think the larger
+[01:05:09.600 --> 01:05:15.840]   point is that we're really talking about timing because all user interfaces and the entire history
+[01:05:15.840 --> 01:05:21.680]   of user interfaces have always gone toward having the computers and the technology work harder
+[01:05:21.680 --> 01:05:28.080]   so that the human to match up with human nature and human expectations. Human beings
+[01:05:28.080 --> 01:05:35.200]   are visual. The idea of having 100% of the sort of augmented content coming in to be interpreted
+[01:05:35.200 --> 01:05:43.040]   through language is awesome. I would love it. But I think that it's even more awesome for human
+[01:05:43.040 --> 01:05:48.720]   nature to have a visual representation of things as they're running around. And I really think that
+[01:05:48.720 --> 01:05:53.280]   there are going to be sports versions, sunglasses versions, lots and lots of versions. And I also
+[01:05:53.280 --> 01:05:58.160]   think that it's going to be so powerful that people with perfect vision will start wearing glasses
+[01:05:58.160 --> 01:06:01.440]   just so they can get it. >> Right.
+[01:06:01.440 --> 01:06:07.840]   >> There'll be a style thing. And somebody that's asked about how the Apple buys Luxautica,
+[01:06:07.840 --> 01:06:13.360]   which of course monopolizes the entire crisis frame business all worldwide. And it would make
+[01:06:13.360 --> 01:06:16.640]   a perfect sense for Apple to buy Luxautica. Go ahead, Jeff.
+[01:06:16.640 --> 01:06:20.240]   >> Can I ask about a different Apple story that confuses the hell out of me?
+[01:06:20.240 --> 01:06:23.840]   >> Yeah. >> Kia? >> Apple.
+[01:06:23.840 --> 01:06:24.560]   >> Yeah. >> Yeah.
+[01:06:24.560 --> 01:06:31.200]   >> I can explain Kia. So this is, so look, if you're Apple computer, you have a massive
+[01:06:31.200 --> 01:06:38.480]   hit in the iPhone that's been driving revenue for more than a decade. It's just outpaces
+[01:06:38.480 --> 01:06:42.960]   everything you've ever done before. There has to be intense pressure from stakeholders
+[01:06:42.960 --> 01:06:49.360]   and customers, frankly, to do the next big thing, right? Oh, and I think that that's a lot of what
+[01:06:49.360 --> 01:06:55.360]   these rumors we're seeing are about is that Apple is striving mightily, spending a lot of its big
+[01:06:55.360 --> 01:07:00.640]   multi-billion, hundred billion dollar cash hoard on trying to find the next big thing.
+[01:07:00.640 --> 01:07:09.600]   >> You know, I think I can answer the Kia question with one word, Foxconn. Apple is not a
+[01:07:09.600 --> 01:07:13.520]   manufacturer. >> They don't want to make it. And you know what, I wouldn't buy a car Apple
+[01:07:13.520 --> 01:07:16.560]   manufactured. >> It would be, I mean, but as a brand?
+[01:07:16.560 --> 01:07:22.160]   >> I mean, no, it's not the brand. So here's the reason Kia, and I think this is what Owen's about
+[01:07:22.160 --> 01:07:27.680]   to say. And by the way, this is a rumor that comes out of a Korean site. This is, you know,
+[01:07:27.680 --> 01:07:32.640]   as sketch a rumor as you can get, although it kind of follows on a Hyundai, which is Kia's
+[01:07:32.640 --> 01:07:39.520]   parent company announcing foolishly that they were talking to Apple. Shortly, I'm sure anybody
+[01:07:39.520 --> 01:07:44.480]   who saw this, I certainly didn't thought that was strategically stupid. And they immediately
+[01:07:44.480 --> 01:07:49.440]   retracted it within an hour. Oh, no, I'm sure Apple's talking to a lot of people. I'm sure they got
+[01:07:49.440 --> 01:07:54.000]   a call from Cupertino saying, Hey, if you want to do business with us, here's lesson number one.
+[01:07:54.000 --> 01:08:03.760]   Shut the hell up. Nevertheless, Kia Hyundai have a kind of mature electric platform
+[01:08:03.760 --> 01:08:08.720]   that's fairly well known. They've been doing electric cars for a while. You need a manufacturing
+[01:08:08.720 --> 01:08:11.840]   partner, like you said, Owen. >> True, right.
+[01:08:11.840 --> 01:08:18.080]   >> And you know, if according to the rumor, Apple wants to make 100,000 vehicles
+[01:08:18.080 --> 01:08:22.480]   per year when they release this in three years, you're going to need somebody like Kia, who knows how
+[01:08:22.480 --> 01:08:26.960]   to do that. It took Tesla quite a while to ramp up to that size. Go ahead, Owen. I'm sorry.
+[01:08:26.960 --> 01:08:31.120]   >> Oh, also for Toyota General Motors, like they've got too much ego.
+[01:08:31.120 --> 01:08:36.080]   >> Yeah, right there. >> I mean, even if they had spare manufacturing capacity,
+[01:08:36.080 --> 01:08:43.600]   they would not want to seed, you know, the ground to Apple. Think about when Apple got into the
+[01:08:43.600 --> 01:08:50.240]   iPhone, they they put it in a new way. >> Yeah, they partnered with singular,
+[01:08:50.240 --> 01:08:56.160]   it wasn't even AT&T. It's like the also ran of wireless.
+[01:08:56.160 --> 01:08:58.240]   >> So good to have your historic perspective.
+[01:08:58.240 --> 01:09:03.360]   >> Yeah, yeah. >> Yeah, you know, singular was willing to do what Apple wanted. And, you know,
+[01:09:03.360 --> 01:09:09.120]   I think whoever ends up making an Apple car, if there really is going to be an Apple car,
+[01:09:09.120 --> 01:09:14.320]   is going to be someone who is willing to, you know, seed ground to Apple.
+[01:09:14.320 --> 01:09:21.440]   >> Kia also has a factory in Georgia, the United States, not to bleasy. So that's a big selling
+[01:09:21.440 --> 01:09:28.640]   point these days for Apple. So they could make these cars in the US. It would probably be,
+[01:09:28.640 --> 01:09:33.120]   I'm sure it'd be electric. The question is, would they also be self-driving or how self-driving they
+[01:09:33.120 --> 01:09:37.520]   would be? >> I mean, they'll be a self-driving as every other car, which, you know, the whole
+[01:09:37.520 --> 01:09:42.240]   industry is going towards self-driving gradually. So they'll be right along there with there. But I
+[01:09:42.240 --> 01:09:47.600]   think that Apple, if people are still confused about why Apple will get in the car industry,
+[01:09:47.600 --> 01:09:53.920]   I think Apple understands that in the future, a car will be primarily a content consumption
+[01:09:53.920 --> 01:10:00.720]   experience. The transportation part of it is kind of a commodity. Who cares? Your body is going to
+[01:10:00.720 --> 01:10:06.880]   be shuffled around. It's no big deal. Cars resemble each other so much these days in terms of their
+[01:10:06.880 --> 01:10:12.480]   internals and their functionality. All that stuff is commodity. What isn't commodity is the
+[01:10:12.480 --> 01:10:17.920]   experience, the user experience, the customer experience, the content consumption experience,
+[01:10:17.920 --> 01:10:22.960]   why your body is being moved around. And so I think that people have a hard time getting their
+[01:10:22.960 --> 01:10:30.160]   head around that reality. But once you accept that, that once you're in a self-driving car or
+[01:10:30.160 --> 01:10:36.000]   mostly self-driving car, your mind is on other things besides watching the road, right? So you're
+[01:10:36.000 --> 01:10:40.400]   going to be doing VR experiences, you're going to be listening to music watching concerts,
+[01:10:40.400 --> 01:10:46.160]   chatting with people and HD video and all that kind of stuff. Apple is not going to
+[01:10:46.160 --> 01:10:55.120]   seed 30% of people's content consumption life by not being in the cars. They're going to make sure
+[01:10:55.120 --> 01:11:00.880]   they're going to make sure Google or Amazon or any of them. Exactly. And so I think that's the
+[01:11:00.880 --> 01:11:10.000]   key insight that tells us why they're getting in the car business and also why it's conceivable
+[01:11:10.000 --> 01:11:14.400]   that they would partner with a company like Kia, which is a subsidiary, I think of Hyundai.
+[01:11:14.400 --> 01:11:21.920]   It doesn't matter. As long as you have batteries that work and you have the factory capacity and
+[01:11:21.920 --> 01:11:28.080]   all that kind of stuff, it doesn't matter who the carmaker is. That's not the important part
+[01:11:28.080 --> 01:11:32.080]   of a car in the future. Apple B and Apple will probably be stick shift just to be different.
+[01:11:32.080 --> 01:11:40.880]   No, there'll be no buttons. This is incredibly depressing and dystopian because basically what
+[01:11:40.880 --> 01:11:46.400]   you're saying is we're going to be getting in cars that drive themselves and we're going to be
+[01:11:46.400 --> 01:11:52.480]   tuning into these AR/VR experiences. Basically, the car is going to become like a little
+[01:11:52.480 --> 01:11:57.840]   mini VR studio. And that's the only way we're going to interact with people is basically,
+[01:11:57.840 --> 01:12:00.480]   we're pretending that we're taking rides with each other.
+[01:12:00.480 --> 01:12:06.240]   Well, I think we're going to be immersed in augmented reality and entertainment and
+[01:12:06.240 --> 01:12:13.840]   infotainment and HD video interaction with people and serving the internet, all that kind of stuff
+[01:12:13.840 --> 01:12:19.200]   all the time. And it's just like the future has always been. It's going to be way better and
+[01:12:19.200 --> 01:12:25.360]   way worse at the same time. Would it be safe to say that what Apple's... See, you always try to
+[01:12:25.360 --> 01:12:31.840]   understand what a company's core business is. It's said that the railways would have done better
+[01:12:31.840 --> 01:12:35.680]   if they'd understand that they weren't in the railway business. They were in the transportation
+[01:12:35.680 --> 01:12:41.520]   business. Is it safe to say Apple's core business is experiences, is delivering experiences?
+[01:12:41.520 --> 01:12:47.280]   Leo, I'm going to correct you there. The smartest railways figured out that they're in the real
+[01:12:47.280 --> 01:12:52.560]   estate business. Yeah, that's right. Because when you connect two nodes with a transportation network,
+[01:12:52.560 --> 01:12:57.840]   so it's real estate on either end. The truth is, it always comes down to that. Radio stations
+[01:12:57.840 --> 01:13:02.000]   are in the real estate business. Movie theaters are in the real estate business.
+[01:13:02.000 --> 01:13:06.320]   Podcasters, if they're smart, are in the real estate business, which is the... The McDonald's
+[01:13:06.320 --> 01:13:09.520]   brothers learn the hard work. McDonald's is a real estate business. Yes.
+[01:13:09.520 --> 01:13:16.320]   So here's the best that Apple is making more valuable. Apple is in the content business.
+[01:13:16.880 --> 01:13:23.040]   So half of their... Well, not half. Most of their business is in the content consumption
+[01:13:23.040 --> 01:13:29.280]   experience business. And the minority of their business is in the content creation business.
+[01:13:29.280 --> 01:13:32.560]   That's the way I think is a good way to understand Apple.
+[01:13:32.560 --> 01:13:38.560]   Or experiences is another way to put it. It's about... They're in the content business.
+[01:13:38.560 --> 01:13:46.000]   Their hardware facilitates, brings you the content, those experiences. And it makes perfect sense
+[01:13:46.000 --> 01:13:51.040]   if they're going to develop a car. It's a content. It's a phone with wheels. Yeah.
+[01:13:51.040 --> 01:13:56.880]   Why Hyundai? Hyundai unveiled... In fact, this is Roberto Baldwin writing. We got to
+[01:13:56.880 --> 01:14:02.080]   get Roberto back on the show. He now works at car and driver. Hyundai unveiled in December
+[01:14:02.080 --> 01:14:09.280]   their EV platform. They plan to have 23 global electric vehicles by 2025. The platform, which is
+[01:14:09.280 --> 01:14:17.280]   called EGMP and Hyundai Enchia, can deliver as much as 600 horsepower, which means they can do
+[01:14:17.280 --> 01:14:24.720]   high performance as well as get around cars. They're targeting 310 miles of range. This is a
+[01:14:24.720 --> 01:14:31.920]   competitive... They call this in the business sled that you can build a car on that goes right
+[01:14:31.920 --> 01:14:35.680]   up against what GM's doing. In fact, one of the things you're going to see on the Super Bowl,
+[01:14:35.680 --> 01:14:41.600]   if we ever get to watch it today, is GM basically making the announcement that they are turning
+[01:14:41.600 --> 01:14:49.120]   into an electric vehicle company. They announced this at CES. You'll also see Audi responding to
+[01:14:49.120 --> 01:14:54.400]   the Will Ferrell commercial. I can't wait to see both of those. So it's pretty clear that
+[01:14:54.400 --> 01:15:02.080]   the big three automakers... Next week, it'll take a delivery of an electric Mustang.
+[01:15:02.640 --> 01:15:11.360]   The big three automakers are clearly seeing the future as electric. Apple is. It makes perfect
+[01:15:11.360 --> 01:15:16.640]   sense that Apple would go with somebody who has a platform, manufacturing ability, a factory in the
+[01:15:16.640 --> 01:15:25.360]   US, even if this rumor is wrong. It's coming from a less than reliable source. It makes so much sense
+[01:15:25.360 --> 01:15:29.280]   that I think it's probably true, much like... So you have Google and Ford, you have GM going
+[01:15:29.280 --> 01:15:35.280]   on that career. Yes. Right. That was this week. Google and Ford announced a partnership to do
+[01:15:35.280 --> 01:15:41.040]   Google software on Ford's new vehicles, not the Mustang, but coming in the next couple of years.
+[01:15:41.040 --> 01:15:44.400]   That's a very good thing. I wonder really about the Germans, too, because they're not going to sit back.
+[01:15:44.400 --> 01:15:54.400]   No. Who would they deal with themselves? Let's take a break on that note. I love it.
+[01:15:54.400 --> 01:15:59.200]   Jeff Jarvis. Jeff, it's not a democracy, Jarvis. That's okay.
+[01:15:59.200 --> 01:16:06.800]   Leo is not a democracy, I want to be a democracy. This today, you picked the next story and you were
+[01:16:06.800 --> 01:16:13.280]   right. It was exactly the right one. So you're in. You're in. It's great to have you, Jeff. Buzz
+[01:16:13.280 --> 01:16:20.560]   Machine.com. And of course, from Twig, my friend, Mike Elgin. I'm glad you haven't been traveling.
+[01:16:20.560 --> 01:16:27.040]   We get more of you, which is great, thanks for joining us today. And Owen Thomas, who's the new
+[01:16:27.040 --> 01:16:31.520]   guy in town, but you fit right in. Business editor at the San Francisco Chronicle. Really
+[01:16:31.520 --> 01:16:36.160]   nice to see you. Owen, are you due to do do any podcasts? You ought to.
+[01:16:36.160 --> 01:16:45.520]   Once in a while, I go on fifth in mission, which is... That's your T-shirt. The Chronicles
+[01:16:45.520 --> 01:16:51.360]   Signature Podcast. And we were doing actually a weekly startup show for a while, but we've
+[01:16:51.360 --> 01:16:58.880]   folded our tech and other coverage into our main podcast. Good. Well, I hope you will consider
+[01:16:58.880 --> 01:17:05.280]   making this your podcast in future. It's great to have all three of you. Our show today brought to you
+[01:17:05.280 --> 01:17:13.360]   by Barracuda. Boy, this is the time for Barracuda. Barracuda is perhaps one of the best known
+[01:17:14.240 --> 01:17:20.560]   enterprise security companies in the world. They do a great job. They also do a lot. In fact,
+[01:17:20.560 --> 01:17:26.160]   if you go to their website, barracuda.com/twit, read the blog. They do a lot of research. And one
+[01:17:26.160 --> 01:17:32.960]   of the things they've noticed is that the number one way to target companies these days is email.
+[01:17:32.960 --> 01:17:38.080]   Email, email, email. Hackers are always looking for the weakest link in your security. And it's
+[01:17:38.080 --> 01:17:43.600]   almost always your email security. What does that mean? Well, they can inject malware into your
+[01:17:43.600 --> 01:17:49.520]   network. They can spearfish you. They can do account takeover conversation hijacking. In fact,
+[01:17:49.520 --> 01:17:58.880]   Barracuda has identified 13 types of email threats. And honestly, every one of these is a risk for
+[01:17:58.880 --> 01:18:03.600]   you. You want to know, are you effectively protected against all 13 threat types? And that's where
+[01:18:03.600 --> 01:18:08.320]   Barracuda's new threat analyzer tool comes in. This is something free you can do right now.
+[01:18:09.680 --> 01:18:14.960]   You got to know if you're not fully protected in all 13 of these vectors, cyber crooks are going
+[01:18:14.960 --> 01:18:20.000]   to figure it out. And they're going to hit you. That's literally what they spend their time on.
+[01:18:20.000 --> 01:18:24.480]   That's their full time job. And when they find that gap in your security, they just choose the
+[01:18:24.480 --> 01:18:31.120]   right threat type. They customize it. Boom. You are potentially losing millions of dollars.
+[01:18:31.120 --> 01:18:37.520]   Your reputation in the market, it's, you know, it's a dangerous place out there. And here's where
+[01:18:37.520 --> 01:18:42.400]   it gets hard with hundreds of highly targeted personalized threat variants emerging every single
+[01:18:42.400 --> 01:18:48.160]   day with many different kinds of on-prem and cloud based email systems. It can be really
+[01:18:48.160 --> 01:18:55.440]   challenging to figure out where you are vulnerable. Okay, this is the pitch. Go to barracuda.com/twit.
+[01:18:55.440 --> 01:19:00.560]   It's a very simple. We were just showing it on the screen if you're watching the video.
+[01:19:00.560 --> 01:19:05.680]   Multiple choice quiz about your email security setup. They call it the Barracuda threat analyzer
+[01:19:05.680 --> 01:19:11.280]   in two minutes roughly. You can generate a custom report telling you which threat types you are
+[01:19:11.280 --> 01:19:16.320]   most vulnerable to. And of course, look, Barracuda sells protection. They're going to give you
+[01:19:16.320 --> 01:19:20.800]   great recommendations in every area and what you can do to protect yourself against your
+[01:19:20.800 --> 01:19:26.480]   particular vulnerabilities. This is free. It's easy to use no pressure. Barracuda's December
+[01:19:26.480 --> 01:19:32.480]   spearfishing report found to 12% of all spearfishing attacks are business email compromised. That's
+[01:19:32.480 --> 01:19:37.600]   up from 7% the year before. These attacks are growing. Why? Because they work.
+[01:19:37.600 --> 01:19:43.440]   According to the FBI's most recent internet crime report, business email compromise
+[01:19:43.440 --> 01:19:50.560]   led to over $3.5 billion in losses last year. The government of Puerto Rico lost $2.6 million in
+[01:19:50.560 --> 01:19:57.920]   one attack. If you watch Shark Tank, you know, Barbara Corcoran, her employees were paid a fake
+[01:19:57.920 --> 01:20:05.520]   invoice, a $400,000 invoice that came in through the mail. They call it email impersonation. It
+[01:20:05.520 --> 01:20:09.680]   looked like a vendor. They paid it. Fortunately, they found out they recovered the money. Not so
+[01:20:09.680 --> 01:20:15.360]   lucky that independent school district in Texas made fraudulent payments over a whole month
+[01:20:15.360 --> 01:20:23.920]   of more than $2.3 million. I shouldn't laugh. That's horrible. That's horrific. Does your email
+[01:20:23.920 --> 01:20:29.120]   security protect against that and all the other attacks? Barracuda threat analyzer. Try it today.
+[01:20:29.120 --> 01:20:33.200]   It's free. Takes a couple of minutes. You'll get a full report showing exactly what you need
+[01:20:33.200 --> 01:20:38.480]   to do to secure your email. Barracuda's threat analyzer. Just take a couple of minutes at
+[01:20:38.480 --> 01:20:48.160]   barracuda.com/twit. Find out where those threats lie in your particular situation. Barracuda.com/twit.
+[01:20:48.160 --> 01:20:52.720]   Thank you, Barracuda, for not only protecting us, but for your support of the show. And
+[01:20:52.720 --> 01:20:58.640]   of course, thank you for supporting the show by going to that address barracuda.com/twit.
+[01:20:58.640 --> 01:21:06.240]   Let's see. We've covered a lot of territory here. Have I run out of stories? Never.
+[01:21:06.240 --> 01:21:13.440]   Never. We covered a lot of stories, though, with little sides like yours, Jeff,
+[01:21:13.440 --> 01:21:22.560]   Google and Ford tying up for six years. That deal could yield $9 billion in revenue for Ford.
+[01:21:23.520 --> 01:21:29.600]   Ford says millions of its vehicles are run on the new Google Android for car starting in 2023.
+[01:21:29.600 --> 01:21:36.000]   Not from a month. I believe that's 9 billion annually. Annually. I believe that's what
+[01:21:36.000 --> 01:21:40.400]   we're going to stand links. So this is a back of the envelope calculation, but
+[01:21:40.400 --> 01:21:43.440]   it's good work. I'm good. I'm good. I'm good.
+[01:21:43.440 --> 01:21:43.840]   I'm good.
+[01:21:43.840 --> 01:21:52.160]   Geez. Geez, Louise. So I guess the question then is to ask is, will that mean that you won't be
+[01:21:52.160 --> 01:21:54.960]   able to drive a Ford vehicle in Australia come next year?
+[01:21:54.960 --> 01:22:02.640]   It'll just stop. Google's threatening to leave Australia.
+[01:22:02.640 --> 01:22:12.080]   In fact, Microsoft jumped on that threat. Google's manager for Australia testified, as you probably
+[01:22:12.080 --> 01:22:16.400]   know, if you watch our shows, the Australian legislature is considering charging Google
+[01:22:17.040 --> 01:22:22.240]   for the news snippets in its search results. Google says, you do that. We're leaving.
+[01:22:22.240 --> 01:22:29.440]   Microsoft actually had a meeting on Monday with the Prime Minister of Australia, Scott Morris,
+[01:22:29.440 --> 01:22:37.440]   and saying, you know, Bing is really good. I asked on Wednesday, remember this, Jeff? I said,
+[01:22:37.440 --> 01:22:41.600]   well, who would Australians blame? Would they blame Google? Or would they blame the
+[01:22:41.600 --> 01:22:48.640]   legislature if all of a sudden Google search disappeared? I got a few emails from Australians
+[01:22:48.640 --> 01:22:53.120]   who said, you know what? We would blame Google. I don't buy it.
+[01:22:53.120 --> 01:23:00.880]   I'm so confused about it. Can somebody explain? Are they talking about a great firewall of Australia
+[01:23:00.880 --> 01:23:04.400]   blocking Google search? How hard is it to get another country?
+[01:23:04.400 --> 01:23:09.920]   No, it's the opposite. Google would pull out of the market rather than comply with the
+[01:23:09.920 --> 01:23:17.840]   China as they did with China. Right. But the reason you can't do Google searches in China is because
+[01:23:17.840 --> 01:23:24.000]   of the great firewall of China. It's a global internet. How do you snoke on Australia?
+[01:23:24.000 --> 01:23:29.120]   No, Google used to provide search in China, and it was censored, and they decided they know what
+[01:23:29.120 --> 01:23:34.720]   they're wanting to do. My technical point is correct. For a while, instead of getting Google's
+[01:23:34.720 --> 01:23:42.480]   CN, you'd get Google HK, Google.hk. Right. And in order to keep, in order for Google to say,
+[01:23:42.480 --> 01:23:49.680]   no, you can't use Google in Australia, they would have to block Australians from using Google.com,
+[01:23:49.680 --> 01:23:53.840]   or Google.hk, or Google. No, I think they would let it say, fine, you want to be more traffic
+[01:23:53.840 --> 01:24:00.160]   Google.com? That's up to you. Oh, that makes sense. So you just shut down Google.au.
+[01:24:03.760 --> 01:24:10.160]   And Google.com, you can still so snippets, right? Yeah, exactly. Well, it's that kind of move,
+[01:24:10.160 --> 01:24:16.000]   because there's no freaking way Google's going to do this. Oh, I, I, oh, look, you're wearing your glasses.
+[01:24:16.000 --> 01:24:19.520]   Aren't you handsome? I found this message from Google in my Google last.
+[01:24:19.520 --> 01:24:23.360]   I don't know. We can take them off. Okay, Mike, now you got to put yours on.
+[01:24:23.360 --> 01:24:26.240]   How's your battery, Jeff?
+[01:24:30.160 --> 01:24:33.840]   Uncharged for about five years, Mike. You know, it's funny every once in a while,
+[01:24:33.840 --> 01:24:38.800]   on the anniversary of the iPod, I'll plug my original iPod in. It does take requires
+[01:24:38.800 --> 01:24:43.680]   finding a firewire cable, but I'll plug it in. We have one somewhere because I know we did it last
+[01:24:43.680 --> 01:24:51.280]   year. And it, and all the songs I listened to in the year 2001 come up. No podcasts, I'm sorry to say.
+[01:24:51.280 --> 01:24:58.160]   I got a chart, Jeff, go ahead, Mike. Go ahead. Oh, the bizarre thing about this is Google,
+[01:24:58.160 --> 01:25:03.680]   as far as I can tell, makes no direct money from Google News. When you're, it's just part of the
+[01:25:03.680 --> 01:25:09.520]   overall value of Google search. Yes. And, you know, when you go onto Google News itself, there are no,
+[01:25:09.520 --> 01:25:17.040]   there are no ads. So, you know, getting, getting from the point of Google shows snippets of news to
+[01:25:17.040 --> 01:25:24.160]   Google makes money is really quite a leap. And I'm not quite sure how the Australian
+[01:25:24.160 --> 01:25:28.080]   legislature is kind of justifying that. Well, it doesn't matter because Robert Bird
+[01:25:28.080 --> 01:25:31.920]   I told you what they did it. Literally. Well, they haven't done it yet. They haven't done it yet.
+[01:25:31.920 --> 01:25:36.320]   Well, the legislation is going through now. You think it'll pass? Part of the answer to your
+[01:25:36.320 --> 01:25:43.760]   question, Nolan, is that in the original legislation, the platforms were forced to negotiate with
+[01:25:43.760 --> 01:25:48.160]   the publishers. And if they couldn't reach agreement, they'd go to my uncle, Vinnie, the arbitrator,
+[01:25:48.160 --> 01:25:54.000]   and they'd meet over the Barbie and the arbitrator would just dictate something, right?
+[01:25:54.880 --> 01:25:59.040]   And Google said, from the beginning, this is ridiculous. In any, in any normal market,
+[01:25:59.040 --> 01:26:03.520]   the publishers will be paying us because we send tremendous value to the publishers.
+[01:26:03.520 --> 01:26:06.960]   But all you're allowing to happen here is that we have to pay the publishers. So the,
+[01:26:06.960 --> 01:26:11.200]   the policy said, Oh, okay. Okay. You can negotiate that too. It's okay.
+[01:26:11.200 --> 01:26:16.240]   That's the debate, though. I'm doing that. That's the debate, though. Which way does the value flow?
+[01:26:16.240 --> 01:26:21.360]   Do the publishers get more from the Google search results? Yes. Or their contention is, well,
+[01:26:21.360 --> 01:26:25.040]   if you put the snippets on there, nobody's going to go to our website because they're going to be
+[01:26:25.040 --> 01:26:29.440]   satisfied with the snippet. They're going to see the search results. What's also offensive about this?
+[01:26:29.440 --> 01:26:34.240]   When we all know this more industry is that, is that if newspapers had to pay for the sources of
+[01:26:34.240 --> 01:26:40.000]   their content, they'd go bankrupt. You know, I, I, I taught, you know, if Owen called me,
+[01:26:40.000 --> 01:26:43.360]   no one wouldn't call me because he knows better. But if he called me to do a story and I said,
+[01:26:43.360 --> 01:26:48.880]   oh, my rate is, yeah, you have to phone. Yeah. Right. Right. And, and so I did, I did a post,
+[01:26:48.880 --> 01:26:53.760]   we talked about this on Twig. I, I, I'm from doing a book on, on the Gutenberg age. And as part of
+[01:26:53.760 --> 01:26:58.480]   the research, I came across this fascinating thing. I didn't realize is that newspapers from the
+[01:26:58.480 --> 01:27:05.280]   beginning in the US employed people, they called scissors editors. And newspapers under the postal
+[01:27:05.280 --> 01:27:11.280]   act of 1792 were allowed to send to exchange newspapers with each other for free, for free.
+[01:27:11.280 --> 01:27:16.720]   And the, and the policy decision here was to spread news. It was a good thing. And the newspaper
+[01:27:16.720 --> 01:27:21.280]   editors were all happy with it. They, they took and they gave and it was okay. The only thing that
+[01:27:21.280 --> 01:27:28.480]   pissed them off was if they didn't get credit. But that was it. Otherwise, they shared back and
+[01:27:28.480 --> 01:27:34.080]   forth. And this is the basis of the entire industry. Every newspaper reporter reads other
+[01:27:34.080 --> 01:27:37.840]   newspapers and says, Oh, it's a story idea. I think I'll take that. And the hot news doctrine
+[01:27:37.840 --> 01:27:43.440]   doesn't exist. So you can do that under the under, under copyright. And they copy each other all
+[01:27:43.440 --> 01:27:50.240]   the time. Buzzfeed had the story of the two color dress. How did suddenly 5000 media outlets
+[01:27:50.240 --> 01:27:54.240]   around the world have the same effing story? Because they rewrote Buzzfeed.
+[01:27:54.240 --> 01:27:59.760]   Well, so here's another, here's another little snip. Like a lot of people aren't talking about
+[01:27:59.760 --> 01:28:02.880]   this movie, but Tom, Tom Hanks new vehicle. Love it.
+[01:28:02.880 --> 01:28:07.840]   These are the world loved it. Wonderful, wonderful movie. And I won't give anything away
+[01:28:07.840 --> 01:28:14.240]   materially, but his job, he's he's a sort of a freelance news reader. So he he buys
+[01:28:14.240 --> 01:28:21.440]   this in the post post civil war. Post civil war, Texas, we should explain. Yes, 1867 or 68.
+[01:28:21.440 --> 01:28:26.320]   Exactly. But here's somebody who's getting who's getting a dime or 10 cents per person
+[01:28:26.320 --> 01:28:31.520]   to read other to read journalists. He's basically a blogger.
+[01:28:31.520 --> 01:28:35.600]   He brings newspapers with him. Yeah, puts on his little spectacles,
+[01:28:36.320 --> 01:28:40.880]   leans over and says, well, here's his story and reads the newspaper.
+[01:28:40.880 --> 01:28:49.040]   Yes. Now I have some, I want, I love the movie. But is that was that a real job or is that something
+[01:28:49.040 --> 01:28:54.400]   completely fictional? Well, I think it's got to be a real job. I mean, like, I know that
+[01:28:54.400 --> 01:29:03.360]   Mark Twain made a fortune after he was a printer analyst, telling stories of things that he saw.
+[01:29:03.360 --> 01:29:09.680]   Now he wasn't repurposing more of a humorous kind of on stage early stand up comedy, really.
+[01:29:09.680 --> 01:29:12.080]   I mean, part of part of Tom Hanks's characters,
+[01:29:12.080 --> 01:29:20.480]   expertise was making it entertaining. So that's true. Yeah, I don't know. But this is,
+[01:29:20.480 --> 01:29:24.720]   this is just another example. I watched that movie. I said, if that's what I would have done,
+[01:29:24.720 --> 01:29:29.040]   if I'd been born then, because they didn't have podcasts. I had the same thought exactly.
+[01:29:30.400 --> 01:29:35.600]   They didn't have blogs in coffee houses, people in England, earlier.
+[01:29:35.600 --> 01:29:39.600]   17th century. Yeah. People would read the papers to each other,
+[01:29:39.600 --> 01:29:43.760]   something because some were illiterate and some of it was just part of the way it worked.
+[01:29:43.760 --> 01:29:48.960]   And then before that, news ballads were distributed by singers coming into town,
+[01:29:48.960 --> 01:29:52.160]   singing the news ballad about the witch having burned the town.
+[01:29:52.160 --> 01:29:57.200]   Prior, yeah. And then you'd buy the song so you could sing it with your buddies in the bar or at home.
+[01:29:57.200 --> 01:30:01.840]   Here's why I thought it must be fictionalized because 10 cents, that's way too much money.
+[01:30:01.840 --> 01:30:06.000]   That's a lot of money. If a movie cost a nickel in 1920,
+[01:30:06.000 --> 01:30:12.240]   I don't think people are paying 10 cents 60 years earlier to hear Tom Hanks read the news.
+[01:30:12.240 --> 01:30:15.680]   Penny Max, Penny. Yeah, maybe a penny.
+[01:30:15.680 --> 01:30:21.840]   Jeff, can I throw a wrench in here? How does this shift to subscription news
+[01:30:23.360 --> 01:30:28.400]   change the equation? Does that rebalance things with publishers?
+[01:30:28.400 --> 01:30:29.280]   It's a question. It's a question at all.
+[01:30:29.280 --> 01:30:35.520]   Well, I don't think so because it's all about conversion. I'm sure you hear that all the time.
+[01:30:35.520 --> 01:30:41.760]   The reason the New York Times can get as many 7 million digital subscribers to news and food
+[01:30:41.760 --> 01:30:46.720]   and crosswords. It's amazing. It's because it has 60 million on the web.
+[01:30:46.720 --> 01:30:50.880]   And a frequent user, a frequent user of the New York Times, they had to change that when they
+[01:30:50.880 --> 01:30:55.280]   started the paywall. It used to be that they'd get you 10 pages a month to say,
+[01:30:55.280 --> 01:30:58.800]   "Hey, you should pay up." And nobody hit it. 10 a month a month.
+[01:30:58.800 --> 01:31:03.440]   The frequency of use is very low so that if you can get any sampling whatsoever,
+[01:31:03.440 --> 01:31:10.560]   you're better off. And so they're going to give up sampling here. The other thing that interests
+[01:31:10.560 --> 01:31:15.360]   me in this story is so Google's threatening to pull out Google out of Australia.
+[01:31:15.360 --> 01:31:21.120]   Facebook is threatening to say, "We're going to disallow both publishers and users putting
+[01:31:21.120 --> 01:31:26.880]   news on Facebook." What fascinates me about that is a bet Facebook is half-wishing this happens.
+[01:31:26.880 --> 01:31:33.360]   And then they kind of say, "Good. Pets and parties. That's it. This controversy stuff?
+[01:31:33.360 --> 01:31:35.840]   God, we're the happy place again."
+[01:31:35.840 --> 01:31:39.760]   It's 97% of the news feed, right?
+[01:31:39.760 --> 01:31:44.640]   Right. Right. Exactly. News is less than 4%. And that includes us
+[01:31:45.200 --> 01:31:47.440]   skewing the averages, us crazy people.
+[01:31:47.440 --> 01:31:53.600]   Well, all I know is every time I try to read Owens writing, the chronicle says,
+[01:31:53.600 --> 01:31:57.680]   "You've read your three free articles already, buddy. Get out of here."
+[01:31:57.680 --> 01:32:02.400]   You know what that actually does work for a lot of...
+[01:32:02.400 --> 01:32:04.720]   Oh, it's about to invoice you for the show.
+[01:32:04.720 --> 01:32:06.640]   What's the sweet spot?
+[01:32:06.640 --> 01:32:10.080]   Tends too many is three, the right number?
+[01:32:10.080 --> 01:32:10.800]   It's about five.
+[01:32:10.800 --> 01:32:11.280]   Five.
+[01:32:11.280 --> 01:32:12.000]   Five.
+[01:32:12.000 --> 01:32:16.880]   There's a lot of data on this now. And when Google started to subscribe with Google,
+[01:32:16.880 --> 01:32:20.800]   which they did in partnership with newspapers, Google got smart about this.
+[01:32:20.800 --> 01:32:25.360]   AMP and subscribers started working with product people on newspapers.
+[01:32:25.360 --> 01:32:32.080]   The FTS on presentation early on, and the FT working with Google data... So Google had data
+[01:32:32.080 --> 01:32:34.720]   about who's coming to the FTS... FTS 0 free ads.
+[01:32:34.720 --> 01:32:35.200]   Free ads.
+[01:32:35.200 --> 01:32:40.800]   Oh, no, no, no. The FT to you, they don't. What the FT does is that they meter it based on what
+[01:32:40.800 --> 01:32:43.120]   they know about you from their own data and Google's.
+[01:32:43.120 --> 01:32:44.720]   We're talking about the financial times.
+[01:32:44.720 --> 01:32:47.440]   They say, "I can never read an article on the financial times."
+[01:32:47.440 --> 01:32:48.960]   They're always paying.
+[01:32:48.960 --> 01:32:52.480]   Because you're trying to go to an offer that says, "This guy's called Payost, that's it."
+[01:32:52.480 --> 01:32:53.600]   Where...
+[01:32:53.600 --> 01:32:55.360]   Really? So some people get free stuff.
+[01:32:55.360 --> 01:32:57.520]   If somebody comes in, it hasn't come in for four months,
+[01:32:57.520 --> 01:32:59.520]   and they come in for an article, they'll give them the article.
+[01:32:59.520 --> 01:33:02.160]   Because your content's your best ad next.
+[01:33:02.160 --> 01:33:03.360]   Too much, too smart.
+[01:33:03.360 --> 01:33:04.080]   They're too smart.
+[01:33:04.080 --> 01:33:07.040]   But that was Google helped them do that.
+[01:33:07.920 --> 01:33:13.280]   Well, I have to say, and this is, again, an important data point for Australian legislators,
+[01:33:13.280 --> 01:33:18.400]   that's exactly how I know what my paywall limits are on all of these things.
+[01:33:18.400 --> 01:33:22.960]   Because I use Google News, and I get sent to these local articles.
+[01:33:22.960 --> 01:33:27.360]   I haven't bought the Chronicle yet, Owen, but I will now.
+[01:33:27.360 --> 01:33:31.360]   But I did buy the Santa Rosa newspaper and the Petaluma newspaper,
+[01:33:31.360 --> 01:33:33.680]   and I got to them through Google News.
+[01:33:33.680 --> 01:33:37.120]   So I think Google is definitely generating traffic and revenue.
+[01:33:37.120 --> 01:33:38.480]   Here's the thing about this.
+[01:33:38.480 --> 01:33:43.600]   So let's say that the law passes and Google actually leaves.
+[01:33:43.600 --> 01:33:45.280]   Murdoch's in better shape than ever.
+[01:33:45.280 --> 01:33:48.160]   Because Murdoch has the brands, he has half the media in Australia.
+[01:33:48.160 --> 01:33:49.280]   Doesn't hurt him.
+[01:33:49.280 --> 01:33:50.320]   It doesn't hurt him.
+[01:33:50.320 --> 01:33:55.120]   In the least, in fact, you try to start a new brand to Australia.
+[01:33:55.120 --> 01:33:55.920]   You're doomed.
+[01:33:55.920 --> 01:33:56.400]   Good luck.
+[01:33:56.400 --> 01:33:59.600]   I had a TIFF with the head of the Australian Guardian
+[01:33:59.600 --> 01:34:01.200]   in the last couple of days on Twitter.
+[01:34:01.200 --> 01:34:04.000]   Because the Guardian, and I love the Guardian, and I've worked with the Guardian,
+[01:34:04.000 --> 01:34:06.960]   and I've written with the Guardian, I am ashamed of the Guardian.
+[01:34:06.960 --> 01:34:10.000]   That they are in league with the devil of Murdoch on this.
+[01:34:10.000 --> 01:34:11.600]   And he goes, well, you don't understand.
+[01:34:11.600 --> 01:34:15.440]   And Sir Tim Berners Lee testified about the damage this will do
+[01:34:15.440 --> 01:34:18.080]   to the entire internet, especially the web he invented.
+[01:34:18.080 --> 01:34:21.920]   And this Guardian, Biz Guy, said, well, fine, he knows things about the web.
+[01:34:21.920 --> 01:34:23.360]   He doesn't know anything about competitive policy.
+[01:34:23.360 --> 01:34:25.360]   Jesus.
+[01:34:25.360 --> 01:34:29.280]   He just flicked away the guy who really understands the web,
+[01:34:29.280 --> 01:34:30.560]   because he invented it.
+[01:34:31.200 --> 01:34:38.400]   Well, and in nihilistic cynical business is tying in with Murdoch on this legislation.
+[01:34:38.400 --> 01:34:42.960]   And Murdoch also, let's not forget, I know I rail about Murdoch on twig.
+[01:34:42.960 --> 01:34:44.080]   Oh, but hey, that's all I do.
+[01:34:44.080 --> 01:34:45.920]   So I only have somebody spiel, so I'll do it here too.
+[01:34:45.920 --> 01:34:51.840]   But he, the ruin of Western democracy and English-speaking world,
+[01:34:51.840 --> 01:34:54.960]   is also wants to destroy the internet.
+[01:34:54.960 --> 01:34:57.680]   And that sounds kind of emotional, but it's true.
+[01:34:57.680 --> 01:35:00.000]   He is shot against it at every single opportunity,
+[01:35:00.000 --> 01:35:01.760]   because he sees it as competition.
+[01:35:01.760 --> 01:35:05.920]   He, to Owen's point, he believes in a firm concrete paywall.
+[01:35:05.920 --> 01:35:07.600]   He doesn't want any of this internet junk.
+[01:35:07.600 --> 01:35:09.680]   And that's his business model.
+[01:35:09.680 --> 01:35:14.240]   And the times of London has a hundred, 16,000 subscribers.
+[01:35:14.240 --> 01:35:16.800]   The New York Times has 7 million.
+[01:35:16.800 --> 01:35:20.240]   The difference is Murdoch's religion.
+[01:35:20.240 --> 01:35:21.520]   We're seeing a lot of that.
+[01:35:21.520 --> 01:35:25.200]   That's one of the complaints against the new California Privacy Act
+[01:35:25.200 --> 01:35:29.040]   was that Facebook has enough money to adhere to this law.
+[01:35:29.040 --> 01:35:30.640]   So they loved the law because it would-
+[01:35:30.640 --> 01:35:31.680]   - Regulatory capture.
+[01:35:31.680 --> 01:35:34.160]   - Regulatory capture would only hurt the little guys,
+[01:35:34.160 --> 01:35:35.920]   not the big guys.
+[01:35:35.920 --> 01:35:37.360]   I want to take a little bit of a break.
+[01:35:37.360 --> 01:35:44.000]   And then I'm, if you, I seem to have saved the high blood pressure stories for last,
+[01:35:44.000 --> 01:35:48.480]   but if you really want to get upset, let's talk about Amy Klobuchar and-
+[01:35:48.480 --> 01:35:51.120]   - [grunting]
+[01:35:51.120 --> 01:35:51.920]   - Okay, enough.
+[01:35:51.920 --> 01:35:54.320]   - [grunting]
+[01:35:54.320 --> 01:35:58.960]   - And her new attack on section 230, it's the Democrats' turn.
+[01:35:58.960 --> 01:36:02.400]   She's also got a new antitrust bill.
+[01:36:02.400 --> 01:36:06.640]   She's proposing neither of one of these has yet been got out of committee,
+[01:36:06.640 --> 01:36:09.120]   but I think it'll be very interesting to see what happens.
+[01:36:09.120 --> 01:36:12.000]   Meanwhile, I'm going to say,
+[01:36:12.000 --> 01:36:16.800]   "Yo soy un ombre sincero."
+[01:36:16.800 --> 01:36:18.160]   I am an honest man.
+[01:36:18.160 --> 01:36:19.120]   Is that right?
+[01:36:19.120 --> 01:36:20.160]   I'm learning.
+[01:36:20.160 --> 01:36:22.160]   I'm learning from Babel.
+[01:36:22.160 --> 01:36:23.120]   I'm learning Spanish.
+[01:36:23.120 --> 01:36:24.720]   I did French with Babel.
+[01:36:24.720 --> 01:36:26.720]   I love Babel as a great way to learn.
+[01:36:26.720 --> 01:36:32.160]   It's the number one best-selling language learning app because it's fun.
+[01:36:32.160 --> 01:36:33.440]   - Benvenidopablo.
+[01:36:33.440 --> 01:36:35.040]   - Benvenidopablo.
+[01:36:35.040 --> 01:36:36.080]   - Oh, man.
+[01:36:36.080 --> 01:36:38.000]   I'm going to ruin my lesson.
+[01:36:38.000 --> 01:36:39.280]   I probably should stop right now.
+[01:36:39.280 --> 01:36:40.880]   - [laughing]
+[01:36:40.880 --> 01:36:41.840]   - In cantada.
+[01:36:41.840 --> 01:36:44.560]   - It is the easiest way to learn with just-
+[01:36:44.560 --> 01:36:45.280]   - In cantada.
+[01:36:45.280 --> 01:36:46.000]   - In cantada.
+[01:36:46.000 --> 01:36:46.880]   Isn't that a great one?
+[01:36:46.880 --> 01:36:47.520]   - In cantada.
+[01:36:47.520 --> 01:36:49.120]   - For you, I say in cantado.
+[01:36:49.120 --> 01:36:51.200]   For her, I say in cantada.
+[01:36:51.200 --> 01:36:52.320]   I'm learning.
+[01:36:52.320 --> 01:36:54.160]   I'm learning Spanish.
+[01:36:54.160 --> 01:36:55.760]   - I'm so excited about this sponsor.
+[01:36:55.760 --> 01:36:56.640]   This is this one.
+[01:36:56.640 --> 01:36:57.360]   - Do you use Babel?
+[01:36:57.360 --> 01:36:58.320]   - I have.
+[01:36:58.320 --> 01:36:58.800]   - I have.
+[01:36:58.800 --> 01:37:00.880]   - Well, I stopped trying to learn Spanish
+[01:37:00.880 --> 01:37:03.200]   when the election went nutty in 2016.
+[01:37:03.200 --> 01:37:05.280]   I need to go back, so I'm going to use Babel now.
+[01:37:05.280 --> 01:37:05.600]   - Yeah.
+[01:37:05.600 --> 01:37:08.000]   And you already know German, but a great way to polish.
+[01:37:08.000 --> 01:37:11.680]   One of the things Babel does, B-A-B-B-E-L.com.
+[01:37:11.680 --> 01:37:13.600]   And of course, I'm doing it on the phone.
+[01:37:13.600 --> 01:37:16.080]   I like to do a lesson when I get up,
+[01:37:16.080 --> 01:37:18.160]   and then I do a review when I go to bed.
+[01:37:18.160 --> 01:37:19.840]   So that way, I'm kind of, you know,
+[01:37:19.840 --> 01:37:24.240]   in just 15 minutes a day, I'm slowly learning a language.
+[01:37:24.240 --> 01:37:25.680]   But then as you get better and better,
+[01:37:25.680 --> 01:37:27.520]   that gets harder and harder, they even have,
+[01:37:27.520 --> 01:37:29.920]   and this is so cool, they just introduced this
+[01:37:29.920 --> 01:37:32.160]   live conversation groups.
+[01:37:32.160 --> 01:37:34.320]   It's kind of like Clubhouse in the language
+[01:37:34.320 --> 01:37:35.520]   that you're learning.
+[01:37:35.520 --> 01:37:38.000]   So you can, because that's the hardest thing,
+[01:37:38.000 --> 01:37:40.560]   is you learn the vocabulary, you learn the grammar,
+[01:37:40.560 --> 01:37:43.120]   but then you got to do it with people,
+[01:37:43.120 --> 01:37:44.720]   talking at real speed.
+[01:37:44.720 --> 01:37:49.680]   Native speakers, language lessons designed by humans.
+[01:37:49.680 --> 01:37:53.760]   Unlike the language classes you might have taken in high school,
+[01:37:54.240 --> 01:37:57.440]   Babel designs their courses with real world conversations
+[01:37:57.440 --> 01:37:58.560]   in mind. It's very practical.
+[01:37:58.560 --> 01:38:01.200]   Things you'll use in everyday life like,
+[01:38:01.200 --> 01:38:04.160]   and Cantata, or in Cantata, or hello, how are you?
+[01:38:04.160 --> 01:38:07.680]   And of course, building up to tourist languages,
+[01:38:07.680 --> 01:38:12.080]   like how can I book a room, or I'd like two more beers, please?
+[01:38:12.080 --> 01:38:15.360]   And then eventually, you're really speaking in the language.
+[01:38:15.360 --> 01:38:17.920]   And as I said, you're going to be able to speak
+[01:38:17.920 --> 01:38:20.400]   with native speakers in the real environment.
+[01:38:20.400 --> 01:38:23.360]   Other language learning apps use AI for their lessons,
+[01:38:23.360 --> 01:38:27.680]   plans at Babel lessons are always created by real language experts.
+[01:38:27.680 --> 01:38:30.640]   They have 100 language experts on their team.
+[01:38:30.640 --> 01:38:33.120]   Their method has been scientifically proven to be effective.
+[01:38:33.120 --> 01:38:35.280]   I consider it so. It's a great way to learn.
+[01:38:35.280 --> 01:38:38.960]   14 languages right now, Spanish, French, Italian, German,
+[01:38:38.960 --> 01:38:40.800]   and others.
+[01:38:40.800 --> 01:38:45.440]   Actually, with Spanish, you can either learn Spanish, Spanish,
+[01:38:45.440 --> 01:38:48.320]   or Latin American Spanish, which I'm learning in the Latin American
+[01:38:48.320 --> 01:38:49.680]   because I think it's going to be more useful.
+[01:38:50.720 --> 01:38:53.840]   And then they have a speech recognition technology built in.
+[01:38:53.840 --> 01:38:56.960]   They use a very nice platform that helps you improve your pronunciation
+[01:38:56.960 --> 01:38:58.240]   and accent. And it's really good.
+[01:38:58.240 --> 01:38:59.920]   Babel's amazing.
+[01:38:59.920 --> 01:39:04.640]   Right now, in fact, Mike, you probably should use this as you travel around.
+[01:39:04.640 --> 01:39:07.120]   When you purchase a three month Babel subscription,
+[01:39:07.120 --> 01:39:08.960]   you'll get an additional three months for free.
+[01:39:08.960 --> 01:39:12.080]   Six months, you can be pretty fluent in the language.
+[01:39:12.080 --> 01:39:14.480]   For the price of three, just go to Babel.com.
+[01:39:14.480 --> 01:39:19.520]   Use the promo code TWITBABBEL.com.
+[01:39:19.520 --> 01:39:21.280]   Promo code TWIT.
+[01:39:21.280 --> 01:39:22.080]   Three extra months free.
+[01:39:22.080 --> 01:39:25.040]   Babel is language for life.
+[01:39:25.040 --> 01:39:28.480]   I think everybody should learn a couple of extra languages.
+[01:39:28.480 --> 01:39:31.440]   You absolutely have to use something like Babel because
+[01:39:31.440 --> 01:39:35.600]   everywhere you go in this world, everybody not only speaks English,
+[01:39:35.600 --> 01:39:37.280]   they want to practice their English on you.
+[01:39:37.280 --> 01:39:39.760]   Nobody wants to speak their own language.
+[01:39:39.760 --> 01:39:40.320]   Yeah.
+[01:39:40.320 --> 01:39:43.920]   So if you're an American, you really need Babel because
+[01:39:43.920 --> 01:39:48.320]   traveling around the world is not a whole lot of help.
+[01:39:48.320 --> 01:39:50.320]   Well, and I speak French pretty well.
+[01:39:50.320 --> 01:39:51.600]   I thank you, Babel.
+[01:39:51.600 --> 01:39:55.040]   And my experience has been, yeah, they'll speak English.
+[01:39:55.040 --> 01:39:56.560]   You can speak English anywhere.
+[01:39:56.560 --> 01:39:59.600]   But when you speak the language of the country you're in,
+[01:39:59.600 --> 01:40:01.680]   it changes your experience.
+[01:40:01.680 --> 01:40:04.960]   You get a much more genuine experience.
+[01:40:04.960 --> 01:40:06.640]   It's a much better way to do it.
+[01:40:06.640 --> 01:40:10.240]   And frankly, nowadays, I mean, knowing Spanish and California is a must,
+[01:40:10.240 --> 01:40:12.400]   it really is very useful.
+[01:40:12.400 --> 01:40:15.200]   I use it all the time.
+[01:40:15.200 --> 01:40:17.280]   And all I could say is in Catato.
+[01:40:17.280 --> 01:40:22.960]   So the difference between Spanish and French, though, Leo,
+[01:40:22.960 --> 01:40:28.480]   is that in any Spanish-speaking country, a little bit is appreciated and welcome.
+[01:40:28.480 --> 01:40:31.760]   Whereas you'll never speak French well enough for the French.
+[01:40:31.760 --> 01:40:32.720]   Oh, you know what?
+[01:40:32.720 --> 01:40:34.720]   It's funny because I have a friend.
+[01:40:34.720 --> 01:40:37.760]   She was learning France because she was going to France.
+[01:40:37.760 --> 01:40:39.200]   We met up with her in Paris.
+[01:40:39.200 --> 01:40:43.920]   I never had the heart to tell her her French was awful.
+[01:40:43.920 --> 01:40:45.200]   She should have used Babel.
+[01:40:45.200 --> 01:40:47.760]   Her pronunciation was not even close.
+[01:40:47.760 --> 01:40:50.480]   And she went to a store with Lisa.
+[01:40:50.480 --> 01:40:53.440]   And the lady wouldn't even talk to her.
+[01:40:53.440 --> 01:40:54.880]   She tried and tried.
+[01:40:54.880 --> 01:40:58.080]   And the lady was like offended that whatever it is you're speaking,
+[01:40:58.080 --> 01:40:59.120]   it ain't my language.
+[01:40:59.120 --> 01:41:03.200]   So Lisa has learned a few phrases like, do you speak English?
+[01:41:03.200 --> 01:41:04.400]   I'm sorry, I don't speak French.
+[01:41:04.400 --> 01:41:05.520]   And it worked out fine.
+[01:41:05.520 --> 01:41:09.120]   But I like speaking French, especially, you know, when I'm in France,
+[01:41:09.120 --> 01:41:10.240]   I like to be able to speak French.
+[01:41:10.240 --> 01:41:11.520]   It's just courtesy too.
+[01:41:11.520 --> 01:41:12.560]   It's courtesy.
+[01:41:12.560 --> 01:41:19.520]   The first time I went to Stockholm, which oddly we went because I was so impressed
+[01:41:19.520 --> 01:41:23.120]   with Ikea when it came to the United States, I said, I got to see what this person is.
+[01:41:23.120 --> 01:41:24.160]   You didn't say what, who produced this?
+[01:41:24.160 --> 01:41:26.320]   Where are the meatballs and lingonberry jam?
+[01:41:26.320 --> 01:41:28.480]   So we arrived the first night.
+[01:41:28.480 --> 01:41:29.680]   We went to a restaurant.
+[01:41:29.680 --> 01:41:30.560]   I get to the front.
+[01:41:30.560 --> 01:41:32.960]   I say, "Sphon."
+[01:41:32.960 --> 01:41:36.160]   As if there's any confusion, I put two fingers over to make sure there were two people for dinner.
+[01:41:36.160 --> 01:41:37.600]   There were two of us there.
+[01:41:37.600 --> 01:41:39.200]   Man speaks to me in Swedish.
+[01:41:39.200 --> 01:41:41.920]   I wait and I use my my burlits at the time
+[01:41:41.920 --> 01:41:42.800]   because there was no babble.
+[01:41:42.800 --> 01:41:44.640]   And I said, I'm sorry.
+[01:41:44.640 --> 01:41:46.320]   I don't speak Swedish to you speak English.
+[01:41:46.320 --> 01:41:47.760]   It looks like we're like, why are they F'd?
+[01:41:47.760 --> 01:41:49.120]   Did you start the course?
+[01:41:49.120 --> 01:41:50.640]   I speak English.
+[01:41:50.640 --> 01:41:51.440]   I'm Swedish.
+[01:41:51.440 --> 01:41:52.560]   And Scandinavia.
+[01:41:52.560 --> 01:41:55.440]   Their English is better than Americans.
+[01:41:55.440 --> 01:41:56.800]   I mean, they speak beautifully.
+[01:41:56.800 --> 01:41:59.600]   So better at Grammario.
+[01:41:59.600 --> 01:42:02.720]   It's nice to study Chinese in college.
+[01:42:02.720 --> 01:42:07.760]   And when I was in China, just even a few words for me made such a difference in the
+[01:42:07.760 --> 01:42:11.040]   reception I got and just the warmth.
+[01:42:11.040 --> 01:42:13.760]   People are warm if you give them a chance.
+[01:42:13.760 --> 01:42:16.400]   And then speaking a little of the language is wonderful, I think.
+[01:42:16.400 --> 01:42:17.680]   So...
+[01:42:17.680 --> 01:42:19.680]   [speaking in Chinese]
+[01:42:19.680 --> 01:42:20.160]   Oh!
+[01:42:20.160 --> 01:42:22.320]   You showed Joon Hwa?
+[01:42:22.320 --> 01:42:23.680]   Did you study it?
+[01:42:23.680 --> 01:42:26.000]   [speaking in Chinese]
+[01:42:26.000 --> 01:42:26.960]   Yeah, [speaking in Chinese]
+[01:42:26.960 --> 01:42:27.680]   also, yeah.
+[01:42:27.680 --> 01:42:29.760]   Yeah, EDR.
+[01:42:29.760 --> 01:42:32.640]   I have a little Beijing accent because I had Beijing teachers.
+[01:42:32.640 --> 01:42:33.520]   So I say, EDR.
+[01:42:33.520 --> 01:42:35.360]   And they go, what are you?
+[01:42:35.360 --> 01:42:37.040]   Thank you from Beijing.
+[01:42:37.040 --> 01:42:37.520]   What are you?
+[01:42:37.520 --> 01:42:41.760]   I had a Taiwanese instructor who made fun of the...
+[01:42:41.760 --> 01:42:42.240]   Yes.
+[01:42:42.240 --> 01:42:43.360]   [speaking in Chinese]
+[01:42:43.360 --> 01:42:44.320]   [speaking in Chinese]
+[01:42:44.320 --> 01:42:44.720]   [speaking in Chinese]
+[01:42:44.720 --> 01:42:46.160]   [speaking in Chinese]
+[01:42:46.160 --> 01:42:46.800]   Well, that's cool.
+[01:42:46.800 --> 01:42:48.160]   Did you study in college?
+[01:42:48.160 --> 01:42:48.800]   That's cool.
+[01:42:48.800 --> 01:42:49.120]   Yeah.
+[01:42:49.120 --> 01:42:52.080]   Taking us back to Clubhouse, I actually
+[01:42:52.080 --> 01:42:54.080]   tuned into this Mandarin Learning Club.
+[01:42:54.080 --> 01:42:55.120]   Oh, fun.
+[01:42:55.120 --> 01:42:56.640]   Channels.
+[01:42:56.640 --> 01:42:58.080]   And it's really...
+[01:42:58.080 --> 01:43:01.120]   You know, it kind of just wakes up the brain cells.
+[01:43:01.120 --> 01:43:02.560]   Yeah, when I hear it, I just...
+[01:43:02.560 --> 01:43:03.520]   I get all excited.
+[01:43:03.520 --> 01:43:06.000]   To me, it's a beautiful language.
+[01:43:06.000 --> 01:43:06.880]   I really loved it.
+[01:43:06.880 --> 01:43:10.960]   And I've lost it completely because that was 40 years ago.
+[01:43:10.960 --> 01:43:11.280]   You know?
+[01:43:11.280 --> 01:43:13.200]   I feel the same way about Japanese.
+[01:43:13.200 --> 01:43:15.200]   I studied it for three years in college.
+[01:43:15.200 --> 01:43:17.280]   And whenever I hear it, I just get all excited.
+[01:43:17.280 --> 01:43:17.600]   Yeah.
+[01:43:17.600 --> 01:43:21.040]   I have a real affinity for China.
+[01:43:21.040 --> 01:43:21.920]   It was my major.
+[01:43:21.920 --> 01:43:22.400]   And I really...
+[01:43:22.400 --> 01:43:25.040]   Of course, when I went in the 70s,
+[01:43:25.040 --> 01:43:26.320]   you couldn't really go to China.
+[01:43:26.320 --> 01:43:28.400]   But I've been sensed.
+[01:43:28.400 --> 01:43:28.720]   Do you...
+[01:43:28.720 --> 01:43:30.160]   Have you traveled to China much, Sean?
+[01:43:30.160 --> 01:43:35.760]   I took a big trip with my family in 2017.
+[01:43:36.560 --> 01:43:36.960]   Yeah.
+[01:43:36.960 --> 01:43:37.760]   It's fascinating.
+[01:43:37.760 --> 01:43:38.160]   It's fascinating.
+[01:43:38.160 --> 01:43:38.560]   It's fascinating.
+[01:43:38.560 --> 01:43:38.800]   Yeah.
+[01:43:38.800 --> 01:43:41.440]   I have a deep affection for it.
+[01:43:41.440 --> 01:43:44.960]   And kind of all the xenophobia and the anti-Chinese sentiment
+[01:43:44.960 --> 01:43:45.680]   hurts me.
+[01:43:45.680 --> 01:43:48.640]   I understand the Chinese government is not a great regime.
+[01:43:48.640 --> 01:43:50.000]   I understand that.
+[01:43:50.000 --> 01:43:52.400]   But there's a big difference in the government and the people.
+[01:43:52.400 --> 01:43:53.680]   And the people are amazing.
+[01:43:53.680 --> 01:43:56.080]   And their cities are incredible.
+[01:43:56.080 --> 01:43:56.880]   Oh my God.
+[01:43:56.880 --> 01:43:59.520]   The public transportation actually works.
+[01:43:59.520 --> 01:44:00.160]   And you know...
+[01:44:00.160 --> 01:44:01.760]   Well, that's why I'm kind of slow.
+[01:44:01.760 --> 01:44:03.920]   I'm hesitant to condemn the Chinese government.
+[01:44:03.920 --> 01:44:04.880]   I know they're repressive.
+[01:44:04.880 --> 01:44:07.920]   And I know how they've put the Uighurs in concentration camps.
+[01:44:07.920 --> 01:44:10.320]   But imagine taking a country of a billion people
+[01:44:10.320 --> 01:44:13.120]   and taking it from essentially feudalism a hundred years ago
+[01:44:13.120 --> 01:44:16.720]   to something more modern than the US.
+[01:44:16.720 --> 01:44:18.960]   It's pretty impressive.
+[01:44:18.960 --> 01:44:23.120]   I mean, yeah, I mean, I know we're wondering way off of...
+[01:44:23.120 --> 01:44:24.560]   Way off of CAC.
+[01:44:24.560 --> 01:44:25.440]   That's what we do.
+[01:44:25.440 --> 01:44:28.400]   Welcome to the show, always.
+[01:44:28.400 --> 01:44:28.960]   Just elaborate.
+[01:44:28.960 --> 01:44:33.120]   I almost look at what the Chinese government is.
+[01:44:33.120 --> 01:44:35.840]   I do look at what the Chinese government is doing there.
+[01:44:35.840 --> 01:44:40.400]   And just thinking, why are you wasting time?
+[01:44:40.400 --> 01:44:42.000]   Why are you wasting lives?
+[01:44:42.000 --> 01:44:45.280]   Why are you wasting your international reputation?
+[01:44:45.280 --> 01:44:48.880]   Doing these cruel and unnecessary things.
+[01:44:48.880 --> 01:44:50.400]   You might wonder that about our government.
+[01:44:50.400 --> 01:44:54.240]   What is this anti-Muslim sentiment?
+[01:44:54.240 --> 01:44:55.120]   I don't understand it.
+[01:44:55.120 --> 01:45:00.000]   All right, section 230,
+[01:45:00.800 --> 01:45:03.680]   which we have all agreed is...
+[01:45:03.680 --> 01:45:06.080]   I just like the sound effect.
+[01:45:06.080 --> 01:45:06.640]   I know.
+[01:45:06.640 --> 01:45:07.920]   Every talk can say that.
+[01:45:07.920 --> 01:45:10.720]   Is that Jeff or is that just an machine that you press?
+[01:45:10.720 --> 01:45:11.120]   That's the machine.
+[01:45:11.120 --> 01:45:12.240]   I wish it were a machine.
+[01:45:12.240 --> 01:45:13.680]   I don't really need the button though.
+[01:45:13.680 --> 01:45:17.200]   I could push Jeff's buttons with just a few words.
+[01:45:17.200 --> 01:45:18.960]   Yeah, that's all it takes.
+[01:45:18.960 --> 01:45:22.720]   And it hurts me because it's the bill.
+[01:45:22.720 --> 01:45:27.680]   Here's Mike Masnick's tech dirt take.
+[01:45:28.400 --> 01:45:31.280]   Is a dumpster fire of cluelessness.
+[01:45:31.280 --> 01:45:34.240]   That's a great, great analysis.
+[01:45:34.240 --> 01:45:34.960]   It always does.
+[01:45:34.960 --> 01:45:37.200]   But this is beyond the even a Masnick standard.
+[01:45:37.200 --> 01:45:40.560]   Mark Warner has introduced a new section 230 formula.
+[01:45:40.560 --> 01:45:43.040]   Just briefly, I think everybody who listens knows,
+[01:45:43.040 --> 01:45:44.160]   because we talk about it a lot.
+[01:45:44.160 --> 01:45:49.840]   Section 230 is the section 230 of the Communications Decency Act of 1996,
+[01:45:49.840 --> 01:45:51.600]   which essentially, what is it?
+[01:45:51.600 --> 01:45:53.920]   The 23 words it created the internet.
+[01:45:53.920 --> 01:46:00.400]   46. It's a beautiful and it's minimalism,
+[01:46:00.400 --> 01:46:06.800]   but it essentially says that if you are Twitter or Facebook or Leo Leport,
+[01:46:06.800 --> 01:46:09.440]   you are a platform, not a publisher.
+[01:46:09.440 --> 01:46:12.880]   You cannot be held liable for the speech on your chatroom,
+[01:46:12.880 --> 01:46:16.800]   on your blog comments, on Facebook or Twitter.
+[01:46:16.800 --> 01:46:21.760]   And moderating them does not make you a publisher.
+[01:46:22.320 --> 01:46:24.640]   You do not have the onus of being a publisher
+[01:46:24.640 --> 01:46:26.640]   just because you moderate the content.
+[01:46:26.640 --> 01:46:31.760]   The fact that you could, in fact, quite quickly,
+[01:46:31.760 --> 01:46:34.640]   anybody sues you for somebody sues me for something
+[01:46:34.640 --> 01:46:36.560]   somebody says in my chatroom.
+[01:46:36.560 --> 01:46:37.600]   And people have threatened.
+[01:46:37.600 --> 01:46:42.080]   And I go to court, all I have to say is your honor,
+[01:46:42.080 --> 01:46:44.240]   section 230 protects me.
+[01:46:44.240 --> 01:46:46.720]   And it's summarily dismissed.
+[01:46:46.720 --> 01:46:51.040]   It's a real protection against those kinds of frivolous lawsuits.
+[01:46:51.040 --> 01:46:55.280]   And it makes it possible to have blog comments and Facebook and Twitter
+[01:46:55.280 --> 01:46:56.640]   and a chatroom and all of that.
+[01:46:56.640 --> 01:46:58.320]   So just quickly there.
+[01:46:58.320 --> 01:47:03.680]   And if you want to know more, there's a wonderful page on section 230 on tech dirt.com
+[01:47:03.680 --> 01:47:08.640]   that says you've been forwarded here because you're clueless about 230.
+[01:47:08.640 --> 01:47:15.280]   I think we should all send links to Mark Warner and Amy Klobuchar and Maisie
+[01:47:15.280 --> 01:47:20.720]   Herono, the senators who are sponsoring the Safe Tech Act, safeguarding and use
+[01:47:20.720 --> 01:47:24.880]   fraud, exploitation, threats, extremism, and consumer harms act.
+[01:47:24.880 --> 01:47:28.240]   Masnek says it's one of the worst section 230 bills I've seen.
+[01:47:28.240 --> 01:47:30.240]   And we've seen some bad ones.
+[01:47:30.240 --> 01:47:31.280]   Really awful ones.
+[01:47:31.280 --> 01:47:33.520]   There's a lot of things bad.
+[01:47:33.520 --> 01:47:40.160]   For instance, it takes that defense that 230 provides against lawsuit
+[01:47:40.160 --> 01:47:46.720]   from an affirmative defense to a defense to kind of like fair use.
+[01:47:46.720 --> 01:47:50.560]   So you would still have to go to court and you would have to defend yourself.
+[01:47:50.560 --> 01:47:52.160]   You'd have to pay a lawyer.
+[01:47:52.160 --> 01:47:58.240]   And then yes, you know, the biggest most consequential change, according to Masnek,
+[01:47:58.240 --> 01:48:03.360]   is it takes the famous 26 words of the current law, removes the protections entirely.
+[01:48:03.360 --> 01:48:07.760]   If money changes hands, in other words, advertising.
+[01:48:07.760 --> 01:48:11.840]   And then it changes it from an immunity to a merely affirmative defense.
+[01:48:11.840 --> 01:48:12.640]   So I got that backwards.
+[01:48:12.640 --> 01:48:13.920]   It's not an affirmative defense now.
+[01:48:13.920 --> 01:48:15.120]   It's an immunity.
+[01:48:15.120 --> 01:48:16.960]   It would become an affirmative defense.
+[01:48:16.960 --> 01:48:23.200]   But he says that it basically wipes out all of the benefits of 230.
+[01:48:23.200 --> 01:48:28.240]   So go ahead, Mike.
+[01:48:28.240 --> 01:48:31.360]   Let me just take a devil's advocacy.
+[01:48:31.360 --> 01:48:33.920]   And I've actually been dying to talk to Jeff about this for a long time.
+[01:48:33.920 --> 01:48:35.680]   Good.
+[01:48:35.680 --> 01:48:36.960]   Then Owen and I will sit back.
+[01:48:37.520 --> 01:48:38.000]   Yeah.
+[01:48:38.000 --> 01:48:38.800]   Here's a question.
+[01:48:38.800 --> 01:48:40.000]   So I run that.
+[01:48:40.000 --> 01:48:44.400]   So let's start with a basic free speech trope.
+[01:48:44.400 --> 01:48:44.640]   OK.
+[01:48:44.640 --> 01:48:47.520]   Yelling fire in a crowded theater.
+[01:48:47.520 --> 01:48:51.760]   OK, if you do that, that's not protected speech because you're putting people's in danger.
+[01:48:51.760 --> 01:48:57.520]   If somebody whispers to you that there's a fire in a theater and you say,
+[01:48:57.520 --> 01:49:05.840]   he said there's a fire to the whole theater, then the amplifier is the person liable.
+[01:49:05.840 --> 01:49:07.280]   Now let's take this to Facebook.
+[01:49:07.280 --> 01:49:14.480]   I agree that just allowing somebody to publish something, a social network like Twitter,
+[01:49:14.480 --> 01:49:16.400]   Facebook should not be held liable.
+[01:49:16.400 --> 01:49:22.240]   But if they amplify it, in other words, if a source of content that has 100 people
+[01:49:22.240 --> 01:49:29.200]   subscribing says something, and then Facebook's algorithms redirects it from the 100 people
+[01:49:29.200 --> 01:49:35.760]   and sends it to a million people, should Facebook not be liable for that amplification?
+[01:49:36.400 --> 01:49:38.560]   So let me, a few things on this.
+[01:49:38.560 --> 01:49:47.760]   One is that there is a bill from Tom Malinowski who happens to be my representative in New Jersey
+[01:49:47.760 --> 01:49:49.520]   that tries to do that.
+[01:49:49.520 --> 01:49:51.840]   That tries to say if you amplify, we're going to get in trouble.
+[01:49:51.840 --> 01:49:54.160]   Everybody's trying to slice 230 like it's a baloney.
+[01:49:54.160 --> 01:49:55.040]   I'll take this slice off.
+[01:49:55.040 --> 01:49:56.480]   You take that slice off, right?
+[01:49:56.480 --> 01:50:00.880]   So Foster says that took off the child porn and sex trafficking slice.
+[01:50:00.880 --> 01:50:02.800]   Somebody wants to take off the amplification slice.
+[01:50:02.800 --> 01:50:03.920]   Somebody wants to take off this slice.
+[01:50:03.920 --> 01:50:06.880]   That's what it's going to get sliced down to not honey.
+[01:50:06.880 --> 01:50:10.160]   So there are variants of that.
+[01:50:10.160 --> 01:50:11.600]   But the problem is then become a fewfold.
+[01:50:11.600 --> 01:50:16.800]   One, define what's bad, right?
+[01:50:16.800 --> 01:50:18.560]   What's the bad speech?
+[01:50:18.560 --> 01:50:19.520]   What's the problem?
+[01:50:19.520 --> 01:50:21.840]   We're going to litigate that like crazy.
+[01:50:21.840 --> 01:50:26.880]   So two, Mike Masnick himself said, if this law passes, he has to shut down tech dirt.
+[01:50:26.880 --> 01:50:32.720]   Because the harassment cost to you, then fight over these legal issues,
+[01:50:32.720 --> 01:50:40.080]   will be such that you will allow no one outside to do anything that might get you in trouble.
+[01:50:40.080 --> 01:50:44.080]   So I listened for the 87th time to Joe Scarborough.
+[01:50:44.080 --> 01:50:46.240]   I wake up at eight o'clock, you know, before eight o'clock in the morning,
+[01:50:46.240 --> 01:50:52.320]   I, I, six o'clock in the morning, I turn on the TV and there's Joe Scarborough yelling about section 230.
+[01:50:52.320 --> 01:50:54.240]   I want to sue Facebook.
+[01:50:54.240 --> 01:50:55.200]   I want to sue.
+[01:50:55.200 --> 01:50:55.920]   Oh, really?
+[01:50:55.920 --> 01:50:56.640]   He's against.
+[01:50:56.640 --> 01:50:59.760]   I knew I didn't watch that show for a reason.
+[01:50:59.760 --> 01:51:01.360]   Voted for it.
+[01:51:01.360 --> 01:51:05.680]   So 230 was Ron Wyden's addition to the CDA.
+[01:51:05.680 --> 01:51:09.680]   Very specifically to protect the internet.
+[01:51:09.680 --> 01:51:11.280]   I mean, he knew exactly what he was doing.
+[01:51:11.280 --> 01:51:12.400]   No, I go even farther.
+[01:51:12.400 --> 01:51:13.920]   It was even smarter than that, Leo.
+[01:51:13.920 --> 01:51:17.920]   It was brilliant legislation because it was to protect the public conversation.
+[01:51:17.920 --> 01:51:19.920]   That's because if you didn't have to, yes.
+[01:51:19.920 --> 01:51:22.560]   You, you, you end up with one of two extremes.
+[01:51:22.560 --> 01:51:25.360]   Either there's no public conversation, because nobody wants to be liable,
+[01:51:25.360 --> 01:51:28.880]   or there's really, really crappy public conversation.
+[01:51:28.880 --> 01:51:31.760]   Everything is parlor because you don't want to moderate it because you get,
+[01:51:31.760 --> 01:51:32.480]   become more liable.
+[01:51:32.480 --> 01:51:33.920]   It's all about liability.
+[01:51:33.920 --> 01:51:39.040]   So I made a video, by the way, to Joe Scarborough on YouTube, a little five minute video.
+[01:51:39.040 --> 01:51:42.080]   I put it up on the rundown and, and he called.
+[01:51:42.080 --> 01:51:44.320]   I was credit.
+[01:51:44.320 --> 01:51:44.880]   He called.
+[01:51:44.880 --> 01:51:45.280]   Yeah.
+[01:51:45.280 --> 01:51:49.200]   And he said, he said he's going to order Jeff Kossev's book, which I recommend to you all,
+[01:51:49.200 --> 01:51:50.960]   which is the 26 words that created the internet.
+[01:51:50.960 --> 01:51:58.480]   I said, have on Jeff Kossev, have on Mike Masnick, have on Daphne Keller and, and, and,
+[01:51:58.800 --> 01:52:00.400]   lawyers who really understand this stuff.
+[01:52:00.400 --> 01:52:06.480]   But please have someone on to explain this to you, because the, the emotional aspect here is,
+[01:52:06.480 --> 01:52:07.600]   somebody should sue them.
+[01:52:07.600 --> 01:52:09.440]   Somebody should sue Facebook out of business.
+[01:52:09.440 --> 01:52:10.800]   Well, yeah, that may well happen.
+[01:52:10.800 --> 01:52:13.520]   And with you, when you take, sue Facebook and Twitter out of business,
+[01:52:13.520 --> 01:52:16.080]   you also take with it, Black Lives Matter and me too.
+[01:52:16.080 --> 01:52:19.520]   And, and you take with it, the voices were never heard in mass media.
+[01:52:19.520 --> 01:52:21.040]   So mass media is delighted with this.
+[01:52:21.040 --> 01:52:26.960]   Murdoch would love this too, by the way, because it gets rid of all of that cacophony that I would
+[01:52:26.960 --> 01:52:28.560]   call democracy and they call noise.
+[01:52:28.560 --> 01:52:34.080]   That's the problem, Mike, is that, is that you, you, by, by, by emotionally wanting to go after
+[01:52:34.080 --> 01:52:38.160]   liability here, for, for, for, for what reason?
+[01:52:38.160 --> 01:52:39.840]   For what end?
+[01:52:39.840 --> 01:52:42.080]   Because you want to punish somebody?
+[01:52:42.080 --> 01:52:43.280]   That's what this is about.
+[01:52:43.280 --> 01:52:46.800]   So personally, and then it takes with it a lot of other things.
+[01:52:46.800 --> 01:52:50.720]   Yeah, personally, I think that the one of the reasons, so there's been the great canceling,
+[01:52:50.720 --> 01:52:55.280]   or whatever you want to call it, where all the social networks got rid of all the QAnon people
+[01:52:55.280 --> 01:52:57.520]   and got rid of Trump and got rid of all this stuff.
+[01:52:57.520 --> 01:52:58.160]   230.
+[01:52:58.160 --> 01:53:01.360]   230 allows them to do, very importantly.
+[01:53:01.360 --> 01:53:05.920]   That's why the right doesn't want 230, because 230 protected them in doing so.
+[01:53:05.920 --> 01:53:12.000]   My, my fear is people, I think people don't appreciate certain aspects of democracy or free
+[01:53:12.000 --> 01:53:17.840]   speech. One of the aspects of democracy people don't appreciate is that by having all everybody
+[01:53:17.840 --> 01:53:23.120]   involved, they're, they're inside the tent instead of outside trying to destroy the system.
+[01:53:23.120 --> 01:53:29.200]   And same thing with free speech. You want everybody to be free to speak as, as much as possible.
+[01:53:29.200 --> 01:53:34.800]   But I feel like the amplification, the automated amplification and the game, the, the ability to
+[01:53:34.800 --> 01:53:36.160]   game the algorithm.
+[01:53:36.160 --> 01:53:37.280]   Mike, what are we doing right now?
+[01:53:37.280 --> 01:53:38.480]   Yeah, exactly.
+[01:53:38.480 --> 01:53:38.960]   We're right now.
+[01:53:38.960 --> 01:53:39.520]   What am I doing?
+[01:53:39.520 --> 01:53:40.960]   We're amplifying things right now.
+[01:53:40.960 --> 01:53:41.680]   Right?
+[01:53:41.680 --> 01:53:42.560]   So we're doing that.
+[01:53:42.560 --> 01:53:42.720]   Right?
+[01:53:42.720 --> 01:53:43.760]   That's what media has always done.
+[01:53:43.760 --> 01:53:45.680]   That's just what media has done for a long time.
+[01:53:45.680 --> 01:53:46.800]   It amplifies.
+[01:53:46.800 --> 01:53:46.960]   Yeah.
+[01:53:46.960 --> 01:53:48.160]   Yeah.
+[01:53:48.160 --> 01:53:52.720]   Emilio, the editor of the Chronicle decides what to put in the Chronicle.
+[01:53:52.720 --> 01:53:56.560]   Oh, and the business editor decides to put the business section.
+[01:53:56.560 --> 01:53:57.440]   They amplify.
+[01:53:57.440 --> 01:53:59.120]   It's what media has always done.
+[01:53:59.120 --> 01:54:03.040]   A human does that, but a human is very difficult to game in that in the same way.
+[01:54:03.040 --> 01:54:04.880]   So you have this.
+[01:54:04.880 --> 01:54:06.480]   There's an industry called PR.
+[01:54:06.480 --> 01:54:07.360]   Don't do that.
+[01:54:07.360 --> 01:54:13.760]   Well, you have info wars and all these who are, who are devoted to the project of figuring
+[01:54:13.760 --> 01:54:18.320]   how to game algorithms while nobody's paying attention and have all these runaway things.
+[01:54:18.320 --> 01:54:20.480]   Then you have the Facebook recommendation engine.
+[01:54:20.480 --> 01:54:25.440]   It's Facebook itself that has studied to find out what the number one reason is,
+[01:54:25.440 --> 01:54:27.040]   why people join extremist groups.
+[01:54:27.040 --> 01:54:31.440]   And the number one reason was Facebook was explicitly recommending those groups to people.
+[01:54:31.440 --> 01:54:36.640]   And then they got rid of, you know, said, okay, well, don't do anything about it.
+[01:54:36.640 --> 01:54:40.160]   Mark Zuckerberg himself personally said, don't take action on this.
+[01:54:40.160 --> 01:54:41.680]   Just let this keep happening.
+[01:54:41.680 --> 01:54:43.680]   Then they got caught and they changed it and all that stuff.
+[01:54:43.680 --> 01:54:51.840]   But my point is that I would love to see people be able to have the bubble of free speech to be
+[01:54:51.840 --> 01:54:58.480]   much larger, to have more extreme content, but not have that content amplified and converting
+[01:54:58.480 --> 01:54:59.520]   people into extremists.
+[01:54:59.520 --> 01:55:04.000]   But the other version of that mic is like, so then you end up with a world of billboards.
+[01:55:04.000 --> 01:55:07.280]   Then this notion that there is some kind of definition of neutrality out there,
+[01:55:07.280 --> 01:55:11.200]   where they're not allowed to select things on the basis of what they know about me,
+[01:55:11.200 --> 01:55:14.320]   then all I have is a huge river of crap.
+[01:55:14.320 --> 01:55:18.320]   What Facebook does in fact do is to try to find the things that I'm more interested in.
+[01:55:18.320 --> 01:55:21.360]   Now that gets demonized like, they made Jarvis a door radical.
+[01:55:21.360 --> 01:55:22.560]   He didn't use the screen like this.
+[01:55:22.560 --> 01:55:24.560]   It was only because of Facebook that he does this, right?
+[01:55:24.560 --> 01:55:26.400]   And that's the argument that's made.
+[01:55:26.400 --> 01:55:27.360]   Believe me, I've always done this.
+[01:55:27.360 --> 01:55:31.440]   So it gets demonized, but in fact, it's a service.
+[01:55:31.440 --> 01:55:32.480]   It's relevance.
+[01:55:32.480 --> 01:55:36.000]   Mass media was a one size fits all product.
+[01:55:36.000 --> 01:55:36.800]   We've lived there.
+[01:55:36.800 --> 01:55:37.360]   I've had that.
+[01:55:37.360 --> 01:55:39.120]   I don't think it's any damn good.
+[01:55:39.120 --> 01:55:42.160]   And the other problem here is that there is this presumption that,
+[01:55:42.160 --> 01:55:45.360]   oh my God, Facebook's accessible, it's awful, horrible things happen.
+[01:55:45.360 --> 01:55:47.600]   The numbers don't back that up.
+[01:55:47.600 --> 01:55:50.000]   The numbers, the research doesn't back that up.
+[01:55:50.000 --> 01:55:53.600]   We're not in filter bubbles.
+[01:55:53.600 --> 01:55:55.360]   We're not as bad as it seems.
+[01:55:55.360 --> 01:56:00.480]   Now what we do want for the platforms is data to researchers to understand what the impact is.
+[01:56:00.480 --> 01:56:04.560]   We need that and I will argue strenuously for that, but we don't know right now.
+[01:56:04.560 --> 01:56:08.400]   And so there's a lot of emotional presumption that something must be done.
+[01:56:08.400 --> 01:56:11.920]   We must, 230 is the cause of all of our ills before 230.
+[01:56:11.920 --> 01:56:12.960]   We were a great country.
+[01:56:12.960 --> 01:56:14.080]   We were racist at all.
+[01:56:14.080 --> 01:56:16.880]   It's a free market.
+[01:56:16.880 --> 01:56:23.040]   Taking care of this because sleeping giants and other activists have
+[01:56:23.040 --> 01:56:30.240]   called Facebook and Google to account for the extremism on their services.
+[01:56:30.240 --> 01:56:34.640]   And part of the reaction was that large advertisers, at least for a time,
+[01:56:34.640 --> 01:56:39.040]   boycotted Facebook and YouTube in particular.
+[01:56:39.040 --> 01:56:42.320]   I don't think that really took a chunk out of their earnings though.
+[01:56:42.320 --> 01:56:47.280]   So I'm not sure if that's really going to be the thing that rains them in.
+[01:56:47.280 --> 01:56:48.560]   It didn't.
+[01:56:48.560 --> 01:56:52.160]   Here's a better example of them right now is that
+[01:56:52.160 --> 01:56:58.880]   Lou Gobs was on Fox networks for a long time.
+[01:56:58.880 --> 01:57:00.720]   What forced him off?
+[01:57:00.720 --> 01:57:01.600]   Somebody's suing.
+[01:57:01.600 --> 01:57:04.080]   Now I look at that and I hate Mergock and I hate Fox.
+[01:57:04.080 --> 01:57:05.440]   Why I say, oh goody.
+[01:57:05.440 --> 01:57:07.360]   But there is a concern there.
+[01:57:07.360 --> 01:57:10.240]   I look at the Peter Teal site, sued against Gawker.
+[01:57:10.240 --> 01:57:12.960]   Right?
+[01:57:12.960 --> 01:57:15.280]   So we just had not familiar with the incident.
+[01:57:15.280 --> 01:57:17.040]   Have you ever heard of that, Gawker?
+[01:57:17.040 --> 01:57:17.440]   Exactly.
+[01:57:17.440 --> 01:57:17.760]   What is?
+[01:57:17.760 --> 01:57:21.200]   Oh, and was the editor in chief of ValleyWag.
+[01:57:21.200 --> 01:57:22.720]   It was in that perspective.
+[01:57:22.720 --> 01:57:23.680]   Was it in that time frame?
+[01:57:23.680 --> 01:57:26.320]   Was the Teal lawsuit related to your work?
+[01:57:26.320 --> 01:57:30.640]   It was years after I left.
+[01:57:30.640 --> 01:57:35.200]   But it was directly related to some posts I wrote.
+[01:57:35.200 --> 01:57:37.920]   Did you out Peter?
+[01:57:37.920 --> 01:57:45.520]   Peter Teal was publicly known to be gay in a very large circle.
+[01:57:45.520 --> 01:57:46.800]   We should put out your gay as well.
+[01:57:46.800 --> 01:57:50.160]   Yeah, which doesn't give me a special right to
+[01:57:50.160 --> 01:57:55.120]   write about one's sexual orientation.
+[01:57:55.120 --> 01:57:58.320]   But the thing I wrote back then was that
+[01:57:59.840 --> 01:58:04.720]   people in Silicon Valley are being very weird and touchy when I bring up this topic.
+[01:58:04.720 --> 01:58:10.720]   And it seems unenlightened to treat gayness as something for
+[01:58:10.720 --> 01:58:13.760]   you know, for Bowden that we can't talk about.
+[01:58:13.760 --> 01:58:13.760]   Right.
+[01:58:13.760 --> 01:58:19.360]   When many people know that Peter Teal is gay, many people know that I'm gay.
+[01:58:19.360 --> 01:58:25.920]   You know, I don't need to broadcast it and say, I'm out, I'm out, I'm out for it to be okay.
+[01:58:25.920 --> 01:58:29.280]   You know, I feel like coming out is something we do for-
+[01:58:29.280 --> 01:58:31.040]   We don't need to relitigate that.
+[01:58:31.040 --> 01:58:32.880]   But I just do want to thank you for putting God.
+[01:58:32.880 --> 01:58:37.520]   What I would like to hear though is that-
+[01:58:37.520 --> 01:58:41.680]   because that's not the point where I was headed here.
+[01:58:41.680 --> 01:58:44.640]   And I'm glad you're here for a million reasons of all the history you bring.
+[01:58:44.640 --> 01:58:47.120]   And you bring that, I'm sure, difficult history.
+[01:58:47.120 --> 01:58:52.400]   But if you don't mind, talk for a minute about the legal chill
+[01:58:52.400 --> 01:58:57.360]   that you lived through, that your colleagues lived through,
+[01:58:57.360 --> 01:59:01.760]   and what do you think that even that alone, just that suit has done to the business?
+[01:59:01.760 --> 01:59:03.360]   Absolutely.
+[01:59:03.360 --> 01:59:07.040]   I mean, to be clear, I left Bowden Media in 2009.
+[01:59:07.040 --> 01:59:11.360]   The lawsuit was, I believe, six years later.
+[01:59:11.360 --> 01:59:15.920]   And we didn't learn, you know, no one involved learned of Peter Teal's involvement
+[01:59:15.920 --> 01:59:17.200]   in funding the lawsuit.
+[01:59:17.200 --> 01:59:20.160]   It was a lawsuit by Hulk Hogan against-
+[01:59:20.160 --> 01:59:21.680]   It wasn't about Teal, right?
+[01:59:21.680 --> 01:59:22.160]   No, no.
+[01:59:22.160 --> 01:59:23.360]   It was clear to the audience.
+[01:59:23.360 --> 01:59:23.840]   Yeah, yeah.
+[01:59:23.840 --> 01:59:24.320]   And-
+[01:59:24.320 --> 01:59:24.880]   You just funded.
+[01:59:25.760 --> 01:59:29.520]   Yeah, Peter Teal used a strategy called litigation financing
+[01:59:29.520 --> 01:59:33.040]   just to harm Gawker, not because he was interested in-
+[01:59:33.040 --> 01:59:34.560]   And that's shameful.
+[01:59:34.560 --> 01:59:35.840]   That's really a poem.
+[01:59:35.840 --> 01:59:36.400]   Yeah.
+[01:59:36.400 --> 01:59:36.960]   Yeah.
+[01:59:36.960 --> 01:59:42.560]   He had no particular interest in Hulk Hogan, except that privacy lawsuit was a vehicle for him.
+[01:59:42.560 --> 01:59:43.120]   Right.
+[01:59:43.120 --> 01:59:46.640]   And I think it's a very real chill.
+[01:59:46.640 --> 01:59:54.160]   Gawker filed for bankruptcy because of particular quirks of Florida law
+[01:59:54.160 --> 02:00:01.280]   and the way that a decision basically had to be immediately paid out before an appeal was heard.
+[02:00:01.280 --> 02:00:01.680]   Wow.
+[02:00:01.680 --> 02:00:07.840]   And, you know, again, this was part of a deliberate strategy to place the lawsuit in Florida
+[02:00:07.840 --> 02:00:12.080]   so that they could go down this path.
+[02:00:12.080 --> 02:00:18.080]   And we think of the United States as having fairly media-friendly laws,
+[02:00:18.640 --> 02:00:28.000]   but the fact that a lawsuit like this can be pursued even though it was-
+[02:00:28.000 --> 02:00:35.200]   Gawker believed it could be overturned on appeal, meaning that the original decision was not sound.
+[02:00:35.200 --> 02:00:37.360]   It's scary.
+[02:00:37.360 --> 02:00:43.680]   Let's go back to Mike Masnick talking about the legal risk from overturning section 230.
+[02:00:44.240 --> 02:00:52.000]   He's basically saying his website could not operate because the legal uncertainty is just too great.
+[02:00:52.000 --> 02:00:52.320]   Right.
+[02:00:52.320 --> 02:00:53.360]   And I think I'm just-
+[02:00:53.360 --> 02:00:54.080]   It's just small.
+[02:00:54.080 --> 02:00:55.280]   I wouldn't have a chatroom.
+[02:00:55.280 --> 02:00:56.400]   We wouldn't have comments.
+[02:00:56.400 --> 02:00:59.920]   We wouldn't have a forum for the same reason.
+[02:00:59.920 --> 02:01:02.000]   You have a "don't button" for me when I say anything.
+[02:01:02.000 --> 02:01:02.480]   Definitely.
+[02:01:02.480 --> 02:01:04.880]   I would just eliminate all other hosts.
+[02:01:04.880 --> 02:01:10.800]   No, it's really- it's more than fanciful.
+[02:01:10.800 --> 02:01:14.080]   It is a chilling effect. And I'm actually thrilled that you're a hero.
+[02:01:14.080 --> 02:01:19.120]   And because you have direct experience of exactly the kind of thing we're talking about.
+[02:01:19.120 --> 02:01:21.120]   And it put Gawker out of business.
+[02:01:21.120 --> 02:01:23.280]   And I'm being facetious about it.
+[02:01:23.280 --> 02:01:24.800]   But that was-
+[02:01:24.800 --> 02:01:29.680]   Well, you would have to judge the risk.
+[02:01:29.680 --> 02:01:30.240]   Yeah.
+[02:01:30.240 --> 02:01:35.120]   If all of a sudden you're working with a Chronicle, they have really good lawyers.
+[02:01:35.120 --> 02:01:37.440]   They have a lot of experience at doing this.
+[02:01:37.440 --> 02:01:40.480]   They're the one hand they're richer to go after, the other hand they're harder to go after.
+[02:01:40.480 --> 02:01:41.760]   Well, it's that regular story.
+[02:01:41.760 --> 02:01:43.200]   It's that regular cap-
+[02:01:43.200 --> 02:01:44.560]   regular capture again.
+[02:01:44.560 --> 02:01:47.200]   Facebook probably could defend itself against sex.
+[02:01:47.200 --> 02:01:48.640]   This new bill.
+[02:01:48.640 --> 02:01:49.120]   I couldn't.
+[02:01:49.120 --> 02:01:51.040]   Or wouldn't and wouldn't.
+[02:01:51.040 --> 02:01:53.200]   Well, Facebook wouldn't have to change.
+[02:01:53.200 --> 02:01:58.720]   The algorithms would go in and become even stupider.
+[02:01:58.720 --> 02:02:01.680]   Because if you used a word like "Nazi"
+[02:02:01.680 --> 02:02:06.960]   they would fear that you were going to be accusing someone of that.
+[02:02:06.960 --> 02:02:07.680]   Right.
+[02:02:07.680 --> 02:02:08.480]   Or thief.
+[02:02:08.480 --> 02:02:10.000]   Or pick a bad word.
+[02:02:10.000 --> 02:02:11.200]   That could be said about someone.
+[02:02:11.200 --> 02:02:12.640]   So I think they're going to try to cut it all out.
+[02:02:12.640 --> 02:02:14.480]   What is the likelihood of this passing?
+[02:02:14.480 --> 02:02:18.640]   We've seen a lot of Section 230 attacks over the last six months.
+[02:02:18.640 --> 02:02:19.440]   It's not this one.
+[02:02:19.440 --> 02:02:23.600]   It's the combination of the pincer of both the right and left going after them
+[02:02:23.600 --> 02:02:24.080]   for their own reason.
+[02:02:24.080 --> 02:02:25.040]   And it's the cluelessness.
+[02:02:25.040 --> 02:02:26.000]   Yes.
+[02:02:26.000 --> 02:02:27.200]   It's the lack of understanding.
+[02:02:27.200 --> 02:02:28.640]   It's not a hard law to understand.
+[02:02:28.640 --> 02:02:29.120]   Yeah.
+[02:02:29.120 --> 02:02:30.560]   Nobody gets it.
+[02:02:30.560 --> 02:02:32.560]   Masnick just tears his hair out.
+[02:02:32.560 --> 02:02:33.760]   He's playing it a hundred times.
+[02:02:33.760 --> 02:02:35.040]   I will save-
+[02:02:35.040 --> 02:02:35.680]   And he is Jeff Gossup.
+[02:02:35.680 --> 02:02:38.080]   I will save the antitrust bill for Wednesday.
+[02:02:38.080 --> 02:02:39.280]   We'll talk about it on Wednesday.
+[02:02:39.280 --> 02:02:40.400]   It's a little thanks.
+[02:02:40.400 --> 02:02:41.760]   My blood pressure is too hot.
+[02:02:41.760 --> 02:02:42.960]   I don't want to kill Jeff.
+[02:02:42.960 --> 02:02:47.280]   A couple of really quick stories before we wrap things up.
+[02:02:47.280 --> 02:02:49.120]   This I thought fascinating.
+[02:02:49.120 --> 02:02:55.040]   Governor Sisalak of Nevada, Democrat, has announced a plan to launch
+[02:02:55.040 --> 02:03:01.360]   innovation zones in Nevada to jumpstart the state's economy by attracting technology firms.
+[02:03:01.360 --> 02:03:05.200]   Among other things, the zone would permit a company with large areas of land,
+[02:03:05.200 --> 02:03:08.560]   like say Tesla, which has the Gigafactory in Nevada.
+[02:03:09.120 --> 02:03:14.560]   To form its own government with the same authority as a county,
+[02:03:14.560 --> 02:03:16.640]   including the ability to impose taxes,
+[02:03:16.640 --> 02:03:21.680]   form school districts and courts, and provide government services.
+[02:03:21.680 --> 02:03:24.080]   Sixteen tons.
+[02:03:24.080 --> 02:03:25.280]   What do you get?
+[02:03:25.280 --> 02:03:27.520]   It's the company store times.
+[02:03:27.520 --> 02:03:28.640]   A thousand.
+[02:03:28.640 --> 02:03:31.040]   This has not yet been-
+[02:03:31.040 --> 02:03:33.440]   He said it in his state of the state address
+[02:03:33.440 --> 02:03:35.360]   January 19th.
+[02:03:35.360 --> 02:03:37.760]   It has not yet been introduced in the legislature.
+[02:03:38.560 --> 02:03:39.680]   Wow.
+[02:03:39.680 --> 02:03:42.640]   I wonder if that's really where we're headed.
+[02:03:42.640 --> 02:03:45.680]   This is, he said, "Remember tax benefits will just lay in tax."
+[02:03:45.680 --> 02:03:46.640]   Yeah.
+[02:03:46.640 --> 02:03:47.840]   That's exactly.
+[02:03:47.840 --> 02:03:48.960]   It's Larry Page's island.
+[02:03:48.960 --> 02:03:56.160]   Larry Page, the co-founder of Google, proposed essentially a zone
+[02:03:56.160 --> 02:04:01.200]   free of regulations so that tech companies could experiment and figure things out.
+[02:04:01.200 --> 02:04:06.480]   If you remember, Google had a floating barge at one point and people were wondering,
+[02:04:06.480 --> 02:04:08.480]   "This is the way I forgot about that."
+[02:04:08.480 --> 02:04:09.840]   That's right.
+[02:04:09.840 --> 02:04:13.920]   Is that so they could take it out to see you?
+[02:04:13.920 --> 02:04:16.000]   Just as the international water-
+[02:04:16.000 --> 02:04:18.480]   Just as UAE, the UAE has realized-
+[02:04:18.480 --> 02:04:20.160]   Oil is not going to last forever.
+[02:04:20.160 --> 02:04:21.200]   We need to have-
+[02:04:21.200 --> 02:04:23.120]   They've launched a space program now.
+[02:04:23.120 --> 02:04:24.880]   We need to have other things.
+[02:04:24.880 --> 02:04:28.560]   I think Nevada is saying the casino industry may not last forever.
+[02:04:28.560 --> 02:04:31.120]   We need another way of generating some revenue.
+[02:04:31.120 --> 02:04:33.440]   We got a lot of desert.
+[02:04:33.440 --> 02:04:35.280]   What if we just-
+[02:04:35.280 --> 02:04:42.000]   I think self-driving cars is a big real world illustration of this,
+[02:04:42.000 --> 02:04:48.720]   where we've had a competition, a race to the bottom among states to see
+[02:04:48.720 --> 02:04:55.120]   which state can regulate them the least and thereby attract testing.
+[02:04:55.120 --> 02:04:56.240]   Well, what did we get for that?
+[02:04:56.240 --> 02:05:00.080]   We got a woman killed by a robot car in Arizona.
+[02:05:00.080 --> 02:05:00.320]   Yeah.
+[02:05:00.320 --> 02:05:02.800]   That's the all through the testing.
+[02:05:04.000 --> 02:05:05.440]   I think it's a tremendously-
+[02:05:05.440 --> 02:05:09.920]   It's a bad enough idea to have a situation where
+[02:05:09.920 --> 02:05:14.400]   states within this country, counties within states,
+[02:05:14.400 --> 02:05:21.840]   compete with each other to say who can be the most lax in regulatory state.
+[02:05:21.840 --> 02:05:26.560]   Well, devil's advocacy, how many people were killed by human-driven cars?
+[02:05:26.560 --> 02:05:27.200]   Good point.
+[02:05:27.200 --> 02:05:32.960]   The self-driving car thing is all about getting to a point where
+[02:05:32.960 --> 02:05:35.040]   far fewer people die than cars.
+[02:05:35.040 --> 02:05:35.520]   Yeah.
+[02:05:35.520 --> 02:05:37.040]   No, true, but Mike, I think I think Owen's-
+[02:05:37.040 --> 02:05:40.080]   I'm going to agree with Owen on this one because I think that the problem was it wasn't a Google
+[02:05:40.080 --> 02:05:45.200]   car that killed the person and the person was going across the street, but it was another company
+[02:05:45.200 --> 02:05:48.640]   that was kind of rushing through this and they found the place where they could rush better.
+[02:05:48.640 --> 02:05:48.880]   Right.
+[02:05:48.880 --> 02:05:50.480]   Google's taking a lot of care about this.
+[02:05:50.480 --> 02:05:53.520]   Uber has since left that cat exactly.
+[02:05:53.520 --> 02:05:55.280]   They're no longer doing self-driving vehicles.
+[02:05:55.280 --> 02:05:55.760]   Yeah.
+[02:05:55.760 --> 02:05:58.080]   They'll let Google and Apple do it instead.
+[02:05:59.200 --> 02:06:02.400]   The other story real quick because I want to let you guys go.
+[02:06:02.400 --> 02:06:03.760]   We've been going two hours.
+[02:06:03.760 --> 02:06:07.920]   The other story, 23 and me, this is everybody's worst nightmare is going public
+[02:06:07.920 --> 02:06:11.360]   with aid from Richard Branson.
+[02:06:11.360 --> 02:06:16.880]   They've got your genetic material and now they're going public, folks, with a SPAC.
+[02:06:16.880 --> 02:06:18.080]   What's a SPAC, Owen?
+[02:06:18.080 --> 02:06:20.960]   I had you on specifically to explain this.
+[02:06:20.960 --> 02:06:24.800]   A SPAC is a special purpose acquisition corporation.
+[02:06:24.800 --> 02:06:27.760]   We used to just call them blank chat companies.
+[02:06:27.760 --> 02:06:31.440]   So this is a company that has literally no business.
+[02:06:31.440 --> 02:06:33.280]   It's just some money.
+[02:06:33.280 --> 02:06:36.480]   In this case, it's Richard Branson's VG acquisition corporation.
+[02:06:36.480 --> 02:06:36.880]   Exactly.
+[02:06:36.880 --> 02:06:43.680]   Think of it as a big pot of money and according to the rules of the NASDAQ and the New York
+[02:06:43.680 --> 02:06:47.760]   Stock Exchange, it's actually legal to take a company like this public.
+[02:06:47.760 --> 02:06:51.520]   You disclose to investors that we have a pot of money.
+[02:06:51.520 --> 02:06:52.720]   We're going to put it in a trust.
+[02:06:52.720 --> 02:06:56.320]   We're going to look for something to buy and then we're going to buy that business.
+[02:06:57.600 --> 02:06:58.720]   We're already public.
+[02:06:58.720 --> 02:07:02.960]   We're trading and we're going to mash our ticker symbol together with their business
+[02:07:02.960 --> 02:07:05.360]   and suddenly you've got a company.
+[02:07:05.360 --> 02:07:07.920]   How is that different from an IPO?
+[02:07:07.920 --> 02:07:14.320]   Well, one thing it does let you do is you can buy essentially earlier stage companies,
+[02:07:14.320 --> 02:07:20.640]   companies that might not be mature enough or like their financials might not look quite right
+[02:07:20.640 --> 02:07:24.000]   for a conventional Wall Street IPO process.
+[02:07:25.600 --> 02:07:31.280]   On the other hand, you're still putting retail investors at risk
+[02:07:31.280 --> 02:07:35.040]   when you buy into these companies.
+[02:07:35.040 --> 02:07:40.480]   There's also the privacy concern because now who owns the spit?
+[02:07:40.480 --> 02:07:43.520]   It's going to be the question.
+[02:07:43.520 --> 02:07:49.280]   By the way, I have not one but two vials of spit in the rack at 23 and me because I bought some more.
+[02:07:49.280 --> 02:07:53.120]   The ticker symbol, which should be spit, honest.
+[02:07:55.200 --> 02:07:55.920]   It's okay.
+[02:07:55.920 --> 02:08:00.160]   It's me, me and it will be traded on the New York Stock Exchange.
+[02:08:00.160 --> 02:08:02.400]   They've gone public without really going public.
+[02:08:02.400 --> 02:08:03.120]   It's fascinating.
+[02:08:03.120 --> 02:08:03.520]   I don't understand.
+[02:08:03.520 --> 02:08:11.680]   Oh, and in a case like this, would they have gotten more if they'd gotten public in the IPO path?
+[02:08:11.680 --> 02:08:19.840]   I think SBCAC is in some ways more like an acquisition for the target company.
+[02:08:20.880 --> 02:08:25.760]   A lot depends on how much money they've raised, what their investors are expecting,
+[02:08:25.760 --> 02:08:32.320]   and the really technical details about the capital structure, which I won't get into.
+[02:08:32.320 --> 02:08:38.800]   There may be reasons why it's actually better, especially for the venture capital investors
+[02:08:38.800 --> 02:08:41.520]   to go through his back.
+[02:08:41.520 --> 02:08:47.200]   Well, Jiske and Branson both invested $25 million, but is that just pro forma?
+[02:08:48.640 --> 02:08:53.120]   I think that's saying they're putting some fun on the table.
+[02:08:53.120 --> 02:08:59.360]   They're doing that to boost confidence in the deal.
+[02:08:59.360 --> 02:09:00.240]   What's the governance?
+[02:09:00.240 --> 02:09:04.240]   Is Branson now on the board of the company?
+[02:09:04.240 --> 02:09:12.000]   He's one of the managers of the SPAC.
+[02:09:14.720 --> 02:09:18.240]   Where he lands in terms of the operating company, I have not seen that.
+[02:09:18.240 --> 02:09:25.520]   It just means that Susan Wojcicki gets more invitations to Nectar.
+[02:09:25.520 --> 02:09:28.480]   I mean, Anne Wojcicki, Susan's her sister who runs YouTube.
+[02:09:28.480 --> 02:09:32.080]   Actually, probably both sisters get more invitations to Nectar Island
+[02:09:32.080 --> 02:09:35.120]   so that they can enjoy the private island of the Caribbean.
+[02:09:35.120 --> 02:09:41.200]   The interesting thing to me is that the sponsor of a SPAC, the company that creates it,
+[02:09:41.200 --> 02:09:44.320]   typically gets a fifth of the company.
+[02:09:44.320 --> 02:09:45.920]   Just for setting up the deal.
+[02:09:45.920 --> 02:09:46.720]   Just for doing it.
+[02:09:46.720 --> 02:09:47.440]   That's their commission.
+[02:09:47.440 --> 02:09:48.400]   That's in your bank.
+[02:09:48.400 --> 02:09:52.720]   So current shareholders of 23andMe will own 81% of the combined company.
+[02:09:52.720 --> 02:09:55.920]   So I guess the other 19% goes to Richard Branson.
+[02:09:55.920 --> 02:10:01.200]   And that seems like a big take for taking a company public.
+[02:10:01.200 --> 02:10:01.680]   Interesting.
+[02:10:01.680 --> 02:10:04.720]   Well, this is why we have financial reporters on.
+[02:10:04.720 --> 02:10:07.840]   Next week, we'll talk stonks with Owen Thomas.
+[02:10:07.840 --> 02:10:12.560]   It's so good to have you, Owen.
+[02:10:12.560 --> 02:10:13.360]   Come back soon.
+[02:10:13.360 --> 02:10:14.240]   We really appreciate it.
+[02:10:14.240 --> 02:10:14.800]   Yeah, it's great.
+[02:10:14.800 --> 02:10:16.400]   Owen, really, really cool to have you here.
+[02:10:16.400 --> 02:10:17.680]   Fantastic stuff.
+[02:10:17.680 --> 02:10:21.200]   Owen Thomas is the business editor at the San Francisco Chronicle
+[02:10:21.200 --> 02:10:23.840]   at Owen Thomas on the Twitter.
+[02:10:23.840 --> 02:10:24.880]   Is it SFGate?
+[02:10:24.880 --> 02:10:26.640]   Is that where people should go to read your stuff?
+[02:10:26.640 --> 02:10:28.480]   We're actually SFChronicle.com.
+[02:10:28.480 --> 02:10:32.160]   We set up our own subscription paywall site.
+[02:10:32.160 --> 02:10:32.640]   Oh!
+[02:10:32.640 --> 02:10:34.880]   Yeah, SFGate's completely--
+[02:10:34.880 --> 02:10:36.160]   Gates not the same anymore.
+[02:10:36.160 --> 02:10:38.160]   Oh, that's good to know.
+[02:10:38.160 --> 02:10:40.240]   Because yeah, the gate did not have a business header.
+[02:10:41.040 --> 02:10:43.760]   So I see that the Chronicle does.
+[02:10:43.760 --> 02:10:44.320]   Good.
+[02:10:44.320 --> 02:10:45.360]   SFChronicle.
+[02:10:45.360 --> 02:10:49.520]   Jeff knows that whole complex history with the examiner,
+[02:10:49.520 --> 02:10:50.560]   the Chronicle, SFG.
+[02:10:50.560 --> 02:10:53.680]   It's the partnership.
+[02:10:53.680 --> 02:10:54.480]   Yeah, yeah.
+[02:10:54.480 --> 02:10:56.720]   Jeff Jarvis--
+[02:10:56.720 --> 02:10:59.600]   A cut of us back in reverse with a triple cow.
+[02:10:59.600 --> 02:11:03.280]   I give it a 10.
+[02:11:03.280 --> 02:11:04.560]   He stuck the landing.
+[02:11:04.560 --> 02:11:07.120]   Director of the Townite Center for Entrepreneurial Journalism
+[02:11:07.120 --> 02:11:07.760]   at the Craig.
+[02:11:07.760 --> 02:11:08.560]   New Mark.
+[02:11:08.560 --> 02:11:10.240]   New Mark Graduate School of Journalism
+[02:11:10.240 --> 02:11:11.280]   at the City University of New York.
+[02:11:11.280 --> 02:11:13.920]   We do that because Craig listens and he wants his name sung.
+[02:11:13.920 --> 02:11:15.600]   It's part of the deal.
+[02:11:15.600 --> 02:11:16.640]   No, I do it only.
+[02:11:16.640 --> 02:11:17.920]   No, he doesn't need any wet blood.
+[02:11:17.920 --> 02:11:18.400]   Don't accuse him.
+[02:11:18.400 --> 02:11:19.280]   I do it in tribute.
+[02:11:19.280 --> 02:11:20.480]   Yes, it's a tribute.
+[02:11:20.480 --> 02:11:21.120]   It's a tribute.
+[02:11:21.120 --> 02:11:22.080]   That's all.
+[02:11:22.080 --> 02:11:22.640]   Thank you, Jeff.
+[02:11:22.640 --> 02:11:25.760]   We'll see you Wednesday and we can talk about the antitrust legislation.
+[02:11:25.760 --> 02:11:27.120]   No!
+[02:11:27.120 --> 02:11:29.600]   Then I like to keep his blood pressure up.
+[02:11:29.600 --> 02:11:30.560]   Keeps him alive.
+[02:11:30.560 --> 02:11:32.720]   Mike, so good to see you.
+[02:11:32.720 --> 02:11:36.960]   Mike Elgin, give us a plug for Kevin's talking box.
+[02:11:38.000 --> 02:11:41.360]   Well, hello chatterbox.com is where you can go and learn more.
+[02:11:41.360 --> 02:11:45.600]   But it's basically a build it yourself, program it yourself,
+[02:11:45.600 --> 02:11:47.600]   smart speaker like the Amazon Echo.
+[02:11:47.600 --> 02:11:51.680]   But it's the only smart speaker that I'm aware of that is legal
+[02:11:51.680 --> 02:11:54.320]   in schools for kids because it is so private.
+[02:11:54.320 --> 02:12:00.800]   Neither chatterbox nor its partners have any idea who the customer is.
+[02:12:00.800 --> 02:12:03.840]   And so this is just an easy to build project.
+[02:12:03.840 --> 02:12:05.360]   It's designed for kids nine and up.
+[02:12:05.360 --> 02:12:06.480]   But even if you're an adult,
+[02:12:06.480 --> 02:12:09.920]   you want to make something that's private and it's powerful,
+[02:12:09.920 --> 02:12:13.680]   it does way more than an Amazon Echo does because it will literally do
+[02:12:13.680 --> 02:12:14.960]   anything you teach it to do.
+[02:12:14.960 --> 02:12:17.360]   It's just a fantastic product.
+[02:12:17.360 --> 02:12:20.320]   Kevin spends morning till night perfecting this product
+[02:12:20.320 --> 02:12:23.040]   and it's really become an amazing thing.
+[02:12:23.040 --> 02:12:26.160]   So I would recommend everybody go to hellofchatterbox.com
+[02:12:26.160 --> 02:12:27.520]   and thank you for letting me do that plug.
+[02:12:27.520 --> 02:12:30.960]   I always love that because I think it's a great project.
+[02:12:30.960 --> 02:12:32.640]   I love Kevin, love you.
+[02:12:32.640 --> 02:12:34.320]   And I think this is something everybody,
+[02:12:34.320 --> 02:12:35.840]   every kid should have access to.
+[02:12:36.400 --> 02:12:38.960]   Because they need to understand this technology.
+[02:12:38.960 --> 02:12:40.400]   It's in their lives for sure.
+[02:12:40.400 --> 02:12:42.800]   But they need to do it with privacy first.
+[02:12:42.800 --> 02:12:47.760]   Mikeelginelgin.com is his website, gastronomand.net.
+[02:12:47.760 --> 02:12:51.600]   Last chance to sign up to go to Oaxaca for the day of the dead.
+[02:12:51.600 --> 02:12:53.760]   Man, that sounds so cool.
+[02:12:53.760 --> 02:12:54.960]   Yep.
+[02:12:54.960 --> 02:12:57.200]   All right.
+[02:12:57.200 --> 02:12:58.320]   Thank you, Mike, for being here.
+[02:12:58.320 --> 02:12:59.680]   Thank you all for joining us.
+[02:12:59.680 --> 02:13:00.240]   Thank you, Leo.
+[02:13:00.240 --> 02:13:01.760]   We do this week in Google.
+[02:13:01.760 --> 02:13:03.600]   No, it's not the name of the show.
+[02:13:06.240 --> 02:13:07.520]   Jeff, you're confusing me.
+[02:13:07.520 --> 02:13:08.480]   We're taking it over.
+[02:13:08.480 --> 02:13:09.520]   We're taking it over.
+[02:13:09.520 --> 02:13:10.720]   We get a revolt.
+[02:13:10.720 --> 02:13:11.520]   We do this week in--
+[02:13:11.520 --> 02:13:11.760]   Cool.
+[02:13:11.760 --> 02:13:15.760]   --tack every Sunday afternoon, right after the radio show,
+[02:13:15.760 --> 02:13:19.200]   230 Pacific, 530 Eastern, 2230 UTC.
+[02:13:19.200 --> 02:13:20.960]   You can stream it live as we do it.
+[02:13:20.960 --> 02:13:21.840]   I mean, most people don't.
+[02:13:21.840 --> 02:13:24.480]   But it's always there for you if you want to listen or watch live.
+[02:13:24.480 --> 02:13:25.840]   It's twitter.tv/live.
+[02:13:25.840 --> 02:13:27.120]   You want to watch a football game instead.
+[02:13:27.120 --> 02:13:27.600]   It's okay.
+[02:13:27.600 --> 02:13:28.000]   It's okay.
+[02:13:28.000 --> 02:13:29.360]   That you can always watch us anytime.
+[02:13:29.360 --> 02:13:30.880]   I'm a fan of live streaming.
+[02:13:30.880 --> 02:13:32.400]   I think I don't know why we do it.
+[02:13:32.400 --> 02:13:34.160]   It's expensive and crazy.
+[02:13:34.160 --> 02:13:36.320]   But if you like it, it's there for you.
+[02:13:36.320 --> 02:13:37.600]   If you're watching the live stream,
+[02:13:37.600 --> 02:13:43.360]   you can also, of course, chat with us at irc.twit.tv.
+[02:13:43.360 --> 02:13:45.760]   They're also watching live.
+[02:13:45.760 --> 02:13:47.920]   I don't think they're distracted by the Super Bowl yet.
+[02:13:47.920 --> 02:13:51.440]   You can also get on-demand versions of everything we do
+[02:13:51.440 --> 02:13:53.280]   at twit.tv, our website.
+[02:13:53.280 --> 02:13:55.920]   There's a this week in Tech YouTube channel.
+[02:13:55.920 --> 02:13:58.720]   Best thing to do is subscribe in your favorite podcast application.
+[02:13:58.720 --> 02:14:00.400]   That way you'll get it automatically.
+[02:14:00.400 --> 02:14:02.480]   The minute it's available--
+[02:14:02.480 --> 02:14:03.680]   If you haven't taken the survey yet,
+[02:14:03.680 --> 02:14:05.120]   I think tomorrow is the last day.
+[02:14:05.120 --> 02:14:06.800]   So I'll just give it one last plug.
+[02:14:06.800 --> 02:14:09.600]   Twit.tv/survey21.
+[02:14:09.600 --> 02:14:14.320]   It's our way of getting to know you each week or each year.
+[02:14:14.320 --> 02:14:15.040]   I guess we do this.
+[02:14:15.040 --> 02:14:16.000]   It's an annual survey.
+[02:14:16.000 --> 02:14:17.200]   It shouldn't take you more than a few minutes.
+[02:14:17.200 --> 02:14:20.560]   Thank you in advance, but it's completely optional.
+[02:14:20.560 --> 02:14:23.760]   Twit.tv/survey21.
+[02:14:23.760 --> 02:14:25.040]   Thank you, everybody, for joining us.
+[02:14:25.040 --> 02:14:26.240]   We'll see you next time.
+[02:14:26.240 --> 02:14:27.040]   Another Twitch.
+[02:14:27.040 --> 02:14:29.040]   [MUSIC PLAYING]
+[02:14:29.040 --> 02:14:31.120]   Do the Twitch.
+[02:14:31.120 --> 02:14:31.920]   Do the Twitch.
+[02:14:31.920 --> 02:14:32.880]   All right.
+[02:14:32.880 --> 02:14:34.080]   Do the Twitch, baby.
+[02:14:34.080 --> 02:14:35.680]   Do the Twitch.
+[02:14:35.680 --> 02:14:36.560]   All right.
+[02:14:36.560 --> 02:14:37.440]   Do the Twitch.
+[02:14:37.440 --> 02:14:59.760]   [ Silence ]
+
