@@ -1,0 +1,1588 @@
+;FFMETADATA1
+title=Hide the Pickle
+artist=Leo Laporte, Philip Elmer-DeWitt, Rene Ritchie, Dwight Silverman
+album_artist=TWiT
+publisher=TWiT
+album=This Week in Tech
+TRDA=2021-04-25
+track=820
+language=English
+genre=Podcast
+comment=Apple event roundup, Big Tech Antitrust action, Signal CEO hacked Celebrite device
+encoded_by=Uniblab 5.2
+date=2021
+encoder=Lavf58.76.100
+
+
+
+[00:00:00.000 --> 00:00:04.960]   It's time for Twit this week in tech. We brought in a panel of experts, but particularly Apple
+[00:00:04.960 --> 00:00:11.840]   experts this week. Renee Ritchie, Philip Elmer, DeWitt, and Dwight Silverman because Apple announced,
+[00:00:11.840 --> 00:00:15.440]   boy, a whole lot of things. It's not going to be an all-Apple show, but we will definitely
+[00:00:15.440 --> 00:00:21.920]   try to understand why they put all of that power into the new iPad Pro. We'll also talk about
+[00:00:21.920 --> 00:00:27.440]   antitrust action, not just against Apple, but Facebook and Amazon. There's really some stuff
+[00:00:27.440 --> 00:00:33.040]   going on in Washington right now. And Signal's CEO, the great Moxie Marlon Spike, just hacked
+[00:00:33.040 --> 00:00:38.480]   the hackers and is giving us a new technique to give it right back to them. It's all coming up next
+[00:00:38.480 --> 00:00:39.760]   on Twit.
+[00:00:39.760 --> 00:00:56.480]   This is Twit.
+[00:00:56.480 --> 00:01:05.520]   This is Twit this week in tech, episode 820, recorded Sunday, April 25th, 2021.
+[00:01:06.080 --> 00:01:12.720]   Hide the pickle. This week in tech is brought to you by Audible. Audible is the leading provider
+[00:01:12.720 --> 00:01:17.840]   of spoken word entertainment. Delve into your next title on Audible with Audible Plus. New
+[00:01:17.840 --> 00:01:22.320]   members can try Audible Plus for 30 days. All you have to do is download the Audible app and get
+[00:01:22.320 --> 00:01:29.840]   started. In fact, there's a free trial waiting for you at audible.com/twit or text Twit to 500-500.
+[00:01:30.720 --> 00:01:36.240]   And by Mint Mobile, Mint Mobile's secret sauce is they're the first company to sell
+[00:01:36.240 --> 00:01:42.080]   wireless service online only. To get your new wireless plan for just 15 bucks a month
+[00:01:42.080 --> 00:01:46.640]   and get the plan shipped to your door free, go to mintmobile.com/twit.
+[00:01:46.640 --> 00:01:53.520]   And by Amazon Pharmacy. Amazon Prime members can save on prescription medication when not
+[00:01:53.520 --> 00:02:00.640]   using insurance and get free two-day delivery. Learn more at amazon.com/twit-rx.
+[00:02:00.640 --> 00:02:08.160]   And by Zipper Cruder. Finding someone to wear many hats or one very specific hat is no easy
+[00:02:08.160 --> 00:02:13.680]   task. Zipper Cruder finds people with a right experience for your job that invites them to apply.
+[00:02:13.680 --> 00:02:19.360]   Whether that's a civil engineer in New York or a mascot in Missouri, try Zipper Cruder free
+[00:02:19.360 --> 00:02:22.080]   at zippercruder.com/twit.
+[00:02:22.080 --> 00:02:33.360]   It's time for Twit this week in Tech, the show where you cover the week's tech news
+[00:02:33.360 --> 00:02:37.920]   with some of my favorite people. Renee Richie is joining us this week. Normally on Mac
+[00:02:37.920 --> 00:02:42.880]   Break Weekly, we didn't have the benefit of your wisdom on Tuesday because you were briefing all day
+[00:02:42.880 --> 00:02:47.600]   with the fruit company. Right? It's a job Leo.
+[00:02:47.600 --> 00:02:52.080]   Yeah, you got to do it. But I'm glad you're here because there is much to be asked.
+[00:02:52.080 --> 00:02:57.120]   That spring loaded event was loaded. I mean, that was all I barely slept.
+[00:02:57.120 --> 00:03:01.920]   And then I got my first AstraZeneca dose and then I slept 22 hours. So I'm ready to go. I feel
+[00:03:01.920 --> 00:03:08.240]   like a super soldier. Yeah, you didn't get the Bill Gates vaccine. Okay, well, if that's if you
+[00:03:08.240 --> 00:03:12.560]   answer, only giving AstraZeneca to people under 60 here. So I, you know, I took what they offered.
+[00:03:12.560 --> 00:03:16.240]   But that's a one-shot deal, right? No, second shot in August.
+[00:03:16.240 --> 00:03:19.120]   You got to have two. Okay. In August. August.
+[00:03:19.120 --> 00:03:22.560]   Yeah, well, this is a long space. Canada is not quite up to your levels yet.
+[00:03:22.560 --> 00:03:27.920]   August. Okay. Well, welcome to America where it turns out something like 8% of the people
+[00:03:27.920 --> 00:03:30.000]   aren't getting their second shot that you go, man, one's enough.
+[00:03:30.000 --> 00:03:35.440]   One's enough. I don't need another one. So many one-shotters in the hospital.
+[00:03:35.440 --> 00:03:41.360]   Dwight Silverman's also here. I used to say with a tech burger, Houston Chronicle has got a new
+[00:03:41.360 --> 00:03:48.400]   gig. He's at Forbes. Congratulations, Dwight. On.forbs.com/dwights. Good to see you.
+[00:03:48.400 --> 00:03:56.800]   Thank you. I am no longer grilling at the Chronicle, but I'm being smooth at Forbes.
+[00:03:56.800 --> 00:04:03.360]   It's a lot of fun and it's a completely different media company. I like it.
+[00:04:03.360 --> 00:04:07.760]   Good. It's funny because I think this is, you keep trying to retire.
+[00:04:08.880 --> 00:04:15.440]   Yes. It's right out of the Godfather and they keep pulling me back in. That's right.
+[00:04:15.440 --> 00:04:20.560]   That was retired for about 20 minutes and then suddenly I was working for the band again.
+[00:04:20.560 --> 00:04:24.240]   That's great. It's really great. It's always great to have you on. Also, the same
+[00:04:24.240 --> 00:04:30.480]   Philip Elmer DeWitt who, like Dwight, used to be a ink stained wretch and now he's a,
+[00:04:31.680 --> 00:04:34.720]   what would you call a bit stained? A bit stained. A bit stained.
+[00:04:34.720 --> 00:04:42.800]   Moved to the internet, PED 30 or version 3.0 of Philip Elmer DeWitt. It's great to have you,
+[00:04:42.800 --> 00:04:47.680]   Philip. Nice to see you. I've had two Moderna shots. I'm totally vaccinated.
+[00:04:47.680 --> 00:04:54.800]   As have I. Wednesday will be my two week. What are we going to do? We're going to have a party?
+[00:04:56.320 --> 00:05:02.640]   Well, in Massachusetts, you're supposed to wear your mask all the time even outside. We're playing
+[00:05:02.640 --> 00:05:09.600]   full of ouchy here in Massachusetts. It's so funny. I'm used to a mask now that I feel naked with
+[00:05:09.600 --> 00:05:14.240]   Oh, you could see my mouth. I wonder if it, you know, remember in the Victorian era,
+[00:05:14.240 --> 00:05:18.080]   you could see a woman's ankles because skirts were so long. It was very erotic.
+[00:05:18.080 --> 00:05:22.240]   Do you think the mouth will be like, I'm not showing you my mouth.
+[00:05:22.240 --> 00:05:26.480]   You're married. Like it feels cold when you're not wearing it. Yeah. It's chilly. Not wearing your
+[00:05:26.480 --> 00:05:32.080]   watch. It's chilly. The skin's not used anymore. I wear something all the time on my neck and then
+[00:05:32.080 --> 00:05:40.320]   pull it up to, you know, what's really creepy. What's really creepy are the masks with the clear
+[00:05:40.320 --> 00:05:47.280]   areas around the mouth so you can see people's mouth moving. That is just that. Well, that's for
+[00:05:47.280 --> 00:05:53.920]   people who read lips. It may be, but it sure looks bizarre. Is that a thing in Houston? Everybody's
+[00:05:53.920 --> 00:05:59.520]   wearing those? No, but I've seen a couple of them and they're kind of jarring when you first
+[00:05:59.520 --> 00:06:04.880]   that you think, oh, they're not actually wearing a mask and then you kind of you catch it. It's a
+[00:06:04.880 --> 00:06:10.160]   little creepy, to be honest. But you know what? You know what? Sessibility is worth it. Mask
+[00:06:10.160 --> 00:06:15.840]   fashion. Look what a world we live in now, you know? Neil, Neil and Stevenson couldn't have written
+[00:06:15.840 --> 00:06:24.480]   this better. This is weird. Weird life has become. So all three of you, Apple experts,
+[00:06:24.480 --> 00:06:28.880]   I mean, you have expertise in other areas, but I think there's no it's no accident that we've got
+[00:06:28.880 --> 00:06:34.320]   the three of you on the day because Apple did some really interesting things on Tuesday. You know,
+[00:06:34.320 --> 00:06:40.160]   we thought it was going to be an announcement of a new iPad kind of maybe the air tags finally.
+[00:06:40.160 --> 00:06:46.880]   Longshot was perhaps an Apple TV. If you had a iMax on your bingo card,
+[00:06:46.880 --> 00:06:50.800]   because that was a late rumor, maybe you thought, well, I'm never going to get to cover that square.
+[00:06:50.800 --> 00:06:58.160]   All of that and more. It was loaded literally loaded stuff spring loaded.
+[00:06:58.160 --> 00:07:06.720]   So I mean, I don't we, you know, we use Mac break weekly to do the kind of run down of the whole
+[00:07:06.720 --> 00:07:11.280]   thing bit by bit. But there were some very interesting bits in there that in some ways,
+[00:07:11.280 --> 00:07:15.520]   I think are informative about what Apple's plans are. The most
+[00:07:15.520 --> 00:07:22.720]   weird thing and I'll let you all three talk about this. We'll start with Renee because he's got
+[00:07:22.720 --> 00:07:29.520]   been briefed by Apple officially. The weirdest thing was they put the M1 chip in the iPad.
+[00:07:29.520 --> 00:07:36.320]   They put up to 16 gigs of RAM up to two terabytes of storage in the iPad. The fully maxed out iPad
+[00:07:36.320 --> 00:07:45.440]   Pro 12.9 inch now comes in at $2,399 before you buy a $350 keyboard.
+[00:07:45.440 --> 00:07:53.600]   You are now you are literally now in the $3,000 range with tax. What the hell is the intent there?
+[00:07:53.600 --> 00:08:01.280]   So I think, you know, at different levels, there are different intents. One is an M1 chip is
+[00:08:01.280 --> 00:08:06.240]   functionally an A14X. It's the same chip that's in the iPhone with the extra cores that you
+[00:08:06.240 --> 00:08:11.520]   would expect to come in an iPad anyway. They always used to do like the A12X or the A12Z for the iPad,
+[00:08:11.520 --> 00:08:17.200]   which was the iPhone chip with extra cores. So we're getting that and the benefit of things like
+[00:08:17.200 --> 00:08:21.840]   the Thunderbolt controllers, which are on package for that chip. And there's some extra Mac bits,
+[00:08:21.840 --> 00:08:26.880]   like the virtualization and the emulation that they don't need for the iPad. But I think it's
+[00:08:26.880 --> 00:08:32.400]   just that's economy of scales for them rather than make a similar chip that maybe didn't require all
+[00:08:32.400 --> 00:08:37.360]   the IP on the die. They can just make more of the chip they're already making. And they're already
+[00:08:37.360 --> 00:08:43.120]   putting it in MacBook Air, MacBook Pro, Mac Mini, iMac. It just gives them such good economies of scale,
+[00:08:43.120 --> 00:08:48.560]   especially now when the chip industry is under a ton of pressure. I think that was close to a
+[00:08:48.560 --> 00:08:53.520]   no-brainer in hindsight for them to go that way. But to your point, you now have an iPad where the
+[00:08:53.520 --> 00:08:59.360]   previous high limit was six gigabytes. And now you have eight gigabytes and 16 gigabytes.
+[00:08:59.360 --> 00:09:04.320]   Jump. But I think what Apple's, it's a huge jump, but it's a hugely functional jump for the iPad
+[00:09:04.320 --> 00:09:09.520]   because apps like Photoshop had a terrible time. They had to go back to their original source code
+[00:09:09.520 --> 00:09:15.120]   to try to get it functioning because also like an iOS doesn't swap. So there's very little you
+[00:09:15.120 --> 00:09:20.480]   could do when you run out of RAM on iOS. And this just opens it up to having way more pro apps,
+[00:09:20.480 --> 00:09:28.240]   like using LumaFusion and a theoretical final cut for iPad, using apps like Photoshop,
+[00:09:28.240 --> 00:09:35.600]   or maybe Apple bringing Xcode. This opens up doing more computer like things in an iPad way,
+[00:09:35.600 --> 00:09:39.360]   which is what a lot of people I think, especially people who love the iPad hardware, have always wanted
+[00:09:39.360 --> 00:09:46.320]   to do. I mean, Philip, do you think this comes from the fact that they've got a lot of M1s,
+[00:09:46.320 --> 00:09:53.440]   they bought up all the production TSMC could make? And mine is just put it in everything, right?
+[00:09:53.440 --> 00:10:00.320]   What do we have an M1 iPhone next year? I think the economy of scale answer is the right one.
+[00:10:00.320 --> 00:10:07.200]   But it's also a marketing move. It's sort of saying, I'm an iPad that's as strong as a Mac.
+[00:10:07.200 --> 00:10:14.400]   It did raise a lot of questions about why there's so much power in this iPad
+[00:10:15.440 --> 00:10:23.440]   that can't use a lot of pro apps like Final Cut, I guess. This was Jason Sells' complaint,
+[00:10:23.440 --> 00:10:30.320]   why he hated the software that came with this because it hasn't been written to the machine yet.
+[00:10:30.320 --> 00:10:36.160]   But we do have a meeting in June where those questions might be answered.
+[00:10:36.160 --> 00:10:42.240]   I said the same thing. Maybe a little differently, which is, and I said this last year,
+[00:10:42.240 --> 00:10:48.960]   this iPad is great hardware with mediocre software. The software doesn't live up to it.
+[00:10:48.960 --> 00:10:53.120]   And I think people are saying the same thing, and the hope is that Apple will
+[00:10:53.120 --> 00:10:58.800]   live up to it. They'll put out Xcode for the iPad. They'll put out Final Cut for the iPad.
+[00:10:58.800 --> 00:11:02.880]   That other companies, I mean Photoshop is now available on the iPad, Lightroom's available
+[00:11:02.880 --> 00:11:08.080]   on the iPad, Affinity Photo, you could argue, is a full-blown Pro Desk app that works on the iPad.
+[00:11:08.080 --> 00:11:14.240]   One of the 3D stuff. But I think Apple's got to step forward too and offer its pro apps on the iPad.
+[00:11:14.240 --> 00:11:17.360]   Can I add one thing Leo? Because a lot of people have been saying this. A lot of people are saying,
+[00:11:17.360 --> 00:11:21.280]   "Well, it's the M1 going to come to the iPhone now." And I just want to point out the M1
+[00:11:21.280 --> 00:11:27.040]   is the same IP generation as the A14 that's already in the iPhone. So an M1 in an iPhone
+[00:11:27.040 --> 00:11:32.240]   wouldn't mean anything materially. It just has more cores, which wouldn't fit in the thermal design
+[00:11:32.240 --> 00:11:37.360]   of an iPhone. So what you're going to get is an A15 in the next iPhone, and then M2 will be
+[00:11:37.360 --> 00:11:42.960]   the Mac and iPad equivalent of that chip. Or some naming thereof. But that is the only idea.
+[00:11:42.960 --> 00:11:48.080]   This is an 8 CPU, 8 GPU though, right? This is a full M1.
+[00:11:48.080 --> 00:11:53.680]   And in fact, that's why you seem thunderbolt 4 coming out of that hole on the side. Or
+[00:11:53.680 --> 00:11:56.400]   about 3 rather, coming out of that hole on the side. Yes, go ahead.
+[00:11:56.400 --> 00:11:59.760]   I was going to say Mark Drummond had an interesting
+[00:12:01.200 --> 00:12:07.040]   he said, "When is Apple going to rip the band-aid off and combine these two operating systems,
+[00:12:07.040 --> 00:12:15.760]   iOS and Mac OS?" He said that it's a discussion at very high levels at Apple about whether they
+[00:12:15.760 --> 00:12:21.600]   want to do that because they're very happy selling two machines to people. An iPad and a Mac, but
+[00:12:21.600 --> 00:12:27.600]   if they merge, they might only sell one machine. I'm not sure he buys argument, but I'd like to
+[00:12:27.600 --> 00:12:32.720]   metaphor ripping the band-aid off. This is by the way, I think, an opinion piece as much as it is.
+[00:12:32.720 --> 00:12:44.320]   Well, and Apple actually had folks, they had executives out on the stump after the event
+[00:12:44.320 --> 00:12:50.000]   talking about, "No, we have no plans to merge the two," which they've said again and again and
+[00:12:50.000 --> 00:12:59.200]   again. I agree with Philip in that a lot of this is marketing. It's functionally close to the same
+[00:12:59.200 --> 00:13:07.920]   chip that's in the iPhone. It allows them to say, "Oh, we now have an E-M1." I think,
+[00:13:07.920 --> 00:13:16.080]   as Renee said, I think the key is going to be the worldwide developers' conference and what we
+[00:13:16.080 --> 00:13:22.800]   see about iPad OS 15. For example, the fact that it doesn't swap now doesn't mean it won't swap
+[00:13:22.800 --> 00:13:29.520]   in iOS 15, which would, of course, open up all kinds of interesting things that would allow that
+[00:13:29.520 --> 00:13:38.080]   software to do. I think this is a building a road for the future, both in terms of capability and in
+[00:13:38.080 --> 00:13:43.280]   terms of marketing because it certainly is a big sell for those who want to use Pro Apps.
+[00:13:44.640 --> 00:13:48.960]   And there's a problem too. Apple's had a huge debate internally for years about what the iPad
+[00:13:48.960 --> 00:13:53.280]   should be. Steve was adamant that it should never be a Mac. It should never be a PC. It was the
+[00:13:53.280 --> 00:13:58.160]   computer for everyone for whom a Mac or PC was alienating and off-putting and intimidating,
+[00:13:58.160 --> 00:14:02.640]   and it was meant to be a product that the mainstream could buy and use, like just the computer for
+[00:14:02.640 --> 00:14:07.040]   everybody else. And that's why it was so wildly successful. But there's been immense pressure,
+[00:14:07.040 --> 00:14:12.560]   especially from the nerdier contingent, to make it more and more PC-like, which he fought adamantly,
+[00:14:12.560 --> 00:14:16.320]   but since Steve is longer with us, it has been getting nerdier.
+[00:14:16.320 --> 00:14:23.200]   And it is, but you can't make it more PC-like than putting the same chip in your desktops,
+[00:14:23.200 --> 00:14:26.720]   the 16 gigs of RAM. But that's the thing. I mean, a two terabytes.
+[00:14:26.720 --> 00:14:30.560]   Like the nerd's won an iPhone mini, and then it doesn't sell because the nerds are not a big
+[00:14:30.560 --> 00:14:34.800]   market. We think we're the major market. We're really not the major market. There's 80% of people
+[00:14:34.800 --> 00:14:40.480]   who want very different things than tech Twitter or tech YouTube, and that argument is still,
+[00:14:40.480 --> 00:14:44.880]   I don't think it's still one, because the iPad is now functionally complicated for mainstream
+[00:14:44.880 --> 00:14:49.440]   people and functionally limited for nerdier people. And it still feels like they haven't found the
+[00:14:49.440 --> 00:14:57.760]   sweet spot between those two things. Yeah. I mean, the other thing that's really interesting on this,
+[00:14:57.760 --> 00:15:05.600]   and I think opens up new markets, and also argues not for making one OS, but for port, at least putting
+[00:15:06.640 --> 00:15:13.520]   more powerful apps on the iPad is this X so-called XTR display. They're using a mini LED technology,
+[00:15:13.520 --> 00:15:23.520]   which means that this 12.9 inch iPad now is the equivalent of a production ready display,
+[00:15:23.520 --> 00:15:27.840]   the kind you would have on a movie set, a reference monitor, a reference monitor at the end of the
+[00:15:27.840 --> 00:15:30.960]   chain where you do everything all and then you look at it on the reference monitor, make sure it
+[00:15:30.960 --> 00:15:37.440]   looks good. You can now begin the production with that. That only added 100 bucks to the cost, at least
+[00:15:37.440 --> 00:15:43.600]   the way it looks like the way Apple's pricing is working out. That's not the primary cost driver,
+[00:15:43.600 --> 00:15:51.040]   but still that is really exciting. And it puts the pro in pro. Yeah. That's something that,
+[00:15:51.040 --> 00:15:57.200]   you look at that and, okay, there's a reason to do the M1 chip right there, particularly for those
+[00:15:57.200 --> 00:16:02.720]   who are involved in the creative arts and the visual arts, it becomes almost a most half machine
+[00:16:02.720 --> 00:16:06.400]   for those folks. Yeah. And they played that up on the announcements showing people making movies
+[00:16:06.400 --> 00:16:15.920]   with it. It's a big viewfinder plus a great camera plus a perfect display. Do you think that the
+[00:16:15.920 --> 00:16:23.760]   next step for Apple is to put Final Cut on there? If you don't put Xcode on it, you're always
+[00:16:23.760 --> 00:16:27.120]   going to be tied as a developer to the desktop. Why not put Xcode on it?
+[00:16:27.120 --> 00:16:30.720]   You Leo, because you're a coder, because the big question has never been, and I've talked to
+[00:16:30.720 --> 00:16:34.240]   people at Apple about this, the big question has never been like, will they put Xcode?
+[00:16:34.240 --> 00:16:39.840]   It's figuring out what Xcode is on an iPad. Is it an independent app and how much of Xcode can
+[00:16:39.840 --> 00:16:44.640]   they do as an independent app? Is it a companion app where you should be able to have a cloud store
+[00:16:44.640 --> 00:16:49.520]   and use it on the Mac and then pick up your iPad and use it differently on the iPad? Is it a
+[00:16:49.520 --> 00:16:55.120]   custom built version that is in the name only? What would you want for a coding environment on the
+[00:16:55.120 --> 00:17:04.480]   iPad? Of course, you'd have to be able to at very least write iOS apps. Not having
+[00:17:04.480 --> 00:17:09.840]   on a platform and ability to write apps for that platform is an issue. It's a drop-in.
+[00:17:09.840 --> 00:17:15.280]   Like with Apple Pencil with your fingers with the keyboard? Well, I think coders don't want
+[00:17:15.280 --> 00:17:18.880]   to write with a pencil. They're going to want to write with a keyboard. I'm not saying it goes
+[00:17:18.880 --> 00:17:25.120]   so far as to put a command line on it. There's definitely a demarcation between a computer and
+[00:17:25.120 --> 00:17:32.880]   an iPad. I don't know why you wouldn't. It wouldn't be hard, I don't think. Since they already have
+[00:17:32.880 --> 00:17:37.760]   Xcode running on an M1, you've got now enough RAM. I mean, that's the argument for putting more
+[00:17:37.760 --> 00:17:42.400]   RAM in there and more storage. I don't think it would be hard to put that. It's not written in UI
+[00:17:42.400 --> 00:17:46.080]   kit yet. None of those apps, they're all written in a combination of native code.
+[00:17:46.080 --> 00:17:49.600]   That's what you'd have to rewrite. App kit and pro kit. You'd have to rewrite the UI.
+[00:17:49.600 --> 00:17:58.000]   UI and the entire app logic. Yeah. I would make it look the same. Maybe there isn't that much
+[00:17:58.000 --> 00:18:03.680]   demand for that. What about Final Cut? Is that hard to do? I mean, LumaFusion shows a way that
+[00:18:03.680 --> 00:18:08.160]   you can do it. It's just a question of, again, is it a companion app? Is it an app where you're
+[00:18:08.160 --> 00:18:11.600]   editing on your iMac and you pick up your iPad and you go sit on the sofa and keep editing,
+[00:18:11.600 --> 00:18:15.440]   then you go back to your iMac. It's like the work. My dream and it's a dream I think a lot of
+[00:18:15.440 --> 00:18:20.400]   YouTubers have is that everything is stored in the cloud. If you and I are working on a project,
+[00:18:20.400 --> 00:18:24.640]   you can access it from your iPatter Mac. I can access it from my iPatter Mac and we can do it like
+[00:18:24.640 --> 00:18:29.520]   a Google Doc where we're all collaborating and we just pick the interface. If you want to sit there
+[00:18:29.520 --> 00:18:33.360]   and slice with your pencil and I want to sit there and slice with my keyboard, we should just be
+[00:18:33.360 --> 00:18:39.600]   able to do it. That to me is like Final Evolution for Final Cut. Well, as we've seen with Affinity
+[00:18:39.600 --> 00:18:44.160]   Photo and Lightroom and Photoshop, Touch is actually a great interface for photographers.
+[00:18:44.160 --> 00:18:48.320]   I would imagine Touch would be a good interface for video editing. I think it is.
+[00:18:48.320 --> 00:18:56.000]   Fusion is great. I don't know. You can see my confusion. What is Apple doing, I guess?
+[00:18:56.000 --> 00:19:04.800]   Go ahead. I have a question. How big is the market for this? This so over serves for me.
+[00:19:04.800 --> 00:19:07.360]   I have no interest in this machine. It's not the iPad.
+[00:19:10.960 --> 00:19:15.520]   The job's vision was to make a really easy to use computer for everybody.
+[00:19:15.520 --> 00:19:23.280]   I mean, this is definitely going to increase the average sales price of the machines and that's
+[00:19:23.280 --> 00:19:30.720]   going to be good for Apple investors. We should say, this starts at $1,100. You don't have to buy.
+[00:19:30.720 --> 00:19:33.760]   You can get many. You can at least get the screen for $1,100.
+[00:19:33.760 --> 00:19:40.160]   Not obviously the more RAM. You will get an M1 processor. Renee is the same processor across
+[00:19:40.160 --> 00:19:44.400]   the all the... Indexed by identical processors. They're just not using one of the Thunderbolt
+[00:19:44.400 --> 00:19:48.960]   ports and all the Mac specific IP. That's the other thing. If you wanted to put
+[00:19:48.960 --> 00:19:52.640]   Xcode on there, you'd probably want to drive a bigger monitor. You can do that now.
+[00:19:52.640 --> 00:19:57.840]   Plug a monitor right into that port. Actually, what I would do,
+[00:19:57.840 --> 00:20:06.000]   this is getting wacky because I have another world computing Thunderbolt 3 dock.
+[00:20:06.640 --> 00:20:14.800]   For my iMac, I could plug that in to my iPad Pro, get a monitor out with the
+[00:20:14.800 --> 00:20:20.480]   Ethernet at work. It depends on what drivers are available on iOS. Ipad OS, but most of that would
+[00:20:20.480 --> 00:20:29.040]   work. It all works. I can use the iPad, walk around, shoot my movie on it, sit down, plug in the dock,
+[00:20:29.040 --> 00:20:34.960]   and now I've got a workstation. You can use MVNE drives now, which was my big complaint.
+[00:20:34.960 --> 00:20:40.720]   I couldn't use those on the previous iPad Pro. If they have a Type-C interface, I could plug them in.
+[00:20:40.720 --> 00:20:47.200]   It would either be Thunderbolt 3, which would be what you want for the throughput or USB-C.
+[00:20:47.200 --> 00:20:51.360]   I mean, my big hope here is that, and I think Apple's been working on this for years,
+[00:20:51.360 --> 00:20:54.880]   they just haven't found something they like, is my big hope is they're working on an Apple OS,
+[00:20:54.880 --> 00:20:59.920]   which will supersede Mac OS and iOS and just be endpoint independent. It doesn't matter what
+[00:20:59.920 --> 00:21:06.560]   you're running it on the end. It does cloud connection for you, does local authentication for you,
+[00:21:06.560 --> 00:21:11.200]   and then it'll work on any device regardless of size. They've been doing that with Swift
+[00:21:11.200 --> 00:21:16.960]   since the beginning. They now have Swift UI. Just have a Swift ISA and a Swift operating system.
+[00:21:16.960 --> 00:21:22.080]   Just call it whatever you want, but make it, don't put Mac OS on a system that was never designed for
+[00:21:22.080 --> 00:21:26.080]   its ancient, it's old, it's big. Don't you feel like that's the mistake?
+[00:21:26.080 --> 00:21:33.600]   Microsoft made with Windows 8 is combining a tablet interface with a desktop, but you think Apple could
+[00:21:33.600 --> 00:21:39.040]   do it better. Well, but they spent three years in the desert trying to make Windows touch optimized,
+[00:21:39.040 --> 00:21:43.360]   from Windows 8 to Windows 10. Apple already has a touch optimized operating system,
+[00:21:43.360 --> 00:21:48.320]   makes zero sense to take resources off of iPadOS and make them touch optimized Mac OS,
+[00:21:48.320 --> 00:21:53.200]   but to make something eventually in the next five to 10 years that replaces all that old code with
+[00:21:53.200 --> 00:21:58.240]   new optimized code for M1 and future devices, including things we were on our face. I think
+[00:21:58.240 --> 00:22:03.920]   that makes all the sense in the world. I just thought of another good use. If you're a photographer
+[00:22:03.920 --> 00:22:08.960]   and you tether as you're shooting in studio, you don't need a desktop anymore or laptop to tether,
+[00:22:08.960 --> 00:22:14.720]   you could tether to the iPad. And you'd have this great display. Yeah, the display is a big deal.
+[00:22:14.720 --> 00:22:21.360]   Yeah. But again, how big is that market? You know, that's us sitting around talking about it in
+[00:22:21.360 --> 00:22:27.440]   every Apple geek who has no spend is going to want it. But it's a still it's a very lit,
+[00:22:27.440 --> 00:22:32.240]   it's a niche market that they're talking about. And it's a niche market that they are supplying to,
+[00:22:32.240 --> 00:22:38.160]   to a certain extent, you look at what they've done with this and the design and the approach
+[00:22:38.160 --> 00:22:45.600]   and the power that was in the iPad Air 4 makes a lot more sense. You were kind of looking at this
+[00:22:45.600 --> 00:22:52.480]   going, why would you want an iPad Pro at the time when when they release the iPad Air on the low end?
+[00:22:52.480 --> 00:22:57.600]   And now you kind of know why they did that. It's a perfect stepping stone to it.
+[00:22:57.600 --> 00:23:02.720]   Well, this pays down that like Apple has a very big history of making the expensive stuff for
+[00:23:02.720 --> 00:23:07.920]   the pros who will buy it and using that to pay down new technologies. So like the mini LED in this
+[00:23:07.920 --> 00:23:12.000]   is the price of this is going to pay for the mini LED to start ramping up production till they can
+[00:23:12.000 --> 00:23:16.320]   make a lot of it and then it'll go into cheaper devices. So like two or three years from now,
+[00:23:16.320 --> 00:23:21.040]   the iPad Air will have a mini LED display and the lower end max and all of those things.
+[00:23:21.040 --> 00:23:24.160]   So I think it's just for them to pay off all their production work.
+[00:23:24.160 --> 00:23:33.600]   So were you guys as like befuddled as I was with the announcement like who I guess is the
+[00:23:33.600 --> 00:23:39.360]   question you keep asking Dwight, who the hell is this for? Who's going to buy this or maybe it's
+[00:23:39.360 --> 00:23:45.040]   Philipp, you're saying that? I mean, there's still a $329 iPad, which is probably the one I would
+[00:23:45.040 --> 00:23:52.000]   recommend to almost everybody who says, should I get an iPad? I'd say, yes, get the $329 one.
+[00:23:52.000 --> 00:23:59.280]   It makes me wonder how much investment Apple is actually going to make in those pro apps,
+[00:23:59.280 --> 00:24:05.360]   the iPad Pro. If it's a very small market. Maybe you're right. Maybe there is no point in doing it.
+[00:24:06.080 --> 00:24:11.200]   The other question is like they'll make those pro apps and use these things to sell them off to
+[00:24:11.200 --> 00:24:15.280]   the early pros and then those will filter down to the lower devices. Yeah, it might just be as well.
+[00:24:15.280 --> 00:24:18.880]   It's going to get better and better every year saying, well, where's my final cut? Where's my
+[00:24:18.880 --> 00:24:25.760]   where's my X code? Do you think there's this new stuff is going to be in short supply at all,
+[00:24:25.760 --> 00:24:28.400]   Renee, did they say anything about that because of the chip shortage?
+[00:24:28.400 --> 00:24:34.400]   I don't think Apple so Apple basically funds the new processes like those processes are
+[00:24:34.400 --> 00:24:38.000]   incredibly expensive and there is no one else in the world who makes as many,
+[00:24:38.000 --> 00:24:41.440]   I'm going to ape Ben Baharan here for a minute. There's nobody else in the world who makes as
+[00:24:41.440 --> 00:24:46.640]   many premium devices as Apple. Apple makes more premium Macs than Samsung makes premium phones
+[00:24:46.640 --> 00:24:51.760]   just to give you some idea of their scale. So Taiwan semiconductor wants to make five nanometers.
+[00:24:51.760 --> 00:24:55.920]   There is Apple's the only customer they can do that with. They're the only ones who will pre-pay
+[00:24:55.920 --> 00:25:01.680]   by that many and will have those margins. So Apple basically funds those processes.
+[00:25:01.680 --> 00:25:06.480]   So they will be the last ones to ever run out of chips and they can also very like
+[00:25:06.480 --> 00:25:11.120]   iPhone will get preference over like a Mac mini, for example, if they ever had to juggle a load.
+[00:25:11.120 --> 00:25:17.920]   So I think we might see a couple weeks or a month longer in like the way that the delays work out.
+[00:25:17.920 --> 00:25:21.360]   People who want to buy them immediately will get them, but it'll go to a month out, two months out,
+[00:25:21.360 --> 00:25:27.200]   probably faster and too longer lens, but they'll get that back into alignment really, really fast.
+[00:25:27.200 --> 00:25:31.360]   Actually, we are seeing that because it's been a long time since an Apple event has announced a
+[00:25:31.360 --> 00:25:36.400]   product that you can't even pre-order for a month or a week or two and can't get until
+[00:25:36.400 --> 00:25:42.160]   and the next month. I mean, we're already seeing that, right? They would love to sell these now.
+[00:25:42.160 --> 00:25:46.160]   Part of this is the built-in COVID stuff like the iPhones. It took an extra month for the other
+[00:25:46.160 --> 00:25:50.480]   two iPhones and the iPad Air was announced a month before you could get that. I think that
+[00:25:50.480 --> 00:25:54.400]   is factoring in all of 2020, 2021 as well.
+[00:25:55.520 --> 00:25:59.600]   I want to take a break and I want, but I want you quickly before we take a break,
+[00:25:59.600 --> 00:26:03.360]   show me the purple iPhone. I don't understand it, but show it to me anyway.
+[00:26:03.360 --> 00:26:06.480]   Purple iPhone, purple iPhone case.
+[00:26:06.480 --> 00:26:12.720]   It was kind of off. It was a weird thing to suddenly throw in. It was like the second or
+[00:26:12.720 --> 00:26:16.960]   third thing they talked about. Oh, and now there's a purple iPhone. I don't understand.
+[00:26:16.960 --> 00:26:20.800]   Usually they do red, like usually every spot. Yeah, product red.
+[00:26:20.800 --> 00:26:24.720]   That's a product red. Yeah, they have. But they did red early this year.
+[00:26:24.720 --> 00:26:31.040]   Oh, yeah. So this product purple and purple was the code name for the original iPhone.
+[00:26:31.040 --> 00:26:34.240]   So it's always going to have a soft spot. It was a purple project.
+[00:26:34.240 --> 00:26:36.160]   So the way that the one in your left hand is last years.
+[00:26:36.160 --> 00:26:40.560]   This is last years. Okay. And this is this year's.
+[00:26:40.560 --> 00:26:43.360]   So in a way, it was weird that they didn't have a purple iPhone at launch.
+[00:26:43.360 --> 00:26:48.080]   They vary up the colors every year. They didn't have yellow this year, I think, as well.
+[00:26:48.080 --> 00:26:51.600]   And they were orange. They had orange last year and they didn't. I think it's just,
+[00:26:51.600 --> 00:26:55.360]   you know, they bring some colors in and take some colors out. But they're very colorful
+[00:26:55.360 --> 00:27:01.360]   Apple again, Leo. They are. Look at those iMacs. That orange iMac is orange. That is
+[00:27:01.360 --> 00:27:10.720]   tangerine unapologetically orange. I saw several iPhone 12 pro and pro max users complaining
+[00:27:10.720 --> 00:27:15.360]   that they didn't extend purple into the pro line. Oh, man. But you know, they like to have kind of
+[00:27:15.360 --> 00:27:20.560]   very somber colors in the pro line. Well, this is these are not the pro lines anyway,
+[00:27:20.560 --> 00:27:25.520]   at this point, right? Even this iMac is no more powerful than a MacBook or a mini
+[00:27:25.520 --> 00:27:31.600]   with the M1 in any way, right? Yes. It's just that's pretty good power. But it's. Oh, yeah, it's
+[00:27:31.600 --> 00:27:36.160]   great. But it's just a new form factor and effect, a new form factor for what you could buy with
+[00:27:36.160 --> 00:27:40.400]   a MacBook Air MacBook Pro 13 and a Mac. You have a 15 watt iPad chip and an iMac, Leo,
+[00:27:40.400 --> 00:27:44.880]   is that kind of dense my brain a little bit? It's amazing. But what it what and again,
+[00:27:44.880 --> 00:27:51.200]   you know, and your point is well taken, Philip. I might be this only one of the small group of
+[00:27:51.200 --> 00:27:56.560]   people are saying, but where is the where's the pro gear? I want the pro gear and I guess
+[00:27:56.560 --> 00:28:01.600]   there was a bit of a leak. We'll talk about that in a bit. One of Apple suppliers has been hacked
+[00:28:01.600 --> 00:28:08.560]   in the and the hacking group are evil has been leaking out documents saying Apple, you got to
+[00:28:08.560 --> 00:28:13.920]   pay us $50 million if you don't want any more of your precious secrets leaked. Did Apple
+[00:28:13.920 --> 00:28:20.800]   make your last one? That was a one day. That was a one day story because it got I assume it got
+[00:28:20.800 --> 00:28:26.240]   settled very quietly. Oh, you think so? There's not been anything since? Yeah, I think that Apple
+[00:28:26.240 --> 00:28:34.560]   sent in its Israeli commandos. Yeah. Yeah, the massage went over and said it would be nice if you
+[00:28:34.560 --> 00:28:41.360]   would stop this. I have one point. One point. One point about the colors. One of the sites,
+[00:28:41.360 --> 00:28:48.240]   nine to five Mac or Mac rumors, ran a poll. Which which color are you going to buy? Pink was,
+[00:28:48.240 --> 00:28:52.960]   I don't remember the order, but pink was at the bottom and purple was second to bottom.
+[00:28:52.960 --> 00:28:59.600]   That's only because no one admits to wanting a pink iPad. I mean, I'm just a man. We know that
+[00:28:59.600 --> 00:29:04.160]   she's going to have one in every room. Pink, I should point out used to be the color for boys
+[00:29:04.160 --> 00:29:10.080]   until about 100 years ago. So, so there, the red on the back is hot. Well, it's also two tone.
+[00:29:10.080 --> 00:29:15.040]   Notice the fronts are lighter than the backs. The light will be duplicated in the keyboard in the
+[00:29:15.040 --> 00:29:21.360]   mouse. I like the backs better. I like the rich color. I've also seen complaints about him having
+[00:29:21.360 --> 00:29:26.560]   white bezels with. That's annoying. I agree. I can play. That is annoying. And it, you know,
+[00:29:26.560 --> 00:29:31.200]   the black bezel, the colors kind of have more contrast to them, but with a white bezel,
+[00:29:31.200 --> 00:29:36.640]   you know, they won't just visually, the whole thing will pop the way it does on the.
+[00:29:37.200 --> 00:29:47.920]   I bought a 20, 27 inch iMac shortly after it came out. And I was a little bit nervous because they
+[00:29:47.920 --> 00:29:54.000]   had all, you know, they had mentioned the M1 about not getting one, but I'm so happy now that I did
+[00:29:54.000 --> 00:29:59.520]   what I did after seeing these because I really did want the bigger one. And, and I'm really
+[00:29:59.520 --> 00:30:05.920]   interested to see what they do if they eventually come up with a 30 or 32 inch iMac and what that
+[00:30:05.920 --> 00:30:11.600]   looks like that that what they may do is bring back the pro name for the large screen.
+[00:30:11.600 --> 00:30:19.200]   I would not be surprised. Yeah, this is 24 inches. So this is the replacement for the 21 inch base
+[00:30:19.200 --> 00:30:27.520]   model. I remember was there be a 32 inch big one. And in fact, I had I had somebody email me and
+[00:30:27.520 --> 00:30:33.760]   I'm using this. I'm answering this person's email in my newsletter on Tuesday, but, but they said
+[00:30:33.760 --> 00:30:39.440]   basically they were holding out for the 27 inch. What should they do or the bigger one? What's they
+[00:30:39.440 --> 00:30:47.440]   do? And I say go ahead and buy a 27 inch with their great. It's it really looks like a tablet on a
+[00:30:47.440 --> 00:30:53.200]   stand to be honest to you. It is it's 11 and a half. It is a non touch screen tablet on a state.
+[00:30:53.200 --> 00:31:01.760]   Did you get to see these in person Renee? No, not yet. I guess all your all your briefings were virtual.
+[00:31:02.720 --> 00:31:08.880]   Wow, traveling the border still close. Oh, that's right. You're not we yeah, we cannot go to the
+[00:31:08.880 --> 00:31:14.480]   to Canada. You guys you guys don't even close the border to Ontario. You can't go from Quebec
+[00:31:14.480 --> 00:31:20.560]   to Ontario anymore. Wow. Wow. All right, let me take a little break and come back. We will I do
+[00:31:20.560 --> 00:31:27.440]   want to talk a little bit about air tags. I think oh, oh, a lot. Okay, we do want to talk a lot about
+[00:31:27.440 --> 00:31:34.080]   air tags. I think there is there. Oh, look, he's even got those. Oh, so cute. I found them.
+[00:31:34.080 --> 00:31:40.960]   There are I think are some misapprehensions about what they're for how to use them. They are not for
+[00:31:40.960 --> 00:31:48.240]   tracking your children or pets or your husband or your husband can. We'll talk about that in a
+[00:31:48.240 --> 00:31:52.720]   second. I want to take a break. Okay, our show. Actually, I'm thrilled because I want to welcome
+[00:31:52.720 --> 00:31:57.360]   back a sponsor that we've been with us for many, many years. I've been with them for even longer
+[00:31:57.920 --> 00:32:05.200]   I've been an audible subscriber since the year 2000. It is the audio bookstore par excellence.
+[00:32:05.200 --> 00:32:10.960]   If you have never listened to an audio book, I mean, I figure if you listen to audiobooks,
+[00:32:10.960 --> 00:32:16.080]   you already are audible subscriber. I mean, why wouldn't you be? Although they have some new
+[00:32:16.080 --> 00:32:20.000]   features that really make audible even more appealing than ever before. But if you've never
+[00:32:20.000 --> 00:32:24.880]   listened to an audio book, I know all of you have anybody listens to podcasts probably is
+[00:32:24.880 --> 00:32:30.560]   comfortable with that idea. Let me reassure you, it's read to you by some of the best readers in
+[00:32:30.560 --> 00:32:35.840]   the world. Many of audible productions actually are multi voice productions. One of my favorite
+[00:32:35.840 --> 00:32:41.040]   audio books, which is one of my favorite novels, I think it was my favorite novel of 2019,
+[00:32:41.040 --> 00:32:48.400]   Lincoln and the Bardot is an amazing audio book. I would argue it's actually better
+[00:32:49.360 --> 00:32:55.280]   in audio than it would be in reading. Lincoln and the Bardot is about Abe Lincoln after his
+[00:32:55.280 --> 00:33:03.760]   son dies. He kind of visits the graveyard. They have different narrators for every
+[00:33:03.760 --> 00:33:11.040]   voice in the graveyard. Some of the narrators are like Lena Dunham and David Sedaris and Nick
+[00:33:11.040 --> 00:33:18.320]   Offerman. Our voices, Kerry Brownstein, I could play a little bit of this for you just so you can
+[00:33:18.320 --> 00:33:27.520]   hear it. 16. An exceedingly tall and unkempt fellow was making his way to the darkness.
+[00:33:27.520 --> 00:33:32.560]   He's a ghost. It was highly irregular. It was after hours the front gate would be locked.
+[00:33:32.560 --> 00:33:39.440]   The boy had been delivered only that day. That is to say, the man has most likely been here.
+[00:33:39.440 --> 00:33:46.400]   It's wonderful. It comes alive. I am a huge audible fan. Whether you're driving,
+[00:33:46.400 --> 00:33:50.000]   you're cooking, you're cleaning your house, whether you're just relaxing, you can listen to audio from
+[00:33:50.000 --> 00:33:56.800]   audible podcasts now. They also have original entertainment from top celebrity creators.
+[00:33:56.800 --> 00:34:02.400]   They actually even have stage plays. If you can't go to the theater, you can listen to the theater
+[00:34:02.400 --> 00:34:07.120]   with audible and a new thing that I think is really fantastic called audible plus.
+[00:34:07.120 --> 00:34:12.640]   Your subscription gives you full access to every body of book in the catalog. The whole idea is
+[00:34:12.640 --> 00:34:17.600]   to give members a chance to listen to and discover new favorites and explore different formats,
+[00:34:17.600 --> 00:34:23.600]   like the words plus music series, which pairs an album with the story of the album. It's just,
+[00:34:23.600 --> 00:34:30.160]   I love the words plus music. There's podcasts. There's some of the readings. I know a lot of
+[00:34:30.160 --> 00:34:37.200]   you are fans of Neil Gaiman's Sandman comics. The Neil Gaiman Sandman production is the best
+[00:34:37.200 --> 00:34:42.320]   radio theater you've ever heard in your life. You can listen to all you want with audible plus
+[00:34:42.800 --> 00:34:47.280]   thousands and thousands of popular audio books, original entertainment podcasts, including ad
+[00:34:47.280 --> 00:34:53.120]   free versions of your favorite shows, plus exclusive series, all available to download or stream.
+[00:34:53.120 --> 00:34:58.720]   So you can listen anywhere, anytime on any device and you'll never lose your spot. To use your
+[00:34:58.720 --> 00:35:02.640]   audible membership, you do need the audible app, but the app is great. They've improved it over
+[00:35:02.640 --> 00:35:08.240]   the years. It's free. You can install it on all your smartphones, all your tablets. Listening to
+[00:35:08.240 --> 00:35:14.560]   audible will make you feel inspired, connected, and it's all available in a single app audible plus
+[00:35:14.560 --> 00:35:26.160]   your playlist for life. The dark tower series, fantastic. The Suki Stachouse novels that were
+[00:35:26.160 --> 00:35:34.000]   the inspiration for that great HBO vampire series, it's all there. I live in audible and I am a huge
+[00:35:34.000 --> 00:35:40.960]   fan. Right now I'm listening to Barack Obama's promised land and he reads it, which makes, I think
+[00:35:40.960 --> 00:35:47.360]   really gives it some real value. It's like you're having a conversation with a former president,
+[00:35:47.360 --> 00:35:54.000]   listening to his thoughts about his presidency and he goes step by step through the election
+[00:35:54.000 --> 00:35:59.280]   process and then entering the White House and all the things that happen. It's fascinating stuff.
+[00:35:59.840 --> 00:36:07.120]   What are you waiting for? Delve into your next title on audible with audible plus go to audible.com/tuit.
+[00:36:07.120 --> 00:36:12.320]   New members can try audible plus 30 days for free. Download the audible app and get started.
+[00:36:12.320 --> 00:36:17.200]   Free trial awaits you. You could also text tuit to 500 500.
+[00:36:17.200 --> 00:36:25.280]   A-U-D-I-B-L-E audible.com/tuit or text tuit to 500 500 to start your free trial. Today you're
+[00:36:25.280 --> 00:36:31.040]   gonna love audible. If you're not, I can't imagine anybody listens to our shows is an already a
+[00:36:31.040 --> 00:36:37.920]   subscriber because we've been talking about audible for forever since day one. But if you're not,
+[00:36:37.920 --> 00:36:42.800]   here's a chance to get a free trial. Audible.com/tuit. We thank audible so much for supporting this
+[00:36:42.800 --> 00:36:48.800]   week in tech. We thank you dear listener for supporting us by going to that address audible.com/tuit
+[00:36:48.800 --> 00:36:57.680]   or texting tuit to 500 500. That way they know you saw it here. Audible. Love. Love. Love.
+[00:36:57.680 --> 00:37:04.320]   Love them. We were famous for years for our 15-minute
+[00:37:04.320 --> 00:37:11.440]   on-book commercials. That's because Andy and everybody would jump in with their audiobooks.
+[00:37:11.440 --> 00:37:16.400]   Anybody want to mention an audiobook that you like a lot? Yes, Philip.
+[00:37:17.920 --> 00:37:22.640]   Well, I just finished Bleak House. I like a good three-week book. A little Dickens.
+[00:37:22.640 --> 00:37:28.480]   It was wonderful. He did get paid by the word. Yeah, because they were serialized right in the
+[00:37:28.480 --> 00:37:33.840]   early... Yeah. Now I'm in the middle of... I never thought I'd like this, but John Boehner's
+[00:37:33.840 --> 00:37:40.880]   in the house. He was such a jerk when he was Speaker of the House, but he's really
+[00:37:41.840 --> 00:37:48.800]   faulty and it's expletive-filled. He tells stories on all the horrible members
+[00:37:48.800 --> 00:37:54.000]   that he had to work with, but not cases in the house he called them.
+[00:37:54.000 --> 00:38:01.440]   I'm like you, Leo. I have audible on every time I step out the house.
+[00:38:01.440 --> 00:38:08.000]   I even have it on the house. Lisa and I have gotten in a habit which we kind of
+[00:38:08.000 --> 00:38:11.520]   trying to get away from watching TV, so we'll go to bed early and listen to a book together.
+[00:38:11.520 --> 00:38:19.440]   It's so fun. It's so great. The Boehner one is a good example. Same thing with the Obama,
+[00:38:19.440 --> 00:38:26.560]   whatever side of the aisle you're on. These guys now are no longer in the lists, so they can be a
+[00:38:26.560 --> 00:38:32.640]   little bit more honest about what's going on. It's really great to go inside and hear
+[00:38:33.840 --> 00:38:40.960]   what these people were thinking at this time. He reads his own. You find out why he was always
+[00:38:40.960 --> 00:38:47.600]   so tan because he did nothing but play golf. He was tan, wasn't he? And why he sometimes slurred
+[00:38:47.600 --> 00:38:54.880]   because his grandfather started a bar that his father also ran where he worked. He comes from a
+[00:38:54.880 --> 00:39:00.400]   big drinking family. Well, I noticed on the cover he's got to glass some wine, which is not the typical
+[00:39:00.400 --> 00:39:06.160]   author picture. I don't have a little wine when I tell you this story about being
+[00:39:06.160 --> 00:39:12.640]   what was he? Was this speaker? Speaker of the house. Yeah. He's kind of the Dean Martin of
+[00:39:12.640 --> 00:39:20.800]   politics. Very good. I remember very well quit because he couldn't take it. It was like so
+[00:39:20.800 --> 00:39:29.840]   frustrating for him. Right? Knuckleheads. Knuckleheads. I love it. You know, it's fun when you
+[00:39:29.840 --> 00:39:35.280]   retire. You can you can finally be honest, which is why I've been retired for years.
+[00:39:35.280 --> 00:39:41.520]   Let's see. Let's talk about you said a lot to say about the air tags. They finally took them a year
+[00:39:41.520 --> 00:39:47.280]   to come up. Did they ever explain why they've been sitting on these for a year?
+[00:39:47.280 --> 00:39:56.080]   Maybe they told Renee. I just want to say about these things. I think they are the hit of the show.
+[00:39:56.080 --> 00:40:02.720]   Really? And that Apple's going to sell tens of millions of these things, 100 million maybe in
+[00:40:02.720 --> 00:40:08.160]   the first year. It's as fast as they can make them. I mean, they have a billion iPhone owners
+[00:40:08.160 --> 00:40:14.080]   who's not going to want more of these, you know, for their dog, their kid, their husband,
+[00:40:14.080 --> 00:40:20.400]   and their backpack. I can see this being a $3 billion business before the end of the year.
+[00:40:20.400 --> 00:40:25.840]   Interesting prediction. I ordered we this is the only thing from Tuesday that you could order. I
+[00:40:25.840 --> 00:40:30.400]   had to get up at 5 a.m. to do it. But I ordered four of them, one for my kid, one for my wife,
+[00:40:30.400 --> 00:40:36.000]   two for me, and the four packs, 25 bucks each, 100 bucks, which is a, you know what? That's what
+[00:40:36.000 --> 00:40:41.440]   everybody else charges for Bluetooth tracker. But this does have that secret sauce because
+[00:40:41.440 --> 00:40:45.840]   there's a billion iPhones out there and every one of them will phone home if they see your keys, right?
+[00:40:45.840 --> 00:40:53.920]   The the secret sauce maybe, but the most annoying thing about it is that you can't simply attach it
+[00:40:53.920 --> 00:41:01.680]   by itself to something. You have to spend money, more money in order to buy a holder, a fob for it
+[00:41:01.680 --> 00:41:07.120]   to hook it to anything, you know, their own their own products start at 25 and go up to the
+[00:41:07.120 --> 00:41:14.400]   $400 AirMeds strap. And fortunately, there also Belkin has stepped in and has a 13
+[00:41:14.400 --> 00:41:19.120]   dollar crap. But I want to see if I can get like maybe a little hole punch, you know, and try.
+[00:41:19.120 --> 00:41:28.160]   No, no, no, it's gonna work. I know. It goes right through the battery. Renee should explain the real
+[00:41:28.160 --> 00:41:35.440]   secret sauce, which is the precision of the location and the U.W.B. Right. So right now,
+[00:41:35.440 --> 00:41:41.760]   I think my theory is that we're really concerned about antitrust because remember tile, the tile
+[00:41:41.760 --> 00:41:48.000]   CEO, Tom makes competing very similar Bluetooth tracker. The tile CEO testified in front of
+[00:41:48.000 --> 00:41:53.120]   Congress saying if you know, Apple's going to put us out of business, Apple's response to that was
+[00:41:53.120 --> 00:41:59.520]   two weeks ago, they opened up Find My and interestingly, tile did not sign up for this. So those
+[00:41:59.520 --> 00:42:05.760]   billion phones will benefit anybody who is a partner in the in the Find My process. Currently,
+[00:42:05.760 --> 00:42:11.840]   VanMoof electric bicycles, a couple of models, Belkin's got a device and Chipolo, which is a
+[00:42:11.840 --> 00:42:18.400]   tracker like tile, like air tags, like competitor. All of those will benefit from the billion phones
+[00:42:18.400 --> 00:42:25.040]   in your pocket. But there is another feature that only Apple can do and Renee Richie will tell
+[00:42:25.040 --> 00:42:31.520]   us all about that. Yeah, I think you're right about the antitrust. You know, I think also just
+[00:42:31.520 --> 00:42:37.600]   quickly, tile would, I always have this problem when people who fill obvious gaps in the market
+[00:42:37.600 --> 00:42:41.840]   get upset when those obvious gaps in the market get filled. This is something that Apple can do
+[00:42:41.840 --> 00:42:46.160]   really well. But Apple will never address cross platform, for example, and a lot of families have
+[00:42:46.160 --> 00:42:50.880]   big gadget love like they have Android and Apple and Windows and tile could make a very nice business
+[00:42:50.880 --> 00:42:54.880]   doing the things that Apple would never do. But they get really upset about the things that Apple
+[00:42:54.880 --> 00:42:59.200]   does do well and they could really offer a best of breed solution. But I'll save my snark and
+[00:42:59.200 --> 00:43:03.680]   start saltiness for when I go over their testimony. But yeah, I think Apple also, they just knew we
+[00:43:03.680 --> 00:43:07.840]   weren't going outside and offering this any earlier would have stunt it would have been a very
+[00:43:07.840 --> 00:43:11.680]   non successful bond. Except that I lose my keys in the house more than anywhere else.
+[00:43:11.680 --> 00:43:14.240]   We're the exception Leo. Okay.
+[00:43:14.240 --> 00:43:20.640]   Is our Apple TV remote that but yeah, so if you have a U1 enabled device, which is perplexingly
+[00:43:20.640 --> 00:43:25.760]   still just the iPhone 11 and iPhone 12, even the latest iPad as far as I can tell doesn't have a
+[00:43:25.760 --> 00:43:32.320]   U1 chip built into it. But if you have either of those new iPhones, you'll be able to do if you
+[00:43:32.320 --> 00:43:35.360]   don't, if you have just a regular device, you'll be able to do Bluetooth location,
+[00:43:35.360 --> 00:43:39.680]   which means you're in Bluetooth radius of the device. And that's mostly good for
+[00:43:39.680 --> 00:43:44.480]   general vicinity. Like if you left it way somewhere else or you want to try to whittle it down,
+[00:43:44.480 --> 00:43:49.040]   depending on reflection and you know, signal strength and all those things to a room in your
+[00:43:49.040 --> 00:43:54.560]   house. But if you have one of those U1 devices, it will give you precise spatial positioning and
+[00:43:54.560 --> 00:43:59.280]   you have an interface that will point you to the directions like, yeah, it's under that sofa
+[00:43:59.280 --> 00:44:03.120]   cushion over there. Remember where you were where you fell asleep watching TV last night,
+[00:44:03.120 --> 00:44:06.160]   where you fell asleep watching Captain America and the Winter Soldier last night.
+[00:44:06.160 --> 00:44:10.960]   It's right under that. Is there any reason a third party participating in Find My Couldn't
+[00:44:10.960 --> 00:44:17.200]   do that though? I mean, I could make a little UWB pointer for my Chipolo tag or no.
+[00:44:17.200 --> 00:44:24.000]   I think you just use Apple. No, but I mean, you would just use Apple's like, as long as you had
+[00:44:24.000 --> 00:44:27.600]   a U1 device with you, you could they would just use Apple's as part of the Find My Network.
+[00:44:27.600 --> 00:44:31.120]   Right. But exclusive to Apple. So, Chipolo could build a U1
+[00:44:31.120 --> 00:44:39.360]   UWB chip into a device of theirs, right? Yeah, the only thing that are exclusive to Apple is
+[00:44:39.360 --> 00:44:44.640]   really like the tight integration with iOS and also the trust relationship a lot of people have
+[00:44:44.640 --> 00:44:48.800]   with Apple because you know when Apple does these things, they don't care who you are, they don't
+[00:44:48.800 --> 00:44:53.280]   care what you do. They have a very good policy around data retention and data exploitation and
+[00:44:53.280 --> 00:44:58.400]   those sorts of things. So, if you care deeply about that, you're going to want to buy the Apple version.
+[00:44:58.400 --> 00:45:03.680]   But other vendors can you know, do more things in those areas. So, they're giving with Find My,
+[00:45:03.680 --> 00:45:08.320]   they're really respond, I think it's clearly responding to the antitrust issues and they're
+[00:45:08.320 --> 00:45:12.480]   saying, look, we're going to open it up and you could do 90% of what you would do with an air
+[00:45:12.480 --> 00:45:17.440]   tag. You could do yourself. I think it's half that. I think also the Apple's never going to make
+[00:45:17.440 --> 00:45:21.120]   certain products. They are always very tightly focused. They make fewer products than a lot of
+[00:45:21.120 --> 00:45:24.560]   us would like them to make. And it's like they're never going to make every case. So, they have an
+[00:45:24.560 --> 00:45:28.640]   MFI program for cases. They're never going to make every home kit accessory or any home kit
+[00:45:28.640 --> 00:45:32.560]   accessory. So, they have that program and they realize they're never going to make a bike with
+[00:45:32.560 --> 00:45:36.880]   Find My on it. So, it's better to license that out and let other people make those things and
+[00:45:36.880 --> 00:45:41.680]   that makes the value gives Apple a more valuable ecosystem. It gives those companies an easier
+[00:45:41.680 --> 00:45:46.080]   to implement solution and it gives us more products to use with the iPhones or they want to sell more
+[00:45:46.080 --> 00:45:50.720]   of. I'm glad I got up at 5 a.m. because apparently the ship dates have been going farther and
+[00:45:50.720 --> 00:45:56.960]   farther and farther back. They've had a year to manufacture these. They may not have made enough.
+[00:45:56.960 --> 00:46:03.360]   Philip, did you buy some? Sure. I bought four and I got a couple of little dongles.
+[00:46:03.360 --> 00:46:12.000]   We've got the perfect transition to antitrust if you want because Amy Klobuchar, who knows how to
+[00:46:12.000 --> 00:46:17.120]   engineer these things, made sure she had the general council of Kyle
+[00:46:18.400 --> 00:46:24.880]   has to find a Congress the day after Apple introduced these. I forget the woman's name,
+[00:46:24.880 --> 00:46:30.880]   but she said that Apple, first of all, worked with them, did everything they wanted,
+[00:46:30.880 --> 00:46:39.040]   encouraged them to build this device and then pulled them off the store. She says they actually
+[00:46:39.040 --> 00:46:46.560]   prohibited a tile from using the, I forget the initials, but the thing that tells you it's
+[00:46:46.560 --> 00:46:52.560]   under the pillow. They said Apple will not let us use UWB.
+[00:46:52.560 --> 00:46:58.560]   Interesting. At the time, but I think since then,
+[00:46:58.560 --> 00:47:05.360]   she was recounting previous conversations, but I think since then Apple have said
+[00:47:05.360 --> 00:47:11.920]   that they are developing this program where you can. I was very soon Daru. The fine mine was
+[00:47:11.920 --> 00:47:17.360]   open before this. This was testimony the day after spring loaded. It was Wednesday.
+[00:47:17.360 --> 00:47:22.160]   But maybe she's saying, well, that's what happened then.
+[00:47:22.160 --> 00:47:27.040]   She gave some other reasons to why she didn't want her company, didn't want to be
+[00:47:27.040 --> 00:47:32.400]   in fine to mine. I can't remember exactly what it was, but I think it was the kind of data that
+[00:47:32.400 --> 00:47:36.800]   Apple was going to get from their customers, but they would get nothing from iPhone.
+[00:47:36.800 --> 00:47:41.680]   Daru told the Stenders Apple launched this product as a quote and it's competing app with the
+[00:47:41.680 --> 00:47:46.960]   knowledge of a lot of our information about our business. This is that old Microsoft technique
+[00:47:46.960 --> 00:47:52.080]   where you go and say, let's maybe want to acquire you or partner with you. Tell us everything and then
+[00:47:52.080 --> 00:47:58.320]   see you go to develop a competing product. They know how our devices do in stores. They know who
+[00:47:58.320 --> 00:48:03.120]   our customers are. They know our subscription take rates. They know what features people use.
+[00:48:03.120 --> 00:48:06.960]   I mean, the list goes on and on. I guess that begs the question, well, why did you tell them all
+[00:48:06.960 --> 00:48:14.320]   that stuff? Tile CEO CJ Prober issued a statement right after the air tag announcement on Tuesday,
+[00:48:14.320 --> 00:48:19.760]   quote, "We welcome competition as long as it's fair competition. Unfortunately, given Apple's
+[00:48:19.760 --> 00:48:24.800]   well-documented history of using its platform advantage to unfairly limit competition for its
+[00:48:24.800 --> 00:48:32.000]   products, we're skeptical." So some of this is proactive. Like, well, it hasn't happened yet,
+[00:48:32.000 --> 00:48:38.240]   but we're not convinced. Same way about Samsung smart tags. I always wonder if this is just
+[00:48:38.240 --> 00:48:42.880]   a problem. Samsung has their own thing. The scary thing for Tile and everybody else is the
+[00:48:42.880 --> 00:48:49.680]   billion phones. They used to be an advertiser. They would always talk about their big tracker
+[00:48:49.680 --> 00:48:56.320]   network, how many trackers they'd sold and have. But that came, comes nowhere near the instant
+[00:48:56.320 --> 00:49:03.840]   network that Apple offers because of all the iPhones out there. I think Tile is toast, and they know it.
+[00:49:03.840 --> 00:49:15.680]   Apple and antitrust, I think they should be very careful. The Senate on both sides of the aisle
+[00:49:15.680 --> 00:49:23.520]   were clearly out to get Apple that day. I forget who made the summation, but it was something like,
+[00:49:24.720 --> 00:49:32.480]   I've been watching Apple and Google defend the patently indefensible, that if you offered this,
+[00:49:32.480 --> 00:49:40.160]   this fact, these facts to a law school class on antitrust, you'd be left out of the room because
+[00:49:40.160 --> 00:49:48.160]   its textbook clearly violates. And the whole thing is how you define the market.
+[00:49:49.120 --> 00:49:55.920]   The Senate and the House seem to be going along with the definition that if you own the platform,
+[00:49:55.920 --> 00:50:02.560]   and then you haven't monopoly in that platform and the rules of antitrust start applying. And you
+[00:50:02.560 --> 00:50:10.880]   not allowed to abuse that, your power. I have a running argument with my readers who are all
+[00:50:10.880 --> 00:50:15.920]   Apple investors in most of the multi-millionaires from the Apple shares they bought it.
+[00:50:15.920 --> 00:50:18.480]   It's hard not to love a company that's made you rich, isn't it?
+[00:50:18.480 --> 00:50:24.160]   Right. I've watched too many antitrust cases. I remember the Google case,
+[00:50:24.160 --> 00:50:28.400]   the Microsoft case very well, and I remember the Apple books case very well.
+[00:50:28.400 --> 00:50:35.280]   If I learned anything, it's that analogies are cheap. You can talk about railroad,
+[00:50:35.280 --> 00:50:40.080]   you can talk about ham sandwiches, but you can use them on either side of the argument.
+[00:50:42.080 --> 00:50:49.040]   The history of antitrust legislate, how it's been applied is so convoluted and complicated,
+[00:50:49.040 --> 00:50:54.800]   and it can be used to support either side. So I think it really comes down to the will of Congress.
+[00:50:54.800 --> 00:50:58.880]   And I think I'm seeing which way the wind's blowing. I don't think.
+[00:50:58.880 --> 00:51:02.480]   Did tile in Flint Bluetooth trackers? Were they the first? I mean,
+[00:51:02.480 --> 00:51:05.120]   they had 90% of the market.
+[00:51:05.120 --> 00:51:11.120]   Okay. So I could see why they might be a little concerned. And by the way, this is not just Apple.
+[00:51:12.080 --> 00:51:18.080]   The new president has already put a number of people who are on the record as wanting to break
+[00:51:18.080 --> 00:51:24.400]   up big tech in important positions in the White House. Here's a Washington Post piece that came out
+[00:51:24.400 --> 00:51:29.600]   just a couple of days ago, how big tech got so big. It's funny because, of course, Jeff Bezos
+[00:51:29.600 --> 00:51:35.520]   owns the Washington Post, but it's clear that they are not beholden to Jeff Bezos. And what they
+[00:51:35.520 --> 00:51:42.080]   very clearly demonstrate in this article with lots of kind of weld and graphs is that Amazon,
+[00:51:42.080 --> 00:51:51.200]   Google, Apple, and Facebook have all used acquisitions to enter markets and dominate that the,
+[00:51:51.200 --> 00:51:58.160]   Amazon's a perfect example. It was a bookstore, but via massive acquisitions,
+[00:51:58.160 --> 00:52:05.760]   basically became dominant in many, many different businesses. David Chitulini,
+[00:52:05.760 --> 00:52:10.640]   who's the chairman of the House antitrust subcommittee said, "These monopolies have exploited the
+[00:52:10.640 --> 00:52:16.960]   weakness of the existing law and lax enforcement to maintain and expand their market dominance
+[00:52:16.960 --> 00:52:23.760]   by buying up or burying those they perceive as competitive threats." And Chitulini is one of the
+[00:52:23.760 --> 00:52:29.600]   one of the guys who's beating a drum to either break these companies up or do best.
+[00:52:29.600 --> 00:52:32.800]   I think Apple and these companies should be terrified, but not because,
+[00:52:32.800 --> 00:52:37.200]   absolutely some legitimacy to this, but the legitimacy of this has nothing to do with what's
+[00:52:37.200 --> 00:52:44.560]   going to happen in the US or in the EU. And we've seen over and over again how the antitrust
+[00:52:44.560 --> 00:52:49.920]   against Microsoft handed WebKit and actually Chromium, a browser market, it ended up destroying
+[00:52:49.920 --> 00:52:56.240]   rendering engines, not enabling competition. And the Apple iBooks thing, it gave it cemented
+[00:52:56.240 --> 00:53:01.440]   Amazon's total monopoly over books that didn't do anything to really help antitrust. They were
+[00:53:01.440 --> 00:53:05.840]   just very narrowly focused on something they thought was bad, and they don't have the nuance
+[00:53:05.840 --> 00:53:10.240]   to really understand this stuff. And that to me is way more terrifying than an effect of antitrust
+[00:53:10.240 --> 00:53:16.160]   investigation. This is the graph for Amazon. Again, I think it's fascinating. The Washington
+[00:53:16.160 --> 00:53:23.200]   Post is publishing this, which becomes a clear indictment, a very clear indictment of Amazon
+[00:53:23.200 --> 00:53:31.520]   acquiring new businesses, killing competition by doing so. The acquisitions on the left,
+[00:53:31.520 --> 00:53:37.520]   the acquisitions on the left are the original business, online sales, the acquisitions on
+[00:53:37.520 --> 00:53:42.880]   the right are new sectors, and they start very slowly. But as the years go by, fewer and fewer
+[00:53:42.880 --> 00:53:48.160]   purchases on the left and more and more purchases on the right, as they really expand out into new
+[00:53:48.160 --> 00:53:56.800]   businesses. And I think actually the Post makes a very good argument that Amazon is acting as a trust
+[00:53:56.800 --> 00:54:06.480]   exactly what antitrust law was created to stop. And you have to remember that Apple's
+[00:54:07.360 --> 00:54:15.440]   online store and the root of it was an acquisition they made that became the iTunes software,
+[00:54:15.440 --> 00:54:21.440]   that became the iTunes store where you bought music for a dollar that eventually expanded into
+[00:54:21.440 --> 00:54:28.240]   apps. And the root of Apple's growth has been that initial iTunes software.
+[00:54:28.240 --> 00:54:30.560]   Yeah, isn't that interesting? Sound jam.
+[00:54:31.760 --> 00:54:37.520]   And frankly, when it started, the record company said, we don't want you selling $99
+[00:54:37.520 --> 00:54:44.240]   singles and Apple said, we're gonna when it started. I remember we were talking about it was a fraction
+[00:54:44.240 --> 00:54:51.360]   of overall sales. And now it's completely dominant. It's like, in fact, its dominance is about to
+[00:54:51.360 --> 00:54:57.200]   be eclipsed. I should point out, by streamers, people don't buy music anymore. They read it.
+[00:54:58.480 --> 00:55:02.560]   And Apple was late to that game. I don't know how well Apple music is doing compared to,
+[00:55:02.560 --> 00:55:10.080]   say, Spotify, but Spotify's about the third the size. Yeah, Spotify's completely dominant in this.
+[00:55:10.080 --> 00:55:12.880]   Why don't someone in the tower, good job.
+[00:55:12.880 --> 00:55:20.160]   I was gonna say, I think Ben Thompson is doing a really good job showing some of the nuance here.
+[00:55:20.160 --> 00:55:24.720]   And there's no easy answers because in some cases, the platform vendor can make a solution that is
+[00:55:24.720 --> 00:55:29.680]   way better for the customer than a third party. There's just things that they can offer. But in
+[00:55:29.680 --> 00:55:35.280]   other cases, it's redundant, or it is anti-competitive. And it's hard to fine tune those things. What
+[00:55:35.280 --> 00:55:41.760]   is of added value to everybody? And what is of what is anti-competitive? And you can't put a hammer
+[00:55:41.760 --> 00:55:46.160]   to the entire thing. Yeah, I mean, as a consumer, I'm thinking air tags are superior. They're just
+[00:55:46.160 --> 00:55:51.280]   great. And it's because of the Apple ecosystem that they're great. And Apple's privacy stance.
+[00:55:51.280 --> 00:55:57.280]   I mean, they did such profound privacy engineering and balancing theft versus stalking and all these
+[00:55:57.280 --> 00:56:02.400]   things that tiles had a decade to do and never even really thought about. And Apple has deeply
+[00:56:02.400 --> 00:56:07.040]   considered so many aspects of this, that it is genuinely a better, more innovative, more thoughtful,
+[00:56:07.040 --> 00:56:12.720]   more considerate, higher value product that wouldn't exist if we applied blanket anti-competition rules
+[00:56:12.720 --> 00:56:17.600]   to these things. That's actually a very good point. I mean, for instance, one of the concerns,
+[00:56:17.600 --> 00:56:24.320]   and this really is a concern with Tracker, Tile, Chapolo, whatever, is a bad boyfriend could drop
+[00:56:24.320 --> 00:56:31.920]   it in somebody's purse and use it to stalk them. But if you're tracking an air tag, unlike these
+[00:56:31.920 --> 00:56:38.400]   other tags, it beeps the whole time. So it announces itself. But it will be. Yeah, it announces itself.
+[00:56:38.400 --> 00:56:44.240]   It says, hey, I'm in your purse. And it'll tell you how to take it apart and take the battery out
+[00:56:44.240 --> 00:56:49.200]   if you don't want it there. Yeah, I mean, they've clearly, maybe that's because the climate has changed
+[00:56:49.200 --> 00:56:53.920]   now. And but clearly those kinds of things. But it will also only do that when it hits
+[00:56:53.920 --> 00:56:57.920]   significant locations for you. So for example, if you're a thief and you take it, it's not going
+[00:56:57.920 --> 00:57:02.080]   to alert you immediately. So you can still track something that's stolen. But as you approach a
+[00:57:02.080 --> 00:57:06.960]   significant location, it'll tell you, especially if you start approaching your home, it'll start
+[00:57:06.960 --> 00:57:10.720]   telling you that you have been that you're being tracked. So they're trying very hard to balance
+[00:57:10.720 --> 00:57:15.440]   the utility of the fine with the protection of the stocking. And that can change like they can
+[00:57:15.440 --> 00:57:19.440]   fine tune that more when they've got a million people testing it in the real world. That's kind
+[00:57:19.440 --> 00:57:23.680]   of critical because I was thinking initially, well, that just means you can't use this to track
+[00:57:23.680 --> 00:57:27.760]   a stolen product, because it's going to say, I'm stolen and I'm being tracked and the thief's going
+[00:57:27.760 --> 00:57:34.240]   to go good, throw that away. But you're saying it won't go off initially. Yeah. Oh, that's really
+[00:57:34.240 --> 00:57:38.560]   interesting. So they are trying to make you use it. What's a significant location?
+[00:57:39.920 --> 00:57:44.880]   So if you have location services on your phone, it'll start storing, you can go in and look at it
+[00:57:44.880 --> 00:57:50.160]   under settings, locations, privacy part, and it'll show you a list of places that you go to frequently.
+[00:57:50.160 --> 00:57:55.520]   Like the home is the most significant location, but if it has a work location or it has a school
+[00:57:55.520 --> 00:57:59.840]   location, or it just has like a probably like a coffee shop that you go to four days out of the
+[00:57:59.840 --> 00:58:04.480]   week, anything that your that your behavioral patterns have shown is a significant place to you.
+[00:58:05.440 --> 00:58:11.600]   And this is the person who it's if you have an iPhone and it's dropped in your purse,
+[00:58:11.600 --> 00:58:18.240]   and it's your significant locations. The tracker talks to the iPhone, even though it's not associated
+[00:58:18.240 --> 00:58:28.480]   with that iPhone. Yes. Okay, so that's interesting. So I'm being stalked. I go home. The tracker,
+[00:58:28.480 --> 00:58:36.320]   which is not my air tag in my purse. And I didn't know about it. It goes, Oh, you're home. Yes.
+[00:58:36.320 --> 00:58:44.560]   And it'll start it'll beep. Yeah, it'll pop up on your thing. It's like a chirp. It's sort of like a
+[00:58:44.560 --> 00:58:50.000]   beep. It's like the annoying smoke alarm battery of a chirp kind of. Yeah, I mean, it's just
+[00:58:50.000 --> 00:58:52.880]   designed like it's not designed to frustrate you, but it's designed to tell you that it's there.
+[00:58:52.880 --> 00:58:58.160]   Because if you have an Android phone, like it's it's it's not just an iPhone. It's NFC readable. So
+[00:58:58.160 --> 00:59:03.680]   if you touch any NFC reader to it, it'll give you that pop up. That's another thing that's kind of
+[00:59:03.680 --> 00:59:10.720]   cool. You can immediately find the provenance of the the air tag you just found. Yes, by scanning it
+[00:59:10.720 --> 00:59:15.680]   with using an S it's lost. It'll show you the lost message. And if you're abusing it, it does
+[00:59:15.680 --> 00:59:22.400]   like when you when you first enable it, it says this is now bound to your Apple ID. So that in the
+[00:59:22.400 --> 00:59:26.160]   event of any lawsuits or criminal action, if you doing anything illegal with it,
+[00:59:26.160 --> 00:59:28.960]   those two things are linked and they will be able to find you. Yeah.
+[00:59:28.960 --> 00:59:46.160]   Yeah, so I can imagine all kinds of little loopholes emerging as a million people use these.
+[00:59:46.720 --> 00:59:52.800]   Apple, we're gonna have a lot of stories about someone found a wormhole. Well, isn't that funny
+[00:59:52.800 --> 00:59:58.640]   because tile and tracker have been around forever. But there's so but it's like insignificant. And
+[00:59:58.640 --> 01:00:02.160]   now it's Apple. That's a big deal. And all of a sudden, it's a big story. If it doesn't work,
+[01:00:02.160 --> 01:00:07.600]   right? Yeah, I want everyone testing the Samsung stuff as much as they're testing the Apple stuff.
+[01:00:07.600 --> 01:00:11.680]   Because I hate the fact that I love that Apple gets pounded on. Like when Touch ID came out,
+[01:00:11.680 --> 01:00:16.080]   it got pounded on. And I knew that it was secure. But when everybody copied it, they didn't. And it
+[01:00:16.080 --> 01:00:20.000]   turned out like HTC and Samsung were keeping full res photographs of our fingerprints in a
+[01:00:20.000 --> 01:00:27.840]   world readable directory. Please pound on that stuff too. Yeah. There's lots more that Apple
+[01:00:27.840 --> 01:00:32.640]   announced and we could go on and on. And I don't want to turn this into an Apple show. We certainly
+[01:00:32.640 --> 01:00:37.440]   will Renee will be on Macbreak weekly on Tuesday and we'll spend more time on. There's the podcast
+[01:00:37.440 --> 01:00:43.280]   subscription story. The thing they led off with, which I thought was really interesting about
+[01:00:43.280 --> 01:00:46.880]   gender equity in the use of the Apple card. I thought that was just fascinating.
+[01:00:46.880 --> 01:00:55.440]   It is too bad though. You bring this up, Phillip. They didn't put air tags in the remote,
+[01:00:55.440 --> 01:00:59.280]   the new Apple TV. So frustrating. What the hell? That's the thing I lose the most.
+[01:00:59.280 --> 01:01:05.760]   I'm trying to understand what goes on within Apple headquarters where they've got one team
+[01:01:05.760 --> 01:01:10.880]   that's been working for at least a year on the tracking device. And another team that's been
+[01:01:10.880 --> 01:01:17.680]   working I hope for many years to make a better remote and that the true didn't know about the
+[01:01:17.680 --> 01:01:23.440]   other. Don't they have meetings together? Or they might. They're recorded that it was in
+[01:01:23.440 --> 01:01:27.120]   the controller, right? That was the other thing. So I'm hoping there's like, is there a controller
+[01:01:27.120 --> 01:01:31.840]   Pro Max is going to come out with the higher end Apple TV. I do think that thank God they replaced
+[01:01:31.840 --> 01:01:39.600]   the remote. Although you you wrote a piece Dwight defending that crappy the worst remote ever made
+[01:01:39.600 --> 01:01:47.280]   the Apple TV Siri remote. Tell me here's why. So here's why the naked Apple remote, which I have
+[01:01:47.280 --> 01:01:55.440]   here is pretty bad on its own mainly because the top part and the bottom part feel the same.
+[01:01:55.440 --> 01:02:01.600]   Yeah. Pick it up. But one's going to do something if you touch it. Right. But but
+[01:02:01.600 --> 01:02:07.280]   almost from day one, mainly because I understood it was as glass on the surface of this. Right.
+[01:02:07.280 --> 01:02:12.720]   And I was worried about it breaking. I ordered this thing that's a case for the remote.
+[01:02:12.720 --> 01:02:21.600]   And not only does it protect it, but the case changes the feel of it. So this is rubber. This is
+[01:02:21.600 --> 01:02:29.040]   silicone. There's the touch pad. It has a lanyard, which makes it difficult to lose. And when I get
+[01:02:29.040 --> 01:02:34.720]   my one of my four air tags, I'm going to put it on this lanyard so that I will have air tags on.
+[01:02:34.720 --> 01:02:41.280]   Wow. It's smart. It is. It's much better. It because of the because of the silicone,
+[01:02:41.280 --> 01:02:46.800]   it's easier to hold it in the right orientation so that when you use your thumb on it,
+[01:02:46.800 --> 01:02:54.240]   it your your tracking is more accurate. It is if you go the case that go in. If a remote's only
+[01:02:54.240 --> 01:02:59.920]   good because you bought an eight dollar silicone sheath, then there's something wrong with it.
+[01:02:59.920 --> 01:03:03.840]   It fixes the problems and actually makes it a good remote. I'm going to buy three of these right
+[01:03:03.840 --> 01:03:06.960]   now because even if I get a new Apple TV, I still have plenty of those.
+[01:03:06.960 --> 01:03:14.000]   A rubber band would do it. Yeah, they're smart. Yeah. I'm still going to buy the new remote because
+[01:03:14.000 --> 01:03:18.560]   it has a mute button. The case doesn't come with a mute button. Oh, there's a lot of benefits.
+[01:03:18.560 --> 01:03:23.680]   It also has right the new remote does put the Siri button on the side because I tell you half
+[01:03:23.680 --> 01:03:28.720]   the time I'll hit the remote and all the Siri will say, yeah, what? So I'm this is by the way,
+[01:03:28.720 --> 01:03:35.040]   Malaga, which makes so many great great little silicone devices, including my little iMac that
+[01:03:35.040 --> 01:03:39.680]   I put my watch into charge at night. So I have a yeah, when I when I got this again, it was to
+[01:03:39.680 --> 01:03:44.240]   protect it and I was reading all these things people complaining about the remote and I was
+[01:03:44.240 --> 01:03:48.560]   going, what are they complaining about it? And then I realized I started using it without
+[01:03:48.560 --> 01:03:55.280]   the the case and I realized what the complaints were about this case fixes probably most of most
+[01:03:55.280 --> 01:03:58.880]   people's complaints. The other thing the new Apple TV does is really interesting. We talked to
+[01:03:58.880 --> 01:04:04.800]   Scott Wilkinson, my home theater guy on this is you can calibrate it with the iPhone calibrate your
+[01:04:04.800 --> 01:04:10.560]   you're not calibrating your TV, but you're calibrating the the output of the Apple TV based on the
+[01:04:10.560 --> 01:04:16.480]   capabilities of your TV. You put the iPhone up next to the TV screen. They showed this.
+[01:04:16.480 --> 01:04:20.880]   Now, what Scott explained is that's not going to change the brightness or the contrast settings,
+[01:04:20.880 --> 01:04:25.760]   which are arguably probably the most important settings on the TV. You can't change that
+[01:04:25.760 --> 01:04:30.720]   from the Apple TV. You're only changing color reproduction, but at least the color reproduction
+[01:04:30.720 --> 01:04:35.680]   will be more accurate. Thanks this you have to have and it'll work with an older Apple TV. Yes,
+[01:04:35.680 --> 01:04:43.840]   yes, it's part of iOS 14.5. So it'll work even on the Apple TV HD, which is the one I still have.
+[01:04:43.840 --> 01:04:50.000]   That's pretty cool. The new Apple TV also we the rumor was, was going to support high frame rate
+[01:04:50.000 --> 01:04:54.880]   120 frames per second. It does not. It's 60 frames per second. That's still high frame rate.
+[01:04:54.880 --> 01:04:58.880]   We're getting another one. I'm just I hope we're getting another one. This was such a spec bump.
+[01:04:58.880 --> 01:05:07.600]   Like the eight, well, the eight 12 is single core is better than the eight 10 X GPU isn't any better.
+[01:05:07.600 --> 01:05:12.480]   It'll do things better like like compositing HDR, which they need to do. It'll do better for
+[01:05:12.480 --> 01:05:18.880]   some games. But there's been so many rumors of a higher end Apple TV, HomePod, sort of
+[01:05:18.880 --> 01:05:26.320]   melded device that have higher capacities. And then I hope there's a Siri remote plus max pro.
+[01:05:26.320 --> 01:05:34.720]   Yeah, that's interesting. That's an interesting thought. This is not the
+[01:05:34.720 --> 01:05:39.360]   high end Apple TV we'd heard rumors about. This is just a spec bump. That's going to be too
+[01:05:39.360 --> 01:05:42.880]   expensive. I think that to mitigate like this isn't cheap enough either. Like I think if they're
+[01:05:42.880 --> 01:05:46.480]   going to go with an eight 12, they should have slashed it down to $99. Like I hate saying it's
+[01:05:46.480 --> 01:05:50.480]   too expensive because I think like you never know what it actually cost to make these things.
+[01:05:50.480 --> 01:05:55.360]   But I think like it's a disqualifying price tag for a lot of people still given the competition
+[01:05:55.360 --> 01:06:02.320]   in the market. But this at $99 and then a decked out super Apple TV with a lot of the HomePod
+[01:06:02.320 --> 01:06:09.120]   features and a gaming focus with a gamepad and all of those features. I think having the lower version
+[01:06:09.600 --> 01:06:15.040]   allows them to have the higher version for the fanatics. The lower version is twice as expensive
+[01:06:15.040 --> 01:06:21.440]   as the Roku. So even the lower version is expensive for a streaming. Yeah, I think that's
+[01:06:21.440 --> 01:06:24.080]   their netbook thing. It's like they don't care if there's a cheap netbook because they don't
+[01:06:24.080 --> 01:06:28.640]   want to make that product. But you still like the HomePod is too expensive for what like
+[01:06:28.640 --> 01:06:32.480]   people wouldn't buy it at that price whether it was worth that price in terms of the technology
+[01:06:32.480 --> 01:06:37.760]   inside it. Yeah, but nobody would want to buy it. So that's a $400 speaker. The wrong product
+[01:06:37.760 --> 01:06:44.000]   for the market. Google had the same problem. They had a high end home max and as good as it was.
+[01:06:44.000 --> 01:06:48.880]   Nobody wanted it. Let's take a little break because I want to show you how to save some money on
+[01:06:48.880 --> 01:06:55.680]   your cell phone bill right now with our sponsor Mint Mobile. I love these guys after years of fine
+[01:06:55.680 --> 01:07:01.680]   print contracts and getting ripped off by big wireless providers. If you've learned anything,
+[01:07:01.680 --> 01:07:07.440]   there's always a catch. So when Mint Mobile said, hey, Leo, we're going to do a $15 a month
+[01:07:08.240 --> 01:07:14.400]   premium wireless service. I thought, yeah, there's a there's some fine print there somewhere. But
+[01:07:14.400 --> 01:07:18.960]   you know what? I've been using it and it makes sense. And there isn't any fine print. There's no catch.
+[01:07:18.960 --> 01:07:24.480]   It really works. The secret sauce to Mint Mobile is that the first company to sell wireless service
+[01:07:24.480 --> 01:07:30.240]   online only, no retail stores, which means no crazy overhead costs that get passed out of you
+[01:07:30.240 --> 01:07:36.160]   in the form of mystery fees. They even have an unlimited plan. And by the way, all their plans
+[01:07:36.160 --> 01:07:43.200]   include unlimited nationwide text and talk delivered on the nation's largest 5G network, high speed
+[01:07:43.200 --> 01:07:51.040]   data, but they even have an unlimited plan. There's only 30 bucks a month. Mint Mobile is so great. Now
+[01:07:51.040 --> 01:07:57.040]   the $15 plan is four gigs a month for most people. That's enough data. That's all they ever have to
+[01:07:57.040 --> 01:08:01.680]   spend. You can use your own phone if you want. They'll send you a sim that you put in the phone
+[01:08:01.680 --> 01:08:05.840]   absolutely free. You could port your phone number over it. So your phone numbers
+[01:08:05.840 --> 01:08:08.800]   doesn't change your contacts go along with the phone. They also sell phones. In fact,
+[01:08:08.800 --> 01:08:14.640]   I got a great iPhone SE from them for I think it was 15 bucks a month. So 15 plus 15 for 30 bucks.
+[01:08:14.640 --> 01:08:22.080]   I got a new phone and really great wireless service. That's a third of what I'm paying just for the
+[01:08:22.080 --> 01:08:26.880]   service alone on the big guys. And of course, if you're not 100% satisfied, Mint Mobile has you
+[01:08:26.880 --> 01:08:36.160]   covered with a seven day money back guarantee. 15 bucks a month premium wireless unlimited
+[01:08:36.160 --> 01:08:42.000]   talk and text plus high speed data. Switching out of the Mint Mobile platform, you will be
+[01:08:42.000 --> 01:08:46.560]   glad you did. And it really makes me wonder why anybody's paying any more to get your new
+[01:08:46.560 --> 01:08:52.400]   wireless plan for just 15 bucks a month and get the plan shipped to your door free. Go to mintmobile.com/twit
+[01:08:53.360 --> 01:09:00.480]   mintmobile.com/twit cut your wireless bill to 15 bucks a month mintmobile.com/twit.
+[01:09:00.480 --> 01:09:04.640]   Thank you, Mint Mobile for supporting this week in tech.
+[01:09:04.640 --> 01:09:16.320]   I think as I remember the court has given approval to go ahead one more. I mean,
+[01:09:16.320 --> 01:09:22.080]   I guess we're still doing Apple stories app was an Apple week. Oh, one more thing I wanted to
+[01:09:22.080 --> 01:09:31.120]   mention before I get to the courts. They showed a little Ted Lasso still during the Apple event.
+[01:09:31.120 --> 01:09:38.160]   And at the bottom of the of the still, there is Ted Lasso's secret shirt bread makes about one
+[01:09:38.160 --> 01:09:47.840]   box and they cut off the recipe intentionally, right? But David Smith looked very closely and
+[01:09:47.840 --> 01:09:53.520]   said, I think I figured it out. What this says and he Googled it and he said, Oh, this matches a
+[01:09:53.520 --> 01:10:01.200]   New York Times recipe for shortbread. He says in the blog, looking closely at the fractional
+[01:10:01.200 --> 01:10:06.960]   letters visible, I'm pretty confident this first line reads, one and a half cups 340 grams. Yeah,
+[01:10:07.680 --> 01:10:15.440]   cold, unsalted butter cut into half inch pieces plus more for greasing pan.
+[01:10:15.440 --> 01:10:20.480]   Then he writes, this is definitely a recipe for shortbread. I mean, what else would need that
+[01:10:20.480 --> 01:10:25.440]   much butter? It's really a lot of butter. Now you know,
+[01:10:25.440 --> 01:10:27.200]   entire blog posts, you don't have to click through.
+[01:10:27.200 --> 01:10:36.800]   I love it. And, you know, if you want to if you want to die fast, you can make the New York
+[01:10:36.800 --> 01:10:43.360]   Times shortbread recipe and go crazy over it. This is actually it's different because this is
+[01:10:43.360 --> 01:10:49.200]   bittersweet brownie shortbread, but it does start with one and a half cups, 340 grams cold,
+[01:10:49.200 --> 01:10:55.200]   unsalted butter. That's three sticks. It'd be ironic if an American is making New York Times
+[01:10:55.200 --> 01:11:03.280]   shortbread for the Brits. That's the point of Ted Lasso. That is exactly the point of it.
+[01:11:03.280 --> 01:11:08.720]   It is, isn't it? He won them over with his shortbread. In fact, that makes it an even better Easter
+[01:11:08.720 --> 01:11:17.440]   egg when you think about it. Yeah. I'm trying to find that. What a fun show.
+[01:11:17.440 --> 01:11:26.480]   Court decision, allowing what was this? A loud apple, an apple class action to go ahead.
+[01:11:26.480 --> 01:11:31.120]   Oh, it's the iTunes buy button. I thought this was really interesting.
+[01:11:33.200 --> 01:11:41.360]   So there is a buy button on iTunes, but a federal judge says it isn't really a buy button because,
+[01:11:41.360 --> 01:11:46.960]   as we all know, access to that content can be revoked. You're not buying it.
+[01:11:46.960 --> 01:11:57.920]   The Sacramento judge, US District Court judge John Mendez, said Apple contends that no reasonable
+[01:11:57.920 --> 01:12:02.880]   consumer would believe that purchased content would remain on the iTunes platform indefinitely,
+[01:12:02.880 --> 01:12:07.920]   but in common usage, the term buy means to acquire possession over something.
+[01:12:07.920 --> 01:12:15.040]   And he said, it did this wrong. Apple was handled differently. They should have said, like,
+[01:12:15.040 --> 01:12:18.320]   when we first enabled this button, you actually bought it and downloaded it.
+[01:12:18.320 --> 01:12:22.480]   Then we added streaming services on top of that. You can still buy and download it immediately
+[01:12:22.480 --> 01:12:26.000]   and keep it forever as originally intended. But now we offer the extra value.
+[01:12:26.000 --> 01:12:30.720]   Can you download it? Oh, okay. Yeah. For sure. And then you then we offer the extra added streaming
+[01:12:30.720 --> 01:12:34.880]   service on top of it for when you haven't got it downloaded or you're not at your home computer
+[01:12:34.880 --> 01:12:41.360]   and like bifurcated. And if I downloaded it, there is DRM in it. If I download it,
+[01:12:41.360 --> 01:12:44.480]   it could come a time. I couldn't play it though, right?
+[01:12:44.480 --> 01:12:50.720]   Microsoft Google shuts down the whole service sort of. Yeah. But yeah, not until the iTunes
+[01:12:50.720 --> 01:12:55.040]   servers go down. And that's not been an issue as a theoretical issue. Yeah.
+[01:12:55.040 --> 01:13:00.320]   And that's Apple's defense was this is speculative. The injury is not
+[01:13:01.120 --> 01:13:06.720]   that they said the injury is that the speculation that someday the content could disappear.
+[01:13:06.720 --> 01:13:13.760]   But in fact, the judge said, no, the injury is at the time of purchase he paid either too
+[01:13:13.760 --> 01:13:18.880]   much for the product or spent money he would not have but for the misrepresentation that he was buying it.
+[01:13:18.880 --> 01:13:26.000]   Now, Apple's defense was so Orwellian to say, who in their right mind would think that buy
+[01:13:26.000 --> 01:13:32.240]   meant you had it forever. And that you own it. Buy is not buy. Yeah, it was a gaslight defense.
+[01:13:32.240 --> 01:13:34.960]   And they didn't even need it. That's a part that is the same thing when I feel bad,
+[01:13:34.960 --> 01:13:38.640]   like I feel angry at Epic for doing dumb things in court. I always feel angry when you're not
+[01:13:38.640 --> 01:13:42.400]   even a lawyer. Yeah, maybe I'm doing bad advice. But it just seems like there's a way smarter way
+[01:13:42.400 --> 01:13:46.320]   to respond to that. Yeah. Yeah, if they just said, well, you're on or he can download it and you
+[01:13:46.320 --> 01:13:51.120]   can play it forever, except it's still not strictly true. Because in order to play it,
+[01:13:52.000 --> 01:13:57.200]   you have to launch a player that then checks the DRM and make sure you have a valid ownership.
+[01:13:57.200 --> 01:14:02.400]   If that server goes down or disappears, or at some point, Apple says, you know, we never should
+[01:14:02.400 --> 01:14:06.720]   have sold gone with the wind. It's racist. They could make it so you can ever play it, right?
+[01:14:06.720 --> 01:14:11.680]   Without removing the DRM. I think that's every down every download service uses the buy button
+[01:14:11.680 --> 01:14:14.480]   that way though. Like I'm hard pressed to think of a single service where you can actually
+[01:14:14.480 --> 01:14:18.560]   download something that doesn't have a buy button. So that would probably be a universal issue
+[01:14:18.560 --> 01:14:21.200]   beyond Apple. I guess you could ask a question. That would make everything beyond Apple.
+[01:14:21.200 --> 01:14:27.200]   Do I, did I buy my house if the bank has a lean on it or did I buy my car if I got a loan?
+[01:14:27.200 --> 01:14:31.200]   Every audio book, every piece of software that we download now off the internet.
+[01:14:31.200 --> 01:14:38.080]   Although Apple iTunes music doesn't have DRM on it, correct? You get those.
+[01:14:38.080 --> 01:14:41.360]   That's right. You do own those. You do own those, right?
+[01:14:41.360 --> 01:14:47.200]   If you download them, if you don't, and you're just screaming them and they go away, you're still
+[01:14:47.200 --> 01:14:53.760]   bit completely theoretical. Can I hand them down to my kids or do I just have a license to play them
+[01:14:53.760 --> 01:14:57.200]   during my lifetime? That's still in court, isn't it? Isn't that still in court? There's been a
+[01:14:57.200 --> 01:15:04.880]   whole bunch of digital inheritance cases. Yeah. It's the studios don't want you to.
+[01:15:04.880 --> 01:15:09.360]   The studios want kids to pay again. Yeah, it's the first sale doctrine. Well,
+[01:15:09.360 --> 01:15:12.880]   remember when they were like, you could buy a CD and play that in your house in your car and
+[01:15:12.880 --> 01:15:16.960]   early on the studios like, no, you need a separate license for your car and a separate license for
+[01:15:16.960 --> 01:15:24.480]   your car. Do I have the right to sell display or otherwise to dispose of a copy of a product
+[01:15:24.480 --> 01:15:34.240]   that I bought? That's the fundamental question. It's interesting. If you download our podcast,
+[01:15:34.240 --> 01:15:38.240]   you own them, I promise never to take them back. They're yours for life.
+[01:15:38.240 --> 01:15:42.480]   Oh, that Leo's kids do with them one day and you can give them to your kids,
+[01:15:42.480 --> 01:15:49.680]   not that you'd ever want to, but you could. You can hand them down. Let's talk about
+[01:15:49.680 --> 01:15:58.160]   well, I guess we did. Philip, did you feel sufficiently heard on the Klobuchar
+[01:15:58.160 --> 01:16:02.160]   Blumenthal, Apple Google hearings?
+[01:16:08.000 --> 01:16:14.240]   I guess I did. The one thing that surprises me because I'm getting into this fight with my
+[01:16:14.240 --> 01:16:20.960]   readership, the same fight I got into back at time. I was editing the text section and I had
+[01:16:20.960 --> 01:16:30.800]   a writer who didn't believe in antitrust. He always argued, how is Microsoft harming the
+[01:16:30.800 --> 01:16:36.800]   consumer? It was always antitrust from the point of view of the consumer, which there's some Supreme
+[01:16:36.800 --> 01:16:42.080]   Court precedent from it. But antitrust is really about the relationship of the company with his
+[01:16:42.080 --> 01:16:49.600]   competitors. He would write one thing. I would edit it out and he'd get it back and he would
+[01:16:49.600 --> 01:16:55.600]   put his stuff back in and I would take it out. But I had the final say, so that's the way it went.
+[01:16:55.600 --> 01:17:00.560]   Wow, that's an aggressive editor. You must represent my point of view.
+[01:17:03.120 --> 01:17:08.400]   It had to be logical. Anyway, it turned out I was right and he was wrong.
+[01:17:08.400 --> 01:17:14.320]   One of the things about these hearings that just always drives me crazy,
+[01:17:14.320 --> 01:17:20.800]   first of all, although it's better than it used to be, the senators and representatives
+[01:17:20.800 --> 01:17:29.360]   clearly are incredibly ignorant about technology. As Renee said, that's terrifying when they go
+[01:17:29.360 --> 01:17:35.200]   to start drafting legislation. But the other issue was that you have, what's interesting is that
+[01:17:35.200 --> 01:17:42.080]   Democrats and Republicans have two different motivations for wanting to do the same thing.
+[01:17:42.080 --> 01:17:51.440]   You had the GOP co-chair complaining about Apple removing parlor and that was his kind of beef.
+[01:17:51.440 --> 01:18:00.000]   The whole conservative thing about their censoring conservatives is extremely political and partisan.
+[01:18:00.000 --> 01:18:06.960]   This comes up every time in every one of these. It's just nonsense. It's complete nonsense.
+[01:18:06.960 --> 01:18:11.200]   I don't think it had any part. I shouldn't have had any part in there. I hope if they do
+[01:18:11.200 --> 01:18:17.680]   something with Apple in the App Store that it doesn't have this partisan taint to it that the
+[01:18:17.680 --> 01:18:24.960]   GOP keeps trying to introduce. I thought David Sizzolini was pretty well briefed for the House
+[01:18:24.960 --> 01:18:32.880]   hearings. And Klobuchar was dumb about a couple things. Ben Thompson, he thought this was the
+[01:18:32.880 --> 01:18:39.520]   most fun, best informed hearing he'd ever seen. He said it was very amusing.
+[01:18:39.520 --> 01:18:44.960]   The best, most entertaining tech-related congressional hearings I've ever seen.
+[01:18:44.960 --> 01:18:50.080]   Unfortunately, I don't think it was streamed live like these other ones. You have to watch
+[01:18:50.080 --> 01:18:56.640]   a recording. There is a YouTube. It was live on the subcommittee's website.
+[01:18:56.640 --> 01:19:04.960]   So it's nice to see members of Congress well-informed. Unfortunately, politics very much intrudes
+[01:19:04.960 --> 01:19:14.480]   into this process always. But I guess that's politics. That's how it's set up. That's how we
+[01:19:14.480 --> 01:19:20.880]   do these things in this country. Let's talk about this ransomware because I thought you had an
+[01:19:20.880 --> 01:19:27.440]   interesting theory on this. So the operators of the, I don't know how you pronounce it,
+[01:19:27.440 --> 01:19:33.920]   REVIL. I'm going to say REVIL, Ransomware Gang. Apparently, cracked quanta computers,
+[01:19:33.920 --> 01:19:38.800]   which makes laptops for Apple among many other companies.
+[01:19:40.400 --> 01:19:49.680]   And got schematics for upcoming Apple products. The REVIL gang, or REVIL gang, said,
+[01:19:49.680 --> 01:19:56.640]   "Quanta refused to pay the ransom to get its stolen data back." So they pushed 21 screenshots
+[01:19:56.640 --> 01:20:03.120]   depicting MacBook schematics and said, "You were going to publish a new dump every day until
+[01:20:03.120 --> 01:20:11.920]   Apple or Quanta pays the $50 million ransom." Now, you said it stopped. So maybe somebody,
+[01:20:11.920 --> 01:20:17.840]   maybe we don't know, something happened. It seems like Apple would not pay the money,
+[01:20:17.840 --> 01:20:21.040]   but who knows? They really do like keeping this stuff private.
+[01:20:21.040 --> 01:20:27.920]   It seemed too late. I mean, once the machine has been unveiled, I'm not sure how much help this
+[01:20:27.920 --> 01:20:33.520]   is. Well, this is something that's not going to be unveiled, I think, until June at the earliest
+[01:20:33.520 --> 01:20:42.320]   WWDC, in particular at 14 and 16-inch MacBook Pros, which sound like the MacBook Pros we've
+[01:20:42.320 --> 01:20:47.040]   been hearing about. And there is, should I not repeat it because it's stolen information?
+[01:20:47.040 --> 01:20:54.080]   What's the ethics on that? Well, we got burned during the impeachment hearing with some of that
+[01:20:54.080 --> 01:20:59.600]   stuff. Probably good not to repeat it. All right, because it is an extortion.
+[01:20:59.600 --> 01:21:07.120]   So I won't repeat it. But you can look it up if you wanted to find it, because I'm apparently
+[01:21:07.120 --> 01:21:16.080]   the only person in the world who won't repeat it. So there you go. I'm scared, though. I would be,
+[01:21:16.080 --> 01:21:22.000]   if someone got ahold of my hard drive and encrypted it and said they wouldn't release it
+[01:21:22.880 --> 01:21:27.120]   unless I paid up. I would be hurt. I'm not protected against that.
+[01:21:27.120 --> 01:21:32.320]   Yeah, no, that's terrible. No, of course not. Yeah. No, these guys are evil. I mean,
+[01:21:32.320 --> 01:21:38.240]   there's they see and they ain't seen their name. I mean, the commercial would say,
+[01:21:38.240 --> 01:21:43.520]   we're evil. It's in our name. Just advertising. They're just bad. They're just bad people.
+[01:21:43.520 --> 01:21:48.400]   And in a way, I don't want to, yeah, I don't want to facilitate. It would be nice if all the
+[01:21:48.400 --> 01:21:51.680]   publications would say, yeah, go ahead, dump that stuff. We're not going to repeat it.
+[01:21:51.680 --> 01:22:02.160]   I don't know. I think the Jeff Bezos approach. Right. Right. Go ahead, publish that picture. I don't
+[01:22:02.160 --> 01:22:15.520]   care. Facebook is going to launch its digital currency this year. Remember, they were doing Libra,
+[01:22:15.520 --> 01:22:22.080]   and then there was so much negative publicity. They changed the name. That's very Facebook, right?
+[01:22:22.080 --> 01:22:29.600]   Oh, well, we'll change the name. It's now called DM as in Carpe DM.
+[01:22:29.600 --> 01:22:37.200]   And it's a stable coin pegged to the US dollar. This would be used, I guess, on Facebook
+[01:22:37.200 --> 01:22:44.000]   for payments. I don't know exactly. It will take all the oxygen out of everything that can
+[01:22:44.000 --> 01:22:51.600]   possibly take the oxygen out of. Given it's Facebook. Yeah. See, I have a hard time with Facebook
+[01:22:51.600 --> 01:22:55.600]   stories because I long ago left Facebook in the dust, and I just don't understand why anybody
+[01:22:55.600 --> 01:23:02.720]   continues to use it. But apparently, 2 billion people think I'm wrong, and I guess that's enough
+[01:23:02.720 --> 01:23:09.120]   to make it worth covering. It's a problem in local politics, I've got to say.
+[01:23:12.720 --> 01:23:21.840]   All the divisions within a 17,000 person pound get exposed and then accelerated.
+[01:23:21.840 --> 01:23:26.000]   Now, we should mention, Philip, what are you in? Aldermen, what is your title?
+[01:23:26.000 --> 01:23:34.160]   I'm a city counselor. City counselor. And so you see this up close. You mean,
+[01:23:34.160 --> 01:23:44.080]   Facebook's impacting the politics? Oh, yeah. Oh, yeah. Because positions get hardened on both sides,
+[01:23:44.080 --> 01:23:49.760]   with a huge fight over funding the library and a huge fight over the fire station. And now a
+[01:23:49.760 --> 01:23:57.520]   huge fight over the fixing up the repairs on the police station in a defund police atmosphere.
+[01:23:57.520 --> 01:24:03.120]   It's tough. But maybe I could make the case that the only reason you didn't have those fights
+[01:24:03.120 --> 01:24:08.320]   before is because people didn't know the thing was going on. And all Facebook has done is
+[01:24:08.320 --> 01:24:15.760]   spread the information more widely. Well, we have a pretty good example of where it does go wrong
+[01:24:15.760 --> 01:24:22.160]   in the presidential election. And we don't have to get into it here. But we've seen
+[01:24:22.160 --> 01:24:29.920]   positions get hardened and exaggerated before. And what I'm saying is it happens
+[01:24:29.920 --> 01:24:33.920]   not just in the national scale, but also in local government.
+[01:24:33.920 --> 01:24:34.240]   Yeah.
+[01:24:34.240 --> 01:24:45.600]   An internal Facebook task force reported that in fact, Facebook
+[01:24:45.600 --> 01:24:52.800]   knew it was being used to incite the capital insurrection and failed to take appropriate action.
+[01:24:52.800 --> 01:24:57.440]   This is a task force inside Facebook. BuzzFeed News got the private report,
+[01:24:58.080 --> 01:25:01.360]   which concludes, "We hope the company does better next time."
+[01:25:01.360 --> 01:25:10.240]   Okay. What's so interesting is that there is a, like, if you look at the different companies,
+[01:25:10.240 --> 01:25:14.160]   for example, Susan, I'm going to pronounce her last name wrong, Susan Wojinski, I think,
+[01:25:14.160 --> 01:25:19.760]   who runs YouTube, has said several times that she will take a loss in revenue if it means creating
+[01:25:19.760 --> 01:25:23.840]   just a better humanity. So there's certain times that were true. I wish that was true.
+[01:25:25.040 --> 01:25:28.720]   Well, but I mean, like, when you just listen to the rhetoric, and yet time after time,
+[01:25:28.720 --> 01:25:32.320]   we have testimony from Facebook executives who said that they've offered Mark the opportunity to
+[01:25:32.320 --> 01:25:38.160]   have like 5% less revenue or 10% and it would get rid of like the most malignant parts of Facebook.
+[01:25:38.160 --> 01:25:44.160]   And every time he's maximized revenue and maximized engagement and attention at the expense of every
+[01:25:44.160 --> 01:25:49.920]   human consideration. And I think when you look at the spectrum of companies with like maybe Facebook
+[01:25:49.920 --> 01:25:55.520]   at one end, Google somewhere close to that, and the other networks, Twitter following along,
+[01:25:55.520 --> 01:25:59.920]   it just seems like he's made the worst possible, least human choice every single time.
+[01:25:59.920 --> 01:26:07.360]   And yet he's made the choice that from a purely business point of view is the right choice,
+[01:26:07.360 --> 01:26:10.160]   right? Well, maybe not in the long run. Well, like nicotine and cigarettes,
+[01:26:10.160 --> 01:26:13.280]   like from a business point of view. Yeah. I mean, he's making the most money.
+[01:26:13.280 --> 01:26:16.960]   It's like so tobacco at this point. Yeah, it is. Facebook is becoming like big tobacco.
+[01:26:17.600 --> 01:26:22.640]   They know they've got these internal reports. They know they're not doing the right thing and
+[01:26:22.640 --> 01:26:29.120]   they can't turn their back on the profits, I guess. John Boehner in his book said one point he was
+[01:26:29.120 --> 01:26:35.840]   a consultant for or on the board of a cigarette company. And he said none of the top executive
+[01:26:35.840 --> 01:26:42.480]   smoke. And once he went because he's a change book. Once he went out to smoke a cigarette outside
+[01:26:42.480 --> 01:26:46.240]   in the chair of the company and said, John, don't that stuff's bad for you? Don't do that.
+[01:26:46.240 --> 01:26:53.200]   Okay, now I'm going to read the book. That's that's a revelation. Holy cow.
+[01:26:53.200 --> 01:26:57.200]   I thought it was I thought it was interesting that you had within two weeks,
+[01:26:57.200 --> 01:27:06.160]   you had Facebook announcing that it was going to go all in on audio. Yeah, which has the potential,
+[01:27:06.160 --> 01:27:11.840]   of course, to to conflict and compete and possibly crush if Mark Zuckerberg wants to
+[01:27:12.720 --> 01:27:18.400]   clubhouse and and other other operations like that. And then at the same time, you had
+[01:27:18.400 --> 01:27:26.960]   Apple doing its air tags, which could dominate the the market and crush tile. And at the same time,
+[01:27:26.960 --> 01:27:32.480]   you have Congress intensely looking at these companies and they don't give a damn. You know,
+[01:27:32.480 --> 01:27:35.520]   they're going to go ahead and do what they want to do in the way they want to do it,
+[01:27:35.520 --> 01:27:40.080]   even though people are looking over their shoulder and regulation looms.
+[01:27:40.800 --> 01:27:46.160]   And that that this week was just kind of a style astounding to me in terms of kind of big techs.
+[01:27:46.160 --> 01:27:51.200]   We don't give a damn. Do you think we're going to look back all of us in a few years
+[01:27:51.200 --> 01:27:58.640]   and say, this was the last moment we had to stop these giant tech companies from
+[01:27:58.640 --> 01:28:03.840]   basically running the planet and we failed and that up it's over.
+[01:28:03.840 --> 01:28:08.400]   Is there a difference though, because it feels like clubhouse is such a feature like everybody is
+[01:28:08.400 --> 01:28:12.720]   making clubhouse Instagram, Facebook, Twitter, we have a clubhouse. Look at the
+[01:28:12.720 --> 01:28:16.400]   display slack. Look at what we're doing. And right here, this is a
+[01:28:16.400 --> 01:28:21.120]   completely and duplicate of clubhouse. Here we are up on the stage. Here's the people on the stage.
+[01:28:21.120 --> 01:28:26.160]   They even have a hand raised button. They have instead of leave quietly, it says exit quietly.
+[01:28:26.160 --> 01:28:30.960]   Right. It's a feature like stories. Yeah, you can't everybody has everyone is Snapchat. Everyone is
+[01:28:30.960 --> 01:28:35.600]   clubhouse is but in looking at my mail app is going to have clubhouse. Yeah. Yeah.
+[01:28:36.160 --> 01:28:42.000]   So but in looking at what Facebook has done historically, this continues to follow that pattern.
+[01:28:42.000 --> 01:28:48.960]   It doesn't matter that Twit is doing using discord to create to duplicate clubhouse.
+[01:28:48.960 --> 01:28:54.080]   What matters is that Facebook is doing it. Right. And the pattern that has established with its
+[01:28:54.080 --> 01:29:02.160]   behavior. Yeah. It's this is that same antitrust thing when you get to a certain size for a
+[01:29:02.160 --> 01:29:06.960]   significant portion of the world's population. Facebook is the internet. There is nothing
+[01:29:06.960 --> 01:29:10.960]   outside of Facebook. It is the internet. Right. Which is the way it was with AOL before. Right.
+[01:29:10.960 --> 01:29:16.080]   Right. Yeah. When the earliest days of that. I have to say I have a little bit of hope because
+[01:29:16.080 --> 01:29:22.640]   I look at upstarts like TikTok and how they're just, you know, for it for a younger generation
+[01:29:22.640 --> 01:29:28.240]   completely supplanting whatever it was they got or I look at honestly, I look at discord and
+[01:29:30.640 --> 01:29:36.880]   it is it is a new social network. It's not fashioned like Facebook, but it is a new social network.
+[01:29:36.880 --> 01:29:42.560]   I think messaging apps to some degree are replacing Facebook. Things like Telegram or
+[01:29:42.560 --> 01:29:50.000]   WeChat for group messaging for groups for social sharing for I mean, what would stop a family
+[01:29:50.000 --> 01:29:54.160]   and extended family from creating a discord server and saying this is our Facebook.
+[01:29:54.160 --> 01:29:58.640]   Let's keep up on when how we're doing and we don't have to worry about any of this other stuff.
+[01:29:58.640 --> 01:30:04.800]   So I think that there is an opportunity for Facebook to be replaced, but right now they look like a
+[01:30:04.800 --> 01:30:12.080]   juggernaut. I mean, they just look completely unstoppable because of this. But remember, as you
+[01:30:12.080 --> 01:30:19.280]   said AOL was the internet for a vast majority of Americans. Yeah. And it's gone. Think about it.
+[01:30:19.280 --> 01:30:24.160]   If you could put a stake through Facebook's heart, how many flowers would bloom?
+[01:30:27.760 --> 01:30:35.680]   Wow, that's almost Maoist and it's a lyricism. Okay, put a stake in Facebook's heart.
+[01:30:35.680 --> 01:30:38.160]   And how many flowers would bloom? There's your title for the show.
+[01:30:38.160 --> 01:30:43.120]   Yeah, do you mean split it up? Do you mean by splitting it up? Is that what you mean or just
+[01:30:43.120 --> 01:30:47.840]   killing it? Yeah, I don't know how you split up Facebook. You know, the chat room is talking about
+[01:30:47.840 --> 01:30:53.520]   how do you split up Apple? Well, it's different for different companies. You can see how to split up
+[01:30:54.480 --> 01:30:58.720]   Amazon because the web service is different from a company. Yeah, right.
+[01:30:58.720 --> 01:31:04.080]   Alphabet to do before them. Right. Alphabet did it already and they just created a template.
+[01:31:04.080 --> 01:31:11.840]   With Apple, it seems like the problems with the App Start come up when it's it has a product
+[01:31:11.840 --> 01:31:19.200]   in its own platform. And then it if it starts playing heavy handed games.
+[01:31:19.920 --> 01:31:26.000]   So Apple commercial. That's also looking at it. I should point out that Discord was being
+[01:31:26.000 --> 01:31:30.400]   quoted by Microsoft. Microsoft went as high as $12 billion and Discord said no.
+[01:31:30.400 --> 01:31:36.720]   Those talks are now off. Didn't clubhouse say no to eight billion from Twitter or someone as well?
+[01:31:36.720 --> 01:31:41.600]   Amazing. Maybe should have taken that. I remember when Facebook bought Instagram for a billion and
+[01:31:41.600 --> 01:31:47.840]   we thought that's that's insane a billion dollars. It's just an app. And what was the message?
+[01:31:49.440 --> 01:31:54.000]   What's app? The spending they bought for us. What's that? What's some 20? Well, I think when the
+[01:31:54.000 --> 01:31:58.880]   stock finally that the stock price started to play out, it ended up being closer to 29 billion.
+[01:31:58.880 --> 01:32:05.120]   It was a lot of money. And no one would say at this point that Instagram wasn't a deal
+[01:32:05.120 --> 01:32:11.120]   and that WhatsApp was probably appropriate price. Kevin and system kicking himself. Oh,
+[01:32:11.120 --> 01:32:16.480]   poor Kevin. So you can see why the CEO of Discord saying, yeah, we're not going to 12 billion.
+[01:32:16.480 --> 01:32:22.000]   Yeah. Clubhouse, maybe should have taken it at this point. You know what's better than four commas.
+[01:32:22.000 --> 01:32:31.680]   Let's take a little break. Got lots more to talk about. Philip Elmer DeWitt is here.
+[01:32:31.680 --> 01:32:39.040]   ped30.com ped30.com. It's going well for you, Philip. When you went, I must have been scary to go
+[01:32:39.040 --> 01:32:46.720]   independent. I never to a choice. They might need you. Well, you know, they said they could
+[01:32:46.720 --> 01:32:53.120]   they could hire five young guys for what they were paying me. And I didn't have to hear it.
+[01:32:53.120 --> 01:32:59.920]   They didn't have to hear that twice. It's a Paul. It's a Paula. I was out the next next month.
+[01:32:59.920 --> 01:33:08.480]   No, it's doing great. We've added this new, you know, I doubled my price in January and grew my
+[01:33:08.480 --> 01:33:13.440]   membership. Isn't that interesting? So you charged more, but you got more subscribers.
+[01:33:13.440 --> 01:33:18.080]   Well, I said you've got five more days to get it at the old price. Four more days. Three more days.
+[01:33:18.080 --> 01:33:24.000]   Oh, that's smart. And that kind of shook the tree and got a lot of the kind of free writers
+[01:33:24.000 --> 01:33:31.600]   to finally sign up. They felt bad. They were getting it for free. And then to make it valuable,
+[01:33:31.600 --> 01:33:37.440]   I've started running these monthly zooms with analysts. It's sort of been asked me anything with
+[01:33:37.440 --> 01:33:43.440]   this analyst or that reporter. I'm having Eric Savage from the,
+[01:33:43.440 --> 01:33:49.440]   that's not his name yet. Eric Savage from Behrens, who's been writing about technology for
+[01:33:49.440 --> 01:33:56.400]   investors almost as long as I have. Yeah, we, I think this is the future. Ben Thompson writes
+[01:33:56.400 --> 01:34:02.880]   about the sovereign writer, the idea that if you've got an audience and you've got a brand and you've
+[01:34:02.880 --> 01:34:07.280]   got something to say, there's no reason for you to do it under the umbrella of a big organization.
+[01:34:07.280 --> 01:34:12.960]   Now that's sub stack and other things like this, memberful, which we use exists, Ben uses memberful
+[01:34:12.960 --> 01:34:19.200]   as well. Create your own little, you know, maybe it's a lifestyle business. It's not going to
+[01:34:19.200 --> 01:34:24.800]   be a unicorn, but create your own lifestyle business and be independent. And it's,
+[01:34:24.800 --> 01:34:30.080]   I, that's why I don't worry too much about the monoliths like Facebook, because I think in the
+[01:34:30.080 --> 01:34:34.800]   long run, you don't have to put a stake in its heart for a thousand flowers to bloom.
+[01:34:34.800 --> 01:34:39.360]   They're blooming right now. They're starting to bloom. We want to do the same thing. I want,
+[01:34:39.360 --> 01:34:44.560]   we did a Linux show on Saturday yesterday, something we could never get a sponsor to pay for.
+[01:34:44.560 --> 01:34:49.600]   But Jonathan Bennett from our Floss Weekly said, what if we just got to stage together and
+[01:34:49.600 --> 01:34:53.280]   kind of like clubhouse and talked about Linux for an hour and we did and it was great.
+[01:34:54.720 --> 01:35:00.160]   I think that that it wasn't monetized that particular. Well, it is monetized because you have to pay
+[01:35:00.160 --> 01:35:10.400]   to be in the club. So, yes, it is monetized. We'll see. I don't know, you know, I don't,
+[01:35:10.400 --> 01:35:14.320]   I don't know if it's going to be enough money to say, let's keep doing this. It just, it really
+[01:35:14.320 --> 01:35:19.440]   does depend on, we did this when we started in 2005 and there was no infrastructure to do this.
+[01:35:19.440 --> 01:35:26.160]   I said, anybody wants to pay, can PayPal me some money and it went very, very well. We got $9,000
+[01:35:26.160 --> 01:35:30.400]   a month at its peak. But not enough. That's not enough. It was enough to live on, but it wasn't
+[01:35:30.400 --> 01:35:34.160]   enough for me to do another show and another show and another show and build a network and hire
+[01:35:34.160 --> 01:35:40.640]   people and all that stuff. The advertising made that popular. So, by the way, a word that
+[01:35:40.640 --> 01:35:48.480]   substack offered Taylor Lawrence of the New York Times, $300,000 to move over. She said no
+[01:35:48.480 --> 01:35:54.960]   and then offered another Times writer, I think, $200,000 to move over.
+[01:35:54.960 --> 01:36:00.640]   That's a lot of money. The Times doesn't pay that kind of money. No, it was twice their salary.
+[01:36:00.640 --> 01:36:07.920]   And they still said no. This is, this is what the, what substacks been doing with a little bit
+[01:36:07.920 --> 01:36:12.400]   of criticism because they don't reveal who they're paying and who not. But encouraging writers
+[01:36:12.400 --> 01:36:17.280]   to come and we'll guarantee you a certain amount. If your subscriptions exceed that amount,
+[01:36:17.280 --> 01:36:22.160]   we keep the difference. And it turns out for some of the big writers on that platform,
+[01:36:22.160 --> 01:36:26.480]   that was a good deal for substack. They made money on it because the writers got more subscriptions
+[01:36:26.480 --> 01:36:31.520]   and they ended up paying. It's very interesting that I think that's just the beginning of places
+[01:36:31.520 --> 01:36:36.960]   like this chasing name writers, bylined writers at big publications saying, why are you writing
+[01:36:36.960 --> 01:36:43.600]   for the Times? You could, you could write for us. If I were the times I'd be nervous,
+[01:36:43.600 --> 01:36:51.120]   come for you. We're too old. Nobody cares about us anymore. You gotta be young. This is a young
+[01:36:51.120 --> 01:36:57.280]   prisons game now. Isn't it interesting though that there's enough money in that to do that kind of
+[01:36:57.280 --> 01:37:05.040]   thing? I'm not sure there is that much money. Right. Let's see. Right. Anyway, I was going to
+[01:37:05.040 --> 01:37:11.840]   take a break. We also welcome a guy who has moved from his newspaper, the Houston Chronicle, to Forbes
+[01:37:11.840 --> 01:37:18.000]   and a good move for you, Dwight Silverman, on.forbs.com/dwight. What are you writing about it for Forbes?
+[01:37:18.000 --> 01:37:25.920]   I'm doing consumer tech and I'm trying to do it as a kind of taking, looking at what's new,
+[01:37:25.920 --> 01:37:32.480]   what's out there, what makes most sense for most people. And the model is similar kind of to
+[01:37:32.480 --> 01:37:37.600]   Substack. It's called the program that they pulled me into was called
+[01:37:37.600 --> 01:37:44.720]   Journalist Entrepreneurs. And I have a newsletter. I can write stories on the smart. Oh, they're smart.
+[01:37:44.720 --> 01:37:50.000]   So they're giving you kind of that sub-stack independence. Yes. In fact, I was going to do
+[01:37:50.000 --> 01:37:54.560]   Substack when Randall Lane of Forbes approached me. And so I kind of had this,
+[01:37:55.520 --> 01:38:02.560]   I kind of had this decision that I had to make. So far it's great. I have a relative autonomy,
+[01:38:02.560 --> 01:38:10.160]   but I have editors. I have who can look over my copy. I have, if I want to write something that
+[01:38:10.160 --> 01:38:14.000]   is in more depth, in fact, I'm doing something next week where I'm collaborating with another
+[01:38:14.000 --> 01:38:20.960]   Forbes writer on a topic. And so I can kind of kind of go in and out. I can be as much by myself
+[01:38:20.960 --> 01:38:27.120]   as I want, or I can collaborate. And it's an interesting hybrid. It's definitely an experiment,
+[01:38:27.120 --> 01:38:34.320]   but we're pulling in some names. We just pulled in the alpha channel guys who have been writing
+[01:38:34.320 --> 01:38:40.880]   on finance on Substack. So we've kind of poached some stuff from them and we're bringing in new
+[01:38:40.880 --> 01:38:45.520]   writers all the time. So it's really interesting watching them, watching this being built.
+[01:38:45.520 --> 01:38:49.600]   Kind of we're flying the airplane as we're building it. It's really nice. It looks like a
+[01:38:49.600 --> 01:38:55.840]   Substack. It's clean. It's beautiful. Very nice. On dot Forbes. You could show it, John. Thank you.
+[01:38:55.840 --> 01:39:00.320]   On dot Forbes dot com slash de white D W I G H T.
+[01:39:00.320 --> 01:39:05.920]   In fact, come to think of it. All of you guys are kind of going your own way. Renee,
+[01:39:05.920 --> 01:39:14.080]   Renee Richie, who was for a long time at iMore, went his own way. It's been a year now, hasn't it?
+[01:39:15.120 --> 01:39:19.840]   Yeah, a year this month. YouTube dot com slash Renee Richie. And are you how do you feel? I mean,
+[01:39:19.840 --> 01:39:26.800]   you're not going to say I'm sorry I did it. Are you? No, no, not. I mean, I don't regret working at
+[01:39:26.800 --> 01:39:32.080]   mobile nations. I'm great. Yeah. Best and happiest. Yeah. I've ever been the most fulfilled I've
+[01:39:32.080 --> 01:39:36.320]   ever been and the least amount of meetings I've ever had in my life. It's hard work though, isn't it?
+[01:39:38.640 --> 01:39:45.280]   It depends. Like, I love like I I felt deeply in love with producing video while I was learning
+[01:39:45.280 --> 01:39:50.800]   to do all this stuff. And so to me, it's almost dangerously not work. So I have to put limits on
+[01:39:50.800 --> 01:39:54.320]   myself because otherwise I would just be doing it all the time. I like, I love editing now. I
+[01:39:54.320 --> 01:39:59.200]   love shooting. I love lighting. I love all of these things so much that I really have to put hard
+[01:39:59.200 --> 01:40:03.920]   limits on myself. That's how I feel about playing Valheim. If I could play Valheim all the time,
+[01:40:04.880 --> 01:40:08.800]   nobody's willing to pay me for that. I see if I play Valheim, I couldn't do all this.
+[01:40:08.800 --> 01:40:15.440]   You know, thank God for audible because at least I listened to books while I'm playing Valheim.
+[01:40:15.440 --> 01:40:20.480]   So I don't feel like it's a complete waste of time. Discord snitches on you, by the way,
+[01:40:20.480 --> 01:40:28.080]   and because it says Leo playing Valheim in the Discord channel if I've got this code open.
+[01:40:28.080 --> 01:40:33.920]   So it's all I think the people in the in the club know that I spent quite a few hours over the last
+[01:40:33.920 --> 01:40:43.120]   few days grinding away at my Valheim buildings. YouTube.com/renaerichie and you've got an unboxing
+[01:40:43.120 --> 01:40:48.480]   for the ear tags, that purple iPhone. It's great. And you have interviews with the Apple
+[01:40:48.480 --> 01:40:53.840]   execs. So that's pretty cool. That was the client, Rance, who's vice president of worldwide
+[01:40:53.840 --> 01:41:01.600]   product marketing for the iPhone. She's brilliant. And Ron Huang, who is the guy who's in charge of
+[01:41:01.600 --> 01:41:05.520]   all the sensing and connectivity, but did a lot of the intelligence behind how this works.
+[01:41:05.520 --> 01:41:11.600]   And they explain a lot of the details about like you can pair 16 air tags with any one Apple ID.
+[01:41:11.600 --> 01:41:15.840]   And you'll get a pop up telling you when the battery is getting low so you can change it.
+[01:41:15.840 --> 01:41:19.360]   It's a commodity battery at this point. Yeah. A lot of interesting stuff.
+[01:41:19.360 --> 01:41:25.200]   Yes, I know. It's a CR 2320. What is it?
+[01:41:25.200 --> 01:41:31.920]   22. 23. 22. Yeah. I have a lot of those. Pretty much everything uses those.
+[01:41:31.920 --> 01:41:36.320]   It's inexpensive and it's got a user-changeable battery. It's the least Apple Apple version of
+[01:41:36.320 --> 01:41:39.920]   air tags that anyone expected. I'm thrilled because that would have been a big waste. That's
+[01:41:39.920 --> 01:41:43.760]   one of the problems with the original tile was you threw it away when the battery died. Now they
+[01:41:43.760 --> 01:41:52.160]   have replaceable batteries. Thank goodness. But when we had the tracker, it died. I had to put
+[01:41:52.160 --> 01:41:56.080]   a new battery in all the time. I'm hoping the Apple air tags are a little bit more
+[01:41:56.080 --> 01:42:02.720]   parsimonious with their use of the battery. You don't know yet. I mean,
+[01:42:02.720 --> 01:42:07.760]   we nobody knows. We haven't had it long enough. They say a year. They say a year.
+[01:42:07.760 --> 01:42:10.560]   Yeah. They're the last five years. So we'll see.
+[01:42:10.560 --> 01:42:15.920]   I mean, you could just flip the battery and there. They're in a dormant state most of the time.
+[01:42:15.920 --> 01:42:21.440]   Yeah. I think there's a way to do that. Our show today, I'm sure there is.
+[01:42:22.000 --> 01:42:28.320]   Obviously. A show today brought to you by Amazon Pharmacy. I was a pill pack user for a long time.
+[01:42:28.320 --> 01:42:33.600]   Pill pack was great. It would send me my medications in these packs that were automatically labeled
+[01:42:33.600 --> 01:42:36.960]   with the time and data and knew exactly what I was taking. They created machinery that would
+[01:42:36.960 --> 01:42:41.120]   use a camera to make sure I was getting exactly the right medication. Amazon Bottom,
+[01:42:41.120 --> 01:42:45.920]   and they've incorporated into something they're calling Amazon Pharmacy. I'm thrilled.
+[01:42:47.200 --> 01:42:51.120]   Especially now, at a time when staying home is the best thing for everyone,
+[01:42:51.120 --> 01:42:57.440]   make life a little easier for yourself. Use Amazon Pharmacy. It's a real pharmacy with real
+[01:42:57.440 --> 01:43:01.840]   pharmacists. It works with your doctor, but the difference is instead of you waiting in line to
+[01:43:01.840 --> 01:43:06.720]   pick up your medication, it delivers medication right to your door. You don't have to leave the
+[01:43:06.720 --> 01:43:12.320]   house, one less errand, more safety for you. Amazon Pharmacy is freaking amazing. Not only is it
+[01:43:12.320 --> 01:43:18.320]   to save you time, but it's easy. The doctor just gives the, presents the prescription over to Amazon.
+[01:43:18.320 --> 01:43:22.080]   And by the way, this is really good. Amazon Pharmacy will coordinate to make sure that
+[01:43:22.080 --> 01:43:29.040]   that prescription is accurate. Then you're getting exactly the meds you need and the dose you need.
+[01:43:29.040 --> 01:43:34.080]   You can use your insurance. Of course, Amazon Pharmacy works with most insurance plans nationwide.
+[01:43:34.080 --> 01:43:39.200]   But here's something that's really different than the pharmacy down the street. With Amazon
+[01:43:39.200 --> 01:43:44.800]   Pharmacy, they tell you the price upfront before you fill your prescription. That means you'll know
+[01:43:44.800 --> 01:43:48.960]   what your insurance copay is. You'll know what the price of the medication is with insurance
+[01:43:48.960 --> 01:43:53.440]   and without insurance. And you can make the right decision. And you should know if you're an Amazon
+[01:43:53.440 --> 01:43:58.800]   Prime member, you're going to get free two-day delivery and a discount on prescriptions, which
+[01:43:58.800 --> 01:44:03.680]   actually, if you're not paying with insurance, which actually may end up saving you money in the
+[01:44:03.680 --> 01:44:11.760]   long run. So that is a really unique deal. Also, there's a pharmacist on duty 24/7. So if you have
+[01:44:11.760 --> 01:44:17.120]   a question or need advice or you just want to know more about this medication, you can ask any time.
+[01:44:17.120 --> 01:44:23.280]   And I should need to say this, but of course, your medical information is absolutely private.
+[01:44:23.280 --> 01:44:29.200]   They're not going to share your personal health data outside of the pharmacy. It's protected.
+[01:44:29.200 --> 01:44:34.320]   It's protected by law, but it's also protected by Amazon pharmacy. It is completely private.
+[01:44:34.320 --> 01:44:39.280]   Don't you don't ever have to worry about that. This is just a better way to get your meds.
+[01:44:39.280 --> 01:44:45.440]   Amazon Prime subscribers can save on prescription medication. When you're not using insurance,
+[01:44:45.440 --> 01:44:51.200]   you'll always get free two-day delivery as a Prime member. Learn more at Amazon.com/twitRx
+[01:44:52.000 --> 01:45:05.280]   Amazon.com/twitRx. Amazon.com/twitRx. Thank you, Amazon, for your support. We appreciate it.
+[01:45:05.280 --> 01:45:10.640]   We love you. Keep up the good work. All that. Signal just, I love this.
+[01:45:10.640 --> 01:45:16.560]   Moxie Marlin Spike. I love you, Moxie Marlin Spike. He says he got a hold of the celebrate
+[01:45:16.560 --> 01:45:24.880]   phone cracking tool. It fell off a truck. He says, and he hacked it. It turns out, according to
+[01:45:24.880 --> 01:45:31.360]   Moxie Marlin Spike, "Celebrite software." This is the device that law enforcement buys at great
+[01:45:31.360 --> 01:45:36.480]   expense so that they can suck the data out of your phone. Border Patrol has it. Lots of people have it.
+[01:45:36.480 --> 01:45:44.240]   Moxie says, "This software has atrocious security that can easily be manipulated in a variety of
+[01:45:45.680 --> 01:45:51.360]   terrifying ways." We were surprised, he writes, to find that very little care seems to have been
+[01:45:51.360 --> 01:45:56.240]   given to celebrate's own software security, industry standard exploit medication defenses
+[01:45:56.240 --> 01:46:02.320]   are missing, and many opportunities for exploitation are present. Until celebrate is able to accurately
+[01:46:02.320 --> 01:46:06.880]   repair all vulnerabilities in its software with high confidence, the only remedy a
+[01:46:06.880 --> 01:46:16.240]   celebrate user has is not to scan devices. He says, "Because of security flaws, so this is what I want.
+[01:46:16.240 --> 01:46:22.800]   You could put software on your phone that would rewrite the data being collected by the tool."
+[01:46:22.800 --> 01:46:34.000]   You could insert, remove text, email, photos, context files, any data, no detectable time stamp
+[01:46:34.000 --> 01:46:40.960]   changes, no check sum failures, they don't check. It is possible to execute arbitrary code on a
+[01:46:40.960 --> 01:46:46.480]   celebrate machine just by including especially formatted but otherwise innocuous file in any
+[01:46:46.480 --> 01:46:52.160]   app on a device that then is plugged in and scanned. So I want that. Whatever that is, give me that.
+[01:46:52.160 --> 01:47:00.000]   It's the biggest karma boost in a week. Isn't it great? It's just, of course.
+[01:47:01.280 --> 01:47:05.120]   Of course. I don't think there's any response from Celebright. They don't like to.
+[01:47:05.120 --> 01:47:11.040]   Celebright, the one that they used to crack the San Bernardino iPhone.
+[01:47:11.040 --> 01:47:14.880]   No, actually we just learned that that was another company.
+[01:47:14.880 --> 01:47:22.080]   Australian company. Yeah. We thought it was for Israeli. That was actually an interesting
+[01:47:22.080 --> 01:47:26.880]   article. I don't know where I read it, but they sort of passed together three or four different
+[01:47:27.920 --> 01:47:33.440]   what are they called? Exploits. The exploits. Yeah. They find a way in.
+[01:47:33.440 --> 01:47:40.560]   So you remember this is the San Bernardino terrorist. He had several phones. There was one
+[01:47:40.560 --> 01:47:49.520]   iPhone and the FBI sued Apple saying you've got a back patch. Actually, what the FBI really wanted,
+[01:47:49.520 --> 01:47:54.400]   this was all a pretext, was for Apple to provide them with a backdoor to all smartphones, to all
+[01:47:54.400 --> 01:47:58.720]   Apple phones. And Apple said quite rightly, we're not going to do that. That would compromise
+[01:47:58.720 --> 01:48:03.600]   every user's security. We're not going to give you that. And then the FBI dropped the suit,
+[01:48:03.600 --> 01:48:10.880]   suddenly saying, oh, we figured it out. Never mind. And now we've learned a couple of years later,
+[01:48:10.880 --> 01:48:16.160]   right? Yeah. That was this Australian company. Nobody. I don't, I'd never heard of them.
+[01:48:16.160 --> 01:48:20.560]   Anybody. You ever. They were using that back end from that company. They'd license it from
+[01:48:20.560 --> 01:48:25.040]   the company that Apple was suing that I'm blanking on the name. Oh, that's right. The emulator company.
+[01:48:25.040 --> 01:48:29.600]   Yeah. That's right. They're not going to use it for anyone evil. And then Apple's like, well,
+[01:48:29.600 --> 01:48:33.600]   what about that? Apple got curious, said, well, then, who are you selling it to? And are they using
+[01:48:33.600 --> 01:48:38.800]   it for anything evil? And they're like, you don't know. And then they're like, but it's,
+[01:48:38.800 --> 01:48:43.840]   we only sell it to democratic governments and like, but that's not synonymous with not being evil.
+[01:48:43.840 --> 01:48:48.560]   Right. Oh gosh, we know that. Yeah. Because Apple doesn't want the exploit to go to anybody,
+[01:48:48.560 --> 01:48:54.160]   but Apple, because ultimately it's not so much who's using the exploit, but that other people have
+[01:48:54.160 --> 01:48:59.040]   maybe found that exploit that have no intention of telling anybody about it. And the only way you
+[01:48:59.040 --> 01:49:04.640]   can close them is from people who will disclose them. So Azimuth is the Australian company they
+[01:49:04.640 --> 01:49:10.000]   used, but you're saying they got the, they, one of the exploits in the chain, they got from
+[01:49:10.000 --> 01:49:16.800]   a company that Apple had sued and lost because they made emulators for the iPhone. And now you're
+[01:49:16.800 --> 01:49:23.440]   ready. But also turns out licenses out this stuff. Yeah. To maybe ultimately it was brute force that
+[01:49:23.440 --> 01:49:28.720]   did it, but they needed several exploits to get that close. Yeah, the reason the MPI couldn't
+[01:49:28.720 --> 01:49:33.600]   unlock it is because it had that security turned on where if you entered the code more than 10
+[01:49:33.600 --> 01:49:40.400]   times, it would erase the phone. Right. So what they Apple never did know until this lawsuit,
+[01:49:40.400 --> 01:49:44.400]   that this was how it happened. They didn't, they weren't even in on very interesting.
+[01:49:45.600 --> 01:49:50.720]   Very interesting. Yeah, you learn things in lawsuits. You didn't know, for instance,
+[01:49:50.720 --> 01:49:56.240]   that's how we learned that Apple will never make eye messages for Android. That was to the Apple
+[01:49:56.240 --> 01:50:02.240]   Epic lawsuit and discovery in that. That's the risk of these lawsuits is sometimes discovery reveals
+[01:50:02.240 --> 01:50:07.440]   or a lot of the stuff they're discovering on seems like it's so old, it's like a decade old
+[01:50:07.440 --> 01:50:12.000]   emails that he knows, like a lot of stuff was Steve Jobs emails like that doesn't apply anymore.
+[01:50:12.000 --> 01:50:17.120]   Yeah, maybe Steve had the idea to do that. Well, everybody always assumed that it was
+[01:50:17.120 --> 01:50:23.680]   that it was that green color that drives iPhone users crazy when they're communicating with an
+[01:50:23.680 --> 01:50:31.280]   Android device. And sure enough, in those emails, it was the user interface that was part of the
+[01:50:31.280 --> 01:50:36.320]   lock-in and they conceded that and the kind of the thing that everybody knew all along was
+[01:50:36.320 --> 01:50:43.200]   confirmed by this discovery. So was a seller? I want to know the difference between blue and
+[01:50:43.200 --> 01:50:47.680]   green because blue is secured. It's end-to-end encrypted and green isn't because it's just using
+[01:50:47.680 --> 01:50:52.560]   SMS. But like a workaround is to let everybody subscribe for two bucks to get a gold bubble
+[01:50:52.560 --> 01:50:57.120]   and the ability to redact messages. I mean, just making it worth our while. I want a gold bubble.
+[01:50:57.120 --> 01:51:03.680]   Well, what's interesting is on the Mac at least, I'm not sure how it is on the iPhone,
+[01:51:04.720 --> 01:51:13.360]   but that green color is the color of the messages app icon. It's not blue, it's green. So
+[01:51:13.360 --> 01:51:21.280]   that's kind of like the native color for the app. And what is blue, the native color for Facebook?
+[01:51:21.280 --> 01:51:30.000]   So the web apps Safari and things like that. So messages is indeed green on the iPhone.
+[01:51:32.320 --> 01:51:40.560]   The green and blue apps. For the first time ever, new regulations proposed in the EU
+[01:51:40.560 --> 01:51:47.520]   against artificial intelligence. And we had a big debate over this on this week in Google.
+[01:51:47.520 --> 01:51:54.240]   Jeff Jarvis predictably thought, we don't want the EU to regulate anything. Stacey and I argued
+[01:51:54.240 --> 01:52:01.520]   in favor of this. It seemed sensitive. It's a bill that's been proposed that would create a list
+[01:52:01.520 --> 01:52:07.360]   of so-called high risk uses of AI. They acknowledge that there are plenty of uses of AI, for instance,
+[01:52:07.360 --> 01:52:14.880]   a video game, simulated player, no big deal that are not dangerous. But things like face recognition
+[01:52:14.880 --> 01:52:22.640]   have huge potential consequences if they're not done properly. So they've named some high
+[01:52:22.640 --> 01:52:28.320]   risk uses of AI that would be subject to new supervision, standards for development and use,
+[01:52:28.320 --> 01:52:36.000]   things like critical infrastructure. A good example we had of one of the things we voted on in California
+[01:52:36.000 --> 01:52:42.640]   was to get rid of money bail because that's a clearly inequitable system. But it failed because
+[01:52:42.640 --> 01:52:50.640]   as the opponents pointed out, instead of requiring people pay money, there was an artificial intelligence
+[01:52:50.640 --> 01:52:58.960]   algorithm that would determine if a defendant was a risk or not. And no one knew how this algorithm
+[01:52:58.960 --> 01:53:06.480]   was made. And it could very well have been completely biased. And so people said, maybe money bail is
+[01:53:06.480 --> 01:53:13.040]   not the best solution, but this algorithm is not a good replacement. As with many EU regulations,
+[01:53:13.040 --> 01:53:20.000]   the top fine is massive. 6% of annual worldwide revenue, although it's rare that they're sadly so
+[01:53:20.000 --> 01:53:25.840]   far that's GDPR similar. No, no, no EU fines have been levied at that rate.
+[01:53:25.840 --> 01:53:33.600]   I think this is a good idea. You guys have thoughts upon this. AI is moving a pace. There's no question
+[01:53:33.600 --> 01:53:40.000]   about that. It's being used in more and more ways. Some of them, but I think potentially problematic.
+[01:53:40.000 --> 01:53:45.600]   Face recognition reminds me, reminds me of the early days of gene splicing, where they had a
+[01:53:45.600 --> 01:53:53.120]   meeting, I think it was at Penn Solar Mar, I may pronounce that. And all the scientists involved
+[01:53:53.120 --> 01:53:59.280]   got together and they set down some ground rules. It was kind of like the robot rules. You could
+[01:53:59.280 --> 01:54:07.680]   genetically engineer thin cells that don't repurm. What you couldn't do was engineer germ cells.
+[01:54:07.680 --> 01:54:12.720]   You couldn't engineer the sperm or the egg because any change you made there would be carried on to
+[01:54:12.720 --> 01:54:18.800]   a whole new generation. For several decades that held until a Chinese scientist
+[01:54:18.800 --> 01:54:27.920]   engineered some kids who supposedly couldn't get AIDS. It does seem like people are starting
+[01:54:27.920 --> 01:54:34.560]   to recognize the power of AI and that there are certain things it shouldn't be doing.
+[01:54:34.560 --> 01:54:38.800]   We've evolved to an interesting state with this science.
+[01:54:39.680 --> 01:54:45.200]   The idea of this, and I think it's good, the EU could send teams, for instance, of regulators
+[01:54:45.200 --> 01:54:51.120]   to companies to look at the algorithms. The companies are required to reveal how, a lot of
+[01:54:51.120 --> 01:54:56.000]   these black box algorithms, the money bill is a perfect example. It's a black box algorithm.
+[01:54:56.000 --> 01:55:00.720]   How did you derive this? What are the parameters? We're going to do this in such a way that it
+[01:55:00.720 --> 01:55:05.360]   doesn't reveal it to competitors, but it seems completely reasonable that regulators should at
+[01:55:05.360 --> 01:55:10.800]   least be able to check and make sure that they're not biased. But if it's machine learning,
+[01:55:10.800 --> 01:55:16.320]   nobody knows how that is a problem. Absolutely. And then they would, in that case, I think they
+[01:55:16.320 --> 01:55:22.080]   would want to look at the training material to make sure that at least that material was not,
+[01:55:22.080 --> 01:55:24.800]   you know, that's one of the problems with Facebook. We're going to look at it and fire all the
+[01:55:24.800 --> 01:55:28.240]   ethically-eye people then, aren't we? Oh, wait a minute. We did.
+[01:55:28.240 --> 01:55:32.000]   Whoops. Talking about Google, of course.
+[01:55:33.440 --> 01:55:40.320]   Deep fakes or software that puts a person's face on top of another's body and video will require
+[01:55:40.320 --> 01:55:50.000]   labels that this is a deep fake. I don't know if you've used re-face. We played with it a little
+[01:55:50.000 --> 01:55:54.960]   bit on MacBrick with you were there, right, Renee, for that? Or was it on Twitch? I think so.
+[01:55:54.960 --> 01:56:01.440]   Yeah. That's a Ukrainian company called Neo Cortex, which makes that and allows you to put your face
+[01:56:01.440 --> 01:56:07.280]   into well-known movie clips. I was rocky, for instance, you know, running up the steps of the
+[01:56:07.280 --> 01:56:14.880]   forum and all that. They said they're working on labeling and we'll try to follow the EU guidelines.
+[01:56:14.880 --> 01:56:21.280]   So I, you know, of course, there are pitfalls anytime governments get involved in regulation,
+[01:56:21.280 --> 01:56:27.360]   but better to take the bull by the horns and attempt something than to just say, "Ah, yeah, it's fine."
+[01:56:28.080 --> 01:56:35.120]   Go ahead. You agree? I take it. No dissent.
+[01:56:35.120 --> 01:56:43.440]   Agreed. We were talking before the show about, what is it? Hiding the pickle?
+[01:56:43.440 --> 01:56:51.280]   Hiding the pickle. What's hiding the pickle? Hiding the pickle is the context for it is we had a
+[01:56:51.280 --> 01:56:57.520]   consultant come into the Chronicle at one point, sent in from Hurst, who wanted us to write our
+[01:56:57.520 --> 01:57:03.600]   headlines so that we were hiding the pickle. We weren't giving everything away. And of course,
+[01:57:03.600 --> 01:57:11.280]   what was more of an impact on the staff was this term hiding the pickle, which became the subject
+[01:57:11.280 --> 01:57:16.960]   of mini jokes over the years. And I'm not sure anybody ever adhered to his suggestions at the time,
+[01:57:16.960 --> 01:57:21.360]   but that hiding the pickle is basically, you know, not giving it all away at the top.
+[01:57:21.360 --> 01:57:26.240]   So it's my contention. This is a good example of hiding the pickle in the Washington Post today.
+[01:57:26.880 --> 01:57:34.000]   Tell me if this is not a salacious headline. Minutes before Trump left office. Great start.
+[01:57:34.000 --> 01:57:39.840]   Has nothing to do with that. But great start. Millions of the Pentagon's dormant IP addresses
+[01:57:39.840 --> 01:57:48.960]   sprang to life. Where's the pickle? I don't know. It's way down low in the story.
+[01:57:48.960 --> 01:57:53.040]   What's the story? To me is that this is the opposite of modern YouTube best practices where
+[01:57:53.040 --> 01:57:56.960]   you have to reward the click immediately or someone will just go to another video.
+[01:57:56.960 --> 01:58:03.440]   A million dollars. Last one to leave the island wins the island. You have to show someone being
+[01:58:03.440 --> 01:58:08.320]   kicked off that island. The second you click on it, nobody has any patience anymore for anything.
+[01:58:08.320 --> 01:58:14.880]   Link Bay didn't want it used to be. It's true. If I see the 10 ways you're letting your wife down,
+[01:58:14.880 --> 01:58:20.800]   I will not click on that. Even though I'm desperate to know the answer. I will not click on that
+[01:58:20.800 --> 01:58:26.080]   because I can tell it's a listicle and it's blink bait and the pickle is buried.
+[01:58:26.080 --> 01:58:34.400]   Anyway, it turns out there was the article goes on about the company, a mysterious company,
+[01:58:34.400 --> 01:58:43.600]   a global resource systems claimed 56 million IP addresses owned by the Pentagon. Then 375 million
+[01:58:43.600 --> 01:58:53.840]   6% of the entire IPV4 landscape. Then as listed in records, this article is like a mystery story.
+[01:58:53.840 --> 01:58:59.280]   The company's address in Plantation, Florida outside of Fort Lauderdale is a shared workspace
+[01:58:59.280 --> 01:59:04.160]   in an office building that doesn't show global resource systems on its lobby directory.
+[01:59:04.160 --> 01:59:09.040]   A receptionist, when they called her on Friday said she could provide no information about the
+[01:59:09.040 --> 01:59:15.600]   company and asked, they didn't call her, they visited, asked the reporter to leave. It turns out
+[01:59:15.600 --> 01:59:24.240]   it was the Pentagon. I'm not sure that's a great example of burying a pickle because
+[01:59:24.240 --> 01:59:32.880]   that was just misleading. The headline had all kinds of mystery in it that the story didn't
+[01:59:32.880 --> 01:59:44.720]   deliver. As an editor, the time had a certain formula that formula, the time was famous for
+[01:59:44.720 --> 01:59:53.840]   us. One of them was to start the first paragraph or the first few paragraphs would set the scene.
+[01:59:53.840 --> 01:59:57.040]   It was a dark and windy night.
+[01:59:58.960 --> 02:00:05.600]   Writers, especially the younger ones, had a tendency to let that grow to several paragraphs.
+[02:00:05.600 --> 02:00:12.000]   I had a rule that you had to get to the nut of the story by the second paragraph.
+[02:00:12.000 --> 02:00:14.320]   I think that's good. Time was famous.
+[02:00:14.320 --> 02:00:19.040]   An awkward random sentence is real to mine.
+[02:00:19.040 --> 02:00:26.480]   And they would put quotes in the, they would do this first person description of George Schulz
+[02:00:26.480 --> 02:00:30.560]   walking into the state. Like as if they were there and it was all made up.
+[02:00:30.560 --> 02:00:32.000]   It was just the style.
+[02:00:32.000 --> 02:00:39.040]   Wasn't that so made up? But there was a story of a reporter who ran down the hall,
+[02:00:39.040 --> 02:00:43.440]   passed all the other reporters, opened the door of the hearing room,
+[02:00:43.440 --> 02:00:48.320]   closed the door and ran out because some editor in New York wanted to know what color the walls were.
+[02:00:52.160 --> 02:00:55.760]   The inverted sentences were very famous.
+[02:00:55.760 --> 02:01:00.000]   It's funny. I've gotten so used to editing for retention now, where you have to earn
+[02:01:00.000 --> 02:01:04.560]   every second of consideration. It's very different from every viewer that if I watch a YouTube video
+[02:01:04.560 --> 02:01:08.720]   and it says something and they spend two minutes blathering about something else before they get to
+[02:01:08.720 --> 02:01:15.760]   it, I just not today say nut tabs so fast and go on to another video. I just can't take the padding
+[02:01:15.760 --> 02:01:16.960]   anymore. Yeah.
+[02:01:18.800 --> 02:01:21.360]   Thought about your watch time. It's about my attention. Was it,
+[02:01:21.360 --> 02:01:26.080]   does it go back to loose the early days of Time Magazine, this whole style?
+[02:01:26.080 --> 02:01:30.800]   Yeah, it was, I mean, in the early days, it was a cut and paste job
+[02:01:30.800 --> 02:01:37.360]   when there were seven New York newspapers and what they were delivering, the value they were giving
+[02:01:37.360 --> 02:01:45.920]   was the important stuff out of seven newspapers. And it was all about compression and cleverness.
+[02:01:46.880 --> 02:01:54.560]   So he did things like eliminated the series column. This and that, some people put a comma before
+[02:01:54.560 --> 02:02:00.160]   the end. He got rid of that to save one space. So he could squeeze more words in.
+[02:02:00.160 --> 02:02:05.840]   Well, that's understandable. I'm looking at a Wikipedia article about this inverted sentence
+[02:02:05.840 --> 02:02:12.800]   thing and apparently it'd been going on for a long time because the New Yorker parodied it in 1936
+[02:02:14.000 --> 02:02:21.200]   with this wall cut Gibbs quote backward ran sentences until reeled the mind where it will all end
+[02:02:21.200 --> 02:02:30.800]   nose God. Well, you know, the Washington Post has gotten really good at what are called
+[02:02:30.800 --> 02:02:36.480]   web style sentences and I mean headlines. And that's, and the one, this is a classic.
+[02:02:36.480 --> 02:02:40.160]   And that that that is had nothing to do with Trump leading up leaving office.
+[02:02:40.720 --> 02:02:46.800]   So in the in the content management system for the Houston Chronicle and all the herspapers,
+[02:02:46.800 --> 02:02:54.400]   we had multiple fields for different headlines for depending on where the story would appear.
+[02:02:54.400 --> 02:02:59.600]   So we had hide the pickle headlines and what was called the web headline on the
+[02:02:59.600 --> 02:03:07.520]   that appeared on the website that you clicked into. You had an SEO style headline on the story
+[02:03:07.520 --> 02:03:14.000]   itself so that Google was friendly to it and you got search and then you could do a social media
+[02:03:14.000 --> 02:03:19.040]   headline when you thought it might do better in a different way on social media. And so depending
+[02:03:19.040 --> 02:03:24.960]   on where the story appeared, it had a different headline each time, which was kind of genius,
+[02:03:24.960 --> 02:03:29.840]   but but drove a lot of the people who had to fill in those forms a little nuts.
+[02:03:29.840 --> 02:03:35.840]   So to dig the pickle up in this Washington Post story, they finally got a spokesperson for the
+[02:03:35.840 --> 02:03:42.560]   Defense Department who said, no, we haven't sold those IP addresses to anybody. We still own them all.
+[02:03:42.560 --> 02:03:48.560]   What we were doing was to see if they were mostly dormant to see if there was any nefarious
+[02:03:48.560 --> 02:03:54.480]   activities taking place. Apparently, it's a common practice for hackers to use these dormant IP
+[02:03:54.480 --> 02:04:02.160]   addresses as an IP address in there at, you know, spam or hacking. And so the Pentagon
+[02:04:03.040 --> 02:04:10.320]   adjusted their BGP routes to basically download traffic on these IP addresses to figure out if
+[02:04:10.320 --> 02:04:16.960]   bad things were happening and perhaps to chase them down. A person, this is the last paragraph
+[02:04:16.960 --> 02:04:22.240]   in the story. A person familiar with the pilot effort who agreed to speak on the condition of
+[02:04:22.240 --> 02:04:26.880]   anonymity because the program is in public said, it's important for the Defense Department to have
+[02:04:26.880 --> 02:04:33.440]   visibility and transparency into its various cyber resources, including IP addresses and manage
+[02:04:33.440 --> 02:04:38.160]   the addresses properly so they will be available if and when the Pentagon wants to use them.
+[02:04:38.160 --> 02:04:44.000]   They still own the addresses. Nothing happened. It had nothing to do with inauguration.
+[02:04:44.000 --> 02:04:49.440]   Transparency is important to us said the
+[02:04:49.440 --> 02:04:55.280]   the invisible anonymous source. Yeah, but but it's a good point that Pentagon,
+[02:04:55.280 --> 02:04:57.760]   it's just was in order. In other words, it was a normal security
+[02:04:57.760 --> 02:05:04.640]   procedure that will you know exactly what happened. That headline is the result of the budget line
+[02:05:04.640 --> 02:05:09.920]   that the reporter wrote before he started reporting that didn't pan out. That's how he pitched the
+[02:05:09.920 --> 02:05:14.560]   story. Hey, all these IP addresses. Oh, then then she went and she look, I went there and they threw
+[02:05:14.560 --> 02:05:19.760]   me out. Oh my God. Oh my God. Yeah, because the subhead is after decades of not using a huge
+[02:05:19.760 --> 02:05:24.720]   chunk of the internet, the Pentagon has given control of millions of computer addresses
+[02:05:24.720 --> 02:05:30.560]   to a previously unknown company in an effort to identify possible cyber vulnerabilities and
+[02:05:30.560 --> 02:05:34.000]   threats and know they didn't give them to an unknown company. They still may take a place.
+[02:05:34.000 --> 02:05:38.160]   This is kind of a frustrating thing. We're like, I hate the term fake news so much because news
+[02:05:38.160 --> 02:05:42.560]   really is the last line of protection between everything and people. Like it's supposed to help
+[02:05:42.560 --> 02:05:47.440]   clarify and form and power all these things. But then you have bad news where you know it's in bad
+[02:05:47.440 --> 02:05:52.560]   faith where you know they take something innocuous and make it sensational just to steal intelligence
+[02:05:52.560 --> 02:05:58.240]   intelligence or to deal attention or to otherwise take something that's mundane and make it seem
+[02:05:58.240 --> 02:06:04.160]   outlandish. And it just destroys the credibility of everything. And big media is so guilty of that.
+[02:06:04.160 --> 02:06:09.520]   I really wish that they would focus more on the information and empowerment and less on the
+[02:06:09.520 --> 02:06:15.200]   attention. I'm going to give some credit to Kashmir Hill of the New York Times and her colleague
+[02:06:16.000 --> 02:06:22.880]   Aaron Crowlick because they did some really good work in the Sunday Times uncovering an industry
+[02:06:22.880 --> 02:06:31.120]   whose primary purpose is to slander people and then blackmail them. Oh yeah. This was amazing.
+[02:06:31.120 --> 02:06:38.080]   Highly recommend the slander industries in the name of it. Adam Crowlick created a fake
+[02:06:38.640 --> 02:06:48.400]   post that said Adam Crowlick New York is an unqualified loser. This post he posted in one spot
+[02:06:48.400 --> 02:06:57.360]   but immediately got duplicated to many many sites like Cheetah Board and USA Cheetahs online and
+[02:06:57.360 --> 02:07:06.400]   badgirlreports.date and on and on and on. But notice next to every one of these posts is an ad
+[02:07:07.040 --> 02:07:13.120]   to remove the negative complaint against you. And the companies that are doing these ads are
+[02:07:13.120 --> 02:07:22.640]   apparently also doing the slander sites and making a lot of money. Now poor Crowlick because
+[02:07:22.640 --> 02:07:31.200]   soon that image appeared in his Google image search results worsthomerecord.com Cheetah Board.com
+[02:07:32.960 --> 02:07:37.440]   and but they but you know what credit to Kashmir Hill and Adam Crowlick because they did a great
+[02:07:37.440 --> 02:07:43.360]   job tracking this all down figuring it out. Crowlick said this is going to for the rest of my life
+[02:07:43.360 --> 02:07:49.600]   the top search results for me will be from cheetah Board.com and SDDcarriers.com and on and on and on.
+[02:07:49.600 --> 02:07:54.560]   But they interviewed people they tracked it down and they basically found out that this is a
+[02:07:54.560 --> 02:08:02.400]   cottage industry. These sites are created by the so-called reputation defender sites
+[02:08:02.400 --> 02:08:06.720]   and then you give them money. Sometimes they give money to the site owner. Sometimes they just keep
+[02:08:06.720 --> 02:08:12.320]   it. They take it down but they also warn you if you don't we need more money because this is just
+[02:08:12.320 --> 02:08:17.360]   going to spread. Of course it's going to spread. They're spreading it. So just a word of warning
+[02:08:17.360 --> 02:08:24.560]   before you go out and pay tens of literally tens of thousands of dollars to get this stuff taken
+[02:08:24.560 --> 02:08:32.880]   down to consider the source. And they finally tracked a lot of this down to a lot of the people
+[02:08:32.880 --> 02:08:42.160]   involved in this had criminal records of their own. Fascinating really really well done article
+[02:08:42.160 --> 02:08:48.720]   and cash deal does such good work. There's this old joke in Chinese culture where someone was a
+[02:08:48.720 --> 02:08:53.600]   martial arts teacher at night and then an osteopath during the day because it meant that every customer
+[02:08:53.600 --> 02:09:03.520]   would get hurt in the morning. That's why so many Sifu were doctors as well. But the thing that
+[02:09:03.520 --> 02:09:07.680]   kills me is that this is that kind of like they create the fake story and then charge you for taking
+[02:09:07.680 --> 02:09:13.600]   the fake story down. Is that sort of revolving door? Isn't that so it's an old it's an old
+[02:09:13.600 --> 02:09:18.480]   terrestrial no old pre-digital version of it's a digital. Well if you can hold both ends of that
+[02:09:18.480 --> 02:09:25.120]   change your making money poor Adam Crowlick three months after he started the experiment.
+[02:09:25.120 --> 02:09:29.360]   His search results were showing the consequences. He says being
+[02:09:29.360 --> 02:09:38.080]   helpfully recommended adding loser to a search for my name. When you googled my name cheaters.news
+[02:09:38.080 --> 02:09:43.760]   was at the top of the image results. And I think it's going to haunt him for the rest of his life
+[02:09:43.760 --> 02:09:50.560]   unfortunately so he's really sacrificed. He needs to get that story moved up to the
+[02:09:50.560 --> 02:09:58.400]   office. Maybe now that the story's out. Oh man. All right let's take a little break our final
+[02:09:58.400 --> 02:10:04.000]   break before we wrap things up our show today brought to you by Zip Recruiter. Are you hiring
+[02:10:04.000 --> 02:10:10.240]   for spring bless you? Bless you. I mean the world is coming back. What are you hiring for?
+[02:10:10.240 --> 02:10:14.880]   Maybe you need to hire someone that wears many hats. That's hard to do. The thing is no matter
+[02:10:14.880 --> 02:10:21.520]   what that job opening is there is somebody out there looking for work who would be perfect for it.
+[02:10:21.520 --> 02:10:27.360]   The challenge for anybody doing hiring is how do you find that needle in a haystack? Well Zip
+[02:10:27.360 --> 02:10:34.400]   Recruiter is the best way to do this. Zip Recruiter first of all as soon as you post a Zip Recruiter
+[02:10:34.400 --> 02:10:39.760]   that post goes to more than a hundred other job boards which is great. And social networks like
+[02:10:39.760 --> 02:10:45.840]   Facebook and Twitter so you're going to cast the widest net possible in every industry in every
+[02:10:45.840 --> 02:10:50.480]   state. You don't have to decide well where is the job board best for this. It just goes to all of them.
+[02:10:50.480 --> 02:10:55.520]   Plus Zip Recruiter does something pretty amazing. People come to Zip Recruiter also
+[02:10:55.520 --> 02:10:59.440]   looking for work so they have hundreds of thousands of current resumes on file.
+[02:10:59.440 --> 02:11:04.400]   When you are looking for somebody they'll go through those resumes and if they find somebody
+[02:11:04.400 --> 02:11:10.640]   who is good for that job they will invite them to apply. That means four out of five employers
+[02:11:10.640 --> 02:11:14.880]   who post on Zip Recruiter get a quality candidate within the first day. We use Zip Recruiter all the
+[02:11:14.880 --> 02:11:21.200]   time and I would say it's within hours in our case. It's always amazing because it's hard. When
+[02:11:21.200 --> 02:11:25.440]   you're down a person means everybody's going to have to work harder. The boss is going to have to
+[02:11:25.440 --> 02:11:31.760]   work harder and hiring can be such a tedious process. You get all those phone calls, you get all the
+[02:11:31.760 --> 02:11:36.160]   mail in your inbox. I don't know what he wants to go through that. I watched Lisa. Her face
+[02:11:36.160 --> 02:11:42.720]   falls when anybody gives us two weeks notice. That happened to our bookkeeper and she knew she
+[02:11:42.720 --> 02:11:46.800]   was going to have to do all the bookkeeping. She went online and said Zip Recruiter, it was breakfast,
+[02:11:46.800 --> 02:11:53.280]   put the announcement that we were hiring up within I think before lunch we had three.
+[02:11:53.280 --> 02:11:57.200]   These candidates would start and she goes, "Oh this is a good one." She was like surprised. "Oh this
+[02:11:57.200 --> 02:12:00.720]   is a great one." The good thing is they don't come to your email. They don't come to your phone. They
+[02:12:00.720 --> 02:12:05.520]   go into the Zip Recruiter interface. They reformat the resume so they're easy to read. You can have
+[02:12:05.520 --> 02:12:09.760]   screening questions, true, false, multiple choice essay, whatever. You can eliminate people who just
+[02:12:09.760 --> 02:12:16.000]   don't match your needs. They allow you to rank them quickly and hire the right person fast.
+[02:12:16.000 --> 02:12:23.360]   We would get applicants within hours. Just so fast. It's really amazing. Right now you can try
+[02:12:23.360 --> 02:12:30.480]   Zip Recruiter for free. I would strongly recommend it. Only our listeners get it if you go to ziprecruiter.com/twit.
+[02:12:30.480 --> 02:12:39.760]   Try Zip Recruiter free ziprecruiter.com/twit. Whether you need to hire a civil engineer in New
+[02:12:39.760 --> 02:12:46.400]   York or attorney in Colorado or even hire a mascot in Missouri, yes. Yes you can use
+[02:12:46.400 --> 02:12:55.520]   Zip Recruiter to get a mascot for your team. Go to ziprecruiter.com/twit. I love you Zip Recruiter.
+[02:12:55.520 --> 02:12:58.960]   We thank you so much for the job you've done for us in the past and thank you for supporting
+[02:12:59.600 --> 02:13:05.760]   this week in tech. Thank you dear listener for using that URL because then they know you saw it
+[02:13:05.760 --> 02:13:11.040]   here. We got more to talk about in just a little bit but this would be a good time I think to
+[02:13:11.040 --> 02:13:16.960]   take a look at a little movie because it's been a really interesting week on Twit.
+[02:13:16.960 --> 02:13:20.880]   Everything that happened. Do you have a beer question for Mary Jo? Anybody?
+[02:13:20.880 --> 02:13:27.120]   Well I guess it's not quite a beer question although I've had Microsoft beer at a convention. I'm not
+[02:13:27.120 --> 02:13:30.880]   sure if I can speak to that. Was it derivative of the apple beer we just said?
+[02:13:30.880 --> 02:13:34.400]   Previously on Twit.
+[02:13:34.400 --> 02:13:41.040]   Twit news. This was a truly loaded event. A lot more than we expected.
+[02:13:41.040 --> 02:13:46.160]   Say we did get the color iMacs. We finally got the air tanks. They finally shipped no surprises
+[02:13:46.160 --> 02:13:50.160]   there. We've known about these air tanks for a year. Hands-on photography.
+[02:13:50.160 --> 02:13:58.560]   The guess that I have on air for you all this week is not only the legendary Mr. Rick Salmon.
+[02:13:58.560 --> 02:14:03.680]   I have what I call I think you've heard me talk about it my one picture promise. You could only take
+[02:14:03.680 --> 02:14:08.640]   one picture. What would that one picture be? You'll get a higher percentage of good pictures.
+[02:14:08.640 --> 02:14:14.880]   This week in Google. This morning the EU issued its proposal for legislation around AI
+[02:14:15.680 --> 02:14:21.200]   and AI apps. No Jeff this is actually a really good legislation.
+[02:14:21.200 --> 02:14:22.800]   Uh oh. Has it stands?
+[02:14:22.800 --> 02:14:27.360]   Say see you're right this is not bad but I can see danger at every bullet in the last year.
+[02:14:27.360 --> 02:14:31.600]   Mac break weekly. I think the big thing though is that I think what we're going to see
+[02:14:31.600 --> 02:14:36.000]   is with with COVID is that you know the use of a lot of these things were like this
+[02:14:36.000 --> 02:14:38.720]   and then it went up like this but it's not going to come back down here.
+[02:14:38.720 --> 02:14:40.800]   Stop showing up. It's going to be like this.
+[02:14:40.800 --> 02:14:46.000]   To it. You're listening at home what you missed was a little flex from Alex Ray Telestrade.
+[02:14:46.000 --> 02:14:49.440]   I was showing you. That is the best way to describe that.
+[02:14:49.440 --> 02:14:56.160]   He's amazing. He never ceases to amaze Alex Lindsay.
+[02:14:56.160 --> 02:14:57.520]   All right let's see here what do we got?
+[02:14:57.520 --> 02:15:07.760]   Bitcoin down to 50,000. 200 billion dollars wiped off the cryptocurrency market.
+[02:15:08.720 --> 02:15:12.240]   I'm sorry I'm sorry.
+[02:15:12.240 --> 02:15:14.400]   It's hard for me to take that seriously.
+[02:15:14.400 --> 02:15:20.480]   If you're trying to make money on Bitcoin well that's like all I've had a really
+[02:15:20.480 --> 02:15:22.320]   interesting thread on Bitcoin this week.
+[02:15:22.320 --> 02:15:23.120]   Oh yeah what do you say?
+[02:15:23.120 --> 02:15:28.160]   He was basically just saying that you know on one hand you have all this hype and on the
+[02:15:28.160 --> 02:15:31.600]   other hand you have zero people able to explain what it is beyond hype.
+[02:15:31.600 --> 02:15:34.800]   I think he was responding to Jack's tweet where he says you have all these people who
+[02:15:34.800 --> 02:15:37.200]   act as huge spokespeople, Elon, Jack, all of that.
+[02:15:37.200 --> 02:15:44.400]   But none of them can ever give you the actual positives or explain away the energy questions
+[02:15:44.400 --> 02:15:46.640]   other than time solves for technology.
+[02:15:46.640 --> 02:15:51.440]   Right here's a headline I like no pickle burying here from Fortune.
+[02:15:51.440 --> 02:15:54.320]   Bitcoin has no uses. That could be its downfall.
+[02:15:54.320 --> 02:15:57.120]   You could buy pizza with it.
+[02:15:57.120 --> 02:15:58.480]   You could buy a Tesla with it.
+[02:15:58.480 --> 02:16:00.320]   The energy problem.
+[02:16:00.320 --> 02:16:07.040]   That's a huge problem.
+[02:16:07.040 --> 02:16:09.920]   It's going to heat the planet to generate the next Bitcoin.
+[02:16:09.920 --> 02:16:13.760]   So you can only go on to launch.
+[02:16:13.760 --> 02:16:16.880]   See if you tell that to one of the Bitcoin bros they say no no worry we've got a plan
+[02:16:16.880 --> 02:16:19.440]   for that we're going to do move from proof of work to proof of stake.
+[02:16:19.440 --> 02:16:20.160]   It's much better.
+[02:16:20.160 --> 02:16:24.080]   You know the other thing that's tumbling is NFTs.
+[02:16:24.080 --> 02:16:28.080]   Everybody was talking about FTS and the Beeples.
+[02:16:28.080 --> 02:16:33.360]   It turns out it's not even an odd it's someone was saying NFTs are basically buying an autograph
+[02:16:33.360 --> 02:16:37.600]   because all you're getting is the JSON that leads to a URL that may or may not have a valid
+[02:16:37.600 --> 02:16:39.680]   entity at the end of it anymore.
+[02:16:39.680 --> 02:16:39.920]   Yeah.
+[02:16:39.920 --> 02:16:44.240]   You know what what can I say?
+[02:16:44.240 --> 02:16:48.000]   So people make a lot of money within the Delta Leo like when they hire something
+[02:16:48.000 --> 02:16:50.320]   and that reality sets in people make fortunes.
+[02:16:50.320 --> 02:16:53.200]   Yeah. Act quick. Take advantage of it.
+[02:16:54.960 --> 02:16:59.040]   Now some good news. Nash's helicopter ingenuity.
+[02:16:59.040 --> 02:17:00.480]   Oh God.
+[02:17:00.480 --> 02:17:01.200]   Third flight.
+[02:17:01.200 --> 02:17:01.600]   Love that.
+[02:17:01.600 --> 02:17:03.120]   Really great story.
+[02:17:03.120 --> 02:17:03.840]   Look at it go.
+[02:17:03.840 --> 02:17:05.680]   You could see the distance in the picture.
+[02:17:05.680 --> 02:17:09.120]   That's what my drone looked like the first time I flew it and it disappeared way.
+[02:17:09.120 --> 02:17:10.800]   Maybe off in the distance.
+[02:17:10.800 --> 02:17:13.120]   They did not lose ingenuity.
+[02:17:13.120 --> 02:17:13.760]   Thank goodness.
+[02:17:13.760 --> 02:17:22.000]   It's it's it's it conducted its most recent flight at speeds and distances beyond that
+[02:17:22.000 --> 02:17:24.880]   ever demonstrated even in its testing.
+[02:17:24.880 --> 02:17:28.160]   It is a massive success.
+[02:17:28.160 --> 02:17:30.320]   I love this so much.
+[02:17:30.320 --> 02:17:36.640]   My career as a science researcher started with the launch of the first shuttle.
+[02:17:36.640 --> 02:17:41.600]   And I can I remember reading this the NASA specs on this thing and I thought,
+[02:17:41.600 --> 02:17:43.680]   Oh my God, it's going to crash.
+[02:17:43.680 --> 02:17:48.400]   These tiles are going to fall off and it took I don't know it took a while for that to happen.
+[02:17:48.400 --> 02:17:55.920]   But man space flight is so dangerous and to see a little helicopter on the surface of Mars.
+[02:17:55.920 --> 02:17:57.520]   I just love it.
+[02:17:57.520 --> 02:17:57.840]   Yeah.
+[02:17:57.840 --> 02:17:58.800]   Wonderful.
+[02:17:58.800 --> 02:18:03.360]   Although NASA is not eschewing man flight by any means,
+[02:18:03.360 --> 02:18:06.160]   nor is the Elon Musk nor anybody else involved in this.
+[02:18:06.160 --> 02:18:10.960]   In fact, there was another experiment that was on perseverance that did very, very well
+[02:18:10.960 --> 02:18:15.600]   called Moxie, which is by the way, or a retro name.
+[02:18:15.600 --> 02:18:20.080]   It's reverse engineered. Michael Heck, the principal investigator said he loved
+[02:18:20.080 --> 02:18:22.400]   Moxie soda as a kid, which is hard to believe.
+[02:18:22.400 --> 02:18:24.880]   It's the worst thing I've ever tasted.
+[02:18:24.880 --> 02:18:25.280]   Do they?
+[02:18:25.280 --> 02:18:27.520]   They I think they still you're in Maine.
+[02:18:27.520 --> 02:18:29.360]   It was official drink of Maine, right?
+[02:18:29.360 --> 02:18:31.760]   Or no, you're in Western messages, but you're near.
+[02:18:31.760 --> 02:18:33.840]   I haven't seen Moxie for a long time.
+[02:18:33.840 --> 02:18:36.240]   So I thought it was gone, right?
+[02:18:36.240 --> 02:18:38.880]   It's it's flavored with gentine root.
+[02:18:38.880 --> 02:18:41.840]   It tastes like medicine.
+[02:18:41.840 --> 02:18:45.280]   Apparently it's not gone Coca-Cola bought it in 2018.
+[02:18:45.280 --> 02:18:48.560]   There's looking Pepsi on everything.
+[02:18:48.560 --> 02:18:49.680]   They own everything.
+[02:18:49.680 --> 02:18:56.800]   Anyway, Moxie, not the soda, but the Mars oxygen in situ resource utilization experiment
+[02:18:56.800 --> 02:19:03.200]   proved that there is enough atmosphere on Mars to produce oxygen.
+[02:19:03.200 --> 02:19:07.680]   In fact, it was it worked really well.
+[02:19:07.680 --> 02:19:08.640]   Now it's just an experiment.
+[02:19:08.640 --> 02:19:12.400]   It's not in the degree, the quantity that they would need it to be,
+[02:19:12.400 --> 02:19:17.280]   but it could produce oxygen not only for people living on Mars, but for fuel, which is even more important.
+[02:19:17.280 --> 02:19:21.360]   So Moxie ran and it was a success.
+[02:19:21.360 --> 02:19:28.400]   So you can make oxygen from the carbon dioxide gas that is Mars atmosphere.
+[02:19:28.400 --> 02:19:30.720]   You're going to be long long.
+[02:19:30.720 --> 02:19:34.480]   He is so dedicated to this that he wants to like he believes the world is a simulation,
+[02:19:34.480 --> 02:19:36.720]   but he still wants to get us off of it.
+[02:19:36.720 --> 02:19:38.480]   Not to me is real dedication.
+[02:19:38.480 --> 02:19:41.840]   He wants to figure it to 2.0.
+[02:19:41.840 --> 02:19:48.880]   I was figured that was just a really smart way to get the best engineers to leave NASA and come to.
+[02:19:48.880 --> 02:19:50.800]   He's doing it right.
+[02:19:50.800 --> 02:19:52.240]   He's doing it right.
+[02:19:52.240 --> 02:19:56.800]   NASA's made a deal with them for the, what's it called?
+[02:19:56.800 --> 02:19:57.840]   The space starship.
+[02:19:57.840 --> 02:20:04.800]   NASA signed this contract and agrees to use it.
+[02:20:04.800 --> 02:20:10.160]   And this is a spacecraft that has not successfully landed and not blown up yet.
+[02:20:10.160 --> 02:20:12.480]   It's okay. They're going to work that out.
+[02:20:12.480 --> 02:20:16.000]   They'll probably get there, but it hasn't not blown up.
+[02:20:16.000 --> 02:20:21.200]   Also, as we now know, there's no oxygen in Mars, so it's probably not going to blow up when it lands on Mars.
+[02:20:21.200 --> 02:20:24.240]   And the moon, you're safe there too.
+[02:20:24.240 --> 02:20:31.200]   So I got to say the video on the SpaceX applied
+[02:20:33.520 --> 02:20:39.120]   launcher that sent the astronauts up to the space station this week was better than 19 for long time.
+[02:20:39.120 --> 02:20:41.440]   That was reused.
+[02:20:41.440 --> 02:20:47.920]   That was a used car, but also Musk put a GoPro on every possible angle.
+[02:20:47.920 --> 02:20:48.400]   Oh, I know.
+[02:20:48.400 --> 02:20:49.600]   They had such great video.
+[02:20:49.600 --> 02:20:51.920]   Oh, the video, the docking video.
+[02:20:51.920 --> 02:20:52.480]   Amazing.
+[02:20:52.480 --> 02:20:56.960]   You know who's going to be hosting Saturday night live next week?
+[02:20:56.960 --> 02:20:57.600]   May 8th.
+[02:20:57.600 --> 02:20:59.360]   Elon Musk.
+[02:21:01.040 --> 02:21:08.560]   Saturday night live's response to the criticism was you've never had to be funny to be on Saturday night live.
+[02:21:08.560 --> 02:21:18.000]   One of the reasons I think there's so much interest, besides just kind of the general awe of it,
+[02:21:18.000 --> 02:21:25.200]   with SpaceX and manned flight, is that it looks so much like science fiction space flight.
+[02:21:25.200 --> 02:21:25.440]   Yes.
+[02:21:25.440 --> 02:21:32.400]   The inside of the capsule is smooth. It's not dotted with kind of military looking dials and lights.
+[02:21:32.400 --> 02:21:36.320]   It's white. It's clean. The spacesuits aren't bulky.
+[02:21:36.320 --> 02:21:39.200]   You know, they look like something you'd pick up at J. Crew.
+[02:21:39.200 --> 02:21:44.000]   It's just there. It's made it sexy.
+[02:21:44.000 --> 02:21:52.960]   And I, you know, you got to hope that it's as safe as, you know, the the metal tin cans at NASA.
+[02:21:52.960 --> 02:21:55.440]   I suspect it's safer, don't you think?
+[02:21:55.440 --> 02:21:59.280]   But it's certainly the modernizes that it makes it much more fun to watch.
+[02:21:59.280 --> 02:22:03.040]   Yeah. And look at, there's a GoPro right there. This is shot of the docking.
+[02:22:03.040 --> 02:22:06.000]   I mean, you never saw space look so good except in the Hollywood.
+[02:22:06.000 --> 02:22:09.040]   It's pretty incredible.
+[02:22:09.040 --> 02:22:14.640]   Yeah, a lot of credit to Elon. And of course, it's probably no accident that Starship looks
+[02:22:14.640 --> 02:22:21.840]   and will land on Mars or, I guess, on the moon exactly like a 1950s rocket ship from
+[02:22:21.840 --> 02:22:25.280]   sci-fi because it, you know, it just turns around in the lands.
+[02:22:25.280 --> 02:22:28.640]   There's no lunar module or anything.
+[02:22:28.640 --> 02:22:33.520]   And then did you see there's like a window washer like contraption that the astronauts get lowered
+[02:22:33.520 --> 02:22:37.600]   to the moon's surface? And it's a pretty funny, this is beautiful video.
+[02:22:37.600 --> 02:22:42.560]   I mean, this is that's spectacular. It's what I what I enjoy is watching this
+[02:22:42.560 --> 02:22:50.640]   and then turning on my Apple TV and watching For All Mankind, which is an all history
+[02:22:51.200 --> 02:22:58.160]   version of the Space Race and kind of looking at where we're going now and where
+[02:22:58.160 --> 02:23:05.200]   Ronald D Moore thinks we would have gone if space had continued to be competitive.
+[02:23:05.200 --> 02:23:08.320]   That's it's fascinating to watch that show.
+[02:23:08.320 --> 02:23:13.440]   Well, it's only been a slight, I mean, in the general scheme of things, a slight pause of a few
+[02:23:13.440 --> 02:23:18.240]   decades. I'm glad we're doing it again. I grew up watching, you know, space launches and
+[02:23:18.240 --> 02:23:20.800]   Walter Cronkite and I'm just thrilled to see that we're doing it again.
+[02:23:20.800 --> 02:23:27.040]   On a Saturn note, and I'm not sure what the story is exactly.
+[02:23:27.040 --> 02:23:33.120]   From our shows, you certainly know the name Dan Kaminski. He was a very well-known
+[02:23:33.120 --> 02:23:38.400]   security researcher uncovered flaws in a lot of Apple products specifically.
+[02:23:38.400 --> 02:23:44.320]   He discovered the Sony root kit infection, critical DNS security flaws.
+[02:23:45.040 --> 02:23:50.320]   Very popular in his Black Hat briefings passed away at the very young age of 42
+[02:23:50.320 --> 02:23:57.440]   this week, not known what the cause of death is, but he was very well liked in the security
+[02:23:57.440 --> 02:24:02.640]   community. He'll be missed. And he made a big difference. He really did. He was very good
+[02:24:02.640 --> 02:24:10.080]   at his job. He was kind of a genius. He's right. Yep. So RIP, Dan, I'm sorry to his family and
+[02:24:10.080 --> 02:24:18.160]   friends. I'm sure a terrible loss. And that concludes this edition of this week in Tech. Renee,
+[02:24:18.160 --> 02:24:22.320]   you're not going to get much time off. We'll see you again on Tuesday for Mac Break Weekly.
+[02:24:22.320 --> 02:24:24.480]   Yes. I'll give you more to it. I miss you all.
+[02:24:24.480 --> 02:24:28.080]   Oh, we love doing that show with you. And I know you're very busy, you know, making YouTube
+[02:24:28.080 --> 02:24:35.840]   videos and everything. YouTube.com/ReneeRitchie. He's also regular with Georgia Dow. You've got a
+[02:24:35.840 --> 02:24:40.160]   great Apple Talks channel. And Georgia's got their own channel now too, which is great. We're very
+[02:24:40.160 --> 02:24:45.200]   having more fun than me. She's reacting to Falcon in the Winter Soldier videos. I'm so jealous.
+[02:24:45.200 --> 02:24:51.600]   You had to pick that Apple stuff to cover. I don't know. I know. I should have picked the fun stuff.
+[02:24:51.600 --> 02:24:58.720]   Matthew Pansareno, his beat is Apple, Disney, Whiskey, and tennis shoes. Dream job.
+[02:24:58.720 --> 02:25:04.400]   Tennis shoes. Absolute dream job. Yeah. That's actually every time we have Christina Warren on,
+[02:25:04.400 --> 02:25:10.880]   we talk about the sneaker market. And apparently there is a tech angle because the bots that the
+[02:25:10.880 --> 02:25:17.120]   bad guys now use to snap up every graphics card the minute it becomes available were based on the
+[02:25:17.120 --> 02:25:26.480]   bots they wrote for the sneaker market. They were fine with their chops, sniping sneaker sales.
+[02:25:26.480 --> 02:25:33.360]   And now they've snapped up all the AMD processors in the Nvidia graphics cards.
+[02:25:33.360 --> 02:25:38.720]   Holy cow. What a world. What a world. Thank you Renee. I'll see you on Tuesday. Thank you so much
+[02:25:38.720 --> 02:25:47.200]   to Dwight Silvering. Congratulations on the new gig on.forbs.com/dwight. I think that's fantastic.
+[02:25:47.200 --> 02:25:53.760]   Anything else you want to mention or plug? Well, it's a paid newsletter and believe it or not,
+[02:25:53.760 --> 02:26:03.280]   I'm on sale. Already on sale. I'm on sale. It's great. I love it. And if you go to that
+[02:26:03.280 --> 02:26:12.000]   URL, you get 35% off it in the code. So it kind of is like sub stack. Forbes just runs the back end
+[02:26:12.000 --> 02:26:18.400]   for you. Yes. That's really good. They're my, they're my sub stack. And, you know, we split the
+[02:26:18.400 --> 02:26:25.760]   revenue with them. And so it's worth it because I have a lot of perks for it.
+[02:26:25.760 --> 02:26:29.520]   Nice. I'm having a great time. It's a really interesting idea. Very nice.
+[02:26:29.520 --> 02:26:36.160]   Really interesting. Everybody on this panel was mainstream media and then decided to become,
+[02:26:36.160 --> 02:26:41.680]   you know, sovereign. There's something going on there, isn't there? Well, I'm semi-sovereign.
+[02:26:42.880 --> 02:26:47.200]   I think it counts. I think it counts as sovereign that counts. And
+[02:26:47.200 --> 02:26:54.640]   adjacent. Sovereign adjacent. That's exactly it. Filmer, Philip, Filmer. Filmer, Ellip DeWitt.
+[02:26:54.640 --> 02:27:04.320]   Philip Elmer DeWitt, P-E-D-30.com has made his way from time and fortune to his own thing. And
+[02:27:04.320 --> 02:27:09.760]   it's going great. I'm glad to hear that too. We've got a busy week ahead, the Apple earnings,
+[02:27:09.760 --> 02:27:15.200]   Q2 earnings on Wednesday, and then May 3rd, the Apple Epic
+[02:27:15.200 --> 02:27:22.240]   files. Oh, wow. Oh, wow. So, and are we going to wait till June for the next Apple drop,
+[02:27:22.240 --> 02:27:29.600]   the WWDC, June 7th, I think so, right? Yeah. Sometimes they will, things they don't have room
+[02:27:29.600 --> 02:27:35.520]   for as WWDC, they'll drop right before. Right. Right. Thank you, Philip. I'm happy subscriber
+[02:27:35.520 --> 02:27:38.720]   to Philip too. He puts out more email today than I put out videos. It's amazing.
+[02:27:39.600 --> 02:27:43.760]   Well, if you're going to be sovereign adjacent, you got to work that work your ass off. Actually,
+[02:27:43.760 --> 02:27:46.720]   if you're going to be sovereign, you have to work your ass off sovereign adjacent. I don't know.
+[02:27:46.720 --> 02:27:51.680]   I don't know if I'm sovereign adjacent or not. I don't have to do anything. I just come here.
+[02:27:51.680 --> 02:27:54.080]   You're the original sovereign. I might be. I might be.
+[02:27:54.080 --> 02:28:01.760]   OG. The OG. Speaking of which, of course, we've always since 2005 offered Twit as a free ad
+[02:28:01.760 --> 02:28:05.520]   supported network. And we're still going to keep doing that. We're very happy to do that.
+[02:28:05.520 --> 02:28:11.840]   But don't forget, we now have a paid tier called Club Twit. It's going great. I couldn't be happier
+[02:28:11.840 --> 02:28:16.640]   about it. You not only get a GAD free audio or video versions of every show we do. There's
+[02:28:16.640 --> 02:28:22.960]   feeds for every show we do. You also get access to this great Discord channel, which is so much fun.
+[02:28:22.960 --> 02:28:30.400]   That's been actually a real education for me. We're able to do shows in there. I've talked to
+[02:28:30.400 --> 02:28:35.120]   Scott Wilkinson about bringing back home theater geeks in there. We've done a hands-on Linux show.
+[02:28:35.120 --> 02:28:40.560]   We did it yesterday. Jonathan Bennett and I are planning to keep doing that and make those available
+[02:28:40.560 --> 02:28:46.400]   on our special Twit Plus feed, which is also a members-only feed that you will get as part of
+[02:28:46.400 --> 02:28:52.320]   your benefit. The chief benefit is ad-free versions of our shows. But it also helps support Twit. Just
+[02:28:52.320 --> 02:29:00.240]   $7 a month. Thank you very much for your support. And I'll see you in Club Twit. And thank you for
+[02:29:00.240 --> 02:29:06.400]   watching this week in tech. I appreciate it. We'll be back next week with another great show.
+[02:29:06.400 --> 02:29:21.600]   Meanwhile, another Twit.
+

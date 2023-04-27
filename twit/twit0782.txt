@@ -1,0 +1,1486 @@
+;FFMETADATA1
+title=Mainframes Not MaryJane
+artist=TWiT
+album_artist=TWiT
+album=This Week in Tech
+track=782
+genre=Podcast
+comment=https://twit.tv/twit
+copyright=These podcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2020
+encoder=Lavf58.76.100
+
+
+
+[00:00:00.000 --> 00:00:03.600]   It's time for Twit this weekend tech. What a great panel we have for you.
+[00:00:03.600 --> 00:00:07.760]   The 8th fastest Super Mario speedrunner in the world is here.
+[00:00:07.760 --> 00:00:08.840]   She'll do a little demo.
+[00:00:08.840 --> 00:00:10.160]   Oh, oh.
+[00:00:10.160 --> 00:00:13.920]   Paris Martynov from the information and Colonel Matt Cutts,
+[00:00:13.920 --> 00:00:16.720]   administrator of the United States Digital Service.
+[00:00:16.720 --> 00:00:19.600]   It's all coming up next on Twit.
+[00:00:19.600 --> 00:00:23.120]   This weekend tech comes to you from Twit's LastPass Studios.
+[00:00:23.120 --> 00:00:27.200]   Securing every access point in your company doesn't have to be a challenge.
+[00:00:27.200 --> 00:00:33.920]   LastPass unifies access and authentication to make securing your employees simple and secure.
+[00:00:33.920 --> 00:00:38.880]   Even when they're working remotely, check out lastpass.com/twit to learn more.
+[00:00:38.880 --> 00:00:44.560]   Podcasts you love from people you trust.
+[00:00:44.560 --> 00:00:47.360]   This is Twit.
+[00:00:54.240 --> 00:01:01.520]   This is Twit this weekend tech. Episode 782 recorded Sunday August 2nd, 2020.
+[00:01:01.520 --> 00:01:04.000]   Mainframes not Mary Jane.
+[00:01:04.000 --> 00:01:09.120]   This episode of This Week in Tech is brought to you by Monday.com.
+[00:01:09.120 --> 00:01:15.200]   Monday.com is a flexible platform to manage any team, project or workflow online.
+[00:01:15.200 --> 00:01:20.400]   Collaborate, plan and track everything your team is working on wherever you are.
+[00:01:20.400 --> 00:01:27.680]   To start your free 14-day trial, go to monday.com/twit and buy stamps.com.
+[00:01:27.680 --> 00:01:31.360]   Anything you could do at the post office, you could do it stamps.com.
+[00:01:31.360 --> 00:01:36.400]   For a four-week trial plus free postage and a digital scale without any long-term commitment,
+[00:01:36.400 --> 00:01:41.440]   go to stamps.com, click on the microphone at the top of the home page and enter the code Twit.
+[00:01:41.440 --> 00:01:48.080]   And by Zip Recruiter. Hiring is challenging, but there's one place you can go
+[00:01:48.080 --> 00:01:53.440]   where hiring is simple and smart. That place is Zip Recruiter, where growing businesses
+[00:01:53.440 --> 00:02:01.440]   connect to qualified candidates. Try it free at zipprecruiter.com/twit and by Barracuda.
+[00:02:01.440 --> 00:02:08.000]   Did you know that 91% of all cyber attacks start with an email? To uncover the threats hiding in
+[00:02:08.000 --> 00:02:16.000]   your Office 365 account, get a secure and free email threat scan at barracuda.com/twit.
+[00:02:16.000 --> 00:02:26.080]   It's time for this week in Tech, the show week over the week's Tech News, and I thought this would
+[00:02:26.080 --> 00:02:32.320]   be a good week to bring in some smart folks with political savvy like former Congressional
+[00:02:32.320 --> 00:02:41.360]   candidate, game designer, space cat, Gal, Brianna. Hey, great to see you. You took down the American
+[00:02:41.360 --> 00:02:48.320]   flag. Well, I thought I'd set up a real office. So there it is. I'm a professional person, Leo.
+[00:02:48.320 --> 00:02:54.800]   Yes. Got to put forward the good image. And she's no longer a member of the Empire. She is in the
+[00:02:54.800 --> 00:03:00.080]   rebellion. That's true. But we can't talk about it. We could just that's right. Just title it.
+[00:03:00.080 --> 00:03:05.360]   The secret rebellion. Well, last time we were here, I said, I was thinking about starting a
+[00:03:05.360 --> 00:03:10.240]   technology focused up local action committee. And that is part of what I'm doing. But I can't
+[00:03:10.240 --> 00:03:15.280]   tell you about it yet. It's not yet public. But we thought we'd use the lower 30 people.
+[00:03:15.280 --> 00:03:21.600]   And let people guess. Also here, Paris Martin, who's also gone through a job change recently.
+[00:03:21.600 --> 00:03:26.320]   She's now I'm very happy to say at one of the best technology publications in the world,
+[00:03:26.320 --> 00:03:30.240]   the information reported there. Great to see you and your attic.
+[00:03:30.240 --> 00:03:35.920]   Yeah, great to be here. Love the attic. I got a 30 foot ethernet cord specifically
+[00:03:35.920 --> 00:03:40.560]   so that I can have some meetings up here. Oh, not just for us in general. I mean,
+[00:03:40.560 --> 00:03:47.120]   partly for you guys, but also for other audio video things. Nice. So there's a long blue cable
+[00:03:47.120 --> 00:03:54.480]   going up the stairs. It is. Yeah. My cat loves to mess with it. Okay. Well, we'll know what
+[00:03:54.480 --> 00:04:01.760]   happened if you suddenly disappear. Kitty, Kitty got into the cable. Also here really.
+[00:04:01.760 --> 00:04:06.880]   It's zip tied. Oh, it's zip tied. Ooh, fancy. That's kind of a semi permanent installation.
+[00:04:06.880 --> 00:04:12.640]   That's good. That's serious. Also here, really pleased to welcome back Matt Cutz,
+[00:04:12.640 --> 00:04:18.560]   a dear friend back from the days when he was one of the first Googlers. He was, he was the man in
+[00:04:18.560 --> 00:04:26.080]   charge of fighting spam sites. He left Google and has found his way to the United States digital
+[00:04:26.080 --> 00:04:31.840]   service, the USDS where he is now no longer acting, but the actual administrator. Hi, Matt.
+[00:04:31.840 --> 00:04:36.480]   Good to see you. It's good to see you too. It's hard to believe I've been in government for four
+[00:04:36.480 --> 00:04:42.000]   years now. Wow. You don't look changed at all. This is a little more gray. There's a little more
+[00:04:42.000 --> 00:04:48.000]   gray. But that happens. I've seen that. Turn your head around. There's a second head back there.
+[00:04:48.000 --> 00:04:53.120]   Exactly right. We'll talk more later in the show about the USDS, but it's really a great
+[00:04:53.120 --> 00:04:58.560]   organization helping a streamlined government. You've done great work for the Veterans Administration.
+[00:04:58.560 --> 00:05:03.120]   And you're actually really on the front lines now because a lot of states are having trouble
+[00:05:03.120 --> 00:05:07.280]   with their unemployment systems, which can't keep up with the massive unemployment.
+[00:05:07.280 --> 00:05:10.880]   And what are you doing? You're working with New Jersey? Is that what it was? I heard? Yeah,
+[00:05:10.880 --> 00:05:14.800]   working with New Jersey and fingers crossed for the Department of Labor. We'll see how that goes.
+[00:05:14.800 --> 00:05:20.160]   Fantastic. That's what the US Digital Service is all about. That's what it was created to do.
+[00:05:20.160 --> 00:05:26.080]   So really great, really great to have you on the show. We'll talk more about the USDS. And
+[00:05:26.080 --> 00:05:30.320]   when Matt comes on, I know he's only here really for one thing. And that's to get you.
+[00:05:30.320 --> 00:05:37.520]   He wants you to join the United States Digital Service. That is 100%. No, I love to see you, Leo.
+[00:05:38.720 --> 00:05:44.000]   I will happily talk for as long as the show goes on, but also I would love for designers,
+[00:05:44.000 --> 00:05:47.040]   engineers and product managers to apply and come help in government.
+[00:05:47.040 --> 00:05:54.800]   Absolutely. Actually, let's talk a little bit about TikTok today. I performed this morning
+[00:05:54.800 --> 00:06:03.120]   an act of rebellion. I downloaded Insta TikTok on my iPhone because who knows how much longer
+[00:06:03.120 --> 00:06:08.160]   I'll be able to do it. It's very confusing. I don't know what's going on. TikTok, which is
+[00:06:08.160 --> 00:06:14.640]   owned by the Chinese company ByteDance. Cepheus, the committee or foreign investment in the United
+[00:06:14.640 --> 00:06:22.640]   States apparently, is investigating. I think they actually issued a ruling saying that like Huawei,
+[00:06:22.640 --> 00:06:29.520]   TikTok was a threat to the United States. One of the ways TikTok became really big is by acquiring
+[00:06:29.520 --> 00:06:34.160]   a couple of years ago, Musically, which is really kind of, I think from what I see on TikTok,
+[00:06:34.160 --> 00:06:41.040]   kind of the backbone of what TikTok is these days, which is lip syncing or acting or dancing
+[00:06:41.040 --> 00:06:49.200]   to an original track. It's very entertaining. It's probably the most engaging social network
+[00:06:49.200 --> 00:06:59.520]   out there, but apparently it's a threat to our way of life. On Friday, the president on Air Force
+[00:06:59.520 --> 00:07:06.640]   One said that he was about to ban it as soon as yesterday from the United States. I'm not sure
+[00:07:06.640 --> 00:07:12.160]   under what law Cepheus could do it, I think, but I don't know if the president can buy executive
+[00:07:12.160 --> 00:07:19.680]   order ban an application. Then for the last week, Microsoft's been negotiating to buy the
+[00:07:19.680 --> 00:07:26.080]   American rights to TikTok to kind of create a TikTok America that would be separate from the
+[00:07:26.080 --> 00:07:31.040]   Chinese bite dance TikTok. But then the president says, I'm going to ban it, but I don't want
+[00:07:31.040 --> 00:07:40.880]   anybody to buy it. So Microsoft said, oh, Microsoft threw their hands up and said,
+[00:07:40.880 --> 00:07:46.560]   figure it out. And they didn't end the conversation with bite dance. Apparently,
+[00:07:46.560 --> 00:07:51.440]   they were fairly close, but they're not forwarding it until they find out what happens. I'm going
+[00:07:51.440 --> 00:07:57.040]   to make a prediction. Nothing is going to happen except now more people are going to download and
+[00:07:57.040 --> 00:08:04.400]   use TikTok. Brianna, is TikTok a threat to national security? It's not a unique threat to
+[00:08:04.400 --> 00:08:11.600]   national security. We need to have a conversation about the kinds of information social media apps
+[00:08:11.600 --> 00:08:16.640]   are able to download from our phones. We all remember the scandals of Facebook on Android
+[00:08:16.640 --> 00:08:22.080]   downloading your entire phone list. And again, everyone you've ever called, we need to have a
+[00:08:22.080 --> 00:08:29.680]   conversation about that. But there's really no evidence that what TikTok is pulling is any
+[00:08:29.680 --> 00:08:36.640]   greater than what Facebook, Instagram, these other social media sites are pulling so far.
+[00:08:36.640 --> 00:08:42.560]   So we need a wider discussion about that. I also just want to say, I wish I could tell you this was
+[00:08:42.560 --> 00:08:47.920]   just Trump and the Republicans that would make me very happy. My heart broke today to see Chuck
+[00:08:47.920 --> 00:08:52.800]   Schumer on the Sunday morning shows advocating the same thing with TikTok. So,
+[00:08:52.800 --> 00:08:59.840]   we need to have a conversation about national security and the amount of information we're
+[00:08:59.840 --> 00:09:08.000]   giving up. But it's, I think, racist to just focus on TikTok. Sinophobia or xenophobia.
+[00:09:08.560 --> 00:09:16.080]   Paris, you seem like a TikTok user. I that's only because you're younger than I.
+[00:09:16.080 --> 00:09:23.200]   But I did recently redownload it when this whole awful happened. I wanted to make sure that I had
+[00:09:23.200 --> 00:09:27.680]   it. Exactly. Which I'm sure is a common response. I agree with everything that Brown just said in the
+[00:09:27.680 --> 00:09:37.440]   sense that I don't know, I've been particularly disturbed by the reactions to TikTok's data collection,
+[00:09:37.440 --> 00:09:44.000]   both from the left and right and just experts in the tech field generally over the past couple of
+[00:09:44.000 --> 00:09:48.720]   months, because it is definitely coming from a place of xenophobia. I mean, we have so many
+[00:09:48.720 --> 00:09:55.200]   different American made apps that do many of the same things. I mean, one thing that I've seen
+[00:09:55.200 --> 00:10:01.120]   noted quite often is, oh, TikTok has the ability to see what you've copied in your clipboard.
+[00:10:01.120 --> 00:10:07.200]   I guess so do most of the apps you have on your phone. It's not a TikTok specific
+[00:10:07.200 --> 00:10:12.400]   problem. This came up because of iOS 14, which is in public beta now. So people are suddenly
+[00:10:12.400 --> 00:10:19.680]   using it and dozens of applications. I think it must be a library that they all subscribe to. In fact,
+[00:10:19.680 --> 00:10:25.680]   somebody a couple of weeks ago, somebody told me that it was a Google ad library. I use of,
+[00:10:25.680 --> 00:10:33.760]   a clearly noninvasive program from Panic software called code editor, which lets me log into my
+[00:10:34.880 --> 00:10:44.800]   server with SSH and edit files and things like that. And it was, I got the same thing that you get on
+[00:10:44.800 --> 00:10:49.760]   iOS 14. Oh, code editor is looking at your clipboard every time I typed a character. Now,
+[00:10:49.760 --> 00:10:55.040]   I don't think code editor, I don't think Panic software famous for an FTP program and an SSH
+[00:10:55.040 --> 00:11:03.040]   program is spying on me. Obviously, they're not. They're using the same code library. So it's a,
+[00:11:03.040 --> 00:11:06.480]   it's a bug. That's what LinkedIn, Microsoft's LinkedIn said as well.
+[00:11:06.480 --> 00:11:12.640]   I think it's also just one of those things where if you're building an app, especially in
+[00:11:12.640 --> 00:11:18.240]   I don't know, there was a time when apps and stuff were being built where there wasn't this
+[00:11:18.240 --> 00:11:26.000]   conversation about security and privacy. Why would app designers not take the position of,
+[00:11:26.000 --> 00:11:29.840]   yeah, let's get all the things. Maybe we'll need that information.
+[00:11:29.840 --> 00:11:34.560]   TikTok said quite credibly. Well, we're just looking to see if you put a URL on your clipboard so we
+[00:11:34.560 --> 00:11:39.120]   can paste it in. Right. That seems credible. I don't know if you need to do it every single
+[00:11:39.120 --> 00:11:43.760]   time like type of character. That seems like more than a bug. I can tell you firsthand from
+[00:11:43.760 --> 00:11:50.880]   developing an iOS. It's often easiest just to get it, submit it to the app store to take a bunch of
+[00:11:50.880 --> 00:11:57.280]   permissions. And it's just, it's like you're trying to debug it and get the app store to accept it.
+[00:11:57.280 --> 00:12:02.400]   It's just quirky. I cannot tell you how many times I and other app developers have just,
+[00:12:02.400 --> 00:12:08.320]   it's a very, very quirky system. So I think this is just in beta. I also think it's really
+[00:12:08.320 --> 00:12:14.080]   important to point out as far as the impetus for this. I personally do not think it's a coincidence
+[00:12:14.080 --> 00:12:20.160]   that TikTok was widely credited for disrupting Trump's Tulsa rally a couple of weeks ago.
+[00:12:20.160 --> 00:12:30.320]   And Sarah Cooper is so famous for making fun. She's amazing. And those videos are brutal to Trump.
+[00:12:30.320 --> 00:12:37.200]   And I don't think that's a coincidence. She does Trump lip sync. And I was talking to a friend who
+[00:12:37.200 --> 00:12:42.240]   said, you know, I see Trump on TV. I can't understand what he's saying. But then I watch Sarah Cooper.
+[00:12:42.240 --> 00:12:48.560]   And that makes sense. Sarah adds expressions and gestures and all kinds of makes sense. All of
+[00:12:48.560 --> 00:12:53.600]   a sudden, so I don't think the president should be so quick to not like Sarah Cooper. She's she's
+[00:12:53.600 --> 00:12:58.800]   adding context. I do think that might have something to do with it, certainly in his mind,
+[00:12:58.800 --> 00:13:04.000]   because we know that, you know, I don't know what he's going to do to K-pop stands because they were
+[00:13:04.000 --> 00:13:10.160]   the other the other group that apparently figured out that you could register for TikToks.
+[00:13:10.160 --> 00:13:14.320]   I think somebody on Trump's team is gotta be wise enough to know you can't take on the K-pop stands.
+[00:13:14.320 --> 00:13:20.000]   Let me take that. But if you went against the K-pop stands, the United States would crumble.
+[00:13:20.000 --> 00:13:25.200]   Yes, that would be it would be over, right? You just can't win against the K-pop stands.
+[00:13:25.200 --> 00:13:31.760]   So they were both advocating people sign up for the Tulsa rally and not show. And
+[00:13:31.760 --> 00:13:38.560]   honestly, the fault lies with Brad Parscale, Trump's former campaign manager, and his campaign team
+[00:13:38.560 --> 00:13:45.280]   for believing all those registrations and building a giant outdoor stage and a giant parking lot
+[00:13:45.280 --> 00:13:49.200]   so that the millions of people who are going to be coming because they all registered would have
+[00:13:49.200 --> 00:13:54.960]   somewhere to be. And then I loved, well, I shouldn't say that. That sounds partisan. It was interesting
+[00:13:54.960 --> 00:14:00.880]   to see the one person with the baby stroller in that giant area and the rest of the arena half
+[00:14:00.880 --> 00:14:05.920]   full or a third full. So I could see why he might be a little angry about that.
+[00:14:06.880 --> 00:14:11.680]   Is there, though, Matt, and I'm not putting you in the position of speaking for the government.
+[00:14:11.680 --> 00:14:15.440]   I want to say that. In fact, we should have said that upfront. Matt, there's not to be
+[00:14:15.440 --> 00:14:21.920]   for the USDS or the federal government. But you also, though, having worked at Geekel Google,
+[00:14:21.920 --> 00:14:28.720]   you understand a little bit of how this stuff works. There's not any proof that
+[00:14:28.720 --> 00:14:34.480]   Huawei, for instance, has ever done anything particularly evil. They've done some commercial
+[00:14:34.480 --> 00:14:39.600]   espionage, apparently, but nothing could particularly evil. But there's the potential,
+[00:14:39.600 --> 00:14:44.080]   if they run the entire 5G network, that at some point they could inject malicious software
+[00:14:44.080 --> 00:14:50.560]   and the network or shut it down. What could ticked? Even this even sounds stupid asking it.
+[00:14:50.560 --> 00:14:59.040]   What could TikTok do? It's the forbidden app. It's like Wappy Bird. And if you think about it,
+[00:14:59.040 --> 00:15:05.600]   if you don't have it on your phone, it could disappear at any time. I think it's less about
+[00:15:05.600 --> 00:15:11.040]   that. Although you do see companies like Amazon saying, "Hey, on your work phone or work device,
+[00:15:11.040 --> 00:15:16.240]   please don't install this." Amazon did it and then I did it. They realized, "Oh, we do a lot of
+[00:15:16.240 --> 00:15:21.760]   business with these guys. Let's not piss them off." But Wells Fargo did that. I think the Department
+[00:15:21.760 --> 00:15:26.240]   of Defense. I don't know about USDS, but it's reasonable if you've got a company phone.
+[00:15:26.960 --> 00:15:29.440]   You probably shouldn't have Facebook or Instagram on it either.
+[00:15:29.440 --> 00:15:36.160]   Yeah. I keep my Twitter and all that stuff very far away from my work phone. It's my personal
+[00:15:36.160 --> 00:15:43.760]   account. But I can understand why people want to have just a sense of, "Okay, let's be careful.
+[00:15:43.760 --> 00:15:49.600]   Let's see what's going on." And then just making sure that you can depend on the tools all the
+[00:15:49.600 --> 00:15:55.120]   way down. Reflections on trusting trust, you can put things into a compiler, which then you can
+[00:15:55.120 --> 00:16:00.400]   remove it from the source code. It turns out that thing can stay in the compiler for years and
+[00:16:00.400 --> 00:16:06.000]   years and years. You don't want to be load bearing on any particular technology that you can't quite
+[00:16:06.000 --> 00:16:08.480]   vouch for is my guess, is what people are thinking.
+[00:16:08.480 --> 00:16:15.040]   Brianna, what would be the legal... How could a president ban an app in the United States?
+[00:16:15.040 --> 00:16:20.800]   I was thinking about this. One thing the United States government is very effective at is we
+[00:16:21.360 --> 00:16:27.600]   went after ISIS in ISIL in a very effective way and said, "This IP address to a recruitment site,
+[00:16:27.600 --> 00:16:34.800]   you can't access it." My guess would be the executive order would basically go after the ISPs
+[00:16:34.800 --> 00:16:41.440]   and say, "You can't go to this particular ISP." But think about that. I know VPN products have
+[00:16:41.440 --> 00:16:46.800]   sponsored your show. They've sponsored mine. And do you know how few seconds would take the average
+[00:16:46.800 --> 00:16:51.120]   teenager to get a VPN account to just keep their TikTok going?
+[00:16:51.120 --> 00:16:55.760]   Yesterday I downloaded the TikTok app. The first video that came up, because I had to create
+[00:16:55.760 --> 00:17:00.960]   new accounts, because I forgot my previous password, was a, "If TikTok gets banned, here's that I get
+[00:17:00.960 --> 00:17:05.360]   around it. You don't even have VPN. You can go into the settings of your phone, change your country
+[00:17:05.360 --> 00:17:11.840]   of origin to Canada, and then you're great." See, exactly. I mean, it's not enforceable, basically.
+[00:17:12.480 --> 00:17:18.960]   So, I mean, one thing, Leo, I think Matt and I would probably agree that we do need to,
+[00:17:18.960 --> 00:17:26.320]   I don't know if it's more oversight from the point of sale, like on the App Store or Google Play.
+[00:17:26.320 --> 00:17:31.920]   I don't know if it's kind of an external code audit policy for these kinds of apps when they're
+[00:17:31.920 --> 00:17:38.480]   owned by other countries. I think we agree we need more oversight and we need to make sure
+[00:17:39.040 --> 00:17:44.080]   all of these are not stealing data from people. And just to get people a very brief history lesson,
+[00:17:44.080 --> 00:17:51.440]   Edward Snowden had some very serious allegations about our own spying agencies using Facebook
+[00:17:51.440 --> 00:17:56.240]   to gather intelligence on people all around the world. There's evidence for that. There's no
+[00:17:56.240 --> 00:18:01.920]   hard evidence at this point that TikTok is doing any of this. So, if we're serious about doing this,
+[00:18:01.920 --> 00:18:06.800]   the answer isn't to further balkanize the United States from the rest of the world.
+[00:18:06.800 --> 00:18:12.400]   The answer is to form more coalitions with other countries. Say, look, if you're going to operate
+[00:18:12.400 --> 00:18:17.360]   here and, you know, if you're going to have the software operating in our country,
+[00:18:17.360 --> 00:18:21.200]   here are the rules you have to follow. You can't just arbitrarily download people's
+[00:18:21.200 --> 00:18:27.680]   phone books. There's going to be, you know, civil fines. That's clearly the way to go. It's got to
+[00:18:27.680 --> 00:18:35.200]   be bigger than just TikTok. I'm just looking at TikTok on my iPhone. It has access to my photos
+[00:18:35.200 --> 00:18:38.800]   because I gave it access to my photos so I could put a profile picture on there.
+[00:18:38.800 --> 00:18:44.800]   It gives me notifications. I could turn that off. That's a push, though. That's not a poll.
+[00:18:44.800 --> 00:18:49.440]   Background, app refresh means it can run in the background and sell your data. It doesn't ask for
+[00:18:49.440 --> 00:18:55.760]   location data. It doesn't ask for, I mean, Facebook asks for 10 times more. That's why I don't have
+[00:18:55.760 --> 00:19:04.640]   it on my phone. You know, I mean, the worst thing TikTok does is waste millions of hours
+[00:19:05.200 --> 00:19:11.680]   of productivity. Maybe that's a reason to panic. I don't know. But I just don't understand how it
+[00:19:11.680 --> 00:19:17.280]   could be used. If it's not getting location permissions, how could it be used maliciously?
+[00:19:17.280 --> 00:19:22.480]   I think it is getting location positions. It's not for me. I know that
+[00:19:22.480 --> 00:19:29.840]   I've no anecdotally, at least from a couple of friends whenever they, let's say, go to Connecticut
+[00:19:29.840 --> 00:19:35.120]   to visit family or something. They will suddenly get Connecticut themed TikTok content for something
+[00:19:35.120 --> 00:19:40.800]   similar. But I mean, that could just be from like a Wi-Fi connection. You can get that from
+[00:19:40.800 --> 00:19:47.120]   the IP address. So I guess they could get a geolocation through IP address without telling
+[00:19:47.120 --> 00:19:51.040]   Apple that they're doing that. That would make sense. Okay. So they're getting that. But every
+[00:19:51.040 --> 00:19:56.160]   app can do that all. Yeah. Every app can. And probably, I hate to say it, probably does do that.
+[00:19:59.600 --> 00:20:06.400]   Your phone is a spy device. It's like the, it's like, it's the best possible. It's got a camera.
+[00:20:06.400 --> 00:20:10.960]   It's mine has four cameras. This is my issue with all the, well, I mean, among many issues,
+[00:20:10.960 --> 00:20:16.000]   the conspiracy theories. But oh, whenever there's a COVID vaccine, it's going to be used to microchip
+[00:20:16.000 --> 00:20:21.840]   us. I'm like, you carry around. You don't need to be microchip. It's willingly and upgraded every year.
+[00:20:21.840 --> 00:20:24.240]   You can't handle the truth.
+[00:20:26.880 --> 00:20:31.360]   TikTok is at great pains. Really, they're trying to appease the US government. They've
+[00:20:31.360 --> 00:20:37.120]   announced they're going to hire 10,000 Americans. That always seems to be good for relationships with
+[00:20:37.120 --> 00:20:43.680]   the White House. They have done something that nobody else will do. They say, we want to reveal
+[00:20:43.680 --> 00:20:48.800]   our algorithm because there's been some criticism of TikTok's algorithm that perhaps it downgrades
+[00:20:48.800 --> 00:20:54.960]   because the algorithm is key to TikTok. The whole key, by the way, key to Facebook and YouTube too,
+[00:20:54.960 --> 00:21:02.400]   the whole key is you get a million people to submit videos and then algorithmically,
+[00:21:02.400 --> 00:21:08.400]   based on how many people are looking at how much engagement you bring up the best videos.
+[00:21:08.400 --> 00:21:10.560]   It's a brilliant concept. You don't, you don't.
+[00:21:10.560 --> 00:21:16.080]   And it's unique and very different from other social media apps in that it's not specifically
+[00:21:16.080 --> 00:21:20.320]   follower based. Like the content you're going to be getting in your feed, you open TikTok,
+[00:21:20.320 --> 00:21:24.880]   even with no app, you're going to be getting content produced from hundreds of other people
+[00:21:24.880 --> 00:21:30.080]   that are both TikTok stars, verified as well as no name people I think you might be interested in.
+[00:21:30.080 --> 00:21:33.360]   You don't have to follow certain accounts in order to get content.
+[00:21:33.360 --> 00:21:37.360]   TikTok works really well. You could make the algorithm. You can make the argument that
+[00:21:37.360 --> 00:21:41.360]   YouTube's algorithm encourages terrorism. But I don't think that's a problem on TikTok.
+[00:21:41.360 --> 00:21:47.120]   And you can argue that maybe Facebook's algorithm starts feeding you
+[00:21:47.840 --> 00:21:53.280]   all sorts of weird political stuff, but I don't, I mean, I don't think you can argue that with
+[00:21:53.280 --> 00:21:59.200]   TikTok. And they're going to, they say they want to reveal how their algorithm works. In fact,
+[00:21:59.200 --> 00:22:05.920]   their chief executive, Kevin Mayer said, and we call on Facebook and Google Amazon and Apple to do the
+[00:22:05.920 --> 00:22:12.560]   same. Is Matt that from your time in Google? That's kind of the secret sauce.
+[00:22:14.000 --> 00:22:18.880]   Yes, the algorithms are the secret sauce, but I can believe that TikTok's algorithms,
+[00:22:18.880 --> 00:22:23.600]   you could probably do a pretty good approximation in like a thousand lines of code. You're looking
+[00:22:23.600 --> 00:22:28.400]   for engagement, you're looking for growth, you're looking at the first derivative. It's going to be
+[00:22:28.400 --> 00:22:32.800]   pretty simple. You might tweak based on whether somebody's verified or how many followers they
+[00:22:32.800 --> 00:22:38.400]   have. But once you have enough critical mass, once you get the network effect, then the content
+[00:22:38.400 --> 00:22:43.040]   is flowing in on its own. And the algorithm itself, for TikTok at least, doesn't need to be
+[00:22:43.920 --> 00:22:47.840]   that complex. Whereas the algorithms that run searching the entire web,
+[00:22:47.840 --> 00:22:54.160]   or the sorts of things that Apple might use or Amazon might use for distribution,
+[00:22:54.160 --> 00:22:57.200]   those sorts, that is a lot more complex probably.
+[00:22:57.200 --> 00:23:02.960]   And more proprietary, more, you're right. I mean, I think anybody, if you think about it,
+[00:23:02.960 --> 00:23:08.080]   could figure out how to surface the best videos in TikTok. You're getting all these signals.
+[00:23:08.080 --> 00:23:13.600]   People are giving them to you. Do you think Twitter is just killing themselves for having
+[00:23:13.600 --> 00:23:21.280]   canceled Vine because it's a practically identical product? You see them having invested money in it.
+[00:23:21.280 --> 00:23:28.320]   And I don't know. It's just it's dark. I root for Twitter. What happened with Vine is Twitter
+[00:23:28.320 --> 00:23:34.080]   got greedy. Yeah. The Vine stars came to them and said, look, we're making your platform. You
+[00:23:34.080 --> 00:23:39.120]   need to give us some. And Twitter said under no circumstances, the Vine search said, see you.
+[00:23:39.120 --> 00:23:40.960]   Sorry. Bye. Yeah.
+[00:23:40.960 --> 00:23:48.880]   Well, it's also funny that at least, you know, before Twitter, the folks who did Twitter were
+[00:23:48.880 --> 00:23:52.640]   at Google and Google was like slapping their head like, Oh, why did we let Twitter get away?
+[00:23:52.640 --> 00:23:55.120]   And now Twitter must be like, why did we let Vine get away?
+[00:23:56.320 --> 00:24:04.560]   That takes us to the historic Wednesday testimony of Jeff Bezos, Mark Zuckerberg, Tim Apple,
+[00:24:04.560 --> 00:24:14.560]   and Sundar Pichai via via Webex before the house judiciary subcommittee on antitrust.
+[00:24:14.560 --> 00:24:19.440]   We're going to take a committee wore my hat, which I made from the last committee, which says
+[00:24:19.440 --> 00:24:26.880]   Senator, we run out. Wow. Wow. That's awesome. A pink. I came up with another couple of
+[00:24:26.880 --> 00:24:32.000]   hat ideas from this hearing, which I put out for my Twitter followers to vote on. And
+[00:24:32.000 --> 00:24:37.120]   got a new one coming. It's going to be really good. This is so brilliant. This is so good,
+[00:24:37.120 --> 00:24:43.680]   Paris. It's really, I love it so much. It's been multiple years. And yet I still wear it to the
+[00:24:43.680 --> 00:24:49.120]   store often and people will be like, Hey, that comes from the now infamous question. Which
+[00:24:49.120 --> 00:24:53.520]   Senator was it? I don't remember who asked Mark Zuckerberg. How do you make money?
+[00:24:53.520 --> 00:25:00.320]   Yeah, the question was like, Oh, but Facebook is free. How do you make money? There was just
+[00:25:00.320 --> 00:25:09.920]   a long pause. And Zuckerberg was like, Senator, we run ads. Oh, great. That was almost as good on
+[00:25:09.920 --> 00:25:18.880]   Wednesday when, Oh, what's his name? The the, was it Jordan? No, Jim Jordan was
+[00:25:18.880 --> 00:25:25.040]   wild. No, no, it's the ranking Republican on the committee.
+[00:25:25.040 --> 00:25:34.560]   Said, we started asking him about why Facebook had blocked Donald Trump, Jr. for his COVID video.
+[00:25:34.560 --> 00:25:38.400]   Mark Zuckerberg says, Well, I can answer your question, but that was Twitter.
+[00:25:38.400 --> 00:25:44.160]   Yeah, I believe the full quotes was Congressman, I believe that happened on Twitter,
+[00:25:44.160 --> 00:25:46.960]   which I had that would be a good hat as well. Might be too long.
+[00:25:46.960 --> 00:25:51.280]   Too big for the hat. Yeah, it's like a drinking game, by the way, every time Zuckerberg,
+[00:25:51.280 --> 00:25:56.160]   before he says anything, he pauses, he goes, Senator, Congressman, Congresswoman.
+[00:25:56.160 --> 00:26:01.840]   It's just, it's so obvious he's been coached. Andy's trying to run out the clock because there's
+[00:26:01.840 --> 00:26:08.400]   that long pause. But I have to say, look, I realize that the temptation is to be cynical and snorke
+[00:26:08.400 --> 00:26:13.920]   about this. And don't get me wrong, there was plenty of grandstanding in this hearing. I was
+[00:26:13.920 --> 00:26:20.000]   just horrified how many people, you know, elected officials got up there and did their own grandstanding
+[00:26:20.000 --> 00:26:25.920]   with a monologue about something unrelated to the issue at hand. But at its core, I was
+[00:26:25.920 --> 00:26:34.720]   very impressed and happy with the amount of work in antitrust that the committee had done
+[00:26:34.720 --> 00:26:40.160]   and the document research and the amount of discovery that they put in front of the American
+[00:26:40.160 --> 00:26:44.640]   people. I thought they did an excellent job. A lot. And these companies have a lot to answer for.
+[00:26:44.640 --> 00:26:47.680]   We're going to get to that in just a little bit. I expected that because,
+[00:26:47.680 --> 00:26:53.360]   A, this is the subcommittee on any trust. They've been, this is their topic, right? They own this topic.
+[00:26:53.360 --> 00:26:58.560]   And B, it's members of Congress as opposed to senators. And I feel like there may be a little
+[00:26:58.560 --> 00:27:04.560]   bit more in touch, maybe not a lot, but a little bit more in touch with what's going on. Let's
+[00:27:04.560 --> 00:27:07.760]   take a little break. By the way, these are your hat choices, Paris, if you don't mind.
+[00:27:09.680 --> 00:27:16.960]   Mr. Bezos, I believe you're on mute. Wow, I missed that one. That's good. And a new
+[00:27:16.960 --> 00:27:23.440]   really good, a nuanced destruction machine. What's that? Who said that? That was a quote from Bezos,
+[00:27:23.440 --> 00:27:28.000]   where I believe he described social media as a nuanced destruction machine. And that was his
+[00:27:28.000 --> 00:27:33.360]   like sign offline. That's pretty excellent. That's true. Yeah, I know. Quite accurate.
+[00:27:33.360 --> 00:27:40.560]   Or outrage engine. Or yeah. Okay. Wow. Or high school all over again.
+[00:27:40.560 --> 00:27:45.600]   Let's take a little break and we will come back. What a panel. This couldn't be a better panel
+[00:27:45.600 --> 00:27:51.600]   for the topics at hand today. Paris Marten, no newly minted reporter at the information. Wonderful
+[00:27:51.600 --> 00:28:01.440]   to see you. I thought we might not ever see you again. I'm so glad I'm not.
+[00:28:01.440 --> 00:28:05.040]   See you again. I mean, I know you would be around, but we wouldn't get you on our ears.
+[00:28:05.040 --> 00:28:10.480]   Branna Wu, I knew we would never get rid of you. So that's.
+[00:28:10.480 --> 00:28:18.960]   We count on you. And Matt cuts, of course, it's always a pleasure, US Digital Service.
+[00:28:18.960 --> 00:28:25.120]   He is the administrator. I show today brought to you by Monday.com. We found a new way of organizing
+[00:28:25.920 --> 00:28:32.320]   our show prep, our ideas. It's hard when when when team members are working from home,
+[00:28:32.320 --> 00:28:37.280]   you can't have the standups. You can't have the meetings. You can't just lean over a partition
+[00:28:37.280 --> 00:28:46.320]   say, what are you working on? You need a centralized place that you can let your team plan and track
+[00:28:46.320 --> 00:28:51.120]   and manage and get things done and know where everybody is. And this is Monday.com.
+[00:28:51.120 --> 00:28:55.440]   And it doesn't matter whether you work with a team of five people or 5,000 people. It really is
+[00:28:55.920 --> 00:29:01.120]   the best way to keep people connected and on track. It's a project management platform
+[00:29:01.120 --> 00:29:07.360]   that is designed to make effective teamwork possible, no matter where the team is. And even
+[00:29:07.360 --> 00:29:12.320]   after COVID, we're going to go back to work and teams will still be distributed all over the world.
+[00:29:12.320 --> 00:29:18.480]   That's just the way work's going to be from now on. But you can at least keep their work in one place.
+[00:29:18.480 --> 00:29:24.480]   Bring them together. You have a single page of truth. You can plan, track and manage your business.
+[00:29:24.480 --> 00:29:30.080]   One easy to use platform. Now, I know the first reaction I always have is but I already have
+[00:29:30.080 --> 00:29:35.280]   a platform. I don't want to give it up. Monday.com works with all the platforms you already work with.
+[00:29:35.280 --> 00:29:40.960]   It integrates all of your existing tools. So we use Google sheets. We use Slack. We use Zoom.
+[00:29:40.960 --> 00:29:46.960]   It works with email. It works with your calendar. It can all integrate in. In fact, it automatically
+[00:29:46.960 --> 00:29:52.000]   does that. So now instead of having 50 different places to look to see how you're doing,
+[00:29:52.640 --> 00:29:57.680]   you've got one great dashboard. And you can set it up however you like a Gantt chart, a timeline.
+[00:29:57.680 --> 00:30:05.040]   We like can-bandboards. You could do tables like spreadsheets. Monday.com has almost any
+[00:30:05.040 --> 00:30:09.120]   possible way of looking at your data. In fact, one of the great things is once the data's in
+[00:30:09.120 --> 00:30:13.120]   there, you can look at it in a variety of ways, whatever way makes sense for the information
+[00:30:13.120 --> 00:30:18.560]   you're trying to understand. It really helps with coordination across teams and departments.
+[00:30:18.560 --> 00:30:24.480]   You can easily track and manage work so that you always know who's doing what, when.
+[00:30:24.480 --> 00:30:29.440]   That's really important. In fact, really, honestly, even when we get back to work,
+[00:30:29.440 --> 00:30:34.640]   the thing I'm going to love about Monday.com is no more meetings. No more check-in meetings.
+[00:30:34.640 --> 00:30:39.280]   You don't have to anymore. What are you working on? Where is it stand? When's it going to be done?
+[00:30:39.280 --> 00:30:44.640]   All of that's right there in front of you, always up to date in real time. And that's done also
+[00:30:44.640 --> 00:30:49.440]   with no code automations. So you don't have to write the code, but you can easily put that workflow
+[00:30:49.440 --> 00:30:55.280]   on autopilot. Alerts, project flows, all work automatically. Your productivity goes up,
+[00:30:55.280 --> 00:31:00.480]   your efficiency goes up, transparency improves, and that's important with collaboration.
+[00:31:00.480 --> 00:31:04.000]   And if you're a company and you oughta be that makes data-driven decisions,
+[00:31:04.000 --> 00:31:09.600]   Monday.com is for you. You could track progress, timelines, budgets. You'll be making your key
+[00:31:09.600 --> 00:31:15.440]   decisions based on real time data constantly up to date. No more guessing. This is an amazing way
+[00:31:15.440 --> 00:31:21.520]   whether you're organizing podcasts like we do or organizing a giant business or a production
+[00:31:21.520 --> 00:31:27.280]   workflow or a project, a coding project you're working on. It's perfect. It's perfect.
+[00:31:27.280 --> 00:31:33.760]   Eddie did a great job. That's another thing I love. So I've been using Monday.com for a couple
+[00:31:33.760 --> 00:31:39.440]   of years, but when you sign up for Monday.com, you can get an onboarding specialist to work with you
+[00:31:39.440 --> 00:31:44.880]   and Eddie sat down. And he's a wizard with this stuff. He said, "Oh, here's another thing you could do."
+[00:31:44.880 --> 00:31:49.280]   And it's awesome. A hundred thousand teams are already getting things done with Monday.com.
+[00:31:49.280 --> 00:31:55.040]   You could be one of them. Change the way you work online. Let Monday.com take care of what slows you
+[00:31:55.040 --> 00:32:01.440]   down and free up time to focus on the work that drives you. Start your free 14-day trial right
+[00:32:01.440 --> 00:32:08.400]   now. Monday.com/twit. I think Monday.com for helping us get our life in order,
+[00:32:08.400 --> 00:32:12.480]   get our work in order. And I encourage you to try it. Thank you for supporting the show by going
+[00:32:12.480 --> 00:32:20.240]   to Monday.com/twit. Mr. Bezos, I vote for Mr. Bezos. I believe you're on mute.
+[00:32:20.240 --> 00:32:24.160]   Yeah. That was what the people eventually chose. I think.
+[00:32:24.160 --> 00:32:29.840]   This is an interesting thing. You could do the hats. You could be the, "Oh, she's that hat person."
+[00:32:29.840 --> 00:32:32.000]   That could be your thing. Do that on TikTok.
+[00:32:32.000 --> 00:32:37.440]   Could be. I don't know. Got to keep the hats for myself. The hat, I don't know, a couple of people
+[00:32:37.440 --> 00:32:40.720]   of best reading. I'm like, "Can I get in? Are you selling these hats?" And I don't want to be the
+[00:32:40.720 --> 00:32:45.840]   person that sells hats. No, no. I want to be the person that has the best hat. Let them make their
+[00:32:45.840 --> 00:32:53.360]   own if they're so smart. It's really not very hard. Do you have a recommendation for where to go to
+[00:32:53.360 --> 00:33:00.880]   get hat? I like printful. Printful. Okay. If you want embroidered hats, which I think looks better
+[00:33:00.880 --> 00:33:10.560]   if you're doing just text. We are pricing out hats on rocket because Christina is seriously
+[00:33:10.560 --> 00:33:18.320]   thinking about bidding $500 on those fire festival. Oh my god. All your fire festival stuff's going on
+[00:33:18.320 --> 00:33:27.520]   sale. I love that it's underneath a fraud. Right. It's amazing. We're like, "Christia, we will
+[00:33:27.520 --> 00:33:34.080]   get you your own hat." That's an achievable dream. Don't spend $500 on that. No, but it'd be so
+[00:33:34.080 --> 00:33:39.360]   awesome to have an actual fire festival sweatpants. What if $500 worth of awesome?
+[00:33:39.360 --> 00:33:44.880]   It's probably going to be like $800 or $900. Let me see really. So it's an auction.
+[00:33:44.880 --> 00:33:51.200]   If you make a fake fire festival swag, who's going to sue you? That's double fraud.
+[00:33:51.200 --> 00:33:57.040]   That's fraud about the fraud. No, no. It's ironic fraud. That's a different thing.
+[00:33:57.840 --> 00:34:04.720]   Yeah. It's like two frauds do make a right. We were going to put a little rocket ship going
+[00:34:04.720 --> 00:34:10.240]   around the fire at the top and it was going to be technically a hat about rocket's coverage,
+[00:34:10.240 --> 00:34:16.400]   a fire festival, of which we did a lot. We'll see if it holds up in court.
+[00:34:16.400 --> 00:34:23.280]   Actually, now that I'm here, this US Marshals Service National Online Auction is a treasure
+[00:34:23.280 --> 00:34:33.840]   trove of confiscated. For $35, you get the rubber wristband that says, "Could
+[00:34:33.840 --> 00:34:42.480]   you change the world?" Yeah. Wow.
+[00:34:42.480 --> 00:34:45.280]   Leo, have you ever heard of GSA auctions?
+[00:34:45.280 --> 00:34:50.640]   Oh, you may have me now. If you want to buy a helicopter.
+[00:34:50.640 --> 00:35:01.120]   Cheep. Everything as is though. Wow, look at this. I can get a 1996 pulverizer.
+[00:35:01.120 --> 00:35:06.640]   Real cheap. Hear me out on this, Leo. You get that. You sign up for an account here. You get
+[00:35:06.640 --> 00:35:10.240]   the pulverizer. You get the helicopter. Then you start a TikTok.
+[00:35:10.240 --> 00:35:16.080]   That's a crap I bought. That's the GSA auctions. Look at this.
+[00:35:16.080 --> 00:35:20.080]   Look at this. This is a glass pulverizer, a mere 200 bucks.
+[00:35:20.080 --> 00:35:24.480]   All I need is some glass and I could pulverize it.
+[00:35:24.480 --> 00:35:30.080]   So I don't know if you look, if you go to GSA auctions.gov, sometimes it redirects you.
+[00:35:30.880 --> 00:35:36.960]   No, I'm here. The URL is GSA auctions for space shuttle slash hub.
+[00:35:36.960 --> 00:35:41.040]   It doesn't have anything in it right now, but does that mean it's something they would genuinely
+[00:35:41.040 --> 00:35:48.240]   sell you? A NASA shuttle slash double. Wow. The government has a lot of stuff. And Leo,
+[00:35:48.240 --> 00:35:53.520]   the URL might be GSA auctions.gov slash GSA auctions slash GSA auctions. I don't know if you
+[00:35:53.520 --> 00:36:03.200]   noticed that. That's just like government. So good. I take it. The US digital service did not
+[00:36:03.200 --> 00:36:09.120]   design this website. We did not help with this one. Look it. Look it. I can get crutches and
+[00:36:09.120 --> 00:36:14.960]   bariatric rollators for $10. The condition is not warranted in all caps.
+[00:36:14.960 --> 00:36:22.880]   Well, who did they confiscate these from? I just want to know. Like is there somebody
+[00:36:22.880 --> 00:36:30.080]   hobbling around because they took my crutches? That's terrible. All right. GSA the government's,
+[00:36:30.080 --> 00:36:33.840]   what is a government service administration? Is that what it is? Yeah. Yeah.
+[00:36:33.840 --> 00:36:35.760]   auctions or general services,
+[00:36:35.760 --> 00:36:40.560]   administrative general, sir. That's it general services. By the way, they're a G there are
+[00:36:40.560 --> 00:36:49.600]   gov sales.gov partner. Now I got to go to gov sales.gov. That rabbit hole goes deep.
+[00:36:52.240 --> 00:36:57.520]   There's the black hole. Black hock. Half a million reserved. Not
+[00:36:57.520 --> 00:37:03.280]   very bitter. Yeah. I'm in for I'm in for $25. Can you get the rest? Well, I need you because
+[00:37:03.280 --> 00:37:08.640]   you're the one is going to get it working. There we go. Defect may exist. Everybody can
+[00:37:08.640 --> 00:37:15.520]   contribute to a hundred bucks. We can all go in an helicopter. Wow. Yeah. I could start a new
+[00:37:15.520 --> 00:37:22.240]   business flying people around Napa Valley. You can buy land on this website. Oh my god.
+[00:37:22.240 --> 00:37:28.960]   That's beautiful. That's a great deal on a black hock. This one's down. But
+[00:37:28.960 --> 00:37:36.240]   we're not out. Okay. Wow. You have to go to Huntsville to get it?
+[00:37:36.240 --> 00:37:43.280]   I would go to Huntsville to get a black hock helicopter. You could fly it back. That's true.
+[00:37:44.880 --> 00:37:49.680]   It's big enough. You could probably carry your car back with it. Just sling it underneath.
+[00:37:49.680 --> 00:37:56.560]   Geez. Oh, there's a lot of stuff here. This is one of my favorite things is um,
+[00:37:56.560 --> 00:38:02.720]   I think it's the New York City Transit or MTA has a site like this. Oh, yeah. The Lost Infant.
+[00:38:02.720 --> 00:38:07.520]   But just for like trash cans. Yeah. Weird subway signs. Yeah. It's great.
+[00:38:08.480 --> 00:38:13.440]   Well, all right. I thought Instagram ads were a problem. Now I found GSA.com.
+[00:38:13.440 --> 00:38:20.640]   I'm in deep trouble. Let's get back to the trust. Sorry. Sorry. I went to derail. Yes.
+[00:38:20.640 --> 00:38:29.040]   Let's get back to the antitrust hearings. Um, the, you know, I swore that before this show,
+[00:38:29.040 --> 00:38:33.600]   I would sit down and watch all six hours of testimony and I just couldn't bring myself to do it.
+[00:38:34.480 --> 00:38:40.240]   But I'm sure you all did. Yeah. With a fine tooth comb. So what are the takeaways?
+[00:38:40.240 --> 00:38:48.800]   I mean, it might take away. Anybody? Go ahead. Sorry. Go ahead. You start. You start.
+[00:38:48.800 --> 00:38:53.200]   No, I was just going to say my takeaway is that they gathered an extraordinary bit of evidence.
+[00:38:53.200 --> 00:38:59.360]   So Leo, if you were in Twit and had as little information as the CEO seemed to have about
+[00:38:59.360 --> 00:39:04.720]   Amazon. I don't know anything about that. I mean, that would, if we did that, that would be wrong.
+[00:39:04.720 --> 00:39:10.400]   But I can't promise we didn't do that. What? What's happening here? No, they, they, um, it really
+[00:39:10.400 --> 00:39:16.560]   seemed to be them repeatedly. Uh, this was the pattern. The government will be talking on some
+[00:39:16.560 --> 00:39:21.920]   emails that have them dead to rights on some anti-competitive behavior. Something that was just
+[00:39:21.920 --> 00:39:28.480]   completely indefensible and they'll be like, Oh, gosh, I just don't know anything about that.
+[00:39:28.480 --> 00:39:34.320]   I guess I think what we were trying to say is we're trying to empower users and they just kept
+[00:39:34.320 --> 00:39:40.400]   trying to flip it around. Like, um, the other part of it that was so stunning is all four of them
+[00:39:40.400 --> 00:39:46.400]   really kept talking about their companies. Like they're these nimble, humble up starts that
+[00:39:46.400 --> 00:39:52.480]   just may have made a few mistakes. And it's like, y'all, y'all just beat the, like, the market
+[00:39:52.480 --> 00:39:57.200]   repeatedly because you're all effectively monopolies or do-opilies. Like, you know,
+[00:39:57.200 --> 00:40:04.480]   you're not this nimble, like garage run company anymore. You're real entities. And I just, um,
+[00:40:04.480 --> 00:40:10.560]   I, I, I really thought Congress did a pretty good job all the grandstanding, um, you know,
+[00:40:10.560 --> 00:40:15.760]   put aside. And it's, it's the staff as much as anything else. I mean, they clearly
+[00:40:15.760 --> 00:40:20.240]   did a lot of document. Do they, are they able to use the power of discovery? Can they
+[00:40:20.240 --> 00:40:24.320]   subpoena documents? Is that because they got a lot of internal events. Yeah, they released a lot
+[00:40:24.320 --> 00:40:29.200]   of documents at the beginning of the hearings that they could discuss a lot of emails and other
+[00:40:29.200 --> 00:40:36.400]   things that were, I don't know, totally now. For instance, emails that said from face,
+[00:40:36.400 --> 00:40:40.320]   that internal Facebook emails, they said, Oh, we're really worried about Instagram. It's a real
+[00:40:40.320 --> 00:40:46.240]   threat right before they bought it, confirming what everyone knows, which is that they bought it
+[00:40:46.240 --> 00:40:53.760]   as a defensive action. Um, Jamie Raskin got Bezos to admit Amazon is our
+[00:40:54.400 --> 00:41:01.600]   price below market. I mean, I always assumed that Amazon probably figured we'll make it up in the,
+[00:41:01.600 --> 00:41:07.440]   the, the transactions, it'll go through us as a result. Same thing with the fire tablets.
+[00:41:07.440 --> 00:41:13.040]   Um, but I guess it's, uh, the problem is from an antitrust point of view, how do you compete
+[00:41:13.040 --> 00:41:18.720]   with something that's priced below the cost to make it? Uh, they, they also proved in the hearing,
+[00:41:18.720 --> 00:41:24.960]   the Amazon actually ranks its products up in Alexa above other products they're offering.
+[00:41:24.960 --> 00:41:29.840]   Again, something everybody has used it new, but it's good to get confirmation. It wasn't just
+[00:41:29.840 --> 00:41:37.200]   your instinct. Right. Um, they accused Amazon, uh, actually this was the pop socket guy.
+[00:41:37.200 --> 00:41:44.960]   Uh, and they brought this up who accused Amazon of making duplicate products to his until he
+[00:41:44.960 --> 00:41:50.960]   ponied up $2 million and had buys and then mysteriously the Amazon version, the pop sockets disappeared.
+[00:41:50.960 --> 00:41:55.120]   Jeff Bezos said, well, I don't know. I think about that. If we did, that was wrong.
+[00:41:55.120 --> 00:42:04.560]   Whoops. Uh, actually, I will say one thing that I found astounding, very interesting about this
+[00:42:04.560 --> 00:42:10.880]   hearing is that it showed strangely that Mark Zuckerberg has been through a lot of these.
+[00:42:10.880 --> 00:42:17.280]   He understood how to play it. He understood how to phrase his answers and responded in situations
+[00:42:17.280 --> 00:42:21.840]   where he wasn't quite sure versus say Bezos who has never been in this position before floundered a
+[00:42:21.840 --> 00:42:30.080]   lot. Yeah. I also, you know, I, maybe this is just me, but I'm looking at the kind of message
+[00:42:30.080 --> 00:42:36.320]   that's sent by the way these, by the backdrops these executives had the way they were shot.
+[00:42:36.320 --> 00:42:41.920]   Bezos, for instance, and rate my Skype room, picked this up on Twitter. He said, get a ring
+[00:42:41.920 --> 00:42:48.080]   light. Jeff, you've got him on sale right now at Amazon.com. Jeff was, and I think this was quite
+[00:42:48.080 --> 00:42:52.880]   intentional. He was so poorly lit that he kind of blended into the background. And I think the
+[00:42:52.880 --> 00:42:58.800]   intent was really to make him almost disappear. You know, he's managed to avoid these testimony
+[00:42:58.800 --> 00:43:03.840]   up to now. It just kind of the, you know, and that's in a way that's in a nutshell. Jeff Bezos's
+[00:43:03.840 --> 00:43:10.640]   way of handling all this is he doesn't give interviews. He doesn't testify. He's just sits in the back,
+[00:43:10.640 --> 00:43:15.680]   but he's definitely the puppet master. There's no question about that. He's pulling the strings.
+[00:43:15.680 --> 00:43:22.000]   There will be, so the upshot of this, this is a big show piece. And yeah, members of Congress
+[00:43:22.000 --> 00:43:28.000]   used it to grandstand. But there was a point. And the point is there will be a report from the
+[00:43:28.000 --> 00:43:34.640]   subcommittee, a final report, which will probably not come out before the election. Six hearings,
+[00:43:34.640 --> 00:43:42.560]   385 hours of calls and meetings, and most importantly, 1.3 million documents from these companies.
+[00:43:42.560 --> 00:43:51.360]   Lots of, lots of legwork done before this testimony. And I think the point of this report is, well,
+[00:43:51.360 --> 00:43:56.400]   here's what we think should happen. Things like, I don't know what's on the table, maybe that
+[00:43:56.400 --> 00:44:03.920]   Facebook should be required to divest Instagram and WhatsApp. That almost certain will be one of
+[00:44:03.920 --> 00:44:13.600]   the things they'll talk about. They did talk to Senator Pachay, CEO of Alphabet, and by extension
+[00:44:13.600 --> 00:44:21.520]   Google over a Google email saying some websites were getting too much traffic. Did you get that
+[00:44:21.520 --> 00:44:28.080]   email, Matt? I don't recall getting that email. It's interesting because like,
+[00:44:28.080 --> 00:44:33.360]   I was there when the search team was like eight people around a ping pong table. And
+[00:44:33.360 --> 00:44:39.200]   I always saw people acting with a lot of integrity and trying to make sure that the results were
+[00:44:39.200 --> 00:44:44.960]   fair. They were nonpartisan. If somebody typed in X, they get information or an answer about X.
+[00:44:44.960 --> 00:44:50.480]   But I could, yeah, I haven't seen that email. I'm wondering whether, you know, it's also the case
+[00:44:50.480 --> 00:44:54.640]   that if like eight out of the top 10 results are one site, then somebody could send an email that's
+[00:44:54.640 --> 00:44:58.640]   like, oh, this site is dominating the search results in a way that's unfair. And then the
+[00:44:58.640 --> 00:45:04.320]   shorthand might be this site is getting too much traffic. But I've personally seen where
+[00:45:04.320 --> 00:45:08.560]   investigators can ask questions about things that to a search engineer, you're like, oh,
+[00:45:08.560 --> 00:45:14.160]   these results are interesting. And then they're like, are they interesting because you are squashing
+[00:45:14.160 --> 00:45:17.280]   a competitor? And they're like, no, they're interesting because it's actually got more French
+[00:45:17.280 --> 00:45:20.880]   results than we would have expected given that there are many French queries, you know, that sort of
+[00:45:20.880 --> 00:45:25.600]   thing. That's what makes it so difficult. Just the phrase getting too much traffic doesn't,
+[00:45:25.600 --> 00:45:33.440]   it's not a smoking gun. Now the the imputation is it's this site was getting more traffic than
+[00:45:33.440 --> 00:45:40.080]   our own sites. But it could absolutely just be a failure of, oh, the algorithms putting this
+[00:45:40.080 --> 00:45:45.680]   result up more than it ought to. Pachai's response was, Congressman, just like other businesses,
+[00:45:45.680 --> 00:45:50.800]   we try to understand trends from data, which we can see, and we can use it to improve our products
+[00:45:50.800 --> 00:45:54.560]   for users. That was, by the way, the drumbeat from all of them, but especially for some
+[00:45:54.560 --> 00:45:58.560]   of the franchise, we want to improve our products for users. I have to say, at the beginning,
+[00:45:58.560 --> 00:46:03.120]   when all four gave their statements, I want to stand up and wave the flag. I want to say, yeah,
+[00:46:03.120 --> 00:46:09.040]   God bless them. This is the engine of American, the American economy. This is what's moving us
+[00:46:09.040 --> 00:46:13.520]   forward. This is where innovation is happening, that these companies are doing their best to make
+[00:46:13.520 --> 00:46:20.640]   the best possible product. As Tim Cook said, I guess it's true, we don't dominate in any field
+[00:46:20.640 --> 00:46:25.920]   that we participate in. We are not even close to dominant. We just try to make the best products
+[00:46:25.920 --> 00:46:32.240]   for users. And I think to some degree, to take the opposite side from you, that's what these
+[00:46:32.240 --> 00:46:35.600]   companies do. And I don't think they should be punished for doing it well.
+[00:46:35.600 --> 00:46:43.200]   Well, I would actually agree. I thought Tim Cook, I think if you wanted to rank who got Master Blast
+[00:46:43.200 --> 00:46:49.760]   in this hearing, I think Amazon would be number one. Facebook would be number two. I thought Google
+[00:46:49.760 --> 00:46:54.480]   and Apple got off relatively unscathed. I did. Yeah, I rarely talk to Tim, actually.
+[00:46:54.480 --> 00:47:00.960]   Yeah, I listened to most of the hearing while I was working. And the biggest moment with Tim Cook
+[00:47:00.960 --> 00:47:09.120]   was him being asked about cancel culture for some asinine reason. So I found Apple's answers
+[00:47:09.120 --> 00:47:14.640]   generally compelling on this as well as Google. So I think I agree with you, Leo.
+[00:47:14.640 --> 00:47:19.360]   There'd be a risk for Congress to be too aggressive in this, because especially now,
+[00:47:19.360 --> 00:47:24.160]   during COVID, we are really reliant on technology companies.
+[00:47:24.160 --> 00:47:32.320]   Is it the case, do you think, may I ask Paris this, is it the case that these companies are so big
+[00:47:32.320 --> 00:47:38.240]   that we don't see the innovative ferment we used to see? I heard one of my colleagues say in the
+[00:47:38.240 --> 00:47:43.840]   early days, we had, there'll be hundreds of different products from hundreds of different
+[00:47:43.840 --> 00:47:50.480]   companies. There was nobody, one huge dominant player, we had so much to cover. Now it's really,
+[00:47:50.480 --> 00:47:57.200]   we cover Google, Amazon, Facebook and Apple, you know, do you feel like that's true, Paris?
+[00:47:57.200 --> 00:48:03.280]   Is that fair? I mean, I feel like from a coverage perspective, yes, just because it is,
+[00:48:03.280 --> 00:48:10.000]   there's so many, they're so large, each of them are a world in and of themselves, essentially.
+[00:48:10.000 --> 00:48:16.640]   And there is a lot to cover within each company, much less all combined. I mean,
+[00:48:16.640 --> 00:48:21.760]   do I think that translates directly to whether or not these companies are monopoly is, I,
+[00:48:21.760 --> 00:48:32.320]   it's not my position to say, but I think it's interesting and perhaps not the right framework to
+[00:48:33.040 --> 00:48:38.560]   apply here when you're thinking about like a coverage perspective. I think that a coverage
+[00:48:38.560 --> 00:48:44.640]   perspective is always going to be focused on like the biggest players in the room because there
+[00:48:44.640 --> 00:48:51.440]   just isn't enough energy out there, much less funding media or even just from users to have
+[00:48:51.440 --> 00:48:58.560]   your eyes on everything. But I think that also when you have companies that do get so large and
+[00:48:58.560 --> 00:49:04.880]   do affect so many people that that warrants criticism and warrants a careful eye.
+[00:49:04.880 --> 00:49:10.640]   That's exactly what David Chitulini, who's the chair said, he said, because these companies are
+[00:49:10.640 --> 00:49:15.920]   so central in our modern life, this was in his opening, their business practices and decisions
+[00:49:15.920 --> 00:49:21.120]   have an outsized effect on our economy and democracy. Any single action by any one of these companies
+[00:49:21.120 --> 00:49:26.560]   can affect hundreds of millions of us in profound and lasting ways. Absolutely. Nobody, nobody denies
+[00:49:26.560 --> 00:49:32.640]   that. That's why we cover them. They make, they change our lives that not inherently bad.
+[00:49:32.640 --> 00:49:40.480]   What do you think, Matt? I mean, you have the best perspective on Google having worked there.
+[00:49:40.480 --> 00:49:45.040]   And I would agree with you, everybody I ever met from Google had, just like Tim Cook had the
+[00:49:45.040 --> 00:49:51.520]   interest in making the best product they could. Yeah, I think that's true. I also think way back,
+[00:49:51.520 --> 00:49:59.760]   the first FTC investigation, 2011 or whatever, the thing that Google would say is, we understand
+[00:49:59.760 --> 00:50:04.880]   that with size comes scrutiny. And I think given the size of all these companies, it is perfectly
+[00:50:04.880 --> 00:50:10.800]   appropriate to scrutinize them. And at the same time, it was interesting to see how, if you think
+[00:50:10.800 --> 00:50:16.720]   about an earlier Zuckerberg hearing, the questions were not on point as seen by Paris' hat, for example.
+[00:50:18.160 --> 00:50:22.000]   And the questions, like you could tell a bunch of research happened. And for me,
+[00:50:22.000 --> 00:50:29.520]   one of the most interesting things is, how do you get the idea of lawmakers passing laws to
+[00:50:29.520 --> 00:50:35.280]   regulate technology when they might not perfectly understand some of the issues involved is a
+[00:50:35.280 --> 00:50:39.840]   little bit scary. And so there's some interesting areas. There's this thing called Tech Congress,
+[00:50:39.840 --> 00:50:46.320]   for example. They've got fellowship applications opening for the next three weeks. So they bring
+[00:50:46.320 --> 00:50:52.480]   in technologists, computer scientists, engineers, and they sit in the offices of important members
+[00:50:52.480 --> 00:50:57.200]   of Congress to help make sure that people understand technology. And you can ask the right questions
+[00:50:57.200 --> 00:51:01.920]   or you can get to the issues that matter. And I think getting more technologists talking to DC
+[00:51:01.920 --> 00:51:05.120]   and vice versa is probably good for both worlds.
+[00:51:05.120 --> 00:51:12.960]   One, I mean, Jit Jelini was kind of a bulldog. And he bared down on this Google issue. And this
+[00:51:12.960 --> 00:51:20.400]   is the one I really want to ask you about, Matt. The claim is that Google favorites his own content
+[00:51:20.400 --> 00:51:26.880]   over other sites content. Jit Jelini put it in, I think, a very nasty way. So why does Google
+[00:51:26.880 --> 00:51:33.280]   steal content from honest businesses? And he was pointing at Yelp, which maybe not the most
+[00:51:33.280 --> 00:51:39.120]   honest business I've ever heard of. I think honest business is an oxymoron, generally.
+[00:51:39.120 --> 00:51:44.400]   But they're all trying to, and Yelp, you know, I mean, let's face it, a lot of this scrutiny
+[00:51:44.400 --> 00:51:51.840]   comes from Google competitors who are unhappy with Google's success. And whether in the EU or
+[00:51:51.840 --> 00:51:55.920]   here and Yelp's a good example, go, Hey guys, you really ought to look into this. This is
+[00:51:55.920 --> 00:51:59.680]   something terrible. But Google, but it is the case that when you do a Google search,
+[00:51:59.680 --> 00:52:05.040]   and Pichai said this is particularly in commerce when you're buying when you're looking to buy a
+[00:52:05.040 --> 00:52:10.560]   product that Google's going to surface shopping information. There's a lot of knowledge cards now.
+[00:52:10.560 --> 00:52:14.800]   Used to be Google search results, which is search results. Now there's the knowledge card,
+[00:52:14.800 --> 00:52:20.000]   and there's a lot more stuff. And a lot of it does have YouTube videos, YouTube, you know, Google
+[00:52:20.000 --> 00:52:27.840]   shopping. Google excuses, we're just giving, we're trying to give people the information they're
+[00:52:27.840 --> 00:52:33.840]   looking for. We're trying to answer their question. Right, Matt? Yeah, that's absolutely right.
+[00:52:33.840 --> 00:52:40.080]   And I think the people in the search team still believe that they've internalized that. And I also
+[00:52:40.080 --> 00:52:46.400]   think there's there's tension, which is well deserved, because as Google moves up the value chain of
+[00:52:46.400 --> 00:52:51.200]   delivering better and better answers, you know, there are some sites, you know, from my old world
+[00:52:51.200 --> 00:52:56.480]   with SEO hat on where, you know, people would feel like you're taking a snippet from my site.
+[00:52:56.480 --> 00:53:00.000]   And that's the thing that people really want to know, like how high is the celebrity is having?
+[00:53:00.000 --> 00:53:02.400]   So they never go to the site because they got the information.
+[00:53:02.960 --> 00:53:08.560]   That's a legit complaint. It's a legit complaint, and it's a valid concern on both sides. Like,
+[00:53:08.560 --> 00:53:13.200]   well, okay, if you really, all you needed to know was that's, you know, how high top cruise was,
+[00:53:13.200 --> 00:53:17.680]   then, you know, maybe they're not going to stay on your site. You mean how high or how tall?
+[00:53:17.680 --> 00:53:19.200]   How tall? Sorry.
+[00:53:19.200 --> 00:53:28.800]   But then the flip side is, you know, the other day I was invoking my Google device, and I was like,
+[00:53:28.800 --> 00:53:32.720]   you know, tell me how to spell loquacious. And it just spells it right out. It doesn't
+[00:53:32.800 --> 00:53:38.000]   point me to another website. So, but that's what you want as the user. That's what you want.
+[00:53:38.000 --> 00:53:44.880]   Yeah. So I do have to say, as someone that watched most of this hearing, we're not just talking
+[00:53:44.880 --> 00:53:50.160]   about things that show up in Google site results. Like some of the most explicit moments we're
+[00:53:50.160 --> 00:53:56.720]   talking about for Google's own lyrics that show up on Android. And they had one particular company
+[00:53:56.720 --> 00:54:01.760]   that put that out there. They actually put fake records in their lyrics. And, you know,
+[00:54:01.760 --> 00:54:07.520]   Google was caught red. Yeah. Yeah. Exactly. Google was caught using that. So this isn't.
+[00:54:07.520 --> 00:54:12.800]   Well, but Google. Okay. So this is more complicated because Google said, well, we
+[00:54:12.800 --> 00:54:18.400]   didn't scrape it from Rap Genius. We hired a company that scraped it from Rap Genius.
+[00:54:18.400 --> 00:54:23.840]   So it's not our fault. It's that company's fault. And I think,
+[00:54:23.840 --> 00:54:29.280]   at least in Google's defense, they stopped doing that, but they did get caught red handed.
+[00:54:29.280 --> 00:54:35.840]   Sure. I'm just saying, I think it's a wider pattern of behavior that I think could be
+[00:54:35.840 --> 00:54:41.200]   construed as anti-competitive. And in my opinion, if you're using a third party person and they're
+[00:54:41.200 --> 00:54:47.680]   doing something that blatant, I do think it, I think your company should face sanctions in that
+[00:54:47.680 --> 00:54:52.080]   case. So that's my opinion. The problem is it's just so hard to figure out. I mean,
+[00:54:52.080 --> 00:54:55.440]   I think it's a good defense. Well, we're just trying to give people the answer that they expect.
+[00:54:57.440 --> 00:55:02.320]   Another thing that came up with the hearing, which is based on article written by a couple of my
+[00:55:02.320 --> 00:55:11.040]   colleagues, the information is kind of the accusations that Google has used its Android platform in
+[00:55:11.040 --> 00:55:16.480]   the event of information. It can kind of collect on how users using Android use apps in order to
+[00:55:16.480 --> 00:55:22.640]   do research for its own applications. I think the situation that they,
+[00:55:23.600 --> 00:55:28.640]   that my colleagues discussed in their article was in preparation for launching Google's own
+[00:55:28.640 --> 00:55:34.720]   possible TikTok competitor. They pulled data from Android about how people use TikTok and
+[00:55:34.720 --> 00:55:42.320]   Android devices, which seems kind of like a conflict of interest there. It's a jerky move, if true.
+[00:55:42.320 --> 00:55:50.160]   Yeah, but in Amazon's accused of using retail data to figure out what products it should make.
+[00:55:51.600 --> 00:55:58.160]   But I think every business in the world would do that does that. I guess Amazon has a unique
+[00:55:58.160 --> 00:56:03.200]   access to data that it wouldn't normally have. Is that why it's wrong?
+[00:56:03.200 --> 00:56:08.800]   I mean, part of the issue is that if you listen to the complaints of
+[00:56:08.800 --> 00:56:15.760]   small first-party sellers, or third-party sellers on Amazon, they say, "Oh, I have been making
+[00:56:16.480 --> 00:56:23.040]   this unicorn-themed hairbrush for 10 years. Everybody loves my unicorn hairbrush. It's been doing so
+[00:56:23.040 --> 00:56:30.240]   well." Then all of a sudden, I see Amazon brand unicorn hairbrush appears top of the search results
+[00:56:30.240 --> 00:56:35.840]   is the Amazon choice, and nobody buys my unicorn hairbrush anymore. And in situations like that,
+[00:56:35.840 --> 00:56:41.760]   it seems to be a fairly concerning practice of true.
+[00:56:41.760 --> 00:56:47.840]   This is the same problem I have with Google owning YouTube, and Amazon selling stuff,
+[00:56:47.840 --> 00:56:53.600]   is it mixes the two things together. If Google were just a search engine,
+[00:56:53.600 --> 00:56:58.080]   it wouldn't be so much of a problem, except that it controls one of the number one
+[00:56:58.080 --> 00:57:06.320]   to deliver video content. So that kind of muddles the matter. Amazon, if it's going to do what it's
+[00:57:06.320 --> 00:57:11.120]   do, shouldn't also be in the business of making these products because they have an unusual amount
+[00:57:11.120 --> 00:57:18.960]   of information. I mean, face it, I bought this hygiene hand on Kickstarter, which shows that I'm
+[00:57:18.960 --> 00:57:24.240]   an idiot because I paid too much for it. Oh, I've gotten so many Instagram ads for that thing.
+[00:57:24.240 --> 00:57:30.800]   Same. But the point is, the minute that this went on Kickstarter, 800 Chinese companies made an
+[00:57:30.800 --> 00:57:36.480]   exact clone of it and sold it for a tenth the price. So all my friends have cheap ones. I have
+[00:57:36.480 --> 00:57:42.240]   the fancy one. It's just a piece of metal that you poke stuff with. It shouldn't be expensive.
+[00:57:42.240 --> 00:57:47.280]   But the point is they didn't need Amazon data to do that. That happens all the time.
+[00:57:47.280 --> 00:57:57.440]   You know, I bought, well, okay, don't judge me, but I bought LED light up eyelashes.
+[00:57:58.880 --> 00:58:02.800]   Okay, please back up. What's the context for this purchase? Yeah.
+[00:58:02.800 --> 00:58:10.480]   Yeah, see, yeah, Nada understands. It was called, it was called the, I think it was called the
+[00:58:10.480 --> 00:58:17.120]   F flash interactive LED eyelash. You have a recording.
+[00:58:17.120 --> 00:58:23.680]   Yeah, no, well, I ordered them. And I, this was another Kickstarter. I have a problem with
+[00:58:23.680 --> 00:58:29.920]   Kickstarter. As soon as it went on Kickstarter, this poor guy, Vietnamese guy, got undercut by
+[00:58:29.920 --> 00:58:35.120]   100 Chinese companies selling, I mean, they said, well, we can do that. There's nothing special
+[00:58:35.120 --> 00:58:44.480]   about that. And so as a result, I didn't get my F flashes for months, but everybody else at the
+[00:58:44.480 --> 00:58:50.720]   party had them. So I feel.
+[00:58:50.720 --> 00:58:56.000]   Lashes feel dark, unilluminated. Yeah. I didn't even wear them. I thought, screw this.
+[00:58:56.000 --> 00:59:02.160]   You know, it's not special anymore. I tell you, you got everything you need for your own TikTok channel.
+[00:59:02.160 --> 00:59:10.880]   You're ready. Yeah, you should be just posting content of you unboxing all of your
+[00:59:10.880 --> 00:59:15.680]   cards. Oh my God. Three months after it's been on the market for half the price.
+[00:59:15.680 --> 00:59:22.240]   And so your black Hawk helicopter. Yeah. Oh, man, if I bought that, I probably would be a TikTok star
+[00:59:22.240 --> 00:59:30.000]   for a moment or two. That'd be good. Do that quick. I can't hear point. I really do. It's complicated.
+[00:59:30.000 --> 00:59:35.920]   It is complicated. And in this particular case, my husband does patent law. And I would,
+[00:59:35.920 --> 00:59:41.520]   so you know, coming to me with this particular business plan, I would say, what you have in front
+[00:59:41.520 --> 00:59:47.280]   of you is not novel in a way that can be patented according to our laws. And you should understand
+[00:59:47.280 --> 00:59:54.480]   that this is a business threat. That's reasonable. I do think that's a slightly different situation
+[00:59:54.480 --> 01:00:02.240]   than someone than a company abusing their data to undercut competitors and threaten other companies,
+[01:00:02.240 --> 01:00:09.280]   which is what came out in this hearing. So I think I really agree with you, Matt, the way forward is
+[01:00:09.280 --> 01:00:14.560]   these are big companies. They deserve scrutiny. And I think you can never say often enough. You
+[01:00:14.560 --> 01:00:20.160]   know who wasn't at this hearing today? It's Microsoft. We brought that case against them in the 90s.
+[01:00:20.160 --> 01:00:26.400]   And they have been a pretty ethical company, generally speaking, in the two decades since,
+[01:00:26.400 --> 01:00:30.960]   three decades now, I guess three, two and a half. So you would submit that the DOJ
+[01:00:30.960 --> 01:00:35.280]   prosecution of Microsoft in the 90s was successful in that regard.
+[01:00:35.280 --> 01:00:41.360]   What I've heard from my friends that work at Microsoft over and over and over again is that
+[01:00:41.360 --> 01:00:46.880]   that fundamentally changed the culture and that there was more of an anything goes approach
+[01:00:46.880 --> 01:00:52.880]   before then. And then they finally had a conversation where it had to go through legal. They had to
+[01:00:52.880 --> 01:00:58.800]   have discussions of those going to open them up to liability. So my opinion is this is all checks
+[01:00:58.800 --> 01:01:04.880]   and balances. If the, not talking about Trump, but a generic president were to do something
+[01:01:04.880 --> 01:01:09.680]   that was over the line, Congress checks them, that doesn't necessarily mean the presidency itself
+[01:01:09.680 --> 01:01:16.400]   is corrupt. It's just a system meant to check each other. I think until we see stronger antitrust
+[01:01:16.400 --> 01:01:23.440]   actions against tech companies, I think they're going to feel free to just keep pushing the line
+[01:01:23.440 --> 01:01:27.920]   harder and harder. So I strongly support this line of investigation.
+[01:01:27.920 --> 01:01:32.880]   Chitulini ended the hearing saying this hearing is made one fact clear to me these companies as
+[01:01:32.880 --> 01:01:38.880]   they exist today have monopoly power. Remember, this is the antitrust committee. That's their
+[01:01:38.880 --> 01:01:47.200]   bailiwicks. Some need to be broken up, all broken up. I'm not sure which of the four need to be
+[01:01:47.200 --> 01:01:51.120]   broken up. But anyway, some need to be broken up. All need to be properly regulated and held
+[01:01:51.120 --> 01:01:56.400]   accountable. We need to ensure the antitrust laws first written within a century ago work in the
+[01:01:56.400 --> 01:02:06.480]   digital age. So what is the remedy for let's pick one thing. What would you do about Facebook?
+[01:02:06.480 --> 01:02:10.640]   Would you make them divest Instagram? Is that the remedy there? That's the easiest one, I guess.
+[01:02:10.640 --> 01:02:15.360]   I think so. I'd love to know what other people think, but that seems like a slam dunk to me.
+[01:02:15.360 --> 01:02:21.680]   At the very least, I think we need huge civil fines when Google gets caught manipulating
+[01:02:21.680 --> 01:02:27.840]   advertisers to put people out of business. We've seen that in the EU. These companies are so wealthy,
+[01:02:27.840 --> 01:02:34.160]   the fine would have to be astronomical to hurt them. We got bills, Leo. I'm 100% for it.
+[01:02:34.160 --> 01:02:40.400]   What about you, Paris? What remedies would you like to see out of these hearings?
+[01:02:40.400 --> 01:02:44.880]   I don't know. I think about this often is that there are no
+[01:02:46.640 --> 01:02:53.200]   good solutions in this case. Even if you're looking at the history of antitrust law,
+[01:02:53.200 --> 01:02:57.920]   I'm trying to forget whether it was standard oil or sugar or something else like that. But
+[01:02:57.920 --> 01:03:06.320]   when companies had been ordered to be broken up before, oftentimes the thing that ends up happening
+[01:03:06.320 --> 01:03:11.200]   is, "Oh, yes, you have the seven parts of this company, but the same people sit on the boards of
+[01:03:11.200 --> 01:03:16.240]   all of those companies and have meetings at the same day at different times where they all move
+[01:03:16.240 --> 01:03:26.640]   from one room to another." It seems like, "Oh, break them up." It's an easy and sound-bitable
+[01:03:26.640 --> 01:03:33.920]   answer. But in actuality, there's going to be a lot more steps. Be it fine than the question. I was
+[01:03:33.920 --> 01:03:38.800]   like, "What's fine?" Would actually work on this, breaking it up. How do you ensure that that
+[01:03:38.800 --> 01:03:44.560]   actually does what you meant it to do and that the companies operate entirely separately?
+[01:03:45.280 --> 01:03:50.400]   It's going to be a complicated and convoluted process no matter how it is done. I think that
+[01:03:50.400 --> 01:03:57.440]   that's one aspect of this that people are not focusing on enough and not enough academic or
+[01:03:57.440 --> 01:04:01.600]   just expert thought is being given to it generally because this is... I feel like
+[01:04:01.600 --> 01:04:09.360]   the part we have been on currently of, "Oh, should these companies be broken up? That is 10%
+[01:04:09.360 --> 01:04:14.240]   of the overall problem. What do we do next part is going to be the 90% of the iceberg?"
+[01:04:14.240 --> 01:04:21.200]   One of the, for instance, one of the things that came out of the hearing, the subcommittee had
+[01:04:21.200 --> 01:04:27.280]   internally emails from Amazon. Now, we all knew that this happened, but they have the smoking gun.
+[01:04:27.280 --> 01:04:34.640]   Remember diapers.com. Was that one started by the founder of Jet? I think it was.
+[01:04:34.640 --> 01:04:35.600]   I think so.
+[01:04:35.600 --> 01:04:44.000]   Yeah. Amazon wanted to force the company to basically go out of the market and sell
+[01:04:44.000 --> 01:04:50.720]   to Amazon. One email said, "These guys are our number..." This is a quote. These guys are our number one
+[01:04:50.720 --> 01:04:56.880]   short-term competitor. We need to match pricing on these guys no matter what the cost. Amazon said
+[01:04:56.880 --> 01:05:04.320]   it was willing to lose... And these emails was willing to lose $200 million to getdipers.com
+[01:05:04.320 --> 01:05:09.440]   by selling products at a loss, put them out of business. This is exactly what Amazon did.
+[01:05:09.440 --> 01:05:14.160]   The reason Jet.com was founded is because this guy was angry that this happened. He said,
+[01:05:14.160 --> 01:05:19.440]   "I'm going to beat Amazon at its own game. It didn't happen." It sounds like they've got
+[01:05:19.440 --> 01:05:26.160]   the smoking gun over this. Matt, what do you do? What does Congress do? Define them?
+[01:05:26.160 --> 01:05:29.360]   I mean, it's too late.
+[01:05:29.360 --> 01:05:36.640]   How much can you unscramble the egg when you're like, "Okay, how long is Instagram been purchased
+[01:05:36.640 --> 01:05:43.440]   or double-click and purchased by Google or something like that?" It's really tricky because on one hand,
+[01:05:43.440 --> 01:05:51.440]   the tension for me is if you don't like Facebook, you can stop using Facebook. You can stop buying
+[01:05:51.440 --> 01:05:55.760]   Apple products. There are other search engines you can go to besides Google. You can buy things
+[01:05:55.760 --> 01:06:02.640]   at places other than Amazon. There are some ways that the market can self-correct. The latest
+[01:06:02.640 --> 01:06:07.760]   social network is TikTok. Facebook doesn't have it. You can see how some of these companies that are
+[01:06:07.760 --> 01:06:13.920]   even moving very fast are not always able to keep up with the internet. I can see the argument
+[01:06:13.920 --> 01:06:20.000]   towards slowing them down somewhat or checks and balances. The problem that I have with that is
+[01:06:20.000 --> 01:06:26.320]   having been in government for four years now in the US government, there's a lot of bad regulations.
+[01:06:26.320 --> 01:06:30.720]   There's a lot of unintended consequences. There's a lot of times where people said,
+[01:06:30.720 --> 01:06:34.960]   "Okay, this is how we're going to solve the problem and end up making it much, much worse,"
+[01:06:34.960 --> 01:06:38.560]   especially regarding technology. It's a hard problem.
+[01:06:38.560 --> 01:06:44.880]   Yeah. I think that one example that really changed the way I think about this is Cashmere
+[01:06:44.880 --> 01:06:50.720]   Hill did a really great series for Cosmodo when she worked there. She just did a re-up of it at
+[01:06:50.720 --> 01:06:56.800]   the times when she tried to cut the big four-tech companies out of her life. First, one at a time
+[01:06:56.800 --> 01:07:05.280]   cutting Google, Amazon, all these different companies, and then all at once. It totally
+[01:07:05.280 --> 01:07:10.640]   wrecked her life. While we think of Amazon at this company where you go to buy stuff,
+[01:07:10.640 --> 01:07:17.760]   they also undergird the entire internet. Amazon Web Services is where Amazon makes most of its
+[01:07:17.760 --> 01:07:24.640]   money. It is so many different other companies, same with all of these. It's impossible to
+[01:07:26.160 --> 01:07:31.040]   like you said, unscramble the egg and take these things back from where they are now.
+[01:07:31.040 --> 01:07:38.320]   Cash, she actually wrote an update at her piece a couple of days ago after the testimony
+[01:07:38.320 --> 01:07:45.120]   reminding us how much they're part of. Yeah, they're so integrated into everything we do.
+[01:07:45.120 --> 01:07:51.760]   diapers.com is not coming back. I guess you could do what the DOJ did with Microsoft,
+[01:07:51.760 --> 01:08:00.240]   which is put an ombudsman in the company to keep an eye on them and say, keep an eye on things like
+[01:08:00.240 --> 01:08:08.560]   this and stop it as it happens. Part of the antitrust law says that it's illegal to
+[01:08:08.560 --> 01:08:17.280]   buy a competitor to put it out of business. You can't do that. That would be perhaps an
+[01:08:17.280 --> 01:08:26.560]   argument about the that's the Clayton Act of 1914. It's 106 years old, but it's still the law on the
+[01:08:26.560 --> 01:08:31.600]   land. If the effective an acquisition may be substantially to lessen competition or to tend
+[01:08:31.600 --> 01:08:37.120]   to create a monopoly, it's prohibited. So they could say, you know, you got to give Instagram
+[01:08:37.120 --> 01:08:43.360]   back. I don't know how you would do that. I think Kevin's system's long gone. I don't think
+[01:08:43.360 --> 01:08:49.680]   you're Kevin, can you give us our billion dollars back? I don't think that's going to happen.
+[01:08:49.680 --> 01:08:56.000]   So I really do understand. I'm right there with you. I understand the pessimism about this. I hear
+[01:08:56.000 --> 01:09:00.800]   you on government regulation. I've spent the last two weeks trying to understand federal and state
+[01:09:00.800 --> 01:09:08.880]   PAC law. I really, really understand the point, but I just think it's worth taking a beat here and
+[01:09:08.880 --> 01:09:17.280]   thinking about what the price is of inaction. I am of the opinion that we're the tech industry
+[01:09:17.280 --> 01:09:22.880]   has to be able to innovate. And we have some very serious sectors of our economy where it's very
+[01:09:22.880 --> 01:09:29.360]   difficult, if not impossible, to come in there and truly innovate. Like VCs generally don't
+[01:09:29.360 --> 01:09:35.520]   fund things within the same space where Amazon is operating. You know, Apple and Google are
+[01:09:35.520 --> 01:09:44.640]   effectively a duopoly on smartphones. So I hear you that this is very difficult. I think we have
+[01:09:44.640 --> 01:09:51.600]   to try. In any plan of action here, it's a step in the right direction because if we do nothing,
+[01:09:51.600 --> 01:09:57.280]   it's just going to keep being this uncontained growth of power. And I think it's also worth
+[01:09:57.280 --> 01:10:03.920]   thinking about Facebook. I attribute in large part to the results of our last election. I think
+[01:10:03.920 --> 01:10:09.680]   there are real concerns to be had about foreign interference in this election and beyond. So
+[01:10:09.680 --> 01:10:15.360]   if we don't start having these conversations, I'm really not sure what our country's going to look
+[01:10:15.360 --> 01:10:23.120]   like. >> No, I feel like it's a wake up call. If I were a CEO of a large tech company, I would
+[01:10:23.120 --> 01:10:28.320]   be asking myself very hard questions about what kind of promises I can make about the behavior
+[01:10:28.320 --> 01:10:33.520]   that I will do or that I won't do. Like Leo, you mentioned an ombudsman, newspapers have these
+[01:10:33.520 --> 01:10:39.520]   sort of public editor and ombudsman roles and empowering someone who could investigate any one
+[01:10:39.520 --> 01:10:46.640]   of these instances report back without fear or favor. And make a binding recommendation would be
+[01:10:46.640 --> 01:10:52.800]   a really strong thing. Back in the day, Google had the data liberation front, which was this idea
+[01:10:52.800 --> 01:10:58.000]   that you could at any time export all of your data. They called it takeout out of Google.
+[01:10:58.000 --> 01:11:02.240]   And that doesn't mean you're going to not use Google Docs, but the fact that you can export
+[01:11:02.240 --> 01:11:08.560]   all of your stuff was a really nice reassurance for a lot of folks. And so, I think every tech
+[01:11:08.560 --> 01:11:13.600]   company ought to be asking themselves, look, what were the bad looks in this hearing? How can we
+[01:11:13.600 --> 01:11:18.640]   get ahead of it? What preemptive promises can we make? Because promises can be hard. They bind you
+[01:11:18.640 --> 01:11:25.440]   to behavior and they have really bad hangover effects if you break a promise. But at the same time,
+[01:11:25.440 --> 01:11:31.520]   having somebody else come in and take even stronger action or action that hopefully is
+[01:11:31.520 --> 01:11:37.280]   informed, but might not be as tech savvy. I'd be thinking hard about how do you get ahead of it
+[01:11:37.280 --> 01:11:44.160]   rather than just reacting. I do want to say just in response to that, though, we have a
+[01:11:44.160 --> 01:11:51.520]   live on from NBC on our show just last week. And there's this pattern over and over with Facebook,
+[01:11:51.520 --> 01:11:57.600]   where they say, we're going to take on racial bias. Facebook got caught basically allowing
+[01:11:57.600 --> 01:12:02.400]   redlining, not renting apartments to people of color. They've sworn up and down, we're going to
+[01:12:02.400 --> 01:12:10.320]   change it. We got caught twice. And she did this breakthrough story talking about how Facebook
+[01:12:10.320 --> 01:12:16.320]   basically uncovered that their algorithm was encouraging racism in some very serious ways.
+[01:12:16.320 --> 01:12:22.400]   And what did Facebook do? They decided to shut that research down according to her story.
+[01:12:22.400 --> 01:12:28.800]   And the researchers were not allowed to tell people about that. I love the idea of an
+[01:12:28.800 --> 01:12:35.040]   omsmuzman in that situation. And maybe Google would have the public trust for something like that.
+[01:12:35.040 --> 01:12:42.400]   I do think with the Facebook, I would not have any faith given stories that have come out that
+[01:12:42.400 --> 01:12:47.440]   they would stick to that. Yeah, they just keep doing it over and over. I mean, currently they
+[01:12:47.440 --> 01:12:54.320]   have the oversight board that they instituted, which mysteriously is going to be delayed till
+[01:12:54.320 --> 01:13:01.680]   after the election until cases can be heard. I'm surprised. You know, rereading the DOJ
+[01:13:01.680 --> 01:13:07.520]   settlement with Microsoft is really interesting. This is almost 20 years ago.
+[01:13:07.520 --> 01:13:15.440]   And November 2001. Isn't that amazing? And honestly, if you look at what's in here,
+[01:13:15.440 --> 01:13:21.120]   and I'll go down to the bottom where they talk about the onsite enforcement monitors,
+[01:13:21.120 --> 01:13:27.120]   but there are lots of clauses in here that are totally sensible and doable. And I think I would
+[01:13:27.120 --> 01:13:32.400]   agree with you, Brianna, that did make a difference. And Microsoft did become a kinder gentler
+[01:13:32.400 --> 01:13:41.520]   company. And you know what? They succeeded even more because of it. So it didn't hurt Microsoft,
+[01:13:41.520 --> 01:13:47.840]   but the onsite enforcement monitors three independent onsite full time computer experts
+[01:13:47.840 --> 01:13:53.520]   to insist enforcing the proposed final judgment. They have full access to all of Microsoft's books,
+[01:13:53.520 --> 01:13:59.040]   records, systems and personnel, including source code, and will help resolve disputes about
+[01:13:59.040 --> 01:14:03.760]   Microsoft's compliance with the disclosure provisions in the final judgment. As I remember,
+[01:14:03.760 --> 01:14:09.360]   it's only been in the last year or two that that ended. That went on for a very long time.
+[01:14:11.120 --> 01:14:16.880]   Every bit of this settlement is sensible, reasonable, and it didn't hurt Microsoft.
+[01:14:16.880 --> 01:14:22.800]   It did improve competition. It took them an awful long time to get it. And maybe it was too late
+[01:14:22.800 --> 01:14:28.960]   by the time it happened. The lawsuit went on for almost a decade. But I think that it did make a
+[01:14:28.960 --> 01:14:36.880]   difference. And so there is a model for the way this could go forward. And I wouldn't be too
+[01:14:36.880 --> 01:14:41.600]   draconian. I agree with you, Matt. You can all sorts of unintended consequences. But I think some
+[01:14:41.600 --> 01:14:47.920]   oversight is absolutely necessary. Imagine what the tech industry would look like if we hadn't had
+[01:14:47.920 --> 01:14:52.320]   that lawsuit today. Microsoft had stagnated. I mean, really think about that. Think about where
+[01:14:52.320 --> 01:14:59.520]   they were in that era. If they had had no business impetus to go do things like their liquid data
+[01:14:59.520 --> 01:15:05.840]   strategy is freaking awesome. The stuff Microsoft is doing right now, in my opinion, is 10 times
+[01:15:05.840 --> 01:15:12.320]   more interesting than what Apple is doing. And I love Apple. So I just feel like this is,
+[01:15:12.320 --> 01:15:16.320]   it's one of the things like where the doctor tells you to take your medicine,
+[01:15:16.320 --> 01:15:22.080]   even though it's not pleasant, you end up healthier. I do think that this would help the tech industry.
+[01:15:22.080 --> 01:15:26.080]   Let's take a little break. Great discussion. Next, we're going to talk about the Twitter hack.
+[01:15:26.080 --> 01:15:28.960]   There have been arrests. Yes.
+[01:15:30.160 --> 01:15:36.080]   But first a word from our sponsor stamps.com. You do not want to go to the post office. I don't
+[01:15:36.080 --> 01:15:40.240]   want to go to the post office. I love the post office. But why do I need to go to the post office
+[01:15:40.240 --> 01:15:46.720]   when I can do everything I could do from the post office from the comfort of my desk at home
+[01:15:46.720 --> 01:15:52.560]   or at work. Stamps.com. Keep your business running. Avoid the crowds at the post office.
+[01:15:52.560 --> 01:15:57.760]   You could print on demand postage from your computer with your printer. No special ink needed.
+[01:15:58.720 --> 01:16:01.600]   In fact, you're even get discounts. You can't get the post office.
+[01:16:01.600 --> 01:16:11.440]   On first class mail, five cents off every stamp. Stamps.com now offers, get ready for this UPS
+[01:16:11.440 --> 01:16:16.800]   services as well. So really now they're the ultimate in mailing. If you're an Amazon seller
+[01:16:16.800 --> 01:16:23.920]   and eBay seller and Etsy seller, if you mail anything, you really need stamps.com print postage
+[01:16:23.920 --> 01:16:29.360]   on demand. You get a USB scale. So you always have the right exact right postage. We've been using
+[01:16:29.360 --> 01:16:35.360]   them since 2012. And I would, and if you haven't tried them yet, what are you waiting for? I would
+[01:16:35.360 --> 01:16:40.880]   never go back. Stamps.com brings all the mailing and shipping services you need right to your
+[01:16:40.880 --> 01:16:48.880]   computer, right at your home or your office. Use any computer to print official US postage 24/7,
+[01:16:48.880 --> 01:16:53.760]   any letter, any package, any class of mail, anywhere you want to send it, it'll print right on the envelope
+[01:16:53.760 --> 01:16:59.920]   your company logo auto fills the address from your computer, from your address book, or from your
+[01:16:59.920 --> 01:17:06.800]   online selling profile automatically fills in the return address. Once your mail's ready,
+[01:17:06.800 --> 01:17:10.240]   you leave it for your mail carrier. You can even schedule a pickup, drop it in a mailbox.
+[01:17:10.240 --> 01:17:18.080]   Five cents off every stamp, up to 62% off USPS and UPS shipping rates. One of the things they do,
+[01:17:18.080 --> 01:17:22.880]   there's, I did you know that there's a big residential surcharge when you mail using UPS.
+[01:17:23.520 --> 01:17:26.640]   I don't know how they did it, but stamps.com got UPS to waive that.
+[01:17:26.640 --> 01:17:32.080]   No residential surcharge when you use stamps.com to send your UPS packages.
+[01:17:32.080 --> 01:17:37.520]   Stamps.com is a no-brainer. It'll save you time. It'll save you money and we've got a really good
+[01:17:37.520 --> 01:17:42.800]   deal for you. See that $5. Forget that. Forget. I know you're a nice lady, but click the link up in
+[01:17:42.800 --> 01:17:50.080]   the corner there, that microphone, and enter the code TWIT and that little $5 in free postage
+[01:17:50.080 --> 01:17:58.720]   turns into $55 in free postage plus, they get the USB scale a month of stamps.com.
+[01:17:58.720 --> 01:18:04.960]   No long-term commitment. I think this is a really great thing. I don't know. You should do it right
+[01:18:04.960 --> 01:18:10.240]   now. Just do it right now. I love it. Whatever any postage. I say, honey, can you put me some
+[01:18:10.240 --> 01:18:16.560]   postage? And if I miss the post office, I can get her to put on a little, you know, a little thing
+[01:18:16.560 --> 01:18:22.720]   with the sleeve garters and a little visor. And you know, if she can rub her stamp things,
+[01:18:22.720 --> 01:18:28.320]   it still feels the same. I still get the postage, but I get it for less. I love stamps.com.
+[01:18:28.320 --> 01:18:34.720]   Click on the microphone at the top of the homepage. Stamps.com and the offer code TWIT.
+[01:18:34.720 --> 01:18:39.920]   You got to get a new one of those images, but with your mask that are on it.
+[01:18:39.920 --> 01:18:43.360]   Oh, yeah. We changed. I don't know if you saw it. We changed a lot of our album art
+[01:18:44.480 --> 01:18:49.600]   to have the masks on it. I was so proud of that. Our team was saying, you know, what can we do to
+[01:18:49.600 --> 01:18:55.600]   help people do the right thing and wear masks? So we changed a lot of, not all of our album art
+[01:18:55.600 --> 01:19:01.200]   has people on it anymore, but there's security now with Steve Gibson and his mask, the tech guy
+[01:19:01.200 --> 01:19:05.920]   with me and my Twit mask, Mary Jo and Paul in there. I like that. Isn't that fun?
+[01:19:05.920 --> 01:19:12.560]   Oh, it's so cute. Yeah, a little cute little maskies. Oh, the penguin is wearing that.
+[01:19:12.560 --> 01:19:19.440]   Oh, even that even Tux is wearing a mask for floss weekly. Well, penguins are especially, you know,
+[01:19:19.440 --> 01:19:26.400]   vulnerable, I think our ham nation host Bob Heil and his mask. You wouldn't want a penguin to get
+[01:19:26.400 --> 01:19:32.320]   COVID-19. That'd be terrible. It's true. You're real bad. Oh, I love this story. Now, I got, I'm
+[01:19:32.320 --> 01:19:41.600]   gonna say up front. I'm gonna say it up front. Allegedly. Allegedly. Then I'm not gonna say it
+[01:19:41.600 --> 01:19:46.720]   anymore because I think they got these guys dead to rights. Allegedly. Allegedly.
+[01:19:46.720 --> 01:19:55.360]   So, and this was fast work on the part of the FBI. A
+[01:19:55.360 --> 01:20:01.680]   tap when it's teens who've hacked into Twitter, you can get them arrested. Get them. Look at
+[01:20:01.680 --> 01:20:07.920]   the split. Well, the teens were kind of kind of not really their opposite wasn't really good.
+[01:20:08.800 --> 01:20:13.760]   Shall I say? I'm telling me a 17 year old doesn't have great object. What is this?
+[01:20:13.760 --> 01:20:19.680]   Also, Twitter's object wasn't that well? Yeah, the Twitter was just as bad.
+[01:20:19.680 --> 01:20:30.320]   Twitter was terrible. So, I think, you know, again, allegedly. Allegedly. These, and this is
+[01:20:30.320 --> 01:20:34.800]   from the court documents. Vice actually got a look at the the court documents.
+[01:20:37.760 --> 01:20:44.640]   A 17 year old kid. So, remember we said it was Kirk. They think this is Kirk. I'm not gonna say,
+[01:20:44.640 --> 01:20:48.640]   okay, because it is alleged trial hasn't happened. I'm not gonna say anybody's names.
+[01:20:48.640 --> 01:20:54.160]   You can, I'll just use their handles, but Kirk just graduated high school.
+[01:20:54.160 --> 01:21:05.520]   And what Kirk did, he also, there were charges against two other suspects, 19 year old Chaywan,
+[01:21:06.480 --> 01:21:15.200]   and Rolex, he's 22. These were, these were guys that did the OG users. They were looking for the
+[01:21:15.200 --> 01:21:26.320]   OG user accounts. Kirk figured out apparently how to get into the Twitter God mode, but it,
+[01:21:26.320 --> 01:21:31.200]   but it was a two step hack. Now, this is something we didn't know before. I had mentioned that
+[01:21:31.200 --> 01:21:35.120]   apparently he was able to get credentials to Twitter's Slack account and they had been
+[01:21:35.920 --> 01:21:41.680]   the login to the God mode in the top of the Slack account. So he got that, but I didn't know this
+[01:21:41.680 --> 01:21:49.280]   part. I didn't know this part. It was two factor. See, they do have good ops sec. So Kirk,
+[01:21:49.280 --> 01:21:57.440]   that is really calls up 17. Remember says, hi, this is this is Twitter security.
+[01:21:57.440 --> 01:22:04.880]   And we think there's been a breach. I just want to verify. Did you just get a code,
+[01:22:04.880 --> 01:22:11.840]   a code, a six digit code, you just get one? Yeah, can you, what was that code? Was it 64932? No.
+[01:22:11.840 --> 01:22:20.480]   Oh, no. What was it? Well, I don't, it was 47493. Oh boy, we got a problem. I'll get back to you.
+[01:22:20.480 --> 01:22:29.360]   Thank you for your help, citizen. So they, what they call a phone spearfishing attack.
+[01:22:30.800 --> 01:22:37.280]   Then he gets in and gets in like two weeks before the, the Bitcoin stuff. And then he goes on the,
+[01:22:37.280 --> 01:22:44.960]   on the discourse for OG users and says, I wish I could find the, I was reading it this morning.
+[01:22:44.960 --> 01:22:51.760]   I think it was Brian Krebs had the dialogue on the, on discourse. I can get what do you,
+[01:22:51.760 --> 01:22:57.680]   what do you want? I can get you anything you want 1000 bucks. Because yeah, here we go.
+[01:22:57.680 --> 01:23:02.880]   Speaking of, oh, don't show his picture. You're looking for it. Yeah. The quest for OG handles.
+[01:23:02.880 --> 01:23:08.640]   If anybody hasn't listened to reply, all has a phenomenal podcast episode where there hosts
+[01:23:08.640 --> 01:23:15.520]   like Alex Goldman, like gets into a discord, the discord room of a lot of these people who are
+[01:23:15.520 --> 01:23:20.560]   hacking accounts to try and get OG handles. And OG handles again is like, like, for
+[01:23:21.120 --> 01:23:29.520]   why at six, yeah, at six or there are other like single word accounts where it's like at lizard or
+[01:23:29.520 --> 01:23:36.720]   at Harry. Yeah. He wanted at vampire. That was a big one. He wanted that one. So here's,
+[01:23:36.720 --> 01:23:42.960]   here's a picture of the negotiation. By the way, apparently, I didn't know this, but discord,
+[01:23:42.960 --> 01:23:49.920]   you know, keeps logs. So they got the whole thing. Yeah. Well, oh, it gets worse.
+[01:23:50.720 --> 01:23:55.680]   Oh, there it is. There's his Bitcoin address right there. He says, I'll take 10k. Here's my
+[01:23:55.680 --> 01:24:04.720]   Bitcoin address. Let me know. And so they were negotiating over how much with Chaiwan slash
+[01:24:04.720 --> 01:24:13.120]   ever so anxious, also known as Mason. And so the, but there was a lot of
+[01:24:13.120 --> 01:24:18.000]   a lot of great. He said, would you be able to get this done? He's at the doctors right now,
+[01:24:18.000 --> 01:24:21.680]   but can pay you when he gets back from the doctors. Yeah, in an hour or so. Yeah.
+[01:24:21.680 --> 01:24:29.120]   Yeah. They're kids. They're kids. One's 19, one's 22. And then Kirk is just 17, just graduated.
+[01:24:29.120 --> 01:24:36.400]   Now that I'm not running for office, I feel like I could say this. Leo, you know, everyone
+[01:24:36.400 --> 01:24:43.040]   more games came out. Yeah. You know, I, that's all I do as a teenager. I'm going to be serious.
+[01:24:43.040 --> 01:24:49.760]   That's all I do. You're a hacker. You're a hacker. BBS says. I mean, I would, if I were 17 today,
+[01:24:49.760 --> 01:24:54.240]   I would have been doing that. Yes. So, oh, these. So Kirk,
+[01:24:54.240 --> 01:24:59.680]   be Kirk or roll it at Rolex, baby. I think I'm more of a cook because of the bad decision.
+[01:24:59.680 --> 01:25:04.480]   Yeah. Kirk says, I work for Twitter. I can claim, here's the dialogue. This is from ZDNet.
+[01:25:04.480 --> 01:25:11.280]   I can claim any at for you. Let me know. Don't tell anyone. Then Rolex says, LOL, prove it.
+[01:25:11.280 --> 01:25:17.040]   Then Kirk says, OK, give me your twiddle hander. I'll pull it up. So Rolex says, I'm Vienna Cat
+[01:25:17.040 --> 01:25:26.560]   921. Kirk says, OK, what's to say now? Oh, dude, you can do it. So, dude. So, so the, so,
+[01:25:26.560 --> 01:25:34.080]   he says 5k for all three. Yeah. Is Vamp at vampire doable guy wants him? Yeah, yeah, sure.
+[01:25:34.080 --> 01:25:40.080]   I get you a vampire. Whatever you want. I get it for you. One K minimum. Let's say that for
+[01:25:40.080 --> 01:25:45.840]   non OJ Rolex actually says, you should charge two and a half for OG. Nah. Just make it one
+[01:25:45.840 --> 01:25:52.240]   K says, Kirk, for all of them. One K is fine. All right. All righty then. Man of the people.
+[01:25:52.240 --> 01:26:04.160]   Man of the people. So he made a few mistakes. Just a couple. So, so the FBI, the way the FBI got this.
+[01:26:05.840 --> 01:26:12.080]   Once they got the user details from Discord, they got, they had the copy of the OG users forum
+[01:26:12.080 --> 01:26:16.960]   database that had leaked online in April. And apparently these guys were still using the same
+[01:26:16.960 --> 01:26:23.200]   handles. The database had not only their user names, but emails and IP addresses. Okay.
+[01:26:23.200 --> 01:26:35.520]   Okay. And then one of the guys got got caught because he linked the discord username from his
+[01:26:35.520 --> 01:26:45.440]   OG users page. So now, okay, now we got Kirk matched up. Rolex matched up. And then they apparently,
+[01:26:45.440 --> 01:26:50.000]   he used the same two email addresses to register a coin base account. One of the things, and by
+[01:26:50.000 --> 01:26:53.440]   the way, that was how he's going to get the money with the Bitcoin address. One of the things
+[01:26:53.440 --> 01:26:57.040]   Coinbase does, and I know this because I signed up for an account a while ago, they want a picture
+[01:26:57.040 --> 01:27:01.680]   of your driver's license. So he sent them a photo of his driver's license.
+[01:27:03.600 --> 01:27:12.400]   With his home address on it, he, he uses home connection to access those accounts on all three
+[01:27:12.400 --> 01:27:21.680]   sites, Discord, Coinbase and OG users. They used, they use the driver's license. They use their own
+[01:27:21.680 --> 01:27:30.560]   credit cards. So here's the thing, Leo, like this is all bringing back flashbacks from my
+[01:27:30.560 --> 01:27:40.240]   website. And the fact is, spammers are lazy. And if you are good, you can come up with 15 different
+[01:27:40.240 --> 01:27:45.520]   ways to track somebody. And unless they get all 15, right, you know, that's all right. You can
+[01:27:45.520 --> 01:27:50.640]   find the, oh, they missed number 12. Okay. Now you can find their whole network or whatever.
+[01:27:50.640 --> 01:27:55.760]   Shut it down. Not let them know how you did it. Leave a few so that you keep them guessing.
+[01:27:57.040 --> 01:28:01.840]   Most spammers are lazy and they do things like reuse information, reuse logins, like,
+[01:28:01.840 --> 01:28:08.800]   well, also this is bad though. This is a valuable reminder that Bitcoin is not anonymous. If you
+[01:28:08.800 --> 01:28:15.280]   ever want to get anything out of it, you know, that at some point, if you want the money, you're
+[01:28:15.280 --> 01:28:22.000]   going to have to go somewhere to get it, right? And apparently, Coinbase would not be your first
+[01:28:22.000 --> 01:28:28.240]   choice. Coinbase, by the way, say they blocked $280,000 from being sent to the scammers.
+[01:28:28.240 --> 01:28:37.200]   Court documents say that they did get 12.83 Bitcoin, which is 117,000. So this was actually
+[01:28:37.200 --> 01:28:42.800]   very lucrative scam. Remember, they tweeted his Barack Obama and Joe Biden and Bill Gates and Elon
+[01:28:42.800 --> 01:28:48.800]   Musk and Jeff Bezos. I don't know. I feel like that's not, I would expect you to get more for
+[01:28:48.800 --> 01:28:53.840]   tweeting as all of these people asking people to send Bitcoin 117,000.
+[01:28:53.840 --> 01:28:56.560]   Could have been somebody.
+[01:28:56.560 --> 01:28:59.920]   Yeah, they could have millionaires. Yeah. Yeah.
+[01:28:59.920 --> 01:29:03.760]   Twitter's florida jail. Remember, the first thing Twitter said was, well,
+[01:29:03.760 --> 01:29:07.680]   the only downloaded DMs from eight accounts, that number has gone up.
+[01:29:07.680 --> 01:29:15.200]   36, right? Yeah, 36 DMs, password reset for 45. He interacted with 130 accounts.
+[01:29:15.840 --> 01:29:19.600]   This is from the logs from the Twitter admin tool. I figured those are probably accurate.
+[01:29:19.600 --> 01:29:23.600]   Well, what I want to know then is if it was this collection of teens,
+[01:29:23.600 --> 01:29:29.440]   is it still getting OG usernames? Why did they access the DMs of some elected official in the
+[01:29:29.440 --> 01:29:34.400]   Netherlands? Yeah, isn't that interesting? What does Kirk know that we don't?
+[01:29:34.400 --> 01:29:40.400]   Yeah, I feel, yeah, see, this is the, this will be the everlasting question is.
+[01:29:40.400 --> 01:29:44.960]   So now we know Kirk is not really Vladimir. He's actually some kid.
+[01:29:44.960 --> 01:29:51.120]   Just got out of high school in Tampa, but I feel sorry for him because his life, well, yeah,
+[01:29:51.120 --> 01:29:54.240]   maybe not. He might get a good job when he gets out of jail.
+[01:29:54.240 --> 01:30:00.960]   But here's the thing, if a 17 year old in Tampa can do this in what sounds like kind of a drunken
+[01:30:00.960 --> 01:30:08.240]   weekend, you know, what does that say for nation states and other, you know, large actors that
+[01:30:08.240 --> 01:30:12.720]   are maybe a little more subtle? Yeah, that may well already have had this access for a long time.
+[01:30:14.480 --> 01:30:19.040]   But if you're smart, you don't announce it. You just, you know, you sit there and watch.
+[01:30:19.040 --> 01:30:24.720]   Yeah, if you're smart, you don't tweet at the Bitcoin scam. Everybody's account.
+[01:30:24.720 --> 01:30:30.560]   I love just the idea of Kirk. The 17 years has got a high school pretending to be Twitter security.
+[01:30:30.560 --> 01:30:38.880]   Hi. I wonder if you like wrote a script or something for him to say, or was he just freestyling?
+[01:30:39.760 --> 01:30:44.640]   You know, you know, he might be really good at this. I don't know. It's pretty funny.
+[01:30:44.640 --> 01:30:52.960]   Yeah. Imagine if a nation state were really, really going after us. I mean, there have to be
+[01:30:52.960 --> 01:30:58.240]   zero days for Facebook and, you know, Twitter that they don't know about if Twitter's freaking
+[01:30:58.240 --> 01:31:02.880]   posting God mode in their slack. I mean, of course, and that's so stupid.
+[01:31:02.880 --> 01:31:08.640]   That's so stupid. Do you ever wonder about why they didn't get Donald Trump's account?
+[01:31:08.640 --> 01:31:15.360]   Because my theory on this is after that Twitter employee, you know, like deleted his account.
+[01:31:15.360 --> 01:31:21.440]   What was it a year ago? He wasn't even employee. He was a contractor. Right. Right. I bet that
+[01:31:21.440 --> 01:31:26.720]   they put some kind of hard-coded break in his account or something. I bet the president's,
+[01:31:26.720 --> 01:31:32.560]   but apparently not in Joe Biden. You are a must-or-Jeff Bezos's. And after all, the number one most
+[01:31:32.560 --> 01:31:36.400]   follow Twitter users, Barack Obama, didn't put any protections there apparently.
+[01:31:37.280 --> 01:31:43.760]   And now there's more information. Twitter contractors reportedly used internal tools to
+[01:31:43.760 --> 01:31:50.400]   spy on celebrities, including Beyonce. I can't imagine a worse waste of energy than reading
+[01:31:50.400 --> 01:31:57.120]   Beyonce's DMs, but some Twitter contractors made a kind of game out of creating bogus
+[01:31:57.120 --> 01:32:01.120]   help desk inquiries that let them spy on the account of celebrities.
+[01:32:04.400 --> 01:32:13.040]   Twitter, you would think after the breach, you know, the Donald's account, after Jack Dorsey got hacked
+[01:32:13.040 --> 01:32:18.080]   last year, you would think they would have some sort of better policies.
+[01:32:18.080 --> 01:32:27.200]   You know, Twitter probably thinks, as I still do, it's just a message. It's just a thing. It's not.
+[01:32:27.200 --> 01:32:31.040]   But the president of the United States uses it to announce things like,
+[01:32:31.040 --> 01:32:37.200]   "I'm going to ban TikTok." So maybe it is more important. Yeah, delay the election. Maybe there
+[01:32:37.200 --> 01:32:43.440]   is some importance there. Maybe he didn't even tweet that. Maybe somebody else did. Maybe Kirk.
+[01:32:43.440 --> 01:32:45.040]   Maybe Kirk thought it was a good idea.
+[01:32:45.040 --> 01:32:49.600]   Kirk just four seconds away from him blaming it on Kirk. I feel.
+[01:32:49.600 --> 01:32:58.240]   It was Kirk. He did say it was some 400 pound kid in his mother's basement. Didn't he say that?
+[01:32:59.200 --> 01:33:01.680]   Right before he said, "Baron knows the cyber." Yeah.
+[01:33:01.680 --> 01:33:08.480]   He also said, "I take no responsibilities." You know, maybe Kirk has no one taken responsibility.
+[01:33:08.480 --> 01:33:16.240]   I just, I wonder in 20 years, I want to live another 20 years. I know it's a long shot,
+[01:33:16.240 --> 01:33:23.360]   but I just can't wait to read the inside story of the last four. It's just going to be like
+[01:33:24.480 --> 01:33:30.160]   mind blowing, I think, I feel like. But Leo, if you'd read the headlines that are in 2020,
+[01:33:30.160 --> 01:33:34.400]   in 2019, you wouldn't have believed it. I wouldn't have believed it.
+[01:33:34.400 --> 01:33:40.640]   Like COVID, everybody's wearing masks. I know. I know. I can't remember. In the first 2020,
+[01:33:40.640 --> 01:33:45.200]   the big fashion trend is going to be masks. Go big on masks. How did we get in this timeline?
+[01:33:45.200 --> 01:33:48.480]   I want to know. Yeah. Honestly, I feel like if we went back to that
+[01:33:49.600 --> 01:33:55.760]   Twit night that we had Leo with Yumi and Brianna in the February of this year and zoomed in and
+[01:33:55.760 --> 01:34:00.720]   said like, "All right, guys. Here's where you're in the next five months." Absolutely no way
+[01:34:00.720 --> 01:34:06.560]   would be believed, ourselves. I think we all pair up for an X-Men days of future past
+[01:34:06.560 --> 01:34:13.200]   episode. We go back to that episode. We warn scientists, we're going to get it under control.
+[01:34:13.840 --> 01:34:20.560]   We're like, "It's airborne. Get masks. Everybody should go up. Everybody stay inside. It's going to be good."
+[01:34:20.560 --> 01:34:28.480]   I got to listen to that show now. I wonder what you guys were saying. There are all these artifacts
+[01:34:28.480 --> 01:34:34.000]   from the before days where we just didn't know. I can't wait to.
+[01:34:34.000 --> 01:34:38.080]   Which was something that we were a couple of months ago. Yeah, I know.
+[01:34:38.080 --> 01:34:42.960]   Have you had that happen yet that pictures show up on your, you know, your Facebook or
+[01:34:42.960 --> 01:34:46.240]   you're looking at something on your phone from like four months ago and you're like,
+[01:34:46.240 --> 01:34:50.880]   "Oh, that's so great. I went to the park across the street." Oh, God. Yes. All the time.
+[01:34:50.880 --> 01:34:57.920]   That's four blocks. Sometimes I put my Google Home Hub nest hub down face down because it's
+[01:34:57.920 --> 01:35:04.480]   man. You look at, you look at it like you're hanging out in a bar and you're having a good time. I think
+[01:35:05.120 --> 01:35:13.360]   that guy's spitting right on you. You get out of there fast. It's like, we had no idea. Did we,
+[01:35:13.360 --> 01:35:21.520]   how dangerous it was? Now CES is finally officially off. Thank goodness. For a while, CES had this
+[01:35:21.520 --> 01:35:24.240]   nutty idea. What we're going to do, we just won't have as many people.
+[01:35:24.240 --> 01:35:30.720]   God, imagine in the history books you look back in like 2020, it's like the super spreader event
+[01:35:30.720 --> 01:35:36.320]   of 2020. CES. Oh, it could have been. Honestly, I don't know how we avoided that. There were people
+[01:35:36.320 --> 01:35:43.120]   at CES with COVID-19. We know that now. I met some of them. It could have literally been. That was
+[01:35:43.120 --> 01:35:48.880]   just in January. It could have literally been the beginning of the end. It's somehow we dodged that
+[01:35:48.880 --> 01:35:54.880]   one. One month later, who knows? So CES has announced, yeah, it's going to be all virtual.
+[01:35:54.880 --> 01:36:00.640]   I'm sorry. We even mentioned that other idea. I mean, for any conference, I'd assume CES
+[01:36:00.960 --> 01:36:07.200]   the one that has the technology to make it virtual. We all went to RSA. When was that, Matthew? That
+[01:36:07.200 --> 01:36:17.280]   was a February or March. Did you go to RSA this year? I did not go to RSA. We had a lot of us went.
+[01:36:17.280 --> 01:36:22.400]   We had a party late February. There's pictures in the hall of us at this party. I'm thinking,
+[01:36:23.280 --> 01:36:34.000]   what were you shaking hands? Stop that. Yeah, at this point, it's almost like you watch a movie
+[01:36:34.000 --> 01:36:40.480]   from last year and you're like, oh, crowd scene. No, not no. Yes. That's terrifying.
+[01:36:40.480 --> 01:36:43.920]   Well, I think we're going to be. Yeah, I see like I watch a TV show on there at a farm. I'm like,
+[01:36:43.920 --> 01:36:50.080]   oh my God, I could never imagine why I ever do this. I went to live theater. Oh, everybody's singing.
+[01:36:50.080 --> 01:36:56.400]   Oh my God. King George spit on me. All right.
+[01:36:56.400 --> 01:37:01.920]   Let's I wonder something I know, Georgia Dow is also been on Twitter. My friend who's a therapist.
+[01:37:01.920 --> 01:37:07.360]   And even before COVID, she was talking about the explosion of children. She would see in her
+[01:37:07.360 --> 01:37:13.920]   practice that had basically fear of people and social issues spitting. We're going to have PTSD
+[01:37:13.920 --> 01:37:18.480]   from this. Yeah, but it's going to be terrible. People are going to be terrified to go out and
+[01:37:18.480 --> 01:37:24.000]   socialize and person. Don't you imagine that or and I don't know if they'll be it.
+[01:37:24.000 --> 01:37:28.880]   They won't be like a day where they say, OK, I'll clear. Will there? I don't know how that's going
+[01:37:28.880 --> 01:37:34.240]   to work. They're getting close to a vaccine. Maybe they'll be a vaccine. Maybe maybe March,
+[01:37:34.240 --> 01:37:39.680]   maybe a year from the day. I don't know. Will they just say, OK, it's fine. It's over. No, I don't.
+[01:37:39.680 --> 01:37:44.640]   I don't know. And then I have a feeling that's either one thing or another. One will just say in
+[01:37:44.640 --> 01:37:50.320]   our stay in our burrows and go, no, no, I don't believe you. I'm not going out there. Or we will
+[01:37:50.320 --> 01:37:56.800]   flood out and everybody will be like, let's party and we'll be dancing in the streets.
+[01:37:56.800 --> 01:38:05.600]   Let's go to see. Yes. Let's take a little break on that dystopian note.
+[01:38:05.600 --> 01:38:12.400]   Cheering for C.E.S. Very. Yes. I'm never. No, no, no, you know what? Never again. Never
+[01:38:12.400 --> 01:38:17.360]   again. I would go to C.E.S. That's how desperate I am to leave my house. I don't. Geez.
+[01:38:17.360 --> 01:38:22.400]   We were thinking we liked C.E.S. so much. We're thinking of moving to Las Vegas. That's kind of
+[01:38:22.400 --> 01:38:31.120]   now backburner a little bit. Do we have a promo, John? We had a great week this week. Let's take
+[01:38:31.120 --> 01:38:36.560]   a look at some of the things that happened in the week gone by previously on Twitch.
+[01:38:36.560 --> 01:38:41.600]   It's official unboxing of the LG Velvet, literally opening the box, taking the phone out.
+[01:38:41.600 --> 01:38:48.080]   She's using a spudger. Come on. Open the box. People who like to struggle with boxes.
+[01:38:48.080 --> 01:38:52.720]   For those of you listening on the audio, flow is wrestling with a cardboard box.
+[01:38:52.720 --> 01:39:00.000]   Windows Weekly. That did leap to mind is where's Sachin Adela anonymous? Why is he not in that
+[01:39:00.000 --> 01:39:05.840]   group? Shouldn't he be? Today it is these four companies and some others collectively
+[01:39:05.840 --> 01:39:11.120]   are personal computing. None of them stand up to the level of power that Microsoft had
+[01:39:11.120 --> 01:39:14.080]   within its confines of the market, such as it was in the 90s.
+[01:39:14.080 --> 01:39:19.760]   Hands-on wellness. We're going to look at more sanitation ideas as we try to
+[01:39:19.760 --> 01:39:21.920]   face the germs around the world. There's the key. There's the key.
+[01:39:21.920 --> 01:39:29.040]   This week in Enterprise Tech. Today we have Andy Purdy,
+[01:39:29.040 --> 01:39:35.440]   Chief Security Officer for Huawei Technology USA. We are absolutely all in with the idea of
+[01:39:35.440 --> 01:39:40.320]   independent testing and products. Let's drill down and get exposed to command.
+[01:39:40.320 --> 01:39:41.920]   Back to the facilities of us. Yeah.
+[01:39:41.920 --> 01:39:46.800]   To analyze what we are doing and how we're doing it. To make sure that our people are doing the
+[01:39:46.800 --> 01:39:54.080]   right thing. To it. Still essential. Yeah. Wow. That's into, I'll have to see Andy Purdy's interview.
+[01:39:54.080 --> 01:40:01.360]   So Huawei's not giving up. By the way, they just had their best quarter ever. They are now
+[01:40:01.360 --> 01:40:04.400]   officially the number one seller of smartphones in the world.
+[01:40:05.440 --> 01:40:11.440]   Beating Samsung and Apple. Apple's number three. Huawei. Huawei.
+[01:40:11.440 --> 01:40:18.000]   Partly because I think there's a certain amount of patriotism in China and people are going out
+[01:40:18.000 --> 01:40:22.960]   and saying, "Good. I'm going to support Huawei." Talk about unintended consequences. They had a
+[01:40:22.960 --> 01:40:29.360]   huge quarter. Our show today brought to you by Zip Recruiter. This is a tough time if you're doing
+[01:40:29.360 --> 01:40:36.480]   some hiring. On the other hand, if you are currently trying to hire kudos, thank you. You're helping
+[01:40:36.480 --> 01:40:41.360]   the economy. But you do have new difficulties. Housing wire could relate. They needed to hire
+[01:40:41.360 --> 01:40:45.840]   an ambitious reporter to cover news stories in the US housing markets. Where did they go? They
+[01:40:45.840 --> 01:40:53.200]   went to Zip Recruiter. That's how Housing Wire found Alexandra Roja. Alexander never imagined she'd
+[01:40:53.200 --> 01:41:00.640]   get a job reporting during COVID-19. She created a profile in Zip Recruiter. This is where the magic
+[01:41:00.640 --> 01:41:05.120]   happened. Zip Recruiter matched Alexandra to Housing Wire's reporter job because her degree
+[01:41:05.120 --> 01:41:11.760]   and writing skills were a great fit for the role. Only four hours after Housing Wire posted their
+[01:41:11.760 --> 01:41:18.080]   opening. Four hours they got her application thanks to Zip Recruiter that did the matching.
+[01:41:18.080 --> 01:41:25.360]   A few weeks later, Alexandra started her dream career. That's a happy story. We're not hiring
+[01:41:25.360 --> 01:41:30.320]   today, but I tell you, when we do hire, again, it will absolutely be Zip Recruiter. Zip Recruiter is
+[01:41:30.320 --> 01:41:37.200]   the best way to hire. Their automatic matching helps you find candidates fast. They help you sort
+[01:41:37.200 --> 01:41:42.480]   through the applications. They never go into your inbox or call your phone. They all go into the
+[01:41:42.480 --> 01:41:48.800]   Zip Recruiter interface where it's easy to scan, rate, and pick the right hire. Fast hiring is
+[01:41:48.800 --> 01:41:54.560]   so important. Now more than ever, do it right. Let Zip Recruiter help you hire. See why four out of
+[01:41:54.560 --> 01:41:58.960]   five employers who post on Zip Recruiter get a quality candidate within the first day. By the
+[01:41:58.960 --> 01:42:03.760]   way, we hired three or four of our employees recently through Zip Recruiter. I will vouch for
+[01:42:03.760 --> 01:42:09.920]   that. We got great applicants within just a few hours of the posting. Try it now absolutely
+[01:42:09.920 --> 01:42:17.040]   free ziprecruiter.com/twit. If you are hiring, God bless you. Thank you. Get on Zip Recruiter.
+[01:42:17.040 --> 01:42:20.320]   Get that right person. They're out there. They're waiting for you. They're thrilled. They can't
+[01:42:20.320 --> 01:42:30.240]   wait to hear from ziprecruiter.com/twit. Still the smartest way to hire ziprecruiter.com/twit.
+[01:42:33.280 --> 01:42:40.480]   Oh, it's sad. What? I heard something. Somebody wanted to say something? No?
+[01:42:40.480 --> 01:42:45.040]   Oh, I was just saying we're using them right now for our PAC to try for employees.
+[01:42:45.040 --> 01:42:52.960]   So thank you for hiring, honestly. And I bet the US Digital Service is hiring.
+[01:42:52.960 --> 01:43:00.480]   Matt Cuts. We are hiring. If you are a product manager, engineer, or designer, we would love
+[01:43:00.480 --> 01:43:05.040]   to talk to you because there's some really important ways that government is messed up
+[01:43:05.040 --> 01:43:10.400]   right now and technology can help. And we need some help helping make things better. So please
+[01:43:10.400 --> 01:43:19.360]   consider checking out usds.gov. USDS is a really exciting service. It was started. It seems like
+[01:43:19.360 --> 01:43:23.440]   that maybe four or five years ago, more than four years ago now, right? Coming up on six years.
+[01:43:23.440 --> 01:43:30.960]   Next week. When Silicon Valley, it started with the ACA website. And the Silicon Valley said,
+[01:43:30.960 --> 01:43:36.640]   look, this is a mess. Let us help you. And they came out. Oh, is that when you went out, Matt?
+[01:43:36.640 --> 01:43:43.520]   I came out in 2016. So it had been around for a couple of years. There was a lot of people that I
+[01:43:43.520 --> 01:43:49.440]   really trusted who were doing a tour of government service. I signed up for a three to six month tour,
+[01:43:49.440 --> 01:43:54.880]   and I passed year four in June. That's awesome. But you know what? They couldn't have a better
+[01:43:54.880 --> 01:43:59.440]   guy run in the place. I think that's so fantastic. Coders know you and love you and trust you.
+[01:43:59.440 --> 01:44:06.640]   And you know, we always say to military, folks, thank you for your service. But this is service,
+[01:44:06.640 --> 01:44:09.760]   too. This is a really important service. Thank you for your service, Matt.
+[01:44:09.760 --> 01:44:16.400]   And thanks to everybody on your team. It's a great team. And the thing that strikes me is you
+[01:44:16.400 --> 01:44:21.200]   see the sort of stuff in the headlines, like state unemployment insurance systems that are
+[01:44:21.200 --> 01:44:25.920]   buckling under the weight of so many people who are applying for unemployment insurance.
+[01:44:25.920 --> 01:44:30.800]   And you know, these are often systems that are 10, 20, 30 years old. They're often running on
+[01:44:30.800 --> 01:44:37.680]   mainframes. So we recently did a collaboration with the state of New Jersey. Their site did not
+[01:44:37.680 --> 01:44:42.880]   work on mobile phones. And most people are trying to re-certify their weekly benefits on mobile
+[01:44:42.880 --> 01:44:49.680]   phones. And so just, you know, some CSS styling later and a production push. And now it works
+[01:44:49.680 --> 01:44:55.040]   much better for those 8 million people who live in New Jersey. And so it's absolutely the kind of
+[01:44:55.040 --> 01:45:01.200]   work that everything from getting better data about COVID to helping veterans, it's really work
+[01:45:01.200 --> 01:45:05.600]   that matters and can have a really big impact. And you can stay in front of a computer while
+[01:45:05.600 --> 01:45:11.040]   you're doing your work. Somebody in our chat room who wants to apply, do you need clearance,
+[01:45:11.040 --> 01:45:16.480]   government clearance to do it? Right now you do need to be a US citizen and you do have to be
+[01:45:16.480 --> 01:45:22.640]   able to get security clearance. So, you know, marijuana, things like that are still illegal on
+[01:45:22.640 --> 01:45:28.400]   the federal level. But you know, if you're somebody who's straight edge, we would love to talk to
+[01:45:28.400 --> 01:45:32.400]   you because you really can make a big difference. How long do I have to be off the pot?
+[01:45:32.400 --> 01:45:40.800]   I don't know. I've never done the pot. I've never done the Mary Jane. So I don't actually know
+[01:45:40.800 --> 01:45:47.280]   how long it takes to work through the system. But you have to test clear. Okay. Okay. I think
+[01:45:47.280 --> 01:45:51.920]   I can figure that out. I'll find that. Have you been able to work on any of the unemployment
+[01:45:51.920 --> 01:45:57.840]   systems that are running on COBOL? Oh my God. Yes. Yeah. So we have engineers who are learning
+[01:45:57.840 --> 01:46:04.800]   COBOL for fun. And it turns out the system that pays out Medicare, which pays out $2 billion a day
+[01:46:05.520 --> 01:46:11.360]   is 40 years old and has 14 million lines of COBOL and assembly. And it turns out that really needs
+[01:46:11.360 --> 01:46:15.840]   to be upgraded to a more modern language. I'm going to be on Medicare in a couple of years.
+[01:46:15.840 --> 01:46:21.520]   I hope you fix it by then. Fingers crossed. I mean, that is a great collaboration with the
+[01:46:21.520 --> 01:46:25.760]   Center for Medicare and Medicaid Services. So, you know, if you were an engineer who is unhappy
+[01:46:25.760 --> 01:46:30.160]   and not feeling like you're having an impact right now, or, you know, you're doing the same thing
+[01:46:30.160 --> 01:46:35.120]   that you did last month, you can, you can really try something completely new and get hooked on
+[01:46:35.120 --> 01:46:39.120]   the impact if you want to try the US digital system. Yeah. And how satisfying would that be?
+[01:46:39.120 --> 01:46:45.840]   To say, yeah, help fix Medicare. I mean, that makes a difference in people's lives in ways you
+[01:46:45.840 --> 01:46:51.200]   just don't know. But I do have to ask you, is this actually from a whiteboard at USDS?
+[01:46:51.200 --> 01:47:03.360]   Yes. So, we have not been into our office in Jackson place where remote right now,
+[01:47:03.360 --> 01:47:09.280]   but that's okay. We're able to do our work remotely as well. And, you know, this is this sort of
+[01:47:09.280 --> 01:47:15.760]   thing. So, Mac is, you know, like a Medicare administrative sort of middleman. And it turns out,
+[01:47:15.760 --> 01:47:20.240]   if you just even pull the data off of the mainframe, I'll try not to geek out too much. If you just
+[01:47:20.240 --> 01:47:24.960]   pull the data off of the mainframe, then you can start to do real-time analytics. You can look for
+[01:47:24.960 --> 01:47:28.880]   fraud. You can look at like, oh, on the first of the quarter, somebody does a bunch of billing.
+[01:47:28.880 --> 01:47:33.120]   They find the most expensive procedure. They get reimbursed. And then they just submit that for
+[01:47:33.120 --> 01:47:38.880]   the next 90 days. And like, there's all kinds of ways we're getting data to a place where you can
+[01:47:38.880 --> 01:47:44.400]   actually do real-time analysis in a way that most of the tech industry is used to. It's just,
+[01:47:44.400 --> 01:47:49.200]   it's world-changing. Like one, go where you're rare. One technologist can really make a huge
+[01:47:49.200 --> 01:47:56.240]   difference in the US government right now. Is it a custom database or are they like running
+[01:47:56.240 --> 01:48:06.160]   DBase II? What do they use it? If I remember, it's running on ZOS. Yeah. So, like, we're learning
+[01:48:06.160 --> 01:48:11.360]   things like vSAN and all this sort of stuff. But if you can insert in the right spot, you can just
+[01:48:11.360 --> 01:48:16.080]   make a copy of it and use it, you know, in a secure location in the cloud or wherever. And then
+[01:48:16.080 --> 01:48:20.320]   you can use all the regular sort of, like, we're not talking, we are talking about a lot of data
+[01:48:20.320 --> 01:48:25.840]   by government terms, but not a lot by tech industry terms. And so, you know, it's, it's possible to
+[01:48:25.840 --> 01:48:32.000]   make a pretty big difference. Oh, this is my Turbo Pascal four skills from 1995.
+[01:48:32.000 --> 01:48:36.400]   We're finally going to pay off. You know, it's a great equation.
+[01:48:36.400 --> 01:48:42.960]   I know Pascal, Coball's a snap. It's really a lot. Not so many semicolons and colons. It's much
+[01:48:42.960 --> 01:48:49.120]   easier. Actually, I think it'd be kind of fun to learn Coball and then, and kind of dive into this
+[01:48:49.120 --> 01:48:54.560]   and try to solve this problem knowing, especially that it makes a huge difference. You can write
+[01:48:55.120 --> 01:49:01.760]   another Tetris. World doesn't need another Tetris. You could write one or you could go to
+[01:49:01.760 --> 01:49:09.680]   US Digital Service, usds.gov/apply. And, and you get paid, right? I mean, it's not like you're
+[01:49:09.680 --> 01:49:17.360]   volunteering. It's a job. The government can pay up to $165,000 a year. So, I mean, yeah, it's,
+[01:49:17.360 --> 01:49:22.160]   you know, if you're a GS 1510, which is welcome to acronym soup, but you know, you learn all the
+[01:49:22.160 --> 01:49:28.880]   acronyms, it is absolutely possible to make enough for a living wage. You know, it's, you know,
+[01:49:28.880 --> 01:49:33.440]   that's good salary. Like, there's a lot of people who start at a much lower salary because of all
+[01:49:33.440 --> 01:49:38.960]   the experience and the value that you bring. The government can pay its top rate for, for general
+[01:49:38.960 --> 01:49:44.880]   service sort of employees. And then, and then you, like, you joked whenever I would not come on
+[01:49:44.880 --> 01:49:49.440]   this week in Google that I was Colonel Cuts. When I started at the Pentagon, I was the equivalent
+[01:49:49.440 --> 01:49:55.840]   of '06. Like, I was a Colonel. I had industry, you know, experience. And so, it really does make a
+[01:49:55.840 --> 01:49:59.840]   big difference. People don't have this, this technical experience in the government. Do they
+[01:49:59.840 --> 01:50:04.400]   call you Colonel? No, no, no. Do you get to wear a uniform? Did anybody salute you?
+[01:50:04.400 --> 01:50:11.280]   No, no, I'm, I'm an administrator. So, I'm down here. But no, mysteries are important.
+[01:50:11.280 --> 01:50:16.800]   Don't knock administrators. We need the administrators. And maybe you could get on space force later.
+[01:50:18.400 --> 01:50:23.600]   Can I tell you, we have a person who is involved with the US Digital Service who is in the strategic
+[01:50:23.600 --> 01:50:28.960]   group for Space Force. If you are interested in Space Force, come talk to us. Let's, let's
+[01:50:28.960 --> 01:50:34.480]   introduce you to NOAA. I would love to introduce you to NOAA. No one needs you. Yes. Wouldn't that be
+[01:50:34.480 --> 01:50:43.760]   cool? No one needs you more than ever. There's a few Cortana engineers who probably could find some,
+[01:50:45.120 --> 01:50:50.560]   don't need some help right now. Microsoft is ending support for Cortana mobile.
+[01:50:50.560 --> 01:50:58.240]   Yeah, those, I have, I can add another, I have a pile of stuff that doesn't work anymore,
+[01:50:58.240 --> 01:51:03.040]   including my Gebo robot. Now I'm going to add my Harmon Carden
+[01:51:03.040 --> 01:51:09.920]   speaker that uses Cortana early next year. It'll stop responding.
+[01:51:12.320 --> 01:51:18.400]   Cortana's turning into something completely different. It's more, it's kind of what happened to Bixby.
+[01:51:18.400 --> 01:51:26.880]   Oh, Bixby. Bixby became essentially an assistant to use Samsung phones with.
+[01:51:26.880 --> 01:51:33.600]   Cortana's going to be a productivity assistant, kind of like the voice of Clippy, to be honest.
+[01:51:33.600 --> 01:51:39.520]   Yeah, I was going to say Bixby seems like sort of a name for a sentient paperclip.
+[01:51:41.520 --> 01:51:44.720]   You wouldn't want to give human, a human that name, would you?
+[01:51:44.720 --> 01:51:51.200]   Yeah, so Cortana, somebody called me a couple weeks ago on the radio show and said,
+[01:51:51.200 --> 01:51:55.680]   what happened to voice assistants? Like, wasn't that going to be the next big thing?
+[01:51:55.680 --> 01:52:02.080]   Yeah. And they've just, Siri's going to be the next to go, right? Bixby, Cortana,
+[01:52:02.080 --> 01:52:07.280]   Siri's got to be the next to go. Amazon and Google's going to fight it out, but they don't seem to be
+[01:52:07.280 --> 01:52:13.760]   making much progress. They're just a butt of a joke now. Everybody has ears and not enough
+[01:52:13.760 --> 01:52:18.400]   people have headphones. I mean, maybe being in quarantine might be better because you could use
+[01:52:18.400 --> 01:52:24.800]   a personal assistant and not immediately annoy everyone in your surrounding area or office.
+[01:52:24.800 --> 01:52:30.480]   Yeah, that's the problem. That's the problem, isn't it? And now when I do it, I always kind of
+[01:52:30.480 --> 01:52:35.280]   be do this. So, a surreptitious Siri, which is you just press the button and you talk to a real
+[01:52:35.280 --> 01:52:40.080]   low voice who won the World Series in 1928. Just real low voice.
+[01:52:40.080 --> 01:52:45.040]   Just whisper. I don't know. But here's something I found on the web.
+[01:52:45.040 --> 01:52:51.520]   Let's talk about, since we're talking about the cyber,
+[01:52:51.520 --> 01:53:00.000]   let's talk about the election. I don't know if this is, yes. I don't know if this is,
+[01:53:00.000 --> 01:53:02.880]   yeah, I've heard there's maybe going to be one in November. I don't know.
+[01:53:03.520 --> 01:53:08.000]   Could be later. Could be later. Could be next year. I don't know. Should happen.
+[01:53:08.000 --> 01:53:15.760]   Could be 2023. Some people say 2028. We don't know. There is a new election cyber surge.
+[01:53:15.760 --> 01:53:19.840]   Actually asked you about this map before this show. The most meaningless combination of words
+[01:53:19.840 --> 01:53:31.360]   ever heard. Election cyber surge to deploy hacker army for 2020 vote. Oh, God. I hate it.
+[01:53:32.320 --> 01:53:39.360]   This is out of the University of Chicago. They are starting to pair up security experts with,
+[01:53:39.360 --> 01:53:43.600]   because you know the elections. One of the things that's interesting about US elections,
+[01:53:43.600 --> 01:53:49.360]   they're all local. Right? Brandon, they're not the whole thing. Yeah, it's all run out of the state
+[01:53:49.360 --> 01:53:55.680]   in the county. And it's one of the things that makes us harder to hack because it's so heterogeneous.
+[01:53:55.680 --> 01:53:59.600]   Everybody has to think. One of the things I did when I went to turn in my papers,
+[01:54:00.720 --> 01:54:05.120]   when you're a candidate, you've got to go get enough signatures to get on the ballot.
+[01:54:05.120 --> 01:54:11.040]   And from when I was a journalist, I always found the most valuable person to know when you're
+[01:54:11.040 --> 01:54:16.240]   reporting on town affairs is the county clerk or the circuit people in that office. They would
+[01:54:16.240 --> 01:54:20.960]   give you documents. I was like, yeah, this seems like this should be a valuable person to know.
+[01:54:20.960 --> 01:54:27.200]   So I took a day and I went to every single place in my district. You're so smart. You're so smart.
+[01:54:27.200 --> 01:54:33.680]   So smart. But this is the scary part. So I could not help but notice while I was there,
+[01:54:33.680 --> 01:54:39.280]   the kind of hardware that they had in the office. And it was a variety of operating systems.
+[01:54:39.280 --> 01:54:44.480]   They had passwords taped right above it, where you could just see it standing in the window.
+[01:54:44.480 --> 01:54:52.640]   They had machines around Windows 95. And if you're trying to, this is Massachusetts. Like,
+[01:54:52.640 --> 01:54:59.760]   we are one of the richer states in America. And it was a horrible, horrible, terrifying mess. So
+[01:54:59.760 --> 01:55:06.720]   you could get a million like hacker armies. We're still going to really have issues here.
+[01:55:06.720 --> 01:55:13.760]   Who pays? Is it the county that pays for the elections? Do they get federal funding?
+[01:55:13.760 --> 01:55:19.600]   So there's a message to say, yeah, there's like help vote America,
+[01:55:19.600 --> 01:55:24.960]   help America, vote act, have a, you know, is a thing that paid for a lot of election stuff.
+[01:55:24.960 --> 01:55:29.600]   But it's also true that there's a lot of, there's actually a startup called VotingWorks
+[01:55:29.600 --> 01:55:36.240]   that's trying to get certified as sort of this super low cost, non-partisan, secure voting platform
+[01:55:36.240 --> 01:55:41.120]   that's basically kind of using off-the-shelf hardware. But it's a patchwork. You've got
+[01:55:41.120 --> 01:55:46.880]   machines that are really old in some cases. Well, and then the money is stretched because now
+[01:55:46.880 --> 01:55:52.400]   we've got to do vote by mail. We've got to do social distancing voting. I mean,
+[01:55:52.400 --> 01:55:58.080]   there's a lot more expenses which pulls money away from things like security, updating systems.
+[01:55:58.080 --> 01:56:06.560]   It's kind of, it's not going to be good, I feel like. And of course, the president is doing
+[01:56:06.560 --> 01:56:12.720]   everything he can to undermine the notion of a free and fair election. He would really like
+[01:56:12.720 --> 01:56:17.200]   everybody to think that, because I think he sees the writing on the wall. And he would really
+[01:56:17.200 --> 01:56:23.600]   like everybody to think that when he loses, he didn't really lose. So that's not going to help.
+[01:56:23.600 --> 01:56:32.240]   I just feel like we're headed in a bad direction. Does the USDS do anything with elections?
+[01:56:32.240 --> 01:56:40.960]   So most of, most at the federal level, and we're mostly federal, that's DHS. They have the,
+[01:56:42.320 --> 01:56:48.160]   cybersecurity and infrastructure security agencies. So CISA, and so they provide various assistance
+[01:56:48.160 --> 01:56:53.840]   and things along those lines. So we've said, we'd be happy to help if we can. And so we're,
+[01:56:53.840 --> 01:56:58.160]   we stand at the ready if there's anything we can do. But mostly that's Homeland Security and CISA.
+[01:56:58.160 --> 01:57:03.440]   And I would guess that's why this election cyber surge coming out of the University of Chicago,
+[01:57:03.440 --> 01:57:09.520]   because they wanted to dispatch people to localities to help the states and local jurisdictions
+[01:57:09.520 --> 01:57:16.960]   directly. So if you want to be an election cyber surge volunteer, you can actually go online.
+[01:57:16.960 --> 01:57:22.080]   What does cyber surge mean? They're using a Google Doc for this.
+[01:57:22.080 --> 01:57:29.680]   Great. Love it already. You can sign up. Oh, here's a good question though. Have you attended
+[01:57:29.680 --> 01:57:35.040]   the Defcon voting village? I noticed that. That's good. That's a good like, just know,
+[01:57:35.040 --> 01:57:40.480]   if you have, then they're probably interested in you. So yeah, yeah. Well, that would show at least
+[01:57:40.480 --> 01:57:48.080]   some interest in this topic. And is your handle Kirk or Rolex or J-1? You must have at least 12
+[01:57:48.080 --> 01:57:57.440]   letters in your Twitter. Yeah, right. There is another area where White House is actually,
+[01:57:58.320 --> 01:58:03.680]   and this is kind of a little small part of the federal budget, but they're actually
+[01:58:03.680 --> 01:58:11.760]   causing some problems in the internet. There is something called the Open Technology Fund.
+[01:58:11.760 --> 01:58:18.320]   Actually, no, I'm sorry. This is a guy from the Open Technology Fund talking about the
+[01:58:22.160 --> 01:58:30.400]   I don't know what this is. It's the US Agency for Global Media. It's Voice of America.
+[01:58:30.400 --> 01:58:35.200]   They've got a new director of Voice America who is apparently withholding funds up to
+[01:58:35.200 --> 01:58:42.880]   $20 million in funding approved by Congress for an internet freedom organization called
+[01:58:42.880 --> 01:58:50.080]   the Open Technology Fund. The OTF is being forced to halt 49 of their 60 internet freedom projects
+[01:58:50.080 --> 01:58:56.560]   because they just don't have any more federal funding that affects, according to the head of the
+[01:58:56.560 --> 01:59:01.600]   fund, about 80% of the groups work helping human rights and pro-democracy advocates,
+[01:59:01.600 --> 01:59:07.680]   journalists, and others in 200 countries, among other things, they help with signal.
+[01:59:07.680 --> 01:59:15.920]   They help with secure drop. They have a red team lab, which is audited and patched more than
+[01:59:15.920 --> 01:59:22.480]   2,100 privacy and security vulnerabilities in tools like secure drop.
+[01:59:22.480 --> 01:59:31.200]   20 million doesn't sound like a lot, but this is a very important small group that's doing some
+[01:59:31.200 --> 01:59:37.680]   significant things. Along with the defunding of Voice of America, they're losing a lot of their funding.
+[01:59:37.680 --> 01:59:44.080]   Richard Stengel, he's the former editor of TIME. He wrote a book called Information Warfare,
+[01:59:44.080 --> 01:59:49.760]   which I cannot recommend enough. Like he and Matt, he decided to go into government
+[01:59:49.760 --> 01:59:58.320]   when the State Department invited him in to be a deputy. He wrote a book about as former editor
+[01:59:58.320 --> 02:00:04.960]   of TIME learning what Voice of America does, why we fund it, and why it's in our best interest.
+[02:00:04.960 --> 02:00:11.280]   It was shocking because I had no idea how critical this was.
+[02:00:11.280 --> 02:00:16.880]   I think like me, you assumed it was a propaganda operation.
+[02:00:16.880 --> 02:00:19.360]   That's what I thought. It is certainly not.
+[02:00:19.360 --> 02:00:24.800]   It's a US news delivered to countries where they don't get open free news.
+[02:00:24.800 --> 02:00:29.440]   Well, this is also what they're doing with the internet. They fund development of Tor.
+[02:00:29.440 --> 02:00:32.720]   They fund development of signal. They distribute it
+[02:00:32.720 --> 02:00:40.560]   to dissidents and journalists all over the world. So this is, I think, very important.
+[02:00:41.440 --> 02:00:46.560]   The money has already been appropriated. That's what's kind of shocking. The administration is
+[02:00:46.560 --> 02:00:54.960]   just withholding it. I don't think it's going to make the top of the news on any cable news
+[02:00:54.960 --> 02:01:00.080]   channel anytime soon, but since this is our bailiwick, I think we should talk about it.
+[02:01:00.080 --> 02:01:04.880]   I want to take a little break, and then I want to talk about Nvidia and Arm.
+[02:01:06.000 --> 02:01:11.680]   I thought it was just rumors. Maybe there's more to it. There's some fire behind this smoke.
+[02:01:11.680 --> 02:01:14.160]   Our show today brought to you by Barracuda.
+[02:01:14.160 --> 02:01:20.000]   Man, did you know that 91% of all cyber attacks start with an email?
+[02:01:20.000 --> 02:01:25.040]   This came home to me. I read there was a wonderful piece in Bloomberg Business Week last week about
+[02:01:25.040 --> 02:01:31.360]   the North's hydro attack, which happened last year. This is one of the biggest aluminum manufacturers
+[02:01:31.360 --> 02:01:40.320]   in the world. They have factories in US, Brazil, headquarters in Norway. They were brought down by
+[02:01:40.320 --> 02:01:46.560]   ransomware. It was a big deal. You may remember the story when it happened, but what really stuck
+[02:01:46.560 --> 02:01:54.640]   out for me is how they got attacked. It was a conversation hijack, an email from one of their
+[02:01:54.640 --> 02:02:01.920]   customers sent to an internal address at North Skydro to an executive. The email was sent with
+[02:02:01.920 --> 02:02:09.840]   the legitimate attachment, a payload, got intercepted on its way. The payload got replaced with
+[02:02:09.840 --> 02:02:16.880]   malware, which then got into the network, was opened by the executive. He expected this email.
+[02:02:16.880 --> 02:02:22.480]   He expected this attachment. It wasn't the attachment he was expecting. Three months later,
+[02:02:22.480 --> 02:02:26.880]   so that for three months, the hackers were internal on the network wandering around.
+[02:02:26.880 --> 02:02:34.880]   Three months later, boom, all of the computers shut down with a big warning saying, "Sorry,
+[02:02:34.880 --> 02:02:40.960]   your data has been encrypted. Please contact us to negotiate the ransom." Cyber attacks come
+[02:02:40.960 --> 02:02:48.800]   through the email. Now, put yourself in the shoes of that North Skydro executive, the CSO or the CEO
+[02:02:48.800 --> 02:02:55.840]   or the operations people. Think about your business and all your employees at home now.
+[02:02:55.840 --> 02:03:00.320]   They're getting email on their systems for a variety of sources. Maybe they're going to be
+[02:03:00.320 --> 02:03:06.080]   coming back to work at some point. One wrong click on the wrong email could cost you big bucks,
+[02:03:06.080 --> 02:03:12.400]   could cost you customers, could cost you your reputation. Email is the number one
+[02:03:12.400 --> 02:03:18.560]   vector for this stuff. Of course, the bad guys are taking advantage of this situation,
+[02:03:18.560 --> 02:03:24.240]   with coronavirus related to phishing attacks. They impersonate the CDC or the WHO, the World
+[02:03:24.240 --> 02:03:32.480]   Health Organization. Researchers at Barracuda have observed a spike of 667 percent since February
+[02:03:32.480 --> 02:03:37.920]   in COVID related phishing attacks. Your employees, your poor employees, they're sitting there,
+[02:03:37.920 --> 02:03:43.600]   they get an email and says, "Maybe it came from you. It came from the boss. We just got a report
+[02:03:43.600 --> 02:03:48.240]   from the CDC about how to protect yourself during quarantine. Open this up."
+[02:03:48.240 --> 02:03:55.680]   Except it's not from the boss or from the CDC. It's from a bad guy. That's why you need Barracuda
+[02:03:55.680 --> 02:04:01.200]   total email protection. I know you know the name Barracuda there. The number one guys in cloud
+[02:04:01.200 --> 02:04:06.640]   enabled enterprise-grade security solutions, we've used their boxes for email, for network
+[02:04:06.640 --> 02:04:12.080]   protection, for data, for applications. They have a product that you will want to know about called
+[02:04:12.080 --> 02:04:16.880]   total email protection. If you're using Office 365, you can actually get a free
+[02:04:16.880 --> 02:04:24.560]   threat scan of your Office 365 account completely free from Barracuda at barracuda.com/twit.
+[02:04:24.560 --> 02:04:30.320]   Barracuda's total email protection includes all in one email security. You also get backup,
+[02:04:30.320 --> 02:04:35.040]   very important, right? Archiving, that's a legal requirement in many industries.
+[02:04:35.040 --> 02:04:41.280]   Plus, you get AI-based protection from spear-phishing account takeover and business email
+[02:04:41.280 --> 02:04:48.480]   compromise. Most of these attacks now are targeted and these guys are constantly evolving their
+[02:04:48.480 --> 02:04:54.800]   attacks. You need protection that evolves at least as fast to protect you. You'll get an automated
+[02:04:54.800 --> 02:04:59.360]   incident response. That's important. The faster you act, the faster you can limit the damage.
+[02:04:59.360 --> 02:05:03.600]   You'll get an automated incident response that gives you options to quickly and efficiently
+[02:05:03.600 --> 02:05:09.040]   address attacks. You also get training for your workforce, security awareness training,
+[02:05:09.040 --> 02:05:15.040]   because after all, aren't your employees the first line of defense? Help them do a better job
+[02:05:15.040 --> 02:05:23.040]   recognizing these problems. Barracuda can help by keeping these malware attachments and spear-phishing
+[02:05:23.040 --> 02:05:28.480]   attacks out of your email entirely. Uncover the threats hiding in your inbox. It's waiting for
+[02:05:28.480 --> 02:05:34.960]   you free, a secure free email threat scan of your Office 365 account. At least, find out.
+[02:05:36.160 --> 02:05:41.360]   I think what Barracuda figures is when you see how bad it is, you'll be calling them.
+[02:05:41.360 --> 02:05:49.920]   Barracuda.com/twit. Don't hide your head in the sand. Find out Barracuda.com/twit. At least
+[02:05:49.920 --> 02:05:56.080]   there's help out there. The best kind of help. Barracuda, your journey secured. They're really
+[02:05:56.080 --> 02:06:02.880]   good at what they do. We're very happy to be using them. SoftBank wants to get out of arm.
+[02:06:03.600 --> 02:06:07.040]   During the time we've been on this call, there's been an update in the TikTok thing.
+[02:06:07.040 --> 02:06:13.920]   Just watching it. Microsoft just released a blog and a website that says Microsoft to
+[02:06:13.920 --> 02:06:18.560]   continue discussions on potential TikTok purchase in the US, following a conversation
+[02:06:18.560 --> 02:06:24.960]   between Microsoft CEO and the president. Microsoft is prepared to continue discussions to explore
+[02:06:24.960 --> 02:06:36.320]   a purchase TikTok. Maybe you should talk to them again. Don't talk about mixed nutty mixed signals.
+[02:06:36.320 --> 02:06:43.520]   It's been a long weekend for TikTok. Microsoft. The president called and said,
+[02:06:43.520 --> 02:06:47.760]   "Satcha, go ahead, buy it." Something like that.
+[02:06:47.760 --> 02:06:52.400]   There was a great piece in the Wall Street Journal saying, "Does Microsoft want to get in this mess?"
+[02:06:54.720 --> 02:06:57.440]   That's all this is the question. I can't imagine that Microsoft,
+[02:06:57.440 --> 02:07:04.480]   I think the most notable example is that it wasn't that Microsoft wasn't one of the four companies
+[02:07:04.480 --> 02:07:09.040]   that they're hearing on Wednesday. I think it's a large part because they haven't been in the public
+[02:07:09.040 --> 02:07:15.360]   eye and having one of the most popular social media platforms right now, it is definitely going
+[02:07:15.360 --> 02:07:18.320]   to put them in the public eye in a way. They haven't been for two decades.
+[02:07:19.680 --> 02:07:25.360]   Goodness. There was a great tweet talking about how Microsoft, I think this is Casey Newton,
+[02:07:25.360 --> 02:07:32.720]   is about to have a cradle to the grave operation. They start with Minecraft.
+[02:07:32.720 --> 02:07:39.200]   If you TikTok, then it can go with Excel and then you go to Hotmail.
+[02:07:39.200 --> 02:07:42.720]   Yeah, LinkedIn and then Hotmail all the way down.
+[02:07:45.600 --> 02:07:50.080]   Following a conversation, this is from Microsoft Corporate blog, following a conversation between
+[02:07:50.080 --> 02:07:55.600]   Satcha Nadella and President Trump, Microsoft is prepared to continue discussions.
+[02:07:55.600 --> 02:08:00.080]   I don't even know what to say.
+[02:08:00.080 --> 02:08:06.560]   It's not how many can be offered calls must have happened over the past 36 hours.
+[02:08:06.560 --> 02:08:12.240]   Today, Peter Navarro said expected announcement banning TikTok this week.
+[02:08:12.800 --> 02:08:20.400]   Time is a flat circle. Nothing makes sense.
+[02:08:20.400 --> 02:08:27.120]   And he also said, don't fall for the message from TikTok lobbyists and their puppet CEO.
+[02:08:27.120 --> 02:08:36.560]   Oh, God. TikTok, it's such a threat to national security.
+[02:08:36.560 --> 02:08:42.960]   Forget the hacking of the election. Forget all that. Forget putting a bounty on US troops.
+[02:08:42.960 --> 02:08:47.280]   We got a chance to talk those dancing teens. I don't like them.
+[02:08:47.280 --> 02:08:52.960]   I can't wait to hear what's what he's going to do. Those kpop stands. I just can't wait.
+[02:08:52.960 --> 02:09:00.400]   BTS may never come in this short of crosses again. No more.
+[02:09:01.600 --> 02:09:08.880]   The US ceases to exist immediately. So Nvidia is apparently actually an active
+[02:09:08.880 --> 02:09:12.400]   talks to buy arm from Softbank, but who cares? TikTok.
+[02:09:12.400 --> 02:09:19.840]   I don't care anymore. Who cares? Samsung, we're going to have a big event.
+[02:09:19.840 --> 02:09:25.280]   I will be getting up way early on Wednesday, way earlier than I would like.
+[02:09:26.240 --> 02:09:32.880]   Jason Hall, join me 7 a.m. Pacific. That's 10 a.m. Eastern time for the Samsung.
+[02:09:32.880 --> 02:09:39.920]   What do they call it? The unlocked unpacked unpacked unlocked 2020.
+[02:09:39.920 --> 02:09:46.560]   Apparently the new Samsung note 20, the Z fold, the second version of the galaxy fold.
+[02:09:46.560 --> 02:09:52.640]   Yeah, they not give up on that. Is it going to fold like a fourth time?
+[02:09:54.640 --> 02:10:00.720]   This one folds to 11. Well, it implies with a Z fold that it might fold twice.
+[02:10:00.720 --> 02:10:04.720]   That would be insane. It's got twice as many fold.
+[02:10:04.720 --> 02:10:11.200]   I guess the thing is you can't leave the house now to show off your latest Samsung catch it.
+[02:10:11.200 --> 02:10:14.320]   You're just going to be showing it. What's the point? It means that it doesn't have to fit in
+[02:10:14.320 --> 02:10:19.360]   your pocket anymore. So it could just be an accordion. You know, just like hold it up and it's like
+[02:10:19.360 --> 02:10:26.400]   a newspaper. They had a little teaser video that showed that, that showed the note,
+[02:10:26.400 --> 02:10:32.720]   showed a new watch, new earbuds. There'll be a lot of stuff. We're going to cover it. We'll do a
+[02:10:32.720 --> 02:10:39.760]   live stream as we are want to do. Jason and I will be kind of the... It's not really Mystery
+[02:10:39.760 --> 02:10:45.680]   Science Theater. It's more like those old guys in the Muppets talking about the event.
+[02:10:47.680 --> 02:10:52.880]   Note 20. Have they already had 19 notes before? What happened to 18?
+[02:10:52.880 --> 02:10:57.200]   I'm telling you this product's going to fold. I agree.
+[02:10:57.200 --> 02:11:06.720]   I've been trying to fold my notes 10. The 72nd Primetime Emmy Awards.
+[02:11:06.720 --> 02:11:13.040]   Go stream it from your house. Jimmy Kimmel in his house. For some reason,
+[02:11:13.040 --> 02:11:18.720]   the notion of the Emmy is happening is just baffling to me. I don't know. I guess maybe it's that
+[02:11:18.720 --> 02:11:24.080]   I've been stuck inside for five months now, but just that popular culture still exists and
+[02:11:24.080 --> 02:11:29.120]   will be broadcast. It could be the last one because they're not making any new TV shows. So this is
+[02:11:29.120 --> 02:11:35.040]   this is all pre-COVID content. Oh, it is appropriate. Oh my God. What is the Emmy's next year? It's
+[02:11:35.040 --> 02:11:39.760]   going to be some YouTuber. It's going to be PewDiePie. It's going to be all tic-tok videos. Tic-tok videos.
+[02:11:39.760 --> 02:11:45.120]   All kibby. Actually, Quibi got a nomination or two.
+[02:11:45.120 --> 02:11:50.640]   Did Quibi get 10? Yeah. That just shows how out it is. That's the future. It's the old and
+[02:11:50.640 --> 02:11:55.840]   arb-ledy. It's got Jack Bauer. It's just out of touch. Let's see what Quibi got nominated for.
+[02:11:55.840 --> 02:12:01.920]   It is appropriate that they're going to stream these because most of this stuff's from streaming.
+[02:12:03.120 --> 02:12:12.080]   The Mandalorian. Yeah. Netflix, Disney Plus, even Apple TV Plus. This is a long
+[02:12:12.080 --> 02:12:17.920]   period. We just control F. Control F. What am I saying? Quibi? Control F. Quibi.
+[02:12:17.920 --> 02:12:25.120]   Quibi for Quibi. Okay. Outstanding actor in a short form comedy or drama series. Free
+[02:12:25.120 --> 02:12:32.640]   race on. They basically own that category. They own it. They give three out of the five nominations.
+[02:12:32.640 --> 02:12:36.320]   They quibby'd all over it. They quibbered y'all over it too. Most dangerous game. Isn't that
+[02:12:36.320 --> 02:12:40.960]   that one? Were they a hundred people? Yeah. They made a little seven minute at a time version of that.
+[02:12:40.960 --> 02:12:49.840]   A lot of it. Quick bite. Flipped. Which is funny or die. Dummy. Nominated for actress.
+[02:12:49.840 --> 02:12:54.880]   Have any of us downloaded Quibi and watch Quibi? Only on day one. Yeah.
+[02:12:54.880 --> 02:13:00.960]   Did you like beyond day one? Not just because my friend Simone has a show on their speedrun.
+[02:13:00.960 --> 02:13:09.440]   That fugitive show looks like Simone is in speedrun. She's the producer. What? She's huge into that.
+[02:13:09.440 --> 02:13:16.800]   Oh, now I love Quibi. Yeah. I didn't know that. Yeah, she's amazing. But it's not just that. Okay.
+[02:13:16.800 --> 02:13:21.520]   I'm the world's biggest 24 fan. I realized the show's problematic but I still love it.
+[02:13:21.520 --> 02:13:26.880]   And that fugitive. The new fugitive reboot with Jack Bauer and they renamed CTU.
+[02:13:26.880 --> 02:13:32.080]   Okay. Tell me how you watch it though. Tell me how you watch it. Do you watch it this way or this way?
+[02:13:32.080 --> 02:13:35.920]   I watch it. I actually turn it as I go. Simone was telling us about this.
+[02:13:35.920 --> 02:13:41.120]   Yeah. They produce. The complications as they shoot, they have templates that they have to follow
+[02:13:41.120 --> 02:13:46.320]   and make sure that the blocking works in both orientation. So it's actually a really interesting
+[02:13:46.320 --> 02:13:50.400]   video production pipeline. So speedrun is actually people gaming, speedrunning.
+[02:13:50.400 --> 02:13:57.840]   No, it's a show on polygons, more general news. I wish it was speedrunning because I'm a speedrun.
+[02:13:57.840 --> 02:14:03.760]   I would watch that. Yeah. That would be an oracle. Yeah. So I downloaded it to answer your question
+[02:14:03.760 --> 02:14:09.760]   Paris for the first day. You get a three month thing that three months trial offer ran out.
+[02:14:09.760 --> 02:14:15.120]   Apparently they had millions of downloads. But once the three months trial ran out, 72,000 people
+[02:14:15.120 --> 02:14:22.400]   subscribed, which is not a great number. So I should get my quibby in now before it
+[02:14:22.400 --> 02:14:27.440]   goes away. Get it quick. Okay. They're kind of, I bet you they get a lot of awards at the streaming
+[02:14:27.440 --> 02:14:35.920]   virtual Emmys. Did you see Bernie Sanders wants to send you a mask? Bernie wants to send three
+[02:14:35.920 --> 02:14:43.760]   free masks to every American. It's the masks for all act. I don't know if the government should spend
+[02:14:43.760 --> 02:14:49.440]   $5 billion on producing masks to send everybody. Maybe they should. I don't know.
+[02:14:49.440 --> 02:14:56.720]   I don't know. And I do be a seven just because I know a lot of people who still haven't gotten
+[02:14:56.720 --> 02:15:01.280]   their like stimulus checks. Yeah, that would be maybe more important. You know,
+[02:15:01.280 --> 02:15:06.720]   like if we're going to spend $5 billion in something and then like a sizable percentage will not get it
+[02:15:06.720 --> 02:15:12.800]   seems a little problematic. You can modernize a lot of government systems for $5 billion. Let
+[02:15:12.800 --> 02:15:19.440]   me tell you. You talk about a gender gap. There are in the United Kingdom, there are more CEOs
+[02:15:19.440 --> 02:15:30.080]   named Peter. Then there are female CEOs in the UK. That's a weird stat, but I had to report it.
+[02:15:30.080 --> 02:15:39.120]   More CEOs named Peter in the UK than there are females with any name running companies.
+[02:15:40.640 --> 02:15:51.200]   Oh, yeah. So anyway, that's all there is to say about that. Comcast. Comcast lost 477,000 subscribers
+[02:15:51.200 --> 02:15:58.720]   last quarter. People had enough. Where could they go? Well, is that the whole thing? What's weird is
+[02:15:58.720 --> 02:16:04.960]   they lost 477,000 TV viewers. They gained 323,000 high speed internet users.
+[02:16:06.400 --> 02:16:12.640]   So I figured there probably it's a push, right? Because they've been raising the cost of internet
+[02:16:12.640 --> 02:16:18.480]   so much that they probably they knew this was coming. Why, there's still a lot of little stories
+[02:16:18.480 --> 02:16:26.000]   here. I think I should probably mention before we wrap up the passing of Bill English. He was 91
+[02:16:26.000 --> 02:16:31.440]   years old. You may not know the name, but he built the first computer mouse, Doug Lingelbart,
+[02:16:31.440 --> 02:16:38.960]   his colleague at the Stanford Research Institute, SRI, came up with the idea.
+[02:16:38.960 --> 02:16:47.040]   Engelbert was a fellow engineer. They made the mouse. He helped put on the demo, the
+[02:16:47.040 --> 02:16:52.480]   what was it called? The demo to end all demos where we saw for the first time a mouse graphical
+[02:16:52.480 --> 02:16:59.440]   user interface, Windows. Doug Engelbart, I had the pleasure of interviewing on the screen
+[02:16:59.440 --> 02:17:05.360]   say it was 20 years ago, passed away in 2013. He brought that original mouse, which is just a big
+[02:17:05.360 --> 02:17:12.880]   wooden box with rollers and stuff, but very cool. So the mother of all demos, which is December 9,
+[02:17:12.880 --> 02:17:19.200]   1968, where we for the first time saw the computing that we would all be using eventually,
+[02:17:19.200 --> 02:17:27.680]   Bill English, one of the creators, passed away at the age of 91. I thought we should mention it.
+[02:17:29.040 --> 02:17:33.840]   Leah, before we end the show, can I tell your listeners about something really big with gaming
+[02:17:33.840 --> 02:17:41.280]   that's happening tomorrow that's awesome? Yes. So, so, okay. So analog, analog makes what is the
+[02:17:41.280 --> 02:17:51.840]   Rolls Royce of Super Nintendo and NES. Basically, it's not emulation. It's on FPGA chip. So it's
+[02:17:51.840 --> 02:17:58.640]   basically a modern NES or Super Nintendo or Genesis that will work on a modern TV like
+[02:17:58.640 --> 02:18:05.200]   through HDMI. But is it the same as it is good as? It's really, really, so I'm a speedrunner. So,
+[02:18:05.200 --> 02:18:11.600]   like really small differences matter. It is the best way to play these for most people.
+[02:18:11.600 --> 02:18:16.560]   They've got something coming out tomorrow, which is the analog pocket. It is a $200
+[02:18:16.560 --> 02:18:23.360]   top of the line Rolls Royce ultimate gameboy that will play Game Boy, Game Boy Color,
+[02:18:23.360 --> 02:18:29.520]   Game Boy Advance games, and it has adapters coming out for it for Neo Geo Pocket,
+[02:18:29.520 --> 02:18:36.000]   Sega Game Gear stuff. And that goes on sale tomorrow, 8 o'clock Pacific time and 11 o'clock
+[02:18:36.000 --> 02:18:41.840]   my time and get your order in. If you were interested in this at all the last time they sold their
+[02:18:41.840 --> 02:18:48.000]   Super Nintendo, you would buy it for $500 on the day it came out and then you could sell it on eBay
+[02:18:48.960 --> 02:18:54.960]   almost instantly for like $1,500. They don't make many of these. Do I have to have my old cartridges?
+[02:18:54.960 --> 02:18:56.320]   You do. You do.
+[02:18:56.320 --> 02:19:03.760]   You can also buy a bunch of cartridges in a sack. Oh, okay. Yeah, right. Are they, if you like
+[02:19:03.760 --> 02:19:08.880]   particular games, they have emulation cartridges. You can get on Etsy. Circle of the Moon is one of
+[02:19:08.880 --> 02:19:12.640]   my favorite games. You can just get a week for $1,000. The E.T. cartridge I have. I have the
+[02:19:12.640 --> 02:19:17.520]   E.T. cartridge, but it's unfortunately for an Atari. Not for this. This will work with the,
+[02:19:17.520 --> 02:19:23.600]   this has an Atari Lynx. It will. And it also has something to hook it up to your television. So
+[02:19:23.600 --> 02:19:29.760]   I'm the eighth fastest player in the world. It's from Maria Brothers 2 with Princess Beach.
+[02:19:29.760 --> 02:19:33.600]   What? There's a version of it on Game Boy. What? Why did you never tell me this?
+[02:19:33.600 --> 02:19:37.200]   She treated about this all the time. I did it.
+[02:19:37.200 --> 02:19:41.600]   So there's a version of it that comes out. There's a lot of bells and animal crops.
+[02:19:41.600 --> 02:19:41.920]   Right.
+[02:19:43.680 --> 02:19:48.000]   No, there's a version of it for Game Boy Advance called Super Maria Advance. I can't wait for this
+[02:19:48.000 --> 02:19:51.920]   because I'm going to finally get the world record on this with Super Mario.
+[02:19:51.920 --> 02:19:54.320]   Oh my God. Can you stream that?
+[02:19:54.320 --> 02:19:58.880]   Yeah, because it'll go through HDMI, right? So you could stream it on Twitch. What are you going to do?
+[02:19:58.880 --> 02:20:05.200]   Probably. Yep. You have to download proof for them to verify the speedrun. So.
+[02:20:05.200 --> 02:20:11.360]   I should be, I clearly should be, see, I was following Space Cat Gal. Little did I know.
+[02:20:12.480 --> 02:20:16.880]   Branna Wu on the Twitter. And I could be reading about all this stuff.
+[02:20:16.880 --> 02:20:22.960]   That's cool. How much is that pocket going to set me? $200. That's nothing.
+[02:20:22.960 --> 02:20:26.560]   It's a reasonable investment. You're getting really good hardware.
+[02:20:26.560 --> 02:20:31.680]   I think it's so cool that they do an FPGA. So it really is an emulation. They do all of the
+[02:20:31.680 --> 02:20:38.400]   features of the Nintendo chipset in the FPGA. Yeah, that's correct. But I tell you, as someone
+[02:20:38.400 --> 02:20:45.040]   that grew up on this stuff is very sensitive to the smallest differences. Like in speedrunning,
+[02:20:45.040 --> 02:20:52.560]   a tenth of a second is a lot of time. And I can tell you their emulation of it is really,
+[02:20:52.560 --> 02:20:57.840]   really, really close to the point I can barely tell. So I think for almost anyone,
+[02:20:57.840 --> 02:21:03.440]   this is going to be a way to play these games. Ladies and gentlemen, stand back.
+[02:21:04.800 --> 02:21:15.440]   Here we go. Ready player one, 10 minutes and 17 seconds of Super Mario 2 All-Stars Princess
+[02:21:15.440 --> 02:21:25.040]   Only as speedrun by Branna Wu. Wow. This is easy stuff. This is easy.
+[02:21:25.040 --> 02:21:29.520]   I should move ahead in the video. When does it get hard?
+[02:21:30.320 --> 02:21:34.640]   Probably towards the end. Yeah. Right here. Yeah. Wow. Wow.
+[02:21:34.640 --> 02:21:40.160]   How many millions of times did you play this game? I've been playing this game for 25 years.
+[02:21:40.160 --> 02:21:44.960]   It's in the twig. This is where you did the vine jump and leap above the whole board.
+[02:21:44.960 --> 02:21:50.400]   So you get to skip and say about five minutes right here. You have to time it to, it's a three-frame
+[02:21:50.400 --> 02:21:56.160]   space for you to be able to do the vine jump. See how much to do there. Now up and out.
+[02:21:56.160 --> 02:22:00.720]   So I got to see this. Now I screwed up big towards the end.
+[02:22:00.720 --> 02:22:07.040]   So you could have done better? You mean this? Yeah. You could be the seventh fastest if you
+[02:22:07.040 --> 02:22:16.160]   do it again. All right. Yeah. Wow. So I'm just thinking this is all muscle memory at this point
+[02:22:16.160 --> 02:22:20.880]   for you, right? No, it's deeply strategic. Like watch this. There's a one-frame buffer.
+[02:22:21.600 --> 02:22:26.320]   Here for you to do it. Then you're going up here. Watch this. Okay. Then you clip him right there.
+[02:22:26.320 --> 02:22:33.440]   If you really thought about this, we could have had the eighth fastest Super Mario
+[02:22:33.440 --> 02:22:40.800]   Steven in Congress. You deliberately died? I did because I had one hit and I need it to go through.
+[02:22:40.800 --> 02:22:46.640]   So we have to get five hits on Toad. Little did I know how great you were. Congratulations.
+[02:22:47.440 --> 02:22:52.640]   That's amazing. Thank you, Brandon. We didn't say anything about rebellion pack because our
+[02:22:52.640 --> 02:22:57.280]   list was sealed. I can't even talk about it. So yeah. But what should people do? Should they go to
+[02:22:57.280 --> 02:23:03.760]   that website? Yes. If you want, well, rebellion website is not up yet deliberately because it
+[02:23:03.760 --> 02:23:09.920]   tells everything that we are doing. But if people believe in what I'm doing and the work I did is
+[02:23:09.920 --> 02:23:14.800]   a candidate for Congress, send me a DM. I'll send you the form. If you want to support us, we would
+[02:23:14.800 --> 02:23:19.680]   certainly appreciate that. We're working with a lot of big people. We've raised a lot of money.
+[02:23:19.680 --> 02:23:24.240]   We've got a big team. This is going to make a big impact on the 2020 election in the
+[02:23:24.240 --> 02:23:30.800]   end. I'm going to cry. Thank you. I'm so thrilled. I can't stay out of the game. I'm so thrilled
+[02:23:30.800 --> 02:23:34.960]   that you're going to do this. That's so great. We'll find out. Next time you're on, we'll talk about
+[02:23:34.960 --> 02:23:41.280]   it. Yeah. I'll be too busy playing Mario, but I'll try to look up and listen and pretend I'm
+[02:23:41.280 --> 02:23:46.400]   interested. Thank you, Brianna. It's good. You're going to do good work. I'm very excited. You
+[02:23:46.400 --> 02:23:49.680]   wanted to do this. I know you wanted to do this. I'm so glad you do it. That's great.
+[02:23:49.680 --> 02:23:56.160]   No more. Nothing more to be said. Paris Martenau, she is gainfully employed at the
+[02:23:56.160 --> 02:23:59.600]   information where she covered. Are you covering anything particular or just?
+[02:23:59.600 --> 02:24:06.400]   I'm covering Amazon. Oh, I love it. I love it. Biggest company. It's a whole world in and of
+[02:24:06.400 --> 02:24:14.640]   itself. Now, one of the things that the information is so good at is they've got the leakers in there.
+[02:24:14.640 --> 02:24:19.040]   They've got the, they get the, they're listening and they can hear what's going on. You got some
+[02:24:19.040 --> 02:24:24.560]   good sources inside that come in. Yeah, slowly but surely, building the network. If you or someone
+[02:24:24.560 --> 02:24:30.720]   you know works with any of the many parts of Amazon, hit me up on DM or hit me up on signal.
+[02:24:31.520 --> 02:24:36.720]   My content information is in the bio. That's the best way to do it, isn't it? Signal. That's what
+[02:24:36.720 --> 02:24:42.960]   I use when I agree. I mean, you can just kind of set everything to be deleted in 24 hours and what
+[02:24:42.960 --> 02:24:48.240]   not. So you don't have to worry about any kind of digital trace. If I were doing anything at all
+[02:24:48.240 --> 02:24:54.560]   fishy, I would do it that way, but I'm not. Not even any fishy. If you just don't want like,
+[02:24:54.560 --> 02:25:00.080]   I don't know, let's say somebody sues you in the future. Some dumb reason and gets discovery. Yeah.
+[02:25:00.080 --> 02:25:06.320]   Or you don't want Jeff Bezos breathing down your neck. Just get a new signal. Be safe.
+[02:25:06.320 --> 02:25:11.520]   Be safe. Thank you, Paris. It's so good to see you. Congratulations. Always wonderful to be
+[02:25:11.520 --> 02:25:18.960]   honest. Great. And my old buddy, Colonel Cutz, damn, I love you. I'm so glad to see you and that
+[02:25:18.960 --> 02:25:23.680]   you're thriving and doing well. And are you in Washington, DC? Is that where you're?
+[02:25:24.560 --> 02:25:29.520]   Yeah. I mean, I'm in near DuPont Circle. Wow. And yeah, I would love to have some more
+[02:25:29.520 --> 02:25:38.960]   technologists come join us in DC. USDS dot G O V slash apply. Stop smoking marijuana for a
+[02:25:38.960 --> 02:25:43.840]   couple of days and get on over there. Just a little bit. Just a little bit. You could,
+[02:25:43.840 --> 02:25:46.640]   there'll be plenty of time later. There'll be plenty of time.
+[02:25:46.640 --> 02:25:51.440]   On a mainframes that need. Yeah. Mainframes. Cobalt kids. Let's do it. Let's all do it.
+[02:25:51.440 --> 02:25:54.080]   Mainframes not Mary Jane. That's it.
+[02:25:54.080 --> 02:26:04.080]   Thank you, Matt. Man, it's so great to see all three of you. What a fun show. I love it.
+[02:26:04.080 --> 02:26:10.160]   Thank you. Stay safe. Stay healthy. We do Twitch every Sunday, 230 Pacific, 530 Eastern.
+[02:26:10.160 --> 02:26:19.920]   That's 21, 30 UTC. If you want to tune in and watch us put this together live,
+[02:26:19.920 --> 02:26:23.040]   including the pre show where we we let our hair down a little bit.
+[02:26:23.040 --> 02:26:27.120]   Go to twit.tv/live. There's audio and video streaming there.
+[02:26:27.120 --> 02:26:35.280]   You can also get on demand versions of everything we do at our website, twit.tv. We're on YouTube.
+[02:26:35.280 --> 02:26:41.520]   You can ask Cortana for the next week to play the latest version of this week in tech or even
+[02:26:41.520 --> 02:26:48.240]   stream Twit Live, Echo and Google will do it also. Best thing to do though, subscribe in your
+[02:26:48.240 --> 02:26:52.640]   favorite podcast application. That way you'll get the latest edition the minute it's available
+[02:26:52.640 --> 02:26:58.160]   and it helps us a lot. It gives us the confidence to keep on keeping on.
+[02:26:58.160 --> 02:27:02.080]   Thank you everybody. We really appreciate it. We'll see you next week. Another twit.
+[02:27:02.080 --> 02:27:03.280]   This is amazing.
+[02:27:03.280 --> 02:27:07.480]   Easy.
+[02:27:07.480 --> 02:27:08.540]   Do is a twist.
+[02:27:08.540 --> 02:27:09.420]   All right.
+[02:27:09.420 --> 02:27:11.520]   Do is a twist, baby.
+[02:27:11.520 --> 02:27:12.000]   Do is a twist.
+[02:27:12.000 --> 02:27:14.220]   All right.
+[02:27:14.220 --> 02:27:24.220]   [BLANK_AUDIO]
+

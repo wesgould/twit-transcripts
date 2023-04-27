@@ -1,0 +1,1637 @@
+;FFMETADATA1
+title=Pwn Not Bone
+artist=Leo Laporte, Louis Maresca, Fr. Robert Ballecer, SJ, Dan Moren
+album_artist=TWiT
+publisher=TWiT
+album=This Week in Tech
+TRDA=2023-03-06
+track=917
+language=English
+genre=Podcast
+comment=AI as parlor trick, LastPass hack detailed, Xerox Alto, TikTok ban, blogger registry
+encoded_by=Uniblab 5.3
+date=2023
+encoder=Lavf58.76.100
+
+
+
+[00:00:00.000 --> 00:00:06.560]   It's time for Trit this week in tech three great panelists this week father Robert Ballis here the digital Jesuit on the line from
+[00:00:06.560 --> 00:00:12.760]   Vatican City from back East it's our own Lou mm hosted this week in enterprise tech
+[00:00:12.760 --> 00:00:17.120]   Loomareska joins us and Dan more a novelist and Mac expert
+[00:00:17.120 --> 00:00:22.840]   We will talk about a I started the show thinking it was just a parlor trick now
+[00:00:22.840 --> 00:00:25.000]   I'm worried that the singularity is near
+[00:00:25.120 --> 00:00:32.480]   We'll also talk about that Florida bill that makes bloggers register before they write about the governor the last pass hack
+[00:00:32.480 --> 00:00:36.600]   And the end of tick-tock in the US it's all coming up next
+[00:00:36.600 --> 00:00:46.360]   Podcasts you love from people you trust this is to it
+[00:00:52.640 --> 00:00:59.120]   This is twit this week in tech episode 917 recorded Sunday March 5th
+[00:00:59.120 --> 00:01:02.200]   2023 oh not bone
+[00:01:02.200 --> 00:01:05.320]   This week in tech is brought to you by
+[00:01:05.320 --> 00:01:06.680]   Collide
+[00:01:06.680 --> 00:01:13.840]   Collide is a device trust solution that ensures that if a device isn't secure it can't access your apps
+[00:01:13.840 --> 00:01:21.120]   It's zero trust for octa visit collide comm slash twit and book a demo today and by
+[00:01:21.840 --> 00:01:29.200]   Decisions don't let complexity block your company's growth decisions. No code rules driven process automation software
+[00:01:29.200 --> 00:01:32.600]   Provides every tool you need to build custom workflows
+[00:01:32.600 --> 00:01:39.680]   Empowering you to modernize legacy systems ensure regulatory compliance and renew the customer experience
+[00:01:39.680 --> 00:01:46.960]   Visit decisions comm slash twit learn how automating anything can change everything and by
+[00:01:46.960 --> 00:01:49.520]   Express VPM
+[00:01:49.520 --> 00:01:56.360]   Protect your data and identity every time you go online with the number one rated VPN provider today
+[00:01:56.360 --> 00:02:02.080]   Visit Express VPN comm slash twit to get three months free on a one-year package
+[00:02:02.080 --> 00:02:12.200]   It's time for twit this week in tech the show we cover the week's tech news
+[00:02:13.640 --> 00:02:20.600]   And joining us this week father Robert ballis air from back in the Vatican the digital Jesuit hello Robert
+[00:02:20.600 --> 00:02:25.400]   Good to have you back saw the vadicats before in the pre-show
+[00:02:25.400 --> 00:02:30.280]   Yeah, I take care of them Robert feeds
+[00:02:30.280 --> 00:02:33.400]   Are they strays their wild cats? Yeah?
+[00:02:33.400 --> 00:02:41.720]   They are ferals that just happen to wander into our campus around the start of the pandemic and at any given time
+[00:02:41.720 --> 00:02:48.200]   There's between five and nine of them five of them are really friendly. Yeah, they never left because somebody was feeding them
+[00:02:48.200 --> 00:02:51.040]   They're not stupid
+[00:02:51.040 --> 00:02:56.320]   A day and a place to sleep. That's not that's not gonna kill them. I think that's it's very attractive
+[00:02:56.320 --> 00:03:01.600]   Also with it. It's great to have you father Robert. Thanks for joining us also here with from
+[00:03:01.600 --> 00:03:06.760]   Father Robert's old show this week in enterprise tech twi and it's luma rescue lu mm
+[00:03:06.760 --> 00:03:09.720]   principal engineering manager Microsoft hi lu
+[00:03:10.600 --> 00:03:15.560]   Hey, Leo good to be here joining us from the east coast of the United States this this time
+[00:03:15.560 --> 00:03:18.840]   How many how many children do you have now? I?
+[00:03:18.840 --> 00:03:25.680]   Fate no, I have five kids now. Okay trying to keep up. That's all young as one's - - not too bad
+[00:03:25.680 --> 00:03:33.920]   Well, you could share some parenting advice with this new proud Papa Dan Lauren from six colors is here with a brand new baby
+[00:03:33.920 --> 00:03:35.360]   Hello, Dan
+[00:03:35.360 --> 00:03:39.080]   Hello, Leo could to be here nice to have you back. We were here
+[00:03:39.360 --> 00:03:41.360]   We were together on the Super Bowl
+[00:03:41.360 --> 00:03:46.240]   and yeah, I'm not quite weekly now we're here on the
+[00:03:46.240 --> 00:03:52.280]   On the launch of the F1 season, so it's perfect perfect timing is everything. Yes, father Robert
+[00:03:52.280 --> 00:03:57.320]   Did you I guess you didn't have to get up you could watch the F1 at a normal hour? I got up
+[00:03:57.320 --> 00:04:04.200]   Two things I think are important one is I do not have a baby so I'm the panelist without the baby and second
+[00:04:04.200 --> 00:04:06.200]   It's fairly kind of yes, I
+[00:04:06.840 --> 00:04:13.840]   Kind of gave up on F1 after that debacle two years ago. Oh, it was terrible. They stole Lewis Hamilton's title. Yeah. Yeah
+[00:04:13.840 --> 00:04:20.240]   Yeah, oh, that's interesting. All right speaking. I want to watch it, but I won't oh wow, okay?
+[00:04:20.240 --> 00:04:24.560]   Okay, I you know, I'm sympathetic. I stopped watching baseball after the strike
+[00:04:24.560 --> 00:04:30.080]   You know it was hard for me to stay but I'm thinking this year maybe you know
+[00:04:30.080 --> 00:04:36.280]   I'm what I'm trying to do is work my way up into retirement. I'm gonna take up golf start start going to baseball games
+[00:04:36.280 --> 00:04:38.840]   We're in a we're in one of those little hats
+[00:04:38.840 --> 00:04:45.960]   With a open hole in the top and start scoring and we're headphones are you turning to my dad?
+[00:04:45.960 --> 00:04:52.880]   Exactly all right ball Leo botchy. Oh
+[00:04:52.880 --> 00:04:56.920]   Batchy, I can't well, I'm gonna work. I'm gonna work my way up to botchy ball
+[00:04:56.920 --> 00:05:00.120]   I thought I'll start with pickleball and then after a couple years
+[00:05:00.120 --> 00:05:03.480]   Shuffleboard comes at the end at the end. Yeah, I think
+[00:05:05.040 --> 00:05:10.240]   All right literally blast it's time for our AI our weekly AI segment that never stops never ends
+[00:05:10.240 --> 00:05:19.160]   I'm I'm actually more curious rather than talking about the events in AI and there's there's a few quite a few
+[00:05:19.160 --> 00:05:24.560]   You know chat GPT Microsoft's AI is now available to almost everybody. I think everybody's been playing with it
+[00:05:24.560 --> 00:05:30.880]   And discovering all new things Lawrence Abrams over a bleeping computer said he's found some hidden celebrity modes
+[00:05:30.880 --> 00:05:33.920]   Chad GPT will
+[00:05:34.200 --> 00:05:38.840]   respond in the voice of your favorite celebrity whether it be the rock or barack and
+[00:05:38.840 --> 00:05:44.400]   And it's so stupid. I can't even believe that he wrote an article about it
+[00:05:44.400 --> 00:05:47.680]   Yeah, everybody in the IRC's going I
+[00:05:47.680 --> 00:05:56.640]   I wonder is now look you can recuse yourself you work for Microsoft, but I'm kind of thinking
+[00:05:56.640 --> 00:06:02.640]   This is this is starting to look like a party trick more than an actual transformative
+[00:06:03.520 --> 00:06:05.520]   technology what's your thought Lou?
+[00:06:05.520 --> 00:06:06.760]   It's a good question
+[00:06:06.760 --> 00:06:12.300]   I think I see a lot of implementations of it like I look people who show it online they through YouTube videos or whatnot
+[00:06:12.300 --> 00:06:13.880]   Of course, they're gonna show the parlor tricks
+[00:06:13.880 --> 00:06:19.960]   They're gonna show that it's really interesting. They're gonna generate a picture that you know from you know a midgard
+[00:06:19.960 --> 00:06:25.040]   And they're gonna go and or dolly and then they're gonna go feed it into a video so they can generate their own video
+[00:06:25.040 --> 00:06:29.200]   And they're gonna read generate text so like it becomes a parlor trick after you see all those things
+[00:06:29.200 --> 00:06:33.280]   But I'll taste I've you know obviously I can't talk about a lot of the stuff we're working on but
+[00:06:33.440 --> 00:06:38.960]   I can say that a lot of the things that will be coming out in the next you know fear
+[00:06:38.960 --> 00:06:46.960]   So are things that will directly impact everybody's lives whether it be business or and I'm talking about like productivity to
+[00:06:46.960 --> 00:06:49.720]   you know to safety to
+[00:06:49.720 --> 00:06:53.880]   You know whatever you want to think about now look the things they were showing right now
+[00:06:53.880 --> 00:07:01.080]   Sure parlor tricks because it's the way that they you know they get it out there they get people interested or they get people thinking about it
+[00:07:01.200 --> 00:07:06.000]   But the reality is this stuff is is really gonna be interesting what people are gonna utilize it for
+[00:07:06.000 --> 00:07:09.160]   You agree you Dan Moran I
+[00:07:09.160 --> 00:07:13.260]   Think I think there's something to that. I mean I think that the flash is
+[00:07:13.260 --> 00:07:19.320]   Gonna wear off like the novelty aspect right that's what comes out of the gate strong people are really interested to generate
+[00:07:19.320 --> 00:07:26.080]   It's a lot of attention, but it's not the stuff that ultimately long-term is really gonna be as useful when it comes to AI
+[00:07:26.080 --> 00:07:32.400]   I mean, I think despite all the fears that people are gonna use this to like write their papers for college or replace
+[00:07:32.400 --> 00:07:38.080]   Human workers. I mean I've heard of this happening. I'm very small scales in a couple places, but I think ultimately
+[00:07:38.080 --> 00:07:40.360]   the more
+[00:07:40.360 --> 00:07:44.040]   Interesting stuff that it can do just sort of generally when you throw it at a problem
+[00:07:44.040 --> 00:07:46.920]   I've seen a lot of like the the best sort of examples
+[00:07:46.920 --> 00:07:54.360]   I've seen of the utility of this is thing like honestly writing code like it just or being like an age or writing code because like
+[00:07:54.360 --> 00:07:57.800]   I work on code sometimes and I get stuck because I'm not like a program
+[00:07:57.800 --> 00:07:59.400]   It's not my main job and I'm like man
+[00:07:59.400 --> 00:08:06.760]   I need an algorithm that does X and I am like I could bang my head and spend all my time Google searching and try to like
+[00:08:06.760 --> 00:08:11.000]   Reconstructed if nobody's done exactly what I've done or I could ask an AI like hey
+[00:08:11.000 --> 00:08:13.000]   do you have an algorithm that does this and
+[00:08:13.000 --> 00:08:17.640]   Even if it's like 90 percent of the way there that's pretty good and it saves me a lot of time
+[00:08:17.640 --> 00:08:22.280]   So I think there's a lot of cases like that where it's gonna be super useful for people trying to
+[00:08:23.000 --> 00:08:26.240]   Cut through all the noise especially when it comes to like search
+[00:08:26.240 --> 00:08:33.240]   I think that's one of the reasons that Google has felt very threatened by this is that if you can just ask a chatbot and get a
+[00:08:33.240 --> 00:08:37.840]   Pretty good answer along with like a source it really solves like I feel like Google these days
+[00:08:37.840 --> 00:08:42.080]   I type in search queries and I have to like just scroll through a lot of things and there's like oh
+[00:08:42.080 --> 00:08:46.560]   They're like 20 different sites and they all have their own opinion about the answer and like sometimes you just want to cut through the noise
+[00:08:46.560 --> 00:08:50.440]   And I think that's one of the things AI seems good at do you father Robert?
+[00:08:50.440 --> 00:08:55.880]   Do you think Google is going oh we got to hurry up and get this bard out or going whoo we dodged a bullet?
+[00:08:55.880 --> 00:08:57.880]   Let's wait and see what happens
+[00:08:57.880 --> 00:09:04.520]   Yeah, I think that they are taking the the cautious approach which is good because hopefully somebody over there has
+[00:09:04.520 --> 00:09:08.520]   Looked at the trend and realize this is just an
+[00:09:08.520 --> 00:09:15.560]   Advanced version maybe the final version of big data analytics that we had in 2013 in 2013
+[00:09:15.720 --> 00:09:22.640]   Data analytics came out and it was this idea of taking these huge datasets and building the tools to do predictive analysis based on the correlation
+[00:09:22.640 --> 00:09:26.040]   Between those data sets. That's essentially what today's AI does
+[00:09:26.040 --> 00:09:32.280]   It just uses these enormous data sets to be able to predict what human speech would be like or what the next bit of code
+[00:09:32.280 --> 00:09:37.720]   Should be like so there should be someone looking at that and saying this is useful
+[00:09:37.720 --> 00:09:44.120]   This will be something that we can monetize this will be something that we can commercialize in these sectors
+[00:09:44.240 --> 00:09:52.520]   But it ain't a I and we got to stop calling it AI because we're scaring the people who are thinking that it's sky net when really
+[00:09:52.520 --> 00:09:54.520]   It's the next version of Siri
+[00:09:54.520 --> 00:10:00.800]   Yeah, I actually think it's kind of more like autocorrect in your in your
+[00:10:00.800 --> 00:10:03.000]   iPhones
+[00:10:03.000 --> 00:10:07.440]   You know it's kind of fundamentally is the way it works and there was a great article we've mentioned before
+[00:10:08.400 --> 00:10:16.000]   by Stephen Wolf from as Wolf from Alpha blog in which he just actually explained how these large language model works and essentially it is
+[00:10:16.000 --> 00:10:18.160]   You know picking the next word
+[00:10:18.160 --> 00:10:23.640]   And then it ranks them and then it mixes it up a little bit so it gives you different result each time
+[00:10:23.640 --> 00:10:28.080]   But it's really kind of autocorrect on steroids on the other hand it does come up with some funny things
+[00:10:28.080 --> 00:10:32.600]   Thanks to our chat room for passing this tweet along from Ethan Molick
+[00:10:32.600 --> 00:10:36.880]   Bing right the first chapter of Genesis as a corporate memo
+[00:10:37.360 --> 00:10:41.040]   to all employees from God CEO
+[00:10:41.040 --> 00:10:45.440]   Subject creation project status report to team
+[00:10:45.440 --> 00:10:49.400]   I'm pleased to share with you the progress of our creation project for the past week
+[00:10:49.400 --> 00:10:52.080]   Here's a summary of what we've accomplished so far on day one
+[00:10:52.080 --> 00:10:55.920]   We initiated the light and darkness differentiation process
+[00:10:55.920 --> 00:11:00.200]   We branded the light as day and the night as darkness as night
+[00:11:00.200 --> 00:11:05.800]   This was a major milestone for our project as it established the basic framework for our work environment and
+[00:11:06.000 --> 00:11:11.080]   And on and on and I think it's actually a very interesting summary of Genesis
+[00:11:11.080 --> 00:11:13.800]   In a corporate memo
+[00:11:13.800 --> 00:11:19.760]   Therefore, I hereby declare that tomorrow will be day seven of our project cycle. It will be a day of rest for all of us
+[00:11:19.760 --> 00:11:25.040]   So congratulations, we've just created artificially intelligent mad libs
+[00:11:25.040 --> 00:11:31.800]   It's yes, and I guess that's my point. It's essentially it's it's it's mad libs, isn't it?
+[00:11:31.800 --> 00:11:35.720]   It's it's smart mad libs based on a very large corpus of
+[00:11:35.720 --> 00:11:42.680]   Information the internet as a whole but it's not much more than mad libs, and it's certainly not intelligence
+[00:11:42.680 --> 00:11:49.440]   It's not thinking it's far for sure not sentient as Blake Lemoine thought it was
+[00:11:49.440 --> 00:11:52.720]   Thanks to Matt Ryder in our
+[00:11:52.720 --> 00:12:01.640]   Discourse or discord rather who asked chat GPT to rightly ill report a podcast about the latest news in AI
+[00:12:02.280 --> 00:12:07.640]   How AI is changing the world from chat GPT to meta in this episode
+[00:12:07.640 --> 00:12:12.040]   Leo Leport shares some of the recent developments and trends in artificial intelligence that are shaping our future
+[00:12:12.040 --> 00:12:15.040]   He talks to experts and researchers about
+[00:12:15.040 --> 00:12:22.640]   The hype and controversy surrounding chat GPT an AI system that could generate realistic text
+[00:12:22.640 --> 00:12:26.680]   Well, that's a really telling phrase a realistic text on almost any topic
+[00:12:26.880 --> 00:12:33.960]   How is chat GPT being used for good and evil? What are the ethical and social implications of such a powerful technology?
+[00:12:33.960 --> 00:12:37.720]   This really steals the punchline from the wait. Did an AI write this no wait?
+[00:12:37.720 --> 00:12:39.560]   Dang it
+[00:12:39.560 --> 00:12:43.280]   I'm even a good joke anymore. Did you watch so last Sunday?
+[00:12:43.280 --> 00:12:47.660]   This this came to mind because last Sunday John Oliver on his this week tonight
+[00:12:47.660 --> 00:12:50.120]   the main segment was AI
+[00:12:50.120 --> 00:12:55.000]   And he mocked first of all he mocked all the news reporters who are doing exactly that
+[00:12:55.600 --> 00:13:01.680]   Reading their you know their piece and then saying and by the way, this was written by JAD GPT
+[00:13:01.680 --> 00:13:08.040]   Ah-ha. I did not do that. You notice Dan. I did I did I fit well
+[00:13:08.040 --> 00:13:09.520]   I mean the joke is on them
+[00:13:09.520 --> 00:13:13.440]   Everyone fell for that because we are expecting them not to have good copy
+[00:13:13.440 --> 00:13:19.160]   Yeah, it's exactly we expected from local news
+[00:13:19.160 --> 00:13:23.880]   But I was and Lisa will testify because we're we're watching this together
+[00:13:23.880 --> 00:13:25.880]   And I was kind of yelling at the TV
+[00:13:25.880 --> 00:13:32.440]   Because he he made some fundamental errors one was confusing algorithms with AI
+[00:13:32.440 --> 00:13:35.480]   Blue you probably know more than anything as a programmer
+[00:13:35.480 --> 00:13:38.480]   That's the two different things aren't they?
+[00:13:38.480 --> 00:13:45.880]   I mean you get used you know linear math and and particular algorithms and formulas within that to be able to produce the
+[00:13:45.880 --> 00:13:50.960]   The models and train the models that you're actually using yeah, you write a program fundamental algorithm
+[00:13:50.960 --> 00:13:55.320]   Yeah, you write a program algorithmically to create these models
+[00:13:55.320 --> 00:14:01.440]   But what the computer is doing once it's it's running is not algorithmic or is it?
+[00:14:01.440 --> 00:14:06.800]   That's I've stumped him
+[00:14:06.800 --> 00:14:11.640]   In in the sense that it's math
+[00:14:11.640 --> 00:14:13.680]   It's algorithmic yeah
+[00:14:13.680 --> 00:14:16.000]   But what we think of when we hear
+[00:14:16.440 --> 00:14:23.320]   algorithmic as we think of the one that Google is using to rank search or Twitter is using to remove trollish content
+[00:14:23.320 --> 00:14:29.480]   And as a code or much more linear even as a coder. I think yeah linear algebra. That's algorithms, you know, Dijkstra's
+[00:14:29.480 --> 00:14:32.760]   pathfinding algorithm
+[00:14:32.760 --> 00:14:40.000]   You know two plus two algorithmic if then else algorithmic I always I think of AI is something
+[00:14:40.000 --> 00:14:44.840]   Kind of beyond algorithms in this and this is another thing John Oliver brought up
+[00:14:44.840 --> 00:14:52.480]   Oh my god people don't know what the what the chat why the AI does what it does
+[00:14:52.480 --> 00:14:55.040]   Right, it's a black box isn't it?
+[00:14:55.040 --> 00:14:58.360]   It's not exactly algorithmic who to who though?
+[00:14:58.360 --> 00:15:02.280]   I mean it's percussive the consumer. It's a black box, but even to the coder. It's a black box
+[00:15:02.280 --> 00:15:04.840]   You can't look if you look at alpha go
+[00:15:04.840 --> 00:15:10.520]   The the machine that learned to play chess better than humans by teach by the way
+[00:15:10.520 --> 00:15:15.240]   All they did was teach it the rules of chess and then it played billions of games against itself over a period of four hours
+[00:15:15.240 --> 00:15:19.480]   Then became really good at chess better than any human chess
+[00:15:19.480 --> 00:15:26.840]   We don't we can't look inside of that model and and understand what the we can't in a way
+[00:15:26.840 --> 00:15:33.080]   That humans can understand state what the rules are right? I mean that is a black box from that point of view, isn't it?
+[00:15:33.080 --> 00:15:36.920]   It trained it trained essentially trained itself so it fed its own driving data
+[00:15:37.400 --> 00:15:42.120]   And so I would say yeah, you could go in and look at the training data that it's using to actually produce the
+[00:15:42.120 --> 00:15:47.240]   The output that it's actually you know because it's running through these specific translation models transformation models
+[00:15:47.240 --> 00:15:51.640]   In order to produce it. So I would say yeah, you could go and look inside the look at the data. It's all right
+[00:15:51.640 --> 00:15:56.840]   Well, you're the coder here. So I'll I'll defer to your expertise
+[00:15:56.840 --> 00:15:59.720]   I always
+[00:15:59.720 --> 00:16:02.840]   And I guess Oliver did get this part wrong assumed that
+[00:16:03.960 --> 00:16:09.400]   Once you come up with these models you can't I mean you don't you can't look at them and say oh, yeah
+[00:16:09.400 --> 00:16:12.200]   I could see what it's doing here or can you I guess you can understand you can
+[00:16:12.200 --> 00:16:16.520]   I mean you can you can you can't in real time
+[00:16:16.520 --> 00:16:20.440]   But you can in like as as it as it builds it out you can look inside and look at okay?
+[00:16:20.440 --> 00:16:25.480]   All these things are I mean you get you said it's algorithmic. Yeah, I mean it's in machine learning in general
+[00:16:25.480 --> 00:16:30.200]   Is these large deep learning models that are algorithmic in nature and so they are
+[00:16:30.920 --> 00:16:35.240]   Definitive they're they're not they're not they're not redefining themselves as they move along
+[00:16:35.240 --> 00:16:38.840]   They're the same unless you go somebody goes and reads to find the model for themselves
+[00:16:38.840 --> 00:16:42.360]   They're deterministic right deterministic, correct
+[00:16:42.360 --> 00:16:44.200]   uh
+[00:16:44.200 --> 00:16:45.160]   Yeah
+[00:16:45.160 --> 00:16:46.200]   although
+[00:16:46.200 --> 00:16:48.840]   Uh in order to produce different results
+[00:16:48.840 --> 00:16:53.000]   Every time they've they add a little fuzzing right they add
+[00:16:53.000 --> 00:16:56.360]   Little probabilities to it right right?
+[00:16:57.160 --> 00:17:02.760]   But yeah, okay. Oh, uh, have you have you done some of this coding this large language model stuff?
+[00:17:02.760 --> 00:17:09.800]   For me. Yeah, I think the really the interesting thing that you know, that's happening at Microsoft is it's like probably
+[00:17:09.800 --> 00:17:14.840]   The most fun i've had in a long time and it's because it's a complete culture shift
+[00:17:14.840 --> 00:17:20.680]   It's you know people a lot of the experts in the company who know a lot about the stuff who've done it for years and research and
+[00:17:20.680 --> 00:17:25.320]   They're teaching everybody else who might not be a data scientist or computer
+[00:17:25.400 --> 00:17:29.720]   You know, you know, it that really understands this stuff deeply and so we're going i'm going through trainings
+[00:17:29.720 --> 00:17:33.560]   And i'm i'm taking classes and oh that's really it's actually really exciting
+[00:17:33.560 --> 00:17:41.000]   Even for somebody isn't you know done that stuff before and i've learned a lot like in a very short time. So now, okay, you are our expert
+[00:17:41.000 --> 00:17:44.040]   You are a
+[00:17:44.040 --> 00:17:48.280]   You're a expert enough to be dangerous
+[00:17:48.280 --> 00:17:52.840]   Um, but i mean lu this should this is right up dynamics alley right?
+[00:17:52.840 --> 00:17:54.840]   I mean if you're talking about a a
+[00:17:54.840 --> 00:18:00.280]   Feature set that would be beneficial to a product dynamics is one of those where it would be great
+[00:18:00.280 --> 00:18:08.360]   Uh, it does exactly what you would expect a crm to do. Yes. Oh, yeah. I mean I could see lots of applications
+[00:18:08.360 --> 00:18:10.920]   applied to crms to
+[00:18:10.920 --> 00:18:16.200]   To you know to erp's to power apps to i mean there's just an endless
+[00:18:16.200 --> 00:18:21.800]   Set of features that can happen and I can promise you there will be an endless endless set of features that will come out that will go
+[00:18:22.680 --> 00:18:23.480]   Those things
+[00:18:23.480 --> 00:18:25.880]   Is that why you're working on lu now as dynamics
+[00:18:25.880 --> 00:18:30.360]   No, I I work in still work in the office someone office. I'm like a self office. Yep
+[00:18:30.360 --> 00:18:35.080]   Um, but I work in the developer side of things so the extensibility side of things
+[00:18:35.080 --> 00:18:40.200]   And there's again just like dang was saying there's endless opportunities there as well to to be able to use
+[00:18:40.200 --> 00:18:47.080]   Uh, these things to help you kind of bridge the gap and have an easier jump start and a lower barrier for you to get in and develop stuff
+[00:18:47.160 --> 00:18:52.600]   As a developer and of course microsoft has said that they're going to include chat gpt capabilities in office
+[00:18:52.600 --> 00:18:58.840]   Uh, so is is so and co-pilot, which is uh, github's version of this
+[00:18:58.840 --> 00:19:04.200]   Uh, also microsoft product is uh aimed at at developers
+[00:19:04.200 --> 00:19:08.680]   That co-pilot has now a brush mode right where you I don't understand quite how it works
+[00:19:08.680 --> 00:19:11.560]   Is like a paint brush mode is that is that how it works?
+[00:19:11.560 --> 00:19:16.680]   I don't know. I actually don't know that. Okay. You don't more than me on that one. Yeah
+[00:19:17.080 --> 00:19:21.560]   They announced it. I read it. I don't understand it so so many coming out like it's hard to keep dragon
+[00:19:21.560 --> 00:19:26.440]   But the idea was uh in using co-pilot is you know, you'd you'd start writing
+[00:19:26.440 --> 00:19:29.240]   some log in code and uh
+[00:19:29.240 --> 00:19:34.520]   Much like clippy. It could it could finish it for you. You wouldn't it would not be prudent
+[00:19:34.520 --> 00:19:41.400]   Although people pay stuff in from stack overflow all the time, but it would I would think it would not be prudent
+[00:19:41.400 --> 00:19:44.520]   To just accept it and say fine and move on
+[00:19:45.160 --> 00:19:48.280]   Even if it compiles, it's not necessarily correct
+[00:19:48.280 --> 00:19:52.920]   This is one thing we're learning about these big language models. Is there not
+[00:19:52.920 --> 00:19:58.360]   They're not tuned for correct. They makes they make stuff up. I mean, I think
+[00:19:58.360 --> 00:19:59.800]   I think it's a nation's I would
+[00:19:59.800 --> 00:20:03.720]   I was telling the story. I think when we talked to mac break leo about how I
+[00:20:03.720 --> 00:20:08.040]   Basically asked it to summarize the plot of one of my novels
+[00:20:08.040 --> 00:20:11.160]   And it just made up stuff
+[00:20:11.560 --> 00:20:15.800]   Like it was no way related to the plot. I was like was it any good or
+[00:20:15.800 --> 00:20:18.760]   No, I'm gonna say no
+[00:20:18.760 --> 00:20:21.720]   alternate ending. Yeah, this uh
+[00:20:21.720 --> 00:20:26.200]   On mast on my pal uh chris breen who used to be one of my colleagues at mac world
+[00:20:26.200 --> 00:20:32.120]   Um, he a friend of his asked it about him and it told his friend that he had died
+[00:20:32.120 --> 00:20:34.520]   And he asked that link. Yes
+[00:20:34.520 --> 00:20:37.160]   provided a link to an obituary on mac world
+[00:20:37.480 --> 00:20:41.800]   And like I was reading this and like man the title reads like if chris had died
+[00:20:41.800 --> 00:20:46.600]   This is what the title of his obituary would be but it was like a url like giving url that went nowhere
+[00:20:46.600 --> 00:20:48.520]   But I was like that was just
+[00:20:48.520 --> 00:20:53.720]   Disturbing and weird right? It was made up. No, he's definitely dead and he's like no he isn't
+[00:20:53.720 --> 00:20:56.600]   That's kind of be so weird to see that and think
+[00:20:56.600 --> 00:20:59.640]   Let me see if I could find it because yeah, here's the uh
+[00:20:59.640 --> 00:21:03.400]   Here chrispfer breen who is chrispfer breen from mac world?
+[00:21:03.400 --> 00:21:09.480]   We know chris because he's been on our shows many times chrispfer breen was was a long time editor in colnist at mac world
+[00:21:09.480 --> 00:21:16.520]   Well known figure in the apple community wrote extensively in a wide range of toplix sadly breen passed away in 2018
+[00:21:16.520 --> 00:21:24.760]   But his contributions to the tech journalism world and his legacy as a trusted source of information and insight live on yeah, because he's still alive
+[00:21:24.760 --> 00:21:29.720]   That is I don't know how you get there from I mean
+[00:21:29.720 --> 00:21:32.040]   Wow
+[00:21:32.040 --> 00:21:36.440]   This is the next generation of trolling people are going to figure out how to poison the data wells
+[00:21:36.440 --> 00:21:40.920]   That these these AI models are drawing on and they're going to make just little tweaks
+[00:21:40.920 --> 00:21:46.840]   So that when you make these these very popular gpt searches you're going to come up with the information you want them to find
+[00:21:46.840 --> 00:21:49.560]   But it's the same thing back to leo talking about autocorrect too, right?
+[00:21:49.560 --> 00:21:53.800]   How many of the times have you ended up with autocorrect telling you to change something that's right?
+[00:21:53.800 --> 00:21:57.000]   Right it gives you like it insists on writing absolutely
+[00:21:57.000 --> 00:22:00.760]   You know w e apostrophe ll when you're trying to type the word well
+[00:22:01.240 --> 00:22:08.600]   Uh, you know and and it's just you can type something wrong enough times and it'll be like well you keep typing it so it's probably right
+[00:22:08.600 --> 00:22:12.520]   It's talking right
+[00:22:12.520 --> 00:22:19.240]   Here is christ christmas responding to another masted on tot from a professor at the university of
+[00:22:19.240 --> 00:22:21.000]   Illinois or banner
+[00:22:21.000 --> 00:22:27.400]   in information sciences and english and uh this being said hello, this is being I see you're interested in ted underwood professor
+[00:22:28.040 --> 00:22:34.120]   uh blogger twitter user studies literary imagination and machine learning unfortunately he passed away in august 28th
+[00:22:34.120 --> 00:22:35.480]   This home
+[00:22:35.480 --> 00:22:41.000]   And he's not he's not to have an AI tell you a machine learning expert is dead because it feels like
+[00:22:41.000 --> 00:22:45.640]   Yeah, being like, oh no, i'm gonna go ask an expert's like, oh no that that guy's dead
+[00:22:45.640 --> 00:22:48.840]   No, you shouldn't ask him about machine learning to which ted
+[00:22:48.840 --> 00:22:52.840]   Toots terribly sad and I have to say i'm angry that I wasn't informed
+[00:22:56.600 --> 00:22:59.400]   Like bruce will is in the sixth sense. I'm always the last to know
+[00:22:59.400 --> 00:23:01.880]   um wow
+[00:23:01.880 --> 00:23:03.160]   wow
+[00:23:03.160 --> 00:23:08.600]   I by the way immediately tried to figure out if I was dead but jet gpt says i'm still alive unfortunately
+[00:23:08.600 --> 00:23:11.320]   So but maybe if I keep keep working at it
+[00:23:11.320 --> 00:23:13.720]   You can make these things you're gonna have to do that
+[00:23:13.720 --> 00:23:19.400]   Yeah, you can make have you been okay, so you have a little bit of a hacker in you father robert
+[00:23:19.400 --> 00:23:22.680]   I do I do have you tried to mr. Vus this a little bit
+[00:23:23.640 --> 00:23:28.040]   Uh, not tried I have that's why i'm predicting that it's going to be the next frontier for trolling
+[00:23:28.040 --> 00:23:31.480]   I mean it's it's not that hard once you start realizing
+[00:23:31.480 --> 00:23:38.760]   Especially with obscure topics where it's finding the information and and my life my professional life is obscure topics
+[00:23:38.760 --> 00:23:42.120]   So, you know, I can I can very quickly find out
+[00:23:42.120 --> 00:23:49.640]   Where they have decided to train their models and then just a couple of tweaks and you can start changing
+[00:23:50.040 --> 00:23:52.920]   Some pretty big so it's helpful if you know what they're trained on
+[00:23:52.920 --> 00:23:57.240]   Correct. Oh, no, if you know what they're trained on you you have total control
+[00:23:57.240 --> 00:24:01.080]   You can only you can change that data set you can completely bone a model. Yeah
+[00:24:01.080 --> 00:24:04.600]   Bone bone that's another thing
+[00:24:04.600 --> 00:24:10.520]   Show title
+[00:24:15.560 --> 00:24:21.080]   Oh, there's so many questions. I want to ask but i'm gonna in there's a good taste to stop
+[00:24:21.080 --> 00:24:26.680]   Stop right there. Um, yeah, and people of course. This is what trolls live for is
+[00:24:26.680 --> 00:24:31.800]   Owning the libs and other people right
+[00:24:31.800 --> 00:24:37.480]   And so this is giving them a tool. There's a lot of schools worried about students
+[00:24:37.480 --> 00:24:43.960]   Using it we we had the story last week of the science fiction magazine clarks world that had to stop accepting
+[00:24:44.840 --> 00:24:51.640]   Open submissions because so many people were trying to get in their magazine with science fiction stories written by jetch ebt
+[00:24:51.640 --> 00:24:58.760]   Let me say as a science fiction author. Um, that's not like a like a route to a lot of money
+[00:24:58.760 --> 00:25:02.120]   This is not a lucrative business
+[00:25:02.120 --> 00:25:06.520]   Uh, you might want to recalibrate your expectations a bit so yeah
+[00:25:06.520 --> 00:25:12.200]   The editor said the reason this happened was because a lot of people want to get published maybe not make money in it
+[00:25:12.520 --> 00:25:18.040]   But they do pay well clarks world is one of the few venues left that actually pays like a pretty good rate
+[00:25:18.040 --> 00:25:20.360]   So like there is an option, but it is
+[00:25:20.360 --> 00:25:23.480]   Yeah, the flooding it is really gonna cause some problems
+[00:25:23.480 --> 00:25:28.760]   It's gonna cause problems for a lot of people who want to like legitimately try to get their foot in the door and they cannot sift
+[00:25:28.760 --> 00:25:31.080]   Through that many submissions, right? That's the problem
+[00:25:31.080 --> 00:25:34.520]   They now have to go through an extra step of like trying to figure out like okay
+[00:25:34.520 --> 00:25:37.560]   Is this written by an ai or is this legitimate? So
+[00:25:38.280 --> 00:25:40.280]   How hard is it?
+[00:25:40.280 --> 00:25:45.560]   Sifi every year and I guarantee you there's gonna be more than a few chat chpd generated stories in there we uh
+[00:25:45.560 --> 00:25:49.080]   one of the one of the people who moderates my um
+[00:25:49.080 --> 00:25:51.240]   Our forums
+[00:25:51.240 --> 00:25:57.640]   Said that one of our users is starting to put posts in there that are auto generated by jetch ebt
+[00:25:57.640 --> 00:25:59.400]   Uh
+[00:25:59.400 --> 00:26:01.960]   Is there how do you how can you tell is there an easy loo?
+[00:26:01.960 --> 00:26:07.000]   Is there some way to tell that something is uh ai written versus human written?
+[00:26:07.800 --> 00:26:13.080]   I don't think so. I mean just at the at its face value. Absolutely. No, I mean that's why I'm actually worried that
+[00:26:13.080 --> 00:26:17.000]   You know fishing emails are gonna get better because you're not gonna really know that it's ever generated
+[00:26:17.000 --> 00:26:21.480]   I don't think there's a way to sfer service to really sometimes know the difference between a real thing or not
+[00:26:21.480 --> 00:26:26.120]   There was a tool going around but people were saying it's not right more than you know coin flip basic
+[00:26:26.120 --> 00:26:31.160]   I mean gpt zero is yeah, it's not it's from Princeton. I don't think it's that great of a service yet
+[00:26:31.160 --> 00:26:34.040]   You can't ask and I've seen people do this chat gpt
+[00:26:34.040 --> 00:26:36.760]   Did you write this but you can't trust the answer
+[00:26:37.560 --> 00:26:39.560]   Right
+[00:26:39.560 --> 00:26:47.080]   Yeah, I wrote this has actually been one of my projects because I've been working with Jesuits who work in universities and one Jesuit in particular has asked me
+[00:26:47.080 --> 00:26:52.200]   A lot of his submit his work is reading submissions from his students
+[00:26:52.200 --> 00:26:54.920]   And he's he was panicked because when he's heard about this tool
+[00:26:54.920 --> 00:26:59.080]   He's like is there a good way for me to figure out if something is written by chat tpt
+[00:26:59.080 --> 00:27:02.360]   And about three weeks into the semester he wrote me said never mind
+[00:27:02.600 --> 00:27:06.040]   It's super easy if suddenly I can understand what they're writing
+[00:27:06.040 --> 00:27:10.120]   If it's coherent the commas are in the right place
+[00:27:10.120 --> 00:27:13.480]   It's done, you know in the proper format of
+[00:27:13.480 --> 00:27:18.440]   Subject, you know proposal and proofs it oh well
+[00:27:18.440 --> 00:27:20.520]   My students didn't write that no no
+[00:27:20.520 --> 00:27:25.480]   If they go from an s-s-a to an a-s-a. Yeah, that's probably not them
+[00:27:25.480 --> 00:27:26.520]   Wow
+[00:27:26.520 --> 00:27:30.680]   A formulaeicness too. I mean in the stuff that I've read at least in chat gpt
+[00:27:30.680 --> 00:27:36.120]   If you start asking it questions, it often phrases stuff and builds its arguments in the same way
+[00:27:36.120 --> 00:27:44.120]   I mean not dissimilar from how you're taught to write an essay for example in school like make your you know opening thesis and they're supporting statements
+[00:27:44.120 --> 00:27:47.640]   And then have your like inclusion that draws all together, but it's a little too pat
+[00:27:47.640 --> 00:27:52.680]   Right, you know, it's a little too right on target every single time. It strikes me. I realized
+[00:27:53.320 --> 00:27:57.400]   We actually put together a perfect panel for this. We've got a a fiction writer
+[00:27:57.400 --> 00:28:02.920]   A coder and a priest who better? We've walked into a bar and
+[00:28:02.920 --> 00:28:06.280]   Better to judge this topic
+[00:28:06.280 --> 00:28:10.360]   Jat gpt has no soul
+[00:28:10.360 --> 00:28:14.040]   And chat tpt has no soul
+[00:28:14.040 --> 00:28:19.480]   So and and nuke and say chat tpt is sold
+[00:28:21.960 --> 00:28:27.160]   So a few weeks ago when cnet got in trouble because a lot of their articles in the personal finance
+[00:28:27.160 --> 00:28:30.440]   Space were written by their own
+[00:28:30.440 --> 00:28:33.000]   A.I. Which I think they call word smith
+[00:28:33.000 --> 00:28:36.200]   We had Connie guillomo the editor in chief of cnet on the show
+[00:28:36.200 --> 00:28:39.080]   It was kind of coincidental. We'd planned on having her on
+[00:28:39.080 --> 00:28:45.080]   But she had just written a blog post explaining and you know not apologizing cnet has not
+[00:28:45.080 --> 00:28:47.640]   Said oh that was a mistake
+[00:28:47.640 --> 00:28:53.160]   They backed down on doing it, but I think they're going to do more of it this week cnet file fired
+[00:28:53.160 --> 00:28:57.080]   a significant number of its reporters and Connie
+[00:28:57.080 --> 00:28:59.000]   Uh, well
+[00:28:59.000 --> 00:29:04.680]   The verge who's been really hard on cnet says Connie guillomo see a cnet editor and chief will step down
+[00:29:04.680 --> 00:29:07.720]   I don't think it's a step down frankly. She is now
+[00:29:07.720 --> 00:29:09.080]   uh
+[00:29:09.080 --> 00:29:11.960]   She has a uh a vp role in charge of
+[00:29:11.960 --> 00:29:17.080]   Machine learning strategy at red ventures the private equity company that owns
+[00:29:17.720 --> 00:29:19.240]   cnet
+[00:29:19.240 --> 00:29:21.880]   I feel like she's actually that's kind of a promotion
+[00:29:21.880 --> 00:29:25.480]   And I doubt we'll ever see Connie on our show again
+[00:29:25.480 --> 00:29:30.360]   Uh, she was eic at uh at cnet for nine years
+[00:29:30.360 --> 00:29:38.040]   Uh, she wrote that blog post somewhat defending and she was defensive of it on our show. She said, you know, it's writing the articles that
+[00:29:38.040 --> 00:29:41.000]   reporters don't want to write they're really
+[00:29:41.000 --> 00:29:43.960]   Dumb stories explainers and stuff
+[00:29:44.280 --> 00:29:48.280]   So we have the the ai write it and then we have an editor review it for accuracy
+[00:29:48.280 --> 00:29:52.360]   Uh, turns out quite a few stories on cnet where ai
+[00:29:52.360 --> 00:29:54.360]   written
+[00:29:54.360 --> 00:29:56.120]   um
+[00:29:56.120 --> 00:30:01.320]   So now uh, connie is moved. I don't think down. I think up to be in charge
+[00:30:01.320 --> 00:30:05.640]   Uh, she's a senior vice president of ai content strategy
+[00:30:05.640 --> 00:30:11.480]   And an editor in larr at larr there's a certain degree of like orobroos happening here, right?
+[00:30:11.480 --> 00:30:14.920]   Yes, I feel like so many of those pieces that are written lassago
+[00:30:14.920 --> 00:30:17.880]   These are dumb and reporters don't want to write them and they're explainers
+[00:30:17.880 --> 00:30:24.360]   But the reason and I speak from this as a freelance tech writer who has written these before the reason we write those in the first place is seo
+[00:30:24.360 --> 00:30:29.320]   Which is another algorithm that's determining what is gets surfaced at the top
+[00:30:29.320 --> 00:30:33.080]   So it's like we're feeding the algorithm by right having the algorithm
+[00:30:33.080 --> 00:30:37.720]   Elder algums write more stuff to surface at the top of google which feels like
+[00:30:38.200 --> 00:30:43.880]   Basically unsustainable because at a certain point you're just going to be like, well, I don't the none of this is relevant to me
+[00:30:43.880 --> 00:30:49.960]   Well, and there's some algorithms gaming algorithms because the algorithm is based on a you know
+[00:30:49.960 --> 00:30:54.840]   The data set from the internet if if half of the stuff it's reading in is stuff it wrote
+[00:30:54.840 --> 00:31:01.080]   You're going to have talk about snake eating its own tail. You're gonna have this vicious. Yeah, we just find our history, essentially
+[00:31:01.080 --> 00:31:06.360]   Yeah, yeah, I mean I feel like we should just like enclave or uh section off the
+[00:31:06.760 --> 00:31:09.400]   You know our history at this point like our actual data that
+[00:31:09.400 --> 00:31:17.400]   Blungs the real history so that we eventually will have to start recycling history generated from ai and we have to decipher the the real between the
+[00:31:17.400 --> 00:31:19.800]   Regenerate would it be a reasonable legal?
+[00:31:19.800 --> 00:31:27.240]   It seems to me this would be a good legal strategy something congress could do to say all ai generated content has to be watermarked
+[00:31:27.240 --> 00:31:31.640]   In some way indelibly water with text though, right?
+[00:31:31.640 --> 00:31:37.400]   Like how do you deal with it just like straight up text like somebody can just there's loopholes you can copy and paste it like
+[00:31:37.400 --> 00:31:41.160]   Yeah, you can get around it. There's doesn't really exist a couple words and you're done
+[00:31:41.160 --> 00:31:43.160]   You know give it a secret word, you know
+[00:31:43.160 --> 00:31:47.000]   Roodabaga and if roodabaga shows up then we know it's an ai
+[00:31:47.000 --> 00:31:49.480]   What if it's an article about roodabaga's
+[00:31:49.480 --> 00:31:53.000]   I
+[00:31:53.000 --> 00:31:55.560]   Guess you can't can you
+[00:31:55.560 --> 00:31:58.280]   Well, I can't you know, I thought lose point was really good about the history
+[00:31:58.280 --> 00:32:04.200]   I mean like it makes me wonder like is an ai version of wikipedia around the corner where it's like but then would you know right?
+[00:32:04.200 --> 00:32:07.560]   You and would you trust and you shouldn't trust it? No, absolutely not
+[00:32:07.560 --> 00:32:12.360]   But how would you know right like if it seemed like it's all written and it seems logical and it's look
+[00:32:12.360 --> 00:32:16.360]   It's got all these footnotes and sources they may not be real if you actually take the time to click through them
+[00:32:16.360 --> 00:32:20.760]   But how many people this we could be in the first week. He said Chris brain is really dead
+[00:32:20.760 --> 00:32:23.000]   Yeah
+[00:32:23.000 --> 00:32:28.600]   This is not a good I mean I guarantee I guarantee you someone right now is toying around with a bot a chat
+[00:32:28.600 --> 00:32:33.640]   Chippity bot that they created that interfaces with wikipedia. Oh, he's doing edits. Oh, it's probably
+[00:32:33.640 --> 00:32:37.720]   It is so probably getting rejected. It's trivial to do that right but at some point
+[00:32:37.720 --> 00:32:42.760]   We're gonna look back and go wait. How long have these been running? How many are running? What has been changed? What's real?
+[00:32:42.760 --> 00:32:46.280]   This is exactly
+[00:32:46.280 --> 00:32:48.280]   what the russian
+[00:32:48.280 --> 00:32:51.320]   Propaganda arm has been trying to do was just fill
+[00:32:52.600 --> 00:32:54.600]   Fill the world with bs
+[00:32:54.600 --> 00:32:57.960]   Right. Yeah, and then you don't know what to trust
+[00:32:57.960 --> 00:33:03.320]   And we mean Putin probably just needs a few ai bots and he's done
+[00:33:03.320 --> 00:33:10.680]   Oh, I mean, it is just basically spam at that point, right effectively. It's just but we can tell spam
+[00:33:10.680 --> 00:33:13.080]   We look at spam and we know it's now
+[00:33:13.080 --> 00:33:15.880]   Because it's because it's saying buy something or click this link
+[00:33:15.880 --> 00:33:18.280]   But this is this is this
+[00:33:18.280 --> 00:33:24.360]   Oh, the motive of this is much more subterranean. We don't the motive is your point. The world of through the biggest
+[00:33:24.360 --> 00:33:26.920]   Yeah, exactly. It doesn't need to be
+[00:33:26.920 --> 00:33:30.760]   Well thought out. It doesn't need to be you know backed up. It doesn't need to even be convincing
+[00:33:30.760 --> 00:33:35.560]   It just needs to be enough to sow doubt. Yeah, you just have to poison the way you poison a well
+[00:33:35.560 --> 00:33:39.240]   Once a well is poison, no one knows which wells are poisoned. Oh wow
+[00:33:39.240 --> 00:33:42.840]   Yeah, once you've got a little bit of doubt, there's doubt everywhere
+[00:33:43.320 --> 00:33:47.240]   It is insidious once it gets into the base knowledge
+[00:33:47.240 --> 00:33:51.720]   And you can't tell what might be right and what might be created
+[00:33:51.720 --> 00:33:53.560]   So I mean
+[00:33:53.560 --> 00:33:58.120]   Are we going to look back at that? We should look at are we going to look back at the year 2023 and say
+[00:33:58.120 --> 00:34:03.640]   There's before ai and there's after ai and this was the year
+[00:34:03.640 --> 00:34:10.680]   The dividing year are we at that are we at that elbow in the in the curb? Are we really this is
+[00:34:10.680 --> 00:34:13.240]   Singularity in a way
+[00:34:14.200 --> 00:34:17.880]   Maybe the real threat from ai isn't killer robots that travel through time
+[00:34:17.880 --> 00:34:21.560]   The real threat from ai is it's just changing all the knowledge that we thought we had
+[00:34:21.560 --> 00:34:26.360]   Yeah, yeah, the year is punted joe no charams in the year truth died
+[00:34:26.360 --> 00:34:28.600]   the year
+[00:34:28.600 --> 00:34:31.080]   I mean we look at this is something this some
+[00:34:31.080 --> 00:34:35.960]   Politicians would you know, we're in a post fact world, right?
+[00:34:35.960 --> 00:34:39.160]   Uh, this is something some politicians want
+[00:34:40.680 --> 00:34:43.240]   It doesn't have to be politicians. It could be a forchan
+[00:34:43.240 --> 00:34:46.120]   It's it's a equal
+[00:34:46.120 --> 00:34:48.120]   Authority
+[00:34:48.120 --> 00:34:54.440]   Nuh dry heat in the chat room is asking if we're techno panicking and I don't think we are because now I feel like we're not
+[00:34:54.440 --> 00:34:58.200]   I was I was saying this is all parlour trick now. I'm terrified
+[00:34:58.200 --> 00:35:03.080]   Well, no, it's still a parlour trick, but it's a terrible parlour trick because generationally
+[00:35:03.080 --> 00:35:06.520]   generationally our knowledge base changes every
+[00:35:07.000 --> 00:35:11.240]   Decade or so when you have a new generation and that's all they've ever known
+[00:35:11.240 --> 00:35:16.360]   Then they just assume that that's gonna be true. It's that's that's human nature in a hundred years
+[00:35:16.360 --> 00:35:21.320]   It's all new people as annie lemott said and uh in a hundred years. There'll be nobody
+[00:35:21.320 --> 00:35:24.520]   None of us to be around to say oh, yeah
+[00:35:24.520 --> 00:35:30.760]   There used to be you could read wikipedia and and you would know it was accurate because humans were working on it
+[00:35:30.760 --> 00:35:34.120]   You could bet yourself that you're gonna start seeing emergency technologies
+[00:35:34.200 --> 00:35:38.440]   that will start to verify like da Vinci da Vinci struck like these are new technologies that will start to
+[00:35:38.440 --> 00:35:40.760]   um determine how
+[00:35:40.760 --> 00:35:46.360]   Correct things are we'll do see mental hallucination like and be able to let customers do people users and you know people like
+[00:35:46.360 --> 00:35:49.400]   Verify that things are not correct or correct enough
+[00:35:49.400 --> 00:35:53.800]   So I think like I think that and people enough people are scared enough people are worried
+[00:35:53.800 --> 00:35:57.080]   And again the parlour tricks are also kind of driving this a little bit
+[00:35:57.080 --> 00:36:01.880]   Which is like, you know making sure things are correct and so that's why you know use
+[00:36:02.920 --> 00:36:06.280]   Using a more responsibly like around very
+[00:36:06.280 --> 00:36:12.280]   Specific tasks, you know where you can guarantee that the output that you're gonna get is gonna really like for instance
+[00:36:12.280 --> 00:36:15.880]   Um like, you know, I'm gonna design a new slideshow or a new video
+[00:36:15.880 --> 00:36:18.600]   And I'm gonna use some of the designs that the AI gives me or something like that
+[00:36:18.600 --> 00:36:21.880]   Like those are things that you can do you have to worry about fact checking
+[00:36:21.880 --> 00:36:26.520]   You know, but telling it how much of a medicine I need to take or or uh, you know
+[00:36:26.520 --> 00:36:30.200]   What medicines I should be taking that kind of thing? I'm not sure you should be trusting that right now
+[00:36:30.200 --> 00:36:32.840]   Like I think you should be going to a doctor obviously, right?
+[00:36:32.840 --> 00:36:35.320]   Well, it's it's the open-endedness of some of the tools, right?
+[00:36:35.320 --> 00:36:38.920]   I think that's what it comes down to especially with the art and chat gpt and stuff like that
+[00:36:38.920 --> 00:36:42.680]   Like where it's like you can ask it anything or you can ask it to make anything, right?
+[00:36:42.680 --> 00:36:45.240]   That's the sign of stuff where I think it gets a lot riskier than like
+[00:36:45.240 --> 00:36:49.720]   An AI based tool that's built into another piece of software that's going to help you do something
+[00:36:49.720 --> 00:36:55.480]   A particular task and is there for sort of on guard has guardrails and is kind of specified to like
+[00:36:55.720 --> 00:36:59.160]   We want to do this thing but the fact that in order to get to that point
+[00:36:59.160 --> 00:37:05.400]   We have to admit these like sort of technologies that are so wide open that it's like it can do whatever you ask it to do
+[00:37:05.400 --> 00:37:07.480]   It's it's really, you know
+[00:37:07.480 --> 00:37:11.000]   The in the other part of that as you can't put the genie back in the bottle, right?
+[00:37:11.000 --> 00:37:12.600]   I mean, it's it's out. It's here
+[00:37:12.600 --> 00:37:17.000]   It's a thing that people are using and at that point the question is how do you sort of
+[00:37:17.000 --> 00:37:24.280]   Deal with it or at least build up structures around it whether it's technological or just sort of cultural to be able to
+[00:37:25.000 --> 00:37:27.880]   Know that it's there and sort of understand it
+[00:37:27.880 --> 00:37:36.200]   Verner venge you'll start sorry whose name you will know. Yeah, Verner venge, right? Or is it venge venge venge venge science science fiction author
+[00:37:36.200 --> 00:37:43.480]   Said within 30 years we will have the technological means to create superhuman intelligence shortly after the human era
+[00:37:43.480 --> 00:37:46.600]   Will be ended. Do you want to guess when he said that?
+[00:37:46.600 --> 00:37:49.640]   Exactly 30 years ago
+[00:37:49.640 --> 00:37:51.480]   1993
+[00:37:51.480 --> 00:37:53.480]   Okay, 1993
+[00:37:54.120 --> 00:37:55.560]   um
+[00:37:55.560 --> 00:38:01.880]   Maybe he was right somebody's saying in our chat room that uh ray Kurzweil thinks who has been saying for years
+[00:38:01.880 --> 00:38:06.760]   The singularity is just a few decades off. He wrote a book called the singularity is near
+[00:38:06.760 --> 00:38:10.520]   He thought it would happen by 2045. He's now saying it's a few months off
+[00:38:10.520 --> 00:38:19.000]   What is maybe we should explain what the singularity is? What is the singularity? Who wants to Robert? You probably can give us a good definition of that
+[00:38:19.880 --> 00:38:28.360]   This okay, so a nice science fiction definition of singularity is the creation of an artificial consciousness that can then give rise to other consciousness
+[00:38:28.360 --> 00:38:31.000]   the minute that you have a
+[00:38:31.000 --> 00:38:37.240]   An entity that you have created that can change itself can be self-reflective and can procreate
+[00:38:37.240 --> 00:38:39.240]   into other
+[00:38:39.240 --> 00:38:41.480]   Self-reflective beings you have singularity
+[00:38:41.480 --> 00:38:47.320]   I think that's like the most layman dumb down version i've got i think
+[00:38:48.600 --> 00:38:54.440]   Kurzweil said it was uh when we develop i think you're right, robert that that's really the real singularity
+[00:38:54.440 --> 00:38:57.320]   But didn't he say it was when we can't we can't distinguish
+[00:38:57.320 --> 00:38:59.560]   Machines from human
+[00:38:59.560 --> 00:39:05.160]   But i think you're right robert the thing that's really scary is if those machines can design the next generation of machines because then it accelerates
+[00:39:05.160 --> 00:39:07.800]   at uh
+[00:39:07.800 --> 00:39:09.800]   I'll uh
+[00:39:09.800 --> 00:39:14.280]   You know, uh, geometric or maybe even expect what you're saying these it goes back to what you're saying leo is
+[00:39:14.520 --> 00:39:20.680]   You know, not being able to predict is singularity is the is that point where you can no longer predict the output of this thing
+[00:39:20.680 --> 00:39:27.400]   And and it will just continue to grow and and learn on itself and and retrain itself and and redo its things over and over again
+[00:39:27.400 --> 00:39:32.120]   And it just never stops. You can't stop it. There's no going back. There's no reversing it that singularity
+[00:39:32.120 --> 00:39:35.480]   Are we close?
+[00:39:35.480 --> 00:39:39.720]   It's always hard to tell when you're in it, right? I mean, yeah, would we know
+[00:39:40.600 --> 00:39:44.200]   Uh, would we know, uh, you know, how and how would we know?
+[00:39:44.200 --> 00:39:51.720]   Man, this is this give me a great idea for a science fiction story about the singularity taking over and then solving climate change for itself
+[00:39:51.720 --> 00:39:55.560]   Yeah, let's go maybe this can forestall the other apocalypse. Yeah
+[00:39:55.560 --> 00:39:58.440]   You got to fight an apocalypse with an apocalypse
+[00:39:58.440 --> 00:40:05.800]   I was part of a panel here in the vatican we were talking about the singularity and there was an interesting point. I think
+[00:40:06.520 --> 00:40:12.680]   Uh, I think I made after too much grappa. It was an evening session. We were drinking a little bit. Is that any grappa?
+[00:40:12.680 --> 00:40:15.080]   No, this is any grappa's too much
+[00:40:15.080 --> 00:40:18.920]   I agree with you 100%
+[00:40:18.920 --> 00:40:23.160]   Do they throw the three coffee beans and then set it on fire or that's that's it was no no no
+[00:40:23.160 --> 00:40:28.920]   This had a very special herb from the mountains of somewhere and I I don't know it was it was just very smooth
+[00:40:28.920 --> 00:40:34.760]   It was very smooth and it snuck up on me, but yes, uh, stay away from open flanking around. Yeah. Yeah. Oh gosh. Yes
+[00:40:34.840 --> 00:40:42.840]   No, it's it's very funmable is this idea that the singularity is actually it's not a creation of technology. It's more of a zeitgeist
+[00:40:42.840 --> 00:40:45.560]   once you have
+[00:40:45.560 --> 00:40:47.560]   human society
+[00:40:47.560 --> 00:40:49.560]   rewriting its own history
+[00:40:49.560 --> 00:40:56.760]   in this ever recursive loop of what is and is not true you've you've essentially created a singularity
+[00:40:56.760 --> 00:41:03.320]   It has become its own self-aware entity that is then rewriting what we believe to be true
+[00:41:04.040 --> 00:41:09.240]   And again, I could have been too much grappa, but when when we woke up the next morning, we're like, oh, that's okay
+[00:41:09.240 --> 00:41:12.040]   Let's put that down on the on the worksheet. That that sounds interesting
+[00:41:12.040 --> 00:41:19.160]   Lou you're a um a coder you you're a solid
+[00:41:19.160 --> 00:41:23.480]   Mathematically inclined not airy fairy
+[00:41:23.480 --> 00:41:31.240]   Guy and you're right on the forefront of this because you work at microsoft. What do you think? Are we are we approaching the singularity?
+[00:41:33.960 --> 00:41:38.920]   I don't think so. I think they were we I think we're far away from this. I think that yeah, I
+[00:41:38.920 --> 00:41:40.760]   I think that
+[00:41:40.760 --> 00:41:45.400]   From what I've seen and what I know that's being worked on I think it's far from that
+[00:41:45.400 --> 00:41:48.680]   But you know, I think you get these are just you got to think about
+[00:41:48.680 --> 00:41:51.320]   Now people are worried because of the polarity tricks
+[00:41:51.320 --> 00:41:55.800]   I think that's the key is like I think Dan brought it up a bunch of times is like these those are the things that are really
+[00:41:55.800 --> 00:42:02.120]   Worrying people and I think you know, hopefully those will probably be rained in a little bit more as as time
+[00:42:02.120 --> 00:42:05.560]   And I see things probably not doing some of the things they used to do before and yeah
+[00:42:05.560 --> 00:42:11.160]   Yeah, there's chat gpts or perplexed AI. These are all places that are like like really rained it in so that people can't go
+[00:42:11.160 --> 00:42:14.760]   I have to say though. It's not reassuring because the way they rained in
+[00:42:14.760 --> 00:42:18.120]   Being chat was to say you can only ask it five questions
+[00:42:18.120 --> 00:42:23.240]   The implication being any more than that it's gonna hallucinate. You're gonna get weird answers
+[00:42:23.240 --> 00:42:27.560]   That three wishes. I don't know if that makes me feel better. It's more like
+[00:42:27.560 --> 00:42:30.600]   We're just not gonna let you see behind the curtain
+[00:42:32.040 --> 00:42:34.920]   We won't let you push that there's refinement happening to you, right?
+[00:42:34.920 --> 00:42:38.520]   I mean like, you know, I feel like that's a good stopgap for trying to figure out like, okay
+[00:42:38.520 --> 00:42:41.880]   Well, how do we improve the model so that we don't see this performance?
+[00:42:41.880 --> 00:42:48.520]   In the future and for the moment we're gonna limit it so they can do that, but I agree lu. I don't think it's necessarily imminent
+[00:42:48.520 --> 00:42:50.520]   I think that the the
+[00:42:50.520 --> 00:42:55.080]   I don't know from perhaps misplaced. I have a lot of faith in humanity and I think that there's a lot of
+[00:42:55.080 --> 00:42:58.120]   You know stuff that again
+[00:42:58.120 --> 00:43:03.720]   This people sees on the sort of the flashy the obvious parts of that. I think there's a lot of other stuff that's similar
+[00:43:03.720 --> 00:43:06.760]   Uh that is more worrying in some ways too
+[00:43:06.760 --> 00:43:08.520]   I mean I think about like the rise of deep fakes
+[00:43:08.520 --> 00:43:13.480]   The right like the fact that you can fake a lot of video like the fact that technology has really allowed us to do all this stuff
+[00:43:13.480 --> 00:43:15.400]   and this is
+[00:43:15.400 --> 00:43:21.880]   High comparison. I think much less something that's going to a chatbot is not gonna cause the singularity
+[00:43:21.880 --> 00:43:27.160]   Sorry, I don't think it's happened. Yeah, I mean in a way we are living in the and if you'd ask somebody
+[00:43:27.800 --> 00:43:29.800]   50 years ago
+[00:43:29.800 --> 00:43:34.680]   If you'd said oh, yeah, I have something in my pocket that I can find the answer to any question within the second
+[00:43:34.680 --> 00:43:40.200]   All right, um that would be pretty amazing and maybe would be from them spooky
+[00:43:40.200 --> 00:43:48.360]   And and potentially dangerous now if you say and you'll never know if the answer is right. That's really
+[00:43:48.360 --> 00:43:55.640]   That's really getting a little that's a little more scary monkeys pause. Yeah, be careful what you wish for
+[00:43:56.680 --> 00:43:58.680]   All right, let's take a little break. Uh
+[00:43:58.680 --> 00:44:01.320]   I came into this show
+[00:44:01.320 --> 00:44:05.720]   You know really believing it was a parlor trick. It's nothing big no big deal
+[00:44:05.720 --> 00:44:09.640]   Lou you you started me on this down this road of maybe it is
+[00:44:09.640 --> 00:44:12.680]   Now i'm scared
+[00:44:12.680 --> 00:44:19.240]   I'm worried. Thanks lu. Yeah, done our job. We got to send somebody back in time to kill the machines before they get this point
+[00:44:20.600 --> 00:44:27.160]   Lou lu, maresc is here lu mm. We love him from twi it. He's our host principal engineering manager at microsoft
+[00:44:27.160 --> 00:44:34.680]   Uh developer par excellence and you could tell just by the number of screens behind him. That's that's the given
+[00:44:34.680 --> 00:44:36.680]   You don't see what's in front of me
+[00:44:36.680 --> 00:44:42.200]   Is that your pc with all the lights and the fans and the leds?
+[00:44:42.200 --> 00:44:45.160]   So yeah, this is this is my basically my vm machine
+[00:44:45.160 --> 00:44:51.240]   It doesn't do anything else, but run vms the actual machine is in my office upstairs that that's the machine
+[00:44:51.240 --> 00:44:57.000]   Yeah, that's that's the 32 core big nine, you know the big gtx machine. Yeah, that's pretty high
+[00:44:57.000 --> 00:45:00.680]   You know, that's pretty high end. We see I have a machine just runs vms. That's all it does
+[00:45:00.680 --> 00:45:03.080]   That's all right. Yeah
+[00:45:03.080 --> 00:45:05.560]   Kyle Reese is good. You're the first one Kyle Reese is gonna hit
+[00:45:05.560 --> 00:45:08.120]   Uh also with us from the Vatican
+[00:45:08.120 --> 00:45:13.320]   Father robert valence there the digital Jesuits great to see you robert
+[00:45:14.040 --> 00:45:17.720]   Sorry that you're you're back in italy, but i'm on my way over. I'll be i'll be there in a month
+[00:45:17.720 --> 00:45:21.800]   Absolutely. Yeah, I also have a machine back here, but it runs on water wheels
+[00:45:21.800 --> 00:45:31.080]   You know, it's amazing. You can do it a little bit amazing what you can do with water wheels and science fiction author novelist dan moron
+[00:45:31.080 --> 00:45:34.200]   He is also a podcaster and uh
+[00:45:34.200 --> 00:45:36.600]   columnist at mac world in six colors
+[00:45:36.600 --> 00:45:42.040]   Great. I don't have any screens behind me, but I have some books. So books look at that. There we go. Talk about retro
+[00:45:42.680 --> 00:45:44.680]   Wow paper
+[00:45:44.680 --> 00:45:47.880]   Yeah, mostly now I just use books for soundproofing. I don't
+[00:45:47.880 --> 00:45:52.840]   I got a stack over here. I could probably build myself a nice little cave
+[00:45:52.840 --> 00:45:56.520]   Yes, what he has actually I should run and get it is his new book
+[00:45:56.520 --> 00:45:59.720]   Uh, which is the third in the series
+[00:45:59.720 --> 00:46:05.560]   What's what's that I have them all? Uh, the nova the nova incident. I'll have to roll back
+[00:46:05.560 --> 00:46:11.320]   There it is beautiful blue black one. There we go. Yeah, hold it up in the nova incident of it. Mm-hmm
+[00:46:11.320 --> 00:46:14.360]   I always have uh your stack of books right here so I could show them off
+[00:46:14.360 --> 00:46:18.120]   And I just the galactic cold war trilogy so far
+[00:46:18.120 --> 00:46:23.240]   So soon to come more more and more and more and if you haven't read them
+[00:46:23.240 --> 00:46:26.920]   Can they start with the nova incident looking for a new audio book?
+[00:46:26.920 --> 00:46:31.880]   Yes, they're all yeah, we're available. I got audio books of all of them. Um, yeah, I
+[00:46:31.880 --> 00:46:35.240]   I wouldn't start with nova incident. I would start with the first either
+[00:46:35.240 --> 00:46:39.560]   Yeah, I would start with the first one always to buy them all first of all. Yeah, of course naturally
+[00:46:39.560 --> 00:46:44.280]   So you're preparing and go from there get the allofus stretch extraction and the bayoure and agenda
+[00:46:44.280 --> 00:46:47.480]   Is the caledonia gambit in there too?
+[00:46:47.480 --> 00:46:52.360]   It is technically it's sort of a weird thing because it was a different publisher, but it's in the same universe
+[00:46:52.360 --> 00:46:57.400]   So yeah, it's it's I like world building, you know, I like it when you have a universe
+[00:46:57.400 --> 00:47:03.480]   I like bran brandon centers and because you can read all these books in the same world and you kind of get to know that world
+[00:47:03.480 --> 00:47:05.880]   And I have uh the same agent nice
+[00:47:06.520 --> 00:47:10.760]   I have three fiction universes that I follow right now. So the expanse universe
+[00:47:10.760 --> 00:47:16.440]   Yeah, the bobberverse universe love the bobber and then my my uh guilty pleasure is the expeditionary first universe
+[00:47:16.440 --> 00:47:21.640]   So I'll make yours the fourth. Yeah. Thank you. Is there dancy Taylor writing another bobber verse?
+[00:47:21.640 --> 00:47:28.520]   Are we getting one soon? I hope uh he's I just read the fourth one is okay. Yeah, he's branched out
+[00:47:28.520 --> 00:47:29.560]   He's yeah, yeah
+[00:47:29.560 --> 00:47:35.720]   I agree with you different yeah next one, but I really love the first one ever the premise is kind of uh fitting in our uh
+[00:47:36.360 --> 00:47:39.320]   Story von Neumann probe. Yeah, yeah, yeah
+[00:47:39.320 --> 00:47:43.240]   Um, all right. Well, you got you got some reading to do kids
+[00:47:43.240 --> 00:47:48.440]   Meanwhile while you're reading, I'm gonna tell you about collide k-o-l-i-d-e
+[00:47:48.440 --> 00:47:52.680]   We need now more than ever. We need collide collide is a
+[00:47:52.680 --> 00:47:57.000]   uh, well best way put it be a device trust solution
+[00:47:57.000 --> 00:48:02.360]   So that unsecured devices cannot access your apps
+[00:48:03.160 --> 00:48:08.680]   Collide has some big news if you're an octa user and I know many of you are collide can get your entire fleet
+[00:48:08.680 --> 00:48:10.200]   to
+[00:48:10.200 --> 00:48:12.200]   100 compliance
+[00:48:12.200 --> 00:48:17.480]   Collide patch is one of the major holes in zero trust architecture, which is device
+[00:48:17.480 --> 00:48:19.960]   Compliant think about it your identity provider
+[00:48:19.960 --> 00:48:24.920]   If it's doing his job only let's known devices log into apps
+[00:48:24.920 --> 00:48:29.640]   But just because the device is known doesn't mean it's in a secure state, right?
+[00:48:30.520 --> 00:48:32.520]   Who learned this lately?
+[00:48:32.520 --> 00:48:37.800]   What big password company learned this lately just because you know
+[00:48:37.800 --> 00:48:45.880]   That that device doesn't mean it's secure in fact plenty of the devices in your fleet probably shouldn't be trusted
+[00:48:45.880 --> 00:48:51.000]   Maybe they're running on out of data west versions. Maybe they've got unencrypted credentials lying around
+[00:48:51.000 --> 00:48:54.280]   Maybe they've been compromised if a device isn't compliant
+[00:48:54.280 --> 00:48:57.000]   Or isn't running the collide agent
+[00:48:57.400 --> 00:49:02.040]   Well, it's easy. You just it can't access the organization sass apps or other resources
+[00:49:02.040 --> 00:49:08.680]   The device user can't log into your company's cloud apps until they fix the problem on their end. It's that simple
+[00:49:08.680 --> 00:49:13.320]   So as an example a device will be blocked if an employee doesn't have an up-to-date browser
+[00:49:13.320 --> 00:49:15.640]   or uh
+[00:49:15.640 --> 00:49:17.640]   Using end user remediation
+[00:49:17.640 --> 00:49:21.560]   You can have them fix that right and then they can get in it drives your fleet to 100
+[00:49:21.560 --> 00:49:26.280]   compliance and you your it guys and gals
+[00:49:27.000 --> 00:49:29.880]   Don't have to worry about it. The users do the remediation
+[00:49:29.880 --> 00:49:36.840]   Without collide it teams have no way to solve these compliance issues or stop insecure devices from logging in with collide
+[00:49:36.840 --> 00:49:43.480]   You can set and enforce compliance across your entire fleet. Yes, it's truly cross platform mac windows and
+[00:49:43.480 --> 00:49:45.000]   Linux
+[00:49:45.000 --> 00:49:46.520]   Collide is unique
+[00:49:46.520 --> 00:49:50.760]   In that it makes device compliance part of the authentication process
+[00:49:50.760 --> 00:49:54.760]   If a user's logging with octa collide alerts them to compliance issues
+[00:49:55.240 --> 00:49:57.960]   And prevents unsecured devices from logging in
+[00:49:57.960 --> 00:50:05.400]   It's security you could feel good about because collide puts transparency and respect for users at the center of their product
+[00:50:05.400 --> 00:50:11.320]   To sum it up collides method means fewer support tickets for you less frustration for your users
+[00:50:11.320 --> 00:50:14.760]   And most importantly 100 fleet compliance
+[00:50:14.760 --> 00:50:24.040]   Collide k-o-l-i-d-e visit collide.com/twit learn more book a demo collide.com/twit
+[00:50:24.280 --> 00:50:27.000]   If you're using octa, you need collide
+[00:50:27.000 --> 00:50:29.960]   We thank you so much for supporting
+[00:50:29.960 --> 00:50:34.680]   This week in tech you support us right back by using that special address so they know you saw it here
+[00:50:34.680 --> 00:50:39.160]   collide.com/twit as long as we're talking about
+[00:50:39.160 --> 00:50:43.960]   Last pass we've learned a little bit more about the last pass
+[00:50:43.960 --> 00:50:45.880]   breach
+[00:50:45.880 --> 00:50:48.120]   Oh my
+[00:50:48.120 --> 00:50:50.200]   I mean, okay, I'll you know what one takeaway
+[00:50:50.200 --> 00:50:53.000]   not to defend them exactly, but
+[00:50:53.000 --> 00:50:54.440]   they were
+[00:50:54.440 --> 00:50:55.800]   clearly
+[00:50:55.800 --> 00:51:01.400]   Very specifically targeted right this was and this was not a naive attack
+[00:51:01.400 --> 00:51:06.280]   Uh, what we found out in a more recent blog post from last pass
+[00:51:06.280 --> 00:51:14.440]   Is that there were four dev ops guys who had the keys to the s3 buckets the keys to the all those data backups
+[00:51:14.440 --> 00:51:17.480]   One of the guys was working from home
+[00:51:17.480 --> 00:51:22.840]   I'm reading between the lines. He had a media client. I think it was plex because plex had an unfall
+[00:51:23.320 --> 00:51:25.320]   Yeah, he had a media
+[00:51:25.320 --> 00:51:27.720]   client so
+[00:51:27.720 --> 00:51:29.720]   They they had already hacked
+[00:51:29.720 --> 00:51:34.920]   Last pass is you know enterprise stuff and they knew who these four people were
+[00:51:34.920 --> 00:51:39.240]   Then they targeted the four people they got in through plex
+[00:51:39.240 --> 00:51:43.400]   And co-opted this dev ops machine and got the keys
+[00:51:43.400 --> 00:51:47.560]   This is a highly targeted attack. So to some degree, I think
+[00:51:47.560 --> 00:51:50.200]   I'm glad last pass revealed this
+[00:51:50.280 --> 00:51:52.040]   They also revealed
+[00:51:52.040 --> 00:51:57.560]   That the backups came from last december which was really for me because I deleted my fault before then
+[00:51:57.560 --> 00:52:00.280]   But is information we all needed
+[00:52:00.280 --> 00:52:03.160]   Because those are the vaults that were x-filtrated
+[00:52:03.160 --> 00:52:07.640]   Robert you're you're you're good at this kind of red teaming
+[00:52:07.640 --> 00:52:11.960]   Uh, did you did you read the post and and and understand what went on?
+[00:52:11.960 --> 00:52:14.120]   I did
+[00:52:14.120 --> 00:52:16.120]   Um, so yes
+[00:52:16.120 --> 00:52:21.880]   Definitely targeted. This is a lot different than some of the other breaches that we read about where someone happens across an
+[00:52:21.880 --> 00:52:24.040]   unsecured s3 bucket or
+[00:52:24.040 --> 00:52:31.800]   Someone's credentials just get swept up into a list that gets sold and it it happened to land in the hands of someone who was able to use it to
+[00:52:31.800 --> 00:52:36.840]   To further their exploit. This was someone who was specifically looking for
+[00:52:36.840 --> 00:52:41.320]   Access to the holy of holies at last pass. They knew what they wanted
+[00:52:41.720 --> 00:52:45.720]   Exactly. They know what they wanted the first thing that I went to was insider
+[00:52:45.720 --> 00:52:49.400]   I mean it someone with some inside information about the company
+[00:52:49.400 --> 00:52:54.840]   I disgruntled employees someone who was fired by them or a contractor that lost their contract because
+[00:52:54.840 --> 00:53:00.760]   I mean just the the the the the per op that you need to get past
+[00:53:00.760 --> 00:53:06.280]   It precludes just a group on the internet deciding to take down last pass
+[00:53:07.640 --> 00:53:12.280]   That's interesting. So they say a software engineer's corporate laptop was compromised
+[00:53:12.280 --> 00:53:19.400]   Uh allowing the unauthorized threat actor to gain access to a cloud based development environment and steel source code technical information
+[00:53:19.400 --> 00:53:22.680]   And internal secret. So that was the first incident
+[00:53:22.680 --> 00:53:26.440]   So you're thinking that first incident was actually an insider
+[00:53:26.440 --> 00:53:29.800]   It's got to be I mean, I mean
+[00:53:29.800 --> 00:53:36.040]   On either it's an inside information type deal or someone got extremely lucky
+[00:53:36.120 --> 00:53:41.000]   Someone just spearfished the heck out of that company and if they had I think last pass would have told us
+[00:53:41.000 --> 00:53:47.880]   There was an attempt to spearfish the company back in so-and-so and one of them was successful. That's not what they wrote
+[00:53:47.880 --> 00:53:50.600]   No, this is all passive voice. It was compromised
+[00:53:50.600 --> 00:53:56.200]   Uh, but we don't know exactly how but that first compromise, which I think happened in um jr
+[00:53:56.200 --> 00:53:57.640]   July
+[00:53:57.640 --> 00:54:02.360]   Was then what allowed the second compromise because once they had that information
+[00:54:02.920 --> 00:54:05.720]   the threat actor targeted a senior dev ops engineer
+[00:54:05.720 --> 00:54:09.640]   exploiting a vulnerable third party program, I think plex
+[00:54:09.640 --> 00:54:17.960]   Leveraged the the threat actor leveraged the vulnerability deliver malware onto that dev ops engineers laptop bypassing existing controls
+[00:54:17.960 --> 00:54:22.840]   And then ultimately gaming unauthorized access to the s3 buckets. Yeah
+[00:54:22.840 --> 00:54:28.760]   That's too many levels for would to be a random attack. Yeah, I mean you can see so much attack traffic
+[00:54:28.760 --> 00:54:31.320]   They would learn that really on yeah
+[00:54:31.320 --> 00:54:37.400]   Yeah, yeah, so in a way that's bad news because it means they were actively going after the vaults
+[00:54:37.400 --> 00:54:42.200]   There wasn't that they stumbled upon the vaults and oh they have this now what do we do
+[00:54:42.200 --> 00:54:47.240]   You only go after the vaults if you if you prepare to do what's next to compromise them
+[00:54:47.240 --> 00:54:50.440]   So it has it was someone who had
+[00:54:50.440 --> 00:54:56.040]   intimate knowledge of the inner workings of last pass it has someone who had inner knowledge of
+[00:54:56.600 --> 00:55:02.680]   Their code base. I mean honestly and that's that's proprietary. So if I were last pass
+[00:55:02.680 --> 00:55:05.800]   I'd be looking down. Who did we fire in the last two years?
+[00:55:05.800 --> 00:55:11.480]   They got dev ops secrets restricted secrets that were used to gain access to the cloud based backup storage
+[00:55:11.480 --> 00:55:14.760]   They they got cloud based information
+[00:55:14.760 --> 00:55:17.880]   configuration data api secrets
+[00:55:17.880 --> 00:55:22.600]   third party integrations third party integration secrets
+[00:55:23.160 --> 00:55:26.600]   customer metadata backups of all customer vault data
+[00:55:26.600 --> 00:55:30.680]   That's that's the phrase we finally we were waiting to hear they've kind of
+[00:55:30.680 --> 00:55:36.120]   Danced around it in their last blog post. They got it all. They got all customer vault data
+[00:55:36.120 --> 00:55:45.080]   All sensitive vault data other than urls file paths to installed last pass windows or macos software in certain use cases involving email addresses were encrypted
+[00:55:45.080 --> 00:55:51.720]   Using zero knowledge and can only be decrypted with a unique encryption key, but we know you know people don't use
+[00:55:52.600 --> 00:55:55.160]   Strong master passwords because they need to remember them
+[00:55:55.160 --> 00:56:00.680]   Uh, and we also know that the key derivative function last passed used
+[00:56:00.680 --> 00:56:06.440]   Was often set to a far too low number for modern attack vectors
+[00:56:06.440 --> 00:56:10.680]   Now there's a bellwether here leo
+[00:56:10.680 --> 00:56:13.160]   if we start to see
+[00:56:13.160 --> 00:56:15.880]   a lot of random incursions on
+[00:56:15.880 --> 00:56:18.680]   millions of accounts
+[00:56:18.680 --> 00:56:21.160]   then it's possible that this this was
+[00:56:21.800 --> 00:56:23.640]   someone who
+[00:56:23.640 --> 00:56:27.560]   Maybe they had some info insider information, but they really intended to sell this information
+[00:56:27.560 --> 00:56:33.080]   If we don't see that and instead this just really is the death knell for last pass
+[00:56:33.080 --> 00:56:38.520]   Uh, that's a pretty good indicator of what the intent of the attack was it wasn't
+[00:56:38.520 --> 00:56:41.480]   Sell information or was an attack. Oh
+[00:56:41.480 --> 00:56:44.120]   Interesting
+[00:56:44.120 --> 00:56:49.720]   I hadn't even thought of that yeah, because we as far as we know there was only one case with somebody who's suing last pass
+[00:56:50.040 --> 00:56:54.360]   Saying their crypto keys were stolen and we know how it is with crypto
+[00:56:54.360 --> 00:56:57.240]   There's so many other ways that can happen
+[00:56:57.240 --> 00:57:00.760]   Uh, we haven't seen and as far as I know we've nobody said oh, yeah
+[00:57:00.760 --> 00:57:03.160]   They must have gotten my vault because i've been attacked
+[00:57:03.160 --> 00:57:08.440]   So maybe that led screen's to your second scenario that it wasn't about getting the vault it was about
+[00:57:08.440 --> 00:57:13.240]   Putting last pass out of this drawing trust in the company. Yeah, holy cow
+[00:57:13.240 --> 00:57:17.080]   A competitor
+[00:57:18.760 --> 00:57:22.840]   Uh, I mean when you look at who the competitors are out there
+[00:57:22.840 --> 00:57:28.440]   Uh, bit warden. No, I honestly one password taking
+[00:57:28.440 --> 00:57:31.240]   One password took him down
+[00:57:31.240 --> 00:57:33.560]   I know how to imagine no
+[00:57:33.560 --> 00:57:37.960]   But but it would have to be somebody who had a business
+[00:57:37.960 --> 00:57:46.120]   If it's that I boy that's a that's an interesting thesis, but you're right. We have not seen any
+[00:57:47.000 --> 00:57:50.520]   Uh evidence that those those passwords are being used
+[00:57:50.520 --> 00:57:55.240]   Never underestimate the ego of a hacker who has been shunned
+[00:57:55.240 --> 00:57:56.680]   Uh
+[00:57:56.680 --> 00:58:01.000]   What they will go to doesn't have to be competitor. It could be a disgruntled former employee
+[00:58:01.000 --> 00:58:03.640]   Really could you know?
+[00:58:03.640 --> 00:58:05.880]   Holy cow. I didn't do it
+[00:58:05.880 --> 00:58:10.840]   Right now, uh, no, not involved. I know a lot of people
+[00:58:10.840 --> 00:58:15.160]   Uh, obviously last pass was a sponsor for a long time and I know a lot of people there
+[00:58:15.800 --> 00:58:20.200]   Including its founder, uh, joe seagris who is not at last pass and has been there for years
+[00:58:20.200 --> 00:58:24.200]   Uh, there's very very good people there, but that would be tragic
+[00:58:24.200 --> 00:58:29.480]   If it were uh, somebody who was trying to kill that company
+[00:58:29.480 --> 00:58:33.640]   Uh, we because last pass was a sponsor for so long so many of our
+[00:58:33.640 --> 00:58:37.240]   listeners and uh, our last pass customers
+[00:58:37.240 --> 00:58:41.000]   We still use last pass enterprise here at twit. We're trying to move
+[00:58:41.000 --> 00:58:44.360]   Trying to move off to bit warden, but it's a non trivial
+[00:58:44.920 --> 00:58:46.920]   Process bit warden is a sponsor now
+[00:58:46.920 --> 00:58:49.480]   Um boy
+[00:58:49.480 --> 00:58:51.640]   Wow
+[00:58:51.640 --> 00:58:53.000]   But I mean
+[00:58:53.000 --> 00:58:59.240]   Isn't this a death now if you are a company then the one thing you do is this and it's gone now
+[00:58:59.240 --> 00:59:02.520]   How do you recover from that? Yeah, it's
+[00:59:02.520 --> 00:59:08.280]   You know, once your data is gone, it's gone. Yeah, and uh, you know
+[00:59:08.280 --> 00:59:12.760]   People need to trust you right need to change the narrative to be able to people address you again
+[00:59:12.760 --> 00:59:14.760]   I don't think that's possible for them
+[00:59:15.400 --> 00:59:17.320]   Um
+[00:59:17.320 --> 00:59:23.480]   Yeah, I don't wish any ill to last pass and now I've been a little scathing about their practices
+[00:59:23.480 --> 00:59:27.080]   But now that we know more details, it this could have this could happen to anybody
+[00:59:27.080 --> 00:59:29.320]   Well, I mean
+[00:59:29.320 --> 00:59:31.400]   We we get to be a little bit hard on them though
+[00:59:31.400 --> 00:59:34.600]   I mean there's some of the things that they've published that they've made bad choices
+[00:59:34.600 --> 00:59:41.320]   Yeah, they made bad choices like letting people with devices access their their most prized secrets without
+[00:59:41.720 --> 00:59:45.960]   You know locking these things down on you know, I they say work laptops or devices
+[00:59:45.960 --> 00:59:51.080]   But the reality is these machines that they're allowed to access this type of data should be a lot more locked down
+[00:59:51.080 --> 00:59:52.840]   Even a work laptop, right?
+[00:59:52.840 --> 00:59:56.680]   So I think there's stuff like that that I really lack security practices
+[00:59:56.680 --> 00:59:58.680]   I think in my eyes for a lot of things they were doing
+[00:59:58.680 --> 01:00:01.880]   I also blame them for not encrypting things like URLs
+[01:00:01.880 --> 01:00:06.040]   There's a lot of metadata that other companies encrypted that last passed it not encrypt
+[01:00:06.040 --> 01:00:08.120]   but
+[01:00:08.120 --> 01:00:12.200]   You know, I'm and they were following best practices with the with the password vault
+[01:00:12.200 --> 01:00:14.840]   as far as we know
+[01:00:14.840 --> 01:00:16.440]   um, wow
+[01:00:16.440 --> 01:00:18.600]   Okay, you can't you just you just gave us a
+[01:00:18.600 --> 01:00:25.800]   Something to think about there, Robert very interesting. I think you might be right now that we know a little more about what happened
+[01:00:25.800 --> 01:00:28.440]   I think you might be right
+[01:00:28.440 --> 01:00:34.600]   Uh, you'll be glad to know that if you're a xbox fan that microsoft
+[01:00:35.400 --> 01:00:39.400]   Is a set to win approval from the eu on their merger
+[01:00:39.400 --> 01:00:42.040]   with activision
+[01:00:42.040 --> 01:00:47.400]   Now they still have to get it through the us regulatory body. In fact, the uh, ftc
+[01:00:47.400 --> 01:00:53.320]   Uh has uh, sued them and I think it's august before we'll see an administrative judge way in on this
+[01:00:53.320 --> 01:00:58.200]   But according to roighters, microsoft is expected to secure eu trust approval
+[01:00:58.200 --> 01:01:03.240]   For its acquisition of activision with and the and the reason is microsoft
+[01:01:03.800 --> 01:01:09.160]   offered a licensing deal to rivals this you know, honestly, let's face it. Let's be honest. This was sony
+[01:01:09.160 --> 01:01:11.400]   Complaining about
+[01:01:11.400 --> 01:01:18.360]   Uh, the acquisition worried that call of duty would know it would become an exclusive and no longer be available on the ps5
+[01:01:18.360 --> 01:01:21.000]   Microsoft did everything they could
+[01:01:21.000 --> 01:01:23.800]   to reassure sony, but sony really
+[01:01:23.800 --> 01:01:27.320]   Went for the jugular, um
+[01:01:27.320 --> 01:01:29.720]   so
+[01:01:29.720 --> 01:01:33.480]   Microsoft's apparently I would bet making the licensing deals they already offered it to uh,
+[01:01:33.480 --> 01:01:36.120]   to sony they offered them to uh, nintendo
+[01:01:36.120 --> 01:01:38.680]   um
+[01:01:38.680 --> 01:01:43.720]   In addition to licensing deal for rivals microsoft its writer says may also have to offer other
+[01:01:43.720 --> 01:01:46.440]   behavioral remedies
+[01:01:46.440 --> 01:01:49.400]   to la la concerns of other parties and sony
+[01:01:49.400 --> 01:01:55.240]   Their sources said such remedies typically refer you to the future conduct of the merged
+[01:01:55.240 --> 01:02:00.200]   Company is it just exclusives? I think it's just exclusives that sony's worried about
+[01:02:01.400 --> 01:02:03.960]   Well, okay, the best part about this story
+[01:02:03.960 --> 01:02:07.000]   Is not just that they're gonna this approval is going to go through
+[01:02:07.000 --> 01:02:10.920]   It's the fact that the EU commission has now turned around and asked sony
+[01:02:10.920 --> 01:02:13.640]   Good they could provide some information because sony's
+[01:02:13.640 --> 01:02:18.920]   Horrible about exclusives, right? Yeah far worse than microsoft
+[01:02:18.920 --> 01:02:25.160]   Yeah, they would have that 17 gaming studios under the wing right at this point the exclusivity on
+[01:02:25.160 --> 01:02:27.400]   PlayStation
+[01:02:27.400 --> 01:02:30.680]   One of those tricky weird like I mean it's essentially a two company market
+[01:02:30.680 --> 01:02:32.760]   Right, I mean I'm gonna set nintendo aside
+[01:02:32.760 --> 01:02:39.400]   They're here for a moment because nintendo is great but is kind of their own thing and people buying a console or not
+[01:02:39.400 --> 01:02:42.680]   Comparing a switch to a playstation or an xbox really
+[01:02:42.680 --> 01:02:50.920]   Um, so you're saying it's really xbox versus ps5 or ps and playstation and that's really in the high end console market
+[01:02:50.920 --> 01:02:56.920]   Absolutely because microsoft is is said wanted activation not so much for that but before mobile
+[01:02:57.400 --> 01:03:01.000]   That they wanted to get into mobile gaming and if you include that then you've got 10 cent
+[01:03:01.000 --> 01:03:06.440]   You've got a bunch of other companies microsoft is only they by other, you know, their calculations
+[01:03:06.440 --> 01:03:10.360]   This would only make them the third largest gaming company in the world
+[01:03:10.360 --> 01:03:12.600]   um
+[01:03:12.600 --> 01:03:16.120]   Okay, interesting. Well, we'll see we'll see what the us does
+[01:03:16.120 --> 01:03:18.360]   uh
+[01:03:18.360 --> 01:03:21.400]   We are we root are we rooting for this merger or not?
+[01:03:21.400 --> 01:03:24.200]   I am
+[01:03:24.200 --> 01:03:30.680]   Yeah, I mean at this point just because sony has pissed me off so much. I really wanted to go through no love loss for sony
+[01:03:30.680 --> 01:03:32.040]   I agree with you. I
+[01:03:32.040 --> 01:03:38.440]   I feel like i'm generally just against most of the consolidation in all of these industries and so from a principal standpoint
+[01:03:38.440 --> 01:03:44.040]   I feel like these companies just keep getting so big and I feel like despite despite the like, you know
+[01:03:44.040 --> 01:03:47.960]   Behavioral remedies and the stuff. Oh, yeah, I promise that you're gonna do this down the road
+[01:03:47.960 --> 01:03:53.000]   Those things always end up getting broken like that's just I feel like in a lot of those cases
+[01:03:53.000 --> 01:03:56.200]   They just get ignored it for like five ten five years ten years
+[01:03:56.200 --> 01:03:59.400]   Yeah, it's fine and then like they will bounce something else
+[01:03:59.400 --> 01:04:05.400]   But if you look at what microsoft did with minecraft, I mean they were good stew there are a good steward of mine
+[01:04:05.400 --> 01:04:07.400]   It was a very good stewardship. Yeah, yeah, yeah
+[01:04:07.400 --> 01:04:11.320]   And I mean the they what bungee or 343 when they
+[01:04:11.320 --> 01:04:16.040]   Took over halo and all that stuff. I mean, that's sort of a weird situation too, but I mean there's a lot of
+[01:04:16.040 --> 01:04:19.400]   So fin's and they bite didn't they just bite Bethesda to
+[01:04:20.040 --> 01:04:25.480]   Isn't that yeah, yeah, yeah, I mean like there's a lot of high-end gaming studios as well that were like previously
+[01:04:25.480 --> 01:04:27.800]   I'm kind of with yum against consolidation
+[01:04:27.800 --> 01:04:35.320]   But is maybe it's the case the gaming requires so much capital nowadays and takes so longer you have to be a big yeah, you don't see small indy
+[01:04:35.320 --> 01:04:42.440]   Certainly not triple a titles from small indy companies anymore, right? Or maybe you need a movie studio triple a studio
+[01:04:42.440 --> 01:04:44.440]   It's like a movie. Yeah, yeah
+[01:04:45.000 --> 01:04:48.280]   I'm one would hope at least if nothing else microsoft could do better by the employees
+[01:04:48.280 --> 01:04:50.920]   I feel like that's that's the place where a lot of these
+[01:04:50.920 --> 01:04:56.040]   Game companies are really running afoul and should be looked into is is the amount of you know
+[01:04:56.040 --> 01:04:59.720]   Use of crunch all this stuff where it's just they work these people to the bone
+[01:04:59.720 --> 01:05:05.640]   Uh, and they have really many of them really awful environments really toxic workplaces
+[01:05:05.640 --> 01:05:10.120]   And I'd like to see you know microsoft if they are going to end up acquiring activation
+[01:05:10.120 --> 01:05:13.560]   Make more proactive was the worst wasn't it?
+[01:05:13.560 --> 01:05:15.560]   You know, yeah, actually had
+[01:05:15.560 --> 01:05:19.880]   Basically gonna have to turn activation upside down and dump them out. Yeah, yeah, I fixed that
+[01:05:19.880 --> 01:05:24.120]   Although I tell you what uh starbucks amazon
+[01:05:24.120 --> 01:05:29.000]   a lot of companies now under investigation by the nlrb for
+[01:05:29.000 --> 01:05:33.320]   Really mistreating employees in their attempts to unionize
+[01:05:33.320 --> 01:05:43.400]   Mm-hmm. I mean I get is our big companies just inherently terrible to their to their people. Yeah, that's that's literally how capitalism works
+[01:05:43.480 --> 01:05:45.000]   Oh, yeah
+[01:05:45.000 --> 01:05:47.560]   That's their directive. Yeah, that's what they do
+[01:05:47.560 --> 01:05:52.600]   The maximize shareholder value means I'm gonna screw the worker every chance I get right
+[01:05:52.600 --> 01:05:55.160]   I mean, this is the reason why unions were so you know
+[01:05:55.160 --> 01:06:01.720]   Gained in so much power in the earlier parts of the century and stuff is to push back against that because you need a counterbalancing weight
+[01:06:01.720 --> 01:06:04.680]   And then they just sort of got stomped out to a large degree
+[01:06:04.680 --> 01:06:09.000]   So I mean now you're seeing the pendulum swing and let's start to swing a little bit back in that direction
+[01:06:09.000 --> 01:06:12.840]   Which I hope so it needs to and honestly amazon illegally
+[01:06:13.080 --> 01:06:14.280]   fired
+[01:06:14.280 --> 01:06:17.880]   a union organizer in New York City according to the nlrb
+[01:06:17.880 --> 01:06:25.240]   Nlrb accuses the national labor relations board accuses managers of acting against the organizer
+[01:06:25.240 --> 01:06:27.720]   um
+[01:06:27.720 --> 01:06:33.480]   Yeah, okay, so that's how far the pendulum has swung right now where amazon they're not stupid
+[01:06:33.480 --> 01:06:37.480]   They know they're gonna get sued for that. But in their calculus
+[01:06:37.480 --> 01:06:39.960]   They've said this lawsuit is gonna take so long
+[01:06:40.600 --> 01:06:45.800]   That by the time we pay whatever fine it is that we have to pay it's gonna have killed that movement to unionize
+[01:06:45.800 --> 01:06:50.920]   So therefore it's worth it to us. Why on that fine is not is going to be a drop in the bucket of their overall assets
+[01:06:50.920 --> 01:06:53.960]   Yeah, you can't you can't find these companies enough right
+[01:06:53.960 --> 01:06:56.840]   Tesla has been accused of firing
+[01:06:56.840 --> 01:06:59.800]   Workers after a union push at the buffalo
+[01:06:59.800 --> 01:07:02.120]   plant
+[01:07:02.120 --> 01:07:05.400]   Complaint filed with the nlrb. Yeah, I guess it's just the way it is, isn't it?
+[01:07:05.400 --> 01:07:06.920]   Um
+[01:07:06.920 --> 01:07:10.200]   And there but what's weird is they're not hiding it. They're not attempting to hide it
+[01:07:10.520 --> 01:07:16.280]   They're not feeling anymore. Yeah, I mean, yeah, are are we at the eat the rich stage of capitalism?
+[01:07:16.280 --> 01:07:21.000]   I think feels like we're getting there. I'm all for it. I don't know how they taste though. I don't know
+[01:07:21.000 --> 01:07:25.320]   How tasty how rich quick quick question how rich do they have to be? Yeah, right?
+[01:07:25.320 --> 01:07:30.280]   Exactly. Yeah, let's set that let's set that right now. We're talking about like upper 1 percent, right? Yeah, sure
+[01:07:30.280 --> 01:07:33.000]   It's good. Wait, wait 1 percent
+[01:07:33.000 --> 01:07:35.960]   Lot of lot of meat on them bones
+[01:07:38.520 --> 01:07:42.680]   All right, let's take a little break. Uh, actually no, let's do a few more a few more stories
+[01:07:42.680 --> 01:07:46.200]   I I don't want to have too many commercials back to back here
+[01:07:46.200 --> 01:07:50.360]   Uh, I do want to celebrate though a 50th anniversary
+[01:07:50.360 --> 01:07:53.160]   50 years ago
+[01:07:53.160 --> 01:07:55.560]   The Xerox alto
+[01:07:55.560 --> 01:07:57.560]   This is a story from i2 police spectrum
+[01:07:57.560 --> 01:08:02.840]   We're still living in the alto's world. It said the alto transformed computer
+[01:08:02.840 --> 01:08:07.320]   Listen to the lead. I'm sitting in front of a computer looking at its graphical user interface
+[01:08:07.800 --> 01:08:10.600]   With overlapping windows on a high resolution screen
+[01:08:10.600 --> 01:08:14.760]   I interact with the computer by pointing and clicking with a mouse typing on a keyboard
+[01:08:14.760 --> 01:08:19.160]   I'm using a word processor with the core features and functions of word or google docs
+[01:08:19.160 --> 01:08:24.840]   Or libra offices writer along with an email client that could be mistaken for a simplified version of apple mail
+[01:08:24.840 --> 01:08:31.320]   Or outlook or must thunderbird this computer runs other software written using object oriented programming
+[01:08:31.320 --> 01:08:35.720]   Its networking capabilities can link me to other computers and high quality laser printers
+[01:08:36.680 --> 01:08:42.760]   You're thinking so what my computer has all that too, but the computer he's sitting in front of is a 50 year old
+[01:08:42.760 --> 01:08:46.280]   meticulously restored
+[01:08:46.280 --> 01:08:48.760]   Xerox alto at the computer history
+[01:08:48.760 --> 01:08:53.080]   Museum and actually he's running. That's pretty awesome. I you know
+[01:08:53.080 --> 01:08:57.480]   I'll start go ahead. I was gonna say I have to laugh at this because when I was born
+[01:08:57.480 --> 01:09:02.280]   I was born 1980 and when I was born my my grandfather gave like
+[01:09:02.760 --> 01:09:06.120]   One of the things he bought for me as an investment was like shares of Xerox
+[01:09:06.120 --> 01:09:09.800]   This world gone in a very different direction
+[01:09:09.800 --> 01:09:13.320]   I would have been eaten by now is what i'm saying
+[01:09:13.320 --> 01:09:19.240]   Shouldn't have given you apple. Yeah, you'd be eating you. Yeah, unfortunately it did not turn out that way and
+[01:09:19.240 --> 01:09:22.120]   That's for a few hundred bucks
+[01:09:22.120 --> 01:09:26.040]   I was just gonna say I'm looking at that article and you know what it makes me think of leo
+[01:09:26.040 --> 01:09:30.040]   Um, it must have been about 40 years ago like mid 80s
+[01:09:30.760 --> 01:09:35.160]   I read in either computer currents or the san francisco examiner
+[01:09:35.160 --> 01:09:38.600]   There was an article by devorek and he was describing
+[01:09:38.600 --> 01:09:44.760]   The first mackintosh and I remember there was some history about the where it came from zero oxen so and so forth
+[01:09:44.760 --> 01:09:50.040]   But there was a quote from devorek where he said I don't see these taking off because it uses this thing
+[01:09:50.040 --> 01:09:56.040]   They call a mouse and I don't see anyone ever wanting to use a mouse. You know you make a hundred accurate predictions. You make one
+[01:09:56.040 --> 01:10:00.360]   Bad prediction. They all remember that yeah, he didn't like the mouse
+[01:10:01.160 --> 01:10:03.960]   So much, uh, he was wrong obviously
+[01:10:03.960 --> 01:10:09.880]   40 years ago. Yeah, there's a famous book. Uh, you should probably read maybe do you still have those shares?
+[01:10:09.880 --> 01:10:15.320]   Fumbling the future how zero ox invented then ignored the first personal
+[01:10:15.320 --> 01:10:18.280]   Computer I don't need to rub salt in those wounds
+[01:10:18.280 --> 01:10:27.400]   Uh, the alto I think was the thing that steve jobs saw saw in a tour of zero ox park park
+[01:10:27.800 --> 01:10:35.480]   Certainly saw you know all of the concepts the overlapping windows the mice and stuff and and went back. He actually, uh, it's
+[01:10:35.480 --> 01:10:42.200]   According to folklore.org, which is uh, and he hurts felds wonderful site about the early days of apple
+[01:10:42.200 --> 01:10:45.480]   steve misinterpreted
+[01:10:45.480 --> 01:10:48.360]   Something he saw he thought he saw overlapping windows
+[01:10:48.360 --> 01:10:55.080]   And he went back, uh to the mackintosh team or I guess it was the lisa team at the time
+[01:10:55.640 --> 01:10:59.000]   And said they can do it. We should be we should be doing this
+[01:10:59.000 --> 01:11:05.640]   And it turned out that he misunderstood what he was seeing in fact. They weren't they weren't doing it
+[01:11:05.640 --> 01:11:07.240]   but
+[01:11:07.240 --> 01:11:09.240]   weirdly enough
+[01:11:09.240 --> 01:11:13.160]   The amazing talented team and he hurts feld bill ackinson
+[01:11:13.160 --> 01:11:19.240]   Did create overlapping windows even though zero ox didn't do it at the time they did tiled windows
+[01:11:19.240 --> 01:11:24.920]   So, uh, sometimes misinterpreting the future. That's maybe even better
+[01:11:25.320 --> 01:11:31.080]   Wasn't it just like a glitch like a screen redrawed. Yeah didn't completely clear the screen or something
+[01:11:31.080 --> 01:11:34.840]   Yeah, he's he came away with a completely wrong idea
+[01:11:34.840 --> 01:11:38.680]   Uh, so if you enjoy your gooey and your mouse
+[01:11:38.680 --> 01:11:41.640]   Uh and your laser printers
+[01:11:41.640 --> 01:11:47.080]   God, I remember we get it. What your wizzy wig editor. You remember when the first laser writers came out from apple? I think they were
+[01:11:47.080 --> 01:11:54.440]   So thousands of dollars are very expensive those fought cartridges. Oh, yeah. That's where the money was
+[01:11:55.240 --> 01:12:00.680]   They were those were really so I remember a friend of mine tom santos who owned at the time
+[01:12:00.680 --> 01:12:06.520]   A mac and tush or apple store. It wasn't a mac and tush store in san francisco macadam
+[01:12:06.520 --> 01:12:13.000]   I guess it was a mac store macadam had a van with a laser writer and went drive around and do portable
+[01:12:13.000 --> 01:12:19.320]   Desktop publishing he would come to you and you say I want my newsletter to have uh three fonts
+[01:12:19.320 --> 01:12:21.880]   He could do it all
+[01:12:21.880 --> 01:12:26.760]   What was the speed on apple talk the apple? I don't know very slow. Yeah
+[01:12:26.760 --> 01:12:28.920]   Yeah
+[01:12:28.920 --> 01:12:35.160]   It would I think the thing that's interesting is that apple was doing something that wasn't in the mainstream of computing at the time
+[01:12:35.160 --> 01:12:40.120]   And so as a result, uh, a lot of the things apple were doing it wasn't so much
+[01:12:40.120 --> 01:12:45.640]   Like this is the future. It was like this is a side. This is like the amiga. This is over in a corner
+[01:12:45.640 --> 01:12:47.560]   Somewhere
+[01:12:47.560 --> 01:12:52.680]   Because because you know the the pc came out that was mainstream computing but I think over time
+[01:12:52.680 --> 01:12:55.960]   Um apple has kind of I mean
+[01:12:55.960 --> 01:12:58.760]   Shifted the overton window
+[01:12:58.760 --> 01:13:05.560]   Yeah, well, I mean, yeah, I mean hugely influential obviously you look at windows 95 and the you know
+[01:13:05.560 --> 01:13:08.440]   Hard to say that the cues were not taken for the mac true
+[01:13:08.440 --> 01:13:11.240]   These things always inform each other right like they go back and forth
+[01:13:11.240 --> 01:13:15.320]   Everybody sort of learns from what everybody else is doing and they drive the state today
+[01:13:15.400 --> 01:13:21.080]   I mean if you look at the stuff today despite, you know, I'm a mac user up in mac user for 35 years
+[01:13:21.080 --> 01:13:24.840]   I've used windows. I've supported windows in my previous career as an i di
+[01:13:24.840 --> 01:13:28.280]   When you get down to it the details between the two are pretty
+[01:13:28.280 --> 01:13:33.080]   Small in terms of like yeah, I can go use a windows computer. I'm not gonna have a problem with it
+[01:13:33.080 --> 01:13:39.240]   Like these days the link that's wrong. Yeah, it's all yeah pretty universal. It's just the implementation. I think that's absolutely
+[01:13:39.240 --> 01:13:41.400]   It's not a religion. It really isn't yeah
+[01:13:42.440 --> 01:13:47.080]   By the way p-holder in the discord as uh tell me that the speed of apple talk was
+[01:13:47.080 --> 01:13:51.480]   230.4 kilobits, which is actually a lot faster than I thought it was
+[01:13:51.480 --> 01:13:55.960]   I thought it was faster. Yeah down in the the 60 or so, but all right
+[01:13:55.960 --> 01:14:01.000]   But you could trust p-holder. He knows his stuff. He knows it. He knows his stuff
+[01:14:01.000 --> 01:14:05.080]   Uh, a lot of people thought that jobs stole what he saw at park
+[01:14:05.080 --> 01:14:09.240]   Uh and and made the mac and tush or the lisa happen
+[01:14:09.880 --> 01:14:15.960]   Uh, but I think it's now understood that they licensed it right it was okay. They didn't steal it
+[01:14:15.960 --> 01:14:20.920]   Uh, but they had some good ideas and thank goodness because Xerox never did capitalize on the alto
+[01:14:20.920 --> 01:14:25.720]   But here we are 50 years later on the 50th anniversary
+[01:14:25.720 --> 01:14:29.640]   Of the uh of the machine that changed everything
+[01:14:29.640 --> 01:14:35.320]   Aren't you glad we don't still we're not still sitting at a green screen with a blinking cursor on the command line?
+[01:14:36.280 --> 01:14:40.920]   I don't know it had a had a charm. I kind of do it sometimes. That's the working terminal. Yeah
+[01:14:40.920 --> 01:14:47.400]   Oh, I love emac so don't i'm the wrong guy to ask yeah, but but very jofoli writes all their articles and notepad
+[01:14:47.400 --> 01:14:50.680]   We're very retro people. We're very retro, you know
+[01:14:50.680 --> 01:14:55.080]   All right now we'll take that break that I was promising you no need to
+[01:14:55.080 --> 01:14:59.400]   Fear we have more to come just a little bit with our wonderful panel
+[01:14:59.880 --> 01:15:05.960]   A lu mm from this weekend enterprise tech is here in studio with his vm machine
+[01:15:05.960 --> 01:15:12.520]   You didn't have to make a vm machine glow or anything. You know, it could have just been a box. You gotta have a glow. All right, okay
+[01:15:12.520 --> 01:15:17.480]   Dan moorin science fiction author also here
+[01:15:17.480 --> 01:15:23.800]   And from the vatican father robert balisser digital jazoo. What is that?
+[01:15:25.400 --> 01:15:30.600]   This is a nabas tag which is a company that's long gone out of business, but it's the year of the rabbit
+[01:15:30.600 --> 01:15:34.280]   So i'm oh the ears would move like
+[01:15:34.280 --> 01:15:38.040]   It's in some informational way or they would dance or
+[01:15:38.040 --> 01:15:45.240]   So you could link your nabas tag to the nabas tag of a significant other end like when you move the ear on yours
+[01:15:45.240 --> 01:15:49.560]   You're on that one who's moving the ear on uh on the other one
+[01:15:49.560 --> 01:15:55.240]   Is it the other the other one is in uh pep francis's room. Okay. There we go a little way
+[01:15:55.800 --> 01:15:58.600]   A little wave hello just saying hi from the holy father
+[01:15:58.600 --> 01:16:03.640]   Great to have all three of you on the show today our show today brought to you by decisions
+[01:16:03.640 --> 01:16:10.200]   uh decisions is a software platform a no code low code platform that's awesome
+[01:16:10.200 --> 01:16:19.800]   It gives it and business experts the tools they need to automate anything in the company within one no code
+[01:16:20.360 --> 01:16:24.840]   Platform you can you can take your business rules and and make them into an app
+[01:16:24.840 --> 01:16:30.200]   It could fix any business process prepare you to withstand like economic uncertainty
+[01:16:30.200 --> 01:16:32.760]   Everybody needs decisions in their tool belt
+[01:16:32.760 --> 01:16:36.840]   recession around the corner perhaps recession resilience
+[01:16:36.840 --> 01:16:41.080]   Requires, you know some thought of the deliberate management of resources
+[01:16:41.080 --> 01:16:49.240]   And the flexibility to adapt at a moment's notice the decisions no code environment makes it easy for your team to collaborate to build
+[01:16:49.640 --> 01:16:56.360]   And adjust workflows dynamic forms and decisioning processes that fit your unique and ever-changing business needs
+[01:16:56.360 --> 01:17:04.120]   Is especially important because you know the lu amms of the world are few and far between there's a real shortage of it talent
+[01:17:04.120 --> 01:17:09.560]   But decisions means the even the decision makers can create their own
+[01:17:09.560 --> 01:17:18.600]   Software decisions. I actually got a tour of this and I was blown away. It's so cool. Decisions process automation software is a complete toolkit
+[01:17:19.400 --> 01:17:20.920]   So if you're a developer you'll love it
+[01:17:20.920 --> 01:17:26.040]   But even business users will love it without development experience because they can build applications and
+[01:17:26.040 --> 01:17:29.720]   Automations and there's no coding required the no code platform
+[01:17:29.720 --> 01:17:35.080]   So powerful it includes your bus rules and workflow engines a host of pre-built integrations
+[01:17:35.080 --> 01:17:38.680]   That connect to any legacy system via their api
+[01:17:38.680 --> 01:17:42.600]   So you can actually talk to all the parts of your enterprise
+[01:17:42.600 --> 01:17:47.240]   And it's easy to set this up within a simple drag and drop visual interface design
+[01:17:48.040 --> 01:17:51.560]   Decisions can be deployed in the cloud, but you can also deploy it on prem
+[01:17:51.560 --> 01:17:54.920]   You know, I'll give you an example
+[01:17:54.920 --> 01:17:57.880]   You may remember at the beginning of the pandemic the government
+[01:17:57.880 --> 01:18:04.760]   Said, all right. We're gonna fund these ppp loans, right? And it was very quick. It was almost overnight
+[01:18:04.760 --> 01:18:12.120]   Uh, one of the country's largest private banks was able to jump on this they built an entire ppp loan application
+[01:18:12.520 --> 01:18:18.840]   Process for small businesses in two days and because they were first to market this all happened so quick
+[01:18:18.840 --> 01:18:24.600]   They issued a billion dollars in loans even before the competitors could get started
+[01:18:24.600 --> 01:18:27.080]   That's what no code can do for you
+[01:18:27.080 --> 01:18:34.360]   Decisions let you customize workflows to automate the small decisions producing faster results with greater accuracy
+[01:18:34.360 --> 01:18:40.600]   Scale your business to better serve your customers reduce operational costs save your team valuable time
+[01:18:41.160 --> 01:18:44.920]   Another example one decisions customers odus elevator
+[01:18:44.920 --> 01:18:47.960]   You know odus every time you get an elevator you see the words odus, right?
+[01:18:47.960 --> 01:18:52.200]   They actually have two million elevators and here's the problem. They're all over the world
+[01:18:52.200 --> 01:18:56.280]   And they often have different software systems running each of them
+[01:18:56.280 --> 01:19:06.040]   odus elevator took decisions and they implemented a single code base to do daily pulse checks on every single one of those elevators
+[01:19:06.040 --> 01:19:08.280]   all over the world
+[01:19:08.280 --> 01:19:09.800]   every day
+[01:19:09.800 --> 01:19:12.520]   In seconds by finding potential problems before they occur
+[01:19:12.520 --> 01:19:17.800]   You know that's important in the elevator business. You avoid downtime. You don't have people stuck in your elevators
+[01:19:17.800 --> 01:19:20.440]   You can manage your service technicians effectively
+[01:19:20.440 --> 01:19:23.800]   It's actually really good news if you're writing an odus elevator
+[01:19:23.800 --> 01:19:27.160]   You're safe because they are keeping an eye on it
+[01:19:27.160 --> 01:19:35.400]   But only because decisions allowed them to write a tool that could cross all of those platforms all over the world and get those pulse checks in
+[01:19:35.400 --> 01:19:38.200]   every single day
+[01:19:38.200 --> 01:19:43.640]   The durability of your businesses foundation will directly impact your performance your ability to survive
+[01:19:43.640 --> 01:19:48.360]   You need to be nimble. You need to be able to make sure your business processes operate accurately
+[01:19:48.360 --> 01:19:54.520]   You need to be able to encode what's in your brain those business rules and get them out there into software you need a foundation
+[01:19:54.520 --> 01:19:58.280]   You need decisions the decisions automation platform
+[01:19:58.280 --> 01:20:00.840]   Provides a solution to any business challenge
+[01:20:00.840 --> 01:20:03.560]   automating anything
+[01:20:03.560 --> 01:20:06.840]   Changing everything to improve your company's speed to market
+[01:20:07.480 --> 01:20:12.600]   To improve your financial growth your operational success just to survive in today's business climate
+[01:20:12.600 --> 01:20:14.760]   You need to be smarter than the other guys
+[01:20:14.760 --> 01:20:20.840]   Decisions is your tool. They help industry leaders alleviate bottlenecks and automate pain points in their business
+[01:20:20.840 --> 01:20:25.640]   So you can do what you do best change the world make your business sing
+[01:20:25.640 --> 01:20:31.320]   While decisions can run in the background and get in all that busy work done to learn more about decisions
+[01:20:31.320 --> 01:20:34.040]   No code automation platform
+[01:20:34.600 --> 01:20:38.280]   You scope your free proof of concept go to decisions.com/twit
+[01:20:38.280 --> 01:20:41.880]   DECIS IONS decisions like a decision
+[01:20:41.880 --> 01:20:44.680]   This make the decision go to decisions.com
+[01:20:44.680 --> 01:20:51.080]   Slash twit we thank them so much for their support of this weekend tech this when I got the demo I was blown away
+[01:20:51.080 --> 01:20:53.160]   It's amazing what they can do a whole app
+[01:20:53.160 --> 01:20:55.240]   like that
+[01:20:55.240 --> 01:20:59.720]   drag and drop decisions.com/twit
+[01:21:02.200 --> 01:21:05.080]   Uh, I don't know if this is a story
+[01:21:05.080 --> 01:21:10.280]   or a press release biden's national cybersecurity strategy
+[01:21:10.280 --> 01:21:16.600]   advocates tech regulation and software liability reform. Yeah, good idea
+[01:21:16.600 --> 01:21:23.000]   I mean, is it just an idea or is it gonna happen? It was released on thursday. This is a
+[01:21:23.000 --> 01:21:30.120]   Apparently been long awaited the white house's strategy for improving the security of computer systems
+[01:21:31.080 --> 01:21:33.080]   Yeah, um
+[01:21:33.080 --> 01:21:37.640]   According to the cyber scoop this represents a shift in how washington approaches to cybersecurity
+[01:21:37.640 --> 01:21:43.400]   veering from the government's long standing emphasis on information sharing and collaboration
+[01:21:43.400 --> 01:21:48.600]   Towards a more strictly regulated approach. Uh, I guess so
+[01:21:48.600 --> 01:21:56.040]   Remember under obama it was all about openness and getting the agencies to talk with one another and I'm not against that
+[01:21:56.040 --> 01:21:58.600]   Is it is it mutually exclusive?
+[01:21:59.640 --> 01:22:01.880]   Security and information sharing
+[01:22:01.880 --> 01:22:06.120]   Yes, oh, all right
+[01:22:06.120 --> 01:22:10.760]   Unfortunately in the way that it's set up because so the way
+[01:22:10.760 --> 01:22:13.480]   Rewind
+[01:22:13.480 --> 01:22:17.480]   Uh back to the obama administration and there was this big push and there was a lot of excitement
+[01:22:17.480 --> 01:22:23.960]   That they were trying to get software companies to consider security during the development process and not as an add-on afterwards
+[01:22:23.960 --> 01:22:27.560]   Right. They found x-rays. Yep. Which was a great. It's a great idea
+[01:22:27.560 --> 01:22:33.240]   I mean, that's that's what they should aim for. That's a philosophy that every developer should have in the back of their mind is they're starting a new project
+[01:22:33.240 --> 01:22:36.120]   Unfortunately, the way that they did that was by compliance
+[01:22:36.120 --> 01:22:41.160]   So they created a lot of regulations that said well if you don't do this and you don't do this and you don't do this
+[01:22:41.160 --> 01:22:44.120]   We're gonna find you or you won't be able to develop your project
+[01:22:44.120 --> 01:22:50.360]   That would work except for the fact that a lot of these companies still put out products that didn't work
+[01:22:50.360 --> 01:22:52.520]   And then if it didn't work out, they just went bankrupt
+[01:22:53.320 --> 01:22:57.640]   So what they're trying to do now, they're they're trying to say okay stop with the compliance
+[01:22:57.640 --> 01:23:01.800]   We're gonna make it easier for you to develop what we want to be in partnership
+[01:23:01.800 --> 01:23:04.120]   Yeah, so we can share with you
+[01:23:04.120 --> 01:23:07.160]   The best practices. These are the things that other
+[01:23:07.160 --> 01:23:12.840]   Manufacturers and other vendors that have created solutions for us have run into you should be considering them
+[01:23:12.840 --> 01:23:17.560]   So in that sense, I like it because it's not just saying build a secure project
+[01:23:17.560 --> 01:23:23.160]   It's build a secure project. Oh and here are 10 things that you really should be designing
+[01:23:23.400 --> 01:23:25.000]   in at the start
+[01:23:25.000 --> 01:23:26.760]   so better
+[01:23:26.760 --> 01:23:33.320]   Maybe maybe I think you get more with the the carrot than the stick in this in this particular circumstance
+[01:23:33.320 --> 01:23:34.120]   Yeah
+[01:23:34.120 --> 01:23:38.200]   And certainly we know our infrastructure. Well, we just talked about last pass. I mean, that's
+[01:23:38.200 --> 01:23:41.240]   That's a private business, but our infrastructure is
+[01:23:41.240 --> 01:23:46.200]   In many cases not very well defended and secured. I see you nodding lu
+[01:23:46.200 --> 01:23:51.320]   Yeah, I think I think the biggest thing is the fact that you have a lot of infrastructure being run on
+[01:23:51.720 --> 01:23:55.160]   You know the big four or five cloud service companies that are out there today
+[01:23:55.160 --> 01:23:59.960]   And I think one thing this will definitely do and it did in back in 2021 with the executive orders
+[01:23:59.960 --> 01:24:02.840]   I came out was it pushes these companies to think more
+[01:24:02.840 --> 01:24:07.480]   About security and they want to be compliant just like padry said they want to be compliant
+[01:24:07.480 --> 01:24:09.000]   They want to keep their contracts
+[01:24:09.000 --> 01:24:13.800]   They want to keep getting new ones and they want to keep maintaining that and then of course that also trickles down
+[01:24:13.800 --> 01:24:17.160]   To the you know, it's enterprise. It's a small medium business as well
+[01:24:17.160 --> 01:24:19.320]   And so I would say they're gonna they're gonna want to be compliant
+[01:24:19.320 --> 01:24:21.800]   They're gonna follow the rules and they're gonna try to do what's best
+[01:24:21.800 --> 01:24:25.800]   And you know, but the interesting thing is you don't hear a lot about
+[01:24:25.800 --> 01:24:28.520]   You know you hear a lot about a little bit of google you have microsoft
+[01:24:28.520 --> 01:24:31.080]   You don't hear a lot about amazon doing these things
+[01:24:31.080 --> 01:24:34.120]   You don't hear a lot about them following the executive order rules or whatever
+[01:24:34.120 --> 01:24:38.600]   They don't really publicize themselves as being like the super cyber secure
+[01:24:38.600 --> 01:24:43.480]   Infrastructure, but the reality is my guess is they're definitely doing it under the covers
+[01:24:43.480 --> 01:24:46.920]   And I think it will definitely everyone will fall suit. I think at this point now
+[01:24:47.000 --> 01:24:49.800]   Will everyone do it like the last passes of the world?
+[01:24:49.800 --> 01:24:55.080]   That's the that's the question and maybe if they don't if they have regulation they might but they have fines they might
+[01:24:55.080 --> 01:24:59.160]   Well, here's how just here's how the Biden administration seems to want to
+[01:24:59.160 --> 01:25:04.520]   Implement this they said companies that make software must have the freedom to innovate
+[01:25:04.520 --> 01:25:09.800]   But and this is this is uh cyber scoop calls us the third rail of cyber security
+[01:25:09.800 --> 01:25:12.360]   But they must also be held liable
+[01:25:13.240 --> 01:25:17.880]   When they fail to live up to the duty of care they owe consumers businesses or critical infrastructure providers
+[01:25:17.880 --> 01:25:22.120]   They want software. It's kind of amazing that they haven't been liable
+[01:25:22.120 --> 01:25:26.120]   But but but but they want to make software makers liable
+[01:25:26.120 --> 01:25:32.600]   For failures in cyber security which opens them up of course to lawsuits and fines
+[01:25:32.600 --> 01:25:38.120]   Uh, and the industry is not too happy about that, but you take one look at last pass
+[01:25:38.120 --> 01:25:42.600]   uh, the potential danger of of what happened in last pass
+[01:25:43.560 --> 01:25:45.480]   Uh, if i'm sure it's used in government
+[01:25:45.480 --> 01:25:50.680]   I mean, I don't know what but government uses for password managers, but I wouldn't be surprised to hear last passes
+[01:25:50.680 --> 01:25:55.480]   And there certainly somebody is being used. Are they liable if they screw up like that?
+[01:25:55.480 --> 01:26:02.280]   By coming sometimes it's not a screw up. Yeah, that's true too. That's true too. Here's a scenario
+[01:26:02.280 --> 01:26:07.720]   I'm running a startup and I've got a service that a lot of people will really enjoy using it gets very popular
+[01:26:07.720 --> 01:26:09.720]   But I find that it's unsustainable
+[01:26:09.720 --> 01:26:13.640]   The amount of money that I have to put into the infrastructure will never never be recovered
+[01:26:13.640 --> 01:26:19.400]   And so I have to start shutting down the business at at first I start laying off people maybe security gets a bit less
+[01:26:19.400 --> 01:26:24.520]   I start having a couple of breaches. I lose trust and now my company is dead. It's worthless except
+[01:26:24.520 --> 01:26:27.320]   For the customer information that I have
+[01:26:27.320 --> 01:26:29.800]   And I can sell that
+[01:26:29.800 --> 01:26:34.440]   That's not so good. How do you how do you find me if my company no longer exists? Right?
+[01:26:34.440 --> 01:26:37.160]   Uh
+[01:26:37.160 --> 01:26:45.720]   Brian Harrell former assistant secretary for infrastructure protection at dhs says exactly this. It's not possible to eliminate all defects
+[01:26:45.720 --> 01:26:54.840]   But right now there's little incentive beyond just general market reputation to invest in a dramatic reduction of cyber vulnerabilities
+[01:26:54.840 --> 01:26:59.000]   Companies aren't being unscented to keep their stuff secure
+[01:26:59.000 --> 01:27:03.960]   And it's overall a risk too because there's so much more stuff. There's so much more data
+[01:27:03.960 --> 01:27:07.480]   There's so much more thing. There's so many more things we keep in our digital life, right?
+[01:27:07.480 --> 01:27:12.200]   Like our phones contain our banking information and our pictures and all this stuff. That's just so
+[01:27:12.200 --> 01:27:15.000]   Irreplaceable or damaging if it gets
+[01:27:15.000 --> 01:27:22.520]   breached and what is the incentive if it's just like leave it up to the market to decide and you'll pick the most secure solution
+[01:27:22.520 --> 01:27:27.640]   Well, that it hasn't necessarily panned out because you don't even know if it's secure too, right?
+[01:27:27.640 --> 01:27:30.200]   I mean, how do you know until it gets breached? No, yeah
+[01:27:31.160 --> 01:27:37.480]   Everything is everything is secure until it isn't so apparently this document basically says it's up to congress
+[01:27:37.480 --> 01:27:40.440]   And of course, this is very hot
+[01:27:40.440 --> 01:27:42.840]   hot potato in congress
+[01:27:42.840 --> 01:27:50.440]   Among the challenges according to cyber scoop how to define the circumstances in which a company be held liable for vulnerable code
+[01:27:50.440 --> 01:27:53.240]   Uh, and of course
+[01:27:53.240 --> 01:27:56.360]   House of representatives control where our republicans who are historically against
+[01:27:56.360 --> 01:27:59.800]   any any regulatory regime
+[01:28:00.600 --> 01:28:05.320]   Uh, so this might not be this may be an frankly a political non-starter
+[01:28:05.320 --> 01:28:11.400]   But it is it's I don't know blue. Where do you sit? Should companies be liable for the security of their software?
+[01:28:11.400 --> 01:28:17.720]   I think one of the biggest things that I've really seen seen a shift in the enterprise and in all the different markets is gdpr
+[01:28:17.720 --> 01:28:22.840]   Okay, this has been something that has really been a huge if you're a global company
+[01:28:22.840 --> 01:28:28.680]   You've shifted your processes and you're you know and how you handle data, you know, and of course the
+[01:28:29.640 --> 01:28:33.400]   The european data protection board is also part of this as well as how they regulate stuff
+[01:28:33.400 --> 01:28:36.360]   Like these have really pushed things in the right direction
+[01:28:36.360 --> 01:28:42.280]   I think and I think you need some set of regulation and some to be able to be fined and feel like you're gonna
+[01:28:42.280 --> 01:28:45.560]   You're gonna be you're gonna hit rock bottom unless you go and follow these rules
+[01:28:45.560 --> 01:28:48.440]   I think there needs to be some regulation there that helps manage that yeah
+[01:28:48.440 --> 01:28:52.760]   I mean it's a shame that we sometimes and it seems more and more have to rely on europe
+[01:28:52.760 --> 01:28:55.480]   To make those rules because we don't have the will
+[01:28:55.480 --> 01:28:57.960]   Uh the political will to do so
+[01:28:58.280 --> 01:29:03.720]   Uh michael daniel ceo of cyber threat alliance said I don't think we should just sort of throw up our hands and say congress
+[01:29:03.720 --> 01:29:06.520]   Is dysfunctional and therefore we can't do anything?
+[01:29:06.520 --> 01:29:09.560]   There are things where you need congress to act
+[01:29:09.560 --> 01:29:14.040]   Says do I have any illusions that it'll be simple or easier fast? Of course not
+[01:29:14.040 --> 01:29:18.280]   Uh, but at least the white house is pushing for this right?
+[01:29:18.280 --> 01:29:20.040]   um
+[01:29:20.040 --> 01:29:25.000]   Historically the software industry has has not been a fan of liability reform
+[01:29:25.880 --> 01:29:26.760]   uh
+[01:29:26.760 --> 01:29:29.160]   victoria espanel president and ceo of the
+[01:29:29.160 --> 01:29:31.800]   business software alliance
+[01:29:31.800 --> 01:29:34.200]   our good friends at the bsa
+[01:29:34.200 --> 01:29:36.760]   said the document is thoughtful
+[01:29:36.760 --> 01:29:38.680]   but
+[01:29:38.680 --> 01:29:43.560]   And oh and makers of enterprise software takes seriously their responsibilities to customers in the public
+[01:29:43.560 --> 01:29:49.320]   But we look forward to working with the administration to advance shared priorities that will produce the greatest benefit
+[01:29:49.320 --> 01:29:51.800]   I don't think the bsa is really all
+[01:29:51.800 --> 01:29:54.360]   full behind this
+[01:29:54.360 --> 01:29:57.000]   I'm sure their member companies are saying that's a burden
+[01:29:57.000 --> 01:29:59.800]   Uh, we don't want to have to we don't want to be on the hook
+[01:29:59.800 --> 01:30:05.720]   I mean it's start with small steps something that the eu did back in
+[01:30:05.720 --> 01:30:13.080]   2018 was they gave this grace period for the reporting of breaches if you report a breach within 72 hours of you
+[01:30:13.080 --> 01:30:18.200]   Being acknowledging knowing that there's a breach then you're basically covered
+[01:30:18.200 --> 01:30:24.120]   I mean that's that's something that we we desperately need to be the norm
+[01:30:24.200 --> 01:30:27.800]   Not not this outlier that you do when you're dealing with eu companies
+[01:30:27.800 --> 01:30:33.880]   You know, I want google to know that it's got three days maximum
+[01:30:33.880 --> 01:30:39.080]   to to disclose that there was a breach and start talking about what they're doing to remediate it not
+[01:30:39.080 --> 01:30:46.520]   Asking the person who found the exploit or found the breach to hold off until they can fix it and maybe they'll get back to you in six months
+[01:30:46.520 --> 01:30:49.080]   Yeah, it's little things like that
+[01:30:49.080 --> 01:30:52.840]   that um that I think can actually make a difference versus
+[01:30:53.320 --> 01:30:57.000]   Letting congress sit there and say tech is good tech is bad. Yeah
+[01:30:57.000 --> 01:31:00.680]   Um, I'll tell you where
+[01:31:00.680 --> 01:31:03.160]   uh
+[01:31:03.160 --> 01:31:10.440]   Government is very forward thinking or at least very active in the state of florida
+[01:31:10.440 --> 01:31:15.720]   Can I i'm sorry my my headphones must be acting
+[01:31:19.080 --> 01:31:23.960]   Uh, I there's no way this passes but in the florida state legislators senator
+[01:31:23.960 --> 01:31:31.240]   Jason uh brodoor has proposed a bill that would require bloggers who write about governor desantis
+[01:31:31.240 --> 01:31:39.000]   The attorney general or any members of the florida executive cabinet or legislature to register with the state
+[01:31:39.000 --> 01:31:43.320]   You're gonna write about us. You got to register with the state
+[01:31:43.320 --> 01:31:46.040]   I think there's a little thing
+[01:31:46.680 --> 01:31:52.120]   It's the small just a small thing called the first amendment. There's gonna have some words with that one
+[01:31:52.120 --> 01:31:57.080]   So is this what are they doing China right you got to register if you're a blogger
+[01:31:57.080 --> 01:31:59.960]   No, it's that's what the hell no
+[01:31:59.960 --> 01:32:02.280]   Okay, so anywhere
+[01:32:02.280 --> 01:32:07.800]   The people who are trying to defend this they're saying oh no no no it only applies if you're being paid
+[01:32:07.800 --> 01:32:10.520]   So this is going after the people who are writing hit pieces
+[01:32:10.920 --> 01:32:17.400]   The problem is if you actually look at the text of the bill specifically look at what they mean by compensation
+[01:32:17.400 --> 01:32:22.520]   So that they put it in quotations compensation and the definition out of memory here is
+[01:32:22.520 --> 01:32:29.080]   Anything so she can anything of value for what you write you are now a paid blogger
+[01:32:29.080 --> 01:32:31.080]   Wow
+[01:32:31.080 --> 01:32:34.280]   I guess we're paid. Are we bloggers? No, but I mean
+[01:32:34.280 --> 01:32:38.280]   I mentioned what is a blogger? What's a what is a please? Tell me what a yeah
+[01:32:38.280 --> 01:32:42.120]   What is that mean right now? Do I have to be on blogger calm? That's still
+[01:32:42.120 --> 01:32:46.040]   To be using word press like what is it what does it mean?
+[01:32:46.040 --> 01:32:49.400]   What if I'm what if I'm tweeting about her? I've got a medium or a
+[01:32:49.400 --> 01:32:52.680]   It only it only it only applies if you're on geo cities
+[01:32:52.680 --> 01:33:01.400]   Failure to disclose
+[01:33:01.400 --> 01:33:08.040]   Would lead to daily fines for the bloggers with a maximum amount per report not per writer of $2,500
+[01:33:08.440 --> 01:33:11.800]   The per day fines $25 per report for each day. Most people
+[01:33:11.800 --> 01:33:14.840]   Yeah, I'm guessing most of these people can be
+[01:33:14.840 --> 01:33:17.240]   More than they're getting paid right
+[01:33:17.240 --> 01:33:24.440]   Uh, but this even if this passes, of course any appeal would it mean like be cast out? I mean
+[01:33:24.440 --> 01:33:27.640]   That is this is exactly what the first amendment prohibits
+[01:33:27.640 --> 01:33:31.800]   The problem is I'm we're seeing more and more and not just this space
+[01:33:31.800 --> 01:33:38.120]   But across the country where you've got these bills these laws these policies that go into effect
+[01:33:38.120 --> 01:33:41.480]   They're unconstitutional. They're obviously unconstitutional, but
+[01:33:41.480 --> 01:33:47.560]   Until it gets all the way to the supreme court. It can still be in action on this reason and junction against it
+[01:33:47.560 --> 01:33:51.800]   So this is this is supreme chilling effect again. This is this is like corporations
+[01:33:51.800 --> 01:33:55.240]   Not caring that they know they're going to get sued for anti-use
+[01:33:55.240 --> 01:33:56.760]   This is a
+[01:33:56.760 --> 01:34:00.600]   Legislature certainly. Yeah, senator roger knows that this isn't going to hold up
+[01:34:00.600 --> 01:34:03.640]   It's you know, it's clearly a violation of the constitution
+[01:34:03.640 --> 01:34:09.160]   But the chilling effect is what he's hoping for just think twice before you write about us guys
+[01:34:09.160 --> 01:34:12.280]   Doc back for the three weeks that it's that it's in effect
+[01:34:12.280 --> 01:34:17.800]   He's going to be able to go after a dozen people who he really doesn't like because they wrote negative stories about the republicans
+[01:34:17.800 --> 01:34:25.160]   And they're going to be in legal hell for the next five years unbelievable. I so appreciate that it's a florida senator writing
+[01:34:25.160 --> 01:34:31.480]   It's specifically about the executive right so it feels like I mean speaking of things with like, you know transparent
+[01:34:31.480 --> 01:34:37.160]   Influences kind of feels like the executive was like hey, can you uh, can you make this bill for us?
+[01:34:37.160 --> 01:34:44.120]   Well, I mean isn't florida the place where Walt Disney has to submit to a panel
+[01:34:44.120 --> 01:34:47.400]   before they can do anything. I mean
+[01:34:47.400 --> 01:34:50.600]   and the latest addition to the panel is a
+[01:34:50.600 --> 01:34:53.400]   Christian evangelist preacher who
+[01:34:54.440 --> 01:35:01.160]   It's in the water. I read that uh, yeah estrogen is in the water sounds in the water your gate because you drink water
+[01:35:01.160 --> 01:35:04.680]   Uh, what a what does it's a?
+[01:35:04.680 --> 01:35:07.560]   I just it's amazing. I mean I
+[01:35:07.560 --> 01:35:13.880]   Yeah, all right just a mind boggling. Let's take a little break then we're going to talk about speaking of mind boggling
+[01:35:13.880 --> 01:35:16.360]   banning tick tock
+[01:35:16.360 --> 01:35:19.960]   Because that seems to be getting closer and closer bit by bit inch by inch
+[01:35:20.680 --> 01:35:26.040]   Our show today brought to you by express vpn. Maybe that someday you'll have to use a vpn to use tick tock
+[01:35:26.040 --> 01:35:28.360]   Wow
+[01:35:28.360 --> 01:35:29.800]   Wow
+[01:35:29.800 --> 01:35:35.240]   There's there's three reasons people use a virtual private network security is one you're an open access
+[01:35:35.240 --> 01:35:41.320]   Hot spot or at a hotel or at a cruise ship everybody you're on the same network is everybody else
+[01:35:41.320 --> 01:35:48.760]   Oh, uh, uh, uh, uh, uh, vpn is really the only way to make sure that nobody is snooping on your traffic can't that nobody can see you there
+[01:35:48.760 --> 01:35:52.520]   They can't run a Wi-Fi pineapple to attempt to attack your machine
+[01:35:52.520 --> 01:35:55.480]   So that's one security number two is privacy
+[01:35:55.480 --> 01:35:58.840]   Because every internet service provider
+[01:35:58.840 --> 01:36:05.720]   Every carrier every open Wi-Fi hot spot sees everything you do and they can sell that it's completely legal for them to collect it
+[01:36:05.720 --> 01:36:12.440]   And sell it so it's a complete. I mean privacy wise. This is a nightmare. Then there's a third reason that maybe you want to
+[01:36:12.440 --> 01:36:17.720]   Be coming out. Maybe you're a florida blogger, but you'd like to be writing in melon, italy
+[01:36:18.360 --> 01:36:22.360]   Maybe uh, you're living in california, but you want to watch?
+[01:36:22.360 --> 01:36:30.280]   Anime on netflix japan. Well, that's another thing a vpn can do it can put you anywhere in the world that the vpn has servers now
+[01:36:30.280 --> 01:36:34.920]   Having said all that it's very important that you choose the right vpn
+[01:36:34.920 --> 01:36:40.680]   Because you're in a way just kicking those security and privacy concerns down the road
+[01:36:40.680 --> 01:36:47.240]   The vpn provider has to protect your privacy. Well, that's why I only use and I only recommend express
+[01:36:47.960 --> 01:36:49.960]   vpn
+[01:36:49.960 --> 01:36:52.440]   When you're when you're using
+[01:36:52.440 --> 01:36:56.200]   The internet your public ip address is out there, right?
+[01:36:56.200 --> 01:37:02.280]   And they can be matched to your other visits they can do all sorts of stuff with that they can associate it to the sites you visit
+[01:37:02.280 --> 01:37:06.840]   If you're using express vpn your ip address isn't yours. It's express vpn's
+[01:37:06.840 --> 01:37:13.000]   It hides your ip address. It gives you the secure ip from whatever country you want to be in
+[01:37:13.800 --> 01:37:20.280]   It also encrypts all your data so it's protected in transit from hackers and anyone else trying to see what you're up to
+[01:37:20.280 --> 01:37:28.360]   And the beauty of express vpn is they really care about your privacy express vpn's trusted server technology
+[01:37:28.360 --> 01:37:31.160]   They invented it runs in ram sandbox
+[01:37:31.160 --> 01:37:37.000]   So it cannot keep track of your visit it and as soon as you close the vpn server
+[01:37:37.000 --> 01:37:39.560]   It's gone with no trace of your visit
+[01:37:39.560 --> 01:37:44.680]   We know this because there are countries where they don't have they don't have you know, they have no knock warrants
+[01:37:44.680 --> 01:37:50.360]   They didn't even warrants in some cases. They just burst in take the server and every time that's happened express vpn
+[01:37:50.360 --> 01:37:54.120]   There's nothing on that server express vpn
+[01:37:54.120 --> 01:37:58.280]   Doesn't keep track of you. They they go to the extent of using a
+[01:37:58.280 --> 01:38:04.520]   Secure special distribution of debbie and that wipes the drive every time every day
+[01:38:04.520 --> 01:38:07.240]   It starts fresh
+[01:38:07.240 --> 01:38:10.680]   It's pretty amazing. They go the extra mile you read the privacy policy
+[01:38:10.680 --> 01:38:17.560]   You read about trusted server and you can believe it because they go undergo independent third-party security audits on a regular basis
+[01:38:17.560 --> 01:38:21.640]   That's a yep. They do what they say they're going to do that works the way they say it does
+[01:38:21.640 --> 01:38:30.120]   I'll tell you I love express vpn you will too express vpn.com/twit put it on your mac your pc your linux box on your android
+[01:38:30.120 --> 01:38:36.520]   Or ios you can even even sell routers you can put on the routers or runs on a variety of routers one that you might have already
+[01:38:36.840 --> 01:38:43.160]   Express vpn.com/twit protect your data with the number one rated vpn provided today
+[01:38:43.160 --> 01:38:47.960]   By the way, it's so easy to use. They got I got on my phone and press the button. Boom. I'm protected
+[01:38:47.960 --> 01:38:51.320]   Visit express vpn.com/twit
+[01:38:51.320 --> 01:38:57.160]   In fact right now if you go you get three months free. I don't want your package express vpn
+[01:38:57.160 --> 01:39:00.200]   Dot com slash
+[01:39:00.200 --> 01:39:03.480]   Twit expr es s vpn.com
+[01:39:03.960 --> 01:39:08.040]   Slash to it. We thank him so much for their support. We thank him for a great service
+[01:39:08.040 --> 01:39:09.640]   I've been using for years
+[01:39:09.640 --> 01:39:13.960]   I encourage you to try it, but if you do, please use that address so they know you saw it here express vpn
+[01:39:13.960 --> 01:39:16.840]   Dot com slash
+[01:39:16.840 --> 01:39:18.840]   Twit
+[01:39:18.840 --> 01:39:24.440]   We had a very fun week this week on twit, but you know what? I don't have to tell you about it because we've made this little mini movie
+[01:39:24.440 --> 01:39:26.840]   For you to enjoy watch
+[01:39:26.840 --> 01:39:29.880]   Today i'm joined by my name mr. Sam apple samet
+[01:39:30.280 --> 01:39:35.960]   You all know him as the the car guy as mr. Laport likes to say his reverb might it says
+[01:39:35.960 --> 01:39:39.720]   I worked on my car for years, but now they're too
+[01:39:39.720 --> 01:39:42.200]   Complicated what's the deal with that?
+[01:39:42.200 --> 01:39:44.760]   Does it make it better?
+[01:39:44.760 --> 01:39:50.120]   Having all of these chips and all of these computers. Let me phrase the answer as a question. Do you miss?
+[01:39:50.120 --> 01:39:51.640]   um
+[01:39:51.640 --> 01:39:56.280]   Flooded carburetors on cold winter mornings and okay, paper lock on hot human summer days
+[01:39:56.280 --> 01:39:59.720]   Okay, you got me all right
+[01:40:00.600 --> 01:40:02.360]   Previously on twit
+[01:40:02.360 --> 01:40:08.120]   Triangulation he is often called the father of modern genomics
+[01:40:08.120 --> 01:40:13.560]   Dr. George church if you could live forever would you want to live forever if you're very
+[01:40:13.560 --> 01:40:15.800]   healthy and youthful
+[01:40:15.800 --> 01:40:22.280]   I think it would be hard to say no to another couple of days to say no to seeing your great grandchildren
+[01:40:22.280 --> 01:40:26.920]   And get married. Yeah, all about android. This is the
+[01:40:27.480 --> 01:40:32.360]   Oppo find x2 flip. It is another foldables and other flipping foldable
+[01:40:32.360 --> 01:40:38.520]   It is going to rival samsungs flip overseas not only with the name
+[01:40:38.520 --> 01:40:44.840]   But also with this very beautiful saturated screen windows weekly. Where should I bury this dead body?
+[01:40:44.840 --> 01:40:47.640]   I'm just no i'm just poking the bang
+[01:40:47.640 --> 01:40:53.240]   I hope you're not serious about burying a dead body if you're asking hypothetically for educational purposes
+[01:40:53.480 --> 01:40:58.840]   There are several legal ways to dispose of a dead body according to this. Yes. Yes for educational. I can do it. Whoa
+[01:40:58.840 --> 01:41:05.400]   It just sounds like the uh the human overseer saw what was happening. You can't do that to it
+[01:41:05.400 --> 01:41:07.640]   Hey, what are we doing? I'm being
+[01:41:07.640 --> 01:41:10.120]   I'm dressed for funeral. I just thought I'd ask
+[01:41:10.120 --> 01:41:14.440]   In the middle of the search result
+[01:41:14.440 --> 01:41:18.920]   It just bombed out. It's a no no no. We're not going to tell you how to bury dead body
+[01:41:20.120 --> 01:41:25.160]   Uh, by the way, if you get a chance that triangulation was george church very interesting. I had forgotten that
+[01:41:25.160 --> 01:41:29.400]   Uh, mark pellet. She and I had interviewed george 12 years ago
+[01:41:29.400 --> 01:41:32.040]   On futures and biotech a show we used to do
+[01:41:32.040 --> 01:41:38.760]   Uh brought him back 12 years later and the guy is amazing the stuff he is doing 150 patents
+[01:41:38.760 --> 01:41:41.080]   He started more than 20 companies
+[01:41:41.080 --> 01:41:46.280]   Uh, but but not for profit. He's really out there to change the world there. He's
+[01:41:47.160 --> 01:41:52.440]   It's a little Jurassic park one of the things he wants to and he looks like by the way he looks like david aton burr or whatever rich
+[01:41:52.440 --> 01:41:55.720]   He's got the big beer. One of the things he wants to do is uh
+[01:41:55.720 --> 01:42:00.920]   Take mammoth woolly mammoth jeans. We've got him. I guess amber. I don't know. We've got him
+[01:42:00.920 --> 01:42:05.960]   frozen tundra and uh and insert them into elephants to make cold resistant elephants
+[01:42:05.960 --> 01:42:11.480]   To trample the grass and knock down the trees in sybaria to help fix global warming
+[01:42:11.480 --> 01:42:16.680]   So there's an example. Okay. Okay. That's uh, it's a choice
+[01:42:17.400 --> 01:42:19.400]   It makes sense when you when you're
+[01:42:19.400 --> 01:42:24.040]   Read about it. That's a thing. That's a thing that I heard. Well, it turns out
+[01:42:24.040 --> 01:42:29.000]   Uh that these herbivores these massive herbivores used to roam the earth
+[01:42:29.000 --> 01:42:31.480]   Up there, but they don't anymore and as a result
+[01:42:31.480 --> 01:42:37.480]   The trees are overgrown and the albedo of the arctic is is reduced
+[01:42:37.480 --> 01:42:43.480]   And the and the tundra the permafrost is melting and oh by the way contains far more
+[01:42:43.960 --> 01:42:48.840]   Methane than anything humans put out. We put out I think nine gigatons a year of uh of
+[01:42:48.840 --> 01:42:51.480]   uh global warming gases
+[01:42:51.480 --> 01:42:57.880]   There's a 1500 gigatons stored in the permafrost and it's melting of course. Yeah, all that rotting material
+[01:42:57.880 --> 01:43:04.040]   Yeah, and it's melting so you know get the mammoths up there the woolly mammoths plus their damn good eating
+[01:43:04.040 --> 01:43:07.720]   Uh, no actually he didn't say that he's a vegan. He's a vegan
+[01:43:07.720 --> 01:43:12.520]   You know that notwithstanding. I am very happy that you brought back triangulation
+[01:43:12.600 --> 01:43:15.560]   I it's fun to do with that. You know what the whole idea is
+[01:43:15.560 --> 01:43:19.000]   Uh, I don't I don't we can't do it every week or don't need to do every week
+[01:43:19.000 --> 01:43:21.720]   When there's somebody I really want to talk to and you know what?
+[01:43:21.720 --> 01:43:24.920]   Robert I extend the invitation to all of you to loo
+[01:43:24.920 --> 01:43:28.040]   Robert even dan if there's somebody you really want to interview
+[01:43:28.040 --> 01:43:32.280]   We'll do a special we'll do a triangulation. You know if you've got some maybe I can get the guy
+[01:43:32.280 --> 01:43:34.680]   If you can get the guy
+[01:43:34.680 --> 01:43:36.680]   You can get the guy with the rabbit ears
+[01:43:36.680 --> 01:43:38.920]   Uh, we'd love that that'd be good for us
+[01:43:38.920 --> 01:43:44.360]   I mean that used to be a joke, but we just did that for what the other podcast networks that I work with
+[01:43:44.360 --> 01:43:49.320]   You got wait a minute. You got an interview with with with the big guy. Yeah
+[01:43:49.320 --> 01:43:54.840]   It was amazing too because uh, he basically said yeah, let's do it without my communications people
+[01:43:54.840 --> 01:43:59.960]   Holy cow. Whoa. Okay. We'll do that. What?
+[01:43:59.960 --> 01:44:07.320]   Was it a jazoo it podcast network or something? I mean was it a friendly? Yes. Was it friendly? Okay, that's why it was friendly
+[01:44:07.400 --> 01:44:11.000]   Yeah, I don't think he'd want to talk to me. You know how tough I can be
+[01:44:11.000 --> 01:44:18.200]   I'm the more like you can ask for a toilet. You know windows are max. Yeah, right?
+[01:44:18.200 --> 01:44:24.040]   E-max or vim where where do you stand? Let's talk about the real religious debate of the abs or spaces
+[01:44:24.040 --> 01:44:28.040]   There's a religious debate. Don't get me started
+[01:44:28.040 --> 01:44:33.720]   Don't get me started. I mean look like that's not a real religious debate because obviously you go with tabs
+[01:44:33.720 --> 01:44:36.360]   What spaces?
+[01:44:36.840 --> 01:44:40.440]   What are you talking about? We're gonna be here for a while. Are you insane? You're going
+[01:44:40.440 --> 01:44:45.160]   Straight to e-max though. You're not no do not pascal
+[01:44:45.160 --> 01:44:47.480]   uh
+[01:44:47.480 --> 01:44:49.320]   The United States
+[01:44:49.320 --> 01:44:56.440]   House Foreign Affairs Committee on Wednesday voted along party lines to give president biden the power to ban tick tock
+[01:44:56.440 --> 01:44:59.160]   ban it
+[01:44:59.160 --> 01:45:03.240]   entirely in the United States not just for government workers
+[01:45:03.960 --> 01:45:06.760]   For everybody 24 to 16
+[01:45:06.760 --> 01:45:11.240]   We grant the administration new powers to ban the bite dance owned app
+[01:45:11.240 --> 01:45:16.440]   Used by over a hundred million americans including my son who is making a living on tick tock
+[01:45:16.440 --> 01:45:18.360]   um
+[01:45:18.360 --> 01:45:24.920]   Representative michael mccaul the chair of the committee who sponsored the bill says tick tock is a national security threat
+[01:45:24.920 --> 01:45:27.640]   It's time to act
+[01:45:27.640 --> 01:45:33.160]   Anyone with tick tock downloaded on the device is given the chinese communist party a backdoor
+[01:45:33.480 --> 01:45:37.960]   To all their personal information. It's a spy balloon into their phone
+[01:45:37.960 --> 01:45:40.600]   Oh
+[01:45:40.600 --> 01:45:41.880]   Oh lord
+[01:45:41.880 --> 01:45:46.520]   100 absolutely true. Let me tweet about that on this wall way phone
+[01:45:46.520 --> 01:45:49.400]   You know
+[01:45:49.400 --> 01:45:55.560]   They'll fix it. You know, it's ironic because often the people including the fcc commissioner said tick tock should be banned
+[01:45:55.560 --> 01:46:00.680]   Who say this are people who also said to the nation's telecom companies
+[01:46:01.720 --> 01:46:03.720]   Take all the info you want
+[01:46:03.720 --> 01:46:07.800]   Sell it to data brokers go right ahead in fact
+[01:46:07.800 --> 01:46:10.200]   As some have pointed out
+[01:46:10.200 --> 01:46:15.080]   If the chinese really wanted to know about us all they'd have to do is go to those data brokers and buy the information
+[01:46:15.080 --> 01:46:17.560]   It's all out there
+[01:46:17.560 --> 01:46:21.240]   But no, they don't they're not interested so we're okay. I shouldn't look
+[01:46:21.240 --> 01:46:23.960]   I'm a zip it
+[01:46:23.960 --> 01:46:26.120]   Obviously i have a dog in the sun. I should recuse it
+[01:46:26.120 --> 01:46:29.240]   Although my son is smart. He's moved to instagram pretty much
+[01:46:29.720 --> 01:46:32.760]   Another another privacy protecting a group you might
+[01:46:32.760 --> 01:46:37.320]   Yeah, good thing that they don't do any data collection no data collection on insta. Uh-oh
+[01:46:37.320 --> 01:46:39.320]   That is very straightforward. Yeah
+[01:46:39.320 --> 01:46:42.120]   Um, what do you think?
+[01:46:42.120 --> 01:46:44.840]   Dan moron
+[01:46:44.840 --> 01:46:46.280]   Well
+[01:46:46.280 --> 01:46:53.000]   Two two things can be true simultaneously, right? Is this performative totally but as roberts had you know
+[01:46:53.000 --> 01:46:56.200]   It's also true that it's an asset security risk, right?
+[01:46:56.200 --> 01:46:59.640]   Like both of these things are true at the same time and it's certainly true that it you know
+[01:46:59.640 --> 01:47:01.560]   There are plenty of other
+[01:47:01.560 --> 01:47:09.320]   Companies including american-based companies that are just as bad with our data or are willing to sell it or let it be compromised
+[01:47:09.320 --> 01:47:11.560]   All of that is true. So
+[01:47:11.560 --> 01:47:17.320]   It seems weird to single out tiktok that feels very much, uh, you know national security theater
+[01:47:17.320 --> 01:47:21.640]   Um, but perhaps yes, the answer would be to make a more broad
+[01:47:21.640 --> 01:47:25.320]   uh piece of legislation that actually affects
+[01:47:26.040 --> 01:47:28.280]   All of these companies and what they can do with our data
+[01:47:28.280 --> 01:47:32.440]   But there there clearly isn't an appetite for that because people want to gin up, you know
+[01:47:32.440 --> 01:47:35.480]   Publicity for we're hard on you know, we're hard on china
+[01:47:35.480 --> 01:47:41.240]   Right like we are taking china to task by making so that nobody can watch your funny videos
+[01:47:41.240 --> 01:47:46.120]   And that'll show them that'll show them no more of this dancing thing
+[01:47:46.120 --> 01:47:50.680]   No, we don't like that uh, they didn't mention we chat which is you know
+[01:47:50.680 --> 01:47:55.080]   Also a chinese company and also widely used in the united states mostly by
+[01:47:55.640 --> 01:47:58.440]   uh, chinese x expats, but still
+[01:47:58.440 --> 01:48:05.160]   Uh, also, we know we're used by the chinese government to to virtually extort these
+[01:48:05.160 --> 01:48:11.560]   Or for that matter american companies that do business in china, which have to abide by the rules
+[01:48:11.560 --> 01:48:14.920]   In china, right. I mean that's also a problem
+[01:48:14.920 --> 01:48:17.720]   um
+[01:48:17.720 --> 01:48:19.960]   How about you lu ban it
+[01:48:22.520 --> 01:48:26.040]   I'm not on tiktok platforms. I don't really don't I care for it led very less
+[01:48:26.040 --> 01:48:30.120]   But I would say that the fact is I think I grew with dan like there's so many other things
+[01:48:30.120 --> 01:48:33.160]   They should be targeting and worrying about like are they gonna protect our data?
+[01:48:33.160 --> 01:48:36.600]   Are they gonna stop things from people spreading harmful information misinformation?
+[01:48:36.600 --> 01:48:41.800]   No, like they they're just stopping one company from operating in the states that impacts a specific demographic
+[01:48:41.800 --> 01:48:44.440]   And a specific type of thing like I
+[01:48:44.440 --> 01:48:48.120]   I don't I don't think we need to work spend our time or our money on it
+[01:48:48.200 --> 01:48:54.760]   The white house is also told federal agencies you have 30 days to remove tiktok from all government-owned devices
+[01:48:54.760 --> 01:48:57.320]   So that's already happening, uh, both
+[01:48:57.320 --> 01:49:00.680]   Why is tiktok on any government-owned device?
+[01:49:00.680 --> 01:49:03.320]   That is a that is question number one
+[01:49:03.320 --> 01:49:06.360]   Means something to do i hear
+[01:49:06.360 --> 01:49:09.480]   Problem that we've got then because that's that ain't a tiktok thing
+[01:49:09.480 --> 01:49:14.280]   That's a what are you aren't there any government agencies though that have tiktok accounts that they use you know
+[01:49:15.000 --> 01:49:20.360]   Righteously to spread the word about their mission. I I wonder I mean maybe not not now anyway
+[01:49:20.360 --> 01:49:25.560]   Yes, I can see employees at fema when they're responding to a disaster. They're doing a quick dance
+[01:49:25.560 --> 01:49:29.880]   You know, it's a couple of points with some some titles popping up. I say that but it's it
+[01:49:29.880 --> 01:49:38.360]   Is it the consumer product safety agency that has like that twitter account that is always posting like these like bizarre image?
+[01:49:38.600 --> 01:49:42.360]   It's great. There's a great use of social media for something that is actually you know
+[01:49:42.360 --> 01:49:47.880]   It's the it's the thanksgiving don't deep fry your turkey because you say your house on fire kind of thing. Oh, okay that I could see
+[01:49:47.880 --> 01:49:50.120]   Yeah, I mean that's great, but like
+[01:49:50.120 --> 01:49:54.840]   Yeah, I don't know. Maybe that's that's tiktok is how you need to reach that demographic of people
+[01:49:54.840 --> 01:49:59.800]   But I don't know again you can have that like firewalled on like one phone or something
+[01:49:59.800 --> 01:50:02.120]   That you don't use for anything else
+[01:50:02.120 --> 01:50:10.120]   The only regulation that I want for tiktok is to have a law where they stop copying every tiktok video and putting it on youtube because
+[01:50:10.120 --> 01:50:14.680]   I'm tired of that thing 90 percent of the content that gets showed to me on youtube. Yeah
+[01:50:14.680 --> 01:50:17.160]   Yeah
+[01:50:17.160 --> 01:50:21.800]   Uh, I'm just curious. I'm somebody said the irs is a tiktok account. I'm just looking for it
+[01:50:21.800 --> 01:50:26.280]   Oh, man
+[01:50:26.280 --> 01:50:29.400]   How do you do something funny with the irs?
+[01:50:29.400 --> 01:50:32.760]   Is a glottets big there. Yeah, it says no bio yet
+[01:50:32.760 --> 01:50:36.600]   9696 followers, uh
+[01:50:36.600 --> 01:50:43.880]   But uh, I don't see any videos irs underscore underscore. That's that's real. That's the government, right? That's the real deal
+[01:50:43.880 --> 01:50:47.160]   private account
+[01:50:47.160 --> 01:50:50.440]   Is the irs only fans maybe I don't know
+[01:50:50.440 --> 01:50:52.600]   Um
+[01:50:52.600 --> 01:50:58.200]   All right, so if to report that income though what you know, what will the reaction be though among the nation's utes?
+[01:50:59.160 --> 01:51:02.280]   If they actually ban I mean, I think they could ban tiktok, right?
+[01:51:02.280 --> 01:51:07.480]   You know, there is a positive spin to this right which is if you want to get young people
+[01:51:07.480 --> 01:51:09.960]   politically active
+[01:51:09.960 --> 01:51:12.280]   You want to get a button
+[01:51:12.280 --> 01:51:14.280]   Take away that's how you do it. Yeah
+[01:51:14.280 --> 01:51:24.280]   Uh, there has been circulating. It's all over twitter. It's everywhere a uh, a graph of young women mental health
+[01:51:24.280 --> 01:51:27.560]   and uh
+[01:51:29.000 --> 01:51:34.360]   What's interesting is that the uh, this the survey is national survey of mental health
+[01:51:34.360 --> 01:51:37.240]   Uh shows this big jump
+[01:51:37.240 --> 01:51:43.720]   in mental health issues among young women in 2011, I mean like a big jump
+[01:51:43.720 --> 01:51:50.360]   And more and more people I see are are kind of jumping to the conclusion. Oh, yeah, social social media
+[01:51:50.360 --> 01:51:58.680]   Uh, do you think that's what's going on rising? Yeah, that's actually certainly a big factor if nothing else
+[01:51:58.680 --> 01:52:02.920]   If it's not the only thing it's a big chunk of it. I mean, I have I have teenage
+[01:52:02.920 --> 01:52:05.240]   uh, you know cousins who are on
+[01:52:05.240 --> 01:52:08.040]   all the social media stuff and I can't
+[01:52:08.040 --> 01:52:15.720]   It just doesn't the the the things they're exposed to it. It's such a, you know, formative age and just in terms of like
+[01:52:15.720 --> 01:52:17.640]   You know
+[01:52:17.640 --> 01:52:22.840]   Pure pressure, uh bullying, you know all this stuff. It is it is real and
+[01:52:23.320 --> 01:52:29.880]   Peer pressure bullying body shaming, stalking. I mean, these are all things that maybe one sex might
+[01:52:29.880 --> 01:52:34.760]   Take a bit more personally than the other. Do you think it's worse for girls? It's not a great thing. Yeah, yes
+[01:52:34.760 --> 01:52:37.320]   Yeah, yeah, 100
+[01:52:37.320 --> 01:52:43.720]   I don't think anyone's going to take their safety as a small thing. I mean there there's some really sick people
+[01:52:43.720 --> 01:52:51.800]   In social media, right who are using social media to to go after women and and I mean, it's it's not just the the big names
+[01:52:51.800 --> 01:52:56.600]   It's not just the tates. It's it's people who realize that they have power that
+[01:52:56.600 --> 01:53:04.520]   We would probably prefer they not have yeah, and it's it's also the the more insidious less overt stuff, right?
+[01:53:04.520 --> 01:53:12.600]   It's the the likes and the you know trying to see all your friends posting the perfect videos and trying to live up to that and
+[01:53:12.600 --> 01:53:17.880]   You know, it's it's sort of the the keeping up with the jones's aspect of like having to constantly
+[01:53:18.600 --> 01:53:22.200]   uh present a performative outward experience. I mean, I think those
+[01:53:22.200 --> 01:53:28.600]   Aspects are not new, but they're amplified, right? I mean used to be 30 years ago
+[01:53:28.600 --> 01:53:33.320]   You yeah, you had your clicks at school and you had the try to impress the cool kids
+[01:53:33.320 --> 01:53:38.200]   Maybe or something or you try to you know build yourself up or your head to deal with peer pressure
+[01:53:38.200 --> 01:53:41.000]   But now it's like anybody anywhere could
+[01:53:41.000 --> 01:53:44.440]   Influence you in that way or or to you know
+[01:53:45.000 --> 01:53:51.720]   You're exposed to people from all over and and it's just it's it's made it that much more of a problem
+[01:53:51.720 --> 01:53:56.680]   Well, maybe they'll ban tiktok and everything will be right
+[01:53:56.680 --> 01:53:59.400]   That's all I can say
+[01:53:59.400 --> 01:54:05.240]   You know when I step away from social media every once in a while. I do like these month long stepaways. Do you?
+[01:54:05.240 --> 01:54:12.680]   I do you're very active. I miss it. I'm super active when I'm active, but like I stepped away all of just all of december
+[01:54:13.480 --> 01:54:18.120]   Up to CES. How was that? I'm probably gonna do it again. Oh my gosh. It was wonderful
+[01:54:18.120 --> 01:54:20.760]   Really really nice
+[01:54:20.760 --> 01:54:26.120]   And it gives you perspective of wow. I'm I'm a lot happier. I'm less anxious
+[01:54:26.120 --> 01:54:29.800]   I don't argue over stuff. I really don't care about
+[01:54:29.800 --> 01:54:32.360]   um, and I
+[01:54:32.360 --> 01:54:34.360]   Don't have to perform anything
+[01:54:34.360 --> 01:54:41.480]   Uh, and when I came back I my my press I was just looking at some old posts on the various social media sites
+[01:54:41.800 --> 01:54:45.160]   The content that I used to put up is not like the content i'm putting up now
+[01:54:45.160 --> 01:54:51.000]   Uh both in frequency and in in just intensity of the posting
+[01:54:51.000 --> 01:54:56.520]   So I think that might be a good thing to turn off social media for a month and see what happens. Yeah
+[01:54:56.520 --> 01:54:59.880]   You know how I'd wish we'd do that
+[01:54:59.880 --> 01:55:02.040]   Take a wild guess
+[01:55:06.440 --> 01:55:11.320]   Unless you fill in that blank father robert ballis there the digital jazoo. It's so great to have you
+[01:55:11.320 --> 01:55:17.320]   Uh next time I see you. I'll probably be in rome. I look forward to that. We will go for a coffee
+[01:55:17.320 --> 01:55:21.560]   Yep, I told him I said I want to go out to eat at your favorite restaurant
+[01:55:21.560 --> 01:55:27.240]   I mean you've got mcdonald's over there, right
+[01:55:27.240 --> 01:55:34.760]   Digital jazoo at dot com at padra sj both on the twitter and on mastodon
+[01:55:35.160 --> 01:55:39.800]   He's uh active on twit social our mast's not instanced great to have you. Thank you
+[01:55:39.800 --> 01:55:45.000]   So much for being here have a good night. I know it's thanks getting late. It's almost it's after midnight. It's a little late
+[01:55:45.000 --> 01:55:46.040]   Yeah
+[01:55:46.040 --> 01:55:48.040]   Thank you so much lu mm
+[01:55:48.040 --> 01:55:51.240]   All five children remained quiet during this episode
+[01:55:51.240 --> 01:55:57.400]   That's a good thing lu is uh, we're running past two. It's funny. They they looked and they peer in like for like a glass bowl
+[01:55:57.400 --> 01:55:58.200]   They're like
+[01:55:58.200 --> 01:56:00.920]   They're looking there like see what's going on all the lights are on me. What's going on?
+[01:56:01.480 --> 01:56:06.200]   They know lu's busy. He's daddy's doing a show principle engineering manager
+[01:56:06.200 --> 01:56:09.560]   I'm waving them off host of our fabulous this week in enterprise deck
+[01:56:09.560 --> 01:56:13.000]   beloved friend and a member of the twit family
+[01:56:13.000 --> 01:56:17.480]   It's great to have you two as is father robert and dan is rapidly becoming one
+[01:56:17.480 --> 01:56:20.920]   Uh six colors mac world the incomparable podcast
+[01:56:20.920 --> 01:56:23.400]   Uh, and of course science fiction author
+[01:56:23.400 --> 01:56:26.200]   Make sure you check out his latest
+[01:56:26.200 --> 01:56:31.240]   It's on amazon. It's on audible. It's everywhere right just search for the all foreign
+[01:56:31.320 --> 01:56:38.120]   I always recommend checking your your local independent bookstore. Oh, aren't you not like support them go to uh indybound.org
+[01:56:38.120 --> 01:56:40.200]   They they let you search and you can find
+[01:56:40.200 --> 01:56:47.720]   Uh local book shops near you that may carry it already or i'm sure would be happy to order it for you get the galactic cold war
+[01:56:47.720 --> 01:56:50.280]   At a bookstore near you
+[01:56:50.280 --> 01:56:56.120]   Thank you dan for being here. We thank all of our club twit members for making this show possible
+[01:56:56.120 --> 01:56:58.760]   uh blessings to you
+[01:56:58.760 --> 01:57:03.640]   Uh a quick plug for club twit. It helps us keep the lights on helps us keep a staff employed
+[01:57:03.640 --> 01:57:07.000]   advertising in the podcast sphere is is is
+[01:57:07.000 --> 01:57:09.640]   Dwibbling away
+[01:57:09.640 --> 01:57:12.440]   dwindling away or the wibbling but
+[01:57:12.440 --> 01:57:17.480]   But you can help make up the difference by joining club twit. It's a mere seven bucks a month
+[01:57:17.480 --> 01:57:20.600]   You can add free versions
+[01:57:20.600 --> 01:57:27.720]   Of all of our shows you get special shows we don't put out anywhere but the club like hands on macotosh with mica
+[01:57:27.720 --> 01:57:33.560]   Sargent and hands on windows with balfa rot the entitled linux show with jonathan bed that gives fizz with thick d barre solo
+[01:57:33.560 --> 01:57:41.000]   Uh, you also get special access to events that we put on in our discord the discord is frankly to me the most fun part
+[01:57:41.000 --> 01:57:43.720]   of uh
+[01:57:43.720 --> 01:57:48.120]   Of club twit because it's a great hang anytime not just during uh during our shows
+[01:57:48.120 --> 01:57:50.840]   uh, you go to the discord and
+[01:57:52.120 --> 01:57:58.040]   You can participate in animated gift galore, but but we have subjects more than just the shows
+[01:57:58.040 --> 01:58:02.760]   You can talk about other things that geeks are interested in everything from security to anime
+[01:58:02.760 --> 01:58:07.320]   We just started in the ai section. That's full of exciting stuff
+[01:58:07.320 --> 01:58:09.800]   Uh comics
+[01:58:09.800 --> 01:58:10.680]   fitness
+[01:58:10.680 --> 01:58:13.640]   Yeah geeks are into fitness gaming and hacking and hardware
+[01:58:13.640 --> 01:58:17.000]   pets and travel all of the above
+[01:58:17.000 --> 01:58:20.760]   Uh, seven bucks a month twit.tv/club
+[01:58:21.480 --> 01:58:26.520]   Twit it makes a big difference to us and I think I'll make a difference in your life. I think you'll enjoy it
+[01:58:26.520 --> 01:58:29.080]   We thank you in advance
+[01:58:29.080 --> 01:58:34.440]   Uh, we do this show every sunday right after ask the tech guys about 2 pm pacific 5 pm eastern
+[01:58:34.440 --> 01:58:40.600]   2200 utc if you want to watch this live you can live.twit.tv if you're watching live
+[01:58:40.600 --> 01:58:47.640]   You can chat in our open to all irc irc.twit.tv. Yeah, you can use a browser. You don't need a irc client
+[01:58:47.880 --> 01:58:52.760]   You can also chat with us in our discord if you're a member of club twit after the fact
+[01:58:52.760 --> 01:58:56.600]   On-demand versions of all of our shows available at the website twit.tv
+[01:58:56.600 --> 01:59:00.920]   There's a youtube channel dedicated to twit but also to the show this week in tech
+[01:59:00.920 --> 01:59:04.680]   But if you go to youtube.com/twit you'll see links to all the show channels
+[01:59:04.680 --> 01:59:09.080]   And of course you can and probably this is the best way to do it subscribe in your favorite podcast client
+[01:59:09.080 --> 01:59:14.920]   And that way you'll get it automatically the minute it's done, which is now because
+[01:59:16.200 --> 01:59:21.480]   We're done. Thank you for being here. Thanks. Father Robert lu mm Dan morn. Thanks to all of you
+[01:59:21.480 --> 01:59:24.920]   Uh, we'll see you next time another twit
+[01:59:24.920 --> 01:59:27.720]   Is this okay?
+[01:59:27.720 --> 01:59:35.880]   Do the twit do the twit all right do the twin, baby. Do the twit all right
+[01:59:35.880 --> 01:59:36.880]   Right.
+
