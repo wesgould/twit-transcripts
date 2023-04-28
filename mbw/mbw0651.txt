@@ -1,0 +1,2264 @@
+
+[00:00:00.000 --> 00:00:04.280]   It's time for Mac Break Weekly, Alex Renee and Andy are all here, lots to talk about.
+[00:00:04.280 --> 00:00:09.000]   Actually, there's very little to talk about, but we will talk about Apple rumors.
+[00:00:09.000 --> 00:00:17.800]   Why isn't there a folding iPhone, the next generation MacBook Pro, and also Apple's intent with news.
+[00:00:17.800 --> 00:00:20.000]   It's all coming up next on Mac Break Weekly.
+[00:00:20.000 --> 00:00:27.200]   Netcast you love from people you trust.
+[00:00:27.200 --> 00:00:33.000]   This is Detroit.
+[00:00:33.000 --> 00:00:43.200]   This is Mac Break Weekly, episode 651.
+[00:00:43.200 --> 00:00:46.200]   Recorded Tuesday, March 5th, 2019.
+[00:00:46.200 --> 00:00:48.200]   LUBE for your cube.
+[00:00:48.200 --> 00:00:53.200]   Mac Break Weekly is brought to you by ITProTV,
+[00:00:53.200 --> 00:00:57.000]   providing effective training with access to virtual labs and practice tests.
+[00:00:57.000 --> 00:01:03.000]   Visit go.itpro.tv/macbreak to take advantage of their lowest prices of the season.
+[00:01:03.000 --> 00:01:09.000]   For additional 30% off for the lifetime of your active subscription, use the code MacBreak30 at checkout.
+[00:01:09.000 --> 00:01:11.000]   And by ERO.
+[00:01:11.000 --> 00:01:17.000]   Never think about Wi-Fi again when you can have brilliant, hyper-fast, super-simple Wi-Fi with ERO.
+[00:01:17.000 --> 00:01:22.000]   Visit ERO.com/macbreak and get $100 off the ERO base unit, two beacons package,
+[00:01:22.000 --> 00:01:26.000]   and one year of ERO Plus when you enter the code MacBreak at checkout.
+[00:01:27.000 --> 00:01:29.000]   And by ExpressVPN.
+[00:01:29.000 --> 00:01:31.000]   Protect your online privacy with one click.
+[00:01:31.000 --> 00:01:33.000]   It's that easy.
+[00:01:33.000 --> 00:01:39.000]   For an extra three months free with a one year package, go to expressvpn.com/macbreak.
+[00:01:39.000 --> 00:01:45.000]   It's time for Mac Break Weekly, the show we cover the latest news from Apple.
+[00:01:45.000 --> 00:01:48.000]   With Renee Richie from iMore and the Vector podcast.
+[00:01:48.000 --> 00:01:49.000]   Hello Renee.
+[00:01:49.000 --> 00:01:50.000]   Hello Leo.
+[00:01:50.000 --> 00:01:52.000]   It's smashing to be back with you again this week.
+[00:01:52.000 --> 00:01:53.000]   It's lovely.
+[00:01:53.000 --> 00:01:54.000]   Lovely to have you, sir.
+[00:01:55.000 --> 00:01:58.000]   Andy Inaco from Boston Public Radio WGBH.
+[00:01:58.000 --> 00:01:59.000]   Hello Naco.
+[00:01:59.000 --> 00:02:00.000]   Hi.
+[00:02:00.000 --> 00:02:01.000]   Hi.
+[00:02:01.000 --> 00:02:02.000]   Hi.
+[00:02:02.000 --> 00:02:03.000]   Hi.
+[00:02:03.000 --> 00:02:06.000]   I try at the single Isaac, not the double Isaac.
+[00:02:06.000 --> 00:02:07.000]   Hi.
+[00:02:07.000 --> 00:02:12.000]   And from the Pixel Core, Mr. Alex Lindsey.
+[00:02:12.000 --> 00:02:13.000]   Hello Leo.
+[00:02:13.000 --> 00:02:15.000]   It's the full team today.
+[00:02:15.000 --> 00:02:16.000]   Welcome.
+[00:02:16.000 --> 00:02:18.000]   Good to have you all here.
+[00:02:18.000 --> 00:02:23.000]   Google reveals high severity flaw in macOS kernel.
+[00:02:23.000 --> 00:02:25.000]   Dum, dum, dum.
+[00:02:25.000 --> 00:02:28.000]   Google's Project Zero, which is the security team out there, man.
+[00:02:28.000 --> 00:02:30.000]   They find stuff everywhere.
+[00:02:30.000 --> 00:02:35.000]   Discovered this more than 90 days ago, told Apple, Apple has not fixed it.
+[00:02:35.000 --> 00:02:41.000]   So in concert, you know, with the responsible disclosure rules, after 90 days, we're going
+[00:02:41.000 --> 00:02:42.000]   to tell everybody.
+[00:02:42.000 --> 00:02:46.000]   They're like as good as an Eastern European teenage hacker team.
+[00:02:46.000 --> 00:02:47.000]   It feels like it's amazing.
+[00:02:47.000 --> 00:02:48.000]   Yeah.
+[00:02:48.000 --> 00:02:52.000]   Well, they got this guy Travis, who's really quite good.
+[00:02:52.000 --> 00:03:00.000]   So apparently has to do with a copy on right behavior in the OS 10 kernel.
+[00:03:00.000 --> 00:03:11.000]   And what's happening is it, so if a user mounted file system, for instance, with disk utility,
+[00:03:11.000 --> 00:03:18.600]   you're not a file system, is modified, Apple's kernel does not notify the virtual management
+[00:03:18.600 --> 00:03:21.280]   subsystem that it's been modified.
+[00:03:21.280 --> 00:03:29.000]   So it's loading stuff in into RAM or memory with file mappings, not only with anonymous
+[00:03:29.000 --> 00:03:34.920]   memory, but after the destination process has started reading from the memory area due
+[00:03:34.920 --> 00:03:39.280]   to memory pressure pages holding the transfer memory can be evicted from the page cast.
+[00:03:39.280 --> 00:03:40.600]   Okay, we need them back.
+[00:03:40.600 --> 00:03:43.280]   They load them in, but that file system has been changed.
+[00:03:43.280 --> 00:03:46.760]   And of course, it's been changed maliciously.
+[00:03:46.760 --> 00:03:47.920]   Still trusted.
+[00:03:47.920 --> 00:03:52.600]   It's loaded in and then your troubles begin.
+[00:03:52.600 --> 00:03:57.400]   So according to Project Zero, if an attacker can mutate an on disk file without informing
+[00:03:57.400 --> 00:04:02.120]   the virtual management subsystem, this is a security bug.
+[00:04:02.120 --> 00:04:04.960]   They informed Apple in November.
+[00:04:04.960 --> 00:04:07.400]   Company has not fixed it.
+[00:04:07.400 --> 00:04:11.360]   But according to Neo when Apple has accepted the problem, in other words, they're not
+[00:04:11.360 --> 00:04:12.680]   saying, oh, no, it's not a problem.
+[00:04:12.680 --> 00:04:13.840]   They said, yeah, yeah.
+[00:04:13.840 --> 00:04:19.880]   And we're working with Project Zero to patch a future release.
+[00:04:19.880 --> 00:04:26.200]   Now what's the reason I bring this up is once that 90 days is passed, it's typical for researchers
+[00:04:26.200 --> 00:04:30.960]   like Project Zero to put sample code out and they have.
+[00:04:30.960 --> 00:04:38.960]   So now all of a sudden anybody who's interested can say, oh, this is how you do it.
+[00:04:38.960 --> 00:04:43.320]   And that's then it becomes an issue because it's unpached.
+[00:04:43.320 --> 00:04:47.720]   Now I don't know how hard it is to modify and mount a file image.
+[00:04:47.720 --> 00:04:48.880]   You know how to get somebody to do that.
+[00:04:48.880 --> 00:04:57.600]   But my guess is any malicious software installed in your system could do it would be my guess.
+[00:04:57.600 --> 00:04:59.680]   So this is potentially very risky.
+[00:04:59.680 --> 00:05:04.480]   Yeah, is there anything else to say about it except, you know, I don't know.
+[00:05:04.480 --> 00:05:09.180]   I mean, it's the same story with Project Zero is that, you know, they're flagging major
+[00:05:09.180 --> 00:05:15.200]   operating systems like Linux or OS 10 or, sorry, Mac OS or Windows and these companies
+[00:05:15.200 --> 00:05:16.240]   all want to fix this stuff.
+[00:05:16.240 --> 00:05:20.360]   They have their list of priorities that they go through and they try to fix them as fast
+[00:05:20.360 --> 00:05:21.360]   as they can.
+[00:05:21.360 --> 00:05:24.260]   And they'd argue that sometimes they need more time and Google has set its line in the
+[00:05:24.260 --> 00:05:25.260]   sand.
+[00:05:25.260 --> 00:05:28.960]   So we're going to see this from time to time when, you know, a vendor simply can't get
+[00:05:28.960 --> 00:05:29.960]   it done on time.
+[00:05:29.960 --> 00:05:31.140]   And I have mixed feelings on it.
+[00:05:31.140 --> 00:05:34.960]   I love the idea that the, that there is an absolute timeline because it really puts pressure
+[00:05:34.960 --> 00:05:36.280]   on to fix it.
+[00:05:36.280 --> 00:05:40.180]   But there are going to be some cases where ginorm, like not just every like small little bit,
+[00:05:40.180 --> 00:05:42.500]   but ginormous vendors just can't get it done in time.
+[00:05:42.500 --> 00:05:44.620]   And then you risk this being in the wild.
+[00:05:44.620 --> 00:05:47.740]   And I have heard that they try to negotiate with them and sometimes it works and sometimes
+[00:05:47.740 --> 00:05:50.180]   it doesn't, but it seems lately it never does.
+[00:05:50.180 --> 00:05:54.160]   So I mean, either you want Google to have a little bit more flexibility or you like the
+[00:05:54.160 --> 00:05:56.740]   fact that there is an absolute line in the sand.
+[00:05:56.740 --> 00:05:58.100]   I'm sort of in the middle on it.
+[00:05:58.100 --> 00:06:02.580]   I think it would be valuable if they would sometimes if they knew that a thing was coming
+[00:06:02.580 --> 00:06:06.480]   like, Oh, it's four days till patch Tuesday, you know, maybe give Microsoft those four
+[00:06:06.480 --> 00:06:07.480]   days.
+[00:06:07.480 --> 00:06:09.280]   But otherwise I think it's a good policy.
+[00:06:09.280 --> 00:06:13.240]   Yeah, it's not just Google's by the way, 90 days is kind of standard in the security
+[00:06:13.240 --> 00:06:14.340]   community.
+[00:06:14.340 --> 00:06:19.880]   The theory is we aren't going to be the only people who find this.
+[00:06:19.880 --> 00:06:20.880]   Absolutely.
+[00:06:20.880 --> 00:06:25.680]   And so since we found it, it's presumed others might have already found it or that they may
+[00:06:25.680 --> 00:06:26.920]   find it.
+[00:06:26.920 --> 00:06:29.160]   So it's, this is responsible disclosure.
+[00:06:29.160 --> 00:06:31.840]   We're going to tell the company, we're going to give them a chance to fix it.
+[00:06:31.840 --> 00:06:34.820]   But after a certain period of time, and this is what you debate about, well, what should
+[00:06:34.820 --> 00:06:39.900]   that period of time be after a certain period of time, we have to go public with this so
+[00:06:39.900 --> 00:06:42.900]   that people know of the risk.
+[00:06:42.900 --> 00:06:45.060]   And that is considered by the security community.
+[00:06:45.060 --> 00:06:46.700]   90 days considered to be the normal.
+[00:06:46.700 --> 00:06:50.780]   There's no way for them to know the complexity because like some things might be trivial,
+[00:06:50.780 --> 00:06:52.900]   almost trivial for the company to fix and some things.
+[00:06:52.900 --> 00:06:53.900]   Well, that's true.
+[00:06:53.900 --> 00:06:57.180]   Not even intuitively might be a nightmare because it creates a cast like all this stuff
+[00:06:57.180 --> 00:06:59.220]   for 10 years has been built on this bug.
+[00:06:59.220 --> 00:07:02.880]   And now it fixed like there was a famous Safari bug where they fixed that bug and it broke
+[00:07:02.880 --> 00:07:06.360]   literally almost everything else because everyone had assumed that bug was rolling behavior
+[00:07:06.360 --> 00:07:08.480]   and there's no way for a company like Google to know that.
+[00:07:08.480 --> 00:07:11.440]   And there have been many cases where companies have just said, nah, we're not going to fix
+[00:07:11.440 --> 00:07:12.440]   it.
+[00:07:12.440 --> 00:07:14.400]   And that's when responsible disclosure really does mandate.
+[00:07:14.400 --> 00:07:18.880]   Well, we got to tell people, but there maybe should be some leeway for a company that's
+[00:07:18.880 --> 00:07:22.880]   like in this case, Apple says, Oh gosh, yeah, we're working on it.
+[00:07:22.880 --> 00:07:26.040]   And then give us a little more time because this is a complicated fix.
+[00:07:26.040 --> 00:07:27.040]   Andy, go ahead.
+[00:07:27.040 --> 00:07:28.040]   I'm sorry.
+[00:07:28.040 --> 00:07:33.460]   My only comment was that there is such a thing as the trust chain where at some point people
+[00:07:33.460 --> 00:07:37.940]   have to understand even if there's no fix that they probably shouldn't trust this element
+[00:07:37.940 --> 00:07:40.460]   of an operating system or this element of a system.
+[00:07:40.460 --> 00:07:48.980]   I mean, the story reminded me of the story about the Apollo moon landings where if they
+[00:07:48.980 --> 00:07:55.020]   successfully landed on the moon and others zipping up like the last part of the of the
+[00:07:55.020 --> 00:07:58.660]   EVA suit, like it's just a zippered overcoat doesn't hold anything in.
+[00:07:58.660 --> 00:08:00.620]   It's just like a protective overcoat.
+[00:08:00.620 --> 00:08:03.420]   And the tab on the zipper breaks off.
+[00:08:03.420 --> 00:08:08.740]   They have to assume that the entire suit is compromised because if this thing has broken,
+[00:08:08.740 --> 00:08:13.780]   what else could be broken in this suit, which means that now you can't have two people doing
+[00:08:13.780 --> 00:08:17.780]   an EVA, which means that you can't have a single person doing EVA on their own, which
+[00:08:17.780 --> 00:08:22.500]   means that because of this one little tab, you because of the disastrous consequences,
+[00:08:22.500 --> 00:08:27.100]   if something goes wrong with this operation, that means that suddenly the entire EVA is
+[00:08:27.100 --> 00:08:33.180]   scrapped, assuming that the astronaut does not on his own fail to tell, can't control
+[00:08:33.180 --> 00:08:34.180]   it.
+[00:08:34.180 --> 00:08:36.900]   That what has happened and decides to fix it with a paperclip.
+[00:08:36.900 --> 00:08:40.020]   So that's but that's the sort of thing that we're talking about where at some point there's
+[00:08:40.020 --> 00:08:43.740]   value in simply knowing that by the way, if you're assuming that this part of the system
+[00:08:43.740 --> 00:08:47.060]   is secure, do not make that assumption.
+[00:08:47.060 --> 00:08:53.300]   You're absolutely right in that if one person has found it, it's not necessarily true that
+[00:08:53.300 --> 00:08:55.180]   other people have.
+[00:08:55.180 --> 00:08:59.220]   No one has said that they've seen any sort of an exploit for this out in the field, which
+[00:08:59.220 --> 00:09:01.740]   would have been a totally different thing to worry about.
+[00:09:01.740 --> 00:09:05.460]   But that means that we could worry about, for instance, a government knowing about this
+[00:09:05.460 --> 00:09:08.540]   and keeping, again, not wanting to tell anybody about it.
+[00:09:08.540 --> 00:09:11.340]   So it is a complex argument.
+[00:09:11.340 --> 00:09:19.740]   But at some point, if you're seal team six version of security team, if you decide that
+[00:09:19.740 --> 00:09:26.100]   your job is to make everything safer and more secure, then the ability of Apple to fix this
+[00:09:26.100 --> 00:09:29.020]   within 90 days is their problem and not yours.
+[00:09:29.020 --> 00:09:33.380]   Your responsibility, as you choose to define it, is to make sure that people know that something
+[00:09:33.380 --> 00:09:35.580]   is safe or something is not safe.
+[00:09:35.580 --> 00:09:36.580]   Yeah.
+[00:09:36.580 --> 00:09:40.780]   I hate to be completely inflexible, but you know, so yeah.
+[00:09:40.780 --> 00:09:41.780]   It's complicated.
+[00:09:41.780 --> 00:09:45.460]   But I certainly see their point of view.
+[00:09:45.460 --> 00:09:50.380]   And somebody asked, well, does Google ever, does the project zero ever report on Google
+[00:09:50.380 --> 00:09:51.380]   Floss?
+[00:09:51.380 --> 00:09:52.380]   Absolutely.
+[00:09:52.380 --> 00:09:53.380]   Absolutely.
+[00:09:53.380 --> 00:09:57.740]   I'm sure it was originally created, in fact, for Google to place its own security issues.
+[00:09:57.740 --> 00:09:58.740]   But these guys are so good.
+[00:09:58.740 --> 00:10:01.700]   Travis Kalanek has found so many significant flaws.
+[00:10:01.700 --> 00:10:05.300]   If you ever listen to security now, you'll hear his name come up all the time.
+[00:10:05.300 --> 00:10:09.260]   And many of the flaws he comes up with are devious as heck.
+[00:10:09.260 --> 00:10:12.180]   This is fairly devious.
+[00:10:12.180 --> 00:10:15.540]   This is not like the group FaceTime flaw.
+[00:10:15.540 --> 00:10:21.140]   This is something that you got some, you know, this would be hard to detect ahead of time.
+[00:10:21.140 --> 00:10:25.540]   Yeah, I can't tell you how many times I had to read the story and other people analyze
+[00:10:25.540 --> 00:10:30.540]   the story before I even felt as though I begin to understand what the hell is going on with
+[00:10:30.540 --> 00:10:31.540]   this.
+[00:10:31.540 --> 00:10:32.540]   Yeah.
+[00:10:32.540 --> 00:10:35.740]   And that's what that's why we have experts in security doing nothing but focusing on this.
+[00:10:35.740 --> 00:10:41.380]   I didn't do justice to it, but the idea is, you know, kind of a broader brush is you're
+[00:10:41.380 --> 00:10:45.180]   loading in something, you assume it's safe, and then a bad guy changes it and there's
+[00:10:45.180 --> 00:10:49.220]   no notification that's been changed and you continue to load it and it turns out now it's
+[00:10:49.220 --> 00:10:50.540]   not safe.
+[00:10:50.540 --> 00:10:53.940]   And that would be, you know, that's a hard thing to find.
+[00:10:53.940 --> 00:10:57.180]   And remember, you order your drive-through and then they replace the guy behind the window
+[00:10:57.180 --> 00:10:58.940]   after you pay, but before you get your food.
+[00:10:58.940 --> 00:11:03.980]   Yeah, with the evil seven Arola, who's putting arsenic in it, you know, you're like, oh,
+[00:11:03.980 --> 00:11:05.180]   no, there, that's good.
+[00:11:05.180 --> 00:11:06.180]   That's an analogy.
+[00:11:06.180 --> 00:11:08.540]   I just want my burger and you don't think about it.
+[00:11:08.540 --> 00:11:10.860]   And remember, they don't have Apple source code.
+[00:11:10.860 --> 00:11:14.780]   I don't think so they're doing this, you know, kind of reverse engineering, everything.
+[00:11:14.780 --> 00:11:18.580]   Well, I bet you, Steve Gibson will talk about it later on security now.
+[00:11:18.580 --> 00:11:23.500]   And as long as we're talking about flaws, we'll stay in that.
+[00:11:23.500 --> 00:11:30.020]   A researcher, we talked about this, I think about a month ago, Linus Hensa said he found
+[00:11:30.020 --> 00:11:41.540]   a Mac OS keychain security hole and he wasn't going to tell Apple because he was mad that
+[00:11:41.540 --> 00:11:44.380]   his work would go unpaid.
+[00:11:44.380 --> 00:11:48.220]   You know, there's no bug bounty for this.
+[00:11:48.220 --> 00:11:54.660]   So you know, there's a bug bounty for iOS, but apparently not for Mac OS.
+[00:11:54.660 --> 00:11:56.740]   So he said, well, I'm not going to tell you.
+[00:11:56.740 --> 00:12:04.020]   Well, Apple apparently approached him and said, look, let's talk, let's figure it out.
+[00:12:04.020 --> 00:12:08.260]   And I guess they have at least worked it out to the point that he's sharing details with
+[00:12:08.260 --> 00:12:12.420]   Apple, but not yet promised any money for it.
+[00:12:12.420 --> 00:12:13.940]   Apple's always been working on it.
+[00:12:13.940 --> 00:12:15.260]   They're working on the Mac, not any program.
+[00:12:15.260 --> 00:12:16.540]   I don't know why they haven't announced that yet.
+[00:12:16.540 --> 00:12:20.140]   It's been ridiculously long since they announced the iOS one.
+[00:12:20.140 --> 00:12:23.340]   And as far as I know, they've been working on the Mac one since they announced the iOS
+[00:12:23.340 --> 00:12:24.340]   one.
+[00:12:24.340 --> 00:12:25.340]   So it's beyond weird.
+[00:12:25.340 --> 00:12:31.260]   What about Apple's position that if we start paying people to find bugs, it just inflates
+[00:12:31.260 --> 00:12:34.420]   the value because then we're bidding against national.
+[00:12:34.420 --> 00:12:36.220]   But they pay low.
+[00:12:36.220 --> 00:12:37.860]   It's like a good Samaritan fee.
+[00:12:37.860 --> 00:12:38.860]   Basically.
+[00:12:38.860 --> 00:12:41.580]   You've got to do it because they don't want to pay things.
+[00:12:41.580 --> 00:12:47.500]   But paying bounties in this current culture is what will make the system more secure because
+[00:12:47.500 --> 00:12:52.300]   there are companies that make money off of security flaws that are paying lots and lots
+[00:12:52.300 --> 00:12:53.700]   of money for these things.
+[00:12:53.700 --> 00:12:58.460]   So if they don't want people to find a bug and then say I can either get nothing by
+[00:12:58.460 --> 00:13:04.660]   reporting this to Apple or I could get $150,000 by reporting it to this company that is that
+[00:13:04.660 --> 00:13:10.860]   special security company whose job is penetrating phones and penetrating systems at the bidding
+[00:13:10.860 --> 00:13:14.980]   of private individuals and foreign governments.
+[00:13:14.980 --> 00:13:18.020]   If they don't want that to happen, they're going to have to at least put some skin in
+[00:13:18.020 --> 00:13:19.020]   the game.
+[00:13:19.020 --> 00:13:21.500]   They don't have to necessarily top the highest bid.
+[00:13:21.500 --> 00:13:27.620]   But there are people that spent weeks, months developing this who don't see it as anything
+[00:13:27.620 --> 00:13:33.340]   else than I can either have a Tesla or I can continue driving my old Prius.
+[00:13:33.340 --> 00:13:37.260]   Which do I want depending on what I do with this work that I've done?
+[00:13:37.260 --> 00:13:39.220]   And I think a lot of them just need something that they consider fair.
+[00:13:39.220 --> 00:13:42.860]   I don't think you need to get necessarily with nation states.
+[00:13:42.860 --> 00:13:45.100]   But I think that if you do are competing, you can't.
+[00:13:45.100 --> 00:13:46.100]   You can't.
+[00:13:46.100 --> 00:13:50.500]   But I think that if you said we're going to pay $25,000 or $50,000 or whatever for it.
+[00:13:50.500 --> 00:13:53.700]   Because the other thing is what you want is a handful of people who are really smart
+[00:13:53.700 --> 00:13:58.660]   to spend their whole day thinking about it and working on it.
+[00:13:58.660 --> 00:14:04.260]   And if they can make $100,000, $200,000, $300,000 a year of figuring out saving you millions
+[00:14:04.260 --> 00:14:05.940]   in possible losses, it's worth it.
+[00:14:05.940 --> 00:14:07.420]   I love this story.
+[00:14:07.420 --> 00:14:11.540]   A 19-year-old Argentinian, he's self-taught.
+[00:14:11.540 --> 00:14:16.260]   He taught himself online from online courses, had a program.
+[00:14:16.260 --> 00:14:20.260]   He is the first millionaire through hacker one bug bounties.
+[00:14:20.260 --> 00:14:22.860]   He has made $1 million in bug bounties.
+[00:14:22.860 --> 00:14:23.860]   That's awesome.
+[00:14:23.860 --> 00:14:24.860]   Isn't that great?
+[00:14:24.860 --> 00:14:26.940]   And he's a kid and he's a self-taught kid.
+[00:14:26.940 --> 00:14:28.540]   He didn't go to college.
+[00:14:28.540 --> 00:14:30.580]   I guess didn't have the money to do it.
+[00:14:30.580 --> 00:14:32.820]   He just fell in love with technology.
+[00:14:32.820 --> 00:14:33.820]   He does now.
+[00:14:33.820 --> 00:14:34.820]   Maybe he can go back to college now.
+[00:14:34.820 --> 00:14:35.820]   He learned that.
+[00:14:35.820 --> 00:14:41.620]   He was inspired oddly enough by the 1995 film Hackers, which only inspired me to nausea.
+[00:14:41.620 --> 00:14:42.620]   But apparently...
+[00:14:42.620 --> 00:14:43.620]   Oh, boy.
+[00:14:43.620 --> 00:14:45.540]   I wish I had put you sneakers.
+[00:14:45.540 --> 00:14:47.820]   Sneakers at least, right?
+[00:14:47.820 --> 00:14:52.460]   And he learned to hack by watching free online tutorials and reading blogs.
+[00:14:52.460 --> 00:14:56.780]   He got his first bug bounty when he was 16.
+[00:14:56.780 --> 00:15:03.820]   And he chose the Twitter handle Try_2_Hack to keep himself motivated.
+[00:15:03.820 --> 00:15:06.900]   He's been hacking after schooling now, does it full-time?
+[00:15:06.900 --> 00:15:10.100]   And earns 40 times the average software engineer salary in Buenos Aires.
+[00:15:10.100 --> 00:15:11.100]   I love it.
+[00:15:11.100 --> 00:15:12.260]   So, one of the things...
+[00:15:12.260 --> 00:15:15.500]   I know there are some people who really dislike the idea of the bounty programs.
+[00:15:15.500 --> 00:15:17.220]   The way I try to look at it is this.
+[00:15:17.220 --> 00:15:21.300]   You have good Samaritans who will just stumble across bugs like the FaceTime bug and give
+[00:15:21.300 --> 00:15:22.300]   you back your wallet.
+[00:15:22.300 --> 00:15:25.500]   And then maybe you'll give them a few bucks because it's nice to reward good Samaritan
+[00:15:25.500 --> 00:15:26.500]   activities.
+[00:15:26.500 --> 00:15:30.060]   You have your police, which are like the red teams at the various companies that respond.
+[00:15:30.060 --> 00:15:31.060]   They find their own bugs.
+[00:15:31.060 --> 00:15:32.060]   They respond to them.
+[00:15:32.060 --> 00:15:34.100]   They seek out the offenders.
+[00:15:34.100 --> 00:15:37.820]   But it's also good to have these people out there who are just looking for them.
+[00:15:37.820 --> 00:15:41.420]   Like consultants, like experts.
+[00:15:41.420 --> 00:15:44.020]   They know that you will compensate them if you bring them good work.
+[00:15:44.020 --> 00:15:46.900]   And it's not like they're going to sell it to the mob if you don't give them something.
+[00:15:46.900 --> 00:15:50.700]   But it's better to have a wide and diverse network of people out there.
+[00:15:50.700 --> 00:15:52.340]   It's better for everybody in the end.
+[00:15:52.340 --> 00:15:54.740]   Hacker One has actually made a business out of this.
+[00:15:54.740 --> 00:15:59.260]   They've got tutorials and online videos to teach you how to do fuzzing and look for
+[00:15:59.260 --> 00:16:00.500]   other techniques.
+[00:16:00.500 --> 00:16:05.220]   And they have handed out now $19 million in bug bounties.
+[00:16:05.220 --> 00:16:07.860]   $19 million to that one guy.
+[00:16:07.860 --> 00:16:09.300]   $1 million to that one guy.
+[00:16:09.300 --> 00:16:13.380]   But there are many, many hackers who are actually now making a living.
+[00:16:13.380 --> 00:16:19.700]   And this is of course highlighting the problem of the word hackers, which implies a bad guy.
+[00:16:19.700 --> 00:16:20.700]   But it isn't.
+[00:16:20.700 --> 00:16:23.860]   In fact, it's just somebody who likes to hack on code.
+[00:16:23.860 --> 00:16:26.900]   And many hackers are not bad guys.
+[00:16:26.900 --> 00:16:30.900]   So there are girls or women or women.
+[00:16:30.900 --> 00:16:31.900]   Yeah, absolutely.
+[00:16:31.900 --> 00:16:32.900]   Should say that.
+[00:16:32.900 --> 00:16:33.900]   Yep.
+[00:16:33.900 --> 00:16:37.380]   In fact, software engineers, you might be interested to hear this.
+[00:16:37.380 --> 00:16:40.060]   This is kind of a sea change in Apple.
+[00:16:40.060 --> 00:16:45.380]   Apple is now hiring more software engineers than hardware engineers.
+[00:16:45.380 --> 00:16:48.100]   I'm kind of surprised that that just happened.
+[00:16:48.100 --> 00:16:49.100]   Yeah.
+[00:16:49.100 --> 00:16:50.900]   Yeah.
+[00:16:50.900 --> 00:16:55.500]   This comes from a data-driven site called ThinkNum.
+[00:16:55.500 --> 00:17:00.600]   Software and services job listings have outnumbered hardware engineering lists since the third
+[00:17:00.600 --> 00:17:04.820]   quarter of last year.
+[00:17:04.820 --> 00:17:06.860]   But this is the new Apple.
+[00:17:06.860 --> 00:17:08.220]   Yeah.
+[00:17:08.220 --> 00:17:14.020]   Again, electrons are a lot easier to manipulate and distribute than molecules.
+[00:17:14.020 --> 00:17:16.300]   So that's for the future the company is going.
+[00:17:16.300 --> 00:17:19.420]   And also, once you build the molecules, there's just a lot of different things you want to
+[00:17:19.420 --> 00:17:20.660]   do with the electrons.
+[00:17:20.660 --> 00:17:21.660]   Yeah.
+[00:17:21.660 --> 00:17:22.660]   Yes.
+[00:17:22.660 --> 00:17:24.620]   We didn't mention this last week.
+[00:17:24.620 --> 00:17:29.180]   But the one division you don't want to work for at Apple is the self-driving car.
+[00:17:29.180 --> 00:17:32.980]   They've laved off a big chunk of employees last week.
+[00:17:32.980 --> 00:17:36.860]   It's hard to know whether that's related to them scaling down or just changing direction.
+[00:17:36.860 --> 00:17:39.700]   It's a change of direction.
+[00:17:39.700 --> 00:17:43.020]   But they also, I don't know, technically can be called a layoff because those people are
+[00:17:43.020 --> 00:17:44.380]   being put into other orgs.
+[00:17:44.380 --> 00:17:45.380]   Yeah, exactly.
+[00:17:45.380 --> 00:17:46.380]   Right.
+[00:17:46.380 --> 00:17:50.540]   And also, remember that a lot of the research that they're doing in self-driving cars is
+[00:17:50.540 --> 00:17:54.260]   so applicable in things like augmented reality.
+[00:17:54.260 --> 00:17:59.860]   You're talking about a thing that is moving throughout real space and being able to analyze
+[00:17:59.860 --> 00:18:04.980]   visual input on a very, very quick basis and then make decisions based on that.
+[00:18:04.980 --> 00:18:08.340]   That is something that if you were able to build a pair of goggles, you would be able
+[00:18:08.340 --> 00:18:11.540]   to put that software very, very nicely into a pair of goggles.
+[00:18:11.540 --> 00:18:15.420]   So I should point out that these are actual layoffs that I'm sure there are many hundreds
+[00:18:15.420 --> 00:18:18.700]   of other people who will be moved from the division to another division.
+[00:18:18.700 --> 00:18:23.620]   But Apple filed this with the California Employment Development Department saying by
+[00:18:23.620 --> 00:18:29.780]   April, we will be firing 38 engineering program managers, 33 hardware engineers, 31 project
+[00:18:29.780 --> 00:18:34.380]   and design engineers and 22 software engineers on April 16th.
+[00:18:34.380 --> 00:18:36.260]   Yeah, you have to file that if you're doing a layoff.
+[00:18:36.260 --> 00:18:39.300]   And I don't know if we know what that percentage is of the team either.
+[00:18:39.300 --> 00:18:40.300]   We don't.
+[00:18:40.300 --> 00:18:44.940]   And nor do we know how many other hundreds have been moved to different divisions, et cetera,
+[00:18:44.940 --> 00:18:45.940]   et cetera.
+[00:18:45.940 --> 00:18:46.940]   Right.
+[00:18:46.940 --> 00:18:47.940]   And remember that--
+[00:18:47.940 --> 00:18:48.940]   Sorry.
+[00:18:48.940 --> 00:18:52.100]   I mean, layoffs are for most of these companies as a house cleaning project.
+[00:18:52.100 --> 00:18:53.860]   Well, it's a house cleaning project as well.
+[00:18:53.860 --> 00:18:57.860]   I mean, you find that there's a lot of people that you hired that didn't really turn out.
+[00:18:57.860 --> 00:19:01.980]   Letting go, each one of them on their own is legal liability, whereas laying off a bunch
+[00:19:01.980 --> 00:19:05.140]   of them is something that you can do as a-- while we're making a reorganization.
+[00:19:05.140 --> 00:19:06.740]   Yeah, that's why you file this.
+[00:19:06.740 --> 00:19:07.740]   Yeah.
+[00:19:07.740 --> 00:19:08.740]   Yeah.
+[00:19:08.740 --> 00:19:10.980]   And also remember when this story first broke, I think, for the Wall Street Journal, they
+[00:19:10.980 --> 00:19:15.580]   had a lot of details about people who had been hired specifically from the automotive
+[00:19:15.580 --> 00:19:16.580]   industry.
+[00:19:16.580 --> 00:19:24.140]   And so the people who, I guess, know how to make suspensions and how to do the ECR boxes,
+[00:19:24.140 --> 00:19:30.380]   things that are very, very automotive specific that maybe are not necessarily important now
+[00:19:30.380 --> 00:19:35.540]   if Apple has decided that they much rather build software for other companies, cars,
+[00:19:35.540 --> 00:19:40.380]   or if they've decided that the technology they've developed is more for fleet operations
+[00:19:40.380 --> 00:19:41.860]   than for personal vehicles.
+[00:19:41.860 --> 00:19:46.220]   So as usual, given that Apple hasn't really given that we have no idea exactly what was
+[00:19:46.220 --> 00:19:50.220]   inside that part of the company, it's hard to speculate.
+[00:19:50.220 --> 00:19:51.220]   But yeah, that is new.
+[00:19:51.220 --> 00:19:56.020]   I thought that the last time that they meant that that was in the news, they were specifically
+[00:19:56.020 --> 00:20:00.340]   saying that they're more moving engineers from one division to another division.
+[00:20:00.340 --> 00:20:02.420]   But this time, if they're saying that they're layoffs, that's interesting.
+[00:20:02.420 --> 00:20:05.180]   My understanding is the way the companies work.
+[00:20:05.180 --> 00:20:08.260]   And I've heard this from both Apple and Google and it might just be a Silicon Valley thing
+[00:20:08.260 --> 00:20:14.620]   is that you're given your notice and then you have certain number of weeks to find another
+[00:20:14.620 --> 00:20:16.460]   group that's willing to take you on.
+[00:20:16.460 --> 00:20:20.580]   And if that group takes you on, then nothing, like you just basically move groups.
+[00:20:20.580 --> 00:20:24.900]   And if it doesn't, then you're technically out of the company and you can reapply for
+[00:20:24.900 --> 00:20:25.900]   another position.
+[00:20:25.900 --> 00:20:26.900]   Yeah, I'm sure that they do that.
+[00:20:26.900 --> 00:20:29.900]   I don't know what they give them a chance to look at other listings within the industry.
+[00:20:29.900 --> 00:20:30.900]   Within the company.
+[00:20:30.900 --> 00:20:31.900]   Yeah.
+[00:20:31.900 --> 00:20:34.100]   And perhaps give them a head start.
+[00:20:34.100 --> 00:20:35.100]   Yeah.
+[00:20:35.100 --> 00:20:39.020]   We also have no idea how many people are working on Apple projects that are actually employed
+[00:20:39.020 --> 00:20:41.980]   by contractors that Apple does not have to file paperwork for.
+[00:20:41.980 --> 00:20:42.980]   So right.
+[00:20:42.980 --> 00:20:43.980]   Right.
+[00:20:43.980 --> 00:20:46.180]   Well, you know, we're just look reading the tea leaves.
+[00:20:46.180 --> 00:20:47.180]   That's all we do here.
+[00:20:47.180 --> 00:20:48.180]   Apple doesn't tell us.
+[00:20:48.180 --> 00:20:49.180]   Come on, Olegie.
+[00:20:49.180 --> 00:20:50.420]   We just have to read the tea leaves.
+[00:20:50.420 --> 00:20:56.220]   Let's take a little break, come back with more, including USB 4.
+[00:20:56.220 --> 00:20:57.220]   Get ready.
+[00:20:57.220 --> 00:20:58.220]   Ooh.
+[00:20:58.220 --> 00:20:59.220]   That's fun.
+[00:20:59.220 --> 00:21:01.860]   Safe to get a USB cord.
+[00:21:01.860 --> 00:21:02.860]   USB 4.
+[00:21:02.860 --> 00:21:07.260]   I showed it a brought to you by ITProTV.
+[00:21:07.260 --> 00:21:10.100]   I feel like a certain affinity for these guys.
+[00:21:10.100 --> 00:21:19.540]   I first met Tim and Don at the NAB conference where we did a panel on IPTV and, you know,
+[00:21:19.540 --> 00:21:24.660]   using the internet for as we do for content.
+[00:21:24.660 --> 00:21:26.620]   And I think Tim and Don were kind of inspired.
+[00:21:26.620 --> 00:21:32.140]   They were, at the time, IT trainers in a traditional setting with a classroom and, you know, you
+[00:21:32.140 --> 00:21:33.140]   teach people.
+[00:21:33.140 --> 00:21:38.460]   The reason you have these, of course, is because if you want to get into the IT business, often
+[00:21:38.460 --> 00:21:40.220]   even a degree isn't what you need.
+[00:21:40.220 --> 00:21:43.980]   What you need are certifications that say, yes, you know, Leo knows this.
+[00:21:43.980 --> 00:21:48.380]   Leo knows that you're an MCSE or you're an ISC squared.
+[00:21:48.380 --> 00:21:52.780]   You don't have a plus certificate or you have a certified ethical hacker certificate.
+[00:21:52.780 --> 00:21:57.060]   Those are the things to get that first job that are very valuable, often a requisite
+[00:21:57.060 --> 00:21:58.060]   for getting the job.
+[00:21:58.060 --> 00:22:03.340]   And so they were doing great doing that, but they saw what we were doing with Twit.
+[00:22:03.340 --> 00:22:08.940]   And I guess a light bulb went off and Tim Broom and Don Pezzet started ITProTV.
+[00:22:08.940 --> 00:22:12.380]   And the whole idea there is they've got five studios now, by the way, they've completely
+[00:22:12.380 --> 00:22:19.580]   surpassed us, is to do the same kind of engaging, fun content, including chat rooms and on the
+[00:22:19.580 --> 00:22:26.220]   air quizzes and stuff, but to do it for IT training and what a success it has been.
+[00:22:26.220 --> 00:22:32.020]   They started advertising with us very early on and I have to say I've watched them soar.
+[00:22:32.020 --> 00:22:34.620]   They really are doing great.
+[00:22:34.620 --> 00:22:38.980]   ITProTV has the best trainers, experts in the field.
+[00:22:38.980 --> 00:22:44.740]   A lot of IT teams use ITProTV for their teams, not to give them certs necessarily, but to
+[00:22:44.740 --> 00:22:51.620]   keep their skills up, 4,000 hours of on-demand training at ITProTV.
+[00:22:51.620 --> 00:22:58.020]   And now you can see the members of the team growing 100,000 plus, they just crossed 100,000
+[00:22:58.020 --> 00:23:01.300]   plus ITProTV learners.
+[00:23:01.300 --> 00:23:04.100]   It is a massive success.
+[00:23:04.100 --> 00:23:09.020]   And partly because it is the most affordable, most engaging way to learn the skills you
+[00:23:09.020 --> 00:23:10.100]   need.
+[00:23:10.100 --> 00:23:13.740]   A standard membership is $28.50.
+[00:23:13.740 --> 00:23:18.500]   I'm going to tell you I can make it a lot more affordable, but $28.50 a month.
+[00:23:18.500 --> 00:23:23.220]   Premium membership, which includes not just the classes, but also labs where you don't
+[00:23:23.220 --> 00:23:26.860]   even have to have a Windows machine to be able to actually set up Windows servers and
+[00:23:26.860 --> 00:23:30.300]   configure clients and practice exams too.
+[00:23:30.300 --> 00:23:33.140]   So if you're getting ready for those IT certs, that's great.
+[00:23:33.140 --> 00:23:36.900]   That the premium membership is $42 a month.
+[00:23:36.900 --> 00:23:41.980]   So right now, I'm happy to say ITProTV is still honoring the special offer we've had since
+[00:23:41.980 --> 00:23:46.060]   they started with us, 30% off for Twit listeners.
+[00:23:46.060 --> 00:23:49.500]   And that is not just for a week or a month or a year, that's forever as long as you stay
+[00:23:49.500 --> 00:23:50.500]   active.
+[00:23:50.500 --> 00:23:53.540]   That means that the standard membership is under $20 a month.
+[00:23:53.540 --> 00:23:59.260]   You are not going to find this kind of training anywhere for that price or $200 a year.
+[00:23:59.260 --> 00:24:04.500]   The premium membership now, just $29.50 a month or $295 a year.
+[00:24:04.500 --> 00:24:07.420]   This is cheaper even than just buying the books to do the studying this.
+[00:24:07.420 --> 00:24:08.580]   And it's so much more fun.
+[00:24:08.580 --> 00:24:10.420]   You can watch on the big screen TV.
+[00:24:10.420 --> 00:24:13.860]   They support, they have iOS and Android apps where they support Chromecast.
+[00:24:13.860 --> 00:24:16.980]   They have a Roku app and Amazon Fire TV app.
+[00:24:16.980 --> 00:24:17.980]   Really nice Apple TV app.
+[00:24:17.980 --> 00:24:20.500]   Of course, you can watch streaming on your PC too.
+[00:24:20.500 --> 00:24:23.260]   So you know, you can have it on the big screen while you're eating breakfast, hopping the
+[00:24:23.260 --> 00:24:29.700]   car, listen on the way and keep it as a picture and picture on your screen during work.
+[00:24:29.700 --> 00:24:33.420]   Imagine how quickly you will learn the skills you need.
+[00:24:33.420 --> 00:24:37.340]   These are recorded live every day Monday through Friday.
+[00:24:37.340 --> 00:24:40.340]   In their five studios, they go from studio to web in 24 hours.
+[00:24:40.340 --> 00:24:42.900]   So they always have the freshest training.
+[00:24:42.900 --> 00:24:44.660]   By the way, it's kind of cool.
+[00:24:44.660 --> 00:24:49.860]   CompTIA now uses ITPro TV as their official video training partner.
+[00:24:49.860 --> 00:24:52.980]   That means they've got 12 CompTIA on-demand courses.
+[00:24:52.980 --> 00:24:57.140]   They've got the CompTIA A+ network plus and security plus certs.
+[00:24:57.140 --> 00:24:59.380]   So they're just going great guns.
+[00:24:59.380 --> 00:25:00.780]   I want you to visit them right now.
+[00:25:00.780 --> 00:25:04.420]   Go.itpro.tv/macbreak.
+[00:25:04.420 --> 00:25:07.220]   Get started with your standard or premium membership.
+[00:25:07.220 --> 00:25:11.300]   This is the time to get that job in IT you've always wanted or to keep your job or get a
+[00:25:11.300 --> 00:25:14.540]   better job with the training from ITPro TV.
+[00:25:14.540 --> 00:25:18.860]   Go.itpro.tv/macbreak.
+[00:25:18.860 --> 00:25:24.740]   And if you wanted that 30% off, don't forget to use the Africa Macbreak 30 at checkout.
+[00:25:24.740 --> 00:25:28.460]   Macbreak 30, ITPro TV is flexible training.
+[00:25:28.460 --> 00:25:32.100]   DINJOR the content, life-changing results.
+[00:25:32.100 --> 00:25:36.780]   I'm very proud of the success that they have achieved.
+[00:25:36.780 --> 00:25:39.780]   USB 4.0.
+[00:25:39.780 --> 00:25:46.900]   In a way, I bring this up on Macbreak weekly because we wouldn't probably have USB if Steve
+[00:25:46.900 --> 00:25:51.860]   Jobs with the iMac, the very first iMac, had said, and said, "And we're going to support
+[00:25:51.860 --> 00:25:52.860]   USB."
+[00:25:52.860 --> 00:25:54.220]   I mean, that was a big part of it.
+[00:25:54.220 --> 00:25:57.100]   We're not going to build an awesome Apple, some weird Apple connector.
+[00:25:57.100 --> 00:25:59.100]   Yeah, we're going to support it.
+[00:25:59.100 --> 00:26:03.380]   And then suddenly we had to figure out how to get all our ADB keys to work.
+[00:26:03.380 --> 00:26:11.860]   And Leo, this comes on the heels of them saying that USB 2 and 3 are all USB 3.1 and
+[00:26:11.860 --> 00:26:12.860]   3.2 now.
+[00:26:12.860 --> 00:26:14.860]   Well, that's a little confusing.
+[00:26:14.860 --> 00:26:16.380]   In fact, thank goodness.
+[00:26:16.380 --> 00:26:23.260]   I'm more has written a fabulous article, Jerry Hildenbrand, "Everything You Need to Know About
+[00:26:23.260 --> 00:26:27.820]   USB 4, Better, Stronger, Faster, Backward, Compatible, 40 Gigabits per Second."
+[00:26:27.820 --> 00:26:29.540]   So it competes with Thunderbolt 3.
+[00:26:29.540 --> 00:26:31.540]   It is Thunderbolt 3.
+[00:26:31.540 --> 00:26:35.020]   It basically carries Thunderbolt 3, right?
+[00:26:35.020 --> 00:26:36.020]   It's too late in operation.
+[00:26:36.020 --> 00:26:37.940]   USB 4 carries Thunderbolt 3.
+[00:26:37.940 --> 00:26:40.220]   But you can use your Type-C cables.
+[00:26:40.220 --> 00:26:42.420]   That's very good news.
+[00:26:42.420 --> 00:26:43.420]   So is it Thunderbolt 3?
+[00:26:43.420 --> 00:26:44.980]   I mean, are they just renaming Thunderbolt?
+[00:26:44.980 --> 00:26:46.820]   No, it's got to be more than that, right?
+[00:26:46.820 --> 00:26:51.020]   Yeah, it's a super, I think it's a super set of Thunderbolt 3.
+[00:26:51.020 --> 00:26:52.980]   But it is compatible with.
+[00:26:52.980 --> 00:26:57.140]   And if people are panicking, the numbers are the protocol, the bits that go over the wire,
+[00:26:57.140 --> 00:26:58.540]   the letters are the plug type.
+[00:26:58.540 --> 00:27:02.740]   So no one is taking your USB-C cable, the one that you just finally got everyone to convert
+[00:27:02.740 --> 00:27:06.060]   to and making you get an L-shaped cable or anything.
+[00:27:06.060 --> 00:27:09.500]   It's the same ending as Thunderbolt 3 and USB-C cables already.
+[00:27:09.500 --> 00:27:10.500]   Yeah.
+[00:27:10.500 --> 00:27:13.660]   It just recently got USB 3.2.
+[00:27:13.660 --> 00:27:22.540]   So now we have to say we've got USB 3.2 extended to USB 4 over USB-C, at which point your
+[00:27:22.540 --> 00:27:23.540]   friends had the tools.
+[00:27:23.540 --> 00:27:24.540]   And Thunderbolt with TB3.
+[00:27:24.540 --> 00:27:25.540]   Yes.
+[00:27:25.540 --> 00:27:27.940]   Will there be at some point just this merging of standards?
+[00:27:27.940 --> 00:27:28.940]   So everything's Type-C.
+[00:27:28.940 --> 00:27:29.940]   Thunderbolt 3.
+[00:27:29.940 --> 00:27:32.940]   Thunderbolt is an Intel thing.
+[00:27:32.940 --> 00:27:37.020]   And Intel, as we know, it has not had the greatest success bringing things to market
+[00:27:37.020 --> 00:27:38.020]   recently.
+[00:27:38.020 --> 00:27:40.540]   So everyone is still waiting on PCI is my understanding.
+[00:27:40.540 --> 00:27:43.940]   And I'm not an expert in this stuff, but my understanding is we have Thunderbolt 3 now
+[00:27:43.940 --> 00:27:45.460]   and it's an Intel thing.
+[00:27:45.460 --> 00:27:47.380]   And we're waiting on PCI 4.
+[00:27:47.380 --> 00:27:49.140]   So we can have Thunderbolt 4.
+[00:27:49.140 --> 00:27:53.660]   What is taking a while and meanwhile USB is doing its thing.
+[00:27:53.660 --> 00:27:57.340]   And luckily but confusingly a lot of cables can carry both.
+[00:27:57.340 --> 00:28:03.340]   And apparently Intel has dropped the royalty or has somehow made it more Thunderbolt 3.
+[00:28:03.340 --> 00:28:05.380]   Yeah, it's open and royalty free.
+[00:28:05.380 --> 00:28:08.020]   So that probably has a lot to do with it as well.
+[00:28:08.020 --> 00:28:10.580]   Because who wants royalty-based connectors?
+[00:28:10.580 --> 00:28:13.300]   I mean, if you want something to be ubiquitous, make it open.
+[00:28:13.300 --> 00:28:15.820]   If you think this just feels like common sense.
+[00:28:15.820 --> 00:28:18.140]   Hey, speaking of I'm more, I didn't mention this.
+[00:28:18.140 --> 00:28:22.540]   But I gather, well, you tell me, congratulations are in order.
+[00:28:22.540 --> 00:28:25.580]   I'm more was acquired by future.
+[00:28:25.580 --> 00:28:26.580]   Yes.
+[00:28:26.580 --> 00:28:27.580]   Yeah.
+[00:28:27.580 --> 00:28:32.900]   So if people aren't familiar with future, they have T3 and tech radar and a bunch of
+[00:28:32.900 --> 00:28:36.540]   paper publications because in Europe that still makes a lot of sense.
+[00:28:36.540 --> 00:28:42.220]   In America, they recently, I forget a long ago, a year ago bought Perch which had a Nantec
+[00:28:42.220 --> 00:28:46.060]   and Tom's Guide and Tom's Hardware and Laptop Magazine.
+[00:28:46.060 --> 00:28:50.300]   And so in order to increase, I guess, their North American scope, they bought Mobile Nations,
+[00:28:50.300 --> 00:28:51.300]   which was a proprietor.
+[00:28:51.300 --> 00:28:55.380]   Like, you know, it was started by Marcus Edelson back in the days of Visor Central and he kept
+[00:28:55.380 --> 00:28:56.380]   it all these years.
+[00:28:56.380 --> 00:28:59.140]   I guess he finally decided it was better to be bigger.
+[00:28:59.140 --> 00:29:03.300]   So he sold, he and his partners sold to Future.
+[00:29:03.300 --> 00:29:05.540]   And now we're all one big, happy family.
+[00:29:05.540 --> 00:29:09.500]   Is it going to change anything from your point of view?
+[00:29:09.500 --> 00:29:12.860]   We're running completely as Mobile Nations for at least a year because as far as I know,
+[00:29:12.860 --> 00:29:15.620]   they're still busy with doing all their stuff.
+[00:29:15.620 --> 00:29:17.340]   So it's not going to change anything for now.
+[00:29:17.340 --> 00:29:21.820]   And if you look at Nantec and Tom's Guide and Tom's Hardware, they've been with Future
+[00:29:21.820 --> 00:29:23.620]   Free Year and I can't see anything has changed.
+[00:29:23.620 --> 00:29:25.460]   No, they've gotten better if anything.
+[00:29:25.460 --> 00:29:26.460]   Yeah.
+[00:29:26.460 --> 00:29:27.460]   Yeah.
+[00:29:27.460 --> 00:29:30.820]   So hopefully, I mean, you know, it's new people so I can never say never.
+[00:29:30.820 --> 00:29:33.740]   But as far as I can tell, nothing has changed with any of their properties.
+[00:29:33.740 --> 00:29:35.420]   Probably the best known future property.
+[00:29:35.420 --> 00:29:37.900]   One of their earliest is Maximum PC Magazine.
+[00:29:37.900 --> 00:29:39.260]   I think a lot of people are familiar with that.
+[00:29:39.260 --> 00:29:40.260]   MacLife, maybe people remember.
+[00:29:40.260 --> 00:29:41.260]   What are you 3D World?
+[00:29:41.260 --> 00:29:45.820]   I remember they do a guitar player magazine.
+[00:29:45.820 --> 00:29:47.300]   Yeah, 3D World.
+[00:29:47.300 --> 00:29:48.300]   There it is.
+[00:29:48.300 --> 00:29:53.500]   They're smart to kind of go digital and a lot of their properties are 100% digital.
+[00:29:53.500 --> 00:29:54.500]   Yeah.
+[00:29:54.500 --> 00:29:58.500]   A lot of photo stuff, digital photographer, photography.
+[00:29:58.500 --> 00:30:01.340]   Guitar stuff, it's a huge range.
+[00:30:01.340 --> 00:30:02.340]   Yeah.
+[00:30:02.340 --> 00:30:06.460]   This reminds me a lot of the old Ziff Davis where they were originally like sailing magazines
+[00:30:06.460 --> 00:30:11.220]   and all sorts of other stuff to all these specialty magazines.
+[00:30:11.220 --> 00:30:13.860]   But I don't know how what the future for magazines is.
+[00:30:13.860 --> 00:30:15.100]   So it's smart of them.
+[00:30:15.100 --> 00:30:18.020]   Anyway, I just thought, you're the news this week.
+[00:30:18.020 --> 00:30:19.020]   Thank you.
+[00:30:19.020 --> 00:30:21.140]   I thought I'd mention it.
+[00:30:21.140 --> 00:30:25.260]   This is going to be like Marvel movies where now the Spider-Man movie has to involve Tony
+[00:30:25.260 --> 00:30:29.940]   Starks somehow because you have to make sure that you promote the next movie.
+[00:30:29.940 --> 00:30:33.300]   Well, I did ask Ryan from an ant tech if he was going to benchmark me.
+[00:30:33.300 --> 00:30:37.180]   He said, nobody is going to overclock me and I don't think anybody is looking forward to
+[00:30:37.180 --> 00:30:38.180]   that.
+[00:30:38.180 --> 00:30:39.180]   Yeah.
+[00:30:39.180 --> 00:30:46.860]   It looks like they even do conferences right there going to do the video show.
+[00:30:46.860 --> 00:30:47.860]   That's awesome.
+[00:30:47.860 --> 00:30:48.860]   Yeah.
+[00:30:48.860 --> 00:30:49.860]   When and where is the video show?
+[00:30:49.860 --> 00:30:55.100]   At the NEC in 2019, everything, the budding filmmaker, professional videographer, vlogger
+[00:30:55.100 --> 00:30:59.140]   or online content creator needs to expand their moving image production or license.
+[00:30:59.140 --> 00:31:00.140]   It's nice.
+[00:31:00.140 --> 00:31:01.140]   I'm not familiar with NEC.
+[00:31:01.140 --> 00:31:04.100]   It's probably something British.
+[00:31:04.100 --> 00:31:05.260]   But that's kind of cool.
+[00:31:05.260 --> 00:31:06.260]   Yeah.
+[00:31:06.260 --> 00:31:07.260]   Yeah.
+[00:31:07.260 --> 00:31:15.940]   So who is it that bought VidCon and Viacom?
+[00:31:15.940 --> 00:31:19.780]   One of the big, I think it was Viacom, but VidCon.
+[00:31:19.780 --> 00:31:21.900]   VidCon is the big YouTube conference.
+[00:31:21.900 --> 00:31:23.900]   And so there's clearly a consolidation.
+[00:31:23.900 --> 00:31:24.900]   You can see Birmingham.
+[00:31:24.900 --> 00:31:27.340]   It's in Birmingham, Alabama?
+[00:31:27.340 --> 00:31:28.340]   No Birmingham.
+[00:31:28.340 --> 00:31:29.340]   Oh, England.
+[00:31:29.340 --> 00:31:31.340]   The original Birmingham.
+[00:31:31.340 --> 00:31:33.540]   Oh, the one with the smoke stocks.
+[00:31:33.540 --> 00:31:35.420]   Yeah, I know that.
+[00:31:35.420 --> 00:31:40.420]   Yeah, Viacom has been acquiring a lot of these digital properties as well.
+[00:31:40.420 --> 00:31:44.340]   But I would say that it's a congratulations to the mobile nation's owners because in an
+[00:31:44.340 --> 00:31:48.660]   era of rapidly self-destructing media companies, they managed to build a really, really good
+[00:31:48.660 --> 00:31:51.660]   business out of hard work and create a business.
+[00:31:51.660 --> 00:31:53.140]   Are they now out of it?
+[00:31:53.140 --> 00:31:54.140]   I mean, are they gone?
+[00:31:54.140 --> 00:31:55.140]   No, they're staying on.
+[00:31:55.140 --> 00:31:56.140]   They're staying on.
+[00:31:56.140 --> 00:31:57.420]   The same management team, everything.
+[00:31:57.420 --> 00:31:58.420]   Good.
+[00:31:58.420 --> 00:32:00.220]   So your life won't change dramatically.
+[00:32:00.220 --> 00:32:01.220]   Nope.
+[00:32:01.220 --> 00:32:04.420]   Crackberry Kevin is still my boss.
+[00:32:04.420 --> 00:32:06.620]   And Vector and all that will continue on as well.
+[00:32:06.620 --> 00:32:07.620]   Yep, yeah.
+[00:32:07.620 --> 00:32:08.620]   Because we can on Vector.
+[00:32:08.620 --> 00:32:09.620]   Yeah.
+[00:32:09.620 --> 00:32:10.620]   I don't think you.
+[00:32:10.620 --> 00:32:11.620]   Yeah.
+[00:32:11.620 --> 00:32:12.620]   It's a change.
+[00:32:12.620 --> 00:32:14.780]   You know, it's actually kind of Apple's kind of part of that story.
+[00:32:14.780 --> 00:32:16.700]   I mean, really is a changing world.
+[00:32:16.700 --> 00:32:21.580]   We know that or we think that, according to John Patchkowski, and I think Mark Gurman confirmed
+[00:32:21.580 --> 00:32:27.100]   Apple's going to have a news announcement later this month, maybe the 25th, although
+[00:32:27.100 --> 00:32:28.460]   that's a Monday.
+[00:32:28.460 --> 00:32:31.260]   So we think that's odd.
+[00:32:31.260 --> 00:32:37.620]   But the negotiations continue with publishers.
+[00:32:37.620 --> 00:32:43.260]   And DigiDay had an article this week about publishers who are already on Apple News,
+[00:32:43.260 --> 00:32:47.820]   and probably some of the texture publishers are also there as well, who are reporting
+[00:32:47.820 --> 00:32:50.940]   that ad revenue is not great.
+[00:32:50.940 --> 00:32:53.140]   There should be an Aaron Sorkin show.
+[00:32:53.140 --> 00:32:55.700]   Shouldn't have left to see all the behind the scenes on this stuff.
+[00:32:55.700 --> 00:32:56.700]   Yeah.
+[00:32:56.700 --> 00:33:01.180]   Again, according to the future day, ad revenue is bogged down by advertisers.
+[00:33:01.180 --> 00:33:06.900]   There's disinterest in the ad inventory publishers are selling directly.
+[00:33:06.900 --> 00:33:13.940]   And so in some cases, one source said their publication earned low five figures every
+[00:33:13.940 --> 00:33:15.380]   month from Apple News.
+[00:33:15.380 --> 00:33:18.540]   Another said they earn less than $1,000 a month.
+[00:33:18.540 --> 00:33:22.780]   The biggest success, which is not good news for Apple, is the publishers that aren't full
+[00:33:22.780 --> 00:33:27.900]   on Apple News, but Apple's throwing, especially now with politics, with political news, entertainment
+[00:33:27.900 --> 00:33:30.260]   news, Apple is throwing so much traffic their way.
+[00:33:30.260 --> 00:33:33.900]   When you look at the numbers of referrals, they're getting from Apple, it's ridiculous.
+[00:33:33.900 --> 00:33:37.620]   And then it hits their own, either it hits their own, your subscriber, and it hits their
+[00:33:37.620 --> 00:33:40.700]   own paywall, or it hits their own ad pile.
+[00:33:40.700 --> 00:33:44.860]   And that's not great for subscribers to go on all in on Apple News, and it's not great
+[00:33:44.860 --> 00:33:45.860]   for Apple News.
+[00:33:45.860 --> 00:33:49.860]   So they're going to have to fix that, or everything is going to be to finish reading this article
+[00:33:49.860 --> 00:33:50.860]   on the web.
+[00:33:50.860 --> 00:33:58.780]   I mean, with CPMs as low as $3 and $4, that's why it's like a YouTube too, for video or
+[00:33:58.780 --> 00:33:59.780]   radio.
+[00:33:59.780 --> 00:34:04.580]   But digital ads in general are horrible, like they end declining.
+[00:34:04.580 --> 00:34:06.580]   So I don't, that might make it-
+[00:34:06.580 --> 00:34:09.060]   I mean, it's reminiscent of Apple's terrible at doing it.
+[00:34:09.060 --> 00:34:12.260]   Well, according to the publishers, Apple is really bad at filling Reminence Talk or filling.
+[00:34:12.260 --> 00:34:13.820]   Like you'll get like the one display.
+[00:34:13.820 --> 00:34:17.300]   And if people aren't sure how this works, generally you'll have like the premium ads.
+[00:34:17.300 --> 00:34:21.300]   And those are the ones that pay the best, but they have a number of times they'll display.
+[00:34:21.300 --> 00:34:25.300]   And then it's got to show something else because you're no longer getting paid for that ad.
+[00:34:25.300 --> 00:34:28.580]   So most publishers have a stack of different ads.
+[00:34:28.580 --> 00:34:30.180]   Like I've got real big premium one.
+[00:34:30.180 --> 00:34:31.180]   It's called Reminence.
+[00:34:31.180 --> 00:34:32.180]   Reminence in Victoria.
+[00:34:32.180 --> 00:34:35.020]   And then either like Google, I think Google with ad exchange is one of the biggest ones
+[00:34:35.020 --> 00:34:36.020]   that I think is-
+[00:34:36.020 --> 00:34:38.020]   In this case, NBC and Universal, it's apparently selling the reminence.
+[00:34:38.020 --> 00:34:39.020]   Yes.
+[00:34:39.020 --> 00:34:42.340]   But those reminaz are generally the horrible ads that you see on the website and Apple
+[00:34:42.340 --> 00:34:43.340]   isn't filling those.
+[00:34:43.340 --> 00:34:44.340]   And so there's nothing.
+[00:34:44.340 --> 00:34:47.580]   And even those ads are horrible, people click on them and that generates revenues.
+[00:34:47.580 --> 00:34:48.580]   So it's yeah.
+[00:34:48.580 --> 00:34:49.740]   Or they at least see them, right?
+[00:34:49.740 --> 00:34:52.420]   I mean, I always think it's funny.
+[00:34:52.420 --> 00:34:57.420]   I know whatever page I just went to when I go to speedtest.net because I get five ads
+[00:34:57.420 --> 00:35:01.100]   that are all the same or all about whatever.
+[00:35:01.100 --> 00:35:02.100]   B&H.
+[00:35:02.100 --> 00:35:05.540]   It's usually all my B&H orders because I went to B&H first for something.
+[00:35:05.540 --> 00:35:06.980]   Osmo pocket.
+[00:35:06.980 --> 00:35:12.860]   So the point of this article though, in fact the headline is it's hard to back out even
+[00:35:12.860 --> 00:35:15.620]   if you're not making the money you wanted.
+[00:35:15.620 --> 00:35:16.620]   Wow.
+[00:35:16.620 --> 00:35:17.620]   You can't back out either.
+[00:35:17.620 --> 00:35:18.620]   Yeah, because I mean it's huge.
+[00:35:18.620 --> 00:35:19.620]   They also need flow.
+[00:35:19.620 --> 00:35:25.180]   I mean, everyone was talking about how Spotify was ruining Spotify and all these subscription
+[00:35:25.180 --> 00:35:26.980]   services were ruining the music business.
+[00:35:26.980 --> 00:35:28.420]   And now it's the majority of their income.
+[00:35:28.420 --> 00:35:30.420]   In fact, their income is starting to go up.
+[00:35:30.420 --> 00:35:33.820]   You know, as people start to move and use these platforms, I think that they're going
+[00:35:33.820 --> 00:35:35.020]   to find that they're making more money.
+[00:35:35.020 --> 00:35:38.100]   But in the transition, sure, it doesn't make any sense.
+[00:35:38.100 --> 00:35:42.860]   Until enough people are doing it, until enough average folks are using it, it isn't going
+[00:35:42.860 --> 00:35:43.860]   to make sense revenue.
+[00:35:43.860 --> 00:35:45.980]   It's not the thing that you can lean on yet.
+[00:35:45.980 --> 00:35:50.340]   But streaming music has definitely gotten to a point where they can lean on it.
+[00:35:50.340 --> 00:35:51.340]   Yeah.
+[00:35:51.340 --> 00:35:57.500]   But each one of these types of media is unique, however, and Apple has to make sure that they're
+[00:35:57.500 --> 00:36:01.220]   providing a product that the people are buying this are going to be able to use.
+[00:36:01.220 --> 00:36:06.660]   It's not just Apple tends to ask for a lot of control over every kind of service that
+[00:36:06.660 --> 00:36:08.100]   they tie into.
+[00:36:08.100 --> 00:36:11.820]   And sometimes with advertising particularly, the things that I'm hearing about from major
+[00:36:11.820 --> 00:36:16.780]   publishers is largely that I need the information that I can get about my readership.
+[00:36:16.780 --> 00:36:22.060]   I need to know what people are reading on my own site and what kind of level of engagement
+[00:36:22.060 --> 00:36:23.060]   there is.
+[00:36:23.060 --> 00:36:27.140]   And they're not confident that they're going to get that sort of stuff off of Apple.
+[00:36:27.140 --> 00:36:33.980]   And so if Apple is negotiating from the position of, "We are an elite brand, you are, we're
+[00:36:33.980 --> 00:36:39.140]   making you look so good, you should be so happy that you're associated with us," that's
+[00:36:39.140 --> 00:36:41.460]   not going to pay out in the future.
+[00:36:41.460 --> 00:36:44.900]   They tallied with advertising earlier on.
+[00:36:44.900 --> 00:36:49.940]   That's the reason why we don't really think of Apple as an advertising company because
+[00:36:49.940 --> 00:36:53.060]   they just didn't create a product that was useful to the marketplace.
+[00:36:53.060 --> 00:36:58.180]   The pattern for all these publishers though that's dangerous is that the Hollywood decided
+[00:36:58.180 --> 00:37:04.460]   they were going to Stonewall Netflix and that has not turned out well for them.
+[00:37:04.460 --> 00:37:08.460]   Everyone's afraid that Spotify and Apple will eventually just cut the publishers out because
+[00:37:08.460 --> 00:37:09.940]   they can.
+[00:37:09.940 --> 00:37:14.500]   And eventually, if you look at Future, which just bought iMore, what if Apple says, "Okay,
+[00:37:14.500 --> 00:37:16.700]   give up and we'll start buying these guys."
+[00:37:16.700 --> 00:37:22.460]   And then Apple News becomes a whole lot of things that they can provide that have all
+[00:37:22.460 --> 00:37:23.540]   these verticals.
+[00:37:23.540 --> 00:37:28.540]   The problem for, if they decided that they were going to do that, the problem for publishers
+[00:37:28.540 --> 00:37:34.020]   is that, "Okay, now I have this thing that works and it's totally tied in or I can try
+[00:37:34.020 --> 00:37:36.740]   to survive outside of that ecosystem."
+[00:37:36.740 --> 00:37:41.860]   So then pushing back too hard just will lead these technical, these tech companies to
+[00:37:41.860 --> 00:37:43.940]   decide they need to do it themselves.
+[00:37:43.940 --> 00:37:44.940]   I don't know about that.
+[00:37:44.940 --> 00:37:50.220]   Because we got hooked on the metrics because in the old days, you bought the newspaper,
+[00:37:50.220 --> 00:37:55.500]   you bought the magazine and their demographic business was as big as their classified business.
+[00:37:55.500 --> 00:37:59.260]   They lived on all the addresses and information they had because they could sell those for
+[00:37:59.260 --> 00:38:00.820]   huge marketing revenue.
+[00:38:00.820 --> 00:38:03.420]   But they also knew that every magazine and newspaper they sold were probably read by
+[00:38:03.420 --> 00:38:06.860]   two people, the magazine and the dentist office by like 30 people.
+[00:38:06.860 --> 00:38:09.420]   And they sort of patted the numbers to account for that.
+[00:38:09.420 --> 00:38:12.220]   And now we're seeing a digital equivalent of that where the article is going out to
+[00:38:12.220 --> 00:38:14.220]   Apple but then being read by a billion people.
+[00:38:14.220 --> 00:38:16.260]   And there's no real way to pad for that.
+[00:38:16.260 --> 00:38:21.940]   I think that the thing is that they do need to find a way to, I don't think that Apple
+[00:38:21.940 --> 00:38:27.860]   needs to give them the information to be able to give them data of how many people are
+[00:38:27.860 --> 00:38:31.420]   watching a certain article or being able to even notify the users.
+[00:38:31.420 --> 00:38:37.860]   If the users are, if it's basically a publishing like an RSS system where Apple's, you know,
+[00:38:37.860 --> 00:38:43.580]   it's a publisher says, I've got a new article and your, your app on your phone is securely
+[00:38:43.580 --> 00:38:47.220]   asking for, are there new articles from the New York Times?
+[00:38:47.220 --> 00:38:52.100]   Apple doesn't have to connect the two of you together to give them some of what they need,
+[00:38:52.100 --> 00:38:53.460]   you know, for that, for that process.
+[00:38:53.460 --> 00:38:57.940]   They can anonymize it and, and then allow it to, you know, that information to kind of
+[00:38:57.940 --> 00:39:02.140]   go back and forth without breaking that up much like Apple Pay doesn't really give you,
+[00:39:02.140 --> 00:39:04.500]   give the, anybody a lot of information either.
+[00:39:04.500 --> 00:39:07.380]   And so the number they just don't know how, who will.
+[00:39:07.380 --> 00:39:11.340]   So the thing is, is that, but there's a lot of data that you can get when I'm trying
+[00:39:11.340 --> 00:39:16.460]   to figure out, you know, I know a little bit of the publishing, but in video, we want,
+[00:39:16.460 --> 00:39:18.980]   we definitely want to have a lot of information and we get that.
+[00:39:18.980 --> 00:39:23.020]   I don't know anything about the actual users on the other side, but I know how many people
+[00:39:23.020 --> 00:39:24.780]   were watching a certain time.
+[00:39:24.780 --> 00:39:31.020]   I know when they left, when they entered, I can, if I cross, if I cross that against other
+[00:39:31.020 --> 00:39:37.340]   marketing processes, I start to get a lot of information about what is actually happening.
+[00:39:37.340 --> 00:39:41.620]   You know, on my video and I make decisions about what part of videos are good and which
+[00:39:41.620 --> 00:39:43.860]   parts we should do less of.
+[00:39:43.860 --> 00:39:45.380]   So it's a lot of the information that they need.
+[00:39:45.380 --> 00:39:48.220]   Now they'll say that they want those demographics because they want to resell those demographics.
+[00:39:48.220 --> 00:39:52.100]   I mean, they want those email lists and they want that stuff because a big part of their
+[00:39:52.100 --> 00:39:56.460]   business is, you know, reselling the list, which they're not getting from Apple and they're
+[00:39:56.460 --> 00:39:57.620]   not going to get from Apple.
+[00:39:57.620 --> 00:40:00.020]   And so that's obviously going to be frustrating.
+[00:40:00.020 --> 00:40:03.100]   And I think that they find that if they, if they can back channel a bunch of complaints,
+[00:40:03.100 --> 00:40:06.700]   they can try to pressure Apple to do it, which is why we're seeing this article, of course.
+[00:40:06.700 --> 00:40:11.140]   And, but I don't think that they're going to get the data.
+[00:40:11.140 --> 00:40:20.140]   I wanted to format this comment in a way that doesn't turn into another 30 minutes.
+[00:40:20.140 --> 00:40:25.540]   But what I think one of the bigger problems is that a lot of what I've been hearing both
+[00:40:25.540 --> 00:40:31.020]   in public and in private about Apple's upcoming offering is that it's very, very, it leans
+[00:40:31.020 --> 00:40:35.180]   very, very heavily towards national news.
+[00:40:35.180 --> 00:40:40.060]   And so much of what we consider news is very, very local or very, very specific.
+[00:40:40.060 --> 00:40:43.100]   And so it's not going to be very, very helpful to have this sort of thing.
+[00:40:43.100 --> 00:40:49.060]   Nonetheless, if I'm going to be opening up an app that's called news, I do want to know
+[00:40:49.060 --> 00:40:54.620]   about what certain people in the federal government have been testifying against each other on.
+[00:40:54.620 --> 00:41:00.500]   But I also want to know that there was a pack of coyotes spotted in my town last night and
+[00:41:00.500 --> 00:41:05.260]   that perhaps that's a good time to make sure that the cats don't get to go outside last
+[00:41:05.260 --> 00:41:06.260]   night.
+[00:41:06.260 --> 00:41:10.860]   But even local sports, even local politics, even local news, things are not really interesting
+[00:41:10.860 --> 00:41:13.420]   to a national audience.
+[00:41:13.420 --> 00:41:18.900]   I like the fact that when I go to news.google.com, there is an actual pain for here is like,
+[00:41:18.900 --> 00:41:25.140]   that's where I found out that there was a pack of coyotes in my town that I don't have cats.
+[00:41:25.140 --> 00:41:28.460]   But still, that's an interesting thing to know.
+[00:41:28.460 --> 00:41:32.220]   You have to be able to make sure that your service is going to be of use to the person
+[00:41:32.220 --> 00:41:33.740]   is actually going to be reading it.
+[00:41:33.740 --> 00:41:39.900]   And so that means that the fact that you know exactly what kind of halter top a Kardashian
+[00:41:39.900 --> 00:41:43.540]   was photographed in yesterday, that's not of much interest to me.
+[00:41:43.540 --> 00:41:49.820]   But I really want to know if the proposal to basically replace the entire sewer system
+[00:41:49.820 --> 00:41:51.860]   in my part of town is going through or not.
+[00:41:51.860 --> 00:41:55.020]   I want to know about that because that affects where I'm going to be able to park cars in
+[00:41:55.020 --> 00:41:56.020]   four months.
+[00:41:56.020 --> 00:41:59.140]   And I wonder if that's going to be a news organization.
+[00:41:59.140 --> 00:42:03.580]   For me, all of my information about my local community is from Nextdoor.
+[00:42:03.580 --> 00:42:08.180]   And I get my little notifications all the time, sometimes too many notifications.
+[00:42:08.180 --> 00:42:12.340]   But Nextdoor is, oddly enough, there was a long discussion recently about the coyotes
+[00:42:12.340 --> 00:42:14.540]   in the back of the behind the houses.
+[00:42:14.540 --> 00:42:17.500]   And the fact that they were eating the turkeys, or people wanted to eat the turkeys because
+[00:42:17.500 --> 00:42:22.300]   a lot of turkeys here too.
+[00:42:22.300 --> 00:42:26.620]   But all of my information that I know about whether 37 was closed, whether there's rain,
+[00:42:26.620 --> 00:42:31.100]   the police, the reports are often put up there, the local meetings, like all the things that
+[00:42:31.100 --> 00:42:39.340]   I would normally get from a newspaper, I feel like I get the parts that I really care about
+[00:42:39.340 --> 00:42:40.780]   on that one website.
+[00:42:40.780 --> 00:42:46.020]   And so the question is, is that publishing, does it all make sense?
+[00:42:46.020 --> 00:42:49.780]   Or is it viable in a place where I didn't even know what Nextdoor was until like six
+[00:42:49.780 --> 00:42:51.540]   months ago?
+[00:42:51.540 --> 00:42:55.420]   And then as soon as I said, I found this thing called Nextdoor and everyone was like, yeah,
+[00:42:55.420 --> 00:42:58.460]   my wife was like, yeah, I've been on that for the last three years.
+[00:42:58.460 --> 00:42:59.460]   Yeah, yeah, yeah, yeah.
+[00:42:59.460 --> 00:43:03.380]   It's kind of like how we figure this out.
+[00:43:03.380 --> 00:43:06.660]   And I think that what's interesting about it is that I think that the problem really
+[00:43:06.660 --> 00:43:13.660]   for publishers is going to be the monodirectional function of their system, which is that they're
+[00:43:13.660 --> 00:43:14.860]   not going back and forth.
+[00:43:14.860 --> 00:43:18.980]   What makes Nextdoor really interesting is that we're all discussing stuff all the time,
+[00:43:18.980 --> 00:43:22.700]   you know, recently we've been discussing leashed dogs.
+[00:43:22.700 --> 00:43:26.780]   But there's, you know, you're discussing stuff back and forth and the future of media,
+[00:43:26.780 --> 00:43:33.700]   I think, is going to be a discussion, not a monodirectional broadcast of text, video,
+[00:43:33.700 --> 00:43:34.780]   audio, whatever.
+[00:43:34.780 --> 00:43:36.860]   It's all going to be back and forth.
+[00:43:36.860 --> 00:43:39.300]   And these publishers aren't ready for that.
+[00:43:39.300 --> 00:43:40.700]   They don't understand that at all.
+[00:43:40.700 --> 00:43:42.820]   Well, I'm in the meetings with them.
+[00:43:42.820 --> 00:43:43.820]   It's complete.
+[00:43:43.820 --> 00:43:48.180]   I don't think they'll get a complete change from what they do, which is they tell stories.
+[00:43:48.180 --> 00:43:52.060]   It requires a completely different set of talents, a completely different set of reporters,
+[00:43:52.060 --> 00:43:56.580]   a completely different, like there's a, it is like a complete, it truly is a paradigm
+[00:43:56.580 --> 00:43:57.580]   to it.
+[00:43:57.580 --> 00:43:58.580]   They don't want to change it.
+[00:43:58.580 --> 00:44:00.660]   Yeah, they, well, it's terrifying for them.
+[00:44:00.660 --> 00:44:03.580]   And it's going to be a very hard transition.
+[00:44:03.580 --> 00:44:05.060]   It's not going to be something that's easy.
+[00:44:05.060 --> 00:44:10.220]   I've been thinking about this in the context of the Spotify acquisition of Gimlet and Anchor
+[00:44:10.220 --> 00:44:13.180]   and their goals with podcasting.
+[00:44:13.180 --> 00:44:20.020]   And I think what I think is that some people think of podcasts and Gimlet certainly does
+[00:44:20.020 --> 00:44:22.420]   as kind of like TV shows.
+[00:44:22.420 --> 00:44:23.420]   You make shows.
+[00:44:23.420 --> 00:44:24.420]   They have seasons.
+[00:44:24.420 --> 00:44:26.180]   They run for a period of time.
+[00:44:26.180 --> 00:44:31.060]   The hosts aren't as important as the production values and the content, the stories they're
+[00:44:31.060 --> 00:44:32.060]   telling.
+[00:44:32.060 --> 00:44:34.100]   And honestly, that's not what we do.
+[00:44:34.100 --> 00:44:36.140]   And it's not what I believe in.
+[00:44:36.140 --> 00:44:40.020]   And it's very, so this is the same thing where if you have that Hollywood mindset that
+[00:44:40.020 --> 00:44:42.340]   we tell stories, you know, we make a movie.
+[00:44:42.340 --> 00:44:43.340]   We get everybody together.
+[00:44:43.340 --> 00:44:45.140]   They make a movie, then they go away.
+[00:44:45.140 --> 00:44:47.180]   Now we're going to make another movie.
+[00:44:47.180 --> 00:44:48.660]   Then that's what you do with podcasting.
+[00:44:48.660 --> 00:44:50.780]   And I think that's exactly the wrong thing to me.
+[00:44:50.780 --> 00:44:53.500]   And maybe it's, again, it's my background in radio.
+[00:44:53.500 --> 00:44:57.820]   I think, and it's certainly been the case for us, podcasting is not about the content
+[00:44:57.820 --> 00:45:03.220]   as much as the conversation, as you said, about the people who are making, the hosts
+[00:45:03.220 --> 00:45:04.220]   are far more important.
+[00:45:04.220 --> 00:45:07.020]   It's a, you know, we're not in show business.
+[00:45:07.020 --> 00:45:09.300]   We're in people business and it's about conversation.
+[00:45:09.300 --> 00:45:12.300]   And there's an authentic conversation among people who actually know what they're talking
+[00:45:12.300 --> 00:45:13.300]   about.
+[00:45:13.300 --> 00:45:16.060]   And if you want longevity, you know, this show's 15 years old.
+[00:45:16.060 --> 00:45:20.060]   If you want something to go on and on and on, it's going to be about the people.
+[00:45:20.060 --> 00:45:21.940]   Of course, the content has to be something you're interested in.
+[00:45:21.940 --> 00:45:23.940]   If you're interested in Max, then this would be your Apple.
+[00:45:23.940 --> 00:45:25.620]   This would be an interesting show for you.
+[00:45:25.620 --> 00:45:28.460]   But if you don't like the people, you're going to move on.
+[00:45:28.460 --> 00:45:30.380]   And if you don't like the conversation.
+[00:45:30.380 --> 00:45:35.300]   And yeah, and I think that that's a, you know, it was, it was said in the earliest days
+[00:45:35.300 --> 00:45:38.780]   of the internet, people interpret the internet based on their bias, what they came from.
+[00:45:38.780 --> 00:45:41.900]   You know, if you're a magazine publisher, you thought, Oh, great way to publish magazines.
+[00:45:41.900 --> 00:45:45.580]   Well, and if you're a video maker, it's all a great way to publish videos.
+[00:45:45.580 --> 00:45:50.380]   And we find that a lot of, you know, we've had the opportunity to do 2000 shows in the
+[00:45:50.380 --> 00:45:52.900]   last, you know, 10 years, you know, for other people.
+[00:45:52.900 --> 00:45:57.180]   And you watch this wide range of you, when you work with someone in New York or Hollywood,
+[00:45:57.180 --> 00:46:01.820]   you end up with this jam packed show that has, we've got bumpers and sweepers and things.
+[00:46:01.820 --> 00:46:04.660]   And we're going to play out and then we're going to come back.
+[00:46:04.660 --> 00:46:09.460]   And it's so tight that there's no authentic communication, you know, and what we found
+[00:46:09.460 --> 00:46:14.500]   in one person on stage is much more effective than the jazzy, jazzy produced.
+[00:46:14.500 --> 00:46:17.900]   And when you start actually letting the audience, you know, and because we have the
+[00:46:17.900 --> 00:46:22.660]   conversation, we did a, we don't do that was always a challenge for me.
+[00:46:22.660 --> 00:46:26.300]   I'm one of the reasons we do shows live is because we want to make him interactive.
+[00:46:26.300 --> 00:46:28.060]   Most people don't listen live though.
+[00:46:28.060 --> 00:46:30.140]   So it's a really interesting challenge.
+[00:46:30.140 --> 00:46:31.220]   It always has been for us.
+[00:46:31.220 --> 00:46:33.620]   You know, I come from talk radio, which is fully interactive.
+[00:46:33.620 --> 00:46:34.620]   Right.
+[00:46:34.620 --> 00:46:35.620]   Right.
+[00:46:35.620 --> 00:46:37.900]   Well, and then, you know, it's one of those things that's a chicken or eight kind of thing.
+[00:46:37.900 --> 00:46:41.100]   And people know that we're going to have that more and more people show up for the stuff
+[00:46:41.100 --> 00:46:42.100]   that's live too.
+[00:46:42.100 --> 00:46:43.580]   You know, it's a matter of audience.
+[00:46:43.580 --> 00:46:45.340]   Yeah, we thought that would happen.
+[00:46:45.340 --> 00:46:47.380]   Well, it's the heart.
+[00:46:47.380 --> 00:46:48.380]   It didn't.
+[00:46:48.380 --> 00:46:50.260]   The, the, because people have lives.
+[00:46:50.260 --> 00:46:51.260]   That's the other side of it.
+[00:46:51.260 --> 00:46:52.260]   Right.
+[00:46:52.260 --> 00:46:53.260]   Right.
+[00:46:53.260 --> 00:46:54.260]   Right.
+[00:46:54.260 --> 00:46:55.260]   Yeah.
+[00:46:55.260 --> 00:46:56.260]   What?
+[00:46:56.260 --> 00:46:57.260]   How dare they?
+[00:46:57.260 --> 00:46:58.620]   But I, you know, I always liked live radio because you're, it's live and you can call, if
+[00:46:58.620 --> 00:47:03.500]   you got a something you call in and, and, and actually most people never call a radio show,
+[00:47:03.500 --> 00:47:05.340]   but you feel like it's a conversation by proxy.
+[00:47:05.340 --> 00:47:09.900]   And you feel like you could, you could, you could, you know, and that's, that's the, you
+[00:47:09.900 --> 00:47:11.100]   know, it's like the, it's like the lottery.
+[00:47:11.100 --> 00:47:12.100]   Right.
+[00:47:12.100 --> 00:47:13.980]   You know, it's like you could win if you, if you actually played.
+[00:47:13.980 --> 00:47:15.900]   So, let's see.
+[00:47:15.900 --> 00:47:24.260]   Other Apple news, apparently Apple, according to, I fix it, Apple has started putting longer
+[00:47:24.260 --> 00:47:27.540]   cables in their MacBook Pros.
+[00:47:27.540 --> 00:47:32.740]   They never admitted that there were issues, but many had said, you know, these MacBook
+[00:47:32.740 --> 00:47:36.780]   Pros fail after repeated opening and closing of the laptop.
+[00:47:36.780 --> 00:47:41.460]   And in fact, it was dubbed flex gate because of the flex display cables.
+[00:47:41.460 --> 00:47:44.180]   Apple never said, oh yeah, there's a problem.
+[00:47:44.180 --> 00:47:45.180]   But I fix it.
+[00:47:45.180 --> 00:47:49.460]   Notices, the latest MacBook Pros have a longer cable.
+[00:47:49.460 --> 00:47:50.460]   Yeah.
+[00:47:50.460 --> 00:47:52.460]   That was so embarrassing.
+[00:47:52.460 --> 00:47:57.500]   This is, it was, it was not not only just a, it was seemed to be a very, very simple engineering
+[00:47:57.500 --> 00:48:02.140]   failure, but also the fact that they decided to integrate this cable with the display itself
+[00:48:02.140 --> 00:48:06.740]   meant that if someone came in with this problem, they said, okay, well, no problem for you.
+[00:48:06.740 --> 00:48:07.740]   Exactly.
+[00:48:07.740 --> 00:48:08.740]   600 bucks.
+[00:48:08.740 --> 00:48:09.740]   Thank you very much.
+[00:48:09.740 --> 00:48:10.740]   Yep.
+[00:48:10.740 --> 00:48:14.140]   This is, if you've never seen it, and I actually have never seen it, but that's, I probably
+[00:48:14.140 --> 00:48:18.900]   don't open my laptop enough, but this is what the failure starts as, they call it the stage
+[00:48:18.900 --> 00:48:23.180]   light effect where you've got these kind of footlights coming up from the bottom of your
+[00:48:23.180 --> 00:48:24.180]   screen.
+[00:48:24.180 --> 00:48:25.180]   It's very theatrical.
+[00:48:25.180 --> 00:48:26.180]   Yeah.
+[00:48:26.180 --> 00:48:30.820]   Once you see that, you know that your cable is failing and it's going to be a $700 replacement
+[00:48:30.820 --> 00:48:33.820]   because they're not going to, as Andy says, you can't just fix the flex.
+[00:48:33.820 --> 00:48:36.260]   We have to fix the whole screen.
+[00:48:36.260 --> 00:48:37.260]   Yeah.
+[00:48:37.260 --> 00:48:41.460]   I'm not going to, I'm, I'm not going to say dumpster fire and context with this design
+[00:48:41.460 --> 00:48:42.460]   weapon.
+[00:48:42.460 --> 00:48:43.980]   It's, they're smoke.
+[00:48:43.980 --> 00:48:46.580]   There's reason for take a look and see.
+[00:48:46.580 --> 00:48:51.300]   Well, and this is, you know, honestly, every, every year you got to do something to improve
+[00:48:51.300 --> 00:48:52.300]   your product.
+[00:48:52.300 --> 00:48:55.620]   And sometimes it's something invisible like a slightly longer cable.
+[00:48:55.620 --> 00:48:58.660]   Something to, something to keep a $2000 laptop from failing.
+[00:48:58.660 --> 00:48:59.660]   Yeah.
+[00:48:59.660 --> 00:49:00.660]   Right.
+[00:49:00.660 --> 00:49:03.460]   Um, anyway, just an update.
+[00:49:03.460 --> 00:49:06.700]   If you've had this problem weird to me that, like, you again, like, I was talking about
+[00:49:06.700 --> 00:49:10.260]   this with Gruber last week that, you know, back, back in the day, Steve drops a rundown
+[00:49:10.260 --> 00:49:13.140]   stairs, throw the thing at somebody's head and say, why doesn't it work the way it should?
+[00:49:13.140 --> 00:49:14.140]   Right.
+[00:49:14.140 --> 00:49:15.580]   And seven months later, it'd be fixed.
+[00:49:15.580 --> 00:49:18.420]   And we're going on like four years with this laptop.
+[00:49:18.420 --> 00:49:22.380]   And like, again, regardless of whether you like or dislike the design, the keyboard, anything,
+[00:49:22.380 --> 00:49:28.820]   we can all agree that it has the most divisive and most unhappy making back book in memory.
+[00:49:28.820 --> 00:49:29.820]   And it's going on.
+[00:49:29.820 --> 00:49:32.420]   Have you ever had your screen fail?
+[00:49:32.420 --> 00:49:34.300]   No, I have.
+[00:49:34.300 --> 00:49:35.300]   Have you?
+[00:49:35.300 --> 00:49:39.100]   Not this way, but I've, there's a, there was another other laptop's fail that way.
+[00:49:39.100 --> 00:49:41.100]   I mean, I think that's a very common failure.
+[00:49:41.100 --> 00:49:44.900]   The differences as Andy pointed out, other laptops, they swap out a cable.
+[00:49:44.900 --> 00:49:45.900]   Yeah.
+[00:49:45.900 --> 00:49:46.900]   Yeah.
+[00:49:46.900 --> 00:49:50.060]   I had a 20, there was a 2012 problem that was same.
+[00:49:50.060 --> 00:49:51.060]   Same.
+[00:49:51.060 --> 00:49:53.340]   It was a different issue, but it was the same thing where they, when you went to the Apple
+[00:49:53.340 --> 00:49:55.540]   store, they were like, yeah, they all broke.
+[00:49:55.540 --> 00:49:57.860]   You know, like they, they like, like it's just a certain amount of, there was a certain
+[00:49:57.860 --> 00:50:01.580]   amount of time and you just use it a certain period of time and it just died.
+[00:50:01.580 --> 00:50:05.660]   And of course it was, with my luck, it was more than three years after I bought it.
+[00:50:05.660 --> 00:50:09.820]   So, um, I'm glad Apple learned this lesson and they're fixing it.
+[00:50:09.820 --> 00:50:12.900]   And I wonder if there are going to be new MacBook Pros.
+[00:50:12.900 --> 00:50:20.500]   Of course, we mentioned that, um, uh, the rumor is there'll be a 16 inch, like, 22.
+[00:50:20.500 --> 00:50:21.500]   Yeah.
+[00:50:21.500 --> 00:50:22.500]   I'm, I'm, 22.
+[00:50:22.500 --> 00:50:23.500]   Amazing.
+[00:50:23.500 --> 00:50:24.500]   Yeah.
+[00:50:24.500 --> 00:50:25.500]   And just throw it in a big.
+[00:50:25.500 --> 00:50:26.500]   How big is yours?
+[00:50:26.500 --> 00:50:27.500]   I think this is the third.
+[00:50:27.500 --> 00:50:28.500]   This is the third.
+[00:50:28.500 --> 00:50:29.500]   I'm using here.
+[00:50:29.500 --> 00:50:30.500]   I think it's too much.
+[00:50:30.500 --> 00:50:31.500]   I think it's too much.
+[00:50:31.500 --> 00:50:35.940]   Alex just wants to wear a MacBook like on his back, like Captain America shield.
+[00:50:35.940 --> 00:50:38.460]   I have to say, I still, we still miss the 17.
+[00:50:38.460 --> 00:50:39.460]   The 17 was a great.
+[00:50:39.460 --> 00:50:40.460]   Oh, that was nuts.
+[00:50:40.460 --> 00:50:41.460]   It was, it was a great.
+[00:50:41.460 --> 00:50:43.700]   It was a great, a 17 in a 15 inch chassis.
+[00:50:43.700 --> 00:50:44.700]   Exactly.
+[00:50:44.700 --> 00:50:49.740]   The GPU, the, if the 16 inch has the same screen size as the 17, it'll be great.
+[00:50:49.740 --> 00:50:55.500]   The GPU on the 2017 or the, I'm sorry, the 17 inch GPU is still better than most MacBooks.
+[00:50:55.500 --> 00:50:56.500]   So it was Nvidia, right?
+[00:50:56.500 --> 00:50:57.500]   Wasn't it Nvidia still?
+[00:50:57.500 --> 00:50:58.500]   Was it Nvidia?
+[00:50:58.500 --> 00:50:59.500]   Was it Nvidia?
+[00:50:59.500 --> 00:51:05.380]   It was Nvidia chip and it is still better than the crap that comes in the MacBooks now.
+[00:51:05.380 --> 00:51:06.380]   It is a great idea.
+[00:51:06.380 --> 00:51:12.540]   Given how on point all of Apple's pro level Mac hardware tends to be with one exception
+[00:51:12.540 --> 00:51:17.900]   in my opinion, but imagine the making a 17 inch style MacBook that says pro people that
+[00:51:17.900 --> 00:51:22.780]   just need something that they can put in a hard case, deploy when they get to the, when
+[00:51:22.780 --> 00:51:30.420]   they get to the venue and have really a full, a full screaming demon set up with no compromises.
+[00:51:30.420 --> 00:51:35.140]   We didn't, we didn't decide to delete something because of, because of fitness.
+[00:51:35.140 --> 00:51:39.500]   We didn't decide to, to change something because gosh, this thing needs to have a 12,
+[00:51:39.500 --> 00:51:41.500]   12 hour battery life.
+[00:51:41.500 --> 00:51:46.220]   Imagine how good a MacBook could be if they simply decided the performance and that it's,
+[00:51:46.220 --> 00:51:51.020]   if they simply said this is more of a portable solution than, than a mobile solution.
+[00:51:51.020 --> 00:51:52.020]   So to speak.
+[00:51:52.020 --> 00:51:56.380]   I have been known to walk by and say, I Mac book pro until the point where people want
+[00:51:56.380 --> 00:51:57.380]   to shove me.
+[00:51:57.380 --> 00:52:00.820]   So I'm just going to keep saying that until they actually want to shove it out.
+[00:52:00.820 --> 00:52:01.820]   Look pro.
+[00:52:01.820 --> 00:52:05.620]   I just, I, I just, yes, I don't think the market is an iMac, an iMac pro that you can
+[00:52:05.620 --> 00:52:06.820]   unfold and take with you.
+[00:52:06.820 --> 00:52:11.980]   Oh, I think, I think that I, my problem is as a pro who would definitely want one of
+[00:52:11.980 --> 00:52:17.420]   those laptops and would be so happy if I had one, I just know I, I've limited my, my
+[00:52:17.420 --> 00:52:20.540]   expectations, the market's not big enough to make that work.
+[00:52:20.540 --> 00:52:24.020]   But you see like Marquez travels with his iMac pro in a Pelican case because he's not,
+[00:52:24.020 --> 00:52:26.140]   he can't render fast enough on a MacBook.
+[00:52:26.140 --> 00:52:29.940]   I see people, I see people at the, at the Starbucks with their iMac.
+[00:52:29.940 --> 00:52:30.940]   I'm like, really?
+[00:52:30.940 --> 00:52:33.700]   Like, what about kidding?
+[00:52:33.700 --> 00:52:34.700]   Like every day.
+[00:52:34.700 --> 00:52:36.020]   They're, they're, they're very all right.
+[00:52:36.020 --> 00:52:38.340]   They, they, they, they, they, they, they're like pile up leather carry belts.
+[00:52:38.340 --> 00:52:41.660]   I like, but I don't even take my laptop to the Starbucks anymore.
+[00:52:41.660 --> 00:52:45.020]   I have like, I think my iPad, it's like the, the laptop's like, oh, I'm pulling out.
+[00:52:45.020 --> 00:52:46.420]   How much faster is your surface?
+[00:52:46.420 --> 00:52:51.900]   If you had a top of the line, a MacBook pro, the i9 and maybe even a GPU, wouldn't that
+[00:52:51.900 --> 00:52:54.020]   be as fast as a Mac pro or maybe not?
+[00:52:54.020 --> 00:52:58.900]   Well, he said, well, he's got the 18 core with like the giant GPU in it.
+[00:52:58.900 --> 00:53:01.780]   So he's still doing it hours instead of overnight.
+[00:53:01.780 --> 00:53:06.340]   So he's carrying around an a Pelican case, a $15,000 computer.
+[00:53:06.340 --> 00:53:09.060]   It's not taking the Starbucks though.
+[00:53:09.060 --> 00:53:13.500]   I mean, it's just, we used to have, we used to have laptops like that.
+[00:53:13.500 --> 00:53:15.860]   I mean, we don't take the surface to Starbucks.
+[00:53:15.860 --> 00:53:16.860]   Look at him.
+[00:53:16.860 --> 00:53:17.860]   Yeah.
+[00:53:17.860 --> 00:53:18.860]   So come very happy.
+[00:53:18.860 --> 00:53:21.140]   Well, there's a, there's a lot of room for, for different interpretations.
+[00:53:21.140 --> 00:53:25.620]   I see, yes, I've been trying to remember who manufactured it, but someone, some company
+[00:53:25.620 --> 00:53:30.740]   that's known for like really high performance gaming machines had, it was a very large screen
+[00:53:30.740 --> 00:53:34.300]   seemed like a 17 inch or 20 inch display.
+[00:53:34.300 --> 00:53:37.860]   And it was again, not designed necessarily for mobility, but for portability.
+[00:53:37.860 --> 00:53:42.900]   And it had like a Microsoft surface style sort of flap on the back.
+[00:53:42.900 --> 00:53:47.780]   So that obviously it's not designed for like multiple sort of positions, but it meant that
+[00:53:47.780 --> 00:53:53.300]   instead of having like an IMAC style built in, a built in stand that would never fold
+[00:53:53.300 --> 00:54:01.700]   flat, this thing, when you fold it down, could actually become a self contained package,
+[00:54:01.700 --> 00:54:05.100]   including a stand and protection for the keyboard.
+[00:54:05.100 --> 00:54:08.860]   So that if you were to zip it inside like a folio case or something, and this is something
+[00:54:08.860 --> 00:54:10.740]   you could easily take on board and airplane.
+[00:54:10.740 --> 00:54:11.740]   And there's some great.
+[00:54:11.740 --> 00:54:12.740]   And so there's some.
+[00:54:12.740 --> 00:54:17.620]   I don't think anybody should do that, but it's an interesting way to address a section
+[00:54:17.620 --> 00:54:22.700]   of the market that wants a desktop that they can easily take from job to job to job.
+[00:54:22.700 --> 00:54:23.900]   And there's some great customization.
+[00:54:23.900 --> 00:54:27.060]   You can take that arm off the back and just the.
+[00:54:27.060 --> 00:54:28.060]   It's a visa.
+[00:54:28.060 --> 00:54:29.060]   It's not a.
+[00:54:29.060 --> 00:54:31.660]   I don't know if it's a visa, but it's a mic.
+[00:54:31.660 --> 00:54:32.660]   I'm like it is.
+[00:54:32.660 --> 00:54:33.660]   Yeah.
+[00:54:33.660 --> 00:54:36.020]   And so anyway, you can take that off and then you can do all kinds of things with it.
+[00:54:36.020 --> 00:54:40.500]   And there's some great arms and great customization that you can do with those things.
+[00:54:40.500 --> 00:54:44.140]   And that's the problem we have is that when we have all these monitors and we don't know
+[00:54:44.140 --> 00:54:48.380]   where the legs are, you know, because all we use is a.
+[00:54:48.380 --> 00:54:49.380]   Keep the legs.
+[00:54:49.380 --> 00:54:50.380]   Yeah, they're with the box.
+[00:54:50.380 --> 00:54:51.380]   Where's the box?
+[00:54:51.380 --> 00:54:54.860]   Two things we can't find are the legs and the power supplies because we don't buy monitors
+[00:54:54.860 --> 00:54:57.020]   anymore that don't do figure eight or C 13.
+[00:54:57.020 --> 00:55:01.180]   And so so the and then we don't keep the legs.
+[00:55:01.180 --> 00:55:04.540]   And so there's all these monitors and you can't find any power supplies or any legs
+[00:55:04.540 --> 00:55:06.980]   because because we're like, well, you can just go anywhere.
+[00:55:06.980 --> 00:55:09.580]   I'd love to have I have a three monitor set up at home.
+[00:55:09.580 --> 00:55:11.380]   I'd love to have it all in arms.
+[00:55:11.380 --> 00:55:13.780]   It is the way to go clean my desk, put it back down.
+[00:55:13.780 --> 00:55:14.940]   They make a lot of those.
+[00:55:14.940 --> 00:55:15.940]   I might do that.
+[00:55:15.940 --> 00:55:19.700]   Yeah, those are there's a there's one company that I think still has a video of me reviewing
+[00:55:19.700 --> 00:55:21.580]   it on like five years ago on their website.
+[00:55:21.580 --> 00:55:25.860]   I can't think of their name right now, but that has like the really shiny, nice ones.
+[00:55:25.860 --> 00:55:26.860]   Yeah.
+[00:55:26.860 --> 00:55:29.500]   And then we buy a lot of cheap Amazon ones that are.
+[00:55:29.500 --> 00:55:33.140]   If you if you're Dwayne Johnson, you could just put like a gorilla pot at the back of
+[00:55:33.140 --> 00:55:35.100]   the I'm back and just carry it around.
+[00:55:35.100 --> 00:55:38.100]   Like a healthy.
+[00:55:38.100 --> 00:55:39.100]   Let's take a break when we come back.
+[00:55:39.100 --> 00:55:40.740]   There is a lot more to talk about.
+[00:55:40.740 --> 00:55:41.980]   We you mentioned folding.
+[00:55:41.980 --> 00:55:45.700]   I think we should talk a little bit about the rumors that Apple Apple has a patent for
+[00:55:45.700 --> 00:55:51.180]   a folding phone and apparently Gorilla Glass or Corning is working on some sort of glass
+[00:55:51.180 --> 00:55:55.820]   that will fold Apple apparently doesn't want to do a plastic folding phone.
+[00:55:55.820 --> 00:55:57.100]   Maybe they'll be a folding I'm back.
+[00:55:57.100 --> 00:55:58.620]   Who knows our show.
+[00:55:58.620 --> 00:56:00.580]   They brought it's possible.
+[00:56:00.580 --> 00:56:01.580]   Right.
+[00:56:01.580 --> 00:56:03.100]   It'd be a lot of folds.
+[00:56:03.100 --> 00:56:04.980]   We'd like a map.
+[00:56:04.980 --> 00:56:09.020]   Our show today brought to you by this little do Hickey.
+[00:56:09.020 --> 00:56:11.900]   I love my Euro.
+[00:56:11.900 --> 00:56:17.860]   Euro knows that the single router model that we grew up with with Wi-Fi is broken today
+[00:56:17.860 --> 00:56:21.260]   because we have so many devices.
+[00:56:21.260 --> 00:56:24.660]   The bandwidth is congested now.
+[00:56:24.660 --> 00:56:26.180]   We're living a high bandwidth world.
+[00:56:26.180 --> 00:56:29.260]   So you need to go mesh.
+[00:56:29.260 --> 00:56:31.460]   It's simple physics like white waves.
+[00:56:31.460 --> 00:56:34.180]   Wi-Fi waves don't go through walls well.
+[00:56:34.180 --> 00:56:37.300]   You wouldn't want a light bulb in your living room to light your master bedroom.
+[00:56:37.300 --> 00:56:39.780]   What you need is a distributed system.
+[00:56:39.780 --> 00:56:44.820]   In fact, for years businesses have done it this way but usually you need an IT professional
+[00:56:44.820 --> 00:56:47.140]   to configure it and keep it running.
+[00:56:47.140 --> 00:56:51.060]   Euro gives you an enterprise grade Wi-Fi system in your home and it's so easy to use
+[00:56:51.060 --> 00:56:52.060]   the Euro app.
+[00:56:52.060 --> 00:56:57.780]   We'll literally walk you through the process iOS or Android.
+[00:56:57.780 --> 00:57:01.380]   Once you've set it up though, you'll continue to use the Euro app because it lets you manage
+[00:57:01.380 --> 00:57:03.540]   the network from the palm of your hand.
+[00:57:03.540 --> 00:57:04.540]   I can do it from right here.
+[00:57:04.540 --> 00:57:07.420]   Not only my network but my mom has the Euro, I set her up with Euro.
+[00:57:07.420 --> 00:57:09.820]   I can manage her network.
+[00:57:09.820 --> 00:57:14.540]   You'll know how many devices are connected to any given point, the internet speed you're
+[00:57:14.540 --> 00:57:19.220]   getting from your service provider and with Euro plus you can do so much more.
+[00:57:19.220 --> 00:57:24.980]   It's a simple design reliable security system that defends your devices against a growing
+[00:57:24.980 --> 00:57:26.380]   number of threats.
+[00:57:26.380 --> 00:57:28.660]   Malware, spyware, phishing attacks.
+[00:57:28.660 --> 00:57:30.660]   Of course, unsuitable content.
+[00:57:30.660 --> 00:57:34.100]   If you've got kids in the home, you're going to love Euro plus.
+[00:57:34.100 --> 00:57:37.860]   Euro plus Euro plus provides complete protection for your network, your devices and everybody
+[00:57:37.860 --> 00:57:40.300]   who uses them as they connect to the internet.
+[00:57:40.300 --> 00:57:43.820]   Block malicious and unwanted content across the entire network.
+[00:57:43.820 --> 00:57:48.220]   By checking your sites you visit against the database of millions of known threats,
+[00:57:48.220 --> 00:57:53.300]   Euro plus prevents you from going to malicious sites by accident and yet it doesn't slow
+[00:57:53.300 --> 00:57:54.300]   you down.
+[00:57:54.300 --> 00:57:59.500]   Euro plus automatically tags sites that contain violent, illegal or adult content.
+[00:57:59.500 --> 00:58:04.820]   So you could choose what your kids can and cannot visit right in the Euro app.
+[00:58:04.820 --> 00:58:08.980]   I am a happy Euro plus subscriber always have been.
+[00:58:08.980 --> 00:58:12.540]   Not required to use Euro, it's nice to have that as a feature.
+[00:58:12.540 --> 00:58:16.460]   Euro takes the problematic Wi-Fi.
+[00:58:16.460 --> 00:58:21.260]   The shout I used to hear in the house is, "Honey, the Wi-Fi's down."
+[00:58:21.260 --> 00:58:22.780]   I haven't heard that lately.
+[00:58:22.780 --> 00:58:23.780]   Thank you, Euro.
+[00:58:23.780 --> 00:58:26.420]   I really, really appreciate it.
+[00:58:26.420 --> 00:58:30.420]   As your needs grow, you can grow your Euro system.
+[00:58:30.420 --> 00:58:32.580]   It starts with the Euro base unit.
+[00:58:32.580 --> 00:58:36.300]   Connect that to your cable modem or your DSL modem and then extend it with beacons and
+[00:58:36.300 --> 00:58:39.660]   you can add more beacons to extend it even farther.
+[00:58:39.660 --> 00:58:44.260]   As I got security cameras outside the house, I actually got an Euro beacon for the garage
+[00:58:44.260 --> 00:58:48.700]   so I can make the Wi-Fi easier for those external devices to reach.
+[00:58:48.700 --> 00:58:50.180]   It's really great.
+[00:58:50.180 --> 00:58:55.980]   It's a very important UPA2 encryption and really important, very important, constant firmware
+[00:58:55.980 --> 00:58:56.980]   updates.
+[00:58:56.980 --> 00:59:05.580]   Euro keeps on top of security so your router is never out of date, never insecure.
+[00:59:05.580 --> 00:59:10.220]   They say that they'll be able to do firmware upgrades to WPA3, the next generation of encryption
+[00:59:10.220 --> 00:59:13.420]   too, which is awesome.
+[00:59:13.420 --> 00:59:15.020]   Euro updates automatically.
+[00:59:15.020 --> 00:59:18.180]   You don't have to go out and check to see if there's a new firmware.
+[00:59:18.180 --> 00:59:20.060]   It does it automatically.
+[00:59:20.060 --> 00:59:21.060]   It does it frequently.
+[00:59:21.060 --> 00:59:27.740]   I mean, I don't know, but I see new Euro firmware versions every few weeks.
+[00:59:27.740 --> 00:59:31.940]   If you ever have a question, they have amazing customer support.
+[00:59:31.940 --> 00:59:38.220]   You can call and get a Wi-Fi expert instantly within 30 seconds and I've used it.
+[00:59:38.220 --> 00:59:42.300]   I made up a pretext because I've never had a problem with my Euro and they were great.
+[00:59:42.300 --> 00:59:47.740]   They stayed online with me through a fairly complicated port forwarding question until
+[00:59:47.740 --> 00:59:48.740]   everything worked.
+[00:59:48.740 --> 00:59:50.300]   I'm so impressed.
+[00:59:50.300 --> 00:59:52.180]   Never think about Wi-Fi again.
+[00:59:52.180 --> 00:59:57.220]   We're going to get you a great deal, $100 off the base unit.
+[00:59:57.220 --> 01:00:02.420]   The package comes with the base unit and two beacons and a year of Euro plus.
+[01:00:02.420 --> 01:00:08.300]   You get $100 off when you go to ero.com/macbreak and use the code Macbreaket Checkout.
+[01:00:08.300 --> 01:00:15.420]   If you've been suffering with Wi-Fi, it's time to get ero.com/macbreak.
+[01:00:15.420 --> 01:00:20.740]   Use the code Macbreaket Checkout to get $100 off the Euro kit.
+[01:00:20.740 --> 01:00:21.740]   You're going to want this.
+[01:00:21.740 --> 01:00:24.260]   It is truly awesome.
+[01:00:24.260 --> 01:00:26.900]   Thank you, Euro.
+[01:00:26.900 --> 01:00:31.940]   So patent filing, I don't put much stock in patent filings, but patent filing for a
+[01:00:31.940 --> 01:00:32.940]   folding phone.
+[01:00:32.940 --> 01:00:37.780]   But one of the issues with folding phones is all of the folding screens from Samsung
+[01:00:37.780 --> 01:00:41.460]   TCL Huawei are polymers, they're plastic.
+[01:00:41.460 --> 01:00:46.180]   There's a real concern about where increasing and I have a feeling six months into end,
+[01:00:46.180 --> 01:00:51.100]   we're going to see these multi-thousand dollar phones with ugly lines down the middle of
+[01:00:51.100 --> 01:00:52.100]   all sorts of things.
+[01:00:52.100 --> 01:00:53.340]   Apparently, Apple's looking at that.
+[01:00:53.340 --> 01:00:55.100]   Do you think that creases bad now?
+[01:00:55.100 --> 01:00:56.580]   Yeah, exactly.
+[01:00:56.580 --> 01:00:58.660]   Apple's looking at glass.
+[01:00:58.660 --> 01:01:03.060]   The folks at Corning who make gorilla glass make Apple's glass for their iPhones said,
+[01:01:03.060 --> 01:01:09.460]   "Yeah, this is a tough physics problem, but we are working on flexible glass.
+[01:01:09.460 --> 01:01:16.100]   We call it willow glass that can bend and still be durable, reliable and not have the problems,
+[01:01:16.100 --> 01:01:17.100]   polymers."
+[01:01:17.100 --> 01:01:22.860]   I am really excited about this and really ready to let it spend about a couple of years.
+[01:01:22.860 --> 01:01:24.580]   That's exactly what you're doing.
+[01:01:24.580 --> 01:01:28.940]   The good news is, lowered expectations of Corning CEO said, and it's going to be a couple
+[01:01:28.940 --> 01:01:29.940]   of years at least.
+[01:01:29.940 --> 01:01:34.900]   Well, even a couple of years after they release it, I want to see what this phone looks like.
+[01:01:34.900 --> 01:01:36.260]   Same with the Samsung phone.
+[01:01:36.260 --> 01:01:41.140]   I want to see what it looks like a year in or a year and a half in because I don't know
+[01:01:41.140 --> 01:01:42.780]   if that's really going to work.
+[01:01:42.780 --> 01:01:49.980]   Not only that, but things like it's February or March and you've been home for about an
+[01:01:49.980 --> 01:01:50.980]   hour.
+[01:01:50.980 --> 01:01:51.980]   It's like, "Oh, that's right.
+[01:01:51.980 --> 01:01:54.460]   I left my phone like in its holder in the car."
+[01:01:54.460 --> 01:01:55.940]   You're feeling that it's really, really cold.
+[01:01:55.940 --> 01:01:56.940]   You know what?
+[01:01:56.940 --> 01:02:03.620]   Maybe I don't want to fold this until it gets back up to like 60 degrees because it folds
+[01:02:03.620 --> 01:02:08.700]   nicely in Southern California any time of the year.
+[01:02:08.700 --> 01:02:10.900]   That's a good reason you're not full.
+[01:02:10.900 --> 01:02:14.540]   If you look at the Willow glass, it's bending a little, but it's not folding flat the way
+[01:02:14.540 --> 01:02:15.780]   the plastic does or a burp does.
+[01:02:15.780 --> 01:02:18.540]   So we're talking about an Audi screen.
+[01:02:18.540 --> 01:02:19.540]   Yeah.
+[01:02:19.540 --> 01:02:20.540]   And I get it.
+[01:02:20.540 --> 01:02:23.900]   I think they're going to sell enough of them because there's enough people like me that
+[01:02:23.900 --> 01:02:25.700]   would buy them just for the conversation piece.
+[01:02:25.700 --> 01:02:28.620]   If I didn't already have a hydrogen, that's my conversation piece.
+[01:02:28.620 --> 01:02:29.620]   I don't need that.
+[01:02:29.620 --> 01:02:32.340]   Yeah, I'll tell you that conversation like.
+[01:02:32.340 --> 01:02:33.340]   It's great.
+[01:02:33.340 --> 01:02:34.340]   I'll be with you.
+[01:02:34.340 --> 01:02:35.340]   Why do you have that phone?
+[01:02:35.340 --> 01:02:37.740]   No, no, it's the 3D photos are amazing.
+[01:02:37.740 --> 01:02:39.740]   I'll show you some.
+[01:02:39.740 --> 01:02:40.740]   I've seen them.
+[01:02:40.740 --> 01:02:41.740]   I've got better ones now.
+[01:02:41.740 --> 01:02:43.100]   Anyway, I've been shooting with it a lot.
+[01:02:43.100 --> 01:02:44.100]   Why not?
+[01:02:44.100 --> 01:02:47.380]   I have two because I bought the titanium so they sent me a free aluminum one because the
+[01:02:47.380 --> 01:02:48.380]   titanium was late.
+[01:02:48.380 --> 01:02:50.140]   So now I have to go around and do another one.
+[01:02:50.140 --> 01:02:53.700]   So you put them in a case and you've got a foldable hydrogen.
+[01:02:53.700 --> 01:02:54.700]   There you go.
+[01:02:54.700 --> 01:02:55.700]   Exactly.
+[01:02:55.700 --> 01:03:01.820]   No, it's a fun piece to chit chat about.
+[01:03:01.820 --> 01:03:06.060]   So I get it, but as an operational phone, I think it's all horrible.
+[01:03:06.060 --> 01:03:07.580]   I can see the value.
+[01:03:07.580 --> 01:03:10.580]   I can see why people are interested in folding phones because imagine a phone that's not
+[01:03:10.580 --> 01:03:15.820]   much bigger than your existing phone, but when it unfolds, you have an iPad mini in effect.
+[01:03:15.820 --> 01:03:17.260]   I just don't know how it survives.
+[01:03:17.260 --> 01:03:19.620]   I agree with physics part of my head.
+[01:03:19.620 --> 01:03:20.620]   It's about where?
+[01:03:20.620 --> 01:03:21.620]   No, I know.
+[01:03:21.620 --> 01:03:24.380]   I finally wanted it for a couple of weeks or a couple months to shine on Westworld.
+[01:03:24.380 --> 01:03:26.540]   I don't know what you guys are worried about.
+[01:03:26.540 --> 01:03:28.820]   But also don't get fixated on phones.
+[01:03:28.820 --> 01:03:34.460]   Like imagine how cool it would be to have like a conventional like 13 inch MacBook that
+[01:03:34.460 --> 01:03:39.860]   you can actually fold into and actually make it purse size or even back pocket size.
+[01:03:39.860 --> 01:03:43.180]   Imagine having an iPad that works that way would be.
+[01:03:43.180 --> 01:03:48.620]   Imagine again, having the full flexibility, so to speak, of a large screen device for
+[01:03:48.620 --> 01:03:52.900]   your first year, if you're whole day, for basically for hold for all day work, but not
+[01:03:52.900 --> 01:03:57.660]   having to put it into a big laptop that I'd be able to put into a purse or just a little
+[01:03:57.660 --> 01:03:58.660]   little satchel.
+[01:03:58.660 --> 01:04:02.900]   The flexibility excites me a lot, folding not so much.
+[01:04:02.900 --> 01:04:08.020]   I'd love to have, if I was working, I would love to have an arm like a Thor or like a...
+[01:04:08.020 --> 01:04:09.780]   It's just like a flaps making one.
+[01:04:09.780 --> 01:04:11.340]   It's like a slap bracelet.
+[01:04:11.340 --> 01:04:17.740]   Well, like a quarterback playing NFL, like it's six inches long and it's on there.
+[01:04:17.740 --> 01:04:20.780]   If I was working, that would be amazing to be able to just be able to look down and do
+[01:04:20.780 --> 01:04:21.780]   something and walk away.
+[01:04:21.780 --> 01:04:24.340]   It's pretty clear from everyone in the world of Congress last week that we're going to
+[01:04:24.340 --> 01:04:26.780]   see all kinds of crazy form factors.
+[01:04:26.780 --> 01:04:30.620]   Because companies desperately try to find a way to get people to buy new phones.
+[01:04:30.620 --> 01:04:34.220]   And I don't think Apple's going to ever be the first to do a foldable phone.
+[01:04:34.220 --> 01:04:37.180]   They like you are waiting years to see what the long term is.
+[01:04:37.180 --> 01:04:38.180]   It's all they do.
+[01:04:38.180 --> 01:04:40.940]   All Apple does is they draft on everybody else.
+[01:04:40.940 --> 01:04:43.460]   They watch it and then they pick oftentimes...
+[01:04:43.460 --> 01:04:44.460]   Do we...
+[01:04:44.460 --> 01:04:45.460]   Do we...
+[01:04:45.460 --> 01:04:48.540]   Do we agree that the folding phone is a good idea?
+[01:04:48.540 --> 01:04:49.980]   Even do we even agree on that?
+[01:04:49.980 --> 01:04:50.980]   I'm not sure.
+[01:04:50.980 --> 01:04:53.100]   I think it's super interesting for a great fight.
+[01:04:53.100 --> 01:04:55.020]   It is a compelling idea that has not yet been implemented.
+[01:04:55.020 --> 01:04:56.500]   Yeah, implementation is the key.
+[01:04:56.500 --> 01:04:58.860]   It looks like Renee and I are saying the same thing.
+[01:04:58.860 --> 01:05:00.940]   It's a super interesting idea.
+[01:05:00.940 --> 01:05:02.700]   Really I'm glad that Huawei is making one.
+[01:05:02.700 --> 01:05:07.260]   I'm glad that Samsung is making one because over the next year, just like with Google Glass,
+[01:05:07.260 --> 01:05:11.860]   just like with so many other early products, we will find out what's good, what we like
+[01:05:11.860 --> 01:05:15.780]   about it, what we can absolutely leave behind.
+[01:05:15.780 --> 01:05:20.580]   And at $2,500, it's not as though the majority...
+[01:05:20.580 --> 01:05:23.460]   This is a problem that most people are going to have to deal with.
+[01:05:23.460 --> 01:05:30.420]   But again, the idea of having the convenience of larger screens and being able to make them
+[01:05:30.420 --> 01:05:34.500]   portable so you don't have to make those sacrifices that you always have to make.
+[01:05:34.500 --> 01:05:38.420]   Or even that device that you've got in front of you right now, Leo, imagine the ability
+[01:05:38.420 --> 01:05:44.140]   to have a device that to basically travel with something that's like an 11 by 17 sheet
+[01:05:44.140 --> 01:05:49.500]   of paper, but when you get to work, you really do have that big screen device.
+[01:05:49.500 --> 01:05:53.420]   All these sort of things that could become possible, especially given if you're already
+[01:05:53.420 --> 01:05:59.820]   spending $3,000 for this level of processing power, if that were like a $600 premium, and
+[01:05:59.820 --> 01:06:05.740]   imagine a future in which these things are absolutely durable and you will not get a
+[01:06:05.740 --> 01:06:11.980]   decrease in contrast or decrease in saturation at the point of flex, that could be really
+[01:06:11.980 --> 01:06:14.380]   interesting.
+[01:06:14.380 --> 01:06:19.140]   I actually think that one of the things Samsung's done with Galaxy phones that nobody talks
+[01:06:19.140 --> 01:06:24.420]   about that's very interesting is this DEX capability.
+[01:06:24.420 --> 01:06:26.660]   I'll be getting the S10, but I have a Note 9.
+[01:06:26.660 --> 01:06:30.620]   I'll get the S10 in a couple of days, 10 plus.
+[01:06:30.620 --> 01:06:35.380]   By the way, you can buy a Samsung DEX stock, but it turns out it's a standard.
+[01:06:35.380 --> 01:06:38.660]   For 20 bucks on Amazon, I bought just a little dongle.
+[01:06:38.660 --> 01:06:40.740]   You plug it in and then it has an HDMI port.
+[01:06:40.740 --> 01:06:41.740]   You plug in a monitor.
+[01:06:41.740 --> 01:06:44.740]   It's a USB port keyboard and mouse.
+[01:06:44.740 --> 01:06:48.540]   If you have a 27-inch monitor, you just leave it at work and bring your phone around, and
+[01:06:48.540 --> 01:06:49.860]   that's got all the data.
+[01:06:49.860 --> 01:06:56.140]   And since I did buy the one terabyte version of the Galaxy S10, it really is a computer.
+[01:06:56.140 --> 01:06:57.140]   It's got every...
+[01:06:57.140 --> 01:06:58.300]   12 gigabytes of RAM.
+[01:06:58.300 --> 01:07:04.220]   It's 12 gigs of RAM, terabyte of storage, Qualcomm 8 Snapdragon 855.
+[01:07:04.220 --> 01:07:06.220]   That's pretty close to a desktop computer.
+[01:07:06.220 --> 01:07:08.100]   It certainly as fast as my MacBook Air.
+[01:07:08.100 --> 01:07:10.020]   Well, for definitely for business applications, I think it makes sense.
+[01:07:10.020 --> 01:07:11.500]   That might be a great way to do it.
+[01:07:11.500 --> 01:07:12.500]   Yeah.
+[01:07:12.500 --> 01:07:14.340]   Especially given how...
+[01:07:14.340 --> 01:07:18.900]   Imagine a Chromebook in a pocket-sized form factory.
+[01:07:18.900 --> 01:07:20.840]   If all you have is a really good, stud-lazy,
+[01:07:20.840 --> 01:07:21.840]   What are they?
+[01:07:21.840 --> 01:07:22.840]   There's complaints.
+[01:07:22.840 --> 01:07:23.840]   Yeah.
+[01:07:23.840 --> 01:07:31.220]   But that's definitely the space that Samsung has pegged out for itself, where they're
+[01:07:31.220 --> 01:07:35.740]   not really necessarily saying that you've got the next generation features that you've
+[01:07:35.740 --> 01:07:40.260]   got on an iPhone, maybe not the sort of style of an iPhone.
+[01:07:40.260 --> 01:07:45.620]   But there's people out there that really want the most powerful phone you can possibly
+[01:07:45.620 --> 01:07:48.460]   get because they're actually going to use all the power that's in there.
+[01:07:48.460 --> 01:07:50.740]   Those are the people who want a terabyte of storage.
+[01:07:50.740 --> 01:07:52.820]   They want an SD card slot.
+[01:07:52.820 --> 01:07:54.820]   They want to have a screen of the...
+[01:07:54.820 --> 01:07:55.820]   One-hand phone jack.
+[01:07:55.820 --> 01:07:56.820]   Exactly.
+[01:07:56.820 --> 01:08:02.540]   But that's their signature and that's what they're really marking about.
+[01:08:02.540 --> 01:08:05.540]   I'm glad somebody's out there doing that and by the way, they sell more phones than Apple
+[01:08:05.540 --> 01:08:06.540]   does.
+[01:08:06.540 --> 01:08:09.740]   One, I think that for a lot of these folks...
+[01:08:09.740 --> 01:08:12.140]   There's a lot of the platforms including Apple.
+[01:08:12.140 --> 01:08:17.860]   One of the things I think they don't do enough of is empower developers to push the envelope
+[01:08:17.860 --> 01:08:18.860]   of their hardware.
+[01:08:18.860 --> 01:08:22.260]   Well, you made an interesting point because you said that DEX is great for business apps
+[01:08:22.260 --> 01:08:23.340]   and it's exactly right.
+[01:08:23.340 --> 01:08:24.700]   There's no final cut.
+[01:08:24.700 --> 01:08:25.700]   There's no logic.
+[01:08:25.700 --> 01:08:27.500]   There's no pro apps on that thing.
+[01:08:27.500 --> 01:08:30.820]   But even for business apps, really pushing...
+[01:08:30.820 --> 01:08:31.820]   What happens is there's this kind of chicken or egg...
+[01:08:31.820 --> 01:08:33.500]   Well, like the Microsoft Office on it.
+[01:08:33.500 --> 01:08:34.500]   Right.
+[01:08:34.500 --> 01:08:38.580]   But there's a chicken or egg thing where when you develop apps for business, you dumb them
+[01:08:38.580 --> 01:08:41.500]   down because you think everyone's going to have a crappy computer.
+[01:08:41.500 --> 01:08:47.980]   And then they come out with new technology and the problem is that you aren't pushing
+[01:08:47.980 --> 01:08:53.100]   the envelope of that hardware doing the next cool things that could be done for those computers.
+[01:08:53.100 --> 01:08:58.900]   The iPhone and even this iPad can do so much that we aren't using.
+[01:08:58.900 --> 01:08:59.900]   You see it every once in a while.
+[01:08:59.900 --> 01:09:03.740]   You open up some app that has all this 3D built into it and it runs seamlessly and you
+[01:09:03.740 --> 01:09:05.700]   go, "Oh, that's what everything should look like."
+[01:09:05.700 --> 01:09:10.460]   But these Apple and all the other companies, I don't think are investing enough in training
+[01:09:10.460 --> 01:09:16.820]   the developers, building the right libraries, building examples that really help push people
+[01:09:16.820 --> 01:09:18.300]   to use it.
+[01:09:18.300 --> 01:09:21.460]   Like for instance right now, keynote is great.
+[01:09:21.460 --> 01:09:26.580]   It's what everybody uses for presentations in my world when you're doing actual presentations
+[01:09:26.580 --> 01:09:29.100]   in front of large numbers of people.
+[01:09:29.100 --> 01:09:30.940]   But it's still 2D.
+[01:09:30.940 --> 01:09:34.940]   And Apple has USDZ.
+[01:09:34.940 --> 01:09:38.260]   But everything in keynote is still a 2D animation.
+[01:09:38.260 --> 01:09:40.860]   There's no 3D space sitting inside of it.
+[01:09:40.860 --> 01:09:41.860]   And that kind of thing.
+[01:09:41.860 --> 01:09:43.860]   Apple should do that in house.
+[01:09:43.860 --> 01:09:45.460]   Well I think that there's two things.
+[01:09:45.460 --> 01:09:49.940]   I think the one is that pushing their own applications, their own business applications
+[01:09:49.940 --> 01:09:51.340]   and adding those things into it.
+[01:09:51.340 --> 01:09:52.340]   I think we're going to see that.
+[01:09:52.340 --> 01:09:58.300]   I think that we'll see the new iWork or whatever they call it now work stuff.
+[01:09:58.300 --> 01:10:02.780]   I think we're going to see USDZ being added to it.
+[01:10:02.780 --> 01:10:05.900]   And that's going to help push people along like, "Oh, I can add 3D to all of this."
+[01:10:05.900 --> 01:10:13.740]   I do think that Apple should buy or build their own little 3D development app.
+[01:10:13.740 --> 01:10:17.860]   I think Apple might have painted themselves into a corner because...
+[01:10:17.860 --> 01:10:19.020]   A thermal corner?
+[01:10:19.020 --> 01:10:21.860]   Well they did that, we know, in the Mac Pro.
+[01:10:21.860 --> 01:10:30.020]   But no, I mean there's still a niche product so developers aren't attracted to it in the
+[01:10:30.020 --> 01:10:34.180]   numbers that they are to say Windows or even Android or iOS.
+[01:10:34.180 --> 01:10:36.340]   And so the Mac OS doesn't get that kind of stuff.
+[01:10:36.340 --> 01:10:38.540]   Well I'm not talking about Mac, I'm talking about iOS.
+[01:10:38.540 --> 01:10:41.540]   You know, iOS is definitely a predominant platform.
+[01:10:41.540 --> 01:10:44.540]   Yeah and iOS, the stuff.
+[01:10:44.540 --> 01:10:46.100]   There's a ton of iOS developers.
+[01:10:46.100 --> 01:10:48.700]   Why do you think they're not doing the latest greatest stuff?
+[01:10:48.700 --> 01:10:52.420]   It's because it's expensive to push the envelope.
+[01:10:52.420 --> 01:10:56.580]   And I think that other companies do, I think invest more than Apple does.
+[01:10:56.580 --> 01:10:58.580]   Apple kind of says, "Okay, we're going to build this great platform for you."
+[01:10:58.580 --> 01:11:00.660]   And then they just expect everyone to jump on it.
+[01:11:00.660 --> 01:11:02.260]   It feels like they have a lot of...
+[01:11:02.260 --> 01:11:08.100]   They offer Xcode for free, a very nice development environment.
+[01:11:08.100 --> 01:11:10.420]   It seems like they have a lot of resources for developers.
+[01:11:10.420 --> 01:11:11.860]   They work pretty hard to reach out.
+[01:11:11.860 --> 01:11:18.100]   I don't think anybody does a great job of educating developers on an everyday basis.
+[01:11:18.100 --> 01:11:21.700]   You have a big conference, you have Google I/O and you have FA and you have WWC.
+[01:11:21.700 --> 01:11:23.780]   And then you have great tools.
+[01:11:23.780 --> 01:11:26.380]   But this is something that I think...
+[01:11:26.380 --> 01:11:27.380]   It's an opportunity.
+[01:11:27.380 --> 01:11:30.340]   You should be engaging folks everyday.
+[01:11:30.340 --> 01:11:32.340]   Especially young people.
+[01:11:32.340 --> 01:11:33.340]   Every week, every day.
+[01:11:33.340 --> 01:11:36.700]   Because they're naturally going to want to develop for iOS anyway.
+[01:11:36.700 --> 01:11:38.860]   So now teach them to use the latest.
+[01:11:38.860 --> 01:11:41.460]   But not even just young people, but anybody...
+[01:11:41.460 --> 01:11:43.940]   The big thing is that we have this huge gap of...
+[01:11:43.940 --> 01:11:45.100]   I mean they made Swift.
+[01:11:45.100 --> 01:11:46.900]   Isn't that part of why they made Swift?
+[01:11:46.900 --> 01:11:47.900]   It's part of it.
+[01:11:47.900 --> 01:11:49.900]   There's still a huge gap between...
+[01:11:49.900 --> 01:11:51.060]   I'm going to talk about this on another show.
+[01:11:51.060 --> 01:11:54.300]   But between shortcuts and Swift, there is a kind of a...
+[01:11:54.300 --> 01:11:55.300]   A middle ground.
+[01:11:55.300 --> 01:11:58.100]   A middle ground of where I think something like a nodal...
+[01:11:58.100 --> 01:12:01.780]   A nodal programming interface that is easy for the average person.
+[01:12:01.780 --> 01:12:04.740]   And stop thinking about it being they have to be computer science folks.
+[01:12:04.740 --> 01:12:06.340]   But really they have a problem.
+[01:12:06.340 --> 01:12:07.340]   They want to solve at home.
+[01:12:07.340 --> 01:12:11.380]   They want to solve a business and they're going to develop it visually and then push
+[01:12:11.380 --> 01:12:12.380]   it out.
+[01:12:12.380 --> 01:12:14.580]   And I think that those are some of the ways that...
+[01:12:14.580 --> 01:12:21.620]   I know that with Quartz Composer, we pushed the out or envelope of a Mac because we could
+[01:12:21.620 --> 01:12:22.620]   just do it.
+[01:12:22.620 --> 01:12:24.860]   We could just draw a bunch of stuff and start stacking things up and building things that
+[01:12:24.860 --> 01:12:28.500]   were kind of amazing without having to write a single line of code.
+[01:12:28.500 --> 01:12:29.500]   And I think that that's the...
+[01:12:29.500 --> 01:12:31.980]   So they let go of Selcicoian.
+[01:12:31.980 --> 01:12:36.140]   I mean there was kind of an opportunity there with AppleScript and Automator.
+[01:12:36.140 --> 01:12:37.140]   A little bit.
+[01:12:37.140 --> 01:12:39.780]   I think that what I'm talking about is more graphics heavy.
+[01:12:39.780 --> 01:12:40.780]   Yeah, there's stuff like that.
+[01:12:40.780 --> 01:12:42.620]   Because that's what's going to push the hardware.
+[01:12:42.620 --> 01:12:44.700]   It's not the usability of the hardware.
+[01:12:44.700 --> 01:12:46.740]   I'll tell you what, you've got kids learning that right now.
+[01:12:46.740 --> 01:12:48.900]   And that's how you learn most of these...
+[01:12:48.900 --> 01:12:53.260]   I was watching on 60 Minutes, they did a piece on code.org and teaching kids.
+[01:12:53.260 --> 01:12:54.660]   And it's all like that.
+[01:12:54.660 --> 01:12:58.140]   It's all graphical drag and drop coding.
+[01:12:58.140 --> 01:12:59.740]   So they're used to that idea.
+[01:12:59.740 --> 01:13:03.860]   Because once that's the hard part of understanding how do you set up all the commands so that
+[01:13:03.860 --> 01:13:06.780]   they're all going to do what they need to do, once you figure that out, then you go,
+[01:13:06.780 --> 01:13:09.580]   "Okay, what is the snippet of code that does that thing?"
+[01:13:09.580 --> 01:13:10.900]   And then you start typing it in.
+[01:13:10.900 --> 01:13:13.300]   It's hard to learn both of those at the same time.
+[01:13:13.300 --> 01:13:14.300]   Yeah.
+[01:13:14.300 --> 01:13:15.300]   Absolutely.
+[01:13:15.300 --> 01:13:19.900]   It's hard to keep the focus on here's what you want to make.
+[01:13:19.900 --> 01:13:23.300]   And we're going to teach you how to make that thing that you want to make as opposed to...
+[01:13:23.300 --> 01:13:24.940]   Here's what...
+[01:13:24.940 --> 01:13:30.220]   As opposed to pretending that computer science in itself is a fascinating field of discovery
+[01:13:30.220 --> 01:13:31.220]   for kids.
+[01:13:31.220 --> 01:13:32.220]   Right.
+[01:13:32.220 --> 01:13:33.220]   It is.
+[01:13:33.220 --> 01:13:34.540]   They say engineers think it is.
+[01:13:34.540 --> 01:13:39.220]   But no, I know you're saying it's a harder sell than saying, "Oh, but look what you could
+[01:13:39.220 --> 01:13:40.220]   do."
+[01:13:40.220 --> 01:13:42.220]   And so, what you're doing is you're doing engineering is something that...
+[01:13:42.220 --> 01:13:45.860]   The problem you get into with the people who are just engineers, not just engineers,
+[01:13:45.860 --> 01:13:48.860]   but engineers as they can get very caught up in the technology of it.
+[01:13:48.860 --> 01:13:49.860]   Yeah, we love it.
+[01:13:49.860 --> 01:13:50.860]   Of how to do it.
+[01:13:50.860 --> 01:13:51.860]   Yeah.
+[01:13:51.860 --> 01:13:52.860]   Like, and you dig into it.
+[01:13:52.860 --> 01:13:53.860]   You're just like, "We think it's super cool.
+[01:13:53.860 --> 01:13:56.420]   I want to add this button because I want to add this button rather than I'm trying to
+[01:13:56.420 --> 01:13:57.420]   solve a problem."
+[01:13:57.420 --> 01:14:01.780]   Well, and you get a certain category of software as a result, same reason you need diversity.
+[01:14:01.780 --> 01:14:08.820]   Because otherwise, it's all these white men who have a certain mindset and everything...
+[01:14:08.820 --> 01:14:11.180]   Never reflects the culture that created it.
+[01:14:11.180 --> 01:14:12.180]   Right.
+[01:14:12.180 --> 01:14:13.180]   I just...
+[01:14:13.180 --> 01:14:14.920]   I'll all say is that I have...
+[01:14:14.920 --> 01:14:19.420]   But my proficiency in programming, my interest in technology is largely I owe a great debt
+[01:14:19.420 --> 01:14:24.620]   to electronic arts for putting such great copy protection on their games when I was a kid.
+[01:14:24.620 --> 01:14:25.620]   Yes.
+[01:14:25.620 --> 01:14:29.460]   The reason why I learned how to code, I went from basic to assembly language was there's
+[01:14:29.460 --> 01:14:31.820]   got to be a way to copy this game.
+[01:14:31.820 --> 01:14:36.100]   That's how I learned how to use a hex editor.
+[01:14:36.100 --> 01:14:39.340]   One of our sponsors last year or maybe the year before was a...
+[01:14:39.340 --> 01:14:45.980]   I thought a really cool security camera called Lighthouse, sad to say Lighthouse is now defunct.
+[01:14:45.980 --> 01:14:54.260]   They had a camera that used time of flight, LIDAR, night vision, and a lot of AI to...
+[01:14:54.260 --> 01:15:00.140]   It was an Andy Rubin investment and they had some really smart people from the ARPA
+[01:15:00.140 --> 01:15:02.740]   Grand Challenge and elsewhere to do this AI.
+[01:15:02.740 --> 01:15:03.740]   I used it.
+[01:15:03.740 --> 01:15:06.620]   I wish I could still use it, but the servers have been turned off.
+[01:15:06.620 --> 01:15:07.980]   What we didn't know when they...
+[01:15:07.980 --> 01:15:12.380]   And by the way, they paid everybody back a bottle Lighthouse, which I'm grateful to because
+[01:15:12.380 --> 01:15:16.980]   I would have felt very guilty pushing that product and people then couldn't use it anymore.
+[01:15:16.980 --> 01:15:22.300]   But fortunately everybody got their spot back.
+[01:15:22.300 --> 01:15:27.900]   What we didn't know is in December Apple bought all their patents, including the AI
+[01:15:27.900 --> 01:15:33.260]   patents, including the time of flight sensor patents, computer vision based security system
+[01:15:33.260 --> 01:15:38.980]   using a depth camera, method and system for visual authentication, method and system
+[01:15:38.980 --> 01:15:42.860]   for using light emission by a depth sensing camera to capture video images under low light
+[01:15:42.860 --> 01:15:47.620]   conditions, speech interference for vision based monitoring system, two-way communication
+[01:15:47.620 --> 01:15:48.620]   interface.
+[01:15:48.620 --> 01:15:51.500]   I think that should be speech interface, not interference.
+[01:15:51.500 --> 01:15:54.620]   Two-way communication, I'm reading this from 9-5 Mac.
+[01:15:54.620 --> 01:15:55.700]   That must be a typo.
+[01:15:55.700 --> 01:15:58.180]   Two-way communication interface for vision based monitoring system.
+[01:15:58.180 --> 01:16:03.540]   These are all patents, Lighthouse patents that Apple has acquired, which I think is really
+[01:16:03.540 --> 01:16:04.620]   cool.
+[01:16:04.620 --> 01:16:06.580]   Yes.
+[01:16:06.580 --> 01:16:09.500]   Maybe a home pod with a camera?
+[01:16:09.500 --> 01:16:10.500]   Anything that you want...
+[01:16:10.500 --> 01:16:14.340]   Because right now you can do a face ID up to about, I forget, the 15 centimeters or some.
+[01:16:14.340 --> 01:16:16.740]   It's got a very small depth of face.
+[01:16:16.740 --> 01:16:17.740]   But once you...
+[01:16:17.740 --> 01:16:22.020]   And they've already got plans to put the lasers on the back cameras and whether it's
+[01:16:22.020 --> 01:16:23.020]   for...
+[01:16:23.020 --> 01:16:27.060]   It's not really cross-room face ID, but it's across-room object identification that Alex
+[01:16:27.060 --> 01:16:29.380]   has talked about before where...
+[01:16:29.380 --> 01:16:32.580]   Or we talked about earlier with the cars, you start to be able to not only define the
+[01:16:32.580 --> 01:16:35.860]   exact parameters of your environment, but the objects within it.
+[01:16:35.860 --> 01:16:40.020]   And you're basically teaching the computer to not just see a photo, but to understand
+[01:16:40.020 --> 01:16:41.500]   everything that's in the photo.
+[01:16:41.500 --> 01:16:45.340]   Not like humans do, but in a way that makes sense to computers and all the other stuff
+[01:16:45.340 --> 01:16:46.340]   you want inside it.
+[01:16:46.340 --> 01:16:49.500]   Like I could look at my Lighthouse and I could say, "Hey, let me know when Lisa gets
+[01:16:49.500 --> 01:16:52.220]   home and let me know where the cats are."
+[01:16:52.220 --> 01:16:53.220]   And it knew.
+[01:16:53.220 --> 01:16:54.500]   I mean, and they weren't close.
+[01:16:54.500 --> 01:16:56.060]   They knew it across the room.
+[01:16:56.060 --> 01:16:59.220]   So there's a cat, there's a dog, there's Lisa.
+[01:16:59.220 --> 01:17:00.860]   There's the kids.
+[01:17:00.860 --> 01:17:01.860]   It knew.
+[01:17:01.860 --> 01:17:02.860]   It was great.
+[01:17:02.860 --> 01:17:06.940]   And a lot of these technologies can identify you by your gate, by the way you stand.
+[01:17:06.940 --> 01:17:12.940]   If you think about when you see one of your friends 100 feet away, then they are essentially
+[01:17:12.940 --> 01:17:15.380]   a couple pixels for you and you know, "Oh, that's Frank."
+[01:17:15.380 --> 01:17:18.540]   Or, "Oh, that's why because of something that they're doing that is...
+[01:17:18.540 --> 01:17:19.540]   Frankish.
+[01:17:19.540 --> 01:17:20.540]   That...
+[01:17:20.540 --> 01:17:21.540]   Only Frank would do that.
+[01:17:21.540 --> 01:17:22.540]   Only Frank does that.
+[01:17:22.540 --> 01:17:27.460]   And so, but you noticed that, well, they're starting to get...
+[01:17:27.460 --> 01:17:31.980]   A lot of the AI is starting to get good enough where it knows who you are and also what your
+[01:17:31.980 --> 01:17:36.700]   next behaviors may be based on just the movement of your body.
+[01:17:36.700 --> 01:17:40.540]   And a lot of the LiDAR stuff, the time of light stuff is important to figure that out.
+[01:17:40.540 --> 01:17:42.040]   Very cool.
+[01:17:42.040 --> 01:17:46.540]   The US government is imposing new restrictions on shipping charged batteries.
+[01:17:46.540 --> 01:17:50.860]   This is not for you getting on a plane, but it will mean your next iPhone will not have
+[01:17:50.860 --> 01:17:54.660]   a half full or even 30% full battery.
+[01:17:54.660 --> 01:17:55.660]   They're going to...
+[01:17:55.660 --> 01:17:56.660]   We saw that with the battery cases.
+[01:17:56.660 --> 01:17:57.660]   They all shipped empty.
+[01:17:57.660 --> 01:17:58.660]   Yeah.
+[01:17:58.660 --> 01:17:59.660]   30?
+[01:17:59.660 --> 01:18:00.660]   Yeah.
+[01:18:00.660 --> 01:18:04.540]   I just got a wireless thing for the HTC Vive.
+[01:18:04.540 --> 01:18:05.540]   It was dead.
+[01:18:05.540 --> 01:18:07.540]   I can't use it.
+[01:18:07.540 --> 01:18:08.540]   I can't charge it up.
+[01:18:08.540 --> 01:18:10.300]   It took a long time to charge it up.
+[01:18:10.300 --> 01:18:12.140]   I was so bummed.
+[01:18:12.140 --> 01:18:17.540]   Yeah, batteries, lithium-ion batteries can be charged to no more than 30%.
+[01:18:17.540 --> 01:18:22.820]   This is also for folks like me that do production, this is a pain.
+[01:18:22.820 --> 01:18:27.460]   I don't know if they're going to get it on the plane, but it is going to change when
+[01:18:27.460 --> 01:18:28.460]   you buy something.
+[01:18:28.460 --> 01:18:30.500]   Well, it's not so much money.
+[01:18:30.500 --> 01:18:32.540]   We ship a lot of hardware.
+[01:18:32.540 --> 01:18:36.620]   In that hardware, the batteries are too big for us to just put in our carry-on.
+[01:18:36.620 --> 01:18:40.220]   And so there are UPS batteries and stuff like that.
+[01:18:40.220 --> 01:18:43.180]   And we have big signs on them exactly what kind and we flip them and there's a whole
+[01:18:43.180 --> 01:18:46.460]   bunch of things that you do and you drain them out and stuff like that.
+[01:18:46.460 --> 01:18:51.980]   We do things that are safety-conscious, but I get the risk of doing that.
+[01:18:51.980 --> 01:18:53.780]   So I understand where they're coming from.
+[01:18:53.780 --> 01:18:57.420]   And a lot of the airlines have already made this against the rules.
+[01:18:57.420 --> 01:18:59.900]   So I just got rid of my away.
+[01:18:59.900 --> 01:19:02.980]   I have on a way bag and I just got rid of the battery because I just got...
+[01:19:02.980 --> 01:19:03.980]   Yeah.
+[01:19:03.980 --> 01:19:06.020]   It was just too much to hold a deal with.
+[01:19:06.020 --> 01:19:07.740]   So it's interesting.
+[01:19:07.740 --> 01:19:12.580]   I didn't realize this, but it was Apple was one of the first companies to ship fully charged
+[01:19:12.580 --> 01:19:15.140]   or mostly charged products.
+[01:19:15.140 --> 01:19:20.820]   I do remember that before then, it was routinely that they would come uncharged.
+[01:19:20.820 --> 01:19:26.620]   And Tony Fidell actually talked about this at a TED conference in 2015.
+[01:19:26.620 --> 01:19:32.140]   He said, "I learned from this from Steve Jobs that you have to think about the consumer
+[01:19:32.140 --> 01:19:34.980]   who has never experienced your product before.
+[01:19:34.980 --> 01:19:39.420]   And Jobs insisted designers think about what it would be like to open a new device with
+[01:19:39.420 --> 01:19:40.580]   a dead battery.
+[01:19:40.580 --> 01:19:43.700]   It's a bad first impression."
+[01:19:43.700 --> 01:19:46.020]   He talked about shipping a product with a charged battery.
+[01:19:46.020 --> 01:19:50.980]   And only a few years ago, it was all too common to unwrap a new MP3 player with a glee of
+[01:19:50.980 --> 01:19:56.060]   Christmas morning only to find out we had to wait a few hours to charge the device.
+[01:19:56.060 --> 01:19:58.780]   Now Apple products come at least partially charged.
+[01:19:58.780 --> 01:20:02.780]   Well, 30% will be the max, but that's not Apple's fault.
+[01:20:02.780 --> 01:20:09.300]   Yes, remember, it's important to get that initial dopamine hit right away.
+[01:20:09.300 --> 01:20:13.540]   The sooner they set that up, the sooner they could be buying apps.
+[01:20:13.540 --> 01:20:16.780]   That's a big Christmas day.
+[01:20:16.780 --> 01:20:20.020]   We want to be sure that users are happy.
+[01:20:20.020 --> 01:20:21.020]   Yeah.
+[01:20:21.020 --> 01:20:22.020]   No, I think that's reasonable.
+[01:20:22.020 --> 01:20:23.020]   And it did make a big difference.
+[01:20:23.020 --> 01:20:27.020]   It's a minor thing, but I'm sad to see that that won't be the case anymore.
+[01:20:27.020 --> 01:20:30.100]   Apple, we talked last week or a couple of weeks ago about Apple getting a little heat
+[01:20:30.100 --> 01:20:34.620]   on their shot on iPhone campaign because they didn't explicitly say they would pay
+[01:20:34.620 --> 01:20:36.140]   for the photos.
+[01:20:36.140 --> 01:20:37.460]   They later said, "No, we will.
+[01:20:37.460 --> 01:20:38.460]   Of course we will.
+[01:20:38.460 --> 01:20:40.060]   We didn't think anybody would care.
+[01:20:40.060 --> 01:20:41.740]   Think about that.
+[01:20:41.740 --> 01:20:43.300]   The pictures have been selected.
+[01:20:43.300 --> 01:20:47.820]   The 10 winners will be featured on billboards and select cities.
+[01:20:47.820 --> 01:20:52.540]   The judges included Obama photographer Pete Sousa, Phil Schiller.
+[01:20:52.540 --> 01:20:56.740]   I guess he's a pretty avid amateur photographer and others.
+[01:20:56.740 --> 01:20:57.740]   Here are some of the winners.
+[01:20:57.740 --> 01:21:02.380]   This is a beautiful picture of architectural picture.
+[01:21:02.380 --> 01:21:03.620]   It must be Miami, right?
+[01:21:03.620 --> 01:21:04.620]   Where else could it be?
+[01:21:04.620 --> 01:21:06.580]   No, I think that's the international.
+[01:21:06.580 --> 01:21:13.100]   There's a huge international spread here, which I think is excellent.
+[01:21:13.100 --> 01:21:15.060]   Here is a shot that feels Schiller particularly like.
+[01:21:15.060 --> 01:21:18.820]   Let me scrunch it down a little bit of a raccoon looking down a log.
+[01:21:18.820 --> 01:21:22.700]   Of course, one of the reasons they pick them is because they're beautiful shots.
+[01:21:22.700 --> 01:21:26.660]   But the other one is they're shot on iPhone and they show off iPhone features.
+[01:21:26.660 --> 01:21:30.220]   In this case, HDR.
+[01:21:30.220 --> 01:21:34.060]   Schiller says it's a nice use of black or white and it could have happened.
+[01:21:34.060 --> 01:21:37.980]   It was Austin Mann who said this image took a lot of patience, great timing.
+[01:21:37.980 --> 01:21:43.540]   With the iPhone zero shutter lag and smart HDR, we're able to see both the raccoons'
+[01:21:43.540 --> 01:21:45.940]   eyes and the deep shadows inside the log.
+[01:21:45.940 --> 01:21:47.100]   That's actually a really good point.
+[01:21:47.100 --> 01:21:50.780]   That would be a hard shot to get with that HDR because you've got to figure the raccoons
+[01:21:50.780 --> 01:21:52.420]   got a lot of light around them.
+[01:21:52.420 --> 01:21:57.140]   The log is very dim and dark, but it really is a great shot.
+[01:21:57.140 --> 01:22:01.740]   I bet a lot of these weren't even manipulated a lot on desktop apps.
+[01:22:01.740 --> 01:22:05.260]   I bet that these were close to straight out of the camera.
+[01:22:05.260 --> 01:22:09.700]   I'd love it if they mentioned that, but I would not be surprised if these were just
+[01:22:09.700 --> 01:22:15.900]   a few sliders in the actual photos app, if anything.
+[01:22:15.900 --> 01:22:19.700]   Here's, I'll show you my favorite, which is a puddle reflection.
+[01:22:19.700 --> 01:22:21.220]   Yeah, it's so good.
+[01:22:21.220 --> 01:22:22.220]   Isn't that good?
+[01:22:22.220 --> 01:22:23.620]   It's a heart-shaped puddle.
+[01:22:23.620 --> 01:22:26.700]   This is the kind of thing that is really serendipity.
+[01:22:26.700 --> 01:22:30.500]   Unless you're sitting there for hours waiting for somebody to walk across just right, which
+[01:22:30.500 --> 01:22:31.500]   I doubt.
+[01:22:31.500 --> 01:22:33.500]   Maybe he realizes this side down.
+[01:22:33.500 --> 01:22:34.500]   Right.
+[01:22:34.500 --> 01:22:35.500]   That's the key.
+[01:22:35.500 --> 01:22:36.500]   In fact, can you flip that, Carson?
+[01:22:36.500 --> 01:22:39.680]   I don't know if you're able to do it, but if you turn this upside down, you'll see the
+[01:22:39.680 --> 01:22:41.220]   actual as shot.
+[01:22:41.220 --> 01:22:43.220]   Look at this.
+[01:22:43.220 --> 01:22:46.140]   This guy has all the tools.
+[01:22:46.140 --> 01:22:48.060]   There's now it makes more sense, right?
+[01:22:48.060 --> 01:22:53.460]   At the top is the woman walking and then her reflection's in the puddle, but the photographer
+[01:22:53.460 --> 01:22:54.460]   is brilliant.
+[01:22:54.460 --> 01:22:59.220]   Can I tell you that the most encouraging thing for anybody who wants to be a really good
+[01:22:59.220 --> 01:23:04.860]   photographer is when you get to see the contact sheets of every single iconic image.
+[01:23:04.860 --> 01:23:09.220]   Henri Cartier-Breson, who has these beautiful, like, slice of life moments, you say, "Oh,
+[01:23:09.220 --> 01:23:15.300]   he really, really did just stand there on the top of that staircase waiting for the exact
+[01:23:15.300 --> 01:23:18.100]   right combination of people to happen to walk by."
+[01:23:18.100 --> 01:23:21.780]   It takes you to have to have a good previs-- the ability to pre-visualize what's going
+[01:23:21.780 --> 01:23:22.940]   to happen.
+[01:23:22.940 --> 01:23:23.940]   A lot of patience.
+[01:23:23.940 --> 01:23:24.940]   Yeah.
+[01:23:24.940 --> 01:23:25.940]   And a lot of photos.
+[01:23:25.940 --> 01:23:26.940]   And a lot of photos.
+[01:23:26.940 --> 01:23:32.820]   One point, Magnum did a photo show that toured around that had all the-- many of the very
+[01:23:32.820 --> 01:23:34.660]   most-- it's a photo agency.
+[01:23:34.660 --> 01:23:38.900]   Some of the most famous iconic pictures ever on the contact sheets.
+[01:23:38.900 --> 01:23:43.860]   And it was great to see these iconic, you know, Yoko and John iconic picture with all
+[01:23:43.860 --> 01:23:47.140]   of the much less iconic images.
+[01:23:47.140 --> 01:23:48.140]   You're right, Andy.
+[01:23:48.140 --> 01:23:49.140]   That's a real eye opener.
+[01:23:49.140 --> 01:23:51.860]   And it's encouraging for any photographer to see that, you know.
+[01:23:51.860 --> 01:23:55.780]   We only see the cake that's perfect, not the one that was left out on the ledge.
+[01:23:55.780 --> 01:23:57.580]   Anyway, beautiful shots.
+[01:23:57.580 --> 01:24:02.780]   If you go to Apple's newsroom, you can see all of the 10 winners.
+[01:24:02.780 --> 01:24:04.900]   Some black and white, some color.
+[01:24:04.900 --> 01:24:06.540]   All amazing if you think about it.
+[01:24:06.540 --> 01:24:08.540]   This was done with a camera phone.
+[01:24:08.540 --> 01:24:09.540]   Right.
+[01:24:09.540 --> 01:24:11.020]   I mean, holy cow.
+[01:24:11.020 --> 01:24:14.540]   Well, I think that-- I think that in the 60 Minutes thing they listed that I believe
+[01:24:14.540 --> 01:24:19.300]   there's 200 engineers-- at least there were a couple years ago, 200 engineers just working
+[01:24:19.300 --> 01:24:20.300]   on the phone camera.
+[01:24:20.300 --> 01:24:21.300]   Yeah.
+[01:24:21.300 --> 01:24:24.020]   You know, like, just making sure that camera is getting-- they're getting the most out
+[01:24:24.020 --> 01:24:25.500]   of the physics of it.
+[01:24:25.500 --> 01:24:27.820]   We've got a lot of large staff.
+[01:24:27.820 --> 01:24:35.420]   I think Apple's smart too, because you might say, oh, you know, the Pixel 3 has technically
+[01:24:35.420 --> 01:24:39.420]   a better camera, the Galaxy, 10 is technically a better camera.
+[01:24:39.420 --> 01:24:43.300]   Apple's smart to emphasize the art, the emotion, the feeling.
+[01:24:43.300 --> 01:24:45.380]   There's honestly-- yeah.
+[01:24:45.380 --> 01:24:50.020]   Yeah, maybe you get better night's sight on a Pixel 3 XL, but I've never seen better shots
+[01:24:50.020 --> 01:24:51.260]   than I've seen on the iPhone.
+[01:24:51.260 --> 01:24:53.580]   For somehow, there's something about it.
+[01:24:53.580 --> 01:24:55.380]   It just is able to get these incredible shots.
+[01:24:55.380 --> 01:24:56.380]   Yeah.
+[01:24:56.380 --> 01:25:01.620]   And this is why reviews that go to these real Pixel peeping sort of, hey, we've magnified
+[01:25:01.620 --> 01:25:05.700]   this 1,000%, so you can see the grain really misses the point.
+[01:25:05.700 --> 01:25:09.780]   It's not just the quality of the JPEG that you're getting out of the phone.
+[01:25:09.780 --> 01:25:13.580]   It's also how fast was this thing able to take that picture?
+[01:25:13.580 --> 01:25:19.020]   When you suddenly saw your kid doing something adorable and you-- how fast was it between
+[01:25:19.020 --> 01:25:22.460]   getting the phone out of your pocket, to getting the camera app in front of the screen, to
+[01:25:22.460 --> 01:25:25.780]   stabbing your phone on top of that circle and getting the picture?
+[01:25:25.780 --> 01:25:27.180]   Was there any sort of a lag?
+[01:25:27.180 --> 01:25:29.660]   Was there any sort of a pause or a delay?
+[01:25:29.660 --> 01:25:33.820]   Were you-- did it give you a feature where you just held your thumb down on that thing
+[01:25:33.820 --> 01:25:38.380]   and it took a million photos in one second and then pointed out the three that were actually
+[01:25:38.380 --> 01:25:39.700]   very, very good?
+[01:25:39.700 --> 01:25:44.460]   This is-- these are the things that iPhones do exceptionally well.
+[01:25:44.460 --> 01:25:50.140]   And that's why it will always be at the very, very top of basically the maybe a tied-- at
+[01:25:50.140 --> 01:25:54.940]   worst, tied for first place, amongst two or three people.
+[01:25:54.940 --> 01:25:58.540]   It's just these little things that make it into a great, great, great camera.
+[01:25:58.540 --> 01:25:59.540]   Yeah.
+[01:25:59.540 --> 01:26:00.540]   Yeah.
+[01:26:00.540 --> 01:26:01.540]   Let's take a break.
+[01:26:01.540 --> 01:26:02.540]   Your picks, folks.
+[01:26:02.540 --> 01:26:07.460]   Prepare them as I tell you about my pick for a VPN.
+[01:26:07.460 --> 01:26:12.940]   I know more and more people are aware of the value of a VPN for protecting your privacy,
+[01:26:12.940 --> 01:26:15.420]   for protecting your security.
+[01:26:15.420 --> 01:26:19.940]   And the real challenge is you go out there, if you Google VPNs, there's thousands of
+[01:26:19.940 --> 01:26:20.980]   them.
+[01:26:20.980 --> 01:26:24.820]   And the vast majority of them-- and don't be tempted because they're really low price
+[01:26:24.820 --> 01:26:28.380]   or cheap, but the vast majority of these are junk.
+[01:26:28.380 --> 01:26:31.420]   They're not protecting your privacy or security.
+[01:26:31.420 --> 01:26:34.780]   There's some of them insert ads into your stream.
+[01:26:34.780 --> 01:26:36.060]   You need a good company.
+[01:26:36.060 --> 01:26:44.900]   A company that protects you by not logging your activity, ExpressVPN is at number one
+[01:26:44.900 --> 01:26:46.540]   on tech radar.
+[01:26:46.540 --> 01:26:48.780]   That's votes from actual users.
+[01:26:48.780 --> 01:26:51.300]   It comes with a 30-day money back guarantee.
+[01:26:51.300 --> 01:26:52.900]   It's not the cheapest VPN out there.
+[01:26:52.900 --> 01:26:53.900]   And I know that.
+[01:26:53.900 --> 01:26:57.820]   And you don't want it to be because honestly, it's expensive to run all the servers that
+[01:26:57.820 --> 01:27:01.540]   they run and make sure they all have enough bandwidth so that the VPN doesn't slow you
+[01:27:01.540 --> 01:27:03.380]   down.
+[01:27:03.380 --> 01:27:05.380]   That is not something you can do inexpensively.
+[01:27:05.380 --> 01:27:10.980]   So any VPN that's free or cheap, they're making money on you somehow or their service
+[01:27:10.980 --> 01:27:12.860]   is going to be terrible.
+[01:27:12.860 --> 01:27:14.860]   ExpressVPN is awesome.
+[01:27:14.860 --> 01:27:21.420]   Less than $7 a month, you get the same ExpressVPN protection I use every day.
+[01:27:21.420 --> 01:27:23.620]   It is fantastic.
+[01:27:23.620 --> 01:27:28.460]   They are not owned in the United States, so that's good too.
+[01:27:28.460 --> 01:27:30.300]   I think there's some people who are looking for that.
+[01:27:30.300 --> 01:27:33.180]   But they do have servers all over the world.
+[01:27:33.180 --> 01:27:41.380]   And that means you also can get around-- if you're worried about that-- you can get around
+[01:27:41.380 --> 01:27:44.380]   what we call geographic restrictions.
+[01:27:44.380 --> 01:27:50.700]   It's very, very handy to be able to emerge in the UK or in Singapore if you want to watch
+[01:27:50.700 --> 01:27:53.660]   content on TV from those countries, for instance.
+[01:27:53.660 --> 01:27:55.580]   Plus, it's encrypting everything.
+[01:27:55.580 --> 01:28:01.700]   So the guy in the hoodie in the coffee shop next door is not going to be able to see what
+[01:28:01.700 --> 01:28:02.700]   you're doing.
+[01:28:02.700 --> 01:28:04.260]   It's easy to use on every platform.
+[01:28:04.260 --> 01:28:07.860]   They have apps for Mac, Windows, iOS, and Android.
+[01:28:07.860 --> 01:28:09.060]   And these apps are easy to use.
+[01:28:09.060 --> 01:28:11.380]   They run seamlessly in the background.
+[01:28:11.380 --> 01:28:13.980]   One click turn on, one click turn off.
+[01:28:13.980 --> 01:28:16.660]   So when you say, oh, I think I'm going to be safe right now.
+[01:28:16.660 --> 01:28:17.860]   That guy looks a little shady.
+[01:28:17.860 --> 01:28:19.780]   Boom, you are.
+[01:28:19.780 --> 01:28:24.580]   ExpressVPN lets you safely surf on public Wi-Fi without being snooped on or having your data
+[01:28:24.580 --> 01:28:26.500]   stolen or hacked.
+[01:28:26.500 --> 01:28:30.500]   And I know a lot of people use ExpressVPN even at home because they don't want their internet
+[01:28:30.500 --> 01:28:33.580]   service providers snooping on them.
+[01:28:33.580 --> 01:28:35.180]   Protect your online activity today.
+[01:28:35.180 --> 01:28:38.500]   Find out how you can get three extra months free when you buy a one-year package.
+[01:28:38.500 --> 01:28:40.060]   That's the best deal out there.
+[01:28:40.060 --> 01:28:43.060]   ExpressVPN.com/MacBreakExpress.
+[01:28:43.060 --> 01:28:50.260]   Where was it?
+[01:28:50.260 --> 01:28:53.700]   Maybe it was Turkey.
+[01:28:53.700 --> 01:28:59.180]   The government seized ExpressVPN servers because I'm trying to track down a dissident.
+[01:28:59.180 --> 01:29:00.180]   There was nothing on them.
+[01:29:00.180 --> 01:29:01.740]   They couldn't do anything with us.
+[01:29:01.740 --> 01:29:06.380]   So a lot of companies might say, well, we protect your privacy.
+[01:29:06.380 --> 01:29:07.380]   We don't log.
+[01:29:07.380 --> 01:29:08.380]   But we got proof.
+[01:29:08.380 --> 01:29:12.020]   ExpressVPN does not keep track of what you're up to.
+[01:29:12.020 --> 01:29:13.020]   That's a good company.
+[01:29:13.020 --> 01:29:14.020]   ExpressVPN.com/MacBreak.
+[01:29:14.020 --> 01:29:21.020]   Andy, you're picking the week?
+[01:29:21.020 --> 01:29:22.780]   Hopefully a fun one for people.
+[01:29:22.780 --> 01:29:28.660]   I decided that I needed to have a Rubik's Cube after being a kid of the 80s.
+[01:29:28.660 --> 01:29:32.460]   And largely I bought it because I was just curious about them.
+[01:29:32.460 --> 01:29:36.020]   And then I found out that these are just such good fidget devices.
+[01:29:36.020 --> 01:29:41.020]   And if you buy a modern one where they round off some of the corners in there, you can
+[01:29:41.020 --> 01:29:45.300]   really just play with this in one hand all day long.
+[01:29:45.300 --> 01:29:54.780]   So one of my two-part pick of the week is the Defantix Moyu Waylong GTS version 2 3x3
+[01:29:54.780 --> 01:29:55.780]   speed cube.
+[01:29:55.780 --> 01:29:59.300]   Apparently you have to call this a speed cube and not a Rubik's Cube if it's not actually
+[01:29:59.300 --> 01:30:03.060]   made by the fine people at Rubik's Cube.
+[01:30:03.060 --> 01:30:05.580]   And again, just such a fun thing to...
+[01:30:05.580 --> 01:30:09.380]   It is like my favorite fidget at the moment.
+[01:30:09.380 --> 01:30:16.660]   It is always on my desk or I've actually been playing with it this entire show.
+[01:30:16.660 --> 01:30:22.380]   I hope you bought the Maru Lube Speed Cube lubrication.
+[01:30:22.380 --> 01:30:27.660]   No, I'm not going to make that joke.
+[01:30:27.660 --> 01:30:32.620]   It's high quality lube for your puzzle cube.
+[01:30:32.620 --> 01:30:36.220]   I saw Spider-Man Noir playing with one in the movie and I just had to have one.
+[01:30:36.220 --> 01:30:38.220]   You have a Rubik's...
+[01:30:38.220 --> 01:30:41.540]   This is the funniest recommendation ever.
+[01:30:41.540 --> 01:30:43.100]   Who doesn't have a Rubik's Cube?
+[01:30:43.100 --> 01:30:44.100]   I don't have a...
+[01:30:44.100 --> 01:30:45.100]   Oh, actually I do have my...
+[01:30:45.100 --> 01:30:47.740]   The ones that I have in front of are the 4x4s.
+[01:30:47.740 --> 01:30:49.780]   I don't know what it is about the 4x4.
+[01:30:49.780 --> 01:30:51.860]   No, no, not 2x2, 4x4s.
+[01:30:51.860 --> 01:30:53.340]   It's got an extra round.
+[01:30:53.340 --> 01:30:54.340]   It's got an extra row.
+[01:30:54.340 --> 01:30:57.100]   And for some reason my brain is like, "I cannot do this."
+[01:30:57.100 --> 01:31:02.740]   Oh, you'll see there on YouTube, there are people who made these really weirdo, like,
+[01:31:02.740 --> 01:31:07.700]   look, 20x20 cubes, 40x40 cubes, where they have to make these things...
+[01:31:07.700 --> 01:31:08.700]   The dollar is on the 6.
+[01:31:08.700 --> 01:31:09.700]   I'm going to mess with people.
+[01:31:09.700 --> 01:31:11.700]   Yeah, it's weird.
+[01:31:11.700 --> 01:31:12.700]   But the other...
+[01:31:12.700 --> 01:31:18.900]   But the Mac and Apple sort of twisted this is that a really great app on the iPhone called
+[01:31:18.900 --> 01:31:20.860]   Magic Cube Solver.
+[01:31:20.860 --> 01:31:26.740]   They're now really perfect algorithms for how to solve cubes and 22 moves or less.
+[01:31:26.740 --> 01:31:31.700]   So if you want to, like, suddenly have this restored back to where it was before, you
+[01:31:31.700 --> 01:31:33.940]   can basically show it what this...
+[01:31:33.940 --> 01:31:39.260]   I don't believe it uses the camera, but you can easily show it what the program in,
+[01:31:39.260 --> 01:31:40.980]   like what your cube looks like.
+[01:31:40.980 --> 01:31:45.300]   And it will give you turn-by-turn directions, like GPS.
+[01:31:45.300 --> 01:31:49.820]   But the other cool thing about this that separates it from a lot of other cube solvers is that
+[01:31:49.820 --> 01:31:52.180]   it will actually teach you what the algorithm is.
+[01:31:52.180 --> 01:31:57.020]   So if you want to learn how to do this instead of just always having to turn to the app,
+[01:31:57.020 --> 01:32:02.340]   it will coach you on why you need to make the moves that you're trying to make.
+[01:32:02.340 --> 01:32:06.900]   Right now I'm just playing with it as a fidget, but I kind of just...
+[01:32:06.900 --> 01:32:09.900]   I'm looking forward to at one point being able to solve these things.
+[01:32:09.900 --> 01:32:10.900]   So it does...
+[01:32:10.900 --> 01:32:14.900]   And as you see, it will solve the 4x4 cubes, the 2x2 cubes.
+[01:32:14.900 --> 01:32:18.980]   There are other apps that will do, like, if you're trying to do a speed challenge, I guess
+[01:32:18.980 --> 01:32:22.300]   that's why they're calling them speed cubes now, because there are people who are trying
+[01:32:22.300 --> 01:32:25.940]   to do it in less than 18 seconds, less than 10 seconds.
+[01:32:25.940 --> 01:32:27.980]   There's a blindfolded record.
+[01:32:27.980 --> 01:32:29.940]   There is a one-handed record.
+[01:32:29.940 --> 01:32:32.780]   But again, this isn't just simple nostalgia.
+[01:32:32.780 --> 01:32:40.820]   I think it's an interesting mathematical theoretical device and the fact that I like to play with
+[01:32:40.820 --> 01:32:41.820]   it like a toy.
+[01:32:41.820 --> 01:32:47.500]   I think in great school I got under 30 seconds, but I can't remember it now.
+[01:32:47.500 --> 01:32:50.740]   Any 3x3, 4x4 now.
+[01:32:50.740 --> 01:32:52.700]   No, I can't do it.
+[01:32:52.700 --> 01:32:58.020]   When I was in school, I solved it once, and that was largely by dumb luck.
+[01:32:58.020 --> 01:33:02.180]   I was so excited that I had to buy another cube because I didn't want to mess up the
+[01:33:02.180 --> 01:33:03.740]   one that I solved.
+[01:33:03.740 --> 01:33:05.340]   Do they cut it out and have some of those?
+[01:33:05.340 --> 01:33:06.820]   Unsolved, do they come solved?
+[01:33:06.820 --> 01:33:10.500]   Nope, they come solved, and eventually you play with it and it becomes like this.
+[01:33:10.500 --> 01:33:12.980]   But there's a bunch of really nice apps.
+[01:33:12.980 --> 01:33:16.460]   If you want to experiment with other apps, that's fine too, because they all do things.
+[01:33:16.460 --> 01:33:22.220]   It's fun when you watch it, but it'll quickly get a 22-move solution, because mathematically
+[01:33:22.220 --> 01:33:25.180]   it will never take more than 22 moves to solve a cube.
+[01:33:25.180 --> 01:33:30.140]   But then you'll see it on other apps I have, you'll continue to grind, grind, grind, grind,
+[01:33:30.140 --> 01:33:31.300]   and try to brute force it.
+[01:33:31.300 --> 01:33:32.860]   Oh, I found a 19 move one.
+[01:33:32.860 --> 01:33:34.860]   Oh, I found a 16 move one.
+[01:33:34.860 --> 01:33:39.020]   And you kind of like, I know that I'm not connected to AC power, but I really want to
+[01:33:39.020 --> 01:33:40.020]   see this.
+[01:33:40.020 --> 01:33:44.100]   I really want to run down this entire battery, trying to see if it can help how small and
+[01:33:44.100 --> 01:33:46.820]   efficient a solution it can actually make.
+[01:33:46.820 --> 01:33:52.860]   Anyway, I've seen the world's fastest Rubik's Cube solver made from Lego, minestorms.
+[01:33:52.860 --> 01:33:56.860]   Oh, my God, I've seen that in my times.
+[01:33:56.860 --> 01:34:01.180]   See, two seconds.
+[01:34:01.180 --> 01:34:05.700]   See, automation is going to take away so many jobs.
+[01:34:05.700 --> 01:34:09.580]   This is all those professional Rubik's Cube solvers are now screwed.
+[01:34:09.580 --> 01:34:12.060]   It's just ends up with the matrix.
+[01:34:12.060 --> 01:34:13.060]   That'd be kind of fun.
+[01:34:13.060 --> 01:34:17.020]   The fun code to write the code to solve a cube excuse.
+[01:34:17.020 --> 01:34:24.340]   I'm picking this app because I think it's the nicest combination of features, but there
+[01:34:24.340 --> 01:34:28.000]   are other ones like there's an Android app that I have that is really nice and that you
+[01:34:28.000 --> 01:34:29.660]   literally just show it.
+[01:34:29.660 --> 01:34:34.740]   It will use the camera to just dice to basically analyze the cube and then from there actually
+[01:34:34.740 --> 01:34:36.580]   go on its own.
+[01:34:36.580 --> 01:34:39.740]   It's it is and then you can watch mathematics.
+[01:34:39.740 --> 01:34:43.100]   There's like all kinds of mathematical videos explaining principles about it.
+[01:34:43.100 --> 01:34:46.860]   Really, I honestly, honest to God, I bought this because I had like a whole bunch of
+[01:34:46.860 --> 01:34:51.780]   Amazon like gift credits from Black Friday that came in last month.
+[01:34:51.780 --> 01:34:55.500]   And I like to spend that those credits on like fun things.
+[01:34:55.500 --> 01:34:56.940]   I said, Oh, well, Rubik's Cube.
+[01:34:56.940 --> 01:34:57.940]   Haven't had one of those before.
+[01:34:57.940 --> 01:34:58.940]   I'll get one of these.
+[01:34:58.940 --> 01:35:04.260]   And now it's like all it's at least 5% of what I'm thinking about over the course of
+[01:35:04.260 --> 01:35:05.260]   any given week.
+[01:35:05.260 --> 01:35:09.660]   It is it is quite addictive and no batteries required.
+[01:35:09.660 --> 01:35:12.540]   Alex, how about a pick from you, sir?
+[01:35:12.540 --> 01:35:14.540]   I got some new head for my wallet ready.
+[01:35:14.540 --> 01:35:15.540]   Uh oh.
+[01:35:15.540 --> 01:35:16.540]   So I got these.
+[01:35:16.540 --> 01:35:19.460]   These are just getting released today, I think.
+[01:35:19.460 --> 01:35:22.220]   Oh, to me to take a look at it must be so good.
+[01:35:22.220 --> 01:35:23.620]   They're they're pretty nifty.
+[01:35:23.620 --> 01:35:25.620]   This is a surge 3D.
+[01:35:25.620 --> 01:35:31.940]   And so they've got kind of a pseudo 7.1 surround sound.
+[01:35:31.940 --> 01:35:32.940]   And so these are.
+[01:35:32.940 --> 01:35:34.740]   This was in indiegogo.
+[01:35:34.740 --> 01:35:40.140]   India in India, go go and they are right now, I think for the next month, they're like
+[01:35:40.140 --> 01:35:46.540]   $89 or something like that and they're amazing, you know, at that price.
+[01:35:46.540 --> 01:35:51.820]   And and I think that, you know, basically they have this kind of it really is the most
+[01:35:51.820 --> 01:35:55.300]   immersive that I've put headphones I put on to watch movies.
+[01:35:55.300 --> 01:35:56.300]   That's how I tested it.
+[01:35:56.300 --> 01:36:00.700]   I put it on and I watched live die repeat or dead die, live repeat or whatever that that
+[01:36:00.700 --> 01:36:04.420]   and that surround sound happens to be really good and I happen to know it because I've
+[01:36:04.420 --> 01:36:05.860]   got a system in my house.
+[01:36:05.860 --> 01:36:10.020]   And so it's one of the ones that I kind of tested on that and saving prior Ryan.
+[01:36:10.020 --> 01:36:16.300]   And it just really feels I suddenly realized how much I was losing on the plane with my
+[01:36:16.300 --> 01:36:19.060]   AirPods, you know, just watching movies.
+[01:36:19.060 --> 01:36:21.500]   It just it feels like it's all around you.
+[01:36:21.500 --> 01:36:24.380]   And one of the things that they added, I thought that that was actually pretty useful.
+[01:36:24.380 --> 01:36:25.380]   They've got wired.
+[01:36:25.380 --> 01:36:32.020]   It's got Bluetooth and they also have a little, you know, can noise canceling microphone that
+[01:36:32.020 --> 01:36:34.180]   you can attach to it, but you don't have to keep it on there.
+[01:36:34.180 --> 01:36:38.540]   And what's nice about that is you don't have to take it out and you know, take off your
+[01:36:38.540 --> 01:36:40.500]   headphones to answer the phone.
+[01:36:40.500 --> 01:36:43.620]   You can just you can simply just if a phone call comes in, you can actually answer the
+[01:36:43.620 --> 01:36:45.260]   phone with it.
+[01:36:45.260 --> 01:36:49.100]   It's not I don't think that the audio I tested it.
+[01:36:49.100 --> 01:36:50.380]   I called some friends.
+[01:36:50.380 --> 01:36:54.340]   I called my my Uber tester Fred, Fred, if you're listening.
+[01:36:54.340 --> 01:36:58.060]   And we all decided that it's not as good as the AirPods as far as the quality of the
+[01:36:58.060 --> 01:37:02.900]   audio, but it's still much better than me having to put nice over the head over the
+[01:37:02.900 --> 01:37:07.780]   ear headphones on and then have to change them out when I want to talk on the phone.
+[01:37:07.780 --> 01:37:10.780]   And it works perfectly for me.
+[01:37:10.780 --> 01:37:16.420]   And so anyway, so it's it's a I thought that I think that I mean, I don't think you can
+[01:37:16.420 --> 01:37:20.420]   find better headphones at $89 than these ones.
+[01:37:20.420 --> 01:37:25.140]   And even I think that I probably more tempted to listen to these than my bows.
+[01:37:25.140 --> 01:37:29.860]   So so they're really, really good, good value right now.
+[01:37:29.860 --> 01:37:32.700]   And and it just a really, really good sound.
+[01:37:32.700 --> 01:37:36.900]   And I haven't had over the I admit, I don't use the I have any year almost all the time
+[01:37:36.900 --> 01:37:42.380]   because I don't like to travel with over the I don't like to use up the space in my backpack,
+[01:37:42.380 --> 01:37:46.660]   but I'm actually now taking these along with on flights because I suddenly realized what
+[01:37:46.660 --> 01:37:47.660]   I was missing.
+[01:37:47.660 --> 01:37:52.220]   I was like, oh, it is a lot nicer when they're over your years.
+[01:37:52.220 --> 01:37:56.260]   And and again, it it you can also control the movie with the headphones.
+[01:37:56.260 --> 01:38:00.700]   So if you have it sitting out there, you can tap on it and you can answer calls and other
+[01:38:00.700 --> 01:38:06.180]   things with the little bit more control than you actually have on your on your AirPods.
+[01:38:06.180 --> 01:38:10.220]   So it's slick, slick headset.
+[01:38:10.220 --> 01:38:13.380]   And again, I think it's an incredible value right now.
+[01:38:13.380 --> 01:38:17.820]   So if you're if you're interested in over the head, they're really into the the cushion.
+[01:38:17.820 --> 01:38:18.820]   It is very comfortable.
+[01:38:18.820 --> 01:38:23.540]   I had it on for hours and didn't realize that just forgot that they were on and just kind
+[01:38:23.540 --> 01:38:26.060]   of was doing my thing and suddenly realized I had headphones on.
+[01:38:26.060 --> 01:38:27.780]   There, Andy, go started today.
+[01:38:27.780 --> 01:38:28.780]   It looks like.
+[01:38:28.780 --> 01:38:29.780]   Yeah, it's awesome.
+[01:38:29.780 --> 01:38:34.220]   Can I can I tell you how much I agree with you on that point where there there was a
+[01:38:34.220 --> 01:38:38.580]   rare time when I was on a train and I decided to just toss my regular headphones like in
+[01:38:38.580 --> 01:38:39.580]   a bag.
+[01:38:39.580 --> 01:38:45.140]   And only then did I realize that, wow, I keep wearing these in ear in phones, earphones
+[01:38:45.140 --> 01:38:49.820]   for convenience, but my goodness, the sound, the music is so much nicer and the movies
+[01:38:49.820 --> 01:38:51.500]   are so much nicer.
+[01:38:51.500 --> 01:38:55.340]   And I don't have to like after two hours, I don't have to like unplug one year and give
+[01:38:55.340 --> 01:38:58.460]   it a rest because it's starting to like sort of nudge on me.
+[01:38:58.460 --> 01:39:02.100]   And so that's why that's why that's what finally got me to buy like one of these hard
+[01:39:02.100 --> 01:39:07.020]   cases for my headphones because I want to now have the option of taking these.
+[01:39:07.020 --> 01:39:13.460]   I had no idea how much joy I was denying myself by not taking like real headphones
+[01:39:13.460 --> 01:39:14.460]   with me when I travel.
+[01:39:14.460 --> 01:39:15.460]   Yeah.
+[01:39:15.460 --> 01:39:16.460]   Yeah.
+[01:39:16.460 --> 01:39:19.500]   No, it's definitely something that I hadn't haven't had it for a long time.
+[01:39:19.500 --> 01:39:22.500]   You know, I kept on buying bows and losing them somewhere and then I didn't like to pack
+[01:39:22.500 --> 01:39:23.700]   them and everything else.
+[01:39:23.700 --> 01:39:26.380]   And so I was being too utilitarian.
+[01:39:26.380 --> 01:39:31.220]   And when they when I saw these go by, I ping them and they they sent again, they sent me
+[01:39:31.220 --> 01:39:35.580]   some and I suddenly realized, Oh my goodness, I am going to use these a lot.
+[01:39:35.580 --> 01:39:40.380]   I like to see an indie go go where they actually have made some as opposed to exactly many
+[01:39:40.380 --> 01:39:41.380]   indie go goes.
+[01:39:41.380 --> 01:39:44.260]   I've invested in where they never did make any.
+[01:39:44.260 --> 01:39:46.820]   Yeah, they made them and they work.
+[01:39:46.820 --> 01:39:49.740]   Renee Richie, your pick of the week, my friend.
+[01:39:49.740 --> 01:39:50.740]   Yeah.
+[01:39:50.740 --> 01:39:54.180]   So my pick of the week is something that I have been wanting to do for a while.
+[01:39:54.180 --> 01:39:59.340]   And that was to take my YouTube videos from 16 by nine to 2.2 by one because that better
+[01:39:59.340 --> 01:40:04.700]   suits the aspect ratio of iPhone 10, Galaxy S, you know, all the new flagship phones are
+[01:40:04.700 --> 01:40:05.700]   big and tall.
+[01:40:05.700 --> 01:40:10.580]   You know, Sony is ridiculously so now, but the 16 by nine, we're just putting too much
+[01:40:10.580 --> 01:40:12.460]   pillar box on the side.
+[01:40:12.460 --> 01:40:13.460]   So I wasn't sure how to do it.
+[01:40:13.460 --> 01:40:18.060]   I asked Jonathan Morrison, who's a really well known, really beautiful YouTuber makes
+[01:40:18.060 --> 01:40:22.060]   absolutely gorgeous videos and he convinced Mark as Brownlee to do it.
+[01:40:22.060 --> 01:40:23.380]   So I asked his advice.
+[01:40:23.380 --> 01:40:24.740]   I've been working on it for a while.
+[01:40:24.740 --> 01:40:28.700]   I finally have a workflow that I really liked and I was starting to get asked about it.
+[01:40:28.700 --> 01:40:34.740]   So I decided to make a tutorial that shows how you get your footage in, how you, you
+[01:40:34.740 --> 01:40:37.740]   know, I still shoot in 16 by nine because I want the extra pixels.
+[01:40:37.740 --> 01:40:42.620]   I don't want to throw them away, but this shows you how to get the two by one project,
+[01:40:42.620 --> 01:40:46.260]   how to fill it out so that you don't have the pillar boxes, how to adjust it if you
+[01:40:46.260 --> 01:40:51.220]   need to, how to deal with legacy plugins that aren't shaped for two by one that are
+[01:40:51.220 --> 01:40:52.220]   still 16 by nine.
+[01:40:52.220 --> 01:40:57.900]   So they stop short of the edges, different ways to fix those and also just little tips
+[01:40:57.900 --> 01:41:02.340]   and Jonathan was nice enough to add some tips of his own towards the end of the video.
+[01:41:02.340 --> 01:41:09.100]   So if you use Final Cut Pro and you're at all interested in two by one, two colon one,
+[01:41:09.100 --> 01:41:14.340]   two aspect ratio one video, then this will walk you through the entire process from
+[01:41:14.340 --> 01:41:15.340]   beginning to end.
+[01:41:15.340 --> 01:41:18.540]   I'm just so glad you're not talking about one by two.
+[01:41:18.540 --> 01:41:19.940]   No, no.
+[01:41:19.940 --> 01:41:22.220]   And shout out to Judd who's there in that video.
+[01:41:22.220 --> 01:41:25.500]   He does all the awesome video stuff at Apple.
+[01:41:25.500 --> 01:41:30.260]   We get that request and you're just like, the only thing worse than one by two is one by
+[01:41:30.260 --> 01:41:31.260]   one.
+[01:41:31.260 --> 01:41:34.740]   What is one by two?
+[01:41:34.740 --> 01:41:36.220]   What would that even look like?
+[01:41:36.220 --> 01:41:37.860]   It's not really one by two.
+[01:41:37.860 --> 01:41:41.980]   It's nine by nine by sixteen.
+[01:41:41.980 --> 01:41:46.460]   It's like the vertical for Instagram and snap and everything else.
+[01:41:46.460 --> 01:41:49.420]   People want to do videos long and Instagram was square.
+[01:41:49.420 --> 01:41:53.220]   Here's what I would say is that it actually, if you're talking, if you're just a talking
+[01:41:53.220 --> 01:41:54.740]   head, it actually works better.
+[01:41:54.740 --> 01:41:58.140]   I will admit, if you're just talking head, someone's going to watch that look at their
+[01:41:58.140 --> 01:41:59.940]   phone and you're not one by two is better.
+[01:41:59.940 --> 01:42:00.940]   One by two is better.
+[01:42:00.940 --> 01:42:01.940]   Oh, that's vertical video.
+[01:42:01.940 --> 01:42:02.940]   Of course.
+[01:42:02.940 --> 01:42:05.620]   Your vertical video is better when you're just a person talking to other people.
+[01:42:05.620 --> 01:42:06.620]   It looks better.
+[01:42:06.620 --> 01:42:07.620]   It's better for them.
+[01:42:07.620 --> 01:42:10.020]   As soon as you want to show them anything, it becomes really.
+[01:42:10.020 --> 01:42:11.020]   Yes.
+[01:42:11.020 --> 01:42:12.020]   Not great.
+[01:42:12.020 --> 01:42:14.420]   Anyway, that's great.
+[01:42:14.420 --> 01:42:15.940]   I didn't think about that.
+[01:42:15.940 --> 01:42:19.500]   You take into account the notch.
+[01:42:19.500 --> 01:42:22.100]   Is that kind of like you think about what the dead space is?
+[01:42:22.100 --> 01:42:23.100]   Yeah.
+[01:42:23.100 --> 01:42:25.660]   By default, it won't go to the notch.
+[01:42:25.660 --> 01:42:28.700]   It stops just sort of the notch with two by one, which is what's nice about it.
+[01:42:28.700 --> 01:42:31.180]   If you double tap, it will cut off a bit of the top and bottom.
+[01:42:31.180 --> 01:42:34.820]   I make sure to leave space for that and to make sure none of the lower thirds touch on
+[01:42:34.820 --> 01:42:35.820]   that.
+[01:42:35.820 --> 01:42:37.700]   Then I leave everything out of the size.
+[01:42:37.700 --> 01:42:38.700]   Just in case.
+[01:42:38.700 --> 01:42:42.780]   I'm sure you can have fun with it, like patrol eyes or hair on it or something if you're
+[01:42:42.780 --> 01:42:46.100]   smart enough, but I just avoid it entirely.
+[01:42:46.100 --> 01:42:49.780]   Actually everybody's complaining about the hole punch on the galaxy.
+[01:42:49.780 --> 01:42:51.620]   Oh, but the wallpapers are so good.
+[01:42:51.620 --> 01:42:55.380]   They put like minion goggles on it and the wallpapers are amazing.
+[01:42:55.380 --> 01:42:56.380]   They're having fun.
+[01:42:56.380 --> 01:43:02.860]   Actually, I saw one that took a sideways iPhone 10s because that not the hole punch.
+[01:43:02.860 --> 01:43:03.860]   Yeah.
+[01:43:03.860 --> 01:43:05.260]   It's about the same as the camera.
+[01:43:05.260 --> 01:43:09.820]   So the wallpaper has at the top an iPhone with a hole punch where the camera would be.
+[01:43:09.820 --> 01:43:11.260]   Yeah, that's a problem.
+[01:43:11.260 --> 01:43:14.540]   If you're trying to watch video, play a game or anything, that hole punch is a notch seems
+[01:43:14.540 --> 01:43:17.300]   a little bit better actually than a hole punch in that regard.
+[01:43:17.300 --> 01:43:19.940]   They're all, I mean, we're all, they're all, we're just fighting time until we get the
+[01:43:19.940 --> 01:43:21.940]   sub screen technology.
+[01:43:21.940 --> 01:43:24.820]   So do you, is everything in vector now two by one?
+[01:43:24.820 --> 01:43:26.460]   Yeah, it's all two by one.
+[01:43:26.460 --> 01:43:27.620]   Now I'm super happy with it.
+[01:43:27.620 --> 01:43:29.220]   I mean, YouTube supports it natively.
+[01:43:29.220 --> 01:43:31.420]   Final Cut Pro has native projects for it.
+[01:43:31.420 --> 01:43:32.900]   There's a couple workarounds.
+[01:43:32.900 --> 01:43:36.460]   I said like with the legacy plugins, if you know motion, you can just edit them in motion.
+[01:43:36.460 --> 01:43:39.340]   Otherwise you can make them a compound clip, but I've been very happy.
+[01:43:39.340 --> 01:43:43.300]   And it looked, it just, even Netflix, apparently Netflix is doing their new shows in two by
+[01:43:43.300 --> 01:43:46.220]   one like stranger things and it's just, I think it's going to catch on.
+[01:43:46.220 --> 01:43:47.220]   Oh, I did notice that.
+[01:43:47.220 --> 01:43:48.220]   It's like a sweet spot.
+[01:43:48.220 --> 01:43:49.220]   Yeah.
+[01:43:49.220 --> 01:43:52.460]   No, I thought that's kind of weird on my TV.
+[01:43:52.460 --> 01:43:53.620]   It's got bars, right?
+[01:43:53.620 --> 01:43:58.260]   Cause your TV is more like two point, we get a lot of movies like two, three, five with
+[01:43:58.260 --> 01:44:01.460]   the nine, that's even more dramatic.
+[01:44:01.460 --> 01:44:05.740]   This is sort of like between two, three, five and and 16, my nine.
+[01:44:05.740 --> 01:44:10.300]   Renee Richie's vector is at imore.com slash vector is writing is that I'm more you must
+[01:44:10.300 --> 01:44:11.660]   follow him.
+[01:44:11.660 --> 01:44:16.260]   And of course that's where his article on how to make two by one with final cut pro
+[01:44:16.260 --> 01:44:18.860]   10 is thank you, Renee for being here.
+[01:44:18.860 --> 01:44:19.860]   I really appreciate it.
+[01:44:19.860 --> 01:44:20.860]   Always great to have you.
+[01:44:20.860 --> 01:44:23.540]   Alex Lindsey, you can follow him on the Twitter.
+[01:44:23.540 --> 01:44:30.900]   He's the pixel guy, the man from the pixel core, a L E X L I N D S A Y. Anything coming
+[01:44:30.900 --> 01:44:31.900]   up?
+[01:44:31.900 --> 01:44:33.700]   Nope.
+[01:44:33.700 --> 01:44:39.060]   And then other than other than me complaining about the Oscars, I think that was my on
+[01:44:39.060 --> 01:44:40.060]   Twitter.
+[01:44:40.060 --> 01:44:43.980]   Well, you saw that Steven Spielberg said, I don't think we should ever nominate anything
+[01:44:43.980 --> 01:44:47.660]   that didn't show cinematically in a theater.
+[01:44:47.660 --> 01:44:48.660]   That's exactly what I'm talking about.
+[01:44:48.660 --> 01:44:52.580]   He wanted to change the rules so that Roma could not have been nominated.
+[01:44:52.580 --> 01:44:53.860]   And I think he's so wrong.
+[01:44:53.860 --> 01:44:59.460]   I think the bottom line is that most of the viable movies that for Oscars in 10 years are
+[01:44:59.460 --> 01:45:03.220]   going to be all Netflix and everything else because no one's going to make movie.
+[01:45:03.220 --> 01:45:06.500]   No one's going to make that kind of movie for big screens.
+[01:45:06.500 --> 01:45:08.700]   Big screens are going to become events.
+[01:45:08.700 --> 01:45:10.420]   Spielberg says that's not movie.
+[01:45:10.420 --> 01:45:12.620]   That's made for TV.
+[01:45:12.620 --> 01:45:15.820]   And that's because of course his first big movie was made for TV.
+[01:45:15.820 --> 01:45:20.540]   And that's not the same made for TV back then is not the same as Netflix today.
+[01:45:20.540 --> 01:45:25.860]   Yeah, it would be an awful awful thing if everybody who watches the Oscars had seen
+[01:45:25.860 --> 01:45:30.780]   every single movie, including the documentary features that are nominated because the last
+[01:45:30.780 --> 01:45:34.260]   thing we want is for people to be actually have an emotional investment in who wins.
+[01:45:34.260 --> 01:45:37.300]   It's a very, very good point.
+[01:45:37.300 --> 01:45:40.380]   The danger comes back to Hollywood.
+[01:45:40.380 --> 01:45:44.980]   If Hollywood actually did that, the smart thing to do would be to create another award
+[01:45:44.980 --> 01:45:45.980]   of the streamies.
+[01:45:45.980 --> 01:45:46.980]   Yes.
+[01:45:46.980 --> 01:45:49.540]   And then just, well, I wouldn't take the ones that already exist.
+[01:45:49.540 --> 01:45:53.740]   I'd just build one and redesign it for the online audience and recreate something.
+[01:45:53.740 --> 01:45:56.660]   And within 10 years again, it would be no one would pay attention to the Oscars.
+[01:45:56.660 --> 01:45:59.060]   Well, this is where the Golden Globes has a little bit of advantage because they do
+[01:45:59.060 --> 01:46:01.420]   TV, they do movies, they do whatever they want.
+[01:46:01.420 --> 01:46:02.420]   Right.
+[01:46:02.420 --> 01:46:04.220]   And I think it's actually a more representative.
+[01:46:04.220 --> 01:46:08.740]   It's ridiculous to say, oh, we'll only give an award to poetry written in blank first.
+[01:46:08.740 --> 01:46:10.980]   If it rhymes, well, we just can't have it.
+[01:46:10.980 --> 01:46:15.020]   Yeah, if it's not, yeah, a big contaminant or nothing.
+[01:46:15.020 --> 01:46:17.020]   And that's, you know, that's just not art.
+[01:46:17.020 --> 01:46:19.180]   It doesn't depend on the medium.
+[01:46:19.180 --> 01:46:20.180]   Art is art.
+[01:46:20.180 --> 01:46:23.780]   Folks that are very connected to the old film school and then 2398 and all that other stuff
+[01:46:23.780 --> 01:46:25.380]   is all, you know, they're just hanging on.
+[01:46:25.380 --> 01:46:26.700]   As best they can.
+[01:46:26.700 --> 01:46:30.340]   I thought Roma was easily the most amazing movie of the year.
+[01:46:30.340 --> 01:46:31.340]   Oh, good.
+[01:46:31.340 --> 01:46:32.340]   Really loved Ramona.
+[01:46:32.340 --> 01:46:33.340]   Haven't seen it yet.
+[01:46:33.340 --> 01:46:34.340]   It's shot.
+[01:46:34.340 --> 01:46:36.860]   In fact, I was meaning to ask you about it.
+[01:46:36.860 --> 01:46:39.740]   It's shot in digital black and white.
+[01:46:39.740 --> 01:46:40.740]   They're using.
+[01:46:40.740 --> 01:46:42.540]   What is it?
+[01:46:42.540 --> 01:46:46.460]   Alexa 65 camera, which is an airy digital camera.
+[01:46:46.460 --> 01:46:47.460]   Everybody uses the Alexa.
+[01:46:47.460 --> 01:46:48.460]   Yeah.
+[01:46:48.460 --> 01:46:49.460]   Camera.
+[01:46:49.460 --> 01:46:50.460]   Yeah.
+[01:46:50.460 --> 01:46:51.820]   I think in fact, stranger things is shot on it.
+[01:46:51.820 --> 01:46:55.180]   But the black and white is beautiful.
+[01:46:55.180 --> 01:46:57.580]   The tonal range, the quality is amazing.
+[01:46:57.580 --> 01:46:59.220]   There's a milky HDR.
+[01:46:59.220 --> 01:47:04.740]   There is a milky kind of smoothness that the Alexa has that there's no other camera that
+[01:47:04.740 --> 01:47:06.460]   I've shot on.
+[01:47:06.460 --> 01:47:09.900]   My brother is an Alexa knob.
+[01:47:09.900 --> 01:47:13.900]   He mostly does really high end work.
+[01:47:13.900 --> 01:47:16.340]   So he's just like, oh, he just uses Alexa.
+[01:47:16.340 --> 01:47:19.660]   And I give him a hard time because I use my black magic cameras and everything else.
+[01:47:19.660 --> 01:47:23.540]   But I will admit that there is a in good lighting.
+[01:47:23.540 --> 01:47:32.540]   I don't see much difference between my black magic miniseries and his but in movie filmmaking.
+[01:47:32.540 --> 01:47:35.100]   Oh, yeah.
+[01:47:35.100 --> 01:47:36.100]   Yeah.
+[01:47:36.100 --> 01:47:37.100]   I can't call it the Alleoshia.
+[01:47:37.100 --> 01:47:38.100]   It's a camera.
+[01:47:38.100 --> 01:47:39.100]   It's a camera.
+[01:47:39.100 --> 01:47:40.100]   I'm not going to.
+[01:47:40.100 --> 01:47:41.100]   Sorry.
+[01:47:41.100 --> 01:47:42.100]   Anyway, sorry.
+[01:47:42.100 --> 01:47:43.100]   What can I do?
+[01:47:43.100 --> 01:47:44.100]   I can't help you.
+[01:47:44.100 --> 01:47:45.100]   So anyway, the.
+[01:47:45.100 --> 01:47:48.100]   Anyway, so, so, so the.
+[01:47:48.100 --> 01:47:50.100]   I like, I like that.
+[01:47:50.100 --> 01:47:51.100]   It's just a gorgeous chip.
+[01:47:51.100 --> 01:47:52.900]   It's a, and they've taken over.
+[01:47:52.900 --> 01:47:53.980]   It's HDR black and white.
+[01:47:53.980 --> 01:47:54.980]   This roma, you got to watch it.
+[01:47:54.980 --> 01:47:56.540]   It's on an HDR screen.
+[01:47:56.540 --> 01:47:57.540]   It's incredible.
+[01:47:57.540 --> 01:47:58.540]   Yeah.
+[01:47:58.540 --> 01:48:00.780]   What the HDR is basically what they're doing is they're shooting the camp.
+[01:48:00.780 --> 01:48:04.700]   They're shooting the whole thing in what's called log, you know, an airy log is the thing.
+[01:48:04.700 --> 01:48:07.580]   You're shooting it log, which is a much wider gamut.
+[01:48:07.580 --> 01:48:10.060]   And then you convert that to HDR later.
+[01:48:10.060 --> 01:48:12.100]   So, and all films were kind of built that way.
+[01:48:12.100 --> 01:48:14.220]   That's why they all these old films can come out in HDR.
+[01:48:14.220 --> 01:48:15.220]   Right.
+[01:48:15.220 --> 01:48:18.940]   Is because they were all the film response was typically a log when it was scanned.
+[01:48:18.940 --> 01:48:20.220]   It was a log response.
+[01:48:20.220 --> 01:48:25.460]   And so, so that is the, so there you're just able to reconvert it back to PK 2020 and then
+[01:48:25.460 --> 01:48:26.860]   into Dolby vision or.
+[01:48:26.860 --> 01:48:30.460]   See, I knew I was the guy to ask.
+[01:48:30.460 --> 01:48:34.020]   The other thing is Quarron was his own DP.
+[01:48:34.020 --> 01:48:38.020]   My guess is he was 20, 20, by the way, he was carrying the Alexa 65 and shooting it.
+[01:48:38.020 --> 01:48:41.580]   So it's very cinema verite feeling, but he also does some very unusual framing.
+[01:48:41.580 --> 01:48:43.740]   You as a film, no, I want to see it.
+[01:48:43.740 --> 01:48:45.180]   I just haven't gotten my great.
+[01:48:45.180 --> 01:48:46.180]   Great.
+[01:48:46.180 --> 01:48:47.180]   Corn films.
+[01:48:47.180 --> 01:48:50.140]   I always have to kind of warm up to it like, no, I thought the same thing.
+[01:48:50.140 --> 01:48:56.460]   And by the way, the first shot is six minutes long and really slow and it's going to irk
+[01:48:56.460 --> 01:48:57.460]   you.
+[01:48:57.460 --> 01:48:59.580]   Well, and I then you're going to kind of get it once I get into it.
+[01:48:59.580 --> 01:49:06.220]   Like my wife was watching the girl with the dragon tattoo and I was like, oh, don't even
+[01:49:06.220 --> 01:49:09.940]   like the Swedish ones are so much better and like don't even bother with the American
+[01:49:09.940 --> 01:49:12.900]   versions because the Swedish ones and she was like, I don't want to watch all the subtitles
+[01:49:12.900 --> 01:49:13.900]   and then it's.
+[01:49:13.900 --> 01:49:14.900]   The Swedish ones were better.
+[01:49:14.900 --> 01:49:16.380]   And the problem is they're no longer on Netflix.
+[01:49:16.380 --> 01:49:19.900]   So you have to watch, you have to watch one on Voodoo and another one on this.
+[01:49:19.900 --> 01:49:22.380]   You have to like bounce around finding like it's like this little.
+[01:49:22.380 --> 01:49:23.540]   They were a tour to the book.
+[01:49:23.540 --> 01:49:28.620]   You have to go to Amazon Prime and you have to subscribe to the horror thing for $2 and
+[01:49:28.620 --> 01:49:30.700]   watch it and then immediately cancel it.
+[01:49:30.700 --> 01:49:34.500]   You know, just to watch the girl with the dragon tattoo, but it's they are infinitely
+[01:49:34.500 --> 01:49:36.500]   better than the American versions.
+[01:49:36.500 --> 01:49:37.500]   I agree.
+[01:49:37.500 --> 01:49:38.500]   Get in it.
+[01:49:38.500 --> 01:49:39.500]   Watch it on a high quality.
+[01:49:39.500 --> 01:49:43.660]   I watched it on my OLED HDR watch Roma and you know, on a high quality.
+[01:49:43.660 --> 01:49:44.660]   Oh, yeah.
+[01:49:44.660 --> 01:49:45.660]   I think you will really appreciate it.
+[01:49:45.660 --> 01:49:49.020]   And it's, and it's why I completely disagree with Steven Spielberg.
+[01:49:49.020 --> 01:49:51.900]   That movie was his artistic Zenny movie nominated this year.
+[01:49:51.900 --> 01:49:56.340]   It's rumored that they spent $150 million on promoting it to get the Oscars.
+[01:49:56.340 --> 01:49:57.340]   Yeah.
+[01:49:57.340 --> 01:49:58.340]   Yeah.
+[01:49:58.340 --> 01:50:00.500]   That's what Spielberg didn't like.
+[01:50:00.500 --> 01:50:06.020]   He said, these, these, these, I revet, you know, Doc commerce, they got too much money.
+[01:50:06.020 --> 01:50:11.500]   I mean, it was seen as like, it was seen as, as, as a bit goge when Miramax spent 25 million
+[01:50:11.500 --> 01:50:14.380]   promoting something, you know, as the, you know, now they're in a whole world.
+[01:50:14.380 --> 01:50:15.380]   Shakespeare in love.
+[01:50:15.380 --> 01:50:16.380]   Yes.
+[01:50:16.380 --> 01:50:17.380]   Oh, that's right.
+[01:50:17.380 --> 01:50:18.380]   But that was a great movie to serve to win.
+[01:50:18.380 --> 01:50:19.860]   Wait until the, wait until all the sports.
+[01:50:19.860 --> 01:50:21.260]   No, you're like Shakespeare in love.
+[01:50:21.260 --> 01:50:22.260]   I liked it.
+[01:50:22.260 --> 01:50:23.260]   Yeah.
+[01:50:23.260 --> 01:50:26.660]   Wait until you wait until all the sports contracts come up and the, the, the fang group just
+[01:50:26.660 --> 01:50:27.660]   takes them all.
+[01:50:27.660 --> 01:50:30.580]   You know, like, you know, they're broadcasters can't compete now.
+[01:50:30.580 --> 01:50:33.100]   Like they're out of their out of their league.
+[01:50:33.100 --> 01:50:34.100]   Yeah.
+[01:50:34.100 --> 01:50:35.100]   So the first one's the NFL in 2021.
+[01:50:35.100 --> 01:50:36.100]   Yeah.
+[01:50:36.100 --> 01:50:37.100]   Can't wait.
+[01:50:37.100 --> 01:50:38.100]   Oh, that's interesting popcorn, please.
+[01:50:38.100 --> 01:50:39.580]   Oh, that'll be really interesting.
+[01:50:39.580 --> 01:50:40.580]   Yeah.
+[01:50:40.580 --> 01:50:45.460]   Well, maybe you'll be able to finally see, see Bob's burgers at his appropriate time.
+[01:50:45.460 --> 01:50:53.020]   That's the way that's Andy and I go who catch him Friday's WGBH Boston, Boston public radio.
+[01:50:53.020 --> 01:50:56.860]   And of course, every Tuesday right here on Mac break weekly.
+[01:50:56.860 --> 01:50:57.940]   Thank you guys for being here.
+[01:50:57.940 --> 01:50:58.940]   We do Mac break weekly.
+[01:50:58.940 --> 01:51:01.860]   We're going to enter finally in the United States.
+[01:51:01.860 --> 01:51:04.740]   We're entering summertime on Sunday.
+[01:51:04.740 --> 01:51:11.500]   So we normally shoot this show at around 11 a.m. Pacific, 2 p.m. Eastern time.
+[01:51:11.500 --> 01:51:16.140]   That would be 1900 UTC, but starting next week, it'll be 1800 UTC.
+[01:51:16.140 --> 01:51:17.140]   Thank you.
+[01:51:17.140 --> 01:51:18.380]   My math is correct.
+[01:51:18.380 --> 01:51:24.620]   As we spring forward into daylight saving time as we call it here.
+[01:51:24.620 --> 01:51:25.620]   Oh, God.
+[01:51:25.620 --> 01:51:31.740]   God, I'm so ready for it still to be light out at 5 or 6 p.m.
+[01:51:31.740 --> 01:51:33.220]   I'm so ready for this.
+[01:51:33.220 --> 01:51:34.700]   This has been a very long winter.
+[01:51:34.700 --> 01:51:37.620]   It has been especially for you, Becky, Easton, you and Montreal.
+[01:51:37.620 --> 01:51:41.260]   You know, we keep on having all these people talk about, we keep on talking, having people
+[01:51:41.260 --> 01:51:47.260]   talk about like this whole like jobs and the green promise program, whatever in Congress
+[01:51:47.260 --> 01:51:50.380]   and all I want to hear about is how we're going to abolish daylight savings.
+[01:51:50.380 --> 01:51:51.900]   Did that pass in California?
+[01:51:51.900 --> 01:51:52.900]   It passed, right?
+[01:51:52.900 --> 01:51:54.140]   It opened the door to it.
+[01:51:54.140 --> 01:51:55.140]   It doesn't do anything.
+[01:51:55.140 --> 01:51:57.660]   It's been a bit of passed.
+[01:51:57.660 --> 01:51:59.100]   We're going to change the clocks on Sunday.
+[01:51:59.100 --> 01:52:01.860]   Don't forget, we'll be at a different time.
+[01:52:01.860 --> 01:52:03.780]   I don't know what spring forward.
+[01:52:03.780 --> 01:52:05.780]   We'll be an hour earlier.
+[01:52:05.780 --> 01:52:07.300]   No, taking an hour away from us.
+[01:52:07.300 --> 01:52:08.800]   Yes.
+[01:52:08.800 --> 01:52:11.900]   Just make sure you watch YouTube has a live stream, Twitch.
+[01:52:11.900 --> 01:52:16.540]   Actually, the best thing to do is go to twitter.tv/live and you can choose your favorite live video
+[01:52:16.540 --> 01:52:17.540]   or audio.
+[01:52:17.540 --> 01:52:18.700]   We have two audio streams as well.
+[01:52:18.700 --> 01:52:19.700]   Listen and watch.
+[01:52:19.700 --> 01:52:21.940]   If you do that, if you're doing it live, go to the chat room.
+[01:52:21.940 --> 01:52:24.500]   They're live also IRC.twit.tv.
+[01:52:24.500 --> 01:52:26.060]   That's the truth conversation.
+[01:52:26.060 --> 01:52:28.780]   Alex was talking about.
+[01:52:28.780 --> 01:52:33.060]   You can watch on demand too and pretend you're watching live, but that way it could fit into
+[01:52:33.060 --> 01:52:35.300]   your busy life.
+[01:52:35.300 --> 01:52:41.180]   And you can get our show at the website, twitter.tv/m, B-W-audio or video.
+[01:52:41.180 --> 01:52:45.060]   Best thing to do, we find your favorite podcast application and subscribe.
+[01:52:45.060 --> 01:52:49.940]   We're everywhere because we're one of the oldest podcasts in the world, one of the longest
+[01:52:49.940 --> 01:52:52.300]   running in the world.
+[01:52:52.300 --> 01:52:53.300]   Thanks for being here.
+[01:52:53.300 --> 01:52:54.300]   We'll see you next time.
+[01:52:54.300 --> 01:52:56.980]   You gotta get back to work because break time is over.
+[01:52:57.100 --> 01:53:07.060]   [Music]
+
