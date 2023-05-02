@@ -1,4 +1,4 @@
-# twit-transcripts
+# Twit-transcripts
 
 Whisper AI created transcripts for TWiT network podcasts.
 
@@ -20,9 +20,9 @@ I'm also posting some of the scripts I used to transcribe in case you wanted to 
 
 To make it manageable, I've transcribed using Whisper's "base" model. For me, it was the best balance between accuracy and performance. I ran tests of the medium vs base, and while medium was marginally better, for my purposes, it didn't warrant the performance hit. (I couldn't get the medium model to work with Core ML yet.) But what this means is that the transcripts aren't perfect. It messes up names and abbreviations. If there was music, a sound clip being played, or lots of people talking at once, that part of the transcript may be a little wonky.
 
-It doesn't do diarization (yet). So, it doesn't distinguish who is saying what. I hope to incorporate this soon, but the diarization in whispercpp (and whisper in general) is broken. There are some agglomerative clustering hacks some people have pulled off, and Nvidia has its proprietary NeMo tools that may be able to help. For now, I am focusing on transcribing all of the shows.
+It doesn't do diarization (yet). So, it doesn't distinguish who is saying what. I hope to incorporate this soon, but the diarization in whispercpp (and whisper in general) is broken. There are some agglomerative clustering hacks some people have pulled off, and Nvidia has its proprietary NeMo tools that may be able to help. For now, I am focusing on transcribing all the shows.
 
-Since I don't have access to the original .wav format, which is required by whispercpp to work, I had to convert all of the lossy mp3s into "lossless" wav. This probably impacts the quality of the transcription, but without having the original .wavs, it's the best I can do.
+Since I don't have access to the original .wav format, which is required by whispercpp to work, I had to convert all the lossy mp3s into "lossless" wav. This probably impacts the quality of the transcription, but without having the original .wavs, it's the best I can do.
 
 ## TO-DO
 
