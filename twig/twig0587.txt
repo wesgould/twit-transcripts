@@ -1,0 +1,1738 @@
+;FFMETADATA1
+title=Counsel of Open Source Poobahs
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=587
+genre=Podcast
+comment=https://twit.tv/twig
+copyright=These podcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2020
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:02.800]   Coming up on this week in Google, Leo Laport is out.
+[00:00:02.800 --> 00:00:07.440]   I'm in Jason Howell also joining me, Jeff Jarvis, Stacy Higginbotham and Ant Pruitt.
+[00:00:07.440 --> 00:00:13.440]   We've got a lot to talk about today. RCS getting end-to-end encryption, social media companies,
+[00:00:13.440 --> 00:00:18.320]   and the fact that they're all kind of blurring together at this point, TikTok, and the fan-generated
+[00:00:18.320 --> 00:00:24.960]   Ratatouille musical. So awesome. Also, Google's project guideline that actually enables the blind
+[00:00:24.960 --> 00:00:31.440]   to run in marathons and so much more next on this week in Google. This week in Google is brought to
+[00:00:31.440 --> 00:00:37.280]   you from LastPass Studios. Securing every access point in your company doesn't have to be a challenge.
+[00:00:37.280 --> 00:00:42.960]   LastPass unifies access and authentication to make securing your employees simple and secure,
+[00:00:42.960 --> 00:00:47.600]   even when they're working remotely. Check out lasspass.com/twit to learn more.
+[00:00:48.080 --> 00:00:50.080]   [Music]
+[00:00:50.080 --> 00:00:55.840]   Podcasts you love. From people you trust. This is Twig.
+[00:00:55.840 --> 00:01:08.240]   This is Twig. This week in Google, episode 587, recorded on Wednesday, November 25th, 2020.
+[00:01:08.240 --> 00:01:14.400]   Council of open-source PUBAS. This week in Google is brought to you by Linode. Simplify your cloud
+[00:01:14.400 --> 00:01:19.680]   infrastructure with Linode's Linux virtual machines and develop, deploy, and scale your modern
+[00:01:19.680 --> 00:01:26.240]   applications faster and easier. Get $100 in free credit when you create your account today at
+[00:01:26.240 --> 00:01:36.880]   linode.com/twig or text Twig to 474747 for direct link to the offer. And by Technology Powers X,
+[00:01:36.880 --> 00:01:41.760]   learn how technology and IT departments are reshaping their businesses through an original
+[00:01:41.760 --> 00:01:48.240]   podcast from Dell Technologies. Search for Technology Powers X anywhere you listen to podcasts and
+[00:01:48.240 --> 00:01:54.640]   download each episode today. And by bandwidth. Easily add voice calling, text messaging,
+[00:01:54.640 --> 00:02:00.560]   and emergency calling to your platform. Backed by the power of a fully owned and operated Tier 1
+[00:02:00.560 --> 00:02:09.280]   Carrier Network. Start a free trial at bandwidth.com/twig. It's time for this week in Google. I'm Jason
+[00:02:09.280 --> 00:02:16.800]   Howell sitting in for Leo who finally got some time away from Twig. I think Leo's been working
+[00:02:16.800 --> 00:02:22.720]   solid ever since lockdown. And actually that would make sense because I think the last time I was
+[00:02:22.720 --> 00:02:30.000]   here for Leo, I think was last was just in January. So I'm not sure Leo's been gone anytime since. So
+[00:02:30.000 --> 00:02:34.720]   happy that Leo finally got a chance to get away and take a little break. And I'm happy to sit in
+[00:02:34.720 --> 00:02:43.920]   for him. Joining me today as usual, as always on this show, Jeff Jarvis Buzzmachine.com. How you doing,
+[00:02:43.920 --> 00:02:50.160]   Jeff? I'm good. I'm good. Good to see you, Jason. It has been too long. It has been. Yes, indeed.
+[00:02:50.160 --> 00:02:52.880]   Yeah, it's great to see you. We like we all here, but we also like you here.
+[00:02:52.880 --> 00:02:58.720]   Thank you. I always look forward to hopping on this week in Google with you guys. So I appreciate
+[00:02:58.720 --> 00:03:04.800]   that. Thank you. It's good to see you. Also joining us from his home studio and Pruitt. How you doing,
+[00:03:04.800 --> 00:03:13.120]   Matt? Unbelievable, Mr. How are you, B, sir? Good. I'm realizing how like symmetrical you're the color
+[00:03:13.120 --> 00:03:18.560]   coloring of your shot is like the nice blue that like it's almost like it interplays with your
+[00:03:18.560 --> 00:03:26.640]   lower third seamless. I may have thought this through. You're good. Me, I just like
+[00:03:27.280 --> 00:03:31.280]   looked in my bedroom when all this stuff happened and went, well, I guess that's the corner.
+[00:03:31.280 --> 00:03:35.120]   Let's see what we could do and hung up a couple of pictures and that was it. So
+[00:03:35.120 --> 00:03:38.560]   I like what you've done just a little bit better than what I've done.
+[00:03:38.560 --> 00:03:46.800]   I'm a good sir. And also joining us, Stacey Higginbotham, Stacey on IOT.com. What's up, Stacey?
+[00:03:46.800 --> 00:03:52.320]   Hello, everyone. And hello, Jason. So good to have you. Well, I feel like you've been in since
+[00:03:53.440 --> 00:03:59.120]   it's yeah. Since then, I mean, well, this has just been a weird year, right? So it's kind of,
+[00:03:59.120 --> 00:04:04.640]   it's like, at least for me, I've lost track of time. Like, Jason, it's been a weird decade.
+[00:04:04.640 --> 00:04:11.440]   Since March, it's been a weird decade. Yeah, this year feels like a decade. You're right.
+[00:04:11.440 --> 00:04:18.160]   Unbelievable. So yeah, it's great to be here and great to see all three of you.
+[00:04:18.160 --> 00:04:21.920]   So let's see that you get brain freeze from snarfing down that ice cream sandwich too fast.
+[00:04:22.560 --> 00:04:28.320]   I did not because it was modestly sized and perfect. And I'm coming. This is going to be
+[00:04:28.320 --> 00:04:33.120]   unusual, you guys. I have a story that I think we should start off with today.
+[00:04:33.120 --> 00:04:38.960]   I love it. Oh, I love it when you all arrive and you're like, this is what we need to talk about.
+[00:04:38.960 --> 00:04:41.920]   I have a favorite story after that too. Wait, wait, wait, wait, wait, wait,
+[00:04:41.920 --> 00:04:45.040]   why aren't we making this so easy for Mr. Howe? No, please.
+[00:04:45.040 --> 00:04:49.840]   Come on, man. We can't mess with Jason.
+[00:04:50.240 --> 00:04:52.720]   We do a guest as to what Stacy's favorite story is.
+[00:04:52.720 --> 00:04:55.440]   Echo buzz.
+[00:04:55.440 --> 00:04:56.800]   Is it? Nope.
+[00:04:56.800 --> 00:04:58.080]   Okay.
+[00:04:58.080 --> 00:05:04.080]   What is it? Jeff, you want to go for it?
+[00:05:04.080 --> 00:05:08.400]   Well, let's do some questions. Is it a Google related story?
+[00:05:08.400 --> 00:05:12.320]   Um, not only tangentially.
+[00:05:12.320 --> 00:05:14.880]   Oh, that's harder than that.
+[00:05:15.920 --> 00:05:20.640]   Animal, maybe it's the chromium project opening up. It's open source.
+[00:05:20.640 --> 00:05:25.280]   Y'all know it's AWS is down in like half the internet is broken.
+[00:05:25.280 --> 00:05:27.200]   Oh, oh, yeah.
+[00:05:27.200 --> 00:05:32.880]   But it's a certain node, right? I think Mr.
+[00:05:32.880 --> 00:05:34.960]   Jim Rb was talking about that this morning.
+[00:05:34.960 --> 00:05:41.120]   Yeah, it's US East. It's the one that always goes down. It's their Virginia Data Center,
+[00:05:41.120 --> 00:05:46.800]   but it's affecting services like I went to watch a workout video in my halo.
+[00:05:46.800 --> 00:05:49.920]   Nope. I went to check my ring doorbell. No.
+[00:05:49.920 --> 00:05:55.600]   What would I go to to see if it's up down here?
+[00:05:55.600 --> 00:06:02.720]   Well, you could ask Madam Aida do something and she my madam is working.
+[00:06:02.720 --> 00:06:10.000]   But if you go to status.aws.amazon.com, you will see what's happening.
+[00:06:10.000 --> 00:06:18.160]   But just I whenever whenever this happens and it's it's often in this particular region,
+[00:06:18.160 --> 00:06:24.640]   US East one region, I just picture a data center in Virginia just on fire and just like
+[00:06:24.640 --> 00:06:32.160]   since admins running in and out. I wonder if this is in Reston. Is that Reston Virginia?
+[00:06:32.160 --> 00:06:33.440]   It is it is Reston.
+[00:06:33.440 --> 00:06:34.400]   Okay.
+[00:06:35.120 --> 00:06:43.440]   Old AOL space. I don't remember where it is their oldest facility here and it is the most common
+[00:06:43.440 --> 00:06:49.680]   cause of problems. And I mean, this isn't this is just something that happens. But whenever AWS
+[00:06:49.680 --> 00:06:57.520]   goes down, you know, Netflix, Roku, right? A good 50% of my IoT devices, they all are just like,
+[00:06:58.720 --> 00:07:03.760]   giving it up in this this particular outage has been going on since this morning. So.
+[00:07:03.760 --> 00:07:11.280]   Yeah, what that said, is it safe to say that Amazon would have logs to see that this is a,
+[00:07:11.280 --> 00:07:15.760]   you know, pretty common occurrence for this particular node and why have they done anything
+[00:07:15.760 --> 00:07:19.680]   about it? That would be a clue to them to do something maybe perhaps.
+[00:07:19.680 --> 00:07:25.840]   You know, I did read at some point in time a while back a wonderful story on why
+[00:07:28.480 --> 00:07:33.200]   why this particular node just why they still I mean, they can't rip everything out and replace it,
+[00:07:33.200 --> 00:07:38.160]   right? And they know it's a weak point because this is where things break a lot. And,
+[00:07:38.160 --> 00:07:43.600]   you know, Google Google has these issues too. Last week, we were talking about Nesco and
+[00:07:43.600 --> 00:07:49.680]   down, but I thought, you know, when it comes to cloud service providers, AWS is.
+[00:07:49.680 --> 00:08:00.080]   No, but it's it's struggling today. And it's always worth noting that, you know, when these things
+[00:08:00.080 --> 00:08:06.880]   happen, things break and it is a weak point in our infrastructure.
+[00:08:06.880 --> 00:08:12.960]   But it is amazing, isn't it? How rarely we have that story now. You think about it?
+[00:08:12.960 --> 00:08:17.920]   Right. We used to come on and say, Oh my God, Google's down or the fail wheels off.
+[00:08:17.920 --> 00:08:26.720]   Twitter. Yeah, always. Yeah. Yeah. And the reliability, as I think, is my impression has increased
+[00:08:26.720 --> 00:08:34.320]   market. It is. Yes, it is. I mean, but when you think about it, five nines, which is kind of
+[00:08:34.320 --> 00:08:40.240]   what the telco standard is, that does still mean, I think, is it seven downtime? Someone else can do
+[00:08:40.240 --> 00:08:46.240]   the math here, but seven days a down time, that's four nights. I mean, they're still going to be
+[00:08:46.240 --> 00:08:50.800]   downtime and there's still people running this and I don't know. I just,
+[00:08:50.800 --> 00:08:57.840]   whenever these happen, I'm always, you know, the real risk is a business is just don't host
+[00:08:57.840 --> 00:09:02.000]   everything on that particular region. So you can fail over to other places.
+[00:09:02.000 --> 00:09:09.280]   So what I ran my first sites for advance, there were newspaper sites. We were so stupid.
+[00:09:09.280 --> 00:09:14.800]   We were in an old newspaper building. We put the servers in the old dentist office
+[00:09:14.800 --> 00:09:23.200]   and we had no colo. We didn't know what colo was. Yeah. And so the entire country services for
+[00:09:23.200 --> 00:09:26.720]   all the newspapers would go down because somebody hit the light switch in the dentist's office.
+[00:09:26.720 --> 00:09:34.480]   Nice. Who plugged in the vacuum again? You can't do it on that circuit.
+[00:09:35.120 --> 00:09:39.680]   My favorite, I don't know if I told the story before, but the server room, which again,
+[00:09:39.680 --> 00:09:46.720]   was the x-ray room for the dentist who had moved out, would overheat. And I hired a CTO one point.
+[00:09:46.720 --> 00:09:52.480]   I hired my fault and he wanted to turn off the heads, the screens for the servers. Instead,
+[00:09:52.480 --> 00:09:58.720]   he turned off the servers. Oh, no. It was cooler. It's bad move.
+[00:09:58.720 --> 00:10:05.360]   That's one way to solve it. I mean, you didn't even go get a box fan, at least.
+[00:10:05.360 --> 00:10:15.680]   So the early days of the net, you kind of think there actually was kind of a stagecoach early day
+[00:10:15.680 --> 00:10:22.800]   to the net. Oh, yeah. And I mean, I still remember going in and meeting with these ventureback
+[00:10:22.800 --> 00:10:28.080]   startups and they would proudly show me their server closet with their sun gear that had the
+[00:10:28.080 --> 00:10:32.800]   beautiful different colors. I see, you know, and it was they were like encased in clear glass.
+[00:10:32.800 --> 00:10:36.720]   Do you remember these setups? Yeah. Yeah. I mean, it was fantastic.
+[00:10:36.720 --> 00:10:42.720]   And now, although I will say when I go into a data center with nice cabling,
+[00:10:42.720 --> 00:10:50.560]   it warms my heart. It's so beautiful. Yeah. So I completely agree. It's very respectable to see
+[00:10:50.560 --> 00:10:55.120]   a data center that's been planned and plotted accordingly, like properly, like, you know,
+[00:10:55.120 --> 00:11:00.320]   with everything in its right place. All the colors all neatly stacked. It's kind of like a work of art.
+[00:11:00.320 --> 00:11:05.520]   There's I swear, I've seen a site somewhere that like there is there is there are there are
+[00:11:05.520 --> 00:11:11.840]   awards for cabling. There are cable their network cabling awards and you can they submit pictures
+[00:11:11.840 --> 00:11:16.240]   and it's it is a thing of beauty. I would buy the calendar if they make a.
+[00:11:16.240 --> 00:11:23.760]   It's a little legitimate as hell. But it's so important. I was actually just swapping out my
+[00:11:23.760 --> 00:11:30.240]   routers and I was like, why the hell haven't I taken a label maker and labeled like, this is the
+[00:11:30.240 --> 00:11:34.720]   ethernet, you know, because I've got all these hubs connected to my switch. I'm like, which one
+[00:11:34.720 --> 00:11:39.360]   goes to the era, which one goes to the or not the era of the well, actually, yes, the era of the
+[00:11:39.360 --> 00:11:45.600]   lutron, the hue, it's just sitting there tugging on things and things are falling. It's terrible.
+[00:11:45.600 --> 00:11:49.120]   Yes. Oh, there we go. That's it.
+[00:11:49.120 --> 00:11:54.960]   It's walked in my ear and said cable porn on Reddit. So if you go to reddit.com/r/cableporn,
+[00:11:54.960 --> 00:12:01.600]   you'll find a subreddit dedicated to amazing cabling. I love it.
+[00:12:01.600 --> 00:12:08.480]   I was watching this old house for the first time. I used to love this one. I saw one and they had a
+[00:12:08.480 --> 00:12:15.840]   geothermal system and it was cable porn with water. It was phenomenal. All the lines up and
+[00:12:15.840 --> 00:12:19.760]   out behind that was not wires. It was all water. It was kind of lovely too.
+[00:12:19.760 --> 00:12:25.840]   Wow. Oh, I like that chicken head 21 in the chat says we need to rate my server room.
+[00:12:25.840 --> 00:12:32.080]   Yes. That is geeky. Yes.
+[00:12:32.080 --> 00:12:35.440]   Okay. I just want to stay out of my studio, please.
+[00:12:35.440 --> 00:12:40.720]   This mess you wouldn't want to see on the other side of this camera. Trust me.
+[00:12:40.720 --> 00:12:41.520]   Ooh, it's pretty good.
+[00:12:41.520 --> 00:12:46.160]   Camera wrap. Let's see. Let's have a look. No. Yeah. I'm right there with you, Anne.
+[00:12:46.160 --> 00:12:50.720]   I am like the whatever the opposite of cable porn is. I am the opposite of the
+[00:12:50.720 --> 00:12:55.840]   phone. I'm so bad. Do not look behind our TV downstairs. There's tons of cables.
+[00:12:55.840 --> 00:12:59.680]   There is no rhyme or reason. It's just like, oh, that needs to go there.
+[00:12:59.680 --> 00:13:06.080]   Plug. You know, you can tell from my desk that the rest of the place is going to be a mess.
+[00:13:06.080 --> 00:13:12.640]   Is my desk is dead. All kinds of things here. Right at arms reach like, what is this? I don't
+[00:13:12.640 --> 00:13:16.640]   know. You know why I have this velcro sitting right next to you. And it's been there for months.
+[00:13:16.640 --> 00:13:24.560]   That would be good for cabling, Anne. That could be excellent. But why is it my beside my
+[00:13:24.560 --> 00:13:29.440]   keyboard and mouse? It's been there forever with dust on it.
+[00:13:29.440 --> 00:13:35.600]   You want to be in a position to be able to make a snap decision or judgment
+[00:13:35.600 --> 00:13:39.760]   on when to use that. And that's why you keep it close because you don't know when that
+[00:13:39.760 --> 00:13:43.840]   inspiration is going to strike. I wouldn't see if it would be useful for it. But at least it's there.
+[00:13:43.840 --> 00:14:03.600]   Perfect. Let us know when that moment comes. I would like to read this at the Bell
+[00:14:03.600 --> 00:14:08.800]   if this one data center is known to go down all the time or more so than others.
+[00:14:08.800 --> 00:14:14.960]   Like as a, you know, I'm looking at the list of different companies that are affected as auto
+[00:14:14.960 --> 00:14:21.520]   desk or anchor or pocket or whatever. Can they choose to like not participate in that data center?
+[00:14:21.520 --> 00:14:29.280]   And I mean, I imagine they can. Right. They do have so. I don't remember how many regions Amazon
+[00:14:29.280 --> 00:14:37.920]   has in the US. We have more than one. So you will. But I think it's the most prominent one on the
+[00:14:37.920 --> 00:14:49.280]   East Coast. This is this gets into. So you usually will use this. It's like the default setting
+[00:14:49.280 --> 00:14:56.640]   basically for Amazon AWS in the US, if you're a US company. So you have to, A, not use the default
+[00:14:56.640 --> 00:15:02.000]   and then you fail over to others. So what happens is like a couple years back,
+[00:15:02.000 --> 00:15:05.680]   Christmas Eve, Netflix went down. It was the same data center. Netflix was like, Oh,
+[00:15:05.680 --> 00:15:11.200]   we're going to architect a little bit differently so we can fail over. But really what happens is
+[00:15:11.200 --> 00:15:17.440]   they know this is a problem. You try not to be utterly reliant on it. But you know, when you're
+[00:15:17.440 --> 00:15:23.360]   you're building a startup and you've got some engineer who's like, oh yeah, well you say W.S.
+[00:15:23.360 --> 00:15:27.440]   and then you start building and you keep building and then one day it goes down and you're like, no,
+[00:15:27.440 --> 00:15:36.880]   everyone has to learn the hard way. So Stacy, do. It's been so long as I've had to do this for a
+[00:15:36.880 --> 00:15:46.480]   living. If I have an office in Jersey City and I'm using the AWS in Virginia, am I doing dedicated
+[00:15:46.480 --> 00:15:52.240]   lines anymore and paying for those or is that is that so old fashioned? That's really old fashioned.
+[00:15:52.240 --> 00:15:59.440]   I mean, there are AWS has like CloudFront, which is their CDN service. So you might be using something
+[00:15:59.440 --> 00:16:08.720]   like that to host things. But it's not like there's a T1 or an OC48 sitting in an office outside your
+[00:16:08.720 --> 00:16:18.400]   house. That's what I used to have. Yeah. T1s. Wow. T1s. I was buying T1s back in the day, man.
+[00:16:18.400 --> 00:16:24.880]   Those were fast. They had like one meg. I mean, were they 10 megabits per second?
+[00:16:24.880 --> 00:16:32.400]   I was thinking more like the lead. Yeah. I mean, they were they were not a lot. 1.5 megabits per
+[00:16:32.400 --> 00:16:44.240]   second. Wow. And dedicated cost of fortune. Yes. Yeah. Yeah. Wow. Yeah. All right. So I mean,
+[00:16:44.240 --> 00:16:50.480]   we have Stacey and an old folks reminiscing mode now feels good. Remember.
+[00:16:50.480 --> 00:16:56.480]   All right. Well, maybe by the end of the show, this data center will be back up and we can give
+[00:16:56.480 --> 00:17:01.040]   you the full arc of the story at least, at least give you some closure. But for now,
+[00:17:01.040 --> 00:17:07.280]   like I went to pocket, that's not working right now. I still still working. This is active right now.
+[00:17:07.280 --> 00:17:12.240]   So my Netflix is working. Yeah. Well, your Netflix should be working because Netflix
+[00:17:12.240 --> 00:17:18.640]   learned the hard way several years ago and fails over. And that's that whole chaos monkey theory,
+[00:17:18.640 --> 00:17:26.320]   right? They're just like, plan for the chaos monkeys. And actually, ironically, Adrian Cockroft,
+[00:17:26.320 --> 00:17:31.680]   guy who kind of came up with that idea is at AWS right now. I bet his phone is
+[00:17:31.680 --> 00:17:36.240]   phones. His phone's probably not buzzing right now, but you know,
+[00:17:38.080 --> 00:17:43.360]   his non-existent pager. What do you even do? His Slack channel? Chai. That's what it is.
+[00:17:43.360 --> 00:17:48.800]   No, it's chai. Okay. His discord. No. There we go.
+[00:17:48.800 --> 00:17:53.360]   So now we can talk about Google, but I figured the internet is fair game.
+[00:17:53.360 --> 00:17:59.040]   Well, yeah. So, okay. So we got Stacey's pick out of the way right off the top.
+[00:17:59.040 --> 00:18:05.920]   Jeff, you had a, you had a pick. Oh, this is a friendly, nice one. On line 75 TikTok,
+[00:18:07.120 --> 00:18:12.640]   Ratatouille, the fan generated musical on TikTok is really pretty amazing.
+[00:18:12.640 --> 00:18:17.840]   So explain this because I haven't, I haven't seen it. So Ratatouille was going to,
+[00:18:17.840 --> 00:18:22.160]   the fans want Ratatouille, the musical, but of course there is no Broadway right now.
+[00:18:22.160 --> 00:18:30.640]   So fans are creating music, script, makeup, choreography, everything for Ratatouille, the musical
+[00:18:30.640 --> 00:18:37.840]   on TikTok. So if you go down on that page, oh, hell, where did it go? Now I lost the page.
+[00:18:37.840 --> 00:18:44.640]   To the guy, there's a guy, I'll scroll down if you would.
+[00:18:44.640 --> 00:18:51.200]   I keep going, keep going. Keep going.
+[00:18:51.200 --> 00:18:56.400]   Oh, is this the right, no, this is the wrong story. Oh, I changed, I changed the link, I thought.
+[00:18:56.400 --> 00:19:03.760]   Sure, I didn't. No, it may be something about that sheet. I've seen this happen a couple times.
+[00:19:03.760 --> 00:19:06.320]   We paste and you go back and it's totally different.
+[00:19:06.320 --> 00:19:13.840]   You know what? Sorry. I have seen this since I do know that sometimes with Google Docs,
+[00:19:13.840 --> 00:19:18.160]   with the new, with some change that they made recently, probably about the same time that they
+[00:19:18.160 --> 00:19:24.240]   got rid of Doc chat for enterprise logins, which just drives me insane. But there are times where
+[00:19:24.240 --> 00:19:30.320]   there's a link in there and I replace a link with another link and it has the new link in the cell.
+[00:19:30.320 --> 00:19:34.480]   Yeah, I just did that. But the hyperlink that it links out to is the old one.
+[00:19:34.480 --> 00:19:38.560]   It's like, yeah, that just happened. So I put it, I put in the new proper link below,
+[00:19:38.560 --> 00:19:47.040]   which is Playbill, because they did a Playbill just for it. And if you go down to BlakeYRous,
+[00:19:51.520 --> 00:19:58.640]   so this is people making up stuff for Ratatouille. And there, just that guy,
+[00:19:58.640 --> 00:20:00.640]   that guy right there, just to get a sense of this.
+[00:20:00.640 --> 00:20:07.600]   Oops. And they said that they needed songwriters and user Cincinnati strikes again,
+[00:20:07.600 --> 00:20:14.320]   said that she would like to see a tango between linguine and collet. And so this is what I came up
+[00:20:14.320 --> 00:20:21.200]   with. What are you doing? I'm cutting vegetables. I'm cutting vegetables. You waste any of your
+[00:20:21.200 --> 00:20:25.440]   tea and time. Do you think cooking is a cute job like Mommy in the kitchen? Well, Mommy never had
+[00:20:25.440 --> 00:20:30.560]   to face it in a hush when the orders came flooding in and now he dishes different and none as simple
+[00:20:30.560 --> 00:20:34.960]   and all the different cooking times, but must hide on the customer's table at exactly the same time.
+[00:20:34.960 --> 00:20:38.880]   Hot and perfect. Every second counts and you cannot be Mommy. You understand?
+[00:20:38.880 --> 00:20:47.280]   Not particularly. You're such a stupid boy. Just listen to me. Okay. If you want to make it
+[00:20:47.840 --> 00:20:52.720]   in the kitchen, you can't just flail your arms around. Super talented.
+[00:20:52.720 --> 00:21:01.120]   Time to forget. You lose me in musical though. And you've got to admit this kid is cute and talented.
+[00:21:01.120 --> 00:21:07.200]   No, that's just having fun. That is great. That's a lot of effort that went into that.
+[00:21:07.200 --> 00:21:10.960]   The top one is, I think, kind of a theme.
+[00:21:13.520 --> 00:21:21.440]   And you go down there, there's a choreography one. There's a makeup one. And it just really strikes me.
+[00:21:21.440 --> 00:21:24.480]   We talked about this last week when we had the
+[00:21:24.480 --> 00:21:37.360]   vaccine song. Oh yeah. Jolene is vaccine. The ability to collaborate here is phenomenal.
+[00:21:39.120 --> 00:21:44.480]   And for fans, this idea that the content of something one person makes and they sell it
+[00:21:44.480 --> 00:21:49.120]   is so outmoded when you see what's possible here. And these people are doing this out of love
+[00:21:49.120 --> 00:21:53.920]   and they're enjoying each other. They're connecting. Oh, the guy, the guy, the chef,
+[00:21:53.920 --> 00:21:57.280]   just do the chef and then we'll leave this. But the guy in the chef's outfit, he's really good.
+[00:21:57.280 --> 00:22:01.120]   He does all kinds of great, funny stuff online. If you go back to him, yeah, that guy.
+[00:22:03.840 --> 00:22:12.480]   They could. You know what I always say. Anyone can cook. Anyone can cook. All you have to do is
+[00:22:12.480 --> 00:22:19.280]   inside of yourself. Anyone can cook. You could even write a book. It could sit right next to
+[00:22:19.280 --> 00:22:26.000]   mine there on that shelf. It's amazing. I love it. And it's so creative. Yeah. Tim Rice.
+[00:22:28.400 --> 00:22:36.080]   Oh, Stacy, you and aunt are getting the cynics award of the day. No, the kid was, but this guy,
+[00:22:36.080 --> 00:22:40.240]   that's a little more what I expect from user generated content.
+[00:22:40.240 --> 00:22:44.960]   Anyone could go. Well, I thought anyone had random musical.
+[00:22:44.960 --> 00:22:51.120]   But I mean, okay. So then you take this collaborative effort of all these random people from across
+[00:22:51.120 --> 00:22:57.520]   the world pitching in on this one, like magical idea, magical, put that in air quotes. If you
+[00:22:57.520 --> 00:23:03.200]   don't actually think it's magical, but like creating a musical around Ratatouille and doing it around
+[00:23:03.200 --> 00:23:07.680]   the format that you're given with TikTok, which are these short little clips that allow you to
+[00:23:07.680 --> 00:23:12.480]   it's like you're building a sandwich slowly over time. And at the end, you've got all the pieces.
+[00:23:12.480 --> 00:23:16.800]   Like do they then I'd be curious to know if at the end of this, at the end of the day, they have
+[00:23:16.800 --> 00:23:21.520]   all the songs in place. They have all the lyrics written, the music, you know, written to those and
+[00:23:21.520 --> 00:23:27.200]   some sort of a story arc to combine it. Does it then end up in an actual musical like an actual
+[00:23:27.200 --> 00:23:31.920]   play? Could you extract that and then turn it into something that ends up on the stage? I think
+[00:23:31.920 --> 00:23:40.320]   that you totally could. I mean, I think is the Pixar right doing this, but then imagine the lawyer
+[00:23:40.320 --> 00:23:45.760]   hell of rights. Yeah, anyone could cook. That's my song. Well, no, I did it too. No, I had it.
+[00:23:45.760 --> 00:23:53.440]   Oh boy, yeah, that's true. I mean, that's it. I love that people can do it. I want them to do
+[00:23:53.440 --> 00:23:58.720]   it. But when you think about creating something this way, and I did theater in high school,
+[00:23:58.720 --> 00:24:04.560]   when every student directed play suddenly whenever this where everybody was like,
+[00:24:04.560 --> 00:24:09.760]   I have this idea, I have this idea, I have this idea. And then suddenly you have nothing on stage.
+[00:24:09.760 --> 00:24:18.800]   Right? So there's a place for this. It's exciting. I want there to be room for it. And I am glad
+[00:24:18.800 --> 00:24:23.680]   when creators put their stuff out there for this sort of thing. But it's also like,
+[00:24:23.680 --> 00:24:30.480]   we do live in a society where you have to buy food. So how do you allow people to do something
+[00:24:30.480 --> 00:24:37.280]   like this and still let them buy food? And so I wrote a post some time ago, and then part of my
+[00:24:37.280 --> 00:24:42.960]   one of my last books arguing for a system of credit, right versus copyright. But in a chain
+[00:24:42.960 --> 00:24:48.960]   of creativity, right? The person who inspired Jolene as vaccine has credit. The person who
+[00:24:48.960 --> 00:24:53.840]   wrote the lyrics gets credit. The person who actually recorded it gets credit. The person who
+[00:24:53.840 --> 00:25:00.000]   promotes it gets credit. And you want a system where you can reward the behaviors you want in
+[00:25:00.000 --> 00:25:05.200]   a chain of creativity. And what we're seeing in both these cases is a chain of creativity.
+[00:25:05.200 --> 00:25:09.600]   And clearly there's something here. The hashtag right between the musical has 14 million views.
+[00:25:09.600 --> 00:25:17.600]   Right to the musical has approximately 80, what is that? How is that 88.5 million?
+[00:25:17.600 --> 00:25:26.960]   Well, anyway, oh, I each OK, so it's different. So together, it's 100 million views to the two
+[00:25:26.960 --> 00:25:31.600]   hashtags. Right? So there's clearly popularity here. There's clearly value here. In the old days,
+[00:25:31.600 --> 00:25:34.640]   Disney will come down and say, right, I'm sorry, I'm sorry, I can't do anything.
+[00:25:35.280 --> 00:25:42.160]   But now they see there clearly is some value here. And it's we're going to invent new systems
+[00:25:42.160 --> 00:25:46.640]   to figure this out. You're right, Stacy. We've got to support creativity. But creativity is not
+[00:25:46.640 --> 00:25:53.280]   supported in one model, which is an only in the content view that we had before.
+[00:25:53.280 --> 00:25:59.520]   The issue I have with this is the attention span. This is something that was created for a
+[00:25:59.520 --> 00:26:05.280]   60 second clip or so, you know, two minutes or less, pretty much. And it's great. I really do respect
+[00:26:05.280 --> 00:26:09.680]   that. It's probably more than you want, right, and it's probably about just what you can bear.
+[00:26:09.680 --> 00:26:14.880]   Well, it's a musical. Yeah, it is a musical. So, but no, seriously,
+[00:26:14.880 --> 00:26:21.040]   they have these constraints of creating something captivating within 60 seconds.
+[00:26:21.040 --> 00:26:25.440]   And that's great. So you're going to get those 100 million views. And this probably isn't a
+[00:26:25.440 --> 00:26:30.720]   question for you, Mr. Jarvis. But I'll just ask everybody in general, if that same creator
+[00:26:30.720 --> 00:26:38.800]   was to put together a indie film with this type of model, say it was 30 minutes, would you watch it?
+[00:26:38.800 --> 00:26:46.240]   For Ratatouille, I would because I like to see that. Yeah. Because I think that's where a lot
+[00:26:46.240 --> 00:26:52.320]   of it sort of falls off these these cats, not cats, these people. Sorry, I went slang.
+[00:26:52.320 --> 00:27:00.000]   They're kind of these people. They're super talented. And I like to see how they could
+[00:27:00.000 --> 00:27:05.280]   get a fair shake going into a bigger screen, bigger stage, if you will. But it just seems like
+[00:27:05.280 --> 00:27:10.640]   society will totally forget about them because they're only wanting that little 60 second snippet
+[00:27:10.640 --> 00:27:16.640]   of them. They don't want a half hour full feature film from them. You know, at least that's what I see.
+[00:27:17.600 --> 00:27:23.280]   Society might forget, but I think it is a great chance to show the hiring people at Pixar.
+[00:27:23.280 --> 00:27:31.440]   I mean, I think there is room for something like this to build a name for yourself or to create,
+[00:27:31.440 --> 00:27:38.880]   like I said, kid. Yeah, it's basically like, hey, I did this. And it's really compelling. And
+[00:27:38.880 --> 00:27:47.120]   I love it. Again, I love it. I just feel bad for these people because I've been in certain
+[00:27:47.120 --> 00:27:53.760]   forms and community groups and seeing these conversations come up where I put this thing together for
+[00:27:53.760 --> 00:27:59.920]   XYZ platform and it got a gazillion likes and a gazillion reshars and yada, yada, yada. And then I
+[00:27:59.920 --> 00:28:08.240]   spent months working on this film and nobody watched it. You know, it was pretty much the same thing,
+[00:28:08.240 --> 00:28:15.040]   but they put it in a long form format with a little bit more meat and taters to it. But people just,
+[00:28:15.680 --> 00:28:23.440]   whatever. So sorry, I'm trying to find something here. So I've been reading it depends on what
+[00:28:23.440 --> 00:28:30.000]   your goal in life is, what your goal for the thing is. It may be sufficient that you found a community
+[00:28:30.000 --> 00:28:38.240]   of people who like it and share and collaborate. I'm just about to write about a book called
+[00:28:38.240 --> 00:28:44.880]   Distributed Blackness by Andre Brock Jr., which is about black Twitter. I mentioned before.
+[00:28:44.880 --> 00:28:53.760]   Good. I give more more plugs. And one thing I learned from him is that I had a mass media view of it,
+[00:28:53.760 --> 00:29:00.080]   like when something passed over a critical mass, that's what it's made it. What he argues is no,
+[00:29:00.080 --> 00:29:05.920]   yes, Black Lives Matter had to pass over a critical mass to make an impact. True. But on the every
+[00:29:05.920 --> 00:29:09.920]   day he's saying in black Twitter, people don't want to talk to the whole world. They want to talk
+[00:29:09.920 --> 00:29:14.480]   to each other with their own language, with their own views. And that is sufficient. And we have to
+[00:29:14.480 --> 00:29:20.000]   honor that, that the mass media view that something has to be huge is the only definition of success.
+[00:29:20.000 --> 00:29:22.160]   We're escaping on the net.
+[00:29:22.160 --> 00:29:29.120]   Yeah. And I realized that's kind of the, at least I can accept my part in that, is that was what I
+[00:29:29.120 --> 00:29:33.760]   brought to this conversation was, "Wait a minute, this is great. But what if we made it better?"
+[00:29:33.760 --> 00:29:38.480]   And really, this could be the pinnacle of what they were even wanting in the first place, the
+[00:29:38.480 --> 00:29:45.600]   fact that that kid wrote that two minute clip and did that so incredibly well. In his mind,
+[00:29:45.600 --> 00:29:49.680]   that could be absolutely enough. And probably is, actually. In kudos.
+[00:29:49.680 --> 00:29:55.440]   Probably them hearing me say, "What if we make this a big play?" is probably the difference between
+[00:29:55.440 --> 00:30:01.920]   me being older and not understanding what the younger generation really feels about creating
+[00:30:01.920 --> 00:30:04.880]   for something like TikTok. Or even Twitch. Right.
+[00:30:04.880 --> 00:30:09.360]   Right. Leo has said that he doesn't want the podcast to get too big because then they lose
+[00:30:09.360 --> 00:30:15.120]   their focus. They lose the community around them. Yeah. Yeah. That's why I posed my question the way
+[00:30:15.120 --> 00:30:20.000]   I did. I didn't necessarily want it to direct it to Mr. Jarvis because he's an older gentleman. And
+[00:30:20.000 --> 00:30:27.280]   it's quite frankly, I mean, it is what it is. Come on. You know, older folks have a different
+[00:30:27.280 --> 00:30:32.080]   way of thinking about certain things, especially when it comes to these little platforms. So,
+[00:30:33.040 --> 00:30:37.760]   yeah, they keep evolving and so. I don't know. I think you're you're you're in this discussion.
+[00:30:37.760 --> 00:30:41.920]   You're the most old party of us. Oh, I know I'm an old part. I'm in an old
+[00:30:41.920 --> 00:30:49.440]   car for about 20 years. That musical off my yard. I've been in my Stacy. I got to hear what did you
+[00:30:49.440 --> 00:30:54.320]   play as Queen Pruitt? She'd tell you the same thing. Yeah, he's an old man. Yeah. Yeah.
+[00:30:54.320 --> 00:30:59.760]   Grump. You're being grumpy. Stacy, what did you play in high school? I'm dying to know.
+[00:31:00.640 --> 00:31:05.920]   Oh, all kinds of things. I was a state UIL award winning actress.
+[00:31:05.920 --> 00:31:13.840]   Wow. I did do musicals because I can't carry a tune in a bucket. So
+[00:31:13.840 --> 00:31:21.280]   for those, I was a manager. I can dance. Oh, I was the wicked witch. That's probably something
+[00:31:21.280 --> 00:31:26.880]   that everyone can see and appreciate. I had a prosthetic nose, green paint on the face.
+[00:31:27.440 --> 00:31:32.240]   Wow. Can you do the evil laugh? Come on. Can you do it? I can. Okay. Ready? Hold on. Let's
+[00:31:32.240 --> 00:31:42.800]   say. Well, I think I can't hold on. Yes. I'll get you my pretty and your little dog too.
+[00:31:42.800 --> 00:31:49.200]   Perfect. That was awesome.
+[00:31:49.200 --> 00:31:55.680]   Now I'm going to be read for the rest of the show. I can't believe you convinced me to do that.
+[00:31:55.680 --> 00:31:59.200]   Okay. What else did you play? Well, no, no, we're not done yet. What else did you play?
+[00:31:59.200 --> 00:32:07.600]   I played a minor, like a mining person in a company town who unionized people.
+[00:32:07.600 --> 00:32:16.880]   What else did I play? I can't remember all of them. I was in Pygmalion, the old lady.
+[00:32:19.840 --> 00:32:26.320]   Not Eliza Doolittle. This is Higgins. Sick of so. Yeah, I did a lot of older people.
+[00:32:26.320 --> 00:32:32.160]   Did you have the type of theater? It was all banned for me, just me and the saxophone.
+[00:32:32.160 --> 00:32:38.080]   We do. I don't want to hear that at some point. I do. Yeah. I just did it. I just did it.
+[00:32:38.080 --> 00:32:43.440]   I got rid of mine a couple of years ago because I wasn't able to play it. So I got rid of it.
+[00:32:43.440 --> 00:32:49.280]   But I do know what I did. I see. I have some eBay or Craigslist listings I can send you.
+[00:32:49.920 --> 00:32:53.920]   Yeah. It's so true to a Patreon. We need to do a Patreon for sax.
+[00:32:53.920 --> 00:33:04.160]   Jason, theater in your background. I remember taking drama a couple of semesters, but it wasn't
+[00:33:04.160 --> 00:33:11.120]   my thing. I was way more into the music. It was trombone, baritone, those were my instruments.
+[00:33:11.120 --> 00:33:18.880]   Nice. But how different now, if young Stacy had the chance to be on TikTok?
+[00:33:18.880 --> 00:33:26.080]   Yeah. Would you? Oh, sure. We were theater kids. We used to run around doing like
+[00:33:26.080 --> 00:33:33.200]   bits all the time. I think I had a my entire junior year, I had like a fake English accent
+[00:33:33.200 --> 00:33:38.400]   that we would just run around screaming strange things. I mean, that's what you did.
+[00:33:38.400 --> 00:33:46.320]   Yeah. Yeah. I would say I would come right there with you, Stacy, though I wasn't in theater,
+[00:33:46.320 --> 00:33:53.120]   like formally at school or whatever. My entire friend group was all incredibly creative.
+[00:33:53.120 --> 00:33:57.280]   That was like what unified us. So we were either creating all these bands with different
+[00:33:57.280 --> 00:34:02.960]   configurations of different people, or we were creating little short movies. So when I think
+[00:34:02.960 --> 00:34:08.240]   about TikTok and me being younger, creating like we would have been throwing our stuff left
+[00:34:08.240 --> 00:34:12.240]   right and center on TikTok. I don't know if it would have been any good, but absolutely. We were
+[00:34:12.240 --> 00:34:16.560]   basically doing TikTok, but it was just for us. And we were cracking ourselves up, you know,
+[00:34:16.560 --> 00:34:19.360]   in the problem. Would you have done TikTok? Young aunt?
+[00:34:19.360 --> 00:34:29.040]   No, sir. I was in a talent show twice ever in my life. And it's just not me. I'm not like that.
+[00:34:29.040 --> 00:34:40.560]   Yeah. I've been an old man for a long time. They were like normal people on TikTok.
+[00:34:40.560 --> 00:34:46.960]   I mean, who aren't doing silly theater bits or bandkits? There are.
+[00:34:46.960 --> 00:34:55.520]   There are some normal quote-unquote people on there. But again, I'm not as creative as those people
+[00:34:55.520 --> 00:35:01.680]   that are really flourishing because it's a lot of work to get things done in 60 seconds.
+[00:35:01.680 --> 00:35:07.360]   Well, to get the message that you're trying to get across, plus put it out where there's a hook
+[00:35:07.360 --> 00:35:12.080]   to it. Make them want to come back. That's a lot of work. It takes a lot of talent. It's not
+[00:35:12.080 --> 00:35:20.240]   that talented. Not yet. But at the same time, maybe not in current and configuration,
+[00:35:20.240 --> 00:35:28.560]   but I think a lot of kids, and if you were of TikTok era right now, I think there's a lot of
+[00:35:28.560 --> 00:35:33.360]   kids that are learning through us, Moses, how to create in this short time frame because they're
+[00:35:33.360 --> 00:35:38.080]   just so used to watching and consuming that content. In that way, I see it on my kids.
+[00:35:38.080 --> 00:35:44.320]   Like, of course, they're 10 and 7. They want a TikTok account. Of course, I just don't feel
+[00:35:44.320 --> 00:35:49.760]   comfortable with that. But that doesn't stop them from creating and playing as if they were.
+[00:35:49.760 --> 00:35:56.320]   And I can see the instinct is there for them. And it's an instinct that's developed purely
+[00:35:56.320 --> 00:36:00.800]   through exposure, right? But through the fact that they see others that are doing these things.
+[00:36:00.800 --> 00:36:04.000]   And it's an art form that they understand.
+[00:36:04.000 --> 00:36:08.480]   The osmosis reference is spot on. Sorry, go ahead, Miss Stacy.
+[00:36:08.480 --> 00:36:14.720]   Oh, no. I was going to say, and it's also, they don't, I know that we talk about people who go
+[00:36:14.720 --> 00:36:21.200]   viral or get big or influencers. But a lot of kids get on these things just to share with their
+[00:36:21.200 --> 00:36:27.040]   friends, right? Totally. And they're doing that. So it's not like their goals are maybe like
+[00:36:27.040 --> 00:36:33.840]   our goals, right? Their goals could just be like, hey, if the 50 people I love in my higher high
+[00:36:33.840 --> 00:36:39.040]   school thinks it's cool, great. Yep. I think something else.
+[00:36:39.040 --> 00:36:49.040]   I thought about Alex Lensing in his family. His son and daughter have a TikTok,
+[00:36:49.040 --> 00:36:53.680]   it's called the McDubbies. And if you know anything about Mr. Alex Lensing, this guy is a video at
+[00:36:53.680 --> 00:36:59.040]   Storrodon Air, just just unbelievable with video production. And his children decided,
+[00:36:59.040 --> 00:37:04.080]   you know what? We want to do TikTok. And they pretty much just a chip off the whole block, if you will,
+[00:37:04.080 --> 00:37:09.520]   far as the way he creates content. And they put that into their TikTok. And it's really,
+[00:37:09.520 --> 00:37:14.640]   really great. And it got him involved to, you know, he's like, well, I'll use this Blackmagic
+[00:37:14.640 --> 00:37:22.240]   Cinema 6K camera for your TikTok. No problem. I mean, it's, it's, it's awesome to see that there,
+[00:37:22.240 --> 00:37:27.520]   you know, the wheels were really just turning for those kids. And the content they put out was
+[00:37:27.520 --> 00:37:33.120]   unbelievable. Yeah. Yeah. Here's a, here's a theory. So I just, I'm never reminded of the
+[00:37:33.120 --> 00:37:38.560]   new manuma guy, right? Remember a new manuma? No, sir. Oh, the little kid.
+[00:37:38.560 --> 00:37:43.920]   In the, was he Star Wars kid? No, that's a different. It was Star Wars kid, right? And he
+[00:37:43.920 --> 00:37:48.160]   just did this little video and wasn't intended for anybody to see it and it went out. And people
+[00:37:48.160 --> 00:37:51.440]   made fun of them. It became kind of a star. It ruined his life.
+[00:37:51.440 --> 00:37:57.280]   Yeah. But I think it's different here is that we were all making fun of ourselves. We're all,
+[00:37:57.280 --> 00:38:01.200]   we're all making fools of ourselves online now. And I don't think you could make a new manuma
+[00:38:01.200 --> 00:38:07.440]   meme out of making fun of somebody because we, because hey, we all do this now. Okay. Yeah.
+[00:38:07.440 --> 00:38:13.280]   We're all guilty. I saw somebody trying to do like backflips while drunk. And it was hilarious.
+[00:38:13.280 --> 00:38:17.840]   And I would have locked them a lot. Actually, I wouldn't. I don't mock people. That's mean.
+[00:38:17.840 --> 00:38:24.800]   Never mind. So, so she says, I know, I'm like, would I really mock them? I mean, I did laugh.
+[00:38:24.800 --> 00:38:29.680]   I was like, Oh, no, that is not something you want posted. But I didn't make fun of them, I guess.
+[00:38:29.680 --> 00:38:37.360]   Wonder what I think of Gary Brawlsma. What's that? Gary Brawlsma. That's his name.
+[00:38:38.560 --> 00:38:44.000]   The new manuma. This is this is this is 15 years ago. He's yeah. Yeah. No.
+[00:38:44.000 --> 00:38:47.040]   It now says here. American musicians.
+[00:38:47.040 --> 00:38:54.560]   Good. He was able to turn that into something. He deserves that. He did. He's an actor and director
+[00:38:54.560 --> 00:39:01.600]   known for the Christie Storms show 2009. Between the lines, the rise and fall of Tobias 2010 and
+[00:39:01.600 --> 00:39:08.560]   new manuma 2004. Known for the 2004 is great. No manuma.
+[00:39:08.560 --> 00:39:16.080]   Let's take a break. Because I just realized we've been taught. We I love that conversation.
+[00:39:16.080 --> 00:39:20.720]   We are 40 minutes in. We got to thank a sponsor. So let's do that right now. And then we will
+[00:39:20.720 --> 00:39:23.920]   maybe we'll dip our toes into some Google. Who knows? Maybe we won't.
+[00:39:23.920 --> 00:39:30.880]   That's just how things roll around here. This episode of this week in Google is brought to you by
+[00:39:30.880 --> 00:39:38.240]   Linnoed managing your complex cloud infrastructure should not be hard. And that's what Linnoed is
+[00:39:38.240 --> 00:39:43.920]   all about. They believe in cloud computing for everyone. They make deploying managing and scaling
+[00:39:43.920 --> 00:39:50.160]   your cloud applications simple. So you can simplify your cloud infrastructure with Linnoed's Linux
+[00:39:50.160 --> 00:39:57.120]   virtual machines. That Linux is the Lin in Linnoed after all. And you can develop deploy and scale
+[00:39:57.120 --> 00:40:03.040]   your modern applications faster and easier. Why do over 800,000 developers choose Linnoed?
+[00:40:03.040 --> 00:40:08.400]   Well, they give you flat pricing across all 11 global data centers. You have an intuitive cloud
+[00:40:08.400 --> 00:40:15.680]   manager fully featured API. And they have award winning customer support. That's 24 hours a day,
+[00:40:15.680 --> 00:40:22.800]   seven days a week, 365 days a year with no tears or handoffs, regardless of your plan size. So you
+[00:40:22.800 --> 00:40:29.280]   know you're getting the best support possible at any time that you need it. So think of all the
+[00:40:29.280 --> 00:40:33.840]   things that you can do. Of course, you could, yes, host a website or build your apps. So many
+[00:40:33.840 --> 00:40:40.240]   developers use Linnoed with their apps store or backup your media. It's really up to you what you
+[00:40:40.240 --> 00:40:46.000]   do with the storage with Linnoed's access. You can easily launch and enrich your developer applications,
+[00:40:46.000 --> 00:40:52.800]   hosted services, websites, AI, machine learning workloads, gaming services, CI/CD environments.
+[00:40:52.800 --> 00:40:58.800]   The sky is really the limit. You can launch and scale in the cloud with our virtual machines. And
+[00:40:58.800 --> 00:41:06.160]   with a $100 credit that I'm going to talk about, you could use that on S3 compatible object storage,
+[00:41:06.160 --> 00:41:11.440]   managed Kubernetes and more in addition to shared and dedicated compute instances.
+[00:41:12.320 --> 00:41:17.600]   So be sure to check out Linnoed's new YouTube channel for video tutorials. You also get security
+[00:41:17.600 --> 00:41:25.760]   tips and more. That's youtube.com/linode. Bryce Adams from Meteorik says, "From the start,
+[00:41:25.760 --> 00:41:30.560]   we were looking for a partner, not a provider. Some of the large providers see us only as a
+[00:41:30.560 --> 00:41:36.640]   transaction. Linnoed is the kind of partner that will be with us from the start today and beyond."
+[00:41:36.640 --> 00:41:41.360]   So whether you're working on a personal project, maybe you're managing enterprise infrastructure,
+[00:41:42.240 --> 00:41:47.200]   whatever happens to be, you deserve simple, affordable and accessible cloud computing solutions
+[00:41:47.200 --> 00:41:52.880]   that allow you to take your project to the next level. So get started with Linnoed today. Visit
+[00:41:52.880 --> 00:42:00.080]   linode.com/twig and then you'll want to click on the Create Account button and you'll get $100
+[00:42:00.080 --> 00:42:07.520]   in free credit, like I said. To find out more, visit linode.com/twig. That's $100 in free credit
+[00:42:07.520 --> 00:42:16.000]   when you create your account today. Linnoed.com/twig or you can also text "twit" to 474747 and you'll
+[00:42:16.000 --> 00:42:21.920]   get a direct link to the offer. Check it out for yourself and we thank Linnoed for their support
+[00:42:21.920 --> 00:42:30.880]   of this week in Google. All right. So when it comes to, excuse me, my voice is already going,
+[00:42:32.080 --> 00:42:37.920]   when it comes to Google News, I feel like there's a lot of stories in here but not very many
+[00:42:37.920 --> 00:42:45.200]   definition of top news stories for Google this week. One thing that piqued my interest that I'm
+[00:42:45.200 --> 00:42:53.840]   happy to see is that RCS has some news, rich communication services, which if you have an
+[00:42:53.840 --> 00:43:01.200]   Android device and you've got Google Messages app installed, you've got chat features built into that.
+[00:43:01.200 --> 00:43:08.320]   That's tapping into RCS and I've really enjoyed it when I know that I'm talking to someone,
+[00:43:08.320 --> 00:43:12.160]   you know, or chatting with someone on the other end that also has an RCS enabled device.
+[00:43:12.160 --> 00:43:17.360]   It's just great to kind of get, you know, the little typing indicator that tells me they're
+[00:43:17.360 --> 00:43:21.520]   typing or they're paying attention and some of the other advantages that you get. Well,
+[00:43:21.520 --> 00:43:25.760]   you're going to get something else here soon, which I don't know that I expected was going to happen.
+[00:43:25.760 --> 00:43:36.240]   They are bringing end-to-end encryption into RCS via Android Messages starting next year.
+[00:43:36.240 --> 00:43:41.680]   And in fact, if you have the beta version of Android Messages right now, although I checked,
+[00:43:41.680 --> 00:43:47.920]   I'm on the beta track and I don't have any options for it yet. So I don't know if it's just
+[00:43:47.920 --> 00:43:52.480]   automatically you get it if you're on the beta channel or not or if I'm going to see that sometime
+[00:43:52.480 --> 00:43:56.960]   soon. But if you happen to be chatting with somebody else that also has the beta,
+[00:43:56.960 --> 00:44:02.800]   your communication is going to be automatically and encrypted. And that's just good for security.
+[00:44:02.800 --> 00:44:09.120]   Good for Brian. What else comes with RCS to Android Messages? Any other features?
+[00:44:09.120 --> 00:44:15.840]   Yeah. I mean, everything Apple people have, right? Exactly. Right. Yeah. It's essentially
+[00:44:15.840 --> 00:44:22.320]   Google's kind of a way to say, hey, we've got an iMessage too. So all the features that
+[00:44:22.320 --> 00:44:29.200]   iMessages have with kind of a better delivery of media, that's one that I enjoy. If you're doing
+[00:44:29.200 --> 00:44:35.440]   true MMS, there's a certain kind of quality level that your image will transfer at with RCS.
+[00:44:35.440 --> 00:44:41.600]   You get kind of a more full res version of that. The typing, the read receipts, when it says
+[00:44:41.600 --> 00:44:47.600]   delivered, you can react to a message. So you could, I don't know if you've ever been chatting or
+[00:44:47.600 --> 00:44:53.440]   messaging with someone on iOS and you get a message that is the entire message that you wrote,
+[00:44:53.440 --> 00:45:00.880]   but said liked, but says liked at the beginning. Drives me nuts. I get a notification that they just
+[00:45:00.880 --> 00:45:08.320]   liked it. I didn't need that notification. Yeah. I mean, I guess that's what I'm about to do it.
+[00:45:08.320 --> 00:45:14.400]   Yeah. I'm on these group texts with my entire husband's family and like, we'll get a picture.
+[00:45:14.400 --> 00:45:18.720]   And I'm like, I have to bother to say something about it, right? Because I'm on Android, so I
+[00:45:18.720 --> 00:45:24.160]   can't just heart it. So I'm like, oh, so it's so cute. Look at those rosy cheeks. And then I get like
+[00:45:24.160 --> 00:45:28.160]   18. So it's so like so and so hard. So it's so like, I'm like,
+[00:45:28.160 --> 00:45:37.440]   Yeah. And I know, and you know, this won't necessarily tackle that problem, right? Just because
+[00:45:37.440 --> 00:45:42.240]   our videos will happen. It's not going to interplay with iMessages in that way.
+[00:45:42.240 --> 00:45:48.080]   What happens when you text others? So if I've got encryption, what happens when I text people who
+[00:45:48.080 --> 00:45:55.520]   are not actually two questions? What happens when I text people who encryption because they're
+[00:45:55.520 --> 00:46:00.800]   using something funky? Or what happens when I texting someone who's on an I.
+[00:46:00.800 --> 00:46:08.640]   I think in both cases, it's going to be unencrypted. I think the only way that this will encrypt,
+[00:46:09.360 --> 00:46:14.800]   and this is more of a long term game by long term, I mean next year for what Google is saying.
+[00:46:14.800 --> 00:46:19.760]   Right now, the only way it's going to be encrypted is if I have the beta messages installed,
+[00:46:19.760 --> 00:46:24.400]   that includes encryption. And the person that I'm chatting with has the beta installed with
+[00:46:24.400 --> 00:46:31.280]   encryption. So it's going to be very limited at first, but the, but the default going forward
+[00:46:31.280 --> 00:46:37.840]   once this rolls out to all devices, like another part of this news is that RCS is finally worldwide
+[00:46:37.840 --> 00:46:43.360]   rolled out, like everywhere that they wanted to roll it out, it's out. So RCS is everywhere.
+[00:46:43.360 --> 00:46:48.240]   It's just not encrypted everywhere yet, but that will be the default sometime next year.
+[00:46:48.240 --> 00:46:54.160]   And in the meantime, you can get on the beta channel to check it out now and see what that's like.
+[00:46:54.160 --> 00:47:00.320]   Which is good because people, this is just saying it seems like it's been a year since this has
+[00:47:00.320 --> 00:47:08.160]   been in the discussion. Pretty long road to hold, right? Yeah, that they've been building up to
+[00:47:08.160 --> 00:47:14.480]   encryption. Yeah, well, just even the whole RCS project seems like I'm talking about this last year
+[00:47:14.480 --> 00:47:22.240]   with you, where it was here. Yeah, the carriers were the bottleneck, I believe. Well, they have
+[00:47:22.240 --> 00:47:28.560]   to run as servers. They have been the bottleneck. But if you remember last year, the carriers
+[00:47:28.560 --> 00:47:34.000]   announced their own version of RCS. So they were trying to get one of their own soon after that,
+[00:47:34.000 --> 00:47:38.720]   Google then said, you know what, we're just releasing the crack and we're just going out with
+[00:47:38.720 --> 00:47:43.920]   ours to get everybody on RCS now and not have to wait for the carriers. And meanwhile,
+[00:47:43.920 --> 00:47:47.920]   I don't even know that I've heard anything about the carrier initiative to do their own version of
+[00:47:47.920 --> 00:47:53.040]   RCS. And at some point in the next year, I mean, from my perspective, it doesn't matter, right?
+[00:47:53.040 --> 00:48:00.800]   If every Android device that has Android messages by default also has, you know, they all have RCS
+[00:48:00.800 --> 00:48:06.160]   by default. And at some point, they will all have end to end encryption enabled by default,
+[00:48:06.160 --> 00:48:11.920]   all talking to each other. So it's kind of the best of all worlds took longer than it needed to,
+[00:48:11.920 --> 00:48:16.240]   or feels that way anyways. But I'll be happy. Jason, I think of the times we've been at,
+[00:48:17.520 --> 00:48:26.000]   I have my t-shirt on a day. I owe. Very nice. How long it is if we went back and did a calendar,
+[00:48:26.000 --> 00:48:32.320]   remember, it was announced at I owe and when it really showed up, if at all, it's not speedy.
+[00:48:32.320 --> 00:48:35.760]   I think I think you quite right, these things, you forget how long they take.
+[00:48:35.760 --> 00:48:44.480]   Everything takes forever. Yeah. And this drives me bonkers because we have gone from
+[00:48:46.560 --> 00:48:52.880]   used to be able to like email someone or call someone on the phone and it would work. And now
+[00:48:52.880 --> 00:49:02.880]   everything is by far. I just, I'm like, like, I want to shoot myself every time someone is like,
+[00:49:02.880 --> 00:49:09.760]   hey, let's schedule a call. And then they're like, do you want blue jeans, Skype, zoom, you know,
+[00:49:09.760 --> 00:49:15.280]   chime, Microsoft. Let's do it. I enjoy the days when you could just pick up a phone and it had a
+[00:49:15.280 --> 00:49:21.600]   wire and you knew it would work. And you heard a dial tone. Remember a dial tone? That was a great
+[00:49:21.600 --> 00:49:37.280]   thing. We had standards and we had. I'm right in this one. I am so right. And you can't deny it.
+[00:49:37.280 --> 00:49:49.040]   These kids just don't understand. Jason, you're the next one who's going to be old.
+[00:49:49.040 --> 00:49:55.440]   I totally agree with you, though, because that's, it feels like that's the only way that I can
+[00:49:55.440 --> 00:50:02.320]   communicate efficiently with people outside of work is shoot an email that will go to their
+[00:50:02.320 --> 00:50:08.000]   phone because they realize, oh, I got an email on my phone or I just actually pick it up and just
+[00:50:08.000 --> 00:50:12.880]   call and say, Hey, I need to talk to you about ABCD and end of discussion, you know,
+[00:50:12.880 --> 00:50:20.640]   it just, I don't want to waste so many break. I mean, like, because that's a whole email. You're
+[00:50:20.640 --> 00:50:27.280]   wasting time on you're like, let's chat. Great. And then which do you want to use? Just just
+[00:50:27.280 --> 00:50:36.240]   let's chat. Here's my number right there. There you go. You're right. I know I may be old, but man.
+[00:50:36.240 --> 00:50:46.320]   Oh, dish. Mr. How is there anybody? Is there anybody you would just pick up the phone to call
+[00:50:46.320 --> 00:50:51.600]   without having scheduled it? Do you do that? Oh, my mom. Yes. Oh, yeah. My parents, yeah.
+[00:50:51.600 --> 00:51:00.720]   And my BFF. Yeah. Yeah. Right. And my brother just to troll him. That's so fun.
+[00:51:00.720 --> 00:51:05.600]   Wow. Really? You're like that, huh? Because I'll call and then I get a text like,
+[00:51:05.600 --> 00:51:11.760]   either it's either going to come five minutes or five days later. Did you call me? Question mark?
+[00:51:11.760 --> 00:51:20.080]   Does he not have you saved in his contacts? No, he does. He's just it's just the physical. He's like,
+[00:51:20.880 --> 00:51:27.760]   why would he's like, why would you call me? I don't pick up the phone.
+[00:51:27.760 --> 00:51:34.640]   Yeah. I really don't pick up the phone either unless I know exactly who's on the other end.
+[00:51:34.640 --> 00:51:40.000]   Then I might pick right. Right. Then you didn't consider it. Yeah, just consider. Yeah.
+[00:51:40.000 --> 00:51:46.240]   Then I negotiate with myself. Hold on. I mean, I know who that is. They're great. Don't get me
+[00:51:46.240 --> 00:51:53.440]   wrong. But do I actually want to talk right now? I know. I know. With this RCS, something else to
+[00:51:53.440 --> 00:52:00.320]   consider on and maybe you have a better explanation of it is all Android devices with the default
+[00:52:00.320 --> 00:52:06.640]   messaging Android app. That makes me think about the folks of Samsung and LG and their
+[00:52:06.640 --> 00:52:13.600]   handsets and the messaging apps on those there, at least at one point, it was their own flavor of
+[00:52:13.600 --> 00:52:18.640]   messaging, not necessarily the default Android app that you would get from the Play Store.
+[00:52:18.640 --> 00:52:28.560]   So that still means no encryption from an RCS enabled phone to something like that.
+[00:52:28.560 --> 00:52:34.480]   Is that correct? Well, so I'm trying to think of this right now as you're talking. Google has
+[00:52:34.480 --> 00:52:41.040]   agreements with manufacturers. The name of that agreement escapes me in this moment.
+[00:52:41.040 --> 00:52:47.200]   But they have agreements with manufacturers that encompass the apps that are required on an
+[00:52:47.200 --> 00:52:53.600]   Android phone that you as a company plan to sell that is cleared for all of our Google services.
+[00:52:53.600 --> 00:52:57.920]   So it includes every Android phone that you get that has Google services is going to have a
+[00:52:57.920 --> 00:53:04.080]   Gmail app there. It's going to have a Google Maps there and a handful of others. And I think
+[00:53:04.080 --> 00:53:10.240]   that the messages app is one of those. That doesn't stop Samsung from putting their own messaging app
+[00:53:10.240 --> 00:53:16.320]   there also. And I don't know if that means that Samsung can automatically have their
+[00:53:16.320 --> 00:53:24.320]   app be a default and Google is just happy to have messages, their messages app on the device as
+[00:53:24.320 --> 00:53:29.840]   an option if someone chooses to use it or if Google requires for their messaging app to be the
+[00:53:29.840 --> 00:53:34.880]   default. I don't think that's the case because I tested a lot of Samsung phones and usually I
+[00:53:34.880 --> 00:53:42.160]   have to switch away from Samsung's messaging app into messages by Google. But I do believe that
+[00:53:42.160 --> 00:53:45.440]   it's there. Off the top of my head, I think it's there. It's just not the default.
+[00:53:45.440 --> 00:53:52.160]   Is it the MATA agreements or the MATA? It's M-A-P-A.
+[00:53:52.160 --> 00:53:57.600]   What does that stand for? The mobile application distribution agreement.
+[00:53:57.600 --> 00:54:03.760]   Okay. That might be it. Yeah. Rules and requirements when it comes to putting out an
+[00:54:03.760 --> 00:54:06.400]   Android device. I think that is it. Yeah.
+[00:54:06.400 --> 00:54:10.320]   Yeah. That's what they make OEMs sign, but I don't know if that's the one you're thinking of.
+[00:54:10.320 --> 00:54:18.560]   Someone who's going to go. Because there's also, they also have, it's the one that they.
+[00:54:18.560 --> 00:54:25.360]   The GMS. GMS. That's what I'm thinking of. GMS.
+[00:54:25.360 --> 00:54:30.880]   Suddenly it came to me. Google mobile services. That's the, okay, there we go. Finally, I got there.
+[00:54:30.880 --> 00:54:36.240]   Okay. That's the collection of Google applications and their APIs and all that stuff that makes
+[00:54:36.240 --> 00:54:42.880]   an Android phone a Google happy Android phone with all of the things that most people, at least
+[00:54:42.880 --> 00:54:46.080]   here in the US, expect on an Android device. I don't understand.
+[00:54:46.080 --> 00:54:50.480]   And so, the devices are going off right now. To the chat room there,
+[00:54:50.480 --> 00:54:57.840]   Asmatic and the chat room mentions he has a Samsung device and you have to go and install the
+[00:54:57.840 --> 00:55:05.840]   Google messages app. Second hand. So, the question is, will most people decide to do that?
+[00:55:05.840 --> 00:55:12.320]   Everybody's not Mr. Jason Howell and knows their way in and out of Android and how to go and get
+[00:55:12.320 --> 00:55:17.040]   this app for the service. Totally. Or that they need to do or that they should or whatever the
+[00:55:17.040 --> 00:55:23.440]   case may be. Yeah. Absolutely. Yeah. So, I just launched my Note 20 Ultra.
+[00:55:24.000 --> 00:55:28.720]   And you know how, I don't know if you've had a Samsung phone, but they always have in the,
+[00:55:28.720 --> 00:55:33.760]   you know, in the app tray, you've got this little Google folder that I think these are the apps
+[00:55:33.760 --> 00:55:38.080]   that Google is like, these need to be on your phone if you're going to have Google services.
+[00:55:38.080 --> 00:55:43.680]   And messages is not part of this. So, I must have actually gone and installed
+[00:55:43.680 --> 00:55:49.680]   Google messages on this automatically or, you know, on my own, not through Samsung just offering it.
+[00:55:49.680 --> 00:55:55.440]   So, you're right. This is not a Samsung phone. This is a TCL. And I just took a look at the
+[00:55:55.440 --> 00:56:00.560]   messages on here. And it is that Verizon crap. There's no, no, no, no, no, no, no.
+[00:56:00.560 --> 00:56:06.560]   Yeah. So, so there's that. That's, that's why I asked the question because everybody's not going
+[00:56:06.560 --> 00:56:12.160]   to get a pure Android device. Most people just going to get what they can flat out afford.
+[00:56:12.160 --> 00:56:16.560]   And if it ends up being something like this TCL device, that's what they're going to deal with.
+[00:56:17.520 --> 00:56:22.320]   Yeah. And so then the question becomes, because I do know that Samsung had worked with Google to
+[00:56:22.320 --> 00:56:30.480]   enable RCS in Samsung's messaging app. So that's a plus. That's a plus. But will that messaging app
+[00:56:30.480 --> 00:56:35.280]   also offer end-to-end communications when Google is baking it into messages,
+[00:56:35.280 --> 00:56:42.000]   their messenger app? And that I don't know the answer to. So, you know, welcome back to
+[00:56:42.800 --> 00:56:46.880]   Android and its history of fragmentation in all different ways. I wasn't going to go there,
+[00:56:46.880 --> 00:56:52.160]   but you did. Thank you. You went ahead and said the word. They just changed the name every
+[00:56:52.160 --> 00:56:59.200]   few months and then they think it's something new. Exactly. That's how Google rolls. So,
+[00:56:59.200 --> 00:57:04.480]   anyway, I mean, overall, it's good news. Like Google needed to do that. It's also very late in
+[00:57:04.480 --> 00:57:08.720]   the game, right? Like Google needed to do this long time ago. At least they're finally doing it.
+[00:57:08.720 --> 00:57:14.400]   But oh my God, how many hoops have we had to jump through in order to get to this point?
+[00:57:14.400 --> 00:57:22.240]   It's annoying. I thought the AMP story was interesting just because we have such impassioned
+[00:57:22.240 --> 00:57:29.360]   AMP people here. But I also wondered, yeah. Impassion, AMP person? Pretty much that. So,
+[00:57:29.360 --> 00:57:36.480]   yeah, Leo has opinions too. So, Google, okay. Yeah, you go Jason.
+[00:57:37.040 --> 00:57:42.240]   Okay. You beat the host. I don't want to step on you. Google has been hosting preferential
+[00:57:42.240 --> 00:57:47.920]   treatment to AMP pages, which apparently they've been talking about this as being a possibility
+[00:57:47.920 --> 00:57:54.320]   some for the last couple of years. But this particularly comes into play in the top stories
+[00:57:54.320 --> 00:57:58.960]   carousel that you see at the top of searches. And for the longest time, at least since they launched
+[00:57:58.960 --> 00:58:03.120]   AMP, which how long has it been now? Has it been four years, three years somewhere around there?
+[00:58:03.120 --> 00:58:09.120]   Yeah. Wow, that's crazy. On one hand, it kind of feels like it just happened, but it has four
+[00:58:09.120 --> 00:58:18.640]   years later. Anyways, they've been giving AMP pages 2015. Wow, that's crazy. October 7, 2015.
+[00:58:18.640 --> 00:58:23.520]   So, that's tough. Okay, well, finish because I have questions about this. Yeah. So, the top
+[00:58:23.520 --> 00:58:29.040]   stories carousel used to only feature AMP stories, and I think it still does, they've been hitting
+[00:58:29.040 --> 00:58:33.280]   it, changing that to kind of open it up. So, now they're going to end that preferential treatment
+[00:58:33.280 --> 00:58:38.400]   and let other pages get into that, depending on how they rank and that sort of stuff.
+[00:58:38.400 --> 00:58:46.240]   So, yeah, I mean, that's about as much as I know about it. It feels kind of like a reaction to
+[00:58:46.240 --> 00:58:52.000]   all the antitrust stuff that's stirring up, or it feels like it could be the reason that they're
+[00:58:52.000 --> 00:58:55.600]   doing it now. But who knows? But what do you all think?
+[00:58:56.640 --> 00:59:03.280]   So, I'm wondering if, yeah, because a couple things, I wonder if this is the beginning of the
+[00:59:03.280 --> 00:59:07.600]   end for AMP, because we all know that Google loves to throw things in the wall, right?
+[00:59:07.600 --> 00:59:14.320]   It killed them. But, I mean, if you build for AMP, all those links, I mean, what happens to that,
+[00:59:14.320 --> 00:59:19.760]   if you've optimized your site and published, you're around that because that's not normal
+[00:59:19.760 --> 00:59:28.640]   web stuff. You always had a backup link, as I recall. What's the word for original?
+[00:59:28.640 --> 00:59:34.400]   You had the OG link there. Canonical link. Canonical.
+[00:59:34.400 --> 00:59:40.000]   Got it. So, then I shouldn't worry if I'm a publisher.
+[00:59:40.000 --> 00:59:43.280]   Fakes, though. I think if you send, well, you've got to have something in place that if you go to
+[00:59:43.280 --> 00:59:45.280]   an AMP page that doesn't exist, let's go to the canonical.
+[00:59:48.160 --> 00:59:51.600]   What's interesting about this to me is a couple things.
+[00:59:51.600 --> 00:59:53.280]   Or did you have other questions, Stacy? Sorry.
+[00:59:53.280 --> 00:59:54.400]   Nope. Those were my questions.
+[00:59:54.400 --> 01:00:01.520]   So, because I was around at the beginning of AMP, when it was pushed for Google to do this,
+[01:00:01.520 --> 01:00:08.160]   and Google Newsguys to Helsinki, when we talked about this the first time, and it was already
+[01:00:08.160 --> 01:00:14.960]   in the works with a guy named Bez, who was working on it at Google. The original goal, again, was,
+[01:00:14.960 --> 01:00:19.440]   we in media screwed up the web. We jumped it up with all this stuff. This was to speed up the
+[01:00:19.440 --> 01:00:26.000]   web and make it better. And not to do it. The closed world of Facebook instant articles, but
+[01:00:26.000 --> 01:00:30.880]   instead do it in the open world of the net. The second thing was supposed to happen here was that
+[01:00:30.880 --> 01:00:35.280]   it was open source, and they were supposed to open it up to others and have it taken over by others,
+[01:00:35.280 --> 01:00:39.520]   and they never really did that, which is why some of the Chrome stuff is really interesting to talk
+[01:00:39.520 --> 01:00:47.760]   about next. And yes, it was done collaboratively with a lot of publishers and a lot of others,
+[01:00:47.760 --> 01:00:54.000]   but they never really fully opened up the governance as much as they could have to make it truly open
+[01:00:54.000 --> 01:00:59.840]   source. Then third, they said, "Okay, we got this carousel. We're going to motivate you to do fast
+[01:00:59.840 --> 01:01:04.560]   pages, and we're going to put AMP pages up on that carousel." Well, the problem is that
+[01:01:04.560 --> 01:01:08.160]   conflated the two. They should have said from the beginning, which is kind of what they're saying
+[01:01:08.160 --> 01:01:12.880]   now is, "Well, if you have a fast page, no matter how you make it, it can be in the carousel." They
+[01:01:12.880 --> 01:01:19.840]   should have done that ages ago. But now in anti-trust world, it doesn't look so good that you had to
+[01:01:19.840 --> 01:01:24.640]   use their thing. You never had to use Google hosting, but Google hosting was a lot faster,
+[01:01:24.640 --> 01:01:32.320]   and cheaper was free. You didn't have to pay for other services to be your CDN. So it had advantages.
+[01:01:32.320 --> 01:01:37.360]   The rollout had some problems, and I think now your right Stacey, one of those things Google says,
+[01:01:37.920 --> 01:01:42.560]   "Oh, that was yesterday's fun thing. We're kind of bored by that now." I don't know that they'll kill
+[01:01:42.560 --> 01:01:48.640]   AMP. They'll act like it's open source, but I don't know what's going to happen to it really.
+[01:01:48.640 --> 01:01:53.840]   They will throw it to the wolves. It will suffer or survive as the market demands.
+[01:01:53.840 --> 01:02:00.720]   But that's why, if you don't mind, Jason, as Dr. Host, the thing that I think is related here is
+[01:02:00.720 --> 01:02:09.840]   that Chromium said they've added now someone to Chromium outside of Google as one of the
+[01:02:09.840 --> 01:02:15.280]   ruling PUBAS of Chromium. Was that on here somewhere? That is on here. I could be wrong.
+[01:02:15.280 --> 01:02:19.680]   I did not dive very deep on this one. This is where Stacey can probably explain it to us.
+[01:02:19.680 --> 01:02:25.680]   No, no. I didn't know Chromium had ruling PUBAS.
+[01:02:25.680 --> 01:02:34.800]   Well, as any open source thing, even as... So now Google, the Council of Open Source PUBAS,
+[01:02:34.800 --> 01:02:40.240]   is that the formal title? Sure. Here it is.
+[01:02:40.240 --> 01:02:47.600]   True, old man, Jeff. What's a PUBAS? So now they've added someone else into this group,
+[01:02:47.600 --> 01:02:53.760]   into this. So I think they're trying to be real about being open source. That's my point.
+[01:02:53.760 --> 01:02:57.360]   Yeah. Okay. That makes sense. And then if you wanted to pull like,
+[01:02:57.360 --> 01:03:01.200]   amp into something like that, this is a chance to get other people on board,
+[01:03:01.200 --> 01:03:08.560]   as opposed to be like, "Fopin," it's actually open. And as long as people actually want to
+[01:03:08.560 --> 01:03:12.800]   participate in it. So that makes sense. Google actually is two non-Google engineer overseers,
+[01:03:12.800 --> 01:03:19.520]   overseers. It's what they call overseers. So they have two, they have a process where they put
+[01:03:19.520 --> 01:03:23.440]   them in there. So I think that makes it... Do people trust that more as open source
+[01:03:23.440 --> 01:03:27.920]   if you have other voices other than a company saying it's open source, but running it themselves?
+[01:03:27.920 --> 01:03:34.080]   Right. Y'all didn't like my Fopin? Come on, y'all. That's great.
+[01:03:34.080 --> 01:03:38.480]   That was clever. Come on. I'll give you a couple of snaps for that.
+[01:03:38.480 --> 01:03:41.120]   That's good. That's good. But not quite a show title. Thank you.
+[01:03:41.120 --> 01:03:44.000]   Not quite. Oh, no. I would never.
+[01:03:44.800 --> 01:03:49.440]   But I really like Council of open source PUBAS. So I think that might just have to be the title.
+[01:03:49.440 --> 01:03:52.560]   Oh, it's PUBAS, not PUBAS.
+[01:03:52.560 --> 01:03:56.400]   PUBAS, isn't it? How do you spell it? PUBAS, yeah, it's PUBAS.
+[01:03:56.400 --> 01:04:02.080]   No, I don't know why we spell it. I thought he was going to use the AHS.
+[01:04:02.080 --> 01:04:05.600]   I thought it was PUBAS. Oh, it's the Grand PUBAS.
+[01:04:05.600 --> 01:04:12.240]   Yeah. Oh, it's actually the name of a hottie character in Gilbert and Sullivan's "The Macado."
+[01:04:12.240 --> 01:04:14.720]   Oh, we're going to scare Ant Ant. That's a musical.
+[01:04:14.720 --> 01:04:17.360]   Everything goes back to musicals.
+[01:04:17.360 --> 01:04:23.360]   The only Grand PUBAS I know was part of the brand newbie and hip hop group back in the 90s.
+[01:04:23.360 --> 01:04:26.960]   That's all I know. Let's be it all again.
+[01:04:26.960 --> 01:04:32.880]   There we go. 90s hip hop. We still listen to that in our house. I got to tell you.
+[01:04:32.880 --> 01:04:35.200]   I still do that. Yeah.
+[01:04:35.200 --> 01:04:38.480]   Good stuff. I'll be honest. Okay.
+[01:04:39.440 --> 01:04:45.920]   What else can we take? Where else can we go? I wanted to ask about this, the Stadia story,
+[01:04:45.920 --> 01:04:53.120]   because I've been too lazy to read up on Stadia because it still confuses me. It's Google's
+[01:04:53.120 --> 01:04:58.240]   online gaming platform. I remember Mr. Howell did a hands-on tech with it
+[01:04:58.240 --> 01:05:06.080]   umpteen months ago, and the performance of it was not very good, even on our, you know,
+[01:05:06.080 --> 01:05:11.760]   super fast Twitch studio internet connection. But then we've got the notification about getting
+[01:05:11.760 --> 01:05:18.560]   access for free for, was it three months to the pro version of it or something like that?
+[01:05:18.560 --> 01:05:21.280]   Because I ended up getting this in the mail. Nice.
+[01:05:21.280 --> 01:05:27.840]   And I have no idea what to do with it. I tried to play some game that looked like PUBG and was
+[01:05:27.840 --> 01:05:32.800]   horrible at it. I haven't hooked it up to the Chromecast. I just did it here on the PC.
+[01:05:33.360 --> 01:05:37.440]   Even though it says I should probably connect it to the phone, why would I want to play the game
+[01:05:37.440 --> 01:05:43.200]   on my phone? I don't get it. So can you explain all of this hoopla? Because now it's been around
+[01:05:43.200 --> 01:05:48.240]   for a year. But does anybody care? Because they're sending this stuff out to someone like me
+[01:05:48.240 --> 01:05:52.160]   to get me hooked on it. And I'm not getting hooked.
+[01:05:52.160 --> 01:06:00.400]   It is interesting that they went on this this spree of just handing out their premium package
+[01:06:00.400 --> 01:06:06.880]   controller and and Chromecast Ultra, right? Like, I mean, I got that too. I have it in a box over
+[01:06:06.880 --> 01:06:12.480]   there unopened. But I have another one already. I have another one already, right? From the initial
+[01:06:12.480 --> 01:06:18.160]   a year ago. But I don't really play Stadia a whole lot because I have a PS4. I'm not one of the
+[01:06:18.160 --> 01:06:23.200]   new kids, you know, with the with the new controllers or anything or the consoles that are coming out
+[01:06:23.200 --> 01:06:28.800]   right now. But I have a PS4. So if I get an itch for gaming, I'm using that or I'm using an Oculus
+[01:06:28.800 --> 01:06:35.440]   Quest or whatever. So I haven't really spent a whole lot of time gaming on Stadia with any sort
+[01:06:35.440 --> 01:06:41.120]   of regularity except to like jump in here and there and see how it's doing, you know, to see how
+[01:06:41.120 --> 01:06:47.440]   the service is going. And I mean, I've felt like it's improved. I felt the last time,
+[01:06:47.440 --> 01:06:53.120]   which was probably like three or four months ago that I that I launched. It was a Tomb Raider
+[01:06:53.120 --> 01:06:57.520]   game that I have in my library. I actually had a blast. Like I ended up playing it for like three
+[01:06:57.520 --> 01:07:03.760]   hours and had a great time and put it up on my TV and everything. I mean, I think I think it's
+[01:07:03.760 --> 01:07:09.280]   interesting. I wonder how much like how much to read into the fact that Google is really kind of
+[01:07:09.280 --> 01:07:15.920]   gifting the controller and the Chromecast because I'm not entirely sure. I don't have no data to
+[01:07:15.920 --> 01:07:20.880]   back it up. But I'm not entirely sure that Stadia is lighting the world on fire as far as the gaming
+[01:07:20.880 --> 01:07:29.520]   scene is concerned. But I understand it's promise and I respect why it exists because I think that's
+[01:07:29.520 --> 01:07:35.920]   a really good kind of hole in the gaming world to fill, which is the fact that if you have
+[01:07:35.920 --> 01:07:43.200]   the controller or even if you don't, if you just have a Bluetooth controller, you can stream from
+[01:07:43.200 --> 01:07:49.360]   their service for free console and PC quality games. And you're talking about some latency
+[01:07:49.360 --> 01:07:53.760]   that's introduced there. But depending on the type of game you're playing, it's kind of negligible.
+[01:07:53.760 --> 01:08:00.160]   So I think the promise is really interesting. You don't end up having to buy a console. And
+[01:08:00.160 --> 01:08:04.480]   that's really great. And in a time right now where people are spending four or five hundred
+[01:08:04.480 --> 01:08:08.640]   dollars on one of the new consoles, you don't need to do that with Stadia. But you don't have a huge
+[01:08:08.640 --> 01:08:14.960]   library. You do have a little bit of that latency to deal with. Maybe that'll get better over time,
+[01:08:14.960 --> 01:08:19.120]   but it'll never be as direct as what you get when you're plugging directly into a console.
+[01:08:20.080 --> 01:08:26.720]   And you do have a free tier. You just have to be okay with buying a game in the cloud that's
+[01:08:26.720 --> 01:08:32.240]   stored on their servers. And touching back on what we were talking about just a few minutes ago,
+[01:08:32.240 --> 01:08:38.320]   we already know how bored Google gets with things. And I think to a certain degree,
+[01:08:38.320 --> 01:08:44.560]   that's what holds Stadia back. At this point, even the most ardent Google fans, myself included,
+[01:08:45.520 --> 01:08:52.080]   like I'm starting to get kind of like a gun shy with Google services because it's happened so
+[01:08:52.080 --> 01:08:56.400]   many times where they get bored or they change, they totally pull the rug out from underneath
+[01:08:56.400 --> 01:09:00.800]   what I'm used to, what I'm comfortable with, what I enjoy. And then I have to like figure it out
+[01:09:00.800 --> 01:09:05.040]   again. And it's like, just dedicate yourself to this thing and see it through the difficult time
+[01:09:05.040 --> 01:09:11.360]   to be a better thing as it is and not something completely different. And I'm not guaranteed that
+[01:09:11.360 --> 01:09:17.120]   Stadia is going to be there two years from now. So when I pay $60 for a game that exists in the
+[01:09:17.120 --> 01:09:22.560]   cloud, do I know that it's going to be there for me to hear from now as if it's like consoling me
+[01:09:22.560 --> 01:09:30.720]   or something? No, like I don't know. This is your old man moment. I'm the kid.
+[01:09:31.920 --> 01:09:36.080]   Oh, Stadia, I want to tell you, I'm not an old man. Not yet. Okay.
+[01:09:36.080 --> 01:09:44.160]   Is this the same sentiment? All right, I tell you. So you think the game developers share that same
+[01:09:44.160 --> 01:09:49.040]   sentiment far as Google just keeps killing stuff off? That's why we don't have the like, so call
+[01:09:49.040 --> 01:09:55.360]   a duty on Stadia or is it? I mean, that's that's a great, that's a great question. I, you know, I'm
+[01:09:56.160 --> 01:10:01.920]   I enjoy gaming, but I'm not like super close to, you know, how, you know, game developers are thinking
+[01:10:01.920 --> 01:10:08.560]   about these, these consoles. I mean, I do know that Cyberpunk 2077 is a pretty big game and it is
+[01:10:08.560 --> 01:10:16.560]   coming to Stadia. So that says something and Stadia does have some exclusives. It's just a really
+[01:10:16.560 --> 01:10:20.400]   hard time like this moment in time right now we've got the PS5, we've got the new Xbox
+[01:10:21.120 --> 01:10:26.880]   systems. It's a hard time to compete against those two if you're Google and Stadia. And I think that's
+[01:10:26.880 --> 01:10:30.640]   part of the reason why they're gifting these controllers to try and be like, Hey, you don't want
+[01:10:30.640 --> 01:10:35.680]   to spend $500 on a console here. We'll give you our console. It's in the form of this controller and
+[01:10:35.680 --> 01:10:39.600]   this Chromecast just by your game in the cloud and then it's done. You don't even need to waste your
+[01:10:39.600 --> 01:10:44.320]   money on the console by the razor business about a console for yeah, it's the razor business model,
+[01:10:44.320 --> 01:10:48.080]   right? We'll give you the ratio by the blade. Absolutely.
+[01:10:48.720 --> 01:10:51.200]   We also see, I mean, like Amazon to, oh, sorry.
+[01:10:51.200 --> 01:10:58.080]   But I just want to observe. Obviously, Ant must have an incredibly cluttered desk because he had
+[01:10:58.080 --> 01:11:07.440]   that never used right at hand. Everything's right. Everything's right. This Westcott white here from
+[01:11:07.440 --> 01:11:14.240]   a glasses. This looks like some sort of DVI to HDMI adapter here for some reason. There's,
+[01:11:14.240 --> 01:11:20.640]   there's also a quarter right here. I think there's, yeah, there's six about one of six.
+[01:11:20.640 --> 01:11:22.800]   That's for a rainy day, young man. Some stamps.
+[01:11:22.800 --> 01:11:30.400]   I think this is a C band just in case I decide to get motion sickness while podcasting.
+[01:11:30.400 --> 01:11:37.360]   Yeah, my desk is rather cluttered, sir. My desk is cluttered with a stack of phone.
+[01:11:37.360 --> 01:11:43.120]   Holy, it's kind of right. Oh, yeah. Then there's another phone here. Here's the pixel for
+[01:11:43.920 --> 01:11:51.360]   the four A. Yeah, I totally feel you, sir. This is what said my desk.
+[01:11:51.360 --> 01:11:55.600]   All right. She's all. See, that's the right way to go.
+[01:11:55.600 --> 01:12:02.480]   And books. Books, I tell you. Books. Those are behind me.
+[01:12:02.480 --> 01:12:06.560]   That's better than stack of phones. I'm kind of feel.
+[01:12:06.560 --> 01:12:10.080]   After the whole, that's turning on my overhead camera so you can actually see this.
+[01:12:11.200 --> 01:12:16.480]   I'm like, I have a corner over there and that has a light bulb, a ring box.
+[01:12:16.480 --> 01:12:21.840]   Smart lamp and I don't even know what else is in that tiny little corner.
+[01:12:21.840 --> 01:12:23.600]   And a bunch of his new dads.
+[01:12:23.600 --> 01:12:27.360]   Through it like this or is she the opposite as I would predict?
+[01:12:27.360 --> 01:12:34.640]   Oh, she's totally the opposite. The thing is though, I will clean up in here, air quotes,
+[01:12:34.640 --> 01:12:37.760]   clean up and I'll get this for you because I can't find anything.
+[01:12:38.960 --> 01:12:43.120]   All right. She'll walk in here and she'll have this look of just amazement.
+[01:12:43.120 --> 01:12:48.160]   Like, wow, it's clean. And then about two days later, I'm in here cussing because I
+[01:12:48.160 --> 01:12:55.440]   I've moved some of my wife's favorite place on earth is the container store.
+[01:12:55.440 --> 01:13:02.480]   She loves. Right. And so my family joke is that I'm going to be buried in rubbermaid.
+[01:13:02.480 --> 01:13:08.720]   Everything is a container. Everything has a container and pushed under the bed.
+[01:13:08.720 --> 01:13:09.840]   Yeah. Yeah, exactly.
+[01:13:09.840 --> 01:13:16.000]   It's a fitting edge, Jeff. I just want you to know that she's not cheaping out if she's going
+[01:13:16.000 --> 01:13:21.600]   container store. Wow. Let's see equivalent of the mahogany coffin right there.
+[01:13:21.600 --> 01:13:30.480]   That's no Ikea, man. That's true. It's true. Let's, let's take a break. This is so much fun.
+[01:13:30.480 --> 01:13:35.520]   I'm so happy to do this show with you guys. Let's take a break and thank the sponsor and then
+[01:13:35.520 --> 01:13:40.080]   we'll get back into more fun discussion. We probably got some more Google news that we
+[01:13:40.080 --> 01:13:44.800]   can talk about. We'll dig it up. But first, this episode of this week in Google is brought to you
+[01:13:44.800 --> 01:13:52.720]   by technology powers X. It's an original podcast by Dell Technologies. Every episode of technology
+[01:13:52.720 --> 01:13:58.960]   powers X focuses on a different industry and it goes behind the scenes in a way that helps you
+[01:13:58.960 --> 01:14:05.280]   understand how technology and how IT departments are actually reshaping their businesses through
+[01:14:05.280 --> 01:14:08.960]   all these things that we talk about on the show all the time. AI, cloud, edge,
+[01:14:08.960 --> 01:14:15.440]   intelligent devices and so much more. We've got so many episodes and I've had to sneak peek of a
+[01:14:15.440 --> 01:14:23.120]   few of them. One episode is all about theme parks and really how they use sensors. Sometimes when
+[01:14:23.120 --> 01:14:27.040]   you think of theme parks, you don't think of smart necessarily. Just think of these rides and
+[01:14:27.040 --> 01:14:32.320]   whatever. They're highly intelligent systems. They use sensors, massive amounts of data,
+[01:14:32.880 --> 01:14:39.120]   software to make rides safer, more efficient, obviously to make them more fun. Another episode
+[01:14:39.120 --> 01:14:46.400]   is about the technology behind F1 racing and how the legendary McLaren racing team uses technology
+[01:14:46.400 --> 01:14:54.480]   to make decisions about pitting and tire selection, racing strategies, both trackside and at their
+[01:14:54.480 --> 01:15:00.800]   data center. So how they integrate all of that data from all those points and improve the
+[01:15:00.800 --> 01:15:05.280]   performance of the team. And then there's an upcoming episode that talks all about
+[01:15:05.280 --> 01:15:12.080]   vertical farming and how innovative new tech can change where your food is actually coming from
+[01:15:12.080 --> 01:15:19.360]   and how this may be the future of sustainably feeding 21st century populations. Fascinating stuff.
+[01:15:19.360 --> 01:15:26.000]   Technology Powers X is hosted by Danielle Applestone, she's a hardware engineer and entrepreneur.
+[01:15:26.000 --> 01:15:30.400]   And we actually have a little clip. This is a clip from the episode The Beer You Love.
+[01:15:30.400 --> 01:15:38.800]   Today at New Belgium, the ancient craft of brewing has an indispensable 21st century ingredient,
+[01:15:38.800 --> 01:15:45.440]   hyper converged infrastructure. That infrastructure supports almost every aspect of planning,
+[01:15:45.440 --> 01:15:50.480]   marketing, sales and distribution. And you can listen to the whole episode and you can learn
+[01:15:50.480 --> 01:15:56.560]   all about how technology is powering beer at the new Belgium brewing company. And maybe you
+[01:15:56.560 --> 01:16:02.080]   have a beer on hand while you're listening to that. Search for technology Powers X anywhere
+[01:16:02.080 --> 01:16:07.760]   you listen to podcasts, you can download each episode today. That's Technology Powers X,
+[01:16:07.760 --> 01:16:14.880]   download it today. And my thanks to Technology Powers X for their support of this week in Google.
+[01:16:16.400 --> 01:16:25.120]   All right. Recommendation Ranger IPA or Fat Tire. Great B.F. Great brewery. Fat Tire.
+[01:16:25.120 --> 01:16:30.480]   I kind of hit a point with Fat Tire where I was like, you know, sometimes it just has a little
+[01:16:30.480 --> 01:16:35.040]   of this like certain sweetness that I don't care about, but the Ranger IPA is really delicious.
+[01:16:35.040 --> 01:16:44.080]   Let's see here. What Google stories can we discuss? Actually, we don't have to keep it
+[01:16:44.080 --> 01:16:51.040]   in Google, but yeah, these projects are actually really interesting. The blind one is really good.
+[01:16:51.040 --> 01:16:56.000]   It's a video worth playing. All right. So we've got two projects here to talk about. Let's start
+[01:16:56.000 --> 01:17:02.160]   with, since you mentioned it, Stacy, we'll start with the trees. Google's new tree canopy lab tool,
+[01:17:02.160 --> 01:17:08.480]   which actually maps where trees are needed in a specific location. And from my understanding,
+[01:17:08.480 --> 01:17:14.400]   they started in LA. The idea here is, you know, obviously global warming is heating the earth,
+[01:17:14.400 --> 01:17:20.880]   but where that is really apparent, in one way, it's very apparent, is that just the fact that
+[01:17:20.880 --> 01:17:25.360]   cities are very warm places, you know, there's asphalt everywhere, buildings that kind of lock
+[01:17:25.360 --> 01:17:30.480]   in the heat. And if you don't have enough trees distributed around in those areas,
+[01:17:30.480 --> 01:17:36.240]   there's not as many opportunity to cool the temperature down. So this tool actually identifies
+[01:17:36.240 --> 01:17:44.400]   where trees can be planted to cool down those neighborhoods. By 2028, I believe they plan on
+[01:17:44.400 --> 01:17:51.280]   the city of LA wants to increase tree canopy cover of 50% of low income severely heat impacted
+[01:17:51.280 --> 01:17:57.040]   neighborhoods, because often a lot of the neighborhoods that end up kind of the hottest of all less
+[01:17:57.040 --> 01:18:01.840]   trees, more asphalt, that sort of thing are the low income neighborhoods. And so this would be a way
+[01:18:01.840 --> 01:18:09.360]   to change that. So yeah, I thought this was cool because I had covered, it was a public radio station
+[01:18:09.360 --> 01:18:16.080]   in New York City, did a, it was like hot and Harlem project where they actually put sensors on
+[01:18:16.080 --> 01:18:23.680]   rooftops in areas of Harlem to trap temperatures and showed how hot it was. And I'm interested,
+[01:18:23.680 --> 01:18:28.000]   because I looked at Google Sing, and I'm like, are they extrapolating this out based on like just
+[01:18:28.000 --> 01:18:32.560]   simply a lack of trees from their map data? Like they have an algorithm doing this as opposed to
+[01:18:32.560 --> 01:18:37.120]   actually having to deploy these physical sensors. And that would be really cool because that makes
+[01:18:37.120 --> 01:18:43.840]   something that's important. Is it the most important social justice issue? No, but it is a very,
+[01:18:43.840 --> 01:18:47.360]   it has a big impact on quality of life. Yeah, I don't know.
+[01:18:47.360 --> 01:18:49.760]   Environment too. And on the environment.
+[01:18:49.760 --> 01:18:55.120]   Stacy says here they use aerial imagery to figure out where every tree is in a city.
+[01:18:56.080 --> 01:18:58.960]   Okay, so yeah, they're just extrapolating tree senses.
+[01:18:58.960 --> 01:19:03.920]   Yeah, exactly. So yeah, I was a time.
+[01:19:03.920 --> 01:19:09.600]   Stacy, you know what the TK is for those of us, those who are not in the audience who don't,
+[01:19:09.600 --> 01:19:11.440]   TK. I've got one of my newsletter right now.
+[01:19:11.440 --> 01:19:14.640]   When you don't know something, you'll fill it in later.
+[01:19:14.640 --> 01:19:18.480]   You know, Jeff is TK years old because he won't tell us.
+[01:19:18.480 --> 01:19:25.680]   So the researchers at time make were legendary for finding out any answer. So we put a TK
+[01:19:25.680 --> 01:19:31.760]   like they found it. And some damn writer and editor at Time Inc said TK trees in Russia.
+[01:19:31.760 --> 01:19:37.360]   And the researcher then spent like a week trying to calculate how many trees there were in Russia.
+[01:19:37.360 --> 01:19:44.080]   So now Google can do it. That's awesome. What does TK stand for?
+[01:19:44.080 --> 01:19:47.840]   It's supposed to be to come, but the reason is to say.
+[01:19:47.840 --> 01:19:50.240]   So they won't get in type. Yeah.
+[01:19:50.240 --> 01:19:56.960]   So that's why we misspelled lead is spelled L-E-D-E. Head is spelled H-E-D TK is spelled TK.
+[01:19:56.960 --> 01:20:01.280]   Yeah, right. They were supposed to stand out. So you wouldn't set them in type.
+[01:20:01.280 --> 01:20:03.600]   Jeff, you're 66 years old.
+[01:20:03.600 --> 01:20:08.720]   Allegedly, I'm open. TK, no more.
+[01:20:08.720 --> 01:20:17.760]   Well, after I remember TK my day, we left blank. So we filled in the facts later.
+[01:20:18.240 --> 01:20:21.120]   So that's a cool problem.
+[01:20:21.120 --> 01:20:25.600]   Yeah, people do that. There's another project you were mentioning also, Jeff.
+[01:20:25.600 --> 01:20:28.720]   This is a project guideline.
+[01:20:28.720 --> 01:20:33.600]   We've talked about this in the show too. Why couldn't you use the tools that Google has to
+[01:20:33.600 --> 01:20:39.600]   help blind people? And I was thinking about this like within a home. But they instead did this so
+[01:20:39.600 --> 01:20:46.160]   that blind people could run. And the video, which you can show, is a man who's been blind for a
+[01:20:46.160 --> 01:20:50.560]   long time. And he has to run with people. So he's always too slow.
+[01:20:50.560 --> 01:20:52.000]   All right.
+[01:20:52.000 --> 01:20:58.400]   Because they're guiding him and they have a guide rope or something. So he can do this.
+[01:20:58.400 --> 01:21:02.640]   If you go forward a bit, right there was the moment where he said, "Could you do this? Could
+[01:21:02.640 --> 01:21:10.400]   you help blind people run?" So they need a line in the root. And they talk about how this is not
+[01:21:10.400 --> 01:21:13.920]   easy. Because when you run, you go back and forth, left and right, left and right, left and right.
+[01:21:13.920 --> 01:21:22.000]   And so you're not straight on to the line, but it learns enough to understand what's around you
+[01:21:22.000 --> 01:21:26.240]   and how to do this. And so there's... You can turn this on up now.
+[01:21:26.240 --> 01:21:33.120]   This is where he's doing it for the first time. He's running on his own.
+[01:21:33.120 --> 01:21:36.720]   It's very obvious. It's very obvious to recognize the line.
+[01:21:36.720 --> 01:21:40.240]   Teaching a machine learning model to do that is not that easy.
+[01:21:40.240 --> 01:21:44.480]   You step left and right as you're running. So there's a shake to the line left and right.
+[01:21:44.480 --> 01:21:48.080]   As soon as you start going outdoors, now the light is a lot more variable.
+[01:21:48.080 --> 01:21:52.240]   Trade shadows, falling leaves, and also the line on the ground.
+[01:21:52.240 --> 01:21:57.440]   He's actually wearing a harness. He's wearing an android phone.
+[01:21:57.440 --> 01:22:00.080]   And is he the harness with an android phone?
+[01:22:00.080 --> 01:22:01.040]   Any trans connection.
+[01:22:01.040 --> 01:22:06.240]   And then is it haptic feedback telling him to be or left? It's a sound.
+[01:22:06.240 --> 01:22:07.840]   No, it's not a sound connection.
+[01:22:07.840 --> 01:22:10.240]   It's a sound connection. Yeah, audio prompts.
+[01:22:10.240 --> 01:22:15.760]   So when the runner is left at the line, audio plays in the left ear that kind of increases in volume
+[01:22:15.760 --> 01:22:20.240]   and distance, depending on where that person is in relationships with the line.
+[01:22:20.240 --> 01:22:22.320]   It's very easy to don't want the line to be able to take risks.
+[01:22:22.320 --> 01:22:27.680]   That's what keeps people who are blind from participating in society fully.
+[01:22:27.680 --> 01:22:31.040]   The safest thing for a blind person to do is to sit still.
+[01:22:31.040 --> 01:22:33.040]   Yeah, no change.
+[01:22:33.040 --> 01:22:37.440]   I could not imagine running at my flow speed in darkness.
+[01:22:37.440 --> 01:22:38.240]   Right? Like that.
+[01:22:38.240 --> 01:22:44.240]   You got to trust whatever the system is that is enabling you to do that.
+[01:22:44.240 --> 01:22:45.440]   You got to have full trust.
+[01:22:45.440 --> 01:22:46.800]   And he was in full.
+[01:22:46.800 --> 01:22:49.440]   And so I was going to say, look at that stride, man.
+[01:22:49.440 --> 01:22:50.160]   He really does.
+[01:22:50.160 --> 01:22:51.760]   And he breaks down in tears.
+[01:22:51.760 --> 01:22:53.680]   Yeah, that's amazing.
+[01:22:53.680 --> 01:22:54.880]   Because it's the first time in his life.
+[01:22:54.880 --> 01:22:56.800]   And then they put a whole bunch of people with this.
+[01:22:56.800 --> 01:22:59.520]   And it's really this is this is what technology is supposed to be.
+[01:22:59.520 --> 01:22:59.760]   Right?
+[01:22:59.760 --> 01:23:01.760]   It's a real tough thing.
+[01:23:01.760 --> 01:23:02.160]   Yes.
+[01:23:02.960 --> 01:23:08.320]   When I talk to people who are trying to build solutions like this for either hearing impaired,
+[01:23:08.320 --> 01:23:12.240]   visual impaired, they're all like, please don't build for us.
+[01:23:12.240 --> 01:23:14.400]   Build for the community at large.
+[01:23:14.400 --> 01:23:20.240]   And we will adapt it for us because otherwise it's priced out of our market.
+[01:23:20.240 --> 01:23:22.240]   People think of it not as.
+[01:23:22.240 --> 01:23:25.600]   So if you can build accessibility into everyday products,
+[01:23:25.600 --> 01:23:29.040]   it's far better for those communities.
+[01:23:31.520 --> 01:23:34.160]   There's no stigma associated with it.
+[01:23:34.160 --> 01:23:39.120]   There is, you know, it's cheaper and it's just easier for them to have like access it.
+[01:23:39.120 --> 01:23:44.080]   So I think using things like an Android phone is great.
+[01:23:44.080 --> 01:23:45.200]   So.
+[01:23:45.200 --> 01:23:46.560]   Yeah.
+[01:23:46.560 --> 01:23:47.120]   Yep.
+[01:23:47.120 --> 01:23:47.680]   Yep.
+[01:23:47.680 --> 01:23:49.600]   And you can imagine, you know, other uses.
+[01:23:49.600 --> 01:23:53.360]   I still think that we've talked about.
+[01:23:53.360 --> 01:23:57.280]   Well, I forget what the Google project was that maps out into into your space.
+[01:23:57.280 --> 01:23:58.720]   And you're back.
+[01:23:58.720 --> 01:23:59.840]   Oh, well, the Tango.
+[01:23:59.840 --> 01:24:00.000]   Right.
+[01:24:00.000 --> 01:24:01.120]   Was that Tango?
+[01:24:01.120 --> 01:24:01.840]   Tango, right.
+[01:24:01.840 --> 01:24:03.200]   So you can imagine.
+[01:24:03.200 --> 01:24:07.600]   Yeah, you can see like that that spot, the Boston Dynamics robot, you know,
+[01:24:07.600 --> 01:24:08.880]   just chasing after people.
+[01:24:08.880 --> 01:24:11.440]   Using computer vision,
+[01:24:11.440 --> 01:24:13.680]   inaccurately going in a straight line to them.
+[01:24:13.680 --> 01:24:15.200]   True.
+[01:24:15.200 --> 01:24:20.400]   I was afraid you were going to go moral panic there Stacy, but you didn't.
+[01:24:20.400 --> 01:24:20.960]   You held back.
+[01:24:20.960 --> 01:24:22.000]   You stopped for sure.
+[01:24:22.000 --> 01:24:27.040]   I have terrified of spot gaining any more intelligence personally.
+[01:24:27.040 --> 01:24:30.800]   Save that moral panic for later.
+[01:24:31.760 --> 01:24:32.880]   Maybe this next story.
+[01:24:32.880 --> 01:24:35.440]   No, I don't know that this next story will will induce that.
+[01:24:35.440 --> 01:24:39.600]   But I think maybe Jeff, did you add this story about French publishers?
+[01:24:39.600 --> 01:24:41.600]   Yes, I.
+[01:24:41.600 --> 01:24:43.840]   So Google.
+[01:24:43.840 --> 01:24:47.760]   I won't spend a long on this, but we'll talk about it many, many times.
+[01:24:47.760 --> 01:24:52.720]   But but but there's an effort to basically charge for links,
+[01:24:52.720 --> 01:24:54.640]   charge Google for linking to publishers,
+[01:24:54.640 --> 01:24:58.000]   which of course is in market sense is is absolutely absurd.
+[01:24:58.560 --> 01:25:02.000]   But Google is basically agreeing to do it.
+[01:25:02.000 --> 01:25:03.600]   They're going to start paying publishers in France.
+[01:25:03.600 --> 01:25:05.040]   I think it's a huge mistake.
+[01:25:05.040 --> 01:25:06.000]   I think it's a precedent.
+[01:25:06.000 --> 01:25:09.040]   I think they should have fought for the internet because what they're what they're losing here
+[01:25:09.040 --> 01:25:10.000]   is the value of the link.
+[01:25:10.000 --> 01:25:12.800]   And I got an argument today with French people all over the internet because of it.
+[01:25:12.800 --> 01:25:16.640]   But I want to quote my favorite newsletter author Ben Evans,
+[01:25:16.640 --> 01:25:20.320]   who has a very good post, which I put up on Twitter.
+[01:25:20.320 --> 01:25:22.960]   It says this is let's be honest about this.
+[01:25:22.960 --> 01:25:26.000]   This is taxing Google to subsidize news.
+[01:25:26.000 --> 01:25:30.960]   It has no basis in copyright or competition to call that is intellectually dishonest,
+[01:25:30.960 --> 01:25:31.840]   Ben says.
+[01:25:31.840 --> 01:25:36.560]   This is a targeted tax of a politically unpopular company to subsidize politically
+[01:25:36.560 --> 01:25:37.520]   connected companies.
+[01:25:37.520 --> 01:25:39.280]   And that's what's happening here.
+[01:25:39.280 --> 01:25:46.560]   But what's happening too is there's a precedent being set that says that you can charge for the
+[01:25:46.560 --> 01:25:50.880]   right to link to something that kills the public conversation.
+[01:25:50.880 --> 01:25:52.080]   It kills the academic.
+[01:25:52.080 --> 01:25:55.760]   It kills newspapers, by the way, because newspapers quote everybody.
+[01:25:56.080 --> 01:26:00.320]   And so now as a source, next time a French newspaper calls me, which they do once in a while,
+[01:26:00.320 --> 01:26:02.720]   I'm going to say, oh, well, no, you can't quote me unless you pay me.
+[01:26:02.720 --> 01:26:03.920]   That's the deal.
+[01:26:03.920 --> 01:26:05.200]   Where's one way?
+[01:26:05.200 --> 01:26:05.840]   Works the other way.
+[01:26:05.840 --> 01:26:09.440]   You know, that's where we head here.
+[01:26:09.440 --> 01:26:11.360]   And it's protectionism by companies.
+[01:26:11.360 --> 01:26:15.760]   So I just wanted to market and say that I think this is a bad thing to happen.
+[01:26:15.760 --> 01:26:16.320]   That's all.
+[01:26:16.320 --> 01:26:17.120]   Nobody cares.
+[01:26:17.120 --> 01:26:22.160]   Jeff, what was the reaction you got when you were having discussions with
+[01:26:22.160 --> 01:26:24.080]   some of these French people earlier?
+[01:26:24.080 --> 01:26:25.520]   You said they tried to justify it.
+[01:26:25.520 --> 01:26:27.840]   News cost money.
+[01:26:27.840 --> 01:26:29.360]   Well, OK, yeah, but there's nothing in the way.
+[01:26:29.360 --> 01:26:36.000]   And I keep on saying I don't want government involved in speech and that gets me in trouble.
+[01:26:36.000 --> 01:26:37.920]   BBC, I say, you have a Boris Johnson.
+[01:26:37.920 --> 01:26:41.040]   It's an argument that I go into all the time.
+[01:26:41.040 --> 01:26:43.440]   And no, we don't have the answers to all this.
+[01:26:43.440 --> 01:26:48.080]   I don't say that we do, but we know that there are dangers to some of these paths,
+[01:26:48.080 --> 01:26:49.600]   and this is a dangerous path.
+[01:26:49.600 --> 01:26:53.280]   And Google's given up because the French government has pushed them to.
+[01:26:53.280 --> 01:26:57.600]   And I, in a way, I don't blame them because in path of these resistance,
+[01:26:57.600 --> 01:27:01.920]   but in a way, I do blame them for not standing up harder, longer for the sake of the net.
+[01:27:01.920 --> 01:27:06.240]   That was all.
+[01:27:06.240 --> 01:27:08.320]   Thank you for that commercial message.
+[01:27:08.320 --> 01:27:13.040]   Thank you, Jeff.
+[01:27:13.040 --> 01:27:15.040]   Let's thank you here.
+[01:27:15.040 --> 01:27:18.160]   What do we have here?
+[01:27:18.160 --> 01:27:19.440]   YouTube.
+[01:27:19.440 --> 01:27:23.120]   So there's an interesting one here, line 56, Facebook.
+[01:27:23.120 --> 01:27:24.400]   Sarah Fisher at Axios.
+[01:27:24.400 --> 01:27:25.520]   Yes.
+[01:27:25.520 --> 01:27:30.080]   Did a comparison where she looked at all the features of all the social networks.
+[01:27:30.080 --> 01:27:35.680]   This is another Ben Evans tweet too, as I saw this, where he said,
+[01:27:35.680 --> 01:27:37.280]   oh, no competition for Facebook.
+[01:27:37.280 --> 01:27:39.920]   Everybody is competing with everybody with every single feature.
+[01:27:39.920 --> 01:27:41.600]   Yeah, no kidding.
+[01:27:41.600 --> 01:27:43.040]   Look at this chart.
+[01:27:43.040 --> 01:27:47.040]   It's been like this for at least a solid year, right?
+[01:27:47.040 --> 01:27:48.480]   Yeah, at least a year.
+[01:27:48.480 --> 01:27:53.920]   Everyone is trying to mimic the other ones just because they know that's what's
+[01:27:53.920 --> 01:27:54.880]   working well over there.
+[01:27:54.880 --> 01:27:58.160]   And it started with Snapchat back in the days and their whole stories.
+[01:27:58.160 --> 01:28:00.480]   And it's just been going on ever since.
+[01:28:00.480 --> 01:28:07.280]   I'm still a little iffy with, was it fleets on Twitter?
+[01:28:07.280 --> 01:28:07.920]   Is that what you call?
+[01:28:07.920 --> 01:28:09.840]   It's really the idea.
+[01:28:09.840 --> 01:28:10.400]   It's really the idea on that.
+[01:28:10.400 --> 01:28:13.040]   You used it yet?
+[01:28:13.040 --> 01:28:14.080]   Like, have you deleted?
+[01:28:14.080 --> 01:28:16.960]   I have deleted.
+[01:28:16.960 --> 01:28:19.440]   And a couple of times it just seemed a lot awkward.
+[01:28:19.440 --> 01:28:20.640]   It's just a lot of flot.
+[01:28:20.640 --> 01:28:22.240]   A lot of flot.
+[01:28:22.240 --> 01:28:23.520]   Oh, it's a flot.
+[01:28:23.520 --> 01:28:23.840]   Glit.
+[01:28:23.840 --> 01:28:25.360]   Flitter.
+[01:28:25.360 --> 01:28:25.840]   Flitter.
+[01:28:25.840 --> 01:28:26.080]   Flitter.
+[01:28:26.080 --> 01:28:27.760]   Fluttered?
+[01:28:27.760 --> 01:28:29.120]   I have a flute.
+[01:28:29.120 --> 01:28:30.080]   How did it get fluted?
+[01:28:30.080 --> 01:28:31.040]   Sorry.
+[01:28:31.040 --> 01:28:31.520]   Sorry.
+[01:28:31.520 --> 01:28:32.080]   Flitter.
+[01:28:32.080 --> 01:28:35.440]   It was not quite the same as using Instagram stores.
+[01:28:35.440 --> 01:28:40.640]   It's just, there's still a couple simple user interface issues there,
+[01:28:40.640 --> 01:28:44.960]   far as like putting text in and how to manipulate the text and work with the background
+[01:28:44.960 --> 01:28:45.840]   and things like that.
+[01:28:45.840 --> 01:28:47.040]   And I guess that's just the-
+[01:28:47.040 --> 01:28:49.040]   How are people putting their tweets in there?
+[01:28:49.040 --> 01:28:49.920]   Are they cutting?
+[01:28:49.920 --> 01:28:51.360]   Are they putting them in the screenshot?
+[01:28:51.360 --> 01:28:53.360]   Are they putting them in the screenshot?
+[01:28:53.360 --> 01:28:55.520]   Because if you put it in as a link,
+[01:28:55.520 --> 01:28:59.440]   the link shows up as you are at hell instead of being actual embedded.
+[01:28:59.440 --> 01:29:01.920]   And they're just not there yet.
+[01:29:01.920 --> 01:29:07.760]   You know, but again, it's been an experiment for me because I don't know how many people
+[01:29:07.760 --> 01:29:11.760]   that follow Aunt Pruitt on Twitter, Aunt Underscore Pruitt,
+[01:29:11.760 --> 01:29:14.480]   give a crap about my fleet.
+[01:29:14.480 --> 01:29:16.800]   They worry more about the tweets, right?
+[01:29:16.800 --> 01:29:18.240]   Yeah, I agree with you.
+[01:29:18.240 --> 01:29:21.680]   I've seen your tweets, Aunt.
+[01:29:21.680 --> 01:29:24.800]   People like mine, but I'm only doing dogs.
+[01:29:24.800 --> 01:29:26.080]   I'm only doing my dog.
+[01:29:26.080 --> 01:29:27.440]   That's the only thing I'm fleeting.
+[01:29:27.440 --> 01:29:28.720]   I know that.
+[01:29:28.720 --> 01:29:28.720]   Okay.
+[01:29:28.720 --> 01:29:32.960]   So, Aunt's like, I'm no longer interested in your fleets,
+[01:29:32.960 --> 01:29:33.760]   which is fine.
+[01:29:33.760 --> 01:29:39.840]   I mean, I just was like, what's some low stakes content that will make people happy if they encounter it?
+[01:29:39.840 --> 01:29:43.760]   But won't feel like they missed anything if they don't encounter it, right?
+[01:29:43.760 --> 01:29:45.040]   Because that's-
+[01:29:45.040 --> 01:29:46.000]   Because it's going to go away.
+[01:29:46.000 --> 01:29:47.360]   Right.
+[01:29:47.360 --> 01:29:47.600]   Right.
+[01:29:47.600 --> 01:29:53.120]   And I'm not one of those people one day, maybe someone will ask me to serve in a public place,
+[01:29:53.120 --> 01:29:56.880]   and someone will look at my history of some 27,000 tweets,
+[01:29:56.880 --> 01:29:59.280]   and they will find something that will be embarrassing.
+[01:29:59.280 --> 01:30:00.640]   But, you know-
+[01:30:00.640 --> 01:30:04.880]   Can I search on your fleets, Stacy?
+[01:30:04.880 --> 01:30:06.560]   No, because they're all gone.
+[01:30:06.560 --> 01:30:07.920]   I haven't done a fleet in 24 hours.
+[01:30:07.920 --> 01:30:09.440]   I have the 24 hours.
+[01:30:09.440 --> 01:30:10.080]   Right.
+[01:30:10.080 --> 01:30:10.320]   Okay.
+[01:30:11.600 --> 01:30:16.080]   Not that I feel that my tweets are like, for posterity, but, you know,
+[01:30:16.080 --> 01:30:19.520]   I'll stand by them for a full week or a year.
+[01:30:19.520 --> 01:30:23.040]   How about Auntie, you get stories?
+[01:30:23.040 --> 01:30:26.800]   Does that make sense to you, or is that the same problem?
+[01:30:26.800 --> 01:30:27.840]   I do the same.
+[01:30:27.840 --> 01:30:30.560]   I'm using stories pretty regularly.
+[01:30:30.560 --> 01:30:36.720]   I use it more so as a behind the scenes tool, and, you know, to promote something that's just been
+[01:30:36.720 --> 01:30:39.680]   launched, like if hop goes out.
+[01:30:39.680 --> 01:30:42.640]   I put something in store to say, "Hey, the latest hop is up."
+[01:30:42.640 --> 01:30:46.960]   But, most of the time, it's more so for behind the scenes, because people were curious to see
+[01:30:46.960 --> 01:30:51.680]   how I shoot something, you know, or if I'm shooting the show, they want to see how I shoot the show,
+[01:30:51.680 --> 01:30:53.520]   and see the messy desk and all of that.
+[01:30:53.520 --> 01:31:00.480]   And, I figured I could do the same thing on Twitter with fleets, and it just feels different.
+[01:31:00.480 --> 01:31:08.720]   I have not, myself, gotten into any of the stories, or the fleets,
+[01:31:08.720 --> 01:31:13.360]   or whatever they're called, and all of the other social networks.
+[01:31:13.360 --> 01:31:17.600]   Like I get them, I understand them.
+[01:31:17.600 --> 01:31:22.960]   I've just never created a habit or a ritual of adding to them.
+[01:31:22.960 --> 01:31:25.680]   I didn't have that habit.
+[01:31:25.680 --> 01:31:31.280]   It only happened because people began to ask, you know, "Wow, how did you do this?"
+[01:31:31.280 --> 01:31:34.320]   "What made you think of this kind of thing?"
+[01:31:34.320 --> 01:31:36.880]   And that's the only reason I started doing it.
+[01:31:36.880 --> 01:31:43.040]   Most people use stories to essentially vlog and, you know, show off stuff.
+[01:31:43.040 --> 01:31:44.080]   And that's not me.
+[01:31:44.080 --> 01:31:47.040]   I'm way too private for that.
+[01:31:47.040 --> 01:31:52.640]   And I don't ever want to come off as braggadocious, because a lot of times those vlogs come off as
+[01:31:52.640 --> 01:31:53.440]   braggadocious.
+[01:31:53.440 --> 01:31:55.200]   So I just stay away from that.
+[01:31:55.200 --> 01:31:59.840]   So I just try to use it more so as a behind the scenes of, if I'm going out to go
+[01:31:59.840 --> 01:32:04.720]   test something out outside a new camera lens or whatever,
+[01:32:04.720 --> 01:32:08.240]   I'll mention that, "Hey, I'm testing this and this is what it looks like behind the scenes
+[01:32:08.240 --> 01:32:10.160]   as I'm testing," or something like that.
+[01:32:10.160 --> 01:32:17.040]   Or I think last time I did a time lapse of setting up for last week's show and had
+[01:32:17.040 --> 01:32:20.880]   Quinn Pruitt setting up is the model and me setting up lights and all that.
+[01:32:20.880 --> 01:32:23.520]   And people seem to like that kind of stuff, you know?
+[01:32:23.520 --> 01:32:25.840]   Yeah.
+[01:32:25.840 --> 01:32:27.680]   And there's video stuff.
+[01:32:27.680 --> 01:32:34.000]   I mean, I think if Twitter is my place to put my behind the scenes stuff, but there's
+[01:32:34.960 --> 01:32:39.440]   it's a nice place, either stories or fleets or Twitter.
+[01:32:39.440 --> 01:32:43.680]   Like if you were a journalist who is creating formal content, right?
+[01:32:43.680 --> 01:32:50.160]   Like I know this having a place to share the informal behind the scenes or just a little bit
+[01:32:50.160 --> 01:32:56.240]   more of your authentic self, provided your authentic self is not, you know, a terrible person.
+[01:32:59.040 --> 01:33:05.040]   I think it helps you connect with people in a way that, you know, is nice in people.
+[01:33:05.040 --> 01:33:07.680]   Some of your audience will appreciate, obviously, everybody.
+[01:33:07.680 --> 01:33:08.640]   But yeah.
+[01:33:08.640 --> 01:33:10.400]   Yeah, it does humanize you a bit.
+[01:33:10.400 --> 01:33:15.520]   At least that's the part of the approach that I have with it is, you know, let people
+[01:33:15.520 --> 01:33:21.120]   see that I am human and I am going to set up behind the scenes and you will see me drop a
+[01:33:21.120 --> 01:33:26.000]   C stand right on my toe and fuss and cuss about it because I'm human and it happens, you know?
+[01:33:26.000 --> 01:33:26.000]   Yeah.
+[01:33:26.000 --> 01:33:29.760]   Yeah. Hopefully the film is rolling when that happens.
+[01:33:29.760 --> 01:33:31.920]   It has, unfortunately.
+[01:33:31.920 --> 01:33:40.320]   I just always like, especially now, like where we're just kind of working out of our homes and
+[01:33:40.320 --> 01:33:48.400]   everything, I have a hard time like thinking that anybody really would would care that much to see
+[01:33:48.400 --> 01:33:54.480]   what behind the scenes is here because really behind the scenes is just me living my life with
+[01:33:54.480 --> 01:33:59.200]   my family and I don't necessarily like to put, you know, to make the choice for them that I'm
+[01:33:59.200 --> 01:33:59.840]   going to put them.
+[01:33:59.840 --> 01:34:00.720]   Yeah, I'm pretty private.
+[01:34:00.720 --> 01:34:05.680]   I don't, I don't make the choice to put them in front of my social media following.
+[01:34:05.680 --> 01:34:11.360]   So my opportunities to use something like stories or fleets or whatever are very
+[01:34:11.360 --> 01:34:12.560]   minuscule.
+[01:34:12.560 --> 01:34:14.080]   So I just don't even think about it.
+[01:34:14.080 --> 01:34:18.000]   And then I wonder like, well, I should probably be doing more like considering what I do for a
+[01:34:18.000 --> 01:34:18.720]   living.
+[01:34:18.720 --> 01:34:20.560]   I should probably be a little more public.
+[01:34:21.360 --> 01:34:28.320]   I'm not going to speak as the Twitter coworker here, Mr. How I'm going to speak as the fan.
+[01:34:28.320 --> 01:34:34.880]   I think your behind the scenes would be quite fascinating because you have a pretty interesting
+[01:34:34.880 --> 01:34:39.360]   story with, you know, how you're passionate with Android, but you're a pretty technical guy.
+[01:34:39.360 --> 01:34:42.720]   And you're also a pretty freaking cool musical guy.
+[01:34:42.720 --> 01:34:44.960]   Your behind the scenes would be pretty interesting to see.
+[01:34:44.960 --> 01:34:46.800]   I appreciate that.
+[01:34:46.800 --> 01:34:50.320]   I could maybe see that more with the music stuff.
+[01:34:50.320 --> 01:34:54.960]   Like that makes more sense to me when I'm actually writing anything, which I'm not actively right now.
+[01:34:54.960 --> 01:34:59.520]   But the technical stuff, like, this is me sitting on my bed, like,
+[01:34:59.520 --> 01:35:03.360]   but that's working.
+[01:35:03.360 --> 01:35:05.360]   Like, but that is like that.
+[01:35:05.360 --> 01:35:06.560]   Yeah.
+[01:35:06.560 --> 01:35:13.360]   Believe me, like, I mean, my, my, my technical stuff is basically me armed with a phone running around
+[01:35:13.360 --> 01:35:18.640]   my house, hitting reset on like a hub and then going back to the device or like,
+[01:35:18.640 --> 01:35:22.240]   I mean, it's basically like Stacey runs around with the phone in her hand going,
+[01:35:22.240 --> 01:35:27.200]   is it also daughter and husband yelling, mom, would you fix this thing of yours?
+[01:35:27.200 --> 01:35:35.360]   Guys, I had to take the, I had to, I was testing out a router and I had to take the internet down
+[01:35:35.360 --> 01:35:36.800]   on a weekday.
+[01:35:36.800 --> 01:35:39.440]   They're cool.
+[01:35:40.320 --> 01:35:46.080]   I mean, it was like morning and at lunch break, I felt like, like, I was on 24.
+[01:35:46.080 --> 01:35:48.560]   I mean, I was just like, come on.
+[01:35:48.560 --> 01:35:51.120]   You were AWS in Virginia.
+[01:35:51.120 --> 01:35:52.560]   Exactly.
+[01:35:52.560 --> 01:35:55.680]   I felt them so much in that moment.
+[01:35:55.680 --> 01:35:57.360]   I was like, why did I do this now?
+[01:35:57.360 --> 01:36:00.720]   I did it because there was help available during business hours, but my husband was like,
+[01:36:00.720 --> 01:36:02.560]   why did you do this now?
+[01:36:02.560 --> 01:36:04.080]   Why couldn't you have waited till the weekend?
+[01:36:04.080 --> 01:36:06.320]   And I'm like, this is a good work on the weekend.
+[01:36:06.320 --> 01:36:09.120]   That's what I imagined for Shay Higginbotham.
+[01:36:09.120 --> 01:36:10.400]   Yeah, this is exactly what I imagined.
+[01:36:10.400 --> 01:36:12.640]   Yeah, I can't do that.
+[01:36:12.640 --> 01:36:17.040]   I just y'all might be, my husband was real irritated with me and y'all be like,
+[01:36:17.040 --> 01:36:18.720]   either completely justified.
+[01:36:18.720 --> 01:36:23.840]   It was, but also you might feel sad for me and hate my husband because he was, he was definitely like.
+[01:36:23.840 --> 01:36:27.760]   Just slightly irritated, right?
+[01:36:27.760 --> 01:36:28.960]   Yeah.
+[01:36:28.960 --> 01:36:31.280]   I could so relate to that.
+[01:36:31.280 --> 01:36:32.880]   I can so relate to that.
+[01:36:32.880 --> 01:36:35.360]   Hey, what do you think?
+[01:36:35.360 --> 01:36:36.320]   There's in my world.
+[01:36:36.320 --> 01:36:36.720]   I'll go ahead.
+[01:36:36.720 --> 01:36:37.120]   Oh, okay.
+[01:36:37.120 --> 01:36:37.520]   What is it?
+[01:36:37.520 --> 01:36:38.000]   What is it?
+[01:36:38.000 --> 01:36:38.320]   Go.
+[01:36:38.320 --> 01:36:40.640]   No, just BuzzFeed taking over HuffPost.
+[01:36:40.640 --> 01:36:45.680]   Jonah, just bring in his peeps back together.
+[01:36:45.680 --> 01:36:46.880]   Exactly.
+[01:36:46.880 --> 01:36:48.720]   Jonah Pretti, is that, yeah, that's who it is, right?
+[01:36:48.720 --> 01:36:51.360]   Jonah Pretti, who was one of the founders of Huffington Post,
+[01:36:51.360 --> 01:36:54.480]   HuffPost, as he now calls it, bring it together.
+[01:36:54.480 --> 01:36:57.120]   And basically what Jonah's been saying lately is that all,
+[01:36:57.120 --> 01:37:01.680]   because Vox, HuffPost, Quartz, BuzzFeed, they're all having problems now.
+[01:37:01.680 --> 01:37:05.680]   Stacy lived there before with Higginbotham.
+[01:37:05.680 --> 01:37:06.800]   It's coming to the rest of them.
+[01:37:07.360 --> 01:37:11.360]   And so Jonah's been arguing that there needs to be consolidation.
+[01:37:11.360 --> 01:37:17.920]   They all need to gather together against the cold winds of media world.
+[01:37:17.920 --> 01:37:18.480]   So we'll see.
+[01:37:18.480 --> 01:37:23.120]   There was a, what's his name?
+[01:37:23.120 --> 01:37:25.600]   Stretecherie Dude had a good take on all of that.
+[01:37:25.600 --> 01:37:27.040]   Ben Thompson.
+[01:37:27.040 --> 01:37:28.480]   Ben Thompson, yes.
+[01:37:28.480 --> 01:37:29.280]   Did y'all read it?
+[01:37:29.280 --> 01:37:32.960]   It was his idea was, I'm not even going to go.
+[01:37:32.960 --> 01:37:33.520]   I don't care.
+[01:37:33.520 --> 01:37:35.840]   It's my industry and I don't care.
+[01:37:35.840 --> 01:37:37.120]   I'll look it up.
+[01:37:37.120 --> 01:37:38.080]   I'll look it up.
+[01:37:38.080 --> 01:37:39.040]   It was smart.
+[01:37:39.040 --> 01:37:41.360]   Yeah, you got to read his stuff.
+[01:37:41.360 --> 01:37:48.880]   It's kind of like trying to describe his writing is incredibly difficult,
+[01:37:48.880 --> 01:37:50.080]   because he's so weak.
+[01:37:50.080 --> 01:37:50.960]   He's so smart.
+[01:37:50.960 --> 01:37:51.600]   He's so smart.
+[01:37:51.600 --> 01:37:52.880]   He's so smart and so walled.
+[01:37:52.880 --> 01:37:57.120]   He just grew a tour of an entire country.
+[01:37:57.120 --> 01:37:59.200]   I just don't want to go through the whole like,
+[01:37:59.200 --> 01:38:01.440]   I'm like, there's a lot of background.
+[01:38:01.440 --> 01:38:02.480]   Just, just.
+[01:38:02.480 --> 01:38:06.160]   Really, the best, the best option is to just go read it for yourself.
+[01:38:06.160 --> 01:38:08.080]   That's what you need to do at the end of the time.
+[01:38:08.080 --> 01:38:08.640]   You'll enjoy it.
+[01:38:08.640 --> 01:38:09.120]   I promise.
+[01:38:09.120 --> 01:38:12.640]   So what do you say we jumped into a little change log?
+[01:38:12.640 --> 01:38:13.440]   Oh, do you want to do that?
+[01:38:13.440 --> 01:38:16.960]   Let's change some logs together.
+[01:38:16.960 --> 01:38:19.280]   Or log some changes.
+[01:38:19.280 --> 01:38:20.160]   Loss.
+[01:38:20.160 --> 01:38:21.040]   Change log.
+[01:38:21.040 --> 01:38:24.800]   How to bring has an indispensable 21st century ingredient.
+[01:38:24.800 --> 01:38:27.200]   Hyper converged infrastructure.
+[01:38:27.200 --> 01:38:29.120]   That infrastructure supports.
+[01:38:29.120 --> 01:38:31.600]   I thought it was a new theme song.
+[01:38:31.600 --> 01:38:33.040]   So what is happening?
+[01:38:33.040 --> 01:38:35.680]   I was like, we're back to that podcast again.
+[01:38:35.680 --> 01:38:38.800]   We got the new production values going on here.
+[01:38:38.800 --> 01:38:39.120]   Love it.
+[01:38:39.120 --> 01:38:42.560]   Yeah, at first, I didn't think we had a lot in here.
+[01:38:42.560 --> 01:38:44.000]   And then suddenly it ballooned.
+[01:38:44.000 --> 01:38:45.280]   So buckle up.
+[01:38:45.280 --> 01:38:50.000]   First, Google announced some family focused features coming to both Assistant
+[01:38:50.000 --> 01:38:51.680]   and Google Fi.
+[01:38:51.680 --> 01:38:54.080]   We'll start with Assistant here.
+[01:38:54.080 --> 01:38:57.760]   Smart displays are going to get a new family tab,
+[01:38:57.760 --> 01:39:00.000]   which includes, at least at the start,
+[01:39:00.000 --> 01:39:02.960]   includes something called family notes, essentially like a little stickies.
+[01:39:02.960 --> 01:39:05.360]   So if you want to leave a note for someone,
+[01:39:05.360 --> 01:39:07.440]   you can leave a family note.
+[01:39:07.440 --> 01:39:09.680]   It looks like a sticky on the smart display.
+[01:39:09.680 --> 01:39:12.880]   And then somebody can do the to do or the reminder or whatever.
+[01:39:12.880 --> 01:39:17.360]   Family Bell is getting some new sound effects and new suggested
+[01:39:17.360 --> 01:39:18.400]   bells.
+[01:39:18.400 --> 01:39:22.640]   And you'll soon be able to pause the bells for an entire day.
+[01:39:22.640 --> 01:39:25.040]   If like a week like this happens,
+[01:39:25.040 --> 01:39:27.360]   I don't know if you noticed earlier while the show is going on.
+[01:39:27.360 --> 01:39:29.440]   And suddenly my Google home went nuts.
+[01:39:29.840 --> 01:39:32.560]   That was family Bell because at 2.30,
+[01:39:32.560 --> 01:39:36.800]   I have a reminder for me to get up and stretch and like walk around and stuff.
+[01:39:36.800 --> 01:39:38.880]   Because otherwise I just sit in that bed working.
+[01:39:38.880 --> 01:39:43.280]   I think we should take that actually on the show and do that.
+[01:39:43.280 --> 01:39:45.440]   Because like my Fitbit buzzes at me all the time.
+[01:39:45.440 --> 01:39:48.960]   It's like get up, get up, just take a little strange break.
+[01:39:48.960 --> 01:39:52.480]   Yeah, I completely agree.
+[01:39:52.480 --> 01:39:54.720]   If I didn't have that reminder, I'd probably never would.
+[01:39:54.720 --> 01:39:57.680]   So family Bell, by the way, I absolutely love it.
+[01:39:57.680 --> 01:39:58.960]   It's such a great feature.
+[01:39:58.960 --> 01:40:02.720]   It comes in handy in this house with the kids at school and all this kind of stuff.
+[01:40:02.720 --> 01:40:04.800]   We literally rely on it.
+[01:40:04.800 --> 01:40:06.400]   So great feature.
+[01:40:06.400 --> 01:40:11.120]   Some other features, some other commands.
+[01:40:11.120 --> 01:40:13.600]   Hey, G, what can I learn with my family?
+[01:40:13.600 --> 01:40:18.240]   Which kind of integrates some learning content from partners like ABC Mouse on the smart display.
+[01:40:18.240 --> 01:40:20.720]   Also, hey, G, where's my family?
+[01:40:20.720 --> 01:40:21.680]   Where's my family?
+[01:40:21.680 --> 01:40:27.440]   And where a specific family member and it will pop up a Google map and show you on the map
+[01:40:27.440 --> 01:40:30.800]   where they are last known location.
+[01:40:30.800 --> 01:40:33.040]   All that is coming soon.
+[01:40:33.040 --> 01:40:33.440]   Do they have to wait?
+[01:40:33.440 --> 01:40:33.840]   Do they have to wait?
+[01:40:33.840 --> 01:40:33.840]   Do they have to wait?
+[01:40:33.840 --> 01:40:33.840]   Do they have to wait?
+[01:40:33.840 --> 01:40:35.440]   Oh, it's with Life360.
+[01:40:35.440 --> 01:40:35.680]   Okay.
+[01:40:35.680 --> 01:40:37.680]   I was like, do they have to have an Android phone for that?
+[01:40:37.680 --> 01:40:38.400]   But they do not.
+[01:40:38.400 --> 01:40:41.840]   When you say Life360.
+[01:40:41.840 --> 01:40:42.480]   Okay.
+[01:40:42.480 --> 01:40:44.080]   It's the logo in the corner.
+[01:40:44.080 --> 01:40:44.480]   Sorry.
+[01:40:44.480 --> 01:40:46.320]   As I point to your screen, I'm like right there.
+[01:40:46.320 --> 01:40:47.120]   It was in the corner.
+[01:40:47.120 --> 01:40:47.520]   It's there.
+[01:40:47.520 --> 01:40:52.160]   It's from Life360, which is a app.
+[01:40:52.160 --> 01:40:54.640]   Are y'all familiar with it?
+[01:40:54.640 --> 01:40:55.200]   It's a great app.
+[01:40:55.200 --> 01:40:55.760]   No, I'm not at all.
+[01:40:55.760 --> 01:40:56.400]   Families love it.
+[01:40:57.040 --> 01:41:01.760]   You download it and anybody on their phone, you can see where they are.
+[01:41:01.760 --> 01:41:03.840]   And you can send messages to them.
+[01:41:03.840 --> 01:41:06.160]   And it's just a very handy service.
+[01:41:06.160 --> 01:41:11.040]   If you like now that my daughter has a phone that she does not carry with her.
+[01:41:11.040 --> 01:41:15.120]   But theoretically, if she left the house with the phone,
+[01:41:15.120 --> 01:41:20.480]   I could find her and see her location in a way that's kind of nice.
+[01:41:20.480 --> 01:41:21.600]   And they have all these kind of.
+[01:41:23.200 --> 01:41:27.840]   They have the permissioning down and a nice feature set for parents who are trying to
+[01:41:27.840 --> 01:41:30.800]   monitor their teens, but not like be psychotic about it.
+[01:41:30.800 --> 01:41:38.320]   Well, I mean, even family, the family features that Google, why am I suddenly a family link,
+[01:41:38.320 --> 01:41:42.800]   has location tracking on kids' devices as well.
+[01:41:42.800 --> 01:41:45.200]   So I wonder how those two services differ.
+[01:41:45.200 --> 01:41:47.520]   That this Life360.
+[01:41:47.520 --> 01:41:47.520]   50.
+[01:41:47.520 --> 01:41:48.960]   Or more fully flesh now.
+[01:41:48.960 --> 01:41:49.520]   Any phone.
+[01:41:49.520 --> 01:41:51.040]   Oh, I see.
+[01:41:51.040 --> 01:41:51.760]   I think.
+[01:41:51.760 --> 01:41:55.680]   So that's why I was like, oh, because then you can run it on an apple phone.
+[01:41:55.680 --> 01:41:57.360]   Because the kids all got to be on Apple's.
+[01:41:57.360 --> 01:41:59.600]   Their friends need not RCS.
+[01:41:59.600 --> 01:42:00.560]   Right.
+[01:42:00.560 --> 01:42:04.960]   I messages can't be ostracized and unable to like things.
+[01:42:04.960 --> 01:42:05.280]   Y'all.
+[01:42:05.280 --> 01:42:06.320]   Yup.
+[01:42:06.320 --> 01:42:06.800]   Yup.
+[01:42:06.800 --> 01:42:08.400]   Unable to heart comments.
+[01:42:08.400 --> 01:42:13.520]   Phi is also getting expanded parental controls of the service.
+[01:42:13.520 --> 01:42:15.360]   You can block calls as a parent.
+[01:42:15.360 --> 01:42:17.440]   You can block calls text from strangers.
+[01:42:17.440 --> 01:42:19.200]   You could set a data budget for kids.
+[01:42:19.200 --> 01:42:21.520]   That's coming next week.
+[01:42:21.520 --> 01:42:25.040]   So if you're on Phi and you have a family kind of sharing the data on Phi,
+[01:42:25.040 --> 01:42:26.320]   that would be useful for you.
+[01:42:26.320 --> 01:42:29.680]   New features to Google Meet.
+[01:42:29.680 --> 01:42:33.120]   New feature called Attendance Reports.
+[01:42:33.120 --> 01:42:37.840]   And this is rolling out first to enterprise for education customers.
+[01:42:37.840 --> 01:42:40.720]   Eventually it's going to roll out to other workplace tiers.
+[01:42:40.720 --> 01:42:43.520]   But it's essentially a spreadsheet that's emailed out,
+[01:42:43.520 --> 01:42:47.040]   for my understanding, at the end of the meeting with the names,
+[01:42:47.040 --> 01:42:50.720]   email addresses, length of time on the call of all the people that have attended,
+[01:42:50.720 --> 01:42:52.960]   at what point in the meeting they attended.
+[01:42:52.960 --> 01:42:56.560]   Graphs users over the course of the entire meeting.
+[01:42:56.560 --> 01:43:01.520]   So I suppose people who are running these meetings can see who was actually paying attention,
+[01:43:01.520 --> 01:43:02.480]   who was there and who wasn't.
+[01:43:02.480 --> 01:43:03.680]   A little worrisome.
+[01:43:03.680 --> 01:43:06.960]   I guess they know you were there on a box.
+[01:43:06.960 --> 01:43:13.200]   We should do it for employee tracking, it makes sense, right?
+[01:43:13.200 --> 01:43:15.920]   I mean, you wouldn't do it necessarily for your friends or family.
+[01:43:15.920 --> 01:43:17.040]   No.
+[01:43:17.040 --> 01:43:18.000]   You weren't in a Zoom.
+[01:43:18.000 --> 01:43:19.120]   Happy hour.
+[01:43:19.120 --> 01:43:19.520]   Right.
+[01:43:20.320 --> 01:43:22.480]   Rolling out for enterprise for education.
+[01:43:22.480 --> 01:43:25.840]   So I think a lot of the students that are on these,
+[01:43:25.840 --> 01:43:32.480]   my kids, they're on Zoom, but there's a lot of kind of rules around this,
+[01:43:32.480 --> 01:43:35.760]   where their video has to be on, because they want to know that the students there,
+[01:43:35.760 --> 01:43:41.440]   I think the districts have these requirements and they're figuring out these requirements
+[01:43:41.440 --> 01:43:46.320]   to keep, to be certain that if they're passing these kids or giving grades or whatever,
+[01:43:46.320 --> 01:43:51.040]   that it's based on actual metrics that are rating something specific and not just like,
+[01:43:51.040 --> 01:43:54.480]   "Oh, well, they showed up and that was good enough," which is how it's done.
+[01:43:54.480 --> 01:43:55.520]   So there's a few issues here.
+[01:43:55.520 --> 01:43:56.080]   Spring time.
+[01:43:56.080 --> 01:44:02.720]   One is we have a policy that we can't require you to turn on your camera,
+[01:44:02.720 --> 01:44:09.040]   because while our students are poor, it violates the privacy of the people who are behind them,
+[01:44:09.040 --> 01:44:12.000]   that there's an issue there.
+[01:44:12.640 --> 01:44:17.120]   The second is where these companies are making a fortune now on the exam proctoring stuff,
+[01:44:17.120 --> 01:44:20.080]   where they watch your eyes and all this kind of stuff while you're taking these
+[01:44:20.080 --> 01:44:20.320]   exams.
+[01:44:20.320 --> 01:44:23.840]   It's really, and I'm Mr. Technology can be okay.
+[01:44:23.840 --> 01:44:27.920]   This is where Jeff gets a little moral panic, where we're doing this to our children.
+[01:44:27.920 --> 01:44:30.320]   It's not moral panic.
+[01:44:30.320 --> 01:44:36.880]   If it's a justifiable concern or question, you're allowed to ask questions, Jeff.
+[01:44:38.640 --> 01:44:45.120]   But if your child is so untrusted by the school, what matters is not that they had their
+[01:44:45.120 --> 01:44:46.160]   glute eyes glued to the screen.
+[01:44:46.160 --> 01:44:46.960]   Don't look off the screen.
+[01:44:46.960 --> 01:44:47.760]   No, don't look off the screen.
+[01:44:47.760 --> 01:44:48.720]   You might be looking into something cheap.
+[01:44:48.720 --> 01:44:49.600]   You got to look at the screen.
+[01:44:49.600 --> 01:44:51.280]   That's the way to teach.
+[01:44:51.280 --> 01:44:53.040]   Let's go up.
+[01:44:53.040 --> 01:44:56.160]   Yeah, that's all.
+[01:44:56.160 --> 01:44:59.120]   They're all learning lessons right now.
+[01:44:59.120 --> 01:45:03.920]   As far as what's necessary and what's not,
+[01:45:05.440 --> 01:45:09.920]   I feel so bad for one of my kids' teachers because I swear every single day it's
+[01:45:09.920 --> 01:45:11.600]   insert name here.
+[01:45:11.600 --> 01:45:14.560]   Obviously, I can't remember his name and I wouldn't say it if I knew it.
+[01:45:14.560 --> 01:45:16.560]   But there's always playing a video game.
+[01:45:16.560 --> 01:45:20.480]   All of these challenges that if you're a teacher on the other side of the glass,
+[01:45:20.480 --> 01:45:24.960]   you want to be able to run a class where you know the students are engaged.
+[01:45:24.960 --> 01:45:29.360]   They're connected to the content and then to the discussion and that you can grade them
+[01:45:29.360 --> 01:45:29.920]   accordingly.
+[01:45:29.920 --> 01:45:31.600]   You know all about this, Jeff.
+[01:45:32.560 --> 01:45:38.320]   But it's all these new challenges like, oh no, right off the side of the screen is a
+[01:45:38.320 --> 01:45:43.040]   video game controller and he's always looking off, off to the side and you can see his
+[01:45:43.040 --> 01:45:44.160]   eyes moving all the time.
+[01:45:44.160 --> 01:45:49.760]   So he knows something's going on and like, yeah, I feel I feel for teachers in this situation.
+[01:45:49.760 --> 01:45:51.120]   It's hard to do your job like that.
+[01:45:51.120 --> 01:45:52.800]   Yeah, kids being kids.
+[01:45:52.800 --> 01:45:59.520]   Google removed group calling or is removing group calling from Hangouts.
+[01:46:00.160 --> 01:46:05.280]   I'm really wishing users that notification in my inbox, I've seen the notification about
+[01:46:05.280 --> 01:46:07.120]   a gazillion times I get it.
+[01:46:07.120 --> 01:46:08.320]   Stop putting it in there.
+[01:46:08.320 --> 01:46:11.600]   There's that notification again.
+[01:46:11.600 --> 01:46:18.560]   Then there's the notification in drive how your trash, you know, the trash is changing
+[01:46:18.560 --> 01:46:20.400]   to 30 days or something.
+[01:46:20.400 --> 01:46:23.120]   And I swear every single time I log in to drive, it's that big band.
+[01:46:23.120 --> 01:46:25.200]   Yeah, trash changes.
+[01:46:25.200 --> 01:46:26.240]   Like, I get it now.
+[01:46:27.520 --> 01:46:33.280]   Yeah, Hangouts, of course, has an end of life that's planned for some time next year.
+[01:46:33.280 --> 01:46:36.400]   Obviously, when the dust all settles there, we're going to be left with chat,
+[01:46:36.400 --> 01:46:37.760]   meet and messages.
+[01:46:37.760 --> 01:46:43.440]   So this is kind of the pathway to get there, another part of the pathway to get there.
+[01:46:43.440 --> 01:46:47.760]   New Google Pay rolled out last week.
+[01:46:47.760 --> 01:46:48.960]   You guys talked about it on the show.
+[01:46:48.960 --> 01:46:56.240]   But it does have some caveats, which people weren't as aware of when it launched at first.
+[01:46:56.240 --> 01:46:59.840]   First of all, the Google Pay website is going to go away or the web app, rather.
+[01:46:59.840 --> 01:47:02.080]   It goes away January 2021.
+[01:47:02.080 --> 01:47:08.160]   This means no person-to-person money transfers or payments or anything using the web.
+[01:47:08.160 --> 01:47:10.800]   It must happen through the new app.
+[01:47:10.800 --> 01:47:15.840]   And in fact, the old app is going to stop allowing peer-to-peer payments as well.
+[01:47:15.840 --> 01:47:17.520]   So you have to use the new app.
+[01:47:17.520 --> 01:47:24.640]   And then the new system is also going to add a 1.5% fee on instant money transfers.
+[01:47:24.640 --> 01:47:27.040]   On the old system, there was no fee there.
+[01:47:27.040 --> 01:47:30.000]   Now they're going to charge the 1.5% fee.
+[01:47:30.000 --> 01:47:31.920]   So pretty standard though, right?
+[01:47:31.920 --> 01:47:33.520]   Pretty standard, right.
+[01:47:33.520 --> 01:47:35.040]   Yeah, I would imagine that's pretty standard.
+[01:47:35.040 --> 01:47:40.720]   But it was free before, so it's good to know you're going to be charged now going forward.
+[01:47:40.720 --> 01:47:46.480]   Chrome Update launched last week speeds up the browser, better on battery.
+[01:47:46.480 --> 01:47:49.520]   It reduces CPU by five times, extends battery.
+[01:47:49.520 --> 01:47:54.320]   They say by 1.25 hours, launches 25% faster, loads pages,
+[01:47:54.720 --> 01:47:56.000]   7% faster.
+[01:47:56.000 --> 01:48:01.520]   But it also, in that announcement, they made mention of a few other features,
+[01:48:01.520 --> 01:48:02.480]   which are kind of neat.
+[01:48:02.480 --> 01:48:07.120]   Tab Search, for all of you crazy people that love to load your Chrome
+[01:48:07.120 --> 01:48:08.960]   instance with millions of tabs.
+[01:48:08.960 --> 01:48:13.600]   I don't know how you do it, but now there's going to be a search feature coming to Chromebooks first.
+[01:48:13.600 --> 01:48:15.840]   Unbelievable.
+[01:48:15.840 --> 01:48:16.640]   So you can look for that.
+[01:48:16.640 --> 01:48:16.960]   I know.
+[01:48:16.960 --> 01:48:18.080]   I've never been able to do that.
+[01:48:18.080 --> 01:48:20.240]   I get stressed out on that too.
+[01:48:20.240 --> 01:48:22.560]   I have 20 open, and that's about all I can handle.
+[01:48:23.120 --> 01:48:25.920]   That would be about my limit, and that would be pushing it for me, for sure.
+[01:48:25.920 --> 01:48:32.000]   When I can't read at least a little bit of the words up in the tab, then I know it's just too
+[01:48:32.000 --> 01:48:32.160]   much.
+[01:48:32.160 --> 01:48:33.520]   But when it's just this tiny little--
+[01:48:33.520 --> 01:48:36.320]   Yeah, that's my giveaway too.
+[01:48:36.320 --> 01:48:39.120]   That was a few of them, dude.
+[01:48:39.120 --> 01:48:40.240]   Exactly.
+[01:48:40.240 --> 01:48:43.040]   Also Chrome Actions.
+[01:48:43.040 --> 01:48:51.520]   So this is using the bar in your Chrome browser to issue actions like Edit Password,
+[01:48:51.520 --> 01:48:55.680]   or Delete History, or Clear Cache, or Launch Incognito mode.
+[01:48:55.680 --> 01:48:59.040]   You type that into the bar, and it'll do the thing.
+[01:48:59.040 --> 01:49:02.080]   Instead of having to go into the settings, or the pulldown menu, or anything like that,
+[01:49:02.080 --> 01:49:03.840]   you can just type it in there and jump right to it.
+[01:49:03.840 --> 01:49:05.280]   That's kind of cool.
+[01:49:05.280 --> 01:49:08.480]   One of those features I'm like, oh, I'm surprised I wasn't there before.
+[01:49:08.480 --> 01:49:09.280]   That makes a lot of sense.
+[01:49:09.280 --> 01:49:10.560]   Yeah.
+[01:49:10.560 --> 01:49:17.200]   And finally, go ahead and type into your Google Search Happy Thanksgiving.
+[01:49:18.320 --> 01:49:23.200]   When you do that, you'll get a little translation box up at the top of your search results.
+[01:49:23.200 --> 01:49:28.880]   You can enter anything into the English or any other language section on the left,
+[01:49:28.880 --> 01:49:32.160]   and it'll translate it into turkey gobbles.
+[01:49:32.160 --> 01:49:34.080]   So you know--
+[01:49:34.080 --> 01:49:34.640]   Okay, I'm doing--
+[01:49:34.640 --> 01:49:35.200]   important work.
+[01:49:35.200 --> 01:49:38.640]   Biscuit comes out as gobble.
+[01:49:38.640 --> 01:49:40.720]   Oh, I need it to tuck.
+[01:49:40.720 --> 01:49:42.080]   Oh, Jesus.
+[01:49:42.080 --> 01:49:43.280]   You can listen to it.
+[01:49:43.280 --> 01:49:43.840]   Be careful.
+[01:49:43.840 --> 01:49:45.040]   That's a surprise.
+[01:49:47.440 --> 01:49:50.080]   I asked what time is dinner, and that was the answer.
+[01:49:50.080 --> 01:49:53.920]   That's how it sounded appropriately upset over dinner.
+[01:49:53.920 --> 01:50:01.920]   And it even says poultry verified, so you know it's an official source.
+[01:50:01.920 --> 01:50:02.640]   Oh, wow.
+[01:50:02.640 --> 01:50:03.200]   So that's good.
+[01:50:03.200 --> 01:50:05.120]   Nice.
+[01:50:05.120 --> 01:50:07.040]   Go ahead and do that for some reason.
+[01:50:07.040 --> 01:50:10.480]   And that is the Google Change log.
+[01:50:10.480 --> 01:50:14.640]   You say for some reason, but my daughter will love this.
+[01:50:14.640 --> 01:50:15.600]   This is a girl--
+[01:50:15.600 --> 01:50:15.680]   It's a girl.
+[01:50:15.680 --> 01:50:16.640]   It's a new Belgium.
+[01:50:16.640 --> 01:50:21.280]   The ancient craft of glory has an indispensable 21st-day ingredient.
+[01:50:21.280 --> 01:50:24.000]   It's on to the wrong buttons.
+[01:50:24.000 --> 01:50:24.400]   I love it.
+[01:50:24.400 --> 01:50:25.120]   I didn't do it.
+[01:50:25.120 --> 01:50:27.440]   The infrastructure supports almost every aspect of play.
+[01:50:27.440 --> 01:50:29.920]   We're not having to do it.
+[01:50:29.920 --> 01:50:30.880]   We're not having to do it.
+[01:50:30.880 --> 01:50:31.680]   There we go.
+[01:50:31.680 --> 01:50:32.720]   Oh, there it is.
+[01:50:32.720 --> 01:50:36.800]   Look, the tricaster, it's basically like a mouse trap game,
+[01:50:36.800 --> 01:50:38.400]   like the mouse trap game.
+[01:50:38.400 --> 01:50:39.280]   Sorry, it's perfect.
+[01:50:39.280 --> 01:50:40.240]   I took over for John.
+[01:50:40.240 --> 01:50:41.360]   Yeah.
+[01:50:41.360 --> 01:50:41.600]   Ah.
+[01:50:41.600 --> 01:50:43.200]   Oh, Mr.
+[01:50:43.200 --> 01:50:44.080]   I'm covering for you, man.
+[01:50:44.080 --> 01:50:46.160]   I know what it's like to take over a tricaster.
+[01:50:46.160 --> 01:50:46.960]   It's a dad.
+[01:50:46.960 --> 01:50:48.240]   Just don't have the settings.
+[01:50:48.240 --> 01:50:49.760]   Yeah.
+[01:50:49.760 --> 01:50:51.360]   Oh, when I push that, that happens now.
+[01:50:51.360 --> 01:50:53.600]   Let's take a break.
+[01:50:53.600 --> 01:50:56.560]   And then we will get back and do some tips and tricks and stuff.
+[01:50:56.560 --> 01:50:58.000]   I can't wait to show off mine.
+[01:50:58.000 --> 01:51:01.840]   I'm really proud of what I found for you all.
+[01:51:01.840 --> 01:51:04.880]   But first, this episode of This Week in Google
+[01:51:04.880 --> 01:51:06.800]   is brought to you by bandwidth.
+[01:51:06.800 --> 01:51:11.360]   Bandwidth has injected the power of software into telephony,
+[01:51:11.360 --> 01:51:13.440]   delivering Cloud-ready voice calling.
+[01:51:13.440 --> 01:51:18.160]   You got text messaging and 911 built for the enterprise.
+[01:51:18.160 --> 01:51:19.920]   They've helped some of the biggest brands in the world
+[01:51:19.920 --> 01:51:22.400]   disrupt industries, create new products,
+[01:51:22.400 --> 01:51:24.800]   and change how people communicate.
+[01:51:24.800 --> 01:51:28.720]   So for over 10 years, Google has relied on bandwidth
+[01:51:28.720 --> 01:51:30.720]   for many of their communications needs.
+[01:51:30.720 --> 01:51:34.080]   You know, what we were talking about earlier from Google Meet
+[01:51:34.080 --> 01:51:38.080]   to Google Homes, even the Google Home that announced itself
+[01:51:38.080 --> 01:51:40.080]   earlier while we were doing the show.
+[01:51:40.080 --> 01:51:43.120]   Bandwidth APIs are behind the scenes of Google products.
+[01:51:43.120 --> 01:51:46.000]   And they're ensuring quality communications.
+[01:51:46.000 --> 01:51:49.280]   Google and other giants like Microsoft and Zoom rely on bandwidth
+[01:51:49.280 --> 01:51:53.840]   to bring their most important customer experiences to life.
+[01:51:53.840 --> 01:51:57.520]   So that's from sending SMS notifications at just the right time,
+[01:51:57.520 --> 01:52:01.600]   to making sure contact center calls sound crystal clear,
+[01:52:01.600 --> 01:52:05.360]   to ensuring reliable and secure 911 call routing.
+[01:52:05.360 --> 01:52:10.240]   Bandwidth's own tier one carrier network backs their API platform,
+[01:52:10.240 --> 01:52:13.360]   allowing for a no middleman pricing structure,
+[01:52:13.360 --> 01:52:16.880]   also greater insight into quality and deliverability,
+[01:52:16.880 --> 01:52:19.040]   and a seat at the industry table.
+[01:52:19.040 --> 01:52:22.320]   Rover's co-founder and director of software development,
+[01:52:22.320 --> 01:52:25.360]   Philip Kimmy raves about bandwidth,
+[01:52:25.360 --> 01:52:29.600]   saying no other provider offered the same level of hands-on support,
+[01:52:29.600 --> 01:52:32.880]   or cost savings that bandwidth has been able to deliver.
+[01:52:32.880 --> 01:52:37.280]   Their flexible APIs made it simple for us to get up
+[01:52:37.280 --> 01:52:39.360]   and running without missing a beat.
+[01:52:40.000 --> 01:52:42.160]   So you can join companies like Google,
+[01:52:42.160 --> 01:52:45.600]   like Microsoft and Zoom who build with bandwidth.
+[01:52:45.600 --> 01:52:49.440]   Get the power and the reliability of a tier one carrier network
+[01:52:49.440 --> 01:52:54.400]   paired with a control and agility of enterprise grade APIs with bandwidth.
+[01:52:54.400 --> 01:52:59.120]   Start a free trial at bandwidth.com/twig.
+[01:52:59.120 --> 01:53:02.240]   That's bandwidth.com/twig.
+[01:53:02.240 --> 01:53:06.320]   And we thank bandwidth for their support of this week in Google.
+[01:53:07.200 --> 01:53:12.240]   And with all these phones, they just all go off when I say the word Google.
+[01:53:12.240 --> 01:53:13.760]   Like one of them hears it wrong.
+[01:53:13.760 --> 01:53:21.920]   One of my favorite tweets from you here recently was the alarm going off in the morning.
+[01:53:21.920 --> 01:53:25.360]   One of the phones ends up being under the bed.
+[01:53:25.360 --> 01:53:29.040]   And you're trying to find which one of these things is going off
+[01:53:29.040 --> 01:53:31.360]   and coming to find out it's actually under the bed.
+[01:53:31.360 --> 01:53:36.160]   Because Google has gotten really good at, or has gotten better.
+[01:53:36.160 --> 01:53:37.200]   You know how it used to be?
+[01:53:37.200 --> 01:53:39.360]   Like if you got a new phone and you wanted to set it up,
+[01:53:39.360 --> 01:53:44.240]   you had to manually install all the apps that you had on your old phone.
+[01:53:44.240 --> 01:53:50.000]   Google's gotten much better at automatically transferring over apps,
+[01:53:50.000 --> 01:53:51.200]   or at least installing them.
+[01:53:51.200 --> 01:53:52.960]   But some apps go deeper.
+[01:53:52.960 --> 01:53:56.960]   Some apps like revive on the new phone with the settings from the old phone.
+[01:53:56.960 --> 01:54:00.320]   And one of the apps that does that every time is the alarm clock.
+[01:54:00.320 --> 01:54:02.400]   And so I've got, I showed you earlier,
+[01:54:02.400 --> 01:54:04.880]   I've got like 15 phones on the desk right now.
+[01:54:04.880 --> 01:54:09.760]   And if I have even one of those powered up that I forget to shut down at the end of the night,
+[01:54:09.760 --> 01:54:15.440]   then probably in the morning, on like a weekend or whatever, my alarm on one of those phones
+[01:54:15.440 --> 01:54:17.360]   is going to start going off at 6.30.
+[01:54:17.360 --> 01:54:19.040]   And it could be any number of noises.
+[01:54:19.040 --> 01:54:22.240]   Usually it's a really loud annoying noise because I didn't set it up properly.
+[01:54:22.240 --> 01:54:25.040]   So this is the Android version of what Stacy has.
+[01:54:25.040 --> 01:54:27.600]   Dad, your phone's going off again.
+[01:54:27.600 --> 01:54:31.520]   Dad, thankfully it doesn't wake anyone else up.
+[01:54:31.520 --> 01:54:36.080]   But it definitely wakes me up. And it's like the worst way to start the day is like fumbling
+[01:54:36.080 --> 01:54:41.280]   in the dark with 15 phones, trying to find the one that's alarm is going off.
+[01:54:41.280 --> 01:54:45.840]   You tweeted that and I just couldn't help but laugh because I could see it just so vividly.
+[01:54:45.840 --> 01:54:47.840]   Oh my goodness.
+[01:54:47.840 --> 01:54:49.120]   Top of so many times.
+[01:54:49.120 --> 01:54:53.920]   All right, let's do some some pics.
+[01:54:53.920 --> 01:54:56.480]   Why don't we start with you, Aunt? What you got?
+[01:54:58.080 --> 01:55:02.720]   Well, me, I want to give a shout out to someone back in Charlotte.
+[01:55:02.720 --> 01:55:08.160]   This gentleman used to go out with me on my photo walks whenever I offer people to meet
+[01:55:08.160 --> 01:55:11.280]   up for photo walks. His name is Mike Wilson.
+[01:55:11.280 --> 01:55:17.440]   And he's an aspiring photographer. And over the last year and a half, two years,
+[01:55:17.440 --> 01:55:23.760]   it's been just unbelievable to see his growth and see how much better he's gotten and seeing
+[01:55:23.760 --> 01:55:28.560]   now that his business is starting to build. And he's invested in himself.
+[01:55:28.560 --> 01:55:37.040]   He was part of Peter Hurley's headshot crew schooling. And it's really, really paying off.
+[01:55:37.040 --> 01:55:43.440]   And he's been putting some things on his Instagram page. And he just continues to blow me away.
+[01:55:43.440 --> 01:55:49.440]   And the latest thing you put out there, I just had to stop and say, "Look, dude, I'm happy for you.
+[01:55:49.440 --> 01:55:55.040]   It's just great to see other creators that are starting out and just putting in the work,
+[01:55:55.040 --> 01:56:00.640]   putting in the effort, and then starting to see some of the fruits from their labor, if you will."
+[01:56:00.640 --> 01:56:10.320]   And it's just great to see that. But Mike Wilson, the website is mjwphotocot.com. We'll have that
+[01:56:10.320 --> 01:56:16.320]   in our show notes. But you can see on the screen right now, he does some amazing headshots.
+[01:56:16.320 --> 01:56:17.840]   Just beautiful work.
+[01:56:18.800 --> 01:56:22.960]   Yeah. Yeah, I'm thumbing through him right now.
+[01:56:22.960 --> 01:56:30.160]   And he does some location shots as well. I've seen him work on a couple of those in downtown
+[01:56:30.160 --> 01:56:38.480]   Charlotte. And he's using a APS-C camera. It's not a four-frame sensor. And I want to say,
+[01:56:38.480 --> 01:56:46.240]   he's using an old Fuji. So he's not using all of this expensive fancy, schmancy equipment.
+[01:56:46.240 --> 01:56:52.000]   He's just using what he has, and he's getting the job done. It's unbelievable. I love it.
+[01:56:52.000 --> 01:56:53.440]   Right on. Love it.
+[01:56:53.440 --> 01:56:59.120]   Talented. And that's some of this real estate work he's been doing, too. So, yeah,
+[01:56:59.120 --> 01:57:03.680]   shout out to you, Mike. It's, "Hey, I hadn't been able to see you in a long time, and it was always
+[01:57:03.680 --> 01:57:09.680]   great to hang out with you, for sure." And then, secondly, I want to just plug my YouTube channel,
+[01:57:09.680 --> 01:57:15.680]   youtube.com/antapruit. Go over there, subscribe, watch some videos. It's growing, and I'm enjoying
+[01:57:15.680 --> 01:57:17.360]   the growth. So let's keep it going.
+[01:57:17.360 --> 01:57:24.160]   And I'm creating dominate. Yeah. YouTube.com/antapruit. Nice.
+[01:57:24.160 --> 01:57:28.560]   Thank you, Anne. Thank you. Jeff, what you got?
+[01:57:28.560 --> 01:57:34.720]   Let's see here. I'm going to do this one. So, as of now in California,
+[01:57:34.720 --> 01:57:42.880]   Robotaxes can start charging for rides. So, my question is, would you be comfortable taking a ride
+[01:57:43.680 --> 01:57:47.120]   in a robo taxi, in a self-driving car with the driver?
+[01:57:47.120 --> 01:57:51.360]   Sure. They drive like 20 miles an hour. It's fine. Yeah.
+[01:57:51.360 --> 01:57:55.520]   Seems like all of the tech is in place, right?
+[01:57:55.520 --> 01:57:59.520]   Yeah, we're not at level five, I thought it'd be yet, but sure.
+[01:57:59.520 --> 01:58:00.000]   Yeah, I would.
+[01:58:00.000 --> 01:58:05.920]   This is where we are at Thanksgiving week.
+[01:58:05.920 --> 01:58:11.200]   I want to see if anybody has brought back memories to me. I saw it on Twitter as the show started.
+[01:58:12.480 --> 01:58:16.400]   I never heard by this title Lutheran Sushi. Have you ever heard of this?
+[01:58:16.400 --> 01:58:17.680]   No. Negative.
+[01:58:17.680 --> 01:58:20.000]   Otherwise known as pickle rolls.
+[01:58:20.000 --> 01:58:28.560]   This is very Midwest. This is very MyHeritage. A pickle with cream cheese and ham.
+[01:58:28.560 --> 01:58:35.520]   Oh, yeah. Yeah. Yeah. I've had this. I did that to get Stacy's face.
+[01:58:35.520 --> 01:58:41.360]   Yeah, I've had those. They're doing a pinch. Yeah, they're kind of good, aren't they?
+[01:58:42.400 --> 01:58:51.040]   I mean, we do have a lot of videos with cream cheese and bacon and shrimp.
+[01:58:51.040 --> 01:58:57.600]   So that's far too fancy. It has tailgate. It's a little America. Stacy. It's tailgate.
+[01:58:57.600 --> 01:59:05.520]   It's not. Yeah. My mom used to spread cream cheese inside rolls of deli meat ham.
+[01:59:06.800 --> 01:59:12.800]   And she would cut it in thirds and stick toothpicks and give it to me. My brother was fancy.
+[01:59:12.800 --> 01:59:16.640]   There you go. Yeah. It's always fancy here with a toothpick through it. That was actually my question.
+[01:59:16.640 --> 01:59:20.160]   We would ask for some fancy and that's what we would get.
+[01:59:20.160 --> 01:59:27.520]   There it is. Yeah. There it is. Okay. Now I'm sold. When I just saw the pickle rollups with
+[01:59:27.520 --> 01:59:30.000]   no toothpick, I was on the fence. But no.
+[01:59:31.120 --> 01:59:36.560]   No, it's fancy. Yeah. You're like, the toothpick really steps it up and I'm in. Yeah.
+[01:59:36.560 --> 01:59:39.440]   Oh, fried cheese. We're tailgating. When I see that.
+[01:59:39.440 --> 01:59:45.200]   I want one more one quick second, Stacy, because you're the one who does all the fancy stuff.
+[01:59:45.200 --> 01:59:52.640]   What are you fixing tomorrow? Oh, tomorrow is a low key Thanksgiving. We're only having five dishes.
+[01:59:52.640 --> 01:59:58.560]   We're making a chicken, not a turkey. So chicken, stuffing, cranberries,
+[01:59:59.120 --> 02:00:04.960]   mashed potatoes, I'm doing a sherry mushroom cream gravy, and then six dishes. Hold on.
+[02:00:04.960 --> 02:00:14.560]   And then a delicata squash with a maple glaze served on top of a bed of arugula with pomegranate
+[02:00:14.560 --> 02:00:19.360]   and a hunk of boron top. That's six dishes itself. A hunk of boron top.
+[02:00:19.360 --> 02:00:24.080]   Well, it's my daughter because she's a vegetarian. So, you know, she needed something to like,
+[02:00:24.080 --> 02:00:28.480]   we've got a chicken. Something grand. Yeah. Right. And she needed something fancy.
+[02:00:28.480 --> 02:00:33.520]   And it's so pretty, y'all. It's just beautiful. So, are you barbecue?
+[02:00:33.520 --> 02:00:35.680]   No, we're frying bird.
+[02:00:35.680 --> 02:00:43.200]   Fry and bird. Oh, I love fried turkey. If I get a knife, just fried chicken, just fried chicken.
+[02:00:43.200 --> 02:00:50.320]   Queen Pruitt wanted fried chicken and she's going to do it because she wanted fried chicken,
+[02:00:50.320 --> 02:00:57.040]   buttermilk, marinade and all of that. So, yeah, fried chicken. That sounds so good.
+[02:00:57.040 --> 02:01:02.000]   Why aren't we simple pleasures? Simple pleasure. You're the turkey Jason?
+[02:01:02.000 --> 02:01:10.320]   Yeah, we're doing a turkey. I'm on deck for the veggie and I'm going to make some monkey bread.
+[02:01:10.320 --> 02:01:16.640]   That's not a veggie. No, I know. I'm on my deck for a veggie and I'm making a
+[02:01:16.640 --> 02:01:20.480]   mess. So, you know, I'm trying to figure out what the veggie's going to be.
+[02:01:20.480 --> 02:01:25.040]   My wife's like, don't overthink it. Just like, you know, make some cauliflower or something like that.
+[02:01:25.040 --> 02:01:29.280]   I'm like, I want it to be awesome. So, I don't know what I'm going to do.
+[02:01:29.280 --> 02:01:34.880]   But yeah, we're doing turkey, sesame, mashed potatoes. Super easy. Just so you know,
+[02:01:34.880 --> 02:01:42.560]   you mix in parts maple syrup and olive oil. You just sprinkle that on pick a
+[02:01:42.560 --> 02:01:47.920]   some, our winter squash, butternut, delicata, pumpkin, doesn't matter. Just stick it on there,
+[02:01:47.920 --> 02:01:51.280]   stick it in the oven and roast it and poof. It's delicious. And if you want to get fancy,
+[02:01:51.280 --> 02:01:54.880]   you can sprinkle like nuts or something on it. And then stick a toothpick in it.
+[02:01:55.680 --> 02:02:00.640]   And a toothpick. Yes. Okay. All right. Good. I was like a toothpick in it.
+[02:02:00.640 --> 02:02:05.280]   All right. Thank you for that little tour. What about you, Jeff? What do you do? Oh, just
+[02:02:05.280 --> 02:02:10.800]   this family doesn't like turkey. I'm fine with turkey, but nobody likes turkey. So,
+[02:02:10.800 --> 02:02:14.320]   yeah, chicken, macaroni and cheese or I don't know.
+[02:02:14.320 --> 02:02:19.200]   Cat, shall we, Pepe? Yeah, to a Pepe. That's tonight. That's tonight.
+[02:02:20.480 --> 02:02:26.000]   And Trader Joe's got it back. So I'm relieved. Oh, man. I don't want to see your freezer. I'm
+[02:02:26.000 --> 02:02:32.960]   just imagining like in the days, got you a Pepe. I'll take it. I'll take a picture over for you
+[02:02:32.960 --> 02:02:39.120]   for that show. Yeah. Excellent. We did out, man. Do a fleet. Yeah. By next week.
+[02:02:39.120 --> 02:02:44.320]   Lead it out. I know that's why you should fleet it out now. We can all see. So I don't get
+[02:02:44.320 --> 02:02:51.120]   embarrassed forever. Is that what you're saying? I just want it's only my desire for you not to
+[02:02:51.120 --> 02:02:55.440]   have a heart attack that I'm like, please just eat a salad every now and then too. I hate to sell
+[02:02:55.440 --> 02:03:00.960]   them before every dish of caught show and Pepe. Okay. Everybody's just after it'll clean your
+[02:03:00.960 --> 02:03:12.560]   arteries out. I will. Stacy, what you got? Oh, I have a thing. Yes. Well, I have, I'm going to do a
+[02:03:13.360 --> 02:03:19.680]   a here. It's on my desk for a reason now. It's not just a dirty ass. Here it is.
+[02:03:19.680 --> 02:03:28.160]   I have the new Nano leaf thread enabled light bulb. It's not screwed into anything right now. So,
+[02:03:28.160 --> 02:03:35.920]   but I'm showing it to people because it has this funky weird shape to it. Oh, yeah. It's like a
+[02:03:35.920 --> 02:03:45.760]   Dungeons and Dye. It's like a hundred sided die. Um, but oh, faceted. That's it. This is a home
+[02:03:45.760 --> 02:03:52.080]   kit enabled light. It's thread enabled as well because like I'm telling people thread is going
+[02:03:52.080 --> 02:03:57.680]   to be important for the project chip support as that comes out next year. And so Apple's HomeKit
+[02:03:57.680 --> 02:04:03.120]   Mini, which is behind me somewhere, maybe over somewhere. Have you all seen the HomeKit Mini?
+[02:04:03.120 --> 02:04:10.000]   HomePod Mini? Sorry. Yeah. Okay. It's my HomeKit. Sorry. Stacy doesn't speak normal words.
+[02:04:10.000 --> 02:04:17.440]   Here's the HomePod Mini. Oh, can you? We don't see it. There we go. There it is. It's floating up here.
+[02:04:17.440 --> 02:04:23.520]   It's plugged in a little far away. So I'm like, but it's, it's there. It is. There it is.
+[02:04:23.520 --> 02:04:30.880]   And all of its beautiful apple glory. The most magnificent. It's a fabulous glory.
+[02:04:30.880 --> 02:04:37.840]   Assistant we've ever designed. You're kind of a lot of it. Is that, are you reading that on
+[02:04:37.840 --> 02:04:47.120]   something? Anyway, that has thread in it. So it talks to this light bulb now. It's the first time
+[02:04:47.120 --> 02:04:52.480]   that Apple has supported through HomeKit anything that isn't Wi-Fi or Bluetooth. So that's notable.
+[02:04:52.480 --> 02:05:00.000]   And if you're wondering the HomePod Mini sounds really good, actually, it's comparable. I have all
+[02:05:00.000 --> 02:05:06.560]   of the $99 speakers in my home. And I will tell you that it sounds to me on par with the Nest Audio,
+[02:05:06.560 --> 02:05:14.480]   which is bigger and heavier. And the Echo Generation 4 is probably my least favorite just because it's
+[02:05:14.480 --> 02:05:22.320]   too bad, too bass heavy for me. And the highs, they just are real muddy. But other people might
+[02:05:22.320 --> 02:05:27.360]   love it. Like your 90s rap probably is going to sound great on the Echo 4 or 4th generation Echo.
+[02:05:27.440 --> 02:05:32.720]   But there you go. That was a lot of things.
+[02:05:32.720 --> 02:05:37.680]   It's a lot of things. Stacey's things. Thank you, Stacey.
+[02:05:37.680 --> 02:05:44.080]   My, I guess Leo normally does a tip, but I also have, I don't know if it's a thing or a
+[02:05:44.080 --> 02:05:52.800]   stuff. It's not a number. It's called Crown and Paw. Crown and Paw.com. And this is a gift that
+[02:05:52.800 --> 02:05:56.480]   I've had. I can't speak too loud. I actually am realizing my wife's in the other room and she's
+[02:05:56.480 --> 02:06:02.080]   getting this for Christmas. It's a gift that I've had in my back pocket for a while now.
+[02:06:02.080 --> 02:06:07.680]   Someone, a friend of mine showed me like he was like, oh man, I'm so happy this thing delivered
+[02:06:07.680 --> 02:06:12.160]   to a friend. He showed it to me. You basically, you take a really awesome picture of your pet,
+[02:06:12.160 --> 02:06:17.920]   and you have to do it in the right lighting conditions. You like life. So I took my dog outside and
+[02:06:17.920 --> 02:06:22.400]   what didn't do it in direct sunlight? I did it kind of like in well lit shade. So there was nice,
+[02:06:22.400 --> 02:06:28.400]   even bright light, but it nothing like super harsh or anything. And you kind of try and get a fully
+[02:06:28.400 --> 02:06:36.000]   unobstructed as high res as you can shot of the front of your pet, either looking off to the side
+[02:06:36.000 --> 02:06:41.360]   or slightly or straightforward, whatever. And then they have all of these templates for like,
+[02:06:41.360 --> 02:06:48.480]   these really kind of like postured and posh looking like, you know, generals and all this stuff.
+[02:06:49.760 --> 02:06:54.640]   Hard to explain, but they basically have all of these themes based on the gender of your pet.
+[02:06:54.640 --> 02:06:58.960]   And then they do the work, which, you know, and you're probably like, oh yeah, I could do this
+[02:06:58.960 --> 02:07:04.880]   in like two seconds. But I'm happy to let them do it. But they do the Photoshop work to kind of like
+[02:07:04.880 --> 02:07:10.720]   super impose your pet onto this amazing picture. And then you get a canvas out of it, or you can
+[02:07:10.720 --> 02:07:14.080]   get a digital print or you can do all sorts of different merchandise, but I'm getting it as a
+[02:07:14.080 --> 02:07:20.640]   canvas. And I can't wait. Like I sent off the photo yesterday. This looks awesome. And for that
+[02:07:20.640 --> 02:07:27.440]   price, let them do it in an Elizabethan color, like not a like not an e-color like for dogs,
+[02:07:27.440 --> 02:07:33.920]   but the actual rough that they put. Oh my gosh, I love it. It's so cool. I have to give this to someone.
+[02:07:33.920 --> 02:07:40.240]   Exactly. And they're they're having they are actually having a sale right now 30% off.
+[02:07:42.080 --> 02:07:47.200]   They have their Black Friday sale. And I didn't even know that going to it. But, you know, it's like,
+[02:07:47.200 --> 02:07:53.920]   I need to I think that the 12 by 16 canvas was something like 80 bucks before the sale,
+[02:07:53.920 --> 02:07:57.920]   and then like 60 bucks after somewhere around there totally worth it as far as I can.
+[02:07:57.920 --> 02:08:01.520]   Wow. So I need to do this.
+[02:08:01.520 --> 02:08:07.280]   I totally need to. Oh, my niece would love that she she has an instant account for her
+[02:08:08.560 --> 02:08:12.320]   little mini Schnauzer and they've been featured in an ad campaign.
+[02:08:12.320 --> 02:08:17.920]   Yeah. If you're on Instagram, you will probably see ads for this because I've definitely come
+[02:08:17.920 --> 02:08:25.760]   across a few of them. The Leo book has creeped into you. You're now buying from Instagram.
+[02:08:25.760 --> 02:08:32.640]   No, no, no, I didn't get to hear from Instagram, but I have noticed it ever since. Like I said,
+[02:08:32.640 --> 02:08:37.680]   I've had this in my back pocket for probably like a year now. And this was just one of this
+[02:08:37.680 --> 02:08:41.600]   Christmas, especially it's like, what do I get her? She's gonna love this because she
+[02:08:41.600 --> 02:08:48.560]   because basically our dog is her dog. Like sugar is Stacy's dog. We are just all here to support
+[02:08:48.560 --> 02:08:54.320]   them and they're, you know, they're dog. They have custom phone cases.
+[02:08:54.320 --> 02:08:58.560]   Yeah, I saw that too. That's right. Yeah, I just I just mailed it to somebody in the family.
+[02:08:58.560 --> 02:09:03.920]   Gosh, it was just really well done. And they proof it. So I'll get a proof in a couple of days,
+[02:09:03.920 --> 02:09:07.920]   and then I can tell them whether it's okay or if there needs to be changes or whatever. So,
+[02:09:07.920 --> 02:09:14.000]   you know, there's like a little back and forth and I just think it's hilarious. So if you're
+[02:09:14.000 --> 02:09:21.200]   wondering like a nice kooky weird, but probably perfect gift on for like a pet lover in your life,
+[02:09:21.200 --> 02:09:28.560]   this is probably a really great way to go nailed it, dude. I called crown and paw.com crown and paw.
+[02:09:31.440 --> 02:09:36.240]   Love it. So check it out. I love it too. I can't wait to see the look on her face because there's no
+[02:09:36.240 --> 02:09:44.400]   way she saw this coming when she opens this gift. So that is that and we have reached the end
+[02:09:44.400 --> 02:09:54.000]   of this week in Google and survived fun times as always. Always. Thank you so much for allowing
+[02:09:54.000 --> 02:09:59.760]   me to sit in Leo's place for an episode. Jeff Jarvis Buzz machine.com anything else you want to tell
+[02:09:59.760 --> 02:10:06.400]   people before you get off your Thanksgiving? That's fine. That's fine. Good to see Jeff.
+[02:10:06.400 --> 02:10:11.120]   That's good enough. All right. Also, that's a good mention.
+[02:10:11.120 --> 02:10:18.080]   Hey, says the curmudgeon of the week. Yes. Hey, we are a show full of conventions.
+[02:10:18.080 --> 02:10:23.120]   This is this week in old Ben right here. Get off my mind.
+[02:10:25.760 --> 02:10:29.920]   Sorry, you're trying to end the show. Go for it. That's exactly it though, which Stacy always
+[02:10:29.920 --> 02:10:35.920]   supports the idea of doing that. She always in favor of any of the show. I didn't have lunch this
+[02:10:35.920 --> 02:10:44.000]   time. Stacy on IOT.com any other URLs or things you want to promote? Feel free to sign up for my
+[02:10:44.000 --> 02:10:52.000]   newsletter at Stacy on IOT.com and this Friday we will be sending out our gift guide. Nice.
+[02:10:53.360 --> 02:11:02.880]   Very nice. Nice. Nice. Thank you. And and prove it. Hands on photography twit.tv/hop.
+[02:11:02.880 --> 02:11:09.520]   That's right. I'm going to promote anything else. Oh, I was supposed to show you all the desk.
+[02:11:09.520 --> 02:11:15.840]   Wow. That is a lot of stuff that would I do not work there.
+[02:11:15.840 --> 02:11:22.160]   I get it done though. There's stuff getting done because I have an old Nokia phone up there on
+[02:11:22.160 --> 02:11:28.320]   the left, huh? And I have a checklist. I write notes and scratch things off. So I still get stuff done.
+[02:11:28.320 --> 02:11:34.960]   I relate to your desk. I have to break in for a second and share. I got you all topped by the way.
+[02:11:34.960 --> 02:11:43.440]   Look at Bursts. Yes. What? Yes, I've seen that. That gives me anxiety. Exactly how it looks.
+[02:11:43.440 --> 02:11:51.520]   It stays in shaking right now. It's too much. I love it. It's been it's been so long since I've
+[02:11:51.520 --> 02:11:56.240]   been in the studio that that it's usually normal for me to walk past your desk, Burke, and see
+[02:11:56.240 --> 02:12:00.480]   all of that. But watching it out of context, it's a different story.
+[02:12:00.480 --> 02:12:04.080]   It's organized. Trust me. I know where everything is.
+[02:12:04.080 --> 02:12:12.240]   Exactly. Exactly. You can find me here on the Twit Network or on Twitter @JasonHowl doing shows.
+[02:12:12.240 --> 02:12:17.120]   We just had episode 500 of all about Android last night. So we had a lot of fun. It was totally
+[02:12:17.120 --> 02:12:23.040]   news light, but we had different folks who have been on the show in the past on to just talk about
+[02:12:23.040 --> 02:12:31.200]   life. So we had a good time yesterday. So check that out. Twit.tv/aa. And that is it for this week's
+[02:12:31.200 --> 02:12:38.160]   episode of this week in Google. Of course, we record live every Wednesday. Is it 4pm? No,
+[02:12:38.160 --> 02:12:43.840]   that the time on the site is wrong. It's now 2pm Pacific, right? 5pm Eastern.
+[02:12:44.400 --> 02:12:48.080]   Correct. 2200 UTC. So we need to update the website.
+[02:12:48.080 --> 02:12:51.200]   Twit.tv. Very impressive. You did the UTC calculation. Very good, Jason.
+[02:12:51.200 --> 02:12:53.920]   I just added one to what was there. Oh, okay.
+[02:12:53.920 --> 02:12:58.400]   That's math I can deal with. I can handle that.
+[02:12:58.400 --> 02:13:03.840]   Jason, just let him be impressed. Just make it easier to work on going forward.
+[02:13:03.840 --> 02:13:12.400]   Thank you, Jeff. I appreciate it. I know I'm good. Twit.tv/twig is where you can go to find
+[02:13:12.400 --> 02:13:16.960]   all the ways to subscribe. Jump out to YouTube. Subscribe with your favorite podcatcher.
+[02:13:16.960 --> 02:13:21.840]   The most important thing is that you subscribe so you don't miss a single episode.
+[02:13:21.840 --> 02:13:27.280]   That is it for this week. Next week, Leo will be back in the studio joining you for this week in
+[02:13:27.280 --> 02:13:32.400]   Google. But until then, have a wonderful week. And if you're in the US, have a wonderful Thanksgiving
+[02:13:32.400 --> 02:13:35.920]   tomorrow. And we'll see you next time on this week in Google. Bye, everybody.
+[02:13:35.920 --> 02:13:42.000]   Want more Twit? Well, check out SmartTek today. It's a twit.tv/stt. It's the show where Matthew
+[02:13:42.000 --> 02:13:48.240]   Casanelli and I cover everything there is to know about SmartTek. It's automation. It's connected
+[02:13:48.240 --> 02:13:54.640]   devices. It's smart home. It's all those goodies and so much more. We get the news. We get the latest
+[02:13:54.640 --> 02:14:01.440]   devices. We do reviews. Everything. You got to check it out. Twit.tv/stt for SmartTek today.
+[02:14:01.440 --> 02:14:12.080]   [Music]
+

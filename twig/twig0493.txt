@@ -1,0 +1,1968 @@
+;FFMETADATA1
+title=The Dork Face Problem
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=493
+genre=Podcast
+comment=http://twit.tv/twig
+copyright=These netcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2019
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:04.840]   It's time for Twig this week in Google. We've got Jeff Jarvis, Stacy Higginbotham, unfortunately
+[00:00:04.840 --> 00:00:09.880]   not feeling well. But Mike Elgin sits in studio right next to me. We talk about Google I/O,
+[00:00:09.880 --> 00:00:15.640]   we talk about some features upcoming from Android Q, we talk all about Facebook, we
+[00:00:15.640 --> 00:00:21.160]   get in the weeds on Facebook and whether we think they're good or not so good and we've
+[00:00:21.160 --> 00:00:27.240]   got some differing opinions on that. And really a whole lot more Huawei charges, a whole lot
+[00:00:27.240 --> 00:00:30.040]   on today's show this week in Google is next.
+[00:00:30.040 --> 00:00:53.840]   This is Twig, this week in Google, episode 493 recorded Wednesday January 30th 2019.
+[00:00:53.840 --> 00:00:59.480]   The Dork Face Problem. This episode of this week in Google is brought to you by Digital
+[00:00:59.480 --> 00:01:05.480]   Ocean, the easiest cloud platform to deploy, manage and scale applications. Over 150,000
+[00:01:05.480 --> 00:01:10.280]   businesses rely on Digital Ocean to remove infrastructure friction and deliver industry
+[00:01:10.280 --> 00:01:19.120]   leading price performance. You can sign up today and receive a free $100 credit at d o.co/twit.
+[00:01:19.120 --> 00:01:24.840]   And by on deck, are you a small business owner in need of capital today? Well, on deck can
+[00:01:24.840 --> 00:01:30.360]   help. With over $10 billion in loans and an A+ rating from the Better Business Bureau,
+[00:01:30.360 --> 00:01:37.400]   on deck is the lender you can trust. Find out more at on deck.com/twig.
+[00:01:37.400 --> 00:01:42.800]   And by Captera, find the right software for your business with over 700,000 reviews of
+[00:01:42.800 --> 00:01:48.760]   products from real software users. Visit captera.com/twig for free to find the right
+[00:01:48.760 --> 00:01:55.760]   tools to make 2019 the year for your business. It's time for Twig, this week in Google,
+[00:01:55.760 --> 00:02:00.600]   Leo Laport, of course, out as I like to say, gallivanting. I'm really quite sure where
+[00:02:00.600 --> 00:02:05.360]   Leo is gallivanting this week. But nonetheless, he's gallivanting. I'm Jason Hal filling in
+[00:02:05.360 --> 00:02:11.480]   for Leo. Really enjoy being able to hop on Twig while he's out. So thanks for allowing
+[00:02:11.480 --> 00:02:18.600]   me to join you all today. Joining us as usual, Jeff Jarvis, Buzzmachine.com. How you doing,
+[00:02:18.600 --> 00:02:23.560]   Jeff? Great. Great. Leo, Gallivants, you hop. I sit.
+[00:02:23.560 --> 00:02:29.080]   All right. And so what does that mean when Stacey's out and Mike Elgin is in Stacey's
+[00:02:29.080 --> 00:02:34.840]   place, if we hop, Gallivant and sit, what are you doing, Mike Elgin? I'm just confused
+[00:02:34.840 --> 00:02:39.640]   with all the gallivanting and sitting. What Mike is, the ultimate gallivant and rulehopper.
+[00:02:39.640 --> 00:02:47.280]   Yes, he's true. I gallivant to another location, and then once I'm there, I sit. Yes. I do
+[00:02:47.280 --> 00:02:56.040]   it all, Jeff. I was telling you before the show, I respect you so much in your ability
+[00:02:56.040 --> 00:03:02.480]   to do what you do to just kind of travel the world and live your life like that. I love
+[00:03:02.480 --> 00:03:09.360]   it. What a wonderful life choice. The concept of the digital nomad was arrived at in '97,
+[00:03:09.360 --> 00:03:14.120]   I think, by Hitachi Executive who wrote a book called Digital Nomad. And for a long
+[00:03:14.120 --> 00:03:18.240]   time, it was just like, oh, that's crazy. Like, why would you do that? Now it does that.
+[00:03:18.240 --> 00:03:23.480]   Well, nowadays, it's actually lots and lots and lots of people do it. And it's a technology
+[00:03:23.480 --> 00:03:27.840]   enabled lifestyle. We talk about technology changing culture. This is a major way it can
+[00:03:27.840 --> 00:03:34.160]   change culture. And especially the thing that really kicked digital nomad living into high
+[00:03:34.160 --> 00:03:40.200]   gear was the sharing economy. Airbnb, things like Uber, like you go to Mexico City, which
+[00:03:40.200 --> 00:03:48.320]   used to be super dangerous to take a taxi in Mexico City. Uber is great. It's really
+[00:03:48.320 --> 00:03:54.120]   great in Mexico City. So the sharing economy has really transformed living abroad. It
+[00:03:54.120 --> 00:04:00.000]   sort of enables you to not have to own stuff, you just rent and borrow and whatever, share
+[00:04:00.000 --> 00:04:01.400]   things everywhere you go.
+[00:04:01.400 --> 00:04:07.960]   And it feels, in many cases, I imagine, feels like home, even though you don't have a home
+[00:04:07.960 --> 00:04:11.880]   that you return to every single day, you're there long enough for it to feel home. And
+[00:04:11.880 --> 00:04:15.000]   you're actually living in a home if you're doing the sharing economy, you're living in
+[00:04:15.000 --> 00:04:18.280]   someone's home that they've built up for you to share with you.
+[00:04:18.280 --> 00:04:22.160]   We feel like temporary locals everywhere we go. Because we go there, we meet the neighbors,
+[00:04:22.160 --> 00:04:26.520]   we shop in local stores, we sort of get to know the place and we acclimate ourselves to
+[00:04:26.520 --> 00:04:33.760]   the point where we just feel like locals. And then we leave. Until the next time.
+[00:04:33.760 --> 00:04:37.400]   Yeah, the hardest thing is you make friends everywhere. And then you've got you're always
+[00:04:37.400 --> 00:04:43.720]   away from most of your friends. But it's worth it because you do make all those friends.
+[00:04:43.720 --> 00:04:44.720]   Yeah. Yeah.
+[00:04:44.720 --> 00:04:48.800]   So Mike, I get this ad on Facebook all the time for the supposedly magic t-shirt that
+[00:04:48.800 --> 00:04:52.880]   you never have to wash. Do you own like one of those?
+[00:04:52.880 --> 00:05:01.080]   No, because my wife and I, by which I mean my wife, and to a lesser extent, just don't
+[00:05:01.080 --> 00:05:05.160]   like synthetic fabrics. I mean, she just, everything we have is cotton or linen or
+[00:05:05.160 --> 00:05:09.240]   something like that. So those things are pretty high tech synthetic things. I'm fascinated
+[00:05:09.240 --> 00:05:12.960]   by them, but I'd rather just have cotton stuff and wash it.
+[00:05:12.960 --> 00:05:19.160]   Yeah. Because all these places that you're staying, they have washers and dryers.
+[00:05:19.160 --> 00:05:24.160]   Almost nobody has dryers. That's a very ubiquitous dryers is a very American thing.
+[00:05:24.160 --> 00:05:25.160]   Okay.
+[00:05:25.160 --> 00:05:27.400]   Washers are everywhere and then people hang stuff on it.
+[00:05:27.400 --> 00:05:31.800]   They need hang. Yeah. And so, but, but if you know what you're talking about, Jeff, the
+[00:05:31.800 --> 00:05:34.760]   way they advertise it, they're like, you don't need luggage because you only have one pair
+[00:05:34.760 --> 00:05:39.360]   of underwear, which never, right. And I'm like, that's quite a sales pitch to say you don't
+[00:05:39.360 --> 00:05:43.760]   need a packing because you never need to change your clothes. It's kind of gross, actually.
+[00:05:43.760 --> 00:05:44.760]   It is actually.
+[00:05:44.760 --> 00:05:45.760]   It is.
+[00:05:45.760 --> 00:05:49.680]   I'm not the manager of the Facebook ads for the suitcase that you can supposedly, it's
+[00:05:49.680 --> 00:05:52.520]   a briefcase. It's a suitcase. You can fit everything in. They show you, they get everything
+[00:05:52.520 --> 00:05:54.560]   they did. My whole house is in this one little thing.
+[00:05:54.560 --> 00:05:55.560]   It turns into a new event.
+[00:05:55.560 --> 00:05:56.560]   I think of you when I see that.
+[00:05:56.560 --> 00:05:57.560]   Yeah. Thanks.
+[00:05:57.560 --> 00:06:01.120]   Thanks. Yeah. I mean, to me, I think the ultimate business, and I think there are things like
+[00:06:01.120 --> 00:06:04.880]   this, but not quite like this, but I'd love to see some entrepreneur out there, if you're
+[00:06:04.880 --> 00:06:11.240]   out there listening, a service where you basically have a checklist of stuff. And if
+[00:06:11.240 --> 00:06:13.400]   it's a winter, you're going to be winter somewhere. It's going to be cold. You just
+[00:06:13.400 --> 00:06:16.840]   check list all the cold winter stuff and then just like, okay, and here's where I'm
+[00:06:16.840 --> 00:06:18.760]   going to be and just have them ship it to you.
+[00:06:18.760 --> 00:06:19.760]   Mm hmm.
+[00:06:19.760 --> 00:06:22.800]   So, you don't travel with luggage. You can, you can do the discount airlines that charge
+[00:06:22.800 --> 00:06:26.960]   extra for check baggage and stuff like that. But you don't have check, check, like baggage
+[00:06:26.960 --> 00:06:29.520]   because they're going to ship it to you. And then you just ship it back. I don't know
+[00:06:29.520 --> 00:06:33.120]   if that's feasible financially. I probably am too much of a cheapskate to actually use
+[00:06:33.120 --> 00:06:37.200]   it, but I think a lot of people wouldn't be. And I think that'd be a great service. It's
+[00:06:37.200 --> 00:06:40.760]   your own clothes and just have them just sort of drifting around out there and they just
+[00:06:40.760 --> 00:06:43.640]   come to you when you eventually it finds its way to you.
+[00:06:43.640 --> 00:06:44.640]   Right.
+[00:06:44.640 --> 00:06:45.640]   Choners on demand.
+[00:06:45.640 --> 00:06:46.640]   That's the name?
+[00:06:46.640 --> 00:06:47.640]   Yes.
+[00:06:47.640 --> 00:06:48.640]   Great name for it.
+[00:06:48.640 --> 00:06:49.640]   Wardrobe on route.
+[00:06:49.640 --> 00:06:50.640]   That's right.
+[00:06:50.640 --> 00:06:51.640]   There's something along those lines.
+[00:06:51.640 --> 00:06:52.640]   That's right.
+[00:06:52.640 --> 00:06:58.000]   There was a story, I feel like this was like three or four months ago about a company that
+[00:06:58.000 --> 00:07:03.240]   was all about digital nomad living where you would sign up with them, someone who had
+[00:07:03.240 --> 00:07:08.440]   never done it before would sign up with them. And you know, I guess you'd pay upfront a
+[00:07:08.440 --> 00:07:13.120]   certain deposit or whatever and that would get you to your next destination. And something
+[00:07:13.120 --> 00:07:16.000]   really bad happened with that company. I think it folded and a bunch of these people
+[00:07:16.000 --> 00:07:18.440]   ended up getting stranded around the world because-
+[00:07:18.440 --> 00:07:20.240]   You're thinking about the fire festival now.
+[00:07:20.240 --> 00:07:23.000]   It kind of sounds like the fire festival now that I'm saying it out loud, but it was
+[00:07:23.000 --> 00:07:27.160]   a company that was built up and designed for this type of living and it ended up failing
+[00:07:27.160 --> 00:07:32.200]   miserably. But in essence, it ended up totally stranding all these people because they were
+[00:07:32.200 --> 00:07:36.560]   able to get to their point A. They weren't able to get back because there was no money
+[00:07:36.560 --> 00:07:37.560]   to get back.
+[00:07:37.560 --> 00:07:38.560]   That's terrible.
+[00:07:38.560 --> 00:07:39.560]   It all evaporated.
+[00:07:39.560 --> 00:07:40.560]   It's like, what do I do now?
+[00:07:40.560 --> 00:07:42.560]   Well, you live in Thailand now.
+[00:07:42.560 --> 00:07:44.560]   Congratulations, you'll have the king.
+[00:07:44.560 --> 00:07:46.040]   You hear it out.
+[00:07:46.040 --> 00:07:51.600]   But there are all kinds of really interesting and innovative. Isn't that how they say it
+[00:07:51.600 --> 00:07:52.600]   in England?
+[00:07:52.600 --> 00:07:53.600]   That one?
+[00:07:53.600 --> 00:07:54.600]   Innovative.
+[00:07:54.600 --> 00:07:55.600]   Thank you, John.
+[00:07:55.600 --> 00:07:56.600]   Yes.
+[00:07:56.600 --> 00:07:57.600]   That's a great follow-up.
+[00:07:57.600 --> 00:07:58.600]   That's a great follow-up.
+[00:07:58.600 --> 00:08:04.040]   For housing, for example, there's one fascinating one where you sign up and you, I think you
+[00:08:04.040 --> 00:08:09.440]   move every month to another member's house somewhere else in the world. Everybody shifts
+[00:08:09.440 --> 00:08:11.440]   to the left.
+[00:08:11.440 --> 00:08:12.440]   Yeah.
+[00:08:12.440 --> 00:08:15.320]   But somebody's staying in your house and move.
+[00:08:15.320 --> 00:08:21.800]   And there's all kinds of different things. The most common are things like Rome, which
+[00:08:21.800 --> 00:08:25.360]   is like they have locations that they've, I guess, purchased somewhere. You go there
+[00:08:25.360 --> 00:08:28.600]   and it's like you're living in a dorm or something. And there's a bunch of people.
+[00:08:28.600 --> 00:08:33.200]   They seem to skew young. They seem to be geared toward people who are entrepreneurs or whatever
+[00:08:33.200 --> 00:08:36.200]   because they want to work together to have fast Wi-Fi and all that kind of stuff. So
+[00:08:36.200 --> 00:08:42.680]   there's really, I mean, there's really multiple types of people. The reason it used to be that
+[00:08:42.680 --> 00:08:47.040]   you could do this because you had a laptop and Wi-Fi and all that stuff was technology.
+[00:08:47.040 --> 00:08:49.640]   Now that's just, but now everybody's got a laptop.
+[00:08:49.640 --> 00:08:51.000]   Everybody's got it, yeah.
+[00:08:51.000 --> 00:08:58.680]   But the reason it's still a tech thing is that most of the remote jobs are like developers,
+[00:08:58.680 --> 00:09:02.600]   web designers, things like that. They tend to be tech jobs that lend themselves to you
+[00:09:02.600 --> 00:09:03.600]   not being there.
+[00:09:03.600 --> 00:09:07.280]   Right. To being able to work anywhere as long as you have your computer. Great. You can
+[00:09:07.280 --> 00:09:09.800]   do 95% of the work that you actually need to do.
+[00:09:09.800 --> 00:09:14.560]   And a lot of the software engineering training companies have gone on this bandwagon. They
+[00:09:14.560 --> 00:09:18.440]   have like, you know, cruises and like retreats where you go and you learn coding and stuff
+[00:09:18.440 --> 00:09:22.760]   like that in Bali or something. And it's cheaper because everything's less expensive there
+[00:09:22.760 --> 00:09:23.760]   and so on.
+[00:09:23.760 --> 00:09:27.120]   But there are really multiple kinds. There's like the people who do that where they go
+[00:09:27.120 --> 00:09:30.400]   with, they're one who's want to be with a group of people and they live together and
+[00:09:30.400 --> 00:09:34.680]   work together. All kinds of co-working, co-living combined.
+[00:09:34.680 --> 00:09:38.840]   The second one is the, which are often called digital nomads are actually just kind of expats.
+[00:09:38.840 --> 00:09:42.960]   They go to Thailand, they go to Chiang Mai or someplace like that. There's great infrastructure,
+[00:09:42.960 --> 00:09:46.280]   very low cost of living, lots of other entrepreneurs around and they can sort of brainstorm and
+[00:09:46.280 --> 00:09:49.880]   all that kind of stuff. They're not traveling around. They're just, they want a location
+[00:09:49.880 --> 00:09:56.360]   where they can live inexpensively in a foreign country. And then there's the people like me
+[00:09:56.360 --> 00:10:01.880]   who just are always going to different places and not with groups, not with services. We
+[00:10:01.880 --> 00:10:07.720]   just go. And I mean, I'm biased, but personally, I think that's the way to do it. You just
+[00:10:07.720 --> 00:10:11.520]   go to buy the ticket. First thing you do is you buy a ticket.
+[00:10:11.520 --> 00:10:12.520]   Then you sell your house.
+[00:10:12.520 --> 00:10:13.520]   That sure is that it's happening.
+[00:10:13.520 --> 00:10:14.520]   Yeah, exactly.
+[00:10:14.520 --> 00:10:17.240]   You'll be like someday, no, I'm totally, I completely agree.
+[00:10:17.240 --> 00:10:21.000]   I can put the interest for next year, and then the clock is ticking and you'll do it.
+[00:10:21.000 --> 00:10:26.080]   So I just really believe it and use Airbnb, use these services. And it's just the greatest
+[00:10:26.080 --> 00:10:27.080]   thing in the world.
+[00:10:27.080 --> 00:10:31.040]   Does any of this news that we're hearing about Airbnb, and I guess we've been hearing
+[00:10:31.040 --> 00:10:35.720]   about it for the last couple of years about kind of like cameras and places or insecurity
+[00:10:35.720 --> 00:10:39.920]   about the place that you're staying. I use Airbnb actually pretty regularly when we go
+[00:10:39.920 --> 00:10:46.480]   to Tahoe, usually get an Airbnb, when we travel to Oregon, we'll get one. So I have no problems
+[00:10:46.480 --> 00:10:50.560]   with it. But is that ever like going to all these different places? Is that ever a consideration
+[00:10:50.560 --> 00:10:51.560]   for you?
+[00:10:51.560 --> 00:10:55.640]   Never. I never, I never worried about it at all because it's just, it's just a, it's
+[00:10:55.640 --> 00:10:57.640]   just a, just an artifact of scale.
+[00:10:57.640 --> 00:10:58.640]   Yeah.
+[00:10:58.640 --> 00:11:02.200]   They have so many hosts that if you have a million hosts, you're going to have a few
+[00:11:02.200 --> 00:11:03.200]   years.
+[00:11:03.200 --> 00:11:04.200]   There's going to be some bad apples in there.
+[00:11:04.200 --> 00:11:05.200]   Yeah.
+[00:11:05.200 --> 00:11:07.800]   Because of the numbers. But I've never encountered anything like that. And besides, if there's
+[00:11:07.800 --> 00:11:14.400]   a camera somewhere, it's like, so what? I mean, it's like, yeah, it's no, I don't know.
+[00:11:14.400 --> 00:11:18.720]   I shouldn't dismiss it if anybody's privacy has been genuinely violated. But it's really
+[00:11:18.720 --> 00:11:22.920]   not a big factor. Somebody could put a camera in your house when you're not there. I mean,
+[00:11:22.920 --> 00:11:24.880]   it's like lots of things could happen.
+[00:11:24.880 --> 00:11:28.440]   We could, we could walk around with a camera in our pocket every single place we go in
+[00:11:28.440 --> 00:11:29.440]   our entire lives.
+[00:11:29.440 --> 00:11:31.640]   Imagine if everybody had a camera in their pocket, you know, in a nightmare that would
+[00:11:31.640 --> 00:11:32.640]   be.
+[00:11:32.640 --> 00:11:33.640]   Oh, I know.
+[00:11:33.640 --> 00:11:36.640]   Always on microphone, listening in our kitchen. Oh, it'd be, it never happens.
+[00:11:36.640 --> 00:11:43.040]   It's dystopian. But, but no, it's Airbnb's. The biggest problem with Airbnb's are weird
+[00:11:43.040 --> 00:11:47.960]   things like, you know, they try to gouge you on stuff. So you get there and they're like,
+[00:11:47.960 --> 00:11:52.160]   Oh, you want to cheat on the bed? That's going to be 20 bucks. And so that happens.
+[00:11:52.160 --> 00:11:57.920]   So I wrote a book called Gasser Nomad where we have this whole section on how to, how
+[00:11:57.920 --> 00:12:02.880]   to do Airbnb well. And there's a whole checklist of things to talk to the host about before
+[00:12:02.880 --> 00:12:03.880]   you go.
+[00:12:03.880 --> 00:12:06.600]   Are you charging extra for this? Are you doing this? Where's the nearest this? Where's the
+[00:12:06.600 --> 00:12:11.680]   nearest that? And it's like, if you do that, you can really, you know, everything works
+[00:12:11.680 --> 00:12:13.480]   out great. Yeah. Basically.
+[00:12:13.480 --> 00:12:19.440]   Go through the list. Yeah. Awesome. Well, do you think you're going to be traveling to
+[00:12:19.440 --> 00:12:23.960]   a shoreline in a couple of months? No, I will not. No, I'm not.
+[00:12:23.960 --> 00:12:25.800]   Your travels are not going to take you to Mountain View.
+[00:12:25.800 --> 00:12:31.960]   I stopped going to Google I/O and other things like that because they, they, big conferences
+[00:12:31.960 --> 00:12:38.000]   like that. I just never got anything out of them. Actually, other than the sort of like,
+[00:12:38.000 --> 00:12:39.680]   look at me, I'm an I/O. Right.
+[00:12:39.680 --> 00:12:44.360]   Now, that's not true for most people because you're, you're like, I'm a writer. So I'm
+[00:12:44.360 --> 00:12:50.440]   looking for information nobody else has. It's also great to learn things, but you can get
+[00:12:50.440 --> 00:12:55.600]   all that stuff online. In your case, you guys have a like a, like a whole, you're going
+[00:12:55.600 --> 00:13:00.600]   to do their recording and stuff there, right? Well, yeah, I mean, that was a, I say, what
+[00:13:00.600 --> 00:13:04.320]   is doing on our say thing with like, there is an RSA. But yeah, we have, have absolutely
+[00:13:04.320 --> 00:13:08.720]   done that the last many years. Like we've done this, we can Google from the Google campus.
+[00:13:08.720 --> 00:13:13.200]   That was a lot of fun. We've interviewed last year actually. We interviewed some pretty,
+[00:13:13.200 --> 00:13:17.480]   you know, senior Android execs. Right. The Google campaign last year. Well, yeah, we
+[00:13:17.480 --> 00:13:22.080]   did that last year and the year before last. That's right. Yeah. That was fun. You, you,
+[00:13:22.080 --> 00:13:25.640]   Jason invited me into all about Android for that. Yeah. Yeah. And the visual is great
+[00:13:25.640 --> 00:13:30.280]   because it's all, it's all fun. There's lots of toys and amazing stuff. And I don't know
+[00:13:30.280 --> 00:13:33.160]   if it's still like that. I know the last one I went to was the last time they were at
+[00:13:33.160 --> 00:13:36.880]   Moscone. Okay. So you haven't been to the shoreline ones yet? No, no, no, okay. I have
+[00:13:36.880 --> 00:13:40.200]   not. Yeah. And I mean, it's, it's, I've been out of the country each time and this time,
+[00:13:40.200 --> 00:13:44.200]   I don't know if I'm in the country or not, but I'm not even going to try. I mean, shoreline,
+[00:13:44.200 --> 00:13:49.240]   I owe it shoreline feels kind of like music festival sort of thing, developer conference
+[00:13:49.240 --> 00:13:52.840]   also. It's got its own vibe. It's got a cool. Thankfully they've settled in. I feel like
+[00:13:52.840 --> 00:13:56.200]   they've kind of found their groove there. The first year was a little weird, yeah, a
+[00:13:56.200 --> 00:14:00.840]   little hot, cramped and every year they kind of improve on it. It feels like, to me, it
+[00:14:00.840 --> 00:14:05.600]   feels like home now for Google. They improve on the conference part of it, but they, it's
+[00:14:05.600 --> 00:14:10.080]   gotten worse in terms of the like junket part of it. So they used to give you a, I remember
+[00:14:10.080 --> 00:14:14.920]   they, not the pixel. What was the thing before the pixel book? The, the, the, the
+[00:14:14.920 --> 00:14:19.400]   Chromebook Chromebook, Chromebook pixel, right? Chromebook pixel, whatever it was. I can't
+[00:14:19.400 --> 00:14:24.360]   remember everybody one. Yes. It was both. They definitely, here's a motor 360 watch.
+[00:14:24.360 --> 00:14:28.040]   And a phone, they gave you all of those things like, and it was like, wow, this is like,
+[00:14:28.040 --> 00:14:34.200]   awesome. Yeah. I mean, and it was nice to get those things. They've really peeled that back,
+[00:14:34.200 --> 00:14:38.680]   scaled that back and that doesn't really happen unless you happen to be in some random
+[00:14:38.680 --> 00:14:44.040]   announcement. Or if it does, like, I think last year, what did they, what did they give out? It
+[00:14:44.040 --> 00:14:48.840]   wasn't anything. It was, it was a, it was a home or something. No, it was, yeah, they got a home
+[00:14:48.840 --> 00:14:54.280]   with the cut. It's easy. And then they gave out that, that kit for you to make, um, your
+[00:14:54.280 --> 00:14:58.680]   own, I would see thing. The Android things. Everything. Yes. Right. I was there the first year,
+[00:14:58.680 --> 00:15:02.600]   they, they really scaled it back and everybody was so bummed. Well, yeah, they handed out a
+[00:15:02.600 --> 00:15:06.360]   Google cardboard. And everybody's like, that's it. You're good with this card. A little bigger.
+[00:15:06.360 --> 00:15:10.600]   Well, that ended up being a really big, you know, kind of huge. Yeah. Yeah. Yeah. It's huge.
+[00:15:10.600 --> 00:15:13.480]   But then like, you know, six months later, the New York Times was giving them away with
+[00:15:13.480 --> 00:15:18.200]   subscription stuff like that. Yeah. But yeah, it's the junk at you. And they're smart to do that.
+[00:15:18.200 --> 00:15:22.920]   You can't, you know, and I think at this point, people expected a whole lot less. Like it would,
+[00:15:22.920 --> 00:15:27.160]   it would be great. It's, it's always nice to get, you know, things that seem like they are free,
+[00:15:27.160 --> 00:15:34.840]   but ultimately, like for us and for me, yes, having those interviews is a really powerful thing.
+[00:15:34.840 --> 00:15:40.200]   A really awesome thing to be able to do. Networking for the, for the shows that we do, you know,
+[00:15:40.200 --> 00:15:44.840]   I've met so many awesome developers at Google IO. Like, cool. Well, you're doing really cool
+[00:15:44.840 --> 00:15:49.160]   things. Why don't you come on to the network and talk about it? Like, you know, we can wrap about
+[00:15:49.160 --> 00:15:54.520]   that. Yeah. Why are we talking about Google IO because Google has basically announced in the way
+[00:15:54.520 --> 00:16:00.440]   that they do, they posted a video, a light will be filled with all sorts of clues, super cryptic.
+[00:16:00.440 --> 00:16:07.320]   It was like, solve this puzzle and you might win a free ticket to Google IO. And so this was going
+[00:16:07.320 --> 00:16:13.880]   on at the same time, someone went to a test Twitter page for one of Google's like test accounts
+[00:16:13.880 --> 00:16:17.880]   and pulled the JSON code from the page and found embedded in the code.
+[00:16:17.880 --> 00:16:22.760]   Shoreline amphitheater. What does it make? Seven through nine. They should give that person.
+[00:16:22.760 --> 00:16:28.440]   I know. I feel like that kind of qualifies you for a free ticket. You know, you, you solved the code
+[00:16:28.440 --> 00:16:33.320]   in a different way, but that's a pretty great way to find out. It's like ready player one, you found
+[00:16:33.320 --> 00:16:38.840]   the key and like, you know, you get the whole company. So we got F eight, F eight's the week before.
+[00:16:38.840 --> 00:16:43.080]   So that's what that's, they've also settled into that routine now. Oh, so it's a full week.
+[00:16:43.080 --> 00:16:48.520]   So it's F eight's in San Jose on May 30th. I mean, April 30th, May one, and then the following week
+[00:16:48.520 --> 00:16:54.920]   is as I owe. So it's just a full to the Twitter ever has developers conference for the short time
+[00:16:54.920 --> 00:17:01.080]   that they had the API. I don't really remember. You know, I'd be surprised if they didn't, but
+[00:17:01.080 --> 00:17:04.760]   I think they did. I think they had one in San Francisco or something like that every year for a while.
+[00:17:04.760 --> 00:17:09.640]   But then the developers stopped going because Twitter started closing down their apps.
+[00:17:09.640 --> 00:17:17.800]   Exactly. They're like, well, if you don't love us, we don't love you. Fine. So, yes. So anyways,
+[00:17:17.800 --> 00:17:24.040]   May seven through ninth. That's Google I owe. And we will, we'll certainly be, you know, checking
+[00:17:24.040 --> 00:17:28.840]   that out. And I'm sure there will be some sort of a live announcement stuff around that. I'm,
+[00:17:28.840 --> 00:17:33.800]   I'm pretty much certain we're going to find out more about Android Q, if you guys kind of been
+[00:17:33.800 --> 00:17:38.920]   following a little bit about that. Little bits and pieces about Android Q that we know now,
+[00:17:38.920 --> 00:17:43.560]   even though there is no public official release of Android Q, apparently,
+[00:17:43.560 --> 00:17:50.280]   XDA developers got a hold of a pre-release version of Android Q. Who knows how old it is,
+[00:17:50.280 --> 00:17:56.760]   how current it is. But I mean, if you're following last year's timetable, we still wouldn't even
+[00:17:56.760 --> 00:18:03.240]   know about the next release until I think like six weeks from now. So which isn't that far away,
+[00:18:03.240 --> 00:18:10.360]   actually. But still, it would be early for us to know at this point in time, all about this new
+[00:18:10.360 --> 00:18:15.960]   version based on previous timetables. But on all about Android, you guys were talking about what
+[00:18:15.960 --> 00:18:22.120]   is, what dessert starts with Q? Yes. Oh, do you have an opinion? I do. Okay. So, of course,
+[00:18:22.120 --> 00:18:27.560]   you do. Gastronomad. Do you know this? Yes. This is your, this is your spot. Quince. Quince. Okay.
+[00:18:27.880 --> 00:18:32.600]   Is a fruit, but you, they make a, like a paste out of it. And sometimes people have that after
+[00:18:32.600 --> 00:18:38.520]   dinner as a kind of dessert. It's a, it's be a terrible idea. Well, which is to say,
+[00:18:38.520 --> 00:18:42.600]   which is perfect for Google, which is to say, naming operating systems after desserts is a
+[00:18:42.600 --> 00:18:46.120]   terrible idea. I mean, they're getting to the end of the alphabet here pretty soon. Yeah, I know,
+[00:18:46.120 --> 00:18:52.360]   right. But so it's a big yell. It looks like a pair. It's in the apple family. Okay. Oh, yeah.
+[00:18:52.360 --> 00:19:01.320]   Okay. And a stringent fruit. It'd be hard to make a a statue of it. Yeah. Especially since
+[00:19:01.320 --> 00:19:08.360]   terrible. It would look like an apple and you wouldn't want to do that. Right. Consider it the
+[00:19:08.360 --> 00:19:14.680]   very first version of Android. But see, you see the dessert there. I see the, the brick of orange,
+[00:19:14.680 --> 00:19:21.480]   of the orange there. If you're watching the video, down below, down below. Yeah. And
+[00:19:21.480 --> 00:19:30.200]   yeah. So it's like, you know, I've encountered it in Italy, France and Mexico. Mexico? Yes,
+[00:19:30.200 --> 00:19:38.840]   Mexico recently, actually. Okay. And, but it doesn't have a lot of sort of recognition.
+[00:19:38.840 --> 00:19:42.040]   Definitely doesn't have the recognition. The problem is there are no real
+[00:19:42.040 --> 00:19:47.080]   cute desserts or treats that have recognition. Most of them are very exotic sound. Right. Right.
+[00:19:47.080 --> 00:19:52.120]   Exotic too. You know, that's here in the US. You used to meet. You guys were speculating about
+[00:19:52.120 --> 00:19:57.560]   Nestle's quick. I mean, that's, that's a branch. That could work. Yeah. I mean, I kind of consider
+[00:19:57.560 --> 00:20:02.760]   like a quick drink to be dessert-like. Yeah. And they may do that just out of
+[00:20:02.760 --> 00:20:09.080]   desperation. And Nestle's sitting there going, yeah, what you got, Google. That's right. Let's make
+[00:20:09.080 --> 00:20:11.560]   a deal. They have a really big advantage.
+[00:20:11.560 --> 00:20:16.040]   We're the only thing with sugar in it that starts with a kill.
+[00:20:16.040 --> 00:20:21.640]   I, I, I, the only one I'm seeing so the verge tried to speculate there's absolutely nothing in
+[00:20:21.640 --> 00:20:26.360]   the closest you can get to his quiche. That's not a dessert. That's like, I mean, are there
+[00:20:26.360 --> 00:20:31.960]   dessert quiches though? Like I've had plenty of quiche. My definition of savory, you know,
+[00:20:31.960 --> 00:20:41.720]   unsweetened egg pie or whatever. Yeah. That's it. There is a sweet vanilla quiche recipe from
+[00:20:41.720 --> 00:20:49.160]   Sirius Eats. Okay. There's 10 best dessert quiche recipes at Yumli. You got to open up your
+[00:20:49.160 --> 00:20:55.080]   perspective here. Is there a can like we're reaching out? There's, there's also, there's also
+[00:20:55.080 --> 00:21:02.840]   frozen ice cream tacos, but that's not like it. It's not really, everything's been done.
+[00:21:02.840 --> 00:21:06.200]   Sirius Eats can't possibly be serious about everything in the world has been done,
+[00:21:06.200 --> 00:21:11.720]   whether it's good or bad. The point is, do you name your operating system after that random thing?
+[00:21:11.720 --> 00:21:15.000]   Yeah. And I don't know, like this is, this is going to be interesting. One thing we were,
+[00:21:15.000 --> 00:21:20.840]   we were speculating last night is what if they just like, they overshadow it entirely and they go
+[00:21:20.840 --> 00:21:26.920]   Android X or something like that. Right. Right. Make the shift, you know. Through the Apple model.
+[00:21:26.920 --> 00:21:31.640]   Yes. Exactly. Yeah. I'm not really positive. Another one is they may name it quic. Somebody
+[00:21:31.640 --> 00:21:35.640]   invented dessert that starts with Q. Right. That's the name of the operating system. Right.
+[00:21:35.640 --> 00:21:40.120]   Google comes up with its own dessert. That's right. And names it something that starts with a
+[00:21:40.120 --> 00:21:49.240]   letter Q. But apparently, according to the kind of pre-release version that XDA got a hold of,
+[00:21:49.240 --> 00:21:54.440]   some of the features that you can look forward to, improvements around face detection. So right
+[00:21:54.440 --> 00:21:59.800]   now we have face detection in Android, but it's a very, I would say, rudimentary kind of,
+[00:21:59.800 --> 00:22:04.600]   are you using it around for years? I don't use it. I don't use it. I don't even try to.
+[00:22:04.600 --> 00:22:08.680]   Yep. And there've been time after time where it's been proven that you can take a photo and you
+[00:22:08.680 --> 00:22:13.560]   can trick it. And I mean, they will spin it and say, well, we're doing all of these things with
+[00:22:13.560 --> 00:22:17.800]   artificial intelligence to global derpider. Right. Well, a lot of companies are just
+[00:22:18.440 --> 00:22:23.080]   coming up with something that appears to work. Right. Because Apple has like one plus has their
+[00:22:23.080 --> 00:22:26.920]   facial recognition. You can just you can just take a photo and hold it up and boom, you're in.
+[00:22:26.920 --> 00:22:31.880]   Yeah. And so, you know, that's not, you know, Google wouldn't do that. I don't think they would
+[00:22:31.880 --> 00:22:35.960]   be dumb enough to do something like that. It would have to be real. Yeah. I was actually reading
+[00:22:35.960 --> 00:22:40.520]   on your site last night. You had a post about one plus about one plus and all the reasons why
+[00:22:40.520 --> 00:22:46.040]   you would not buy one plus. And I thought your notes on the face recognition was interesting that they,
+[00:22:46.600 --> 00:22:51.640]   you know, it's fast. Yes. Yes. That makes it seem to a user to be a really great solution.
+[00:22:51.640 --> 00:22:56.360]   But that's because they're totally bypassing the security model. Right. It's in order to do that.
+[00:22:56.360 --> 00:23:01.960]   Actual security just feels like security. Right. And the unaware users just going to be like,
+[00:23:01.960 --> 00:23:07.160]   oh, look, it's just like an iPhone. No, it isn't at all. I mean, iPhone is real security and it's
+[00:23:07.160 --> 00:23:13.000]   pretty hard to fool. It can be done. But that's just not that's not the way to go. They're going to do
+[00:23:13.000 --> 00:23:16.680]   the real thing and they're going to have, you know, they super radar and all that kind of stuff.
+[00:23:16.680 --> 00:23:20.600]   And I think Google is actually innovating a lot, like Project Soli. I don't know if we've ever
+[00:23:20.600 --> 00:23:25.720]   talked about that. They're doing a lot of innovation on micro radar. And I think that would be a good
+[00:23:25.720 --> 00:23:30.200]   application already. I mean, I took if you go to my Twitter account, you'll see the picture that I
+[00:23:30.200 --> 00:23:36.600]   took in the studio before the show. That was done with Google Fies, you know, you smile and it takes
+[00:23:36.600 --> 00:23:40.680]   the picture. So you go to the studio thing and you basically say, okay, don't take a picture until
+[00:23:40.680 --> 00:23:45.480]   somebody smiles and then you smile and it takes a picture. It's so fast. And I did it from pretty
+[00:23:45.480 --> 00:23:51.800]   far away. It's amazing what it's doing to do this. Yeah, it's you set it up, stood in front of it,
+[00:23:51.800 --> 00:23:57.000]   made sure you were frowning the last time and instantly took a picture. And it works. It works
+[00:23:57.000 --> 00:24:02.200]   fall see every time as far as I can tell. Let's think about how subtle that is to to be recognizing
+[00:24:02.200 --> 00:24:07.160]   the facial expression of somebody in a photo. So they have a lot of AI. But it says is there's the
+[00:24:07.160 --> 00:24:12.040]   there's that dork moment. Yes. When you have the smile, you only have for cameras. Right. If I
+[00:24:12.040 --> 00:24:16.520]   want people taking selfies, right? There's a there they turn from sour face on board being here.
+[00:24:16.520 --> 00:24:22.200]   Yeah. Yeah. And then back there's there's kind of that dork moment. Right. Remember what one of
+[00:24:22.200 --> 00:24:29.800]   the memes we had was that you you. Well, I'm gonna get this confused. You convinced people that you
+[00:24:29.800 --> 00:24:35.640]   were taking a still photo and then you actually videoed getting ready looking like a dork or comic
+[00:24:35.640 --> 00:24:42.520]   effect. Right. So you get it you get into you get into picture dork mode. Right. And Google.
+[00:24:42.520 --> 00:24:48.760]   This is the power of Google. They know when you're being a dork. Yes. Because that's their people.
+[00:24:48.760 --> 00:24:54.520]   Yeah, totally. But there's there's another side to it, Jeff, which is that this thing you can just
+[00:24:54.520 --> 00:24:59.240]   leave it on and it'll keep taking pictures every time somebody smiles. So what you can do is you
+[00:24:59.240 --> 00:25:05.560]   can prop it up and then just forget about it. And then when people smile genuinely, you get photo
+[00:25:05.560 --> 00:25:10.120]   of people smiling genuinely. And that's something I think I haven't heard a lot of people doing.
+[00:25:10.120 --> 00:25:14.600]   But that's I think a way to a way to get around the dork face problem.
+[00:25:14.600 --> 00:25:21.880]   So yeah. But anyways, amazing. They have the technology to do this and I'm glad to see it actually.
+[00:25:21.880 --> 00:25:25.320]   I really like the dork face problem. The dork face problem.
+[00:25:25.320 --> 00:25:31.960]   It's a start, you know, we can come up with something maybe better. But I like that as a start.
+[00:25:32.760 --> 00:25:36.440]   It's a it's a problem that Google really needs to tackle the dork face problem.
+[00:25:36.440 --> 00:25:44.520]   If you hadn't heard, as far as Andrew Q is concerned, a lot of focus on permissions. And
+[00:25:44.520 --> 00:25:50.200]   permissions have been a thing already. What's the difference here? Just really kind of, I think,
+[00:25:50.200 --> 00:25:55.560]   getting getting deeper into permissions and also clarifying it to I think there's going to be some
+[00:25:55.560 --> 00:26:02.360]   cleanup of how permissions are served up to users, how it's shown on the permissions page to make a
+[00:26:02.360 --> 00:26:07.240]   lot more sense than it is right now. Now you get like this wall of switches and it can be a little
+[00:26:07.240 --> 00:26:13.720]   confusing. And as we know, permissions are actually very important to personal privacy and
+[00:26:13.720 --> 00:26:18.520]   understanding how your phone is, you know, potentially harvesting data on you at all times.
+[00:26:18.520 --> 00:26:22.920]   So good moves. I mean, there's a bunch of stuff. We don't have to dive into them
+[00:26:22.920 --> 00:26:27.880]   individually, but definitely focusing on improving permissions for the average user.
+[00:26:27.880 --> 00:26:33.320]   Yeah, and the audience for this, for this netcast are the super like people who really pay
+[00:26:33.320 --> 00:26:38.840]   an attention to what Google's doing. And so one thing to look for, which I think is the most
+[00:26:38.840 --> 00:26:43.080]   interesting thing about new operating systems coming out, a new version of Android coming out
+[00:26:43.080 --> 00:26:47.000]   of Google over the next three years, is they're going to, I think they're going to be nudging
+[00:26:47.000 --> 00:26:53.000]   us toward Fuchsia. And Fuchsia is really interesting. My theory about Fuchsia is that years and years
+[00:26:53.000 --> 00:26:58.840]   ago, they said, you know what, we really should unify Chrome OS and Android. We should unify them.
+[00:26:58.840 --> 00:27:03.240]   And we should make it both work sort of like each other and have, you know, eventually end up
+[00:27:03.240 --> 00:27:06.680]   with one day. And I think they thought that all the way through and said, you know what,
+[00:27:06.680 --> 00:27:11.960]   if we try to actually merge them, we're going to have a mess. We're going to have windows 10 or
+[00:27:11.960 --> 00:27:16.040]   something where I mean windows seven, it's going to be an it's going to be a nightmare of spaghetti
+[00:27:16.040 --> 00:27:21.560]   code and mismatch. Let's what should an how should an operating system of the future be?
+[00:27:22.280 --> 00:27:26.280]   And I think that's probably where Fuchsia came from. And they seem to be building this operating
+[00:27:26.280 --> 00:27:32.040]   system that's going to be, you know, it's going to be for IoT devices all the way up through enterprise
+[00:27:32.040 --> 00:27:41.080]   clients or servers, who knows. And it's going to have completely different models for how it works
+[00:27:41.080 --> 00:27:46.520]   from today's operating system. For example, it'll have the Chrome extension like feature. We talked
+[00:27:46.520 --> 00:27:53.320]   about this on the show. I think you were on it, Jeff, you weren't on it. But the thing that's
+[00:27:53.320 --> 00:28:00.200]   interesting about Chrome extensions is they are features that are divorced from apps or applications
+[00:28:00.200 --> 00:28:05.640]   or anything like that. They're features that are applied across different places. Fuchsia is
+[00:28:05.640 --> 00:28:09.560]   going to work like that. So you basically going to have, oh, I want the spell check feature and it
+[00:28:09.560 --> 00:28:14.360]   won't be spell check for Google Docs. It'll be spell check for everything. Anytime you have words
+[00:28:14.360 --> 00:28:19.000]   on your screen, the spell check will apply to it. So the features will be all a cart. And so
+[00:28:19.000 --> 00:28:25.960]   that's just one of 100 different strange things that Fuchsia will likely be able to do. But I think
+[00:28:25.960 --> 00:28:34.120]   that as over the next three years, both Chrome and Android will get Fuchsia like features
+[00:28:34.120 --> 00:28:38.600]   because it's off on the blow. It's off on the blow. Get us used to it. Exactly. And then I'll
+[00:28:38.600 --> 00:28:42.840]   switch at some point in a couple of years, I think they're going to figure out how to get
+[00:28:42.840 --> 00:28:50.120]   developers to write things that work on Android and also Fuchsia so that once they throw the switch,
+[00:28:50.120 --> 00:28:54.920]   your existing apps will just work on Fuchsia. That's just a theory. I have no reason to do that.
+[00:28:54.920 --> 00:28:58.680]   There is some sort of cross platform aspects of it already.
+[00:28:58.680 --> 00:29:01.480]   Already. Well, Fuchsia does run on a pixel.
+[00:29:01.480 --> 00:29:06.360]   Yeah. Right. And it runs on a pixel book. So Google's own hardware already runs Fuchsia.
+[00:29:06.360 --> 00:29:09.800]   Of course, Fuchsia doesn't do anything right now because it doesn't have any apps.
+[00:29:09.800 --> 00:29:14.280]   There's no apps and it's not even complete. Yeah. It's really, I mean,
+[00:29:14.280 --> 00:29:18.200]   it's been earlier days, but it's still early days. But you see where it's going and they're
+[00:29:18.200 --> 00:29:23.720]   using their own platforms as sort of clearly as the growth platform where they're going to start
+[00:29:23.720 --> 00:29:30.040]   this thing. And it's just going to be fascinating. The rumor is that they're going to go live in
+[00:29:30.040 --> 00:29:35.320]   three years, which means five, six years in real life probably. Yeah, I think it was like a
+[00:29:35.320 --> 00:29:39.000]   couple of years they were saying there was a report that said within the next five years.
+[00:29:39.000 --> 00:29:42.200]   And that still felt pretty. Right.
+[00:29:42.200 --> 00:29:48.840]   Quick. Aggressive. For aggressive considering what the goal is. And I don't even know if that's
+[00:29:48.840 --> 00:29:53.800]   that's not Google stated goal, right? Like that's kind of what we come up. They've been very cagey
+[00:29:53.800 --> 00:30:00.120]   about it. But we were all kind of left kind of grasping as straw is going, well, what is Fuchsia?
+[00:30:00.120 --> 00:30:05.320]   They're public enough about it that we know it exists. And that, you know, like the news this week,
+[00:30:05.320 --> 00:30:11.960]   Bill Stevenson, a 15 year Apple senior manager who actually oversaw the launches of all different
+[00:30:11.960 --> 00:30:17.400]   versions of Mac OS, lying through Mojave is now joining Google. He announced on Twitter that he's
+[00:30:17.400 --> 00:30:23.560]   going to be he's going to quote, "Help bring a new operating system called Fuchsia to market.
+[00:30:23.560 --> 00:30:29.960]   Stay tuned." So I mean, in some ways, you know, it's not, it's not super secret. We just have
+[00:30:29.960 --> 00:30:36.440]   no and we've actually seen it operate and seen it in operation. We just have no idea.
+[00:30:36.440 --> 00:30:40.360]   What? What do you, I'm excited because we're here. We are three Chromebook users.
+[00:30:40.360 --> 00:30:46.760]   Normally, normally right now I'm using an iPad. I think. Oh, yes.
+[00:30:46.760 --> 00:30:51.800]   Trader. It's Megan's iPad. We're doing the switch. I can't wait to get my pixel slate back.
+[00:30:51.800 --> 00:30:55.960]   Standard, the standard of comment about that. Yeah. I'm worried about you.
+[00:30:57.080 --> 00:31:01.800]   You're going to make it. But I hope so. And they've gone, I think, as far as they can,
+[00:31:01.800 --> 00:31:06.120]   they can go. It's still, I mean, I've complained on the show before that if something needs any
+[00:31:06.120 --> 00:31:11.880]   kind of content rights management, it doesn't work. So Netflix is really flaky on my Chromebook pixel.
+[00:31:11.880 --> 00:31:22.120]   The apps are awkward. You know, it's better, but it's, it needs a new OS. Yes, it needs something new
+[00:31:22.120 --> 00:31:25.960]   to bring it, bring it together. My fear is how much rewriting of apps there's going to have to be
+[00:31:25.960 --> 00:31:31.480]   out there and how long it's going to take. You know, will Netflix say, oh, not big enough market,
+[00:31:31.480 --> 00:31:36.040]   who's on future? We have to wait forever. That's the awkward transition time.
+[00:31:36.040 --> 00:31:41.400]   Yeah, absolutely. My fear is that we all think they'll do the thing that we want them to do,
+[00:31:41.400 --> 00:31:47.720]   which is, premonet, a combined thing that will be a replacement. But then I sometimes, I remember,
+[00:31:47.720 --> 00:31:51.640]   wait a minute, this is Google we're talking about. They, they, they are a company that,
+[00:31:52.520 --> 00:31:56.360]   they close the thing. You don't want them to close. And then they leave open the thing. And
+[00:31:56.360 --> 00:32:00.440]   you know, how many communications platforms do they have right now? And they just keep adding
+[00:32:00.440 --> 00:32:06.120]   things. So one distinct possibility is that they will never kill Chrome or Android and future will
+[00:32:06.120 --> 00:32:10.360]   exist. And now they'll really, well, we just assumed this would be really great for your
+[00:32:10.360 --> 00:32:14.040]   refrigerator for your connected refrigerator. That's why we built future. We had too many
+[00:32:14.040 --> 00:32:18.040]   developers on Android and we wanted to give some half of them someplace else to go.
+[00:32:19.240 --> 00:32:26.280]   So 20% project. Yeah. I guess we will find out someday. I feel like we're going to be talking
+[00:32:26.280 --> 00:32:30.760]   about this with lots of guessing for a long time before we actually know. But I do think that there's
+[00:32:30.760 --> 00:32:36.120]   some, you know, there's some trickles, some nuggets there. Knowing the Bill Stevenson and his background
+[00:32:36.120 --> 00:32:40.120]   is being brought on to the team that feels like, it feels like progress, right? Like he's
+[00:32:40.120 --> 00:32:47.320]   overseen the launch of major OS's. Yes. So there's some dedication. There's some confidence there.
+[00:32:48.120 --> 00:32:52.520]   As far as Fuchsia is concerned, I don't know how many engineers I think the last time I saw
+[00:32:52.520 --> 00:32:56.840]   in a report, it said somewhere around 100 engineers, more than 100 engineers, which sounds kind of
+[00:32:56.840 --> 00:33:03.000]   sounds like light. Yeah, light for a whole damn OS. Yeah. Yeah. So who knows? But you know, it's funny,
+[00:33:03.000 --> 00:33:08.200]   it's funny about that is that it wasn't that long ago when we got all excited on shows like this,
+[00:33:08.200 --> 00:33:12.280]   that a new version of an OS was coming out. So finally talked about Q, but it's a bit of a shrug.
+[00:33:14.840 --> 00:33:19.880]   The OS in a web world, the OS just isn't as important as it was in an app and web world.
+[00:33:19.880 --> 00:33:27.080]   Yeah. And as far as Q features are concerned, like, you know, also keep in mind, like that's
+[00:33:27.080 --> 00:33:35.560]   based on a very early leak of the OS in a month or two when they actually do their official unveil
+[00:33:35.560 --> 00:33:40.760]   of the alpha or whatever it is, the do not for any reason install this on your phone if you plan
+[00:33:40.760 --> 00:33:45.640]   on using your phone every day version, they'll probably have some more. But I think that what we
+[00:33:45.640 --> 00:33:51.320]   know now, the grander kind of approach, the grander kind of point is better permissions management
+[00:33:51.320 --> 00:33:56.440]   as a really big core feature. Right. And that sounds to me like a much more interesting rumor
+[00:33:56.440 --> 00:34:03.080]   than the Face ID type stuff to use Apple's branding. Simply because the really big news would be if
+[00:34:03.080 --> 00:34:07.080]   they came out with another version of Android that didn't have it. I mean, that would be amazing.
+[00:34:07.080 --> 00:34:12.120]   Like, that would be such a big story. Headline Google fails once again to come out with a
+[00:34:12.120 --> 00:34:17.240]   standard feature that every phone should have. And so yeah, that's I think that's that's a solid
+[00:34:17.240 --> 00:34:22.120]   one because it's yeah, they got to do it, you know, yep, yep, got to do it. Let me just say one thing.
+[00:34:22.120 --> 00:34:26.600]   I said this a little bit last week, but we've got more and more of this. Google do not force
+[00:34:26.600 --> 00:34:31.640]   me into dark mode. Do not make me turn off dark mode and find some damn switch somewhere
+[00:34:31.640 --> 00:34:35.320]   and you because you think it's good for me. Are you going to learn about Jeff Jarvis's dark mode?
+[00:34:35.320 --> 00:34:41.320]   Yes, I'm witnessing it right now. I'm scared. Dark mood with dark mode.
+[00:34:41.320 --> 00:34:49.960]   Don't dark me, bro. Don't dark me. Well, I mean, that is that is one of the features that we're
+[00:34:49.960 --> 00:34:54.200]   hearing about with Android Q is that there would be a system wide dark mode. But I don't know how
+[00:34:54.200 --> 00:34:58.920]   that's going to work. Like they if that's going to be like, obviously, all the system elements would
+[00:34:58.920 --> 00:35:04.040]   have a dark mode component. But we also know that Google's been doing a lot of rebranding or
+[00:35:04.040 --> 00:35:08.200]   redesigning around its apps and making them super bright and then giving you the option for dark
+[00:35:08.200 --> 00:35:12.840]   mode because let's be real. A lot of people really want a dark mode. It's better for battery.
+[00:35:12.840 --> 00:35:17.560]   It's better on the eyes at night. All these different reasons. I understand. I understand
+[00:35:17.560 --> 00:35:23.160]   your dark mood, Jeff. I think that they have so many, they must have so many customers that are
+[00:35:23.160 --> 00:35:27.000]   Star Wars skigs. They should call it dark side. The dark side. That'd be so much better.
+[00:35:27.000 --> 00:35:32.520]   That's true. I mean, it wouldn't be without precedent. Android. You don't know the power of
+[00:35:32.520 --> 00:35:37.320]   the dark side. It's like so pleasant to use on a normal. Use the dark side. You get more power
+[00:35:37.320 --> 00:35:41.720]   because your battery lasts longer. Let's take a break. Thank the sponsor and then we'll talk about
+[00:35:41.720 --> 00:35:47.720]   more. Maybe we'll maybe we'll talk about the redesign of Gmail or the ongoing saga. That is
+[00:35:47.720 --> 00:35:54.840]   why do they take away inbox? But first, I know I'm still so sore about this. First, this episode of
+[00:35:54.840 --> 00:36:00.200]   this week in Google is brought to you by digital ocean. Digital ocean provides the easiest cloud
+[00:36:00.200 --> 00:36:06.440]   platform to deploy, manage and scale applications using droplets. It's virtual machines that are a
+[00:36:06.440 --> 00:36:12.920]   scalable compute platform with add-on storage, security and monitoring capabilities. So you can
+[00:36:12.920 --> 00:36:17.160]   choose if you're a developer, you can choose from standard or CPU optimized droplets and then of
+[00:36:17.160 --> 00:36:22.680]   course, customize from there and make it your own. Digital ocean is designed for developers.
+[00:36:22.680 --> 00:36:27.480]   They have an easy to use control panel and an API that lets developers spend more time coding,
+[00:36:27.480 --> 00:36:31.800]   doing the things that they love and less time managing their infrastructure which can
+[00:36:31.800 --> 00:36:38.120]   be kind of home. Also, you get industry leading price to performance. You can access the compute
+[00:36:38.120 --> 00:36:43.000]   resources that you need at the lowest rates. That's going to save you up to 55% compared to
+[00:36:43.000 --> 00:36:48.680]   other cloud providers and you'll always know what you'll pay per month because digital ocean has a
+[00:36:48.680 --> 00:36:55.080]   flat pricing structure across all data center regions. And you get a whole lot more added at
+[00:36:55.080 --> 00:37:02.440]   no additional cost. You get 99.99% uptime SLA, cloud firewalls, monitoring and alerting,
+[00:37:02.440 --> 00:37:09.160]   full DNS management, global data centers, enterprise class SSDs and easy to use API of course.
+[00:37:09.160 --> 00:37:15.480]   Over 150,000 businesses including some of the world's fastest growing startups rely on digital
+[00:37:15.480 --> 00:37:21.160]   ocean to remove infrastructure friction and deliver industry leading price performance.
+[00:37:21.720 --> 00:37:28.520]   So you can sign up today and receive a free $100 credit at d o dot co slash
+[00:37:28.520 --> 00:37:36.360]   Twitch. That's d o dot co slash twit for a free $100 credit. And we thank digital ocean for their
+[00:37:36.360 --> 00:37:43.240]   support. I'm realizing we can't jump to Gmail. That's part of the change log. Oh, okay. I mean,
+[00:37:43.240 --> 00:37:47.480]   I guess we could we could we could break it out of the change log. Have you guys seen the new?
+[00:37:47.480 --> 00:37:53.480]   No, it's not going to be as good as inbox. That's the problem getting darker. So I feel like
+[00:37:53.480 --> 00:37:59.240]   everybody who's an inbox user is in in a couple of camps as far as like strategy moving forward.
+[00:37:59.240 --> 00:38:04.520]   Yes. You've either decided that Google's already made the decision. It's time to cut the ties and
+[00:38:04.520 --> 00:38:10.920]   get used to Gmail now, which is what I for some reason decided to do that to or hanging on until
+[00:38:10.920 --> 00:38:17.640]   the very last day. That's what I'm doing. Plus, yeah. They're killing no matter who you are,
+[00:38:17.640 --> 00:38:22.440]   they're killing something dear to you. You're kidding. Why why do you do this to us Google?
+[00:38:22.440 --> 00:38:27.960]   Because it took so much to get used to it. It took so much to kind of see the wisdom of it.
+[00:38:27.960 --> 00:38:33.320]   Yeah. I wrote what I did. It's like it's like you you had me join a cult and then you
+[00:38:33.320 --> 00:38:39.080]   closed the cult clubhouse. Actually, yeah, close the door. It seems clear that Google doesn't fully
+[00:38:39.080 --> 00:38:44.280]   appreciate the value of super passionate users because they create these new things. The people
+[00:38:44.280 --> 00:38:50.040]   who embrace new things and quickly master them, the early adopters, these are the most passionate
+[00:38:50.040 --> 00:38:55.320]   users. These are the Google fanboys. These are the diehard people who make it all work.
+[00:38:55.320 --> 00:39:01.640]   They keep coming out with something really cool, getting people invested in it, and then killing
+[00:39:01.640 --> 00:39:06.920]   it. They just, the really passionate users just feel like they get hammered and hammered and
+[00:39:06.920 --> 00:39:10.520]   hammered. Every time they close something, starting with Google Reader all the way through all the
+[00:39:10.520 --> 00:39:16.920]   rest of it. They need to stop doing that. What do you miss most about inbox?
+[00:39:16.920 --> 00:39:22.760]   Now that you guys have switched over to the dark mood side. What will we miss about inbox?
+[00:39:22.760 --> 00:39:26.680]   Yeah, since you've already started making the transition back to Gmail, what do you,
+[00:39:26.680 --> 00:39:31.560]   I haven't yet. What was the hardest part of the transition? What are you missing about inbox?
+[00:39:32.440 --> 00:39:37.240]   Probably the, what did they call them, reminders that are integrated into the thing where you can
+[00:39:37.240 --> 00:39:40.760]   have a, did they call them the little finger with the string on it icons?
+[00:39:40.760 --> 00:39:44.040]   Yeah, I think they were reminders. Man, I did not use that as much.
+[00:39:44.040 --> 00:39:49.320]   I used that a lot on either. And now I'm back on Gmail and now I'm just sending email to myself
+[00:39:49.320 --> 00:39:57.160]   and using the snooze button because I want, I use email, I use Gmail as my universal
+[00:39:57.160 --> 00:40:03.160]   everything tool. And so instead of having to do list, I just have, essentially it's a procrastination
+[00:40:03.160 --> 00:40:06.680]   list. It's like, well, I can get away with not doing this until March. It's like just
+[00:40:06.680 --> 00:40:10.600]   just to believe myself, I know, have it appear that in the future. And it doesn't come back.
+[00:40:10.600 --> 00:40:16.040]   And so that's what I do. So in inbox was designed for that, Gmail is not designed for it. I'm just
+[00:40:16.040 --> 00:40:21.400]   sending email to myself. And it's, it's, I feel like a savage. Whereas with inbox, it was like
+[00:40:21.400 --> 00:40:27.000]   built into it, which those, those items would show up in Google Keep. They would show up in calendar,
+[00:40:27.000 --> 00:40:30.680]   it was integrated with everything. It was a good use case for that.
+[00:40:30.680 --> 00:40:34.520]   On the other hand, they've, they've integrated a lot of inbox stuff.
+[00:40:34.520 --> 00:40:39.640]   Like, and they continue to continue to I'd love to see them go all the way because they're,
+[00:40:39.640 --> 00:40:44.520]   they're a, yes, I would too. I mean, the truth is that I could never fully just use inbox. I always
+[00:40:44.520 --> 00:40:51.000]   going, I was always going back. I like to build filters. You had to go into Gmail to do the filters
+[00:40:51.000 --> 00:40:57.480]   to any sort of like, like deeper degree and like certain capabilities in a box.
+[00:40:57.480 --> 00:41:01.240]   But I always thought they're going to kill Gmail and keep inbox. And I worried about that.
+[00:41:01.240 --> 00:41:08.520]   Cause one of the things they didn't have, don't have in inbox is the all mail folder. So all mail
+[00:41:08.520 --> 00:41:13.800]   in Gmail just shows you everything. You're like, every, the spam, everything. But like,
+[00:41:13.800 --> 00:41:17.080]   sometimes you like, like, did somebody send me something? I don't know where it went.
+[00:41:17.800 --> 00:41:21.960]   And you can go into all mail and say, you can just go down and say, well, there it is, you know,
+[00:41:21.960 --> 00:41:26.840]   or whereas with in inbox, like there is no mail. You just scrolling in boxes.
+[00:41:26.840 --> 00:41:29.880]   Kind of like trust us. We put everything in the right place. Don't worry about it. And you're like,
+[00:41:29.880 --> 00:41:35.400]   not really yet at the same time. That is the thing that I miss most from inbox is the smart
+[00:41:35.400 --> 00:41:43.400]   bundling. The bundles. That's what I'm ready. It's really updates, updates and low priority.
+[00:41:44.600 --> 00:41:49.160]   Like twice a day, I could just look at that and I can scan down and absolutely.
+[00:41:49.160 --> 00:41:53.800]   I mean, I've spent so much, I waste, I shouldn't say spend, I waste so much time
+[00:41:53.800 --> 00:41:59.560]   filtering through all of this stuff that would have ended up in that low priority folder.
+[00:41:59.560 --> 00:42:03.240]   And if it, if I was in inbox and it's all automatically, you know,
+[00:42:03.240 --> 00:42:07.720]   filed into this low priority folder, I look through, be like, nope, there's nothing in there.
+[00:42:07.720 --> 00:42:13.000]   Single check mark, move on with my life. In Gmail, it just gets interspersed in.
+[00:42:13.000 --> 00:42:16.600]   And I guess I could set up a folder for each and every one as they come through. But
+[00:42:16.600 --> 00:42:20.200]   let's be real, that takes a lot of time in Gmail. And that's why you want to be,
+[00:42:20.200 --> 00:42:23.560]   you want the smart company with all this freaking AI and they're taking it away from us.
+[00:42:23.560 --> 00:42:28.840]   And inbox is really good also about creating simple filters. Like, I like Gmail's advanced
+[00:42:28.840 --> 00:42:33.560]   filters. If I want to set up something that's really smart, but if I'm in inbox and I assign
+[00:42:33.560 --> 00:42:38.920]   this to that category and I say, Oh, this, this falls into the finance category,
+[00:42:38.920 --> 00:42:43.720]   it'll give me a little toast message that says, do you want all future messages from this,
+[00:42:43.720 --> 00:42:47.800]   from this address to go there? Yes, boom, filter set up. I don't have to think about it.
+[00:42:47.800 --> 00:42:51.800]   It was a single button press. I want to do that in Gmail on every single new email,
+[00:42:51.800 --> 00:42:54.840]   new recipient or whatever. It takes forever. It's so annoying.
+[00:42:54.840 --> 00:42:59.160]   The best thing they could do is, is create a mode, a toggle switch that
+[00:42:59.160 --> 00:43:04.360]   they could call it something like smart inbox and just click it on and that,
+[00:43:04.360 --> 00:43:08.680]   and then Gmail becomes inbox for those who choose to do that. And that would hold us
+[00:43:08.680 --> 00:43:15.400]   all for a few years while they fully integrate them into one super email thing. But to just,
+[00:43:15.400 --> 00:43:20.200]   if they kill it without integrating those features into Gmail, it's going to be a few next months
+[00:43:20.200 --> 00:43:25.240]   or in March, right? Well, I'm holding on to the last minute. I'm delusional enough to think
+[00:43:25.240 --> 00:43:29.240]   any now, I just integrate all these things at the last minute. Yeah, probably won't.
+[00:43:29.240 --> 00:43:34.360]   I'm hoping so, Mike, you're going to get that and you're going to get an RSS reader at the same time.
+[00:43:35.800 --> 00:43:39.320]   And a new social network. Yeah, a new social network. That's right.
+[00:43:39.320 --> 00:43:42.600]   The new Gmail RSS reader. That's right.
+[00:43:42.600 --> 00:43:44.520]   It's not going to be one thing.
+[00:43:44.520 --> 00:43:48.920]   In your inbox. RSS in your inbox along with your email.
+[00:43:48.920 --> 00:43:52.920]   Hey, I'll take a few of these again. Yeah, that might actually be a good use case.
+[00:43:52.920 --> 00:43:58.280]   Yeah, I'm holding out hope that they eventually do. I have to imagine that inbox,
+[00:43:58.280 --> 00:44:03.880]   as Google has said, was enough of an interesting kind of like insight into its users and their
+[00:44:03.880 --> 00:44:07.960]   priorities and they use it as an experimental bit foundation for email.
+[00:44:07.960 --> 00:44:13.000]   How could you then get rid of inbox and say, "We're going to take the best features from
+[00:44:13.000 --> 00:44:18.120]   inbox and move them over to Gmail and not do the smart bundle?" Because I have to imagine that saved
+[00:44:18.120 --> 00:44:25.960]   everybody a lot of time. Absolutely. That was the first email feature that made zero inbox,
+[00:44:25.960 --> 00:44:29.560]   a reality for lots of people, and generally doable.
+[00:44:30.520 --> 00:44:36.280]   More of a reality. You are a superman, Elgin. You travel the world and have an empty email box.
+[00:44:36.280 --> 00:44:41.240]   How do you do this? I don't know. No, no, no. I do have it. I go zero inbox every day,
+[00:44:41.240 --> 00:44:46.600]   but I do it the hard way in Gmail. I literally create a filter for everything. So every new PR
+[00:44:46.600 --> 00:44:52.200]   company that contacts me, I go and create a filter by hand to say, "Anything coming from this
+[00:44:52.200 --> 00:44:57.480]   company put it in this folder." And so I have 750 filters. I was going to say, how many filters do
+[00:44:57.480 --> 00:45:07.640]   you have? I have a PR flack, I'm sorry, PR professional folder. I got alerts folder for
+[00:45:07.640 --> 00:45:13.320]   information. So I've got a bunch of them. So the stuff that comes into my inbox,
+[00:45:13.320 --> 00:45:19.720]   I've written about this. My approach to email is like, can treat every incoming email
+[00:45:19.720 --> 00:45:23.880]   as a problem to be solved? So how can I not get this anymore in the future?
+[00:45:23.880 --> 00:45:30.760]   Yeah. And so I unsubscribe or route this into a filter and skip the inbox or do something,
+[00:45:30.760 --> 00:45:34.200]   take some action. Sometimes it's like, well, I need to get these in my inbox. Okay. And I move
+[00:45:34.200 --> 00:45:39.880]   on to the next thing. But if you are always chipping, I spent so much time in email. It's really...
+[00:45:39.880 --> 00:45:44.680]   How much of your time is spent setting up filters though and stuff and responding? Because that
+[00:45:44.680 --> 00:45:48.360]   is not like we've said a few times. That's not a slow... That's not a quick process.
+[00:45:48.360 --> 00:45:56.360]   I spend 10 or 15 minutes a day probably every day. I just do it as part of my process. But I do get
+[00:45:56.360 --> 00:46:03.560]   to zero inbox every day. And I use a snooze button for lots of things. So I feel like I'm a master
+[00:46:03.560 --> 00:46:12.360]   procrastinator, if you will, procrastinators, leaders of tomorrow. And I'm always pushing things
+[00:46:12.360 --> 00:46:16.920]   to the last minute. Because as a journalist, deadlines are the only thing that get me moving
+[00:46:16.920 --> 00:46:20.360]   on something. So I just push everything to the last minute. And so everything's coming in.
+[00:46:20.360 --> 00:46:24.040]   And I'm just... It's a battle. I'm just like, swatting it flies or something.
+[00:46:24.040 --> 00:46:30.680]   But it feels like a defeating battle. If you're constantly setting up filters for every new thing.
+[00:46:30.680 --> 00:46:40.520]   Like, I just think about the marketing or like PR contact lists that I'm on. That will result,
+[00:46:40.520 --> 00:46:45.160]   will always, every day, result in new emails from people I've never heard from before.
+[00:46:45.160 --> 00:46:49.160]   The thing that confuses me is that what I'll do is when I get something in my inbox, it's like a
+[00:46:49.160 --> 00:46:56.920]   PR person reaching out as they do. And then I create a filter that says, "Everybody from that
+[00:46:56.920 --> 00:47:01.000]   company, everybody with that domain, I get rid of the front part because I don't care who from
+[00:47:01.000 --> 00:47:06.920]   the company. It's just everything at the last part." And so I've come to the conclusion that
+[00:47:06.920 --> 00:47:13.640]   five or six new PR companies are formed every day. Because I've been doing this for years. And
+[00:47:13.640 --> 00:47:17.720]   they keep comment. It's insane how many there are.
+[00:47:17.720 --> 00:47:23.480]   But they're so effective. Isn't that effective right there? It really gets your attention. You
+[00:47:23.480 --> 00:47:29.720]   are guaranteed to reply to their inquiry when they hit you over the head with baseball bat like this.
+[00:47:29.720 --> 00:47:38.680]   Dear influencer. Did you guys read the article like Cashmere and Hill on Gizmodo?
+[00:47:39.720 --> 00:47:44.920]   Well, yeah, her series is great. It's basically cutting out the big five from her life one
+[00:47:44.920 --> 00:47:50.280]   week at a time. Every week she chooses a new technology company to eradicate from her life and
+[00:47:50.280 --> 00:47:57.480]   see how life is lived without it. This week that she wrote about was Google, of course.
+[00:47:57.480 --> 00:48:04.120]   It's just an interesting read if you want to get a sense of just how embedded. We already know
+[00:48:04.120 --> 00:48:09.080]   Google is super embedded into pretty much everything on the internet. But it's just a really
+[00:48:09.080 --> 00:48:17.000]   fascinating read because she and I think her producer created a VPN that blocked what was the number
+[00:48:17.000 --> 00:48:26.600]   8,699,648 IP addresses that are all controlled by Google. So basically at its base, blocked those
+[00:48:26.600 --> 00:48:36.680]   IP addresses so that any services be it cloud, maps, all of it just won't work to try and live
+[00:48:36.680 --> 00:48:43.080]   life on the internet without any sort of touching of Google services is basically impossible.
+[00:48:43.080 --> 00:48:47.240]   His favorite part was that there was something that I've cared what it was, but she couldn't
+[00:48:47.240 --> 00:48:53.480]   do it because the company presumed that she didn't have a Google address. She was a bot or a spammer.
+[00:48:53.480 --> 00:48:58.120]   How you prove your human is humanity.
+[00:48:58.120 --> 00:49:05.880]   That's what it is to be human is to have a Google account. But to me, the takeaway from that whole
+[00:49:05.880 --> 00:49:12.280]   exercise was how incredibly valuable Google is. She's like, oh, it's so terrible that they
+[00:49:12.280 --> 00:49:17.880]   track us so much. It's so hard to be untracked and all that kind of stuff. And then once you do
+[00:49:17.880 --> 00:49:22.840]   it, it's like you can barely function. Why is that? Because we've all gotten used to the power
+[00:49:22.840 --> 00:49:27.960]   of all these Google services and so on. And there are reasons these things exist.
+[00:49:27.960 --> 00:49:31.880]   They're not just to truck you and surveillance and all that is to make the things function.
+[00:49:33.240 --> 00:49:38.360]   Google knows you with mass media knows you as a mass. Google knows you as an individual and a human
+[00:49:38.360 --> 00:49:45.000]   being. Google is more respectful of your humanity than mass media that complains about Google is.
+[00:49:45.000 --> 00:49:48.840]   And that's not to say that that applies universally across all the companies she's trying to
+[00:49:48.840 --> 00:49:56.040]   remove herself from Amazon. For example, if you are patient and can wait longer than overnight for
+[00:49:56.040 --> 00:50:00.840]   shipping, you can just buy stuff all over the place. It's harder. You're constantly entering a
+[00:50:00.840 --> 00:50:03.960]   credit card. There are solutions for that if you have, you know, use your Chrome extension,
+[00:50:03.960 --> 00:50:09.640]   stuff like that. But basically Amazon is extremely replaceable. But Google isn't.
+[00:50:09.640 --> 00:50:14.920]   I think Facebook is somewhat is somewhere in the middle. It's kind of replaceable.
+[00:50:14.920 --> 00:50:19.880]   She said she missed Facebook. Yeah, she missed Facebook. And you know, Facebook just makes it
+[00:50:19.880 --> 00:50:25.160]   super easy to stay in touch with people. But you can still stay in touch with because I'm
+[00:50:25.160 --> 00:50:30.840]   I'm on this big project to quit Facebook and I'm dragging it out. So I'm doing it in July. But
+[00:50:30.840 --> 00:50:35.880]   until then, almost every day, I'm dissing Facebook on Facebook. And I'm trying to get everybody to
+[00:50:35.880 --> 00:50:41.320]   sign up for my shared folder on Google Photos is my replacement for Facebook. Okay. And it's
+[00:50:41.320 --> 00:50:46.360]   going to take months to do that. And I'll probably get like, I'll probably get, I'm hoping for half
+[00:50:46.360 --> 00:50:52.200]   to three quarters of the people on Facebook to actually follow my folder. And so that they can
+[00:50:52.200 --> 00:50:56.840]   instead of finding your photos and your updates on Facebook, they'll just be subscribed to your
+[00:50:56.840 --> 00:51:01.080]   photos. That's right. And of course, anything you throw in there, everyone's a Google Photos user
+[00:51:01.080 --> 00:51:05.640]   already. Yeah. Most part and and Google and you don't have to be a Google photo user have a
+[00:51:05.640 --> 00:51:12.280]   Google account, even cashmere cashmere hill can see my photos. Yeah. Right. Because because you
+[00:51:12.280 --> 00:51:16.520]   don't have to log in just as long as you have the link, you can see it. Which means that
+[00:51:16.520 --> 00:51:25.240]   Google Photos has three times the number of people as Facebook. Right. So that's that's not exactly
+[00:51:25.240 --> 00:51:29.960]   accurate because you can also see, I think you can see a Facebook post if you don't have a Facebook
+[00:51:29.960 --> 00:51:36.040]   account. You can. Yeah. If you're not logged in or whatever, you go to a post. Right. And
+[00:51:36.040 --> 00:51:39.800]   notifications the key. So if you if you're following a folder, you can choose to get notifications
+[00:51:39.800 --> 00:51:43.960]   pop up on your phone or not, you can choose to get email notifications or not email notifications
+[00:51:43.960 --> 00:51:48.840]   of a link directly to the photo or to whatever you're doing. You can like things, you can comment,
+[00:51:48.840 --> 00:51:53.800]   you can do a lot of kind of stuff. It's not quite as good as Facebook in terms of the elegance,
+[00:51:53.800 --> 00:51:57.080]   but it's close enough and you don't have to deal with all the other crap on Facebook.
+[00:51:57.080 --> 00:52:01.320]   And so it's it's a way to do it. So there are ways to replace Facebook that if people
+[00:52:01.320 --> 00:52:07.400]   would think about it a little bit, they would see that it's it's not as bad as what cashmere's
+[00:52:07.400 --> 00:52:11.240]   going through because she's just cold turkey and now she just is there's a void where there used
+[00:52:11.240 --> 00:52:17.400]   to be Facebook. It's gone. What do you do now? So I had stepped away from Facebook about two years
+[00:52:17.400 --> 00:52:22.840]   ago. Yeah. And I think over the course of that first year that I was away, I never logged in.
+[00:52:22.840 --> 00:52:27.880]   Well, you look you look younger now. Thank you. Let me tell you, it's improved my life immensely.
+[00:52:27.880 --> 00:52:34.600]   Yes. Time time is taking backwards now. The second year, I think I logged in like maybe five times
+[00:52:34.600 --> 00:52:40.840]   for different from different random things about 40 days ago, I started the 30 day countdown and I
+[00:52:40.840 --> 00:52:46.360]   did the delete my account. I have not checked it since. I'm afraid to like try my logging credentials
+[00:52:46.360 --> 00:52:50.520]   because I'm afraid for it to be like, Oh, actually, it didn't happen. And now, yay, we've got you.
+[00:52:50.520 --> 00:52:56.040]   So supposedly my account is deleted now, but I have not checked it. Yeah. And I don't know why
+[00:52:56.040 --> 00:53:00.600]   it took me two years to do it. I stepped away and then I did nothing and now it's deleted. Right. I
+[00:53:00.600 --> 00:53:05.640]   mean, you know, if you can successfully step away, if you can, if you're an alcoholic and you're
+[00:53:05.640 --> 00:53:11.560]   successfully not drink, even though you're working a bar, great job. But it's probably a good idea to
+[00:53:11.560 --> 00:53:15.800]   quit your job and get another job somewhere that isn't a bar. If you're anyway, so yeah,
+[00:53:15.800 --> 00:53:21.240]   exactly. And I think everybody's contemplating it. I'm trying to convince people that it's just
+[00:53:21.240 --> 00:53:26.440]   such an unethical company. They really are not helping the world by participating in it. Yeah.
+[00:53:26.440 --> 00:53:31.400]   But it's just, you know, people are like, and they can't imagine. What else? Yeah, what is the
+[00:53:31.400 --> 00:53:36.760]   alternative that is always the well and you know, my moment of full disclosure is that I raised
+[00:53:36.760 --> 00:53:40.120]   money for my school from Facebook. I'm independent of Facebook. I received no money personally from
+[00:53:40.120 --> 00:53:49.000]   any platforms. But I, you know, I generally tend to defend the internet. And I had this argument
+[00:53:49.000 --> 00:53:53.800]   to doubt. So I was on a CNBC online show called Fort Knox, which I'll put up the link shortly
+[00:53:55.400 --> 00:54:01.560]   today. And with Farhad Manju from The New York Times, because he was doing the same thing about
+[00:54:01.560 --> 00:54:07.480]   Twitter, not saying to kill it quite but all but. Yes. And as I wrote that, so I wrote a piece about
+[00:54:07.480 --> 00:54:12.840]   that. And that's why I ended up on this. I do have to say that there is a point of privilege.
+[00:54:12.840 --> 00:54:21.240]   And even Steve Abadi and nothing who's who's the most firm critic of Facebook, I know,
+[00:54:21.240 --> 00:54:27.720]   has written books against Facebook. Even he cautions that that quitting Facebook is something that's
+[00:54:27.720 --> 00:54:35.720]   frankly fairly easy for us three white guys to do. It is not necessarily in the cards for people who
+[00:54:35.720 --> 00:54:41.640]   A, live in countries where it's the internet. And there's other issues that come along with that.
+[00:54:41.640 --> 00:54:48.040]   Or B, come from underrepresented communities whose concerns are not being covered in newsrooms on
+[00:54:48.040 --> 00:54:52.280]   cable TV and newspapers, because there's very few people in the newsroom who look like them and
+[00:54:52.280 --> 00:54:59.240]   experience what they experience. And Facebook and Twitter and Reddit and Instagram and so on and so
+[00:54:59.240 --> 00:55:04.680]   forth have given people a voice and a platform that they and their communities have never had.
+[00:55:04.680 --> 00:55:10.760]   Those, yeah, I would agree with that to a certain extent. Like those kinds of platforms have given
+[00:55:10.760 --> 00:55:16.680]   voice. But I think you don't need Facebook specifically if you're using Reddit, Twitter, etc,
+[00:55:16.680 --> 00:55:21.400]   which I would recommend people are like, Oh, they all do it. No, they don't. I mean, no, they don't.
+[00:55:21.400 --> 00:55:29.480]   It's it's it's night and day. The ethical transgression by Facebook are orders of magnitude
+[00:55:29.480 --> 00:55:35.640]   greater in number than any other platform that I'm aware of. And once you list them and look at
+[00:55:35.640 --> 00:55:41.160]   the list, I mean, Google is guilty of tracking and a few other things. Places like Reddit is
+[00:55:41.160 --> 00:55:45.800]   Reddit is both super valuable and kind of annoying because they they're exclusionary unless you're
+[00:55:45.800 --> 00:55:49.720]   part of the club and you've built up your points and all kinds of Twitter has its problems.
+[00:55:49.720 --> 00:55:56.200]   We've talked about a lot on this show. But come on, Facebook, I mean, the latest thing where even Apple
+[00:55:56.200 --> 00:56:01.560]   is has cut off Facebook from using the internal version of the app. I don't know if you saw the
+[00:56:01.560 --> 00:56:08.760]   story kind of broke today, I think Jeff, where they're paying teenagers to let them spy on their
+[00:56:08.760 --> 00:56:15.000]   usage so they could spy on consumers through the phones of teenagers. It's just yet another
+[00:56:15.960 --> 00:56:21.000]   egregious abuse by Facebook. And then they apologize and they say they're going to reverse
+[00:56:21.000 --> 00:56:28.040]   course. But it's just the number and scale of their ethical lapses is just I got to believe that
+[00:56:28.040 --> 00:56:34.200]   for everybody who cares and wants to make the world a better place, find another platform or
+[00:56:34.200 --> 00:56:42.360]   to. But I'm still going to object again there. It's it's we tend to see we miss the trees for the
+[00:56:42.360 --> 00:56:47.960]   forest, the opposite of the usual. Right. We see this as the company. There's two billion people
+[00:56:47.960 --> 00:56:55.640]   there. And so when Farhad complained about about Twitter and you know, there's some bozos,
+[00:56:55.640 --> 00:57:00.200]   I said, well, then don't follow the bozos. Well, it's the same people I always see. Well, then find
+[00:57:00.200 --> 00:57:05.800]   new people. You're a journalist uses that way. And so the same with Facebook, there are people
+[00:57:05.800 --> 00:57:11.000]   I've met there, people have connections there with. I don't have anywhere else. And for me to say,
+[00:57:11.000 --> 00:57:17.320]   Oh, Facebook means I'm also saying it. Those friends, those people. Yeah, that's the challenge. Absolutely.
+[00:57:17.320 --> 00:57:22.280]   And and I'm not willing to do that. And and I and the other thing is, yeah, they've screwed up
+[00:57:22.280 --> 00:57:28.440]   plenty. And I wrote a piece a few weeks ago about about that. So I argue that the that the
+[00:57:28.440 --> 00:57:33.800]   complaints about them, you know, surveillance capitalism, no, that's not the problem. The problem
+[00:57:33.800 --> 00:57:44.280]   is a Silicon Valley problem of their culture, which I do criticize. But I still think it's
+[00:57:44.280 --> 00:57:47.800]   important to remember that that what the what the internet does and what these things do is
+[00:57:47.800 --> 00:57:53.400]   connect you with human beings. So I was on this this CNBC thing this afternoon. And with with Farhad
+[00:57:53.400 --> 00:57:59.800]   Manju, with us in Jaren Lanieg came in at the end. And when I made this point about privilege,
+[00:57:59.800 --> 00:58:04.200]   he just he just screamed at me. So at least you guys aren't doing that.
+[00:58:04.200 --> 00:58:11.720]   Well, I but I would push back on that in the following way. When you invest in Facebook as
+[00:58:11.720 --> 00:58:16.360]   the place where you're connected to all those people, you are not connecting to all the people
+[00:58:16.360 --> 00:58:20.200]   who have opted out of Facebook or never opted in in the first place. So when I moved to my thing
+[00:58:20.200 --> 00:58:25.080]   called a nice book, and by the way, I mentioned this cryptically. But if you are interested in
+[00:58:25.080 --> 00:58:30.600]   this project of mine, of leaving Facebook and replacing it with a folder and Google photos,
+[00:58:30.600 --> 00:58:37.560]   go to elgin.com/facebook and I explain the whole thing. Why I'm doing it, etc. But once I did that,
+[00:58:37.560 --> 00:58:42.680]   and I moved to Google photos, all these people who have never been on Facebook started seeing my
+[00:58:42.680 --> 00:58:49.720]   photos for the first time. A few older people who never saw any of my photos on Facebook all
+[00:58:49.720 --> 00:58:53.320]   these years, I've been on Facebook 10 years or something like that. For whatever reason,
+[00:58:53.320 --> 00:58:58.280]   over there, of course, their years, they did not want to sign up for Facebook or didn't care or
+[00:58:58.280 --> 00:59:02.440]   just didn't know or whatever. They think it's like they don't want to, like older people like my
+[00:59:02.440 --> 00:59:08.280]   late father never saw Facebook. He didn't survive long enough to see my nice book. But
+[00:59:08.280 --> 00:59:14.520]   other people that I know in my family and so on that would normally want to see all this stuff
+[00:59:14.520 --> 00:59:18.360]   and know what's going on, that type of stuff I'd post on Facebook didn't see it. Plus all the
+[00:59:18.360 --> 00:59:23.240]   quitters, so many quitters now. This is one of the things I'm, to a certain extent, I'm trying to
+[00:59:23.240 --> 00:59:31.800]   convince people to get off Facebook, but part of the goal is to weaken their network effect so that
+[00:59:31.800 --> 00:59:36.200]   people don't say, "Well, it doesn't matter if they're the most unethical company in history. I have to
+[00:59:36.200 --> 00:59:42.440]   be there because everybody's there." That's the logic people use as to why they're there.
+[00:59:42.440 --> 00:59:47.960]   Well, what if everybody wasn't there? What if only 70% of the people who are currently on Facebook
+[00:59:48.200 --> 00:59:52.840]   were on Facebook, then suddenly they wouldn't have this grip on everybody, which gives them a
+[00:59:52.840 --> 00:59:59.000]   license to do pretty much anything they want, that grip. They're like the phone system.
+[00:59:59.000 --> 01:00:00.600]   And that's your problem. What's up?
+[01:00:00.600 --> 01:00:07.480]   What's up is another one? What's up? Are you on it? A lot of people, no, no, I'm getting off all
+[01:00:07.480 --> 01:00:12.840]   four of them. I've never used WhatsApp. I did already get off Instagram, but there are lots and
+[01:00:12.840 --> 01:00:17.320]   lots of people I know who are on only Instagram and Facebook or they're like, "I'm quitting Facebook.
+[01:00:17.320 --> 01:00:23.960]   I'm just going to use Instagram." It's like, "Well, you're still helping Mark Zuckerberg be on ethics."
+[01:00:23.960 --> 01:00:30.440]   I mean, obviously, again, please replay my disclosure earlier. And again, they screw up
+[01:00:30.440 --> 01:00:37.960]   things on criticisms, but I'm sorry. I don't buy that they're the most evil company ever by a long
+[01:00:37.960 --> 01:00:41.480]   shot. I think they've screwed up some things. I think they've screwed up some things. I think
+[01:00:41.480 --> 01:00:46.040]   they still have, they still believe in a mission of connecting the world. I think they're too
+[01:00:46.920 --> 01:00:54.600]   opaque. And that's what gets them in trouble. They need to rethink their culture so that anything they
+[01:00:54.600 --> 01:01:00.280]   do withstands the light of sunshine. And I think it's possible that that can happen.
+[01:01:00.280 --> 01:01:06.520]   But I got a disagree, Mike. I'll take a lot of banks and a lot of oil companies and a lot of
+[01:01:06.520 --> 01:01:16.680]   pharma companies and the company that addicted half of the people who died of overdoses,
+[01:01:16.680 --> 01:01:24.680]   Purdue Pharma, those are evil companies. Yeah. I would not, and if I did say it, I'll retract it,
+[01:01:24.680 --> 01:01:31.000]   but I would not say they're the most unethical company. I was in the world. I mean, they definitely
+[01:01:31.000 --> 01:01:36.600]   are not, but it's a combination of their actual lack of ethics, plus their incidental effect on
+[01:01:36.600 --> 01:01:42.600]   people. For example, every time there's a story about teen depression being caused by social,
+[01:01:42.600 --> 01:01:48.200]   they are talking specifically primarily about Facebook and Instagram. They are deliberately
+[01:01:48.200 --> 01:01:54.440]   and willfully addictive. They try to gobble up as much as people's days as possible, and they're
+[01:01:54.440 --> 01:02:01.960]   very good at it. They sort of, so we're here doing a two hour show. What are we trying to do?
+[01:02:01.960 --> 01:02:07.000]   We don't have two hours to be on this way. We as exactly the same. We're in the same business.
+[01:02:07.000 --> 01:02:10.440]   And many companies would want that. We're not succeeding. That's the point.
+[01:02:10.440 --> 01:02:13.800]   See what I'm saying? It's okay to tell you.
+[01:02:13.800 --> 01:02:18.680]   Too good at it. Every startup would love to have people glued to their products six hours a day.
+[01:02:18.680 --> 01:02:24.600]   Absolutely. Facebook is the only company that actually achieves it. I think as a force in nature,
+[01:02:24.600 --> 01:02:28.760]   we talk endlessly about their effect on journalism. They just, basically, the largest publisher in
+[01:02:28.760 --> 01:02:33.400]   history, they're not a publisher, the largest source of news in history. They throw a switch.
+[01:02:33.400 --> 01:02:39.240]   By the way, one of the things I've noticed is when I write my anti-Facebook,
+[01:02:39.240 --> 01:02:45.800]   Screens on Facebook, they get zero. I mean, the engagement, just because I know they've thrown a
+[01:02:45.800 --> 01:02:49.880]   switch and they're not distributing it. They just decide secretly behind the scenes where nobody
+[01:02:49.880 --> 01:02:52.840]   can see. I've seen your screens. Maybe people just disagree.
+[01:02:52.840 --> 01:02:56.840]   Because you're, because you're, because don't forget, Mike, don't forget,
+[01:02:56.840 --> 01:03:04.440]   malfairness. You know I love you. Yeah. But you're basically criticizing everyone who's there.
+[01:03:04.440 --> 01:03:10.680]   You're saying you're all sheeple for being here and I'm not. Well, a lot of us disagree and I find
+[01:03:10.680 --> 01:03:18.920]   real value there. I think the way I look at it is that nobody's a sheeple. I mean, people are people
+[01:03:18.920 --> 01:03:28.600]   and it's their human mindset that's being manipulated by Facebook and Instagram to get people to where
+[01:03:28.600 --> 01:03:33.320]   they're addicted and compelled to do this performance every day, especially on Instagram.
+[01:03:33.320 --> 01:03:39.080]   But I'm not saying that people are bad and I'm good. What I'm saying is that I'm a trained and
+[01:03:39.080 --> 01:03:43.400]   licensed professional. I spend my whole life reading about this stuff, learning about this stuff.
+[01:03:43.400 --> 01:03:47.000]   And you're an ordinary person who doesn't, you know, you have a real job. You're not a,
+[01:03:47.000 --> 01:03:51.320]   you're not a journalist. You have better things to do than read the mountains of evidence that,
+[01:03:51.320 --> 01:03:56.600]   that Facebook is this unethical company. So I'm here to, to, to inform you of things you didn't know.
+[01:03:56.600 --> 01:04:02.440]   Because when I do write about these things, people are like, really? And it's like, you know,
+[01:04:02.440 --> 01:04:07.640]   people, our job is to inform people so they can make their own choices. And so I don't, I don't tell
+[01:04:07.640 --> 01:04:13.640]   anybody, I think you should do this. I, I tell people, I've looked at all this evidence and I've
+[01:04:13.640 --> 01:04:18.040]   decided to do this. You may want to look at this evidence yourself and make your own decision.
+[01:04:18.040 --> 01:04:24.520]   And people do. And I understand it's like super easy to use Facebook to stay connected with people.
+[01:04:24.520 --> 01:04:30.920]   Instagram, I mean, to a certain extent, the, the value of this for people is approaches a
+[01:04:30.920 --> 01:04:37.400]   genuine need. Right? See, I see, I think you're not giving people credit for the
+[01:04:37.400 --> 01:04:42.120]   agency and choices they make. And you're insulting them. I'm not there because I'm an addict. I'm
+[01:04:42.120 --> 01:04:48.840]   there because I find value in it. Well, I'm not insulting people for not knowing, not having an
+[01:04:48.840 --> 01:04:55.160]   incite, clipetic knowledge of no, no, you're saying that you know more about this than they do.
+[01:04:55.160 --> 01:04:59.320]   Again, I love you, Mike, you know that you're, but you're saying, because we get in, and I quoted
+[01:04:59.320 --> 01:05:05.160]   you often about what made Google plus better, right? There were design decisions there. There
+[01:05:05.160 --> 01:05:10.840]   was, there was better until the end. But, but no, you're saying, you're saying there's an absolute
+[01:05:10.840 --> 01:05:15.400]   here that it's bad and addictive and awful and you know better. And you're basically saying the
+[01:05:15.400 --> 01:05:18.760]   other people shouldn't be there. And, and, and I'm saying that people have legitimate reasons to
+[01:05:18.760 --> 01:05:24.040]   disagree with you and find value there that you need to respect. I do respect them. If they have a
+[01:05:24.040 --> 01:05:29.880]   disagreement that's informed by knowledge of what Facebook does, unfortunately, 99% of the people,
+[01:05:29.880 --> 01:05:34.920]   I would guess making that number up on Facebook have no idea. Like they're, they're,
+[01:05:34.920 --> 01:05:41.800]   they're surveys that where a majority didn't even know that Facebook like adjusted the algorithms for,
+[01:05:41.800 --> 01:05:46.200]   for what they're seeing in the news feeds. Like people don't know the most basic things. They
+[01:05:46.200 --> 01:05:52.440]   certainly don't know about the creepy research they do. They certainly don't know how media
+[01:05:52.440 --> 01:05:56.680]   companies target ads to you, how media companies make decisions they do.
+[01:05:56.680 --> 01:06:01.800]   I don't know how big journalism is to inform them about all of it. And so, you know, I'm
+[01:06:01.800 --> 01:06:07.320]   basically, I'm, I'm just basically choosing to be, to try to be an influencer on this particular
+[01:06:07.320 --> 01:06:12.760]   thing. So Walt Mossberg, about a week after I announced that I was going to do this whole project,
+[01:06:12.760 --> 01:06:15.800]   he announced that he was getting off and he made it clear in Twitter that saying,
+[01:06:15.800 --> 01:06:21.000]   I'm not saying anybody else should get off Facebook. But I've, I've decided that, that,
+[01:06:21.000 --> 01:06:26.280]   based on what I know about their ethical lapses, I don't feel comfortable contributing to their
+[01:06:26.280 --> 01:06:31.080]   blavity blob, but I'm not saying anybody else should get on. And I'm saying that I do think people
+[01:06:31.080 --> 01:06:35.880]   should get off. And, and I'm not saying it's because I'm better than other people. I'm just saying
+[01:06:35.880 --> 01:06:40.440]   because I know a lot of stuff. Here's the stuff I know and I'm trying to inform people. And it's
+[01:06:40.440 --> 01:06:47.400]   not even just the old stuff. The new transgressions are coming so fast and furious. It's two or three
+[01:06:47.400 --> 01:06:52.440]   a week. Almost to the point though, that, that it goes counter. Like, right? Like it's, it's so
+[01:06:52.440 --> 01:06:56.920]   fast and furious that even if you wanted to kind of make sense of it and get, and get, and get
+[01:06:56.920 --> 01:07:01.000]   enraged about it, you kind of don't have the time or the bandwidth to do that.
+[01:07:01.000 --> 01:07:05.560]   There are some points. It's kind of just easier to look at. They're like the Trump
+[01:07:05.560 --> 01:07:09.080]   administration. There's so many scandals that any new scandal is like, yeah, whatever.
+[01:07:09.080 --> 01:07:12.920]   Whereas you also have to look at the media perspective here. Sorry, I didn't mean you're up to you, Mike.
+[01:07:12.920 --> 01:07:18.120]   The media perspective is, is, is become so constantly negative. You have the case,
+[01:07:18.120 --> 01:07:22.600]   which I wrote about in the New York Times piece. Oh my God. Netflix is reading your messages.
+[01:07:22.600 --> 01:07:28.840]   Yeah. Well, yes, logically. People wanted Facebook to open up and not just be the closed
+[01:07:28.840 --> 01:07:34.200]   garden. They enabled people to send messages from Netflix that required that Netflix had to have
+[01:07:34.200 --> 01:07:38.760]   read, write, delete, access. And it was the only way the function could work. It was obvious. It
+[01:07:38.760 --> 01:07:43.240]   was logical. And the New York Times was being dumber than a congressman in that. So you see,
+[01:07:43.240 --> 01:07:49.080]   that kind of coverage out there now is constant. And you see people like Farhad Mongeau saying,
+[01:07:49.080 --> 01:07:56.840]   delete this stuff. And it's become a drumbeep of media and media are not admitting their
+[01:07:56.840 --> 01:08:04.200]   own corruptible motives here because they think that Facebook is competing for the attention and
+[01:08:04.200 --> 01:08:11.320]   time that they think they deserve. And so the problem is that it's become, my fear is that the
+[01:08:11.320 --> 01:08:17.800]   reason I stand up for this, Mike, reason is is because what I fear, the end result of this
+[01:08:17.800 --> 01:08:24.680]   is not about Facebook. It's about the internet. And I've just joined a transatlantic working group
+[01:08:24.680 --> 01:08:31.320]   on content moderation and freedom of speech, read regulation. This could be because I see all
+[01:08:31.320 --> 01:08:35.080]   kind and I'm debating next week, whether to go to a thing in Brussels while I'm in Europe,
+[01:08:35.080 --> 01:08:39.880]   about content moderation, content moderation is another way to say killing people's voices.
+[01:08:40.440 --> 01:08:49.160]   And I fear that we're going to see a whole raft of regulation of the net coming out of this fear
+[01:08:49.160 --> 01:08:56.040]   of a company or two. And it's early days. Well, come on. I mean, I would, content moderation
+[01:08:56.040 --> 01:09:01.720]   when a company does it is is killing people's voices. Content moderation when a user does it
+[01:09:01.720 --> 01:09:06.600]   is the opposite of that. Because you have the perfect, I'm not saying that you should be on
+[01:09:06.600 --> 01:09:12.840]   Facebook. I'm just saying, respect me for my decision to be there. And I do know, I do cover this. I do
+[01:09:12.840 --> 01:09:17.960]   know a lot about this. I'm super concerned, as you are, about the overall coverage, the sort of
+[01:09:17.960 --> 01:09:23.720]   the drum beat of and the mushing, the mental mushing of all these things into a single thing.
+[01:09:23.720 --> 01:09:29.720]   The worst case is something actually on the rundown. What is the publication did this about
+[01:09:29.720 --> 01:09:36.440]   sidewalk labs is replica. So sidewalk labs is Google's or Alphabet's division or company
+[01:09:36.440 --> 01:09:43.240]   for improving cities for building smart cities. And they have a product called replica. And what
+[01:09:43.240 --> 01:09:47.960]   replica is, is like a Sim City for urban planners, they go to urban planner, they go to Toronto,
+[01:09:47.960 --> 01:09:52.120]   and they're like, Oh, if you like, rejigger the city like this, this is where everybody would go
+[01:09:52.120 --> 01:09:55.240]   and what the traffic would be like and where the parking and all that kind of stuff. But the
+[01:09:55.240 --> 01:09:59.800]   movement of these, you know, Sim City like characters through this, through this thing
+[01:09:59.800 --> 01:10:04.760]   are based on real data. They're using people's real data. They're getting it from maps and who
+[01:10:04.760 --> 01:10:10.280]   knows where they're getting it. And and and this, this article is up in arms about it. But they're
+[01:10:10.280 --> 01:10:13.800]   D, what do they call it, de-identifying it? In other words, they're removing the
+[01:10:13.800 --> 01:10:19.000]   it's that data is not associated with any specific people. It's just
+[01:10:19.000 --> 01:10:25.160]   and it's valuable. This fear of data. So it's right now where my view is we're in a mode where I think
+[01:10:25.160 --> 01:10:32.760]   the fight is to be to be prevented from being part of data. But then they're we're going to
+[01:10:32.760 --> 01:10:36.360]   want data back. So I'll give you a quick example on Facebook. So everybody came
+[01:10:36.360 --> 01:10:41.720]   with a letter that everybody went after Facebook and Facebook found it created an API so you could
+[01:10:41.720 --> 01:10:46.600]   go in and see political ads. That was being misused. Facebook shut it down. The researchers
+[01:10:46.600 --> 01:10:51.160]   are screaming. And Alex Stamos, who really knows his stuff, who left Facebook, who's now Stanford,
+[01:10:51.160 --> 01:10:56.760]   said, be careful what you wish for folks, because when you exposed Cambridge, Latin,
+[01:10:56.760 --> 01:11:01.240]   Connecticut, and you said this is all awful and all terrible, the way that guy got the data was
+[01:11:01.240 --> 01:11:04.920]   trying to get researchers some data so they could find out insights about people. And that's what
+[01:11:04.920 --> 01:11:09.960]   the researchers want. Well, it got misused by one guy in one company. So then Facebook comes back
+[01:11:09.960 --> 01:11:13.320]   and they cut it off and then the research screen, bloody murder, you're keeping the information
+[01:11:13.320 --> 01:11:19.480]   from us. They're they're they're often in a difficult position like that. So Google too,
+[01:11:19.480 --> 01:11:25.960]   I want to stand up for the idea that knowledge and the idea of knowledge that comes out of data
+[01:11:25.960 --> 01:11:30.200]   should be protected. And we not only have a right from data, but some point we have a right to data.
+[01:11:30.200 --> 01:11:35.080]   We have a right to be able to learn things and understand things. And but when we make this,
+[01:11:35.080 --> 01:11:44.440]   this, especially in Europe, privacy, you, Boralis, which I understand and I get it,
+[01:11:44.440 --> 01:11:48.680]   but it has other implications that we have to be able to examine. And they're not all negative
+[01:11:48.680 --> 01:11:53.240]   and they're not all out of some low line motive. Yeah. And I agree with all that.
+[01:11:53.240 --> 01:12:00.040]   Your argument often, whenever there's a story about technopanic is what is the actual harm?
+[01:12:00.280 --> 01:12:05.800]   And so if there's tracking and so on, that's a great question that isn't nearly asked enough
+[01:12:05.800 --> 01:12:11.480]   in general in these conversations, certainly not in the the breathless coverage of tracking
+[01:12:11.480 --> 01:12:17.480]   and all that kind of stuff. But in the case of Facebook, the harm is right in front of us.
+[01:12:17.480 --> 01:12:25.240]   There are mob lynchings in India because of the way that WhatsApp functions. There are teen
+[01:12:25.240 --> 01:12:30.600]   suicides because of the way WhatsApp functions. They damage democracies. They're a wonderful tool
+[01:12:30.600 --> 01:12:37.720]   for propagandists, and tyrants, wonderfully effective tool. They cause depression. They cause
+[01:12:37.720 --> 01:12:45.400]   addiction. The list of actual material damage to people and societies is extremely evident.
+[01:12:45.400 --> 01:12:50.680]   And that's the difference. This stuff about Google getting data so that cities can design
+[01:12:50.680 --> 01:12:55.080]   better cities, there is literally no harm. They're trying to actually improve the lives of people.
+[01:12:55.400 --> 01:12:59.160]   And in the case of a lot of the tracking stuff that goes on with Amazon and so on,
+[01:12:59.160 --> 01:13:04.360]   the harm is really difficult to find with Facebook. It's right there. The stories of actual harm,
+[01:13:04.360 --> 01:13:10.760]   people being harmed are everywhere. There's also stories of real benefit. And I caution
+[01:13:10.760 --> 01:13:14.840]   the presumption of we see these stories everywhere. For example,
+[01:13:14.840 --> 01:13:20.280]   the presumption that we're all in a filter bubble, a Rosmas, Kleis Nielsen at the Reuters
+[01:13:20.280 --> 01:13:24.200]   Institute for the Study of Generalist Wood Oxford often points out the evidence doesn't show that.
+[01:13:24.200 --> 01:13:27.000]   The data doesn't show that. There aren't studies that show we're a filter bubble. Actually,
+[01:13:27.000 --> 01:13:30.760]   it's the truth is the exact opposite. That being on the Internet exposes you to more opinions than
+[01:13:30.760 --> 01:13:37.640]   you otherwise would have had. We've got to be evidence-based and has harm and evidence both.
+[01:13:37.640 --> 01:13:41.880]   I want to see the evidence and I want to see what's going on. I want to see the countervailing.
+[01:13:41.880 --> 01:13:47.800]   So we come up with a new rule to prevent that. What else are we then giving up? What opportunities
+[01:13:47.800 --> 01:13:55.240]   are we giving up as a result? The statistical and the cognitive bias angle against my own argument
+[01:13:55.240 --> 01:13:59.240]   is that Facebook is just massive at scale. If they're twice as big as another company that
+[01:13:59.240 --> 01:14:04.200]   should have twice as many horrible things that happen. If you're inclined toward anti-Facebook
+[01:14:04.200 --> 01:14:10.600]   thinking, then you'll dismiss all the positive stuff that they do and you'll focus on the bad
+[01:14:10.600 --> 01:14:14.920]   stuff they do. There's lots of bad stuff because they just have so many users. They're so gigantic.
+[01:14:14.920 --> 01:14:21.480]   I understand that argument. To me, the thing that you're talking about, the people's right to
+[01:14:21.480 --> 01:14:25.880]   have information, I think people also need the right to have information that isn't informed by
+[01:14:25.880 --> 01:14:31.240]   a single entity and the way that they do business, the problem with algorithms, of course,
+[01:14:31.240 --> 01:14:36.680]   Google grapples with this in Europe all the time, is that they are secret. Nobody can see them.
+[01:14:36.680 --> 01:14:41.880]   There's no seem to me going to understand them a lot. How do they work? Why do they work the way
+[01:14:41.880 --> 01:14:49.800]   they work? This is problematic. But I think that the most solid argument that you can make about
+[01:14:49.800 --> 01:14:54.440]   Facebook, that's the most evidence-based argument, is the fact that they do have so many users.
+[01:14:54.440 --> 01:15:01.080]   How many people on... What is the total number of actual bodies who are using Facebook, Instagram,
+[01:15:01.080 --> 01:15:07.320]   WhatsApp, and Facebook Messenger? It's probably fewer than they say, but it's...
+[01:15:07.320 --> 01:15:09.720]   I mean, each service is more than billion. Yeah.
+[01:15:09.720 --> 01:15:13.880]   It's probably a couple billion. And then when you talk about Facebook and Instagram and
+[01:15:13.880 --> 01:15:21.240]   WhatsApp, all combining their services together, then you're talking even more of the
+[01:15:21.240 --> 01:15:29.160]   monopolistic sort of discussion around Facebook. I have to admit that I love the idea of sources
+[01:15:29.160 --> 01:15:34.360]   of information, especially when everything is algorithmically filtered for different reasons,
+[01:15:34.360 --> 01:15:41.560]   to be distributed and the sources for those to be multifaceted instead of mostly from one place.
+[01:15:41.560 --> 01:15:45.480]   Just the sheer... We're in far better shape.
+[01:15:45.480 --> 01:15:49.560]   There's the daylight's out of me. We're right there. We are in far better shape than we were
+[01:15:49.560 --> 01:15:55.720]   30, 40 years ago. When it came in New York. In Cleveland, you had one newspaper and three TV
+[01:15:55.720 --> 01:16:01.960]   stations, and that was it. And it was controlled by a few white men who were gatekeepers to everything
+[01:16:01.960 --> 01:16:07.160]   that you wanted to know and learn. And now through Facebook, through Twitter, through the internet
+[01:16:07.160 --> 01:16:12.440]   itself, obviously, overall, we have the ability to get to all kinds of sources we never got to.
+[01:16:12.440 --> 01:16:16.360]   Those benefits you're talking about are benefits from the internet, not from Facebook.
+[01:16:16.360 --> 01:16:18.040]   They can also be benefits from Facebook. I have no...
+[01:16:18.040 --> 01:16:18.040]   I have no...
+[01:16:18.040 --> 01:16:18.040]   I have no...
+[01:16:18.040 --> 01:16:19.000]   I have no...
+[01:16:19.000 --> 01:16:20.360]   I have...
+[01:16:20.360 --> 01:16:23.800]   I have discovered all kinds of wonderful and amazing things in people,
+[01:16:23.800 --> 01:16:27.240]   probably including the sponsor that Jason wants to get to now.
+[01:16:27.240 --> 01:16:29.160]   Oh, especially the sponsor.
+[01:16:30.680 --> 01:16:33.080]   Although I just have to throw in there real quick.
+[01:16:33.080 --> 01:16:34.200]   Sure, brought to you by Facebook.
+[01:16:34.200 --> 01:16:34.680]   Hi.
+[01:16:34.680 --> 01:16:35.880]   Mike, you may leave the building.
+[01:16:35.880 --> 01:16:40.920]   Oh boy, it just got awkward. Since stepping away from Facebook and then, you know,
+[01:16:40.920 --> 01:16:46.840]   in recently deleting it or whatever, the challenge is also the benefit in the sense that the big
+[01:16:46.840 --> 01:16:52.200]   challenge is not knowing what everybody that I care about is really up to on a day to day basis.
+[01:16:52.200 --> 01:16:55.240]   The benefit is that now I talk to them about it.
+[01:16:55.240 --> 01:16:57.640]   And also not knowing about the people you don't care about.
+[01:16:57.640 --> 01:16:58.360]   That's another benefit.
+[01:16:58.360 --> 01:17:00.600]   True, that's another but that's another hidden benefit.
+[01:17:00.600 --> 01:17:02.280]   Kid from third grade that we were on.
+[01:17:02.280 --> 01:17:07.960]   Well, yeah, it was a long time when I signed up for Facebook back in the early of the mid-2000s.
+[01:17:07.960 --> 01:17:10.680]   It was, I got to collect as many friends as possible.
+[01:17:10.680 --> 01:17:13.000]   Over time, it was like, "Why did I do that?"
+[01:17:13.000 --> 01:17:14.200]   I have no idea.
+[01:17:14.200 --> 01:17:15.000]   That was to be.
+[01:17:15.000 --> 01:17:17.640]   Let's take a break and thank the sponsor and then we can get back.
+[01:17:17.640 --> 01:17:18.920]   We want to talk about Facebook more.
+[01:17:18.920 --> 01:17:21.160]   We can, you know, Zuckerberg had his op-ed.
+[01:17:21.160 --> 01:17:22.120]   Maybe we can talk about that.
+[01:17:22.120 --> 01:17:23.800]   Or maybe we can talk about some other things.
+[01:17:23.800 --> 01:17:24.520]   We'll figure it out.
+[01:17:25.160 --> 01:17:29.960]   But first, this episode of This Week in Google is brought to you by On Deck.
+[01:17:29.960 --> 01:17:37.160]   On Deck is 100% committed to small business owners with fast, easy, and tailored financing.
+[01:17:37.160 --> 01:17:39.240]   Your time, of course, is valuable.
+[01:17:39.240 --> 01:17:45.240]   So you can get funding in as fast as 24 hours with term loans up to $500,000.
+[01:17:45.240 --> 01:17:47.480]   And lines of credit up to $100,000.
+[01:17:47.480 --> 01:17:51.080]   None of which, by the way, requires business collateral.
+[01:17:51.080 --> 01:17:53.720]   The application process is super simple.
+[01:17:53.720 --> 01:17:57.800]   You can apply online or by phone and get approved in minutes.
+[01:17:57.800 --> 01:18:01.000]   And it won't impact your personal credit.
+[01:18:01.000 --> 01:18:06.120]   On Deck delivers some of the best customer service with their US-based loan specialists
+[01:18:06.120 --> 01:18:09.480]   and has an A+ rating with a better business bureau.
+[01:18:09.480 --> 01:18:18.200]   They've lent over $10 billion to over 80,000 small business owners and carry a 9.8 out of 10 rating on Trust Pilot.
+[01:18:18.760 --> 01:18:25.400]   On Deck is the secure financing service that business owners everywhere can truly rely on.
+[01:18:25.400 --> 01:18:30.200]   So you should check it out if you're a small business owner and you need access to capital,
+[01:18:30.200 --> 01:18:35.640]   go to on deck.com/twig right now to check it out.
+[01:18:35.640 --> 01:18:36.360]   Read up on it.
+[01:18:36.360 --> 01:18:37.400]   See what it's like.
+[01:18:37.400 --> 01:18:43.560]   And as a listener of This Week in Google, you'll receive a free consultation with one of their US-based
+[01:18:43.560 --> 01:18:45.000]   loan specialists.
+[01:18:45.000 --> 01:18:49.480]   You can apply online or by phone. You're going to get approved in minutes.
+[01:18:49.480 --> 01:18:53.640]   And all you have to do is go to on deck.com/twig.
+[01:18:53.640 --> 01:19:00.200]   That's O-N-D-E-C-K dot com/twig for your free consultation now.
+[01:19:00.200 --> 01:19:04.200]   And we thank on deck for their support of This Week in Google.
+[01:19:04.200 --> 01:19:09.560]   Do we want more Facebook or do we want a branch app?
+[01:19:09.560 --> 01:19:11.080]   There's a lot of stuff on this list.
+[01:19:11.080 --> 01:19:11.240]   Yeah.
+[01:19:11.240 --> 01:19:12.840]   They're really, they're really...
+[01:19:12.840 --> 01:19:15.160]   I think Mike and I have done it.
+[01:19:15.160 --> 01:19:15.320]   Yes.
+[01:19:15.320 --> 01:19:15.800]   All right.
+[01:19:15.800 --> 01:19:16.360]   All right.
+[01:19:16.360 --> 01:19:17.560]   So we've covered the Facebook.
+[01:19:17.560 --> 01:19:19.720]   Yeah, we can continue this conversation on Facebook.
+[01:19:19.720 --> 01:19:21.640]   Oh, we will. I don't doubt.
+[01:19:21.640 --> 01:19:23.720]   Let me say let me be clear here.
+[01:19:23.720 --> 01:19:24.600]   I'm very clear.
+[01:19:24.600 --> 01:19:26.120]   I really appreciate Mike.
+[01:19:26.120 --> 01:19:30.920]   This is why you're so good at social that we disagree.
+[01:19:30.920 --> 01:19:33.000]   We have a wonderful back and forth.
+[01:19:33.000 --> 01:19:34.840]   And I think that's...
+[01:19:34.840 --> 01:19:36.840]   I really appreciate the tone of it.
+[01:19:36.840 --> 01:19:37.080]   Yeah.
+[01:19:37.080 --> 01:19:37.640]   Thank you.
+[01:19:37.640 --> 01:19:41.800]   And don't forget, I'm saving Technopanic.com for you.
+[01:19:41.800 --> 01:19:42.440]   I still got it.
+[01:19:42.440 --> 01:19:44.600]   I was running onto it until you decided to write that book.
+[01:19:44.600 --> 01:19:45.400]   Oh, you have it?
+[01:19:45.400 --> 01:19:46.040]   You really have it.
+[01:19:46.040 --> 01:19:46.120]   I have it.
+[01:19:46.120 --> 01:19:47.400]   For you.
+[01:19:47.400 --> 01:19:49.080]   Oh, yeah.
+[01:19:49.080 --> 01:19:49.640]   Mike.
+[01:19:49.640 --> 01:19:50.680]   Yeah, because I was afraid to...
+[01:19:50.680 --> 01:19:51.960]   Oh, we're going to do one more Facebook.
+[01:19:51.960 --> 01:19:52.760]   One more Facebook.
+[01:19:52.760 --> 01:19:53.000]   Okay.
+[01:19:53.000 --> 01:19:54.440]   What is this one?
+[01:19:54.440 --> 01:19:57.240]   It is the fact that we have the sales department of Facebook
+[01:19:57.240 --> 01:19:59.880]   complaining that engineers have been going from the restroom
+[01:19:59.880 --> 01:20:02.280]   into the cafeteria in bare feet.
+[01:20:02.280 --> 01:20:02.600]   What?
+[01:20:02.600 --> 01:20:02.920]   What?
+[01:20:02.920 --> 01:20:04.520]   See?
+[01:20:04.520 --> 01:20:04.920]   Mike, you're right.
+[01:20:04.920 --> 01:20:06.040]   Everything you say about Facebook.
+[01:20:06.040 --> 01:20:07.480]   Another thing to add to the list.
+[01:20:07.480 --> 01:20:08.520]   But this is right.
+[01:20:08.520 --> 01:20:10.120]   The engineers are going, what would Zuck do?
+[01:20:10.840 --> 01:20:12.040]   They'd also wear a bathrobe.
+[01:20:12.040 --> 01:20:16.760]   I'm happy you included that.
+[01:20:16.760 --> 01:20:18.360]   We could at least end the Facebook.
+[01:20:18.360 --> 01:20:20.520]   By the way, one other quick thing.
+[01:20:20.520 --> 01:20:24.440]   It is interesting that they hired a new head of privacy from EFF.
+[01:20:24.440 --> 01:20:26.280]   They're hiring really tough privacy people.
+[01:20:26.280 --> 01:20:28.360]   So, you know, all this is making a difference.
+[01:20:28.360 --> 01:20:31.720]   They're with one step forward, three back.
+[01:20:31.720 --> 01:20:33.960]   I'll try to do some things, but we'll leave it there.
+[01:20:33.960 --> 01:20:34.520]   Soon.
+[01:20:34.520 --> 01:20:36.920]   Soon they'll catch up on those steps a little bit.
+[01:20:38.120 --> 01:20:40.200]   What about Huawei?
+[01:20:40.200 --> 01:20:41.000]   Maybe a little bit.
+[01:20:41.000 --> 01:20:43.400]   I mean, there was some news with Huawei, right?
+[01:20:43.400 --> 01:20:47.480]   The US had their moment, I think a couple of days ago,
+[01:20:47.480 --> 01:20:52.520]   where they put down two indictments from the US Department of Justice to Huawei.
+[01:20:52.520 --> 01:20:56.840]   This is unsealed on Monday, charging CFO Ming on Zu of,
+[01:20:56.840 --> 01:21:02.120]   let's see, fraud, money laundering, obstruction of justice.
+[01:21:02.120 --> 01:21:03.480]   Don't forget conspiracy.
+[01:21:03.480 --> 01:21:04.600]   And conspiracy.
+[01:21:04.600 --> 01:21:07.720]   That's a fun one regarding the sanctions violations with Iran.
+[01:21:08.440 --> 01:21:10.440]   Is this real or is this politics?
+[01:21:10.440 --> 01:21:13.560]   Does anybody, you guys have a perspective on this whole story?
+[01:21:13.560 --> 01:21:14.200]   I do, yeah.
+[01:21:14.200 --> 01:21:14.760]   I do.
+[01:21:14.760 --> 01:21:14.760]   Good.
+[01:21:14.760 --> 01:21:15.880]   I know a few.
+[01:21:15.880 --> 01:21:21.480]   I mean, no, I'm very much in the, I don't really truly know what's going on,
+[01:21:21.480 --> 01:21:22.680]   what to believe here.
+[01:21:22.680 --> 01:21:22.680]   Okay.
+[01:21:22.680 --> 01:21:23.400]   You know what I mean?
+[01:21:23.400 --> 01:21:24.200]   Yes, exactly.
+[01:21:24.200 --> 01:21:27.080]   Because there's a lot, it is highly political as well.
+[01:21:27.080 --> 01:21:32.520]   I'm also kind of confused because we review Huawei products on the network.
+[01:21:32.520 --> 01:21:34.840]   And so then when a new Huawei product comes out, I'm like,
+[01:21:34.840 --> 01:21:36.040]   well, do I review it?
+[01:21:36.040 --> 01:21:40.120]   Like at one point, do I say, let's not do that anymore?
+[01:21:40.120 --> 01:21:40.840]   Right.
+[01:21:40.840 --> 01:21:42.040]   Or I don't even know.
+[01:21:42.040 --> 01:21:42.360]   Yeah.
+[01:21:42.360 --> 01:21:44.120]   Because it's hard to know what the truth is.
+[01:21:44.120 --> 01:21:45.000]   So what do you think?
+[01:21:45.000 --> 01:21:47.160]   So there's the truth and then there's my theory,
+[01:21:47.160 --> 01:21:50.920]   which is based loosely on how I understand the truth.
+[01:21:50.920 --> 01:21:52.600]   So first of all, everyone needs to know,
+[01:21:52.600 --> 01:21:54.280]   like Huawei is not a huge brand name.
+[01:21:54.280 --> 01:21:57.480]   It's mostly known in the United States as a smartphone maker.
+[01:21:57.480 --> 01:22:01.160]   But they are the world's largest telecom company.
+[01:22:01.160 --> 01:22:02.280]   So they are a giant.
+[01:22:02.280 --> 01:22:03.400]   They're bigger than AT&T.
+[01:22:03.400 --> 01:22:04.840]   They're just a huge company.
+[01:22:04.840 --> 01:22:07.000]   They make equipment and so on.
+[01:22:07.000 --> 01:22:13.480]   And my theory is that lots of governments believe very strongly
+[01:22:13.480 --> 01:22:19.240]   that their identity as a private company is a bit of a mirage
+[01:22:19.240 --> 01:22:21.640]   and that in fact they're an arm of the Chinese government.
+[01:22:21.640 --> 01:22:22.040]   Right.
+[01:22:22.040 --> 01:22:22.680]   And a tool--
+[01:22:22.680 --> 01:22:24.040]   Yeah, you hear that time and time again.
+[01:22:24.040 --> 01:22:24.040]   Yeah.
+[01:22:24.040 --> 01:22:27.960]   For them to achieve the objectives of the Chinese government,
+[01:22:27.960 --> 01:22:30.760]   one of their objectives that everybody's freaked out about
+[01:22:30.760 --> 01:22:33.160]   is that the Chinese government wants to have
+[01:22:33.800 --> 01:22:36.600]   access to the future of 5G.
+[01:22:36.600 --> 01:22:38.440]   Everybody knows 5G's coming.
+[01:22:38.440 --> 01:22:41.400]   It's going to be super expensive and time consuming
+[01:22:41.400 --> 01:22:43.000]   to switch everything over to 5G.
+[01:22:43.000 --> 01:22:47.000]   And once they're there, they're going to want to--
+[01:22:47.000 --> 01:22:50.360]   the Chinese government would love to have access
+[01:22:50.360 --> 01:22:53.400]   to all of those points of whatever.
+[01:22:53.400 --> 01:22:58.040]   And the Chinese government says that's ridiculous.
+[01:22:58.040 --> 01:23:00.840]   They're a private company and Huawei says the same thing.
+[01:23:00.840 --> 01:23:03.800]   But this is the suspicion that it's not a Republican thing
+[01:23:03.800 --> 01:23:04.600]   or a Democrat thing.
+[01:23:04.600 --> 01:23:05.960]   This is since Bill Clinton.
+[01:23:05.960 --> 01:23:08.600]   This has been the strong belief of the intelligence agencies
+[01:23:08.600 --> 01:23:11.080]   in the United States, Britain, Germany, Australia,
+[01:23:11.080 --> 01:23:13.080]   a whole bunch of countries.
+[01:23:13.080 --> 01:23:15.160]   And so they can't prove it.
+[01:23:15.160 --> 01:23:17.720]   They don't have really strong evidence for it,
+[01:23:17.720 --> 01:23:19.240]   but they believe that this is essentially
+[01:23:19.240 --> 01:23:21.000]   the Chinese government that's taken over--
+[01:23:21.000 --> 01:23:22.040]   wants to take over 5G,
+[01:23:22.040 --> 01:23:24.440]   that wants to have smartphones all over the place.
+[01:23:24.440 --> 01:23:26.440]   And so they just oppose it.
+[01:23:26.440 --> 01:23:31.320]   And so there's the claim that they may use Huawei equipment
+[01:23:31.320 --> 01:23:35.320]   as a spy tool sounds like conspiracy theory or hysteria.
+[01:23:35.320 --> 01:23:37.400]   And it might be.
+[01:23:37.400 --> 01:23:41.480]   But that's what is believed.
+[01:23:41.480 --> 01:23:43.640]   And in addition to that,
+[01:23:43.640 --> 01:23:46.120]   the company did, in fact, separately from that,
+[01:23:46.120 --> 01:23:48.120]   having nothing to do with whether or not they're the government,
+[01:23:48.120 --> 01:23:49.880]   having nothing to do with whether or not they're spying.
+[01:23:49.880 --> 01:23:54.760]   Apparently, wanted to sell equipment to Iran.
+[01:23:54.760 --> 01:23:56.520]   There are US has sanctions in place
+[01:23:56.520 --> 01:23:58.840]   where it punishes companies and do business with Iran.
+[01:23:58.840 --> 01:24:01.480]   So they created a Hong Kong-based company called Skycom.
+[01:24:01.480 --> 01:24:05.400]   And it was just Huawei, but it was just--
+[01:24:05.400 --> 01:24:08.440]   they pretended like it was a separate company.
+[01:24:08.440 --> 01:24:10.600]   Skycom sold equipment to Iran.
+[01:24:10.600 --> 01:24:12.680]   And when they interact with the banks--
+[01:24:12.680 --> 01:24:16.680]   because the banks have to enforce this sanctions--
+[01:24:16.680 --> 01:24:19.160]   they said, no, no, we were not associated with Skycom in any way.
+[01:24:19.160 --> 01:24:20.680]   When, in fact, it was just Huawei.
+[01:24:20.680 --> 01:24:23.080]   There was a whole new old subsidiary of Huawei.
+[01:24:24.440 --> 01:24:25.560]   That's what this is all about.
+[01:24:25.560 --> 01:24:27.880]   That's what the fraud conspiracy--
+[01:24:27.880 --> 01:24:30.520]   and then the related charges of obstruction,
+[01:24:30.520 --> 01:24:32.200]   and then the money laundering is a separate thing.
+[01:24:32.200 --> 01:24:36.040]   So in addition to this fear of the future of espionage,
+[01:24:36.040 --> 01:24:39.000]   there appear to be--
+[01:24:39.000 --> 01:24:41.960]   the claim is that there are actual violations of law
+[01:24:41.960 --> 01:24:44.040]   around violating Iran sanctions.
+[01:24:44.040 --> 01:24:45.480]   That's what this is all about.
+[01:24:45.480 --> 01:24:46.040]   So--
+[01:24:46.040 --> 01:24:48.840]   That, and then there's also an IP theft,
+[01:24:48.840 --> 01:24:51.480]   or intellectual property theft for T-Mobile.
+[01:24:51.480 --> 01:24:52.440]   That's the best one.
+[01:24:53.320 --> 01:24:56.280]   So T-Mobile had this robot that was advanced.
+[01:24:56.280 --> 01:24:58.120]   This is years ago, actually, that this happened.
+[01:24:58.120 --> 01:24:59.720]   A robot called Tappy.
+[01:24:59.720 --> 01:25:02.520]   And it was a way to simulate a bunch of users on phones,
+[01:25:02.520 --> 01:25:05.560]   which various Chinese companies are super interested in
+[01:25:05.560 --> 01:25:07.000]   for a whole bunch of reasons.
+[01:25:07.000 --> 01:25:10.600]   And so a bunch of Huawei engineers were given access by T-Mobile
+[01:25:10.600 --> 01:25:12.360]   to look at Tappy.
+[01:25:12.360 --> 01:25:15.080]   They all signed agreements, not none, whatever.
+[01:25:15.080 --> 01:25:19.800]   But the accusation is that not only did they take a lot of pictures,
+[01:25:19.800 --> 01:25:20.760]   did a bunch of measurements,
+[01:25:20.760 --> 01:25:23.320]   just trying to extract as much information as possible.
+[01:25:23.320 --> 01:25:26.040]   But they actually broke Tappy's arm off and stole it.
+[01:25:26.040 --> 01:25:29.400]   So this is the accusation.
+[01:25:29.400 --> 01:25:30.360]   This is the IP theft.
+[01:25:30.360 --> 01:25:31.400]   So poor Tappy--
+[01:25:31.400 --> 01:25:31.880]   Whirl.
+[01:25:31.880 --> 01:25:32.360]   The one on--
+[01:25:32.360 --> 01:25:35.400]   They actually broke an actual arm off of a robot.
+[01:25:35.400 --> 01:25:37.320]   This is the arm off of a robot named Tappy.
+[01:25:37.320 --> 01:25:39.400]   I didn't know if that was just like code for it.
+[01:25:39.400 --> 01:25:41.000]   They figured out how to make it work.
+[01:25:41.000 --> 01:25:41.480]   No.
+[01:25:41.480 --> 01:25:44.600]   They literally ripped his arm off of his shoulder socket.
+[01:25:44.600 --> 01:25:45.160]   All right, do that.
+[01:25:45.160 --> 01:25:46.040]   Stuffed in their pocket.
+[01:25:46.040 --> 01:25:48.360]   And so that's the accusation.
+[01:25:48.360 --> 01:25:50.280]   So there it is.
+[01:25:50.280 --> 01:25:53.800]   And so one of the things that I think is really interesting
+[01:25:53.800 --> 01:25:59.640]   is that the CEO who is the founder of Huawei's daughter,
+[01:25:59.640 --> 01:26:04.760]   by the way, this is a nice little piece of trivia, Meng Wan Zhao.
+[01:26:04.760 --> 01:26:09.080]   She was arrested by Canadian authorities
+[01:26:09.080 --> 01:26:12.760]   because the US wanted her extradited US to face these charges.
+[01:26:12.760 --> 01:26:20.200]   And the speed and ferocity of the Chinese government's response
+[01:26:21.160 --> 01:26:23.880]   kind of makes me think, huh, that's weird.
+[01:26:23.880 --> 01:26:26.600]   Because the Chinese government is behaving as if
+[01:26:26.600 --> 01:26:29.000]   this was done to a diplomat or something.
+[01:26:29.000 --> 01:26:31.800]   Well, because, I mean, from what I understand,
+[01:26:31.800 --> 01:26:36.680]   Huawei in China is one of the premier brands.
+[01:26:36.680 --> 01:26:37.240]   Yeah.
+[01:26:37.240 --> 01:26:41.400]   So and is very critical to the economy there, right?
+[01:26:41.400 --> 01:26:43.720]   Like, I mean, there's so much money.
+[01:26:43.720 --> 01:26:44.760]   That's one theory.
+[01:26:44.760 --> 01:26:47.080]   The other theory is that they're actually a wing of the--
+[01:26:47.080 --> 01:26:51.240]   of the People's whatever army, right?
+[01:26:51.240 --> 01:26:54.360]   That's the accusation that they're actually a part of the military
+[01:26:54.360 --> 01:26:58.760]   not the military industrial complex, the military of China.
+[01:26:58.760 --> 01:27:06.680]   And so they're considered like a potential military espionage scheme.
+[01:27:06.680 --> 01:27:09.240]   So what I wonder, though, is--
+[01:27:09.240 --> 01:27:12.840]   So I think that's a very, very good reporting on all of that.
+[01:27:12.840 --> 01:27:13.320]   And thank you.
+[01:27:15.480 --> 01:27:19.880]   Proof will be in the pudding if this just becomes a pawn
+[01:27:19.880 --> 01:27:21.720]   in the larger trade negotiation.
+[01:27:21.720 --> 01:27:22.280]   Yes.
+[01:27:22.280 --> 01:27:23.080]   No, never mind.
+[01:27:23.080 --> 01:27:23.480]   Right.
+[01:27:23.480 --> 01:27:28.520]   Then that's what I'll decide how real the concern really was.
+[01:27:28.520 --> 01:27:28.840]   Yeah.
+[01:27:28.840 --> 01:27:31.320]   And that is my fear as well.
+[01:27:31.320 --> 01:27:33.000]   The timing is super suspicious.
+[01:27:33.000 --> 01:27:33.480]   Yeah, it is.
+[01:27:33.480 --> 01:27:37.480]   This is like perfect timing to use it as a pawn in these negotiations.
+[01:27:37.480 --> 01:27:40.920]   And that's exactly how President Trump negotiates.
+[01:27:40.920 --> 01:27:44.040]   He does something horrible, and then they negotiate about the removal,
+[01:27:44.040 --> 01:27:44.920]   but a horrible thing.
+[01:27:44.920 --> 01:27:45.240]   Right.
+[01:27:45.640 --> 01:27:48.520]   And then he comes out ahead--
+[01:27:48.520 --> 01:27:51.240]   this is the theory behind that style of negotiation.
+[01:27:51.240 --> 01:27:57.800]   However, the specifics in the indictment are look pretty solid.
+[01:27:57.800 --> 01:28:04.520]   And I can't speak to the timing, but this seems like they very well may have done these things.
+[01:28:04.520 --> 01:28:06.840]   And so there it is.
+[01:28:06.840 --> 01:28:09.400]   And that also raises the larger question about
+[01:28:09.400 --> 01:28:14.360]   America's control of the global financial system when the US puts
+[01:28:15.320 --> 01:28:17.000]   trade sanctions on a country.
+[01:28:17.000 --> 01:28:25.160]   There's a lot of pushback on that idea, that power by China and Russia and others, Iran,
+[01:28:25.160 --> 01:28:28.840]   because that's kind of devastating.
+[01:28:28.840 --> 01:28:31.800]   That's a whole other question.
+[01:28:31.800 --> 01:28:35.960]   But yeah, I certainly hope this isn't just a bargaining chip.
+[01:28:35.960 --> 01:28:37.800]   That would be awful.
+[01:28:37.800 --> 01:28:45.560]   You think Meng faces big time prison sense potentially here in the US.
+[01:28:45.560 --> 01:28:47.480]   I guess so.
+[01:28:47.480 --> 01:28:51.640]   But potentially, it kind of seems like this is the kind of thing that they probably negotiate
+[01:28:51.640 --> 01:28:52.200]   around that.
+[01:28:52.200 --> 01:28:52.600]   Yeah.
+[01:28:52.600 --> 01:28:53.560]   But you got Canadian--
+[01:28:53.560 --> 01:28:54.680]   That would be a game, right?
+[01:28:54.680 --> 01:29:00.200]   But you also have Canadians who are in jail and China probably in retribution for the
+[01:29:00.200 --> 01:29:01.080]   Canada's arrest.
+[01:29:01.080 --> 01:29:05.400]   And a lot of people's laws are wrapped up in this.
+[01:29:05.400 --> 01:29:05.800]   Yeah.
+[01:29:05.800 --> 01:29:06.520]   Yep.
+[01:29:06.520 --> 01:29:11.400]   And yeah, and you know, she'll probably end up sharing a jail cell with El Chapo.
+[01:29:11.400 --> 01:29:15.320]   That'll be an interesting situation.
+[01:29:15.320 --> 01:29:16.040]   The odd couple.
+[01:29:16.040 --> 01:29:16.360]   But--
+[01:29:16.360 --> 01:29:17.800]   Well, I didn't know El Chapo.
+[01:29:17.800 --> 01:29:19.560]   So he's on trial in Brooklyn.
+[01:29:19.560 --> 01:29:20.200]   Yeah.
+[01:29:20.200 --> 01:29:23.320]   He's staying in the basement of the building because every time they're trying to transport
+[01:29:23.320 --> 01:29:25.480]   him across, they had to close the Brooklyn Bridge.
+[01:29:25.480 --> 01:29:25.720]   Yes.
+[01:29:25.720 --> 01:29:27.640]   Hilarious.
+[01:29:27.640 --> 01:29:28.760]   I mean, the guy's a master.
+[01:29:28.760 --> 01:29:32.440]   So if you're not familiar with this character, he's a master tunnel.
+[01:29:32.440 --> 01:29:34.440]   He's escaped from multiple Mexican prisons.
+[01:29:34.440 --> 01:29:34.920]   Right.
+[01:29:34.920 --> 01:29:37.640]   The most spectacular case was he just--
+[01:29:37.640 --> 01:29:39.560]   They had a camera on him 24/7.
+[01:29:39.560 --> 01:29:43.560]   And one day he just got up from his bunk and just disappeared behind the toilet.
+[01:29:43.560 --> 01:29:49.080]   And they all panicked when scrambling to his cell, opened it up, ripped off the toilet,
+[01:29:49.080 --> 01:29:50.280]   and there was a tunnel.
+[01:29:50.280 --> 01:29:51.640]   And in there was a track.
+[01:29:51.640 --> 01:29:55.160]   And what they'd built is a custom motorcycle that had like train track bottom.
+[01:29:55.160 --> 01:29:59.720]   And he just-- and he got on this track and just hit the gas on this motorcycle and went a mile
+[01:29:59.720 --> 01:30:03.480]   in a mile long tunnel and then came out of a private house
+[01:30:04.040 --> 01:30:06.120]   in town and disappeared into the ether.
+[01:30:06.120 --> 01:30:07.640]   This guy is--
+[01:30:07.640 --> 01:30:11.000]   He's not going to be troggled with in terms of jail breaks.
+[01:30:11.000 --> 01:30:11.960]   He's really good at it.
+[01:30:11.960 --> 01:30:12.280]   Wow.
+[01:30:12.280 --> 01:30:14.600]   How do you even do that?
+[01:30:14.600 --> 01:30:15.160]   Yeah.
+[01:30:15.160 --> 01:30:16.920]   I don't know.
+[01:30:16.920 --> 01:30:19.240]   I guess we'll have to interview El Chapo at one of these days.
+[01:30:19.240 --> 01:30:20.680]   Figure that out.
+[01:30:20.680 --> 01:30:24.040]   How do you break out of jail?
+[01:30:24.040 --> 01:30:30.360]   And then how do we think this is going to affect Huawei in its sales?
+[01:30:30.360 --> 01:30:34.840]   And actually, I think maybe the more interesting direction that I actually want to go.
+[01:30:34.840 --> 01:30:38.200]   Like I'm thinking about going in this smartphone sales direction.
+[01:30:38.200 --> 01:30:43.400]   But then what I really want to talk about is innovation, like this new brand of like--
+[01:30:43.400 --> 01:30:50.680]   we're used to seeing Chinese phones be a few steps ahead in terms of innovation.
+[01:30:50.680 --> 01:30:54.120]   And right now at this particular moment, we're seeing some really kooky things.
+[01:30:54.120 --> 01:30:56.760]   I'm curious to hear your guys' take on it.
+[01:30:56.760 --> 01:30:58.120]   I hope we're going to talk about the folding--
+[01:30:58.680 --> 01:30:59.800]   Yeah, let's start there.
+[01:30:59.800 --> 01:31:07.320]   Xiaomi has posted to Weibo, I believe, last week a video of--
+[01:31:07.320 --> 01:31:10.760]   I think one of their senior level--
+[01:31:10.760 --> 01:31:15.240]   Yeah, his co-founder and president, Bin Lin, has a tablet device.
+[01:31:15.240 --> 01:31:17.880]   It's kind of like in a portrait setup tablet device.
+[01:31:17.880 --> 01:31:19.400]   Got a little bit of an arc to it.
+[01:31:19.400 --> 01:31:23.560]   And I don't know if the video-- if I included the video for you, John, and I'm sorry if I didn't.
+[01:31:23.560 --> 01:31:24.920]   But anyways, he's using it.
+[01:31:24.920 --> 01:31:27.720]   Suddenly he flips it over, folds the sides in,
+[01:31:27.720 --> 01:31:30.200]   and it becomes a phone in portrait.
+[01:31:30.200 --> 01:31:32.600]   With screen on everything.
+[01:31:32.600 --> 01:31:36.840]   It's like your quintessential modern foldable phone concept.
+[01:31:36.840 --> 01:31:38.440]   You can kind of see a little bit of it down there.
+[01:31:38.440 --> 01:31:45.320]   So I did an analysis, I think three or four months, three months ago or something about this whole
+[01:31:45.320 --> 01:31:46.360]   folding phone phenomena.
+[01:31:46.360 --> 01:31:49.720]   Because Samsung has dangled some folding screen phones--
+[01:31:49.720 --> 01:31:52.760]   We're going to get something probably in weeks from Samsung.
+[01:31:52.760 --> 01:31:54.040]   Microsoft has a bunch of patents.
+[01:31:54.040 --> 01:31:55.800]   There's a lot going on.
+[01:31:55.800 --> 01:31:57.480]   And it seems like, oh, that's the next big thing.
+[01:31:57.480 --> 01:31:58.280]   No, it is not.
+[01:31:58.280 --> 01:32:02.760]   So these folding phones are not about to change the smartphone.
+[01:32:02.760 --> 01:32:04.040]   Oh, come on, Mike.
+[01:32:04.040 --> 01:32:08.760]   First of all, so you guys reported on all about Android, the amount of RAM in this thing.
+[01:32:08.760 --> 01:32:11.720]   What was it like-- I think 16 gigs or something like--
+[01:32:11.720 --> 01:32:13.080]   12, possibly.
+[01:32:13.080 --> 01:32:14.280]   It could have been 16.
+[01:32:14.280 --> 01:32:15.400]   Pretty substantial.
+[01:32:15.400 --> 01:32:20.520]   Because they're very resource intensive, which means they're going to be very battery intensive.
+[01:32:20.520 --> 01:32:24.520]   And all of it, the combined with the technology and all the stuff that goes with it,
+[01:32:24.520 --> 01:32:26.040]   means that they're going to be very, very expensive.
+[01:32:26.040 --> 01:32:30.280]   So a phone like that that he demonstrated, they could go to market within the next year or so.
+[01:32:30.280 --> 01:32:32.840]   That thing was going to be thousands of dollars.
+[01:32:32.840 --> 01:32:33.480]   Right.
+[01:32:33.480 --> 01:32:35.640]   Well, and that's in line with what we're seeing here at--
+[01:32:35.640 --> 01:32:37.560]   Leo, Leo, well, biasing for the guarantee.
+[01:32:37.560 --> 01:32:38.120]   Nobody else.
+[01:32:38.120 --> 01:32:39.080]   Leo, well, Leo.
+[01:32:39.080 --> 01:32:39.640]   And then--
+[01:32:39.640 --> 01:32:40.840]   Leo, I hope he doesn't want to see it.
+[01:32:40.840 --> 01:32:43.720]   And it'll be good material for his comedy over the next year,
+[01:32:43.720 --> 01:32:46.600]   while he talk about how he'd like lost all this money on this piece of junk.
+[01:32:46.600 --> 01:32:51.160]   And the other thing is that when you think about wear and tear on any sort of physical advice,
+[01:32:51.160 --> 01:32:54.920]   it just reasons suggest that opening closing, folding, unfolding,
+[01:32:54.920 --> 01:32:58.360]   this thing is-- and you can even see it, even with all the prototypes,
+[01:32:58.360 --> 01:33:00.200]   they try to do special lighting and stuff on stage,
+[01:33:00.200 --> 01:33:02.600]   they try to dazzle everybody with this new technology.
+[01:33:02.600 --> 01:33:06.760]   You can see that when it's fully folded out, it's never flat.
+[01:33:06.760 --> 01:33:07.400]   It's always kind of--
+[01:33:07.400 --> 01:33:09.080]   It had it kind of like a bump.
+[01:33:09.080 --> 01:33:13.000]   And it has a memory about where it was creased and all that kind of stuff.
+[01:33:13.000 --> 01:33:13.480]   It's just--
+[01:33:13.480 --> 01:33:15.880]   Yes, I believe in all that, Adirid, we call that the pucker.
+[01:33:15.880 --> 01:33:18.840]   Yeah, to quote Steve Jobs about the stylist.
+[01:33:18.840 --> 01:33:19.480]   Yeah.
+[01:33:19.480 --> 01:33:20.520]   Right?
+[01:33:20.520 --> 01:33:21.240]   Nobody wants that.
+[01:33:21.240 --> 01:33:26.040]   And the thing to me is between that and the other phone that has no buttons of any sort,
+[01:33:26.040 --> 01:33:28.600]   it's just this idea of class.
+[01:33:28.600 --> 01:33:32.600]   So you hear the platform, you hear people at Facebook and elsewhere talking about things.
+[01:33:32.600 --> 01:33:33.640]   They talk about the surface.
+[01:33:33.640 --> 01:33:35.480]   There's a surface for this and a surface for that.
+[01:33:35.480 --> 01:33:35.640]   Yeah.
+[01:33:35.640 --> 01:33:37.400]   It's the way they kind of think of it, right?
+[01:33:37.400 --> 01:33:42.040]   And now you rethink that surface and how anything can be done on it.
+[01:33:42.040 --> 01:33:45.880]   And these things can be anywhere and you can interact with them.
+[01:33:45.880 --> 01:33:50.600]   It just starts to open up your mind about not just this single device
+[01:33:50.600 --> 01:33:52.760]   that you carry around that operates in certain ways.
+[01:33:52.760 --> 01:33:56.520]   It starts to at least make us think about other ways that we can interact with them.
+[01:33:56.520 --> 01:33:57.240]   That's true.
+[01:33:57.240 --> 01:33:57.800]   Yeah.
+[01:33:57.800 --> 01:34:03.720]   Well, and I do think we're on-- the revolution we are on the brink of is the revolution of
+[01:34:03.720 --> 01:34:10.520]   screens everywhere, intelligence in everything where-- and we talked about this, I think, on
+[01:34:10.520 --> 01:34:17.240]   Twitch a couple months ago, where it will be such a radical shift that the concept of
+[01:34:17.240 --> 01:34:23.800]   sitting down to use a computer will seem quaint to kids who are like now 10 years old when they
+[01:34:23.800 --> 01:34:27.320]   hear us geezers talking about how like, oh, we're going to sit down and use a computer.
+[01:34:27.320 --> 01:34:28.520]   They're like, what are you talking about?
+[01:34:28.520 --> 01:34:30.600]   Because you'll never not be using a computer.
+[01:34:30.600 --> 01:34:31.800]   There'll be everywhere.
+[01:34:31.800 --> 01:34:35.160]   They'll be listening for your command at all times.
+[01:34:35.160 --> 01:34:40.520]   And you'll have augmented reality in your classes and virtual reality will always be nearby.
+[01:34:40.520 --> 01:34:43.960]   And the window in your office will be a screen and it'll just go on and on.
+[01:34:44.520 --> 01:34:47.880]   It'll be, in my view, a kind of paradise.
+[01:34:47.880 --> 01:34:51.000]   I'm sure there'll be downsides to it, but it sounds great to me.
+[01:34:51.000 --> 01:34:52.920]   The future is not folding smartphones.
+[01:34:52.920 --> 01:34:53.880]   Smartphones?
+[01:34:53.880 --> 01:34:54.360]   Smarter phones?
+[01:34:54.360 --> 01:34:56.120]   Folding smartphones is how you get there.
+[01:34:56.120 --> 01:34:56.360]   Right.
+[01:34:56.360 --> 01:35:01.880]   Well, folding smartphones is, to me, an example of desperately throwing advanced technology
+[01:35:01.880 --> 01:35:04.120]   at a platform in order to milk it some more.
+[01:35:04.120 --> 01:35:05.000]   But it's over.
+[01:35:05.000 --> 01:35:10.280]   The smartphone margins, even apples, is struggling to make those margins.
+[01:35:10.280 --> 01:35:15.240]   They're commodity devices, the innovation is in the AI, in the phone, in the services that you use.
+[01:35:15.240 --> 01:35:20.280]   And in terms of user interfaces, it's going to be screens everywhere, screens in your glasses,
+[01:35:20.280 --> 01:35:22.280]   augmented reality, and lots of other things.
+[01:35:22.280 --> 01:35:27.480]   Voice interfaces are going to change everything, but it's not going to be folding smartphones.
+[01:35:27.480 --> 01:35:33.080]   It's both too early and too late for folding smartphones.
+[01:35:33.080 --> 01:35:36.440]   Will it be buttonless, portless phones?
+[01:35:36.440 --> 01:35:42.840]   Sure. But the interface that will enable it will be voice, because if you can talk to it and it
+[01:35:42.840 --> 01:35:46.040]   does things for you, then you don't need to be poking at it.
+[01:35:46.040 --> 01:35:49.880]   It's not going to be flexible screens.
+[01:35:49.880 --> 01:35:53.080]   If flexible screens have a place, as long as you don't flex them.
+[01:35:53.080 --> 01:35:56.680]   So, for example, all these phones that have the screen that kind of go around the edge,
+[01:35:56.680 --> 01:35:58.120]   those are flexible screen phones.
+[01:35:58.120 --> 01:35:59.880]   But you can't do anything with them.
+[01:35:59.880 --> 01:36:04.120]   As long as you don't move it, you know, bend it, then it's great.
+[01:36:04.120 --> 01:36:09.720]   It's not the vision that we have of unrolling a scroll and having that be a display that
+[01:36:09.720 --> 01:36:12.040]   you can roll up into a nice roll and score away.
+[01:36:12.040 --> 01:36:16.600]   I think there'll be uses for that, but it's not going to be the smartphone replacement.
+[01:36:16.600 --> 01:36:21.000]   I think there'll be things, smart placemats for dinner table.
+[01:36:21.000 --> 01:36:22.200]   I don't know what it is.
+[01:36:22.200 --> 01:36:23.240]   There'll be objects.
+[01:36:23.240 --> 01:36:26.360]   There'll be IoT objects that happen to have screens that fold.
+[01:36:26.360 --> 01:36:32.360]   But it's not going to be, we've really been all been empowered by having supercomputers in our pockets.
+[01:36:33.000 --> 01:36:34.120]   They do everything for us.
+[01:36:34.120 --> 01:36:37.560]   They've replaced flashlights, everything from flashlights to radios to this to that, whatever.
+[01:36:37.560 --> 01:36:43.880]   That is a powerful thing and will continue to be a powerful thing until we get all these
+[01:36:43.880 --> 01:36:46.280]   next generation things years and years in the future.
+[01:36:46.280 --> 01:36:50.600]   But there's not going to be a period where it's got folding or even a significant minority
+[01:36:50.600 --> 01:36:51.720]   has folding screen phones.
+[01:36:51.720 --> 01:36:52.360]   They're too expensive.
+[01:36:52.360 --> 01:36:53.320]   They're too unreliable.
+[01:36:53.320 --> 01:36:54.040]   They're too ugly.
+[01:36:54.040 --> 01:36:56.680]   There are too many problems with these things.
+[01:36:56.680 --> 01:37:00.600]   And these companies are trying to dazzle everybody with this next generation technology.
+[01:37:00.600 --> 01:37:04.520]   Yes, the technology is impressive as technology.
+[01:37:04.520 --> 01:37:07.880]   Yes, companies have been working on it for decades and they're finally getting to the point
+[01:37:07.880 --> 01:37:09.400]   where it kind of functions.
+[01:37:09.400 --> 01:37:16.840]   But all this dazzling demo stuff is not going to result in a revolution in a consumer marketplace.
+[01:37:16.840 --> 01:37:22.520]   The phone is so last era of technology.
+[01:37:22.520 --> 01:37:23.640]   What is the next era?
+[01:37:23.640 --> 01:37:27.720]   You guys did a great job in all about Android about heckling this whole thing.
+[01:37:27.720 --> 01:37:30.280]   But even in the demo, it's just like...
+[01:37:30.280 --> 01:37:32.440]   Yeah, so we're going to clunk it together.
+[01:37:32.440 --> 01:37:36.120]   And even when you watch it, like once it snaps into place, you see the UI, like if you
+[01:37:36.120 --> 01:37:39.640]   tend to corrections before it finally figures it out and frames properly.
+[01:37:39.640 --> 01:37:39.800]   Right.
+[01:37:39.800 --> 01:37:42.600]   You're always touching the touch screen and the sun things are launching.
+[01:37:42.600 --> 01:37:42.600]   Yes.
+[01:37:42.600 --> 01:37:44.920]   How do you reject your fingers and everything?
+[01:37:44.920 --> 01:37:50.200]   One thing that struck me while you were talking about this tech utopia, this future where
+[01:37:50.200 --> 01:37:54.280]   technology where screens are everywhere and then that's going to be a wonderful place,
+[01:37:54.840 --> 01:38:02.200]   makes me wonder if we aren't as users of technology conflicted with what we actually want.
+[01:38:02.200 --> 01:38:11.400]   On one hand, that sounds like a tech enthusiast desire to have all this technology everywhere.
+[01:38:11.400 --> 01:38:15.080]   And it knows what you want before you know it and it can predict all this stuff.
+[01:38:15.080 --> 01:38:21.720]   At the same time, that's exactly a lot of the same stuff that we criticize technology companies
+[01:38:21.720 --> 01:38:22.200]   for doing.
+[01:38:22.200 --> 01:38:22.680]   Right.
+[01:38:22.680 --> 01:38:23.400]   Exactly.
+[01:38:23.400 --> 01:38:24.680]   How do we find that balance?
+[01:38:24.680 --> 01:38:30.600]   How is there a connective tissue between one point where it's bad?
+[01:38:30.600 --> 01:38:33.240]   We don't want that, but yet we want the outcome of it.
+[01:38:33.240 --> 01:38:35.080]   If we can't have it, here's the rule.
+[01:38:35.080 --> 01:38:36.520]   If we can't have it, it's good.
+[01:38:36.520 --> 01:38:37.720]   Once we get it, it's bad.
+[01:38:37.720 --> 01:38:38.200]   Oh, great.
+[01:38:38.200 --> 01:38:44.280]   I mean, it's almost impossible to predict technology.
+[01:38:44.280 --> 01:38:44.680]   Yeah.
+[01:38:44.680 --> 01:38:48.360]   When you look back at the predictions from the late 20th century about what happened in the
+[01:38:48.360 --> 01:38:53.320]   future, nobody said, "Oh, we're going to have these social networks attract people and
+[01:38:53.320 --> 01:38:54.520]   do all this kind of..."
+[01:38:54.520 --> 01:38:57.400]   We're going to have flying cars and jetpacks and it was going to be amazing.
+[01:38:57.400 --> 01:39:02.520]   The truth is, as Jeff alluded earlier, in fact, it has been transformed.
+[01:39:02.520 --> 01:39:04.280]   It has changed our lives.
+[01:39:04.280 --> 01:39:08.520]   The phones, smartphones especially, but lots of technology has really, really changed our
+[01:39:08.520 --> 01:39:11.880]   lives despite all the problems we're experiencing societally.
+[01:39:11.880 --> 01:39:15.720]   So it's impossible to say what those future problems will be.
+[01:39:15.720 --> 01:39:17.640]   I'm sure that we will have them.
+[01:39:17.640 --> 01:39:17.880]   Yeah.
+[01:39:17.880 --> 01:39:18.920]   There will be abuses.
+[01:39:18.920 --> 01:39:21.640]   There'll be lots and lots of problems.
+[01:39:21.640 --> 01:39:27.720]   I think that the greatest, not to keep harping on China, but I think the greatest
+[01:39:27.720 --> 01:39:33.560]   laboratory for what's possible in terms of abuse by technologies happening in China,
+[01:39:33.560 --> 01:39:34.920]   they're becoming an Orwellian-
+[01:39:34.920 --> 01:39:35.400]   Oh, I think-
+[01:39:35.400 --> 01:39:36.120]   ... completely state.
+[01:39:36.120 --> 01:39:37.720]   ... where they're tracking everybody.
+[01:39:37.720 --> 01:39:42.280]   The social credit thing, the most recent news is that, I don't know if it's a news or rumor,
+[01:39:42.280 --> 01:39:46.040]   or somebody in the chat room can let me know if this is actually verified news or just a rumor
+[01:39:46.040 --> 01:39:47.320]   that I'm mongering here.
+[01:39:47.320 --> 01:39:54.760]   But there's an app or something where if you get within a certain number of yards of somebody who
+[01:39:54.760 --> 01:39:58.200]   owes money, that it alerts you, so you can turn them in.
+[01:39:58.200 --> 01:40:03.400]   They're going in directions that are extremely dark.
+[01:40:03.400 --> 01:40:03.880]   Wow.
+[01:40:03.880 --> 01:40:10.840]   Well, I mean, yeah, it just always kind of reminds me of Black Mirror, that social currency
+[01:40:10.840 --> 01:40:15.960]   episode of Black Mirror, and watching that and being like, man, that's a strange world,
+[01:40:15.960 --> 01:40:18.680]   and then realizing that it's already happening in China.
+[01:40:18.680 --> 01:40:25.480]   And if that is a foundation that's actively operating there,
+[01:40:25.480 --> 01:40:30.680]   I mean, who is to say that that doesn't end up everywhere else?
+[01:40:30.680 --> 01:40:34.920]   It doesn't end up here, maybe not in exactly that same way, but you better believe there are
+[01:40:34.920 --> 01:40:41.080]   lessons being learned about how it's implemented there that will be integrated into how it operates
+[01:40:41.080 --> 01:40:41.800]   here.
+[01:40:41.800 --> 01:40:44.120]   I mean, that might be looking into our future.
+[01:40:44.120 --> 01:40:48.520]   I mean, I think we're going to see a difference between free societies and unfree societies,
+[01:40:48.520 --> 01:40:53.160]   not based on who has technology and who doesn't, but who has the power to use that technology
+[01:40:53.160 --> 01:40:53.640]   at the right.
+[01:40:53.640 --> 01:40:54.920]   It's going to be a legal issue.
+[01:40:54.920 --> 01:40:59.560]   It's going to be a, you know, basically a situation.
+[01:40:59.560 --> 01:41:00.680]   So let me give you an example.
+[01:41:00.680 --> 01:41:04.680]   I wrote a column years and years ago called I Want to Live in a Surveillance Society.
+[01:41:04.680 --> 01:41:09.720]   Everybody's complaining about surveillance, cameras everywhere in London, like all this
+[01:41:09.720 --> 01:41:11.240]   surveillance was happening.
+[01:41:11.240 --> 01:41:16.920]   And my view was, okay, we're going to have surveillance technology, but the public gets it too.
+[01:41:16.920 --> 01:41:18.200]   Like we get to surveil them.
+[01:41:18.200 --> 01:41:19.720]   We get to watch the watchers.
+[01:41:19.720 --> 01:41:24.120]   It's not just every time there's a, and this is one of the things that, you know, you notice
+[01:41:24.120 --> 01:41:28.680]   if you're a technology historian over time, is that every time there's new technology,
+[01:41:28.680 --> 01:41:34.120]   the authorities, whoever they are, governments, police organizations, authoritarian governments,
+[01:41:34.120 --> 01:41:38.040]   free governments, everybody says, oh, great, there's new technology.
+[01:41:38.040 --> 01:41:44.120]   We can monopolize this to increase our power over our opponents, which in the case of law
+[01:41:44.120 --> 01:41:45.400]   enforcement is over the criminals.
+[01:41:45.400 --> 01:41:51.080]   So for example, you know, you, and then these things have to be dealt with in the courts.
+[01:41:51.080 --> 01:41:54.680]   So if all of a sudden you get new surveillance technology, right, please want to use it and
+[01:41:54.680 --> 01:41:59.160]   ban everybody else from using it, or the classic examples in interrogation.
+[01:41:59.160 --> 01:42:04.120]   Turgation rooms have existed forever, but as soon as there was inexpensive digital video,
+[01:42:04.120 --> 01:42:08.200]   now there's a camera in every interrogation room, that footage is used in courtrooms.
+[01:42:08.200 --> 01:42:15.640]   But only the police can decide whether it's on or not on or, you know, they have a one-sided
+[01:42:15.640 --> 01:42:20.200]   control over digital video surveillance technology in a situation where they are
+[01:42:20.200 --> 01:42:23.160]   mono, mono with a suspect, right?
+[01:42:23.160 --> 01:42:26.920]   So in there have been cases where people have secretly recorded interrogations
+[01:42:26.920 --> 01:42:28.360]   in court.
+[01:42:28.360 --> 01:42:31.880]   It was established based on those recordings that the police had lied.
+[01:42:31.880 --> 01:42:33.800]   I'm not anti-police here.
+[01:42:33.800 --> 01:42:39.400]   I'm, you know, there's some bad apples in every profession, even journalism.
+[01:42:39.400 --> 01:42:46.120]   And so in those cases, that's a perfect example of how, okay, if somebody's going to record an
+[01:42:46.120 --> 01:42:49.560]   interrogation, let's all record it, right?
+[01:42:49.560 --> 01:42:51.080]   And this is going to be the difference.
+[01:42:51.080 --> 01:42:56.600]   So the surveillance technology in China is only creepy because they are claiming a monopoly on
+[01:42:56.600 --> 01:42:57.560]   that ability.
+[01:42:57.560 --> 01:43:01.720]   If I also have an app that tells me when a creditor is coming to get me, if I owe money,
+[01:43:02.680 --> 01:43:04.760]   you know, that's a free society.
+[01:43:04.760 --> 01:43:05.320]   Yeah.
+[01:43:05.320 --> 01:43:09.000]   If only the people who are out to get the people who owe money have that technology,
+[01:43:09.000 --> 01:43:10.120]   that's an unfree society.
+[01:43:10.120 --> 01:43:11.080]   Anyway, right.
+[01:43:11.080 --> 01:43:13.400]   Great.
+[01:43:13.400 --> 01:43:14.120]   That's the future.
+[01:43:14.120 --> 01:43:16.120]   We're staring at the future.
+[01:43:16.120 --> 01:43:17.000]   Super depressing.
+[01:43:17.000 --> 01:43:18.680]   Thanks for cheering us up.
+[01:43:18.680 --> 01:43:23.000]   Why don't we cheer everyone up with a little Google change law?
+[01:43:23.000 --> 01:43:23.880]   Yeah.
+[01:43:23.880 --> 01:43:24.440]   Let's do it.
+[01:43:24.440 --> 01:43:28.520]   The Google change law.
+[01:43:28.520 --> 01:43:31.080]   Maybe there's some things in here that'll cheer you up.
+[01:43:31.960 --> 01:43:32.520]   Let's hear.
+[01:43:32.520 --> 01:43:35.640]   We kind of already did the Gmail update for Android.
+[01:43:35.640 --> 01:43:36.600]   It's getting brighter.
+[01:43:36.600 --> 01:43:37.720]   So look for that update.
+[01:43:37.720 --> 01:43:39.880]   I got it today and it does look better.
+[01:43:39.880 --> 01:43:42.040]   It's just not inbox.
+[01:43:42.040 --> 01:43:43.640]   Anyways, we've already talked about that.
+[01:43:43.640 --> 01:43:49.160]   If you've ever visited a site and you look up the URL bar and it looks like the right URL,
+[01:43:49.160 --> 01:43:52.360]   and then you realize, oh, wait a minute, they put in a character there that, you know,
+[01:43:52.360 --> 01:43:55.880]   basically a fraudulent URL to make you think you're going to one place when you're actually
+[01:43:55.880 --> 01:43:57.080]   going somewhere else.
+[01:43:57.080 --> 01:44:01.480]   Apparently, Google Chrome Canary 70 has introduced a
+[01:44:01.480 --> 01:44:04.520]   feature called navigation suggestions for lookalike URLs.
+[01:44:04.520 --> 01:44:11.800]   Once that flag is active, a panel will actually appear underneath the URL bar when it detects
+[01:44:11.800 --> 01:44:14.520]   that the URL is close but incorrect.
+[01:44:14.520 --> 01:44:19.160]   And it'll say something like, did you mean to go to paypal.com instead of pay pale or whatever
+[01:44:19.160 --> 01:44:19.800]   the case may be?
+[01:44:19.800 --> 01:44:25.000]   No word on when it's going to officially ship in the main release.
+[01:44:25.000 --> 01:44:27.160]   How was that a first step to killing the URL?
+[01:44:27.160 --> 01:44:28.120]   I have no idea.
+[01:44:28.120 --> 01:44:28.520]   You know what?
+[01:44:28.520 --> 01:44:29.320]   That might be a problem.
+[01:44:29.320 --> 01:44:30.920]   That was the wire and headlight head.
+[01:44:30.920 --> 01:44:32.760]   That might be the wrong way.
+[01:44:32.760 --> 01:44:37.400]   Well, I think, yeah, I think that's the wrong link, but that has something to do with.
+[01:44:37.400 --> 01:44:38.520]   No, it's the right link.
+[01:44:38.520 --> 01:44:43.800]   It's just, I mean, I may have pulled this information from a related story and it's not
+[01:44:43.800 --> 01:44:45.320]   talking about that particular thing.
+[01:44:45.320 --> 01:44:49.880]   Google has something going on right now where they're changing the omnibox
+[01:44:49.880 --> 01:44:52.360]   to show sites differently.
+[01:44:52.360 --> 01:44:53.400]   Maybe this is part of it.
+[01:44:53.400 --> 01:44:54.680]   I'm not really quite sure.
+[01:44:54.680 --> 01:44:57.560]   But anyways, whatever it is, I'm against it.
+[01:44:57.560 --> 01:44:58.520]   All right, good.
+[01:44:58.520 --> 01:44:59.160]   Good.
+[01:44:59.160 --> 01:45:00.360]   Thanks for the backup.
+[01:45:00.360 --> 01:45:04.040]   Speaking of the omnibox, let's see here.
+[01:45:04.040 --> 01:45:08.760]   Chrome is apparently kind of sprucing it up to make it a little bit more search friendly,
+[01:45:08.760 --> 01:45:11.720]   do more activities from there directly.
+[01:45:11.720 --> 01:45:15.240]   So if you want to copy a web page, you can see in that little screenshot
+[01:45:15.240 --> 01:45:16.360]   the page that you're on.
+[01:45:16.360 --> 01:45:20.440]   It has a little copy or share button right next to it.
+[01:45:20.440 --> 01:45:25.000]   So instead of having to go up there and copy the URL or whatever, it's like a single tap.
+[01:45:25.000 --> 01:45:26.840]   You can do that and move on with your life.
+[01:45:26.840 --> 01:45:29.400]   How many URLs do you think you copy per day?
+[01:45:29.400 --> 01:45:30.920]   In my case, it's probably 50.
+[01:45:30.920 --> 01:45:33.080]   I just constantly doing it.
+[01:45:33.080 --> 01:45:36.600]   Yeah, I don't know if it's that much, but definitely when I'm doing a show,
+[01:45:36.600 --> 01:45:38.280]   I'm copying URLs, left, right?
+[01:45:38.280 --> 01:45:39.240]   Oh, yeah, for sure.
+[01:45:39.240 --> 01:45:40.440]   That's absolutely.
+[01:45:40.440 --> 01:45:40.920]   It's tweeting.
+[01:45:40.920 --> 01:45:41.800]   So that would be nice.
+[01:45:41.800 --> 01:45:49.080]   Also adding voice input capabilities into the mobile search bar.
+[01:45:49.080 --> 01:45:50.440]   So kind of embedded in there.
+[01:45:50.440 --> 01:45:52.840]   I don't know if this appears on iOS.
+[01:45:52.840 --> 01:45:56.040]   I know in the mobile web search, it's appearing on Android.
+[01:45:56.040 --> 01:45:57.880]   I don't see why it wouldn't appear on iOS.
+[01:45:57.880 --> 01:46:03.560]   But basically, it's kind of one step more towards bringing Assistant into everything
+[01:46:03.560 --> 01:46:08.200]   that they're doing, bringing that voice search into the actual bar instead of just in the OS
+[01:46:08.200 --> 01:46:10.360]   that you're using or whatever the case may be.
+[01:46:10.360 --> 01:46:17.640]   And also, I think it will read your results out to you in its fun robotic voice, if you like.
+[01:46:17.640 --> 01:46:18.280]   That's awesome.
+[01:46:18.280 --> 01:46:21.240]   I like, I think this is pretty neat.
+[01:46:21.240 --> 01:46:22.600]   Of course, I have children.
+[01:46:23.160 --> 01:46:25.000]   But they might be a little old for this.
+[01:46:25.000 --> 01:46:26.600]   Maybe my five-year-old would like this.
+[01:46:26.600 --> 01:46:31.240]   Apparently, Google Home now works with a number of Disney,
+[01:46:31.240 --> 01:46:35.400]   those golden books that have the golden--
+[01:46:35.400 --> 01:46:38.760]   the golden-- what are our covers?
+[01:46:38.760 --> 01:46:46.040]   If you are reading a supported book and you tell Google Home to go into a particular mode,
+[01:46:46.040 --> 01:46:50.840]   like story time or something like that, it will listen to you as you read it.
+[01:46:50.840 --> 01:46:55.880]   And as you say certain words, it will time sound effects in music that coordinate
+[01:46:55.880 --> 01:46:56.840]   with that story.
+[01:46:56.840 --> 01:47:02.840]   So if it's Coco, for example, and you introduce this page where Coco comes in and plays a guitar,
+[01:47:02.840 --> 01:47:06.200]   suddenly Google Home is playing that guitar song or whatever.
+[01:47:06.200 --> 01:47:10.680]   Kind of a neat little interactive thing that Google Home is apparently doing with some
+[01:47:10.680 --> 01:47:11.320]   supported books.
+[01:47:11.320 --> 01:47:14.040]   I think there's like 20 books that are supported right now.
+[01:47:14.040 --> 01:47:16.920]   So who knows how many of those they're going to open up.
+[01:47:16.920 --> 01:47:17.400]   But--
+[01:47:17.400 --> 01:47:19.240]   As a parent, how do you-- what do you think about that?
+[01:47:19.240 --> 01:47:20.440]   I think it's neat.
+[01:47:20.440 --> 01:47:24.360]   I think you really have to go a long way to do that, though.
+[01:47:24.360 --> 01:47:24.680]   Right?
+[01:47:24.680 --> 01:47:28.200]   Like, I'd have to know that my Google Home supports this particular book.
+[01:47:28.200 --> 01:47:28.360]   Right?
+[01:47:28.360 --> 01:47:31.880]   I'd have to buy that book with the thought that, "Okay, I'm going to go home with it now.
+[01:47:31.880 --> 01:47:35.400]   Maybe they'll have something called out on the books that says works with your Google Home."
+[01:47:35.400 --> 01:47:37.400]   That might be a good way to raise awareness.
+[01:47:37.400 --> 01:47:39.480]   I'm-- honestly, I would probably forget.
+[01:47:39.480 --> 01:47:39.960]   Yeah.
+[01:47:39.960 --> 01:47:41.080]   Probably forget to use it.
+[01:47:41.080 --> 01:47:42.360]   But it's probably--
+[01:47:42.360 --> 01:47:42.760]   But it's neat.
+[01:47:42.760 --> 01:47:48.040]   First step in basically doing that for all books, for everybody maybe, or in an extreme case.
+[01:47:49.720 --> 01:47:52.920]   So yeah, I mean, I also think it might be a distraction.
+[01:47:52.920 --> 01:47:55.240]   It's like adding special effects to story time.
+[01:47:55.240 --> 01:47:58.680]   It's-- I think it's-- I mean, for especially really young children,
+[01:47:58.680 --> 01:48:05.480]   my own impulse would be to like, let's just teach the kids to immerse themselves in a book.
+[01:48:05.480 --> 01:48:05.800]   Yeah.
+[01:48:05.800 --> 01:48:06.520]   And the story.
+[01:48:06.520 --> 01:48:07.000]   And without the--
+[01:48:07.000 --> 01:48:07.960]   They can fill in the gaps.
+[01:48:07.960 --> 01:48:09.160]   Showbiz, totally.
+[01:48:09.160 --> 01:48:10.200]   The background.
+[01:48:10.200 --> 01:48:11.400]   For older kids, it might be fun.
+[01:48:11.400 --> 01:48:12.440]   I mean, who knows?
+[01:48:12.440 --> 01:48:15.640]   But it's-- I think we're going to get to the point where someday,
+[01:48:17.240 --> 01:48:21.560]   every book will be an audiobook automatically, where the reading of it,
+[01:48:21.560 --> 01:48:25.160]   special effects, all that stuff will be just compiled on the fly.
+[01:48:25.160 --> 01:48:28.680]   Probably five, 10 years away from something like that.
+[01:48:28.680 --> 01:48:29.960]   But this is a first step.
+[01:48:29.960 --> 01:48:31.800]   Yeah, it's neat.
+[01:48:31.800 --> 01:48:34.680]   Like, it's actually pretty familiar to me because we--
+[01:48:34.680 --> 01:48:39.800]   I can't remember the name of it, but my daughter has--
+[01:48:39.800 --> 01:48:44.040]   it's a stuffed animal and it has a computer inside of it and speaker and everything like that.
+[01:48:44.040 --> 01:48:46.920]   And there's a series of books that works with that animal.
+[01:48:46.920 --> 01:48:47.240]   Yeah.
+[01:48:47.240 --> 01:48:49.800]   That when you turn the animal on and you read the story,
+[01:48:49.800 --> 01:48:54.200]   it's always listening for these particular hot words in the story.
+[01:48:54.200 --> 01:48:54.280]   Yeah.
+[01:48:54.280 --> 01:48:59.320]   And when you get to that point in the story, that triggers the doll to like laugh or say,
+[01:48:59.320 --> 01:49:02.200]   "Oh, that was so funny," or whatever, or interact with the story.
+[01:49:02.200 --> 01:49:04.280]   So it reminds me a lot of that.
+[01:49:04.280 --> 01:49:07.400]   And I know when my daughters were younger, they loved that.
+[01:49:07.400 --> 01:49:08.360]   They thought that was awesome.
+[01:49:08.360 --> 01:49:08.600]   Right.
+[01:49:08.600 --> 01:49:10.440]   I'm telling the story and then all of a sudden,
+[01:49:10.440 --> 01:49:13.080]   the doll is talking to them and it's totally related.
+[01:49:13.080 --> 01:49:16.040]   So I could see it being a cool thing.
+[01:49:16.680 --> 01:49:18.520]   And then finally, I did not put this in here.
+[01:49:18.520 --> 01:49:19.560]   I think that--
+[01:49:19.560 --> 01:49:20.120]   It's my fault.
+[01:49:20.120 --> 01:49:22.360]   Oh, I put it in the wrong place.
+[01:49:22.360 --> 01:49:23.080]   Oh, okay.
+[01:49:23.080 --> 01:49:23.800]   You put it there.
+[01:49:23.800 --> 01:49:25.480]   It has nothing to do with a changelog.
+[01:49:25.480 --> 01:49:31.400]   Well, you should know the discarded smart light bulbs reveal your Wi-Fi passwords.
+[01:49:31.400 --> 01:49:32.760]   They're stored in the clear.
+[01:49:32.760 --> 01:49:35.000]   I meant to put that in another and I put it in the wrong place.
+[01:49:35.000 --> 01:49:35.720]   Sorry about that.
+[01:49:35.720 --> 01:49:36.600]   That's okay.
+[01:49:36.600 --> 01:49:38.360]   We got it in there anyways.
+[01:49:38.360 --> 01:49:40.520]   That is the Google changelog.
+[01:49:40.520 --> 01:49:43.400]   All right.
+[01:49:43.400 --> 01:49:46.680]   We are going to take a break and thank the sponsor of this episode
+[01:49:46.680 --> 01:49:50.760]   and then come back and do tips, tricks, numbers, whatever we happen to have.
+[01:49:50.760 --> 01:49:55.000]   I think we've got a bunch of options down there, so we'll get into that in a second.
+[01:49:55.000 --> 01:50:00.040]   But first, this episode this week in Google is brought to you by Captera.
+[01:50:00.040 --> 01:50:01.800]   You know, it's 2019.
+[01:50:01.800 --> 01:50:06.920]   If you're still doing the things that work the same way that you did it last year,
+[01:50:06.920 --> 01:50:11.560]   maybe it's time to start the year off right and replace things like software
+[01:50:11.560 --> 01:50:15.000]   that's causing you agony or anxiety or whatever.
+[01:50:15.000 --> 01:50:17.160]   You know the software that you don't need anymore.
+[01:50:17.160 --> 01:50:17.960]   You know the one.
+[01:50:17.960 --> 01:50:22.520]   You can find software that you love that fits your business needs better
+[01:50:22.520 --> 01:50:25.880]   than that software at capterra.com/twig.
+[01:50:25.880 --> 01:50:29.000]   Captera is the leading free online resource
+[01:50:29.000 --> 01:50:32.840]   to help you find the best software solution for your business.
+[01:50:32.840 --> 01:50:37.080]   With over 700,000 reviews of products from real software users,
+[01:50:37.080 --> 01:50:40.440]   you can discover everything that you need to make an informed decision.
+[01:50:41.400 --> 01:50:44.600]   You can search more than 700 specific categories of software.
+[01:50:44.600 --> 01:50:45.960]   You're going to find everything in there.
+[01:50:45.960 --> 01:50:51.320]   Project management to email marketing to yoga studio management software.
+[01:50:51.320 --> 01:50:55.080]   For those of you in the back, that's right, I'm talking to you.
+[01:50:55.080 --> 01:50:58.360]   No matter what kind of software your business needs,
+[01:50:58.360 --> 01:51:03.720]   Captera makes it easy to discover the right solution for you and fast.
+[01:51:03.720 --> 01:51:09.000]   Join the millions of people who use Captera each month to find the right tools for their business.
+[01:51:09.000 --> 01:51:14.040]   You can visit capterra.com/twig and you can do that for free.
+[01:51:14.040 --> 01:51:18.360]   And you'll find the right tools to make 2019 the year for your business.
+[01:51:18.360 --> 01:51:20.520]   That's capterra.com/twig.
+[01:51:20.520 --> 01:51:21.640]   I'll spell that out.
+[01:51:21.640 --> 01:51:27.000]   C-A-P-T-E-R-R-A.com/twig.
+[01:51:27.000 --> 01:51:29.720]   And we thank Captera for their support of this week in Google.
+[01:51:29.720 --> 01:51:31.240]   All right.
+[01:51:31.240 --> 01:51:34.760]   Mike, why don't we start with you?
+[01:51:34.760 --> 01:51:38.680]   What is your tool or number or thing or whatever you want to call it?
+[01:51:38.680 --> 01:51:39.720]   It is a tool.
+[01:51:39.720 --> 01:51:40.120]   All right.
+[01:51:40.120 --> 01:51:46.200]   So recently, Microsoft got a lot of press because they added the basic story that people were
+[01:51:46.200 --> 01:51:53.160]   getting was that the Edge browser was getting sort of this anti-fake news feature.
+[01:51:53.160 --> 01:51:56.840]   And what that was actually was that it now supports NewsGuard.
+[01:51:56.840 --> 01:52:03.240]   And because nobody uses Microsoft Edge, everyone should know that NewsGuard is actually a plugin
+[01:52:03.240 --> 01:52:07.400]   that you can use in Chrome especially, but also even Firefox and Safari.
+[01:52:07.400 --> 01:52:09.480]   And I recommend it.
+[01:52:09.480 --> 01:52:12.360]   So if you want to get this, it's newsguardtech.com.
+[01:52:12.360 --> 01:52:15.640]   And what it does is it's really actually very cool.
+[01:52:15.640 --> 01:52:18.840]   This by the way is a startup that was run by...
+[01:52:18.840 --> 01:52:23.720]   It has two CEOs, Stephen Brill, the famous Stephen Brill, and former Wall Street Journal,
+[01:52:23.720 --> 01:52:25.480]   publisher Gordon Krovitz.
+[01:52:25.480 --> 01:52:28.600]   They are co-CEOs of NewsGuard.
+[01:52:28.600 --> 01:52:35.640]   And when you have the extension installed, it puts a badge on every recognized news source,
+[01:52:35.640 --> 01:52:40.200]   whether you see it in search results on Twitter, Facebook, Reddit, wherever it is,
+[01:52:40.200 --> 01:52:41.640]   it puts a little badge if it's a green...
+[01:52:41.640 --> 01:52:42.520]   In the page?
+[01:52:42.520 --> 01:52:45.400]   Right next to the link or the headline or whatever it is.
+[01:52:45.400 --> 01:52:52.840]   And that's the rating for the news source, not the article specifically.
+[01:52:52.840 --> 01:52:58.920]   So if it's green, that means they say this is a reputable organization.
+[01:52:58.920 --> 01:52:59.880]   They do fact checking.
+[01:52:59.880 --> 01:53:00.680]   They do blah, blah, blah.
+[01:53:00.680 --> 01:53:02.600]   They have a long list of criteria.
+[01:53:02.600 --> 01:53:10.680]   If it's red, that means it's Breitbart or some other purveyor of falseness in one way or another.
+[01:53:10.680 --> 01:53:15.400]   If it's gray, that means it's all the British publications, the Daily Mail, etc.
+[01:53:15.400 --> 01:53:19.000]   They're all gray because they're like, "Well, they do some good journalism,
+[01:53:19.000 --> 01:53:21.160]   but they also do some not so good journalism."
+[01:53:21.160 --> 01:53:26.360]   And when you click on the badge, you get what they call a nutrition label.
+[01:53:26.360 --> 01:53:30.520]   So they actually go through all the criteria and say, "Okay, they do this.
+[01:53:30.520 --> 01:53:31.000]   They do this.
+[01:53:31.000 --> 01:53:31.640]   They don't do that.
+[01:53:31.640 --> 01:53:33.720]   But they do this, this, this, this, this."
+[01:53:33.720 --> 01:53:34.280]   I like it.
+[01:53:34.280 --> 01:53:38.680]   And it's just like turn-by-turn directions in Google Maps.
+[01:53:38.680 --> 01:53:40.040]   Don't take it too literally.
+[01:53:40.040 --> 01:53:41.000]   Think for yourself.
+[01:53:41.000 --> 01:53:44.040]   Don't drive off a cliff because it says, "Keep going."
+[01:53:44.040 --> 01:53:49.480]   But it's just a nice visual thing where if you're about to click on something,
+[01:53:49.480 --> 01:53:50.920]   you see a red badge, you're like, "You know what?
+[01:53:50.920 --> 01:53:51.960]   I'm not even going to click on it."
+[01:53:51.960 --> 01:53:58.280]   And it's a time saver, I think, and also a consciousness razor above all.
+[01:53:58.280 --> 01:53:59.560]   All you have to do is go to the group.
+[01:53:59.560 --> 01:54:03.960]   If you're using Google Chrome, go to the Chrome Store, search for NewsGuard,
+[01:54:03.960 --> 01:54:04.840]   and install it.
+[01:54:04.840 --> 01:54:07.720]   And it just happens magically.
+[01:54:07.720 --> 01:54:08.120]   Nice.
+[01:54:08.120 --> 01:54:09.560]   I'm definitely getting into that.
+[01:54:09.560 --> 01:54:14.120]   The only caution I'll have about that is that I'm involved in a project trying to
+[01:54:14.120 --> 01:54:17.560]   aggregate many, many, many signals of quality in news.
+[01:54:17.560 --> 01:54:19.320]   It's a one-size-fits-all judgment.
+[01:54:19.320 --> 01:54:20.040]   Yes.
+[01:54:20.040 --> 01:54:24.200]   And I'm not sure that that necessarily can hold.
+[01:54:24.200 --> 01:54:26.920]   There isn't a universal definition of trust.
+[01:54:28.440 --> 01:54:34.200]   And so they put the Daily Mail on the red list and other people think it's wonderful.
+[01:54:34.200 --> 01:54:35.880]   And we can debate about that.
+[01:54:35.880 --> 01:54:43.960]   But it's hard to imagine one entity deciding for everybody.
+[01:54:43.960 --> 01:54:49.240]   The way I think people should think about NewsGuard is that it's like subscribing to a publication.
+[01:54:49.240 --> 01:54:54.360]   When you have a publication, if you subscribe to your local newspaper,
+[01:54:55.480 --> 01:55:01.880]   the editorial department is run by editors who are making decisions about what to cover,
+[01:55:01.880 --> 01:55:03.800]   how to cover it, enforcing things.
+[01:55:03.800 --> 01:55:09.160]   They're also essentially buying, for lack of a better term, articles from Reuters and news
+[01:55:09.160 --> 01:55:11.320]   aggregators that they trust.
+[01:55:11.320 --> 01:55:14.360]   But you're trusting that editor if you subscribe to that magazine.
+[01:55:14.360 --> 01:55:18.600]   So you think of NewsGuard as an editor company.
+[01:55:18.600 --> 01:55:20.520]   They're making editorial judgments.
+[01:55:22.040 --> 01:55:26.520]   And just as there are different types of newspapers that have different criteria for their editorial
+[01:55:26.520 --> 01:55:31.640]   judgments, this is just one editorial judgment company.
+[01:55:31.640 --> 01:55:33.720]   Right. But it's one that cuts across every news source.
+[01:55:33.720 --> 01:55:34.360]   Yeah, exactly.
+[01:55:34.360 --> 01:55:36.360]   So it's a little bit different in that sense.
+[01:55:36.360 --> 01:55:36.840]   Exactly.
+[01:55:36.840 --> 01:55:40.040]   As opposed to being able to say, I want to look at what the editor of the telegraph says,
+[01:55:40.040 --> 01:55:41.400]   what the editor of the Guardian says.
+[01:55:41.400 --> 01:55:41.800]   Yeah.
+[01:55:41.800 --> 01:55:44.040]   And I'll get a triangulation of different viewpoints.
+[01:55:44.040 --> 01:55:45.160]   That's why I say think for yourself.
+[01:55:45.160 --> 01:55:47.560]   But see how you like it.
+[01:55:47.560 --> 01:55:53.880]   And you may choose to not use them and maybe use another one or not use any or whatever.
+[01:55:53.880 --> 01:55:55.960]   But it is a time saver.
+[01:55:55.960 --> 01:55:58.040]   I think in general, their criteria, very good.
+[01:55:58.040 --> 01:56:02.520]   The biggest criticism I have for them is there are so many publications they have not evaluated.
+[01:56:02.520 --> 01:56:03.320]   So they're just blank.
+[01:56:03.320 --> 01:56:04.600]   They don't have a badge of any kind.
+[01:56:04.600 --> 01:56:05.080]   Right.
+[01:56:05.080 --> 01:56:08.040]   And so you're kind of on your exactly where you were.
+[01:56:08.040 --> 01:56:09.000]   Yeah, exactly.
+[01:56:09.000 --> 01:56:10.040]   That's what I was just going to say.
+[01:56:10.040 --> 01:56:11.560]   But it does surface.
+[01:56:11.560 --> 01:56:12.040]   Oh, it was.
+[01:56:12.040 --> 01:56:15.480]   The degree to which Google kind of like, the results are kind of like,
+[01:56:15.480 --> 01:56:19.240]   huh, you know, because sometimes you go, you know, if you go to Google News,
+[01:56:19.240 --> 01:56:24.040]   you search for something and it'll show you five things or something like that.
+[01:56:24.040 --> 01:56:28.120]   And oftentimes the top one has a red badge.
+[01:56:28.120 --> 01:56:28.840]   Oh, interesting.
+[01:56:28.840 --> 01:56:31.080]   You're like, why is there this big disagreement?
+[01:56:31.080 --> 01:56:36.200]   Like they'll put a Breitbart story as the number one source for some political news.
+[01:56:36.200 --> 01:56:42.200]   And so it kind of, do you, do you, who's wrong there?
+[01:56:42.200 --> 01:56:43.960]   Is it news guard or is it Google?
+[01:56:43.960 --> 01:56:46.360]   In my estimation so far, it's been Google.
+[01:56:46.360 --> 01:56:49.960]   I would prefer that Google not elevate those to the top.
+[01:56:49.960 --> 01:56:52.760]   Most of the time, their top stories are all green.
+[01:56:52.760 --> 01:56:55.560]   But anyway, it's something that might be interesting.
+[01:56:55.560 --> 01:56:59.160]   That's news guard news guard tech.com.
+[01:56:59.160 --> 01:57:00.200]   Right now I'm going to check that out.
+[01:57:00.200 --> 01:57:03.400]   Jeff, you've got a few different numbers.
+[01:57:03.400 --> 01:57:03.560]   Yeah.
+[01:57:03.560 --> 01:57:04.520]   So here's one.
+[01:57:04.520 --> 01:57:09.720]   So I went to a town hall with my newly elected Congressman, Tom Malinowski,
+[01:57:09.720 --> 01:57:11.240]   here in Jersey.
+[01:57:11.240 --> 01:57:13.880]   And he was talking, people were asking, how are we getting done to the other day?
+[01:57:13.880 --> 01:57:14.760]   He said, oh, social media.
+[01:57:14.760 --> 01:57:20.360]   But then he explained that he had to have two accounts on each platform.
+[01:57:20.360 --> 01:57:24.840]   It was a requirement now.
+[01:57:24.840 --> 01:57:27.560]   So the one is Rep Tom Malinowski and one is Tom Malinowski.
+[01:57:27.560 --> 01:57:28.920]   And the latter is his account.
+[01:57:28.920 --> 01:57:30.120]   And he can say whatever he wants on it.
+[01:57:30.120 --> 01:57:32.360]   But the other is the government account.
+[01:57:32.360 --> 01:57:38.760]   And he cannot obviously use that in any way to promote the private account,
+[01:57:38.760 --> 01:57:42.200]   because the private account is basically considered permanently to be campaign.
+[01:57:42.520 --> 01:57:50.360]   And the public account, the Rep Tom Malinowski account, or the Rep Acasio-Cortez account,
+[01:57:50.360 --> 01:57:55.960]   Rep AOC account is considered using official resources.
+[01:57:55.960 --> 01:57:56.760]   Wow.
+[01:57:56.760 --> 01:58:00.600]   So which I think is kind of vaguely interesting.
+[01:58:00.600 --> 01:58:03.320]   And probably not actually a terrible thing.
+[01:58:03.320 --> 01:58:07.560]   But what it amounts to is nobody's going to follow the Rep accounts,
+[01:58:07.560 --> 01:58:09.560]   because you're only going to get as press releases there.
+[01:58:09.560 --> 01:58:11.880]   Whereas if you call, I mean, I wrote a piece,
+[01:58:11.880 --> 01:58:17.720]   a few weeks ago about Ocasio-Cortez comparing her use of Trump, of Twitter to Trump,
+[01:58:17.720 --> 01:58:19.960]   in McLudest terms.
+[01:58:19.960 --> 01:58:25.640]   But I think she is just incredibly brilliant at how she uses social media
+[01:58:25.640 --> 01:58:33.160]   to do all kinds of great things, to explain, to have stands, to argue, to counteract
+[01:58:33.160 --> 01:58:37.960]   in absolutely brilliant ways, and not just Twitter, but all the social platforms.
+[01:58:37.960 --> 01:58:42.200]   But anyway, there's an AOC account, that's her, and there's Rep AOC account,
+[01:58:42.200 --> 01:58:43.080]   and that's official to them.
+[01:58:43.080 --> 01:58:46.600]   And that system is what we've had for the president since the beginning.
+[01:58:46.600 --> 01:58:49.960]   So there's a POTUS account, which is passed from president to president,
+[01:58:49.960 --> 01:58:51.240]   and there's real Donald Trump.
+[01:58:51.240 --> 01:58:58.280]   I just would like to point out though, that these politicians who are really good at Twitter,
+[01:58:58.280 --> 01:59:06.760]   like President Trump, like Cortez, they are good at using social media,
+[01:59:06.760 --> 01:59:10.520]   not to so much throw the public, but to attract the media.
+[01:59:10.520 --> 01:59:16.280]   So they use this as a lever to get media coverage, and that's something to keep in mind
+[01:59:16.280 --> 01:59:17.560]   if you ever run for president.
+[01:59:17.560 --> 01:59:21.480]   It's our day to disagree a little bit, Mike.
+[01:59:21.480 --> 01:59:21.720]   Okay.
+[01:59:21.720 --> 01:59:23.000]   I think that's true of Trump.
+[01:59:23.000 --> 01:59:25.240]   I think people give Trump credit for being good at Twitter.
+[01:59:25.240 --> 01:59:28.520]   He's not media, write a news story every single time he tweets,
+[01:59:28.520 --> 01:59:30.360]   and so he just is using media, and that's that.
+[01:59:30.360 --> 01:59:30.840]   That's right.
+[01:59:30.840 --> 01:59:33.080]   Whereas AOC, I think, is very different.
+[01:59:33.080 --> 01:59:35.320]   She was ignored by media.
+[01:59:35.320 --> 01:59:39.560]   She couldn't get arrested near any publications in New York.
+[01:59:39.560 --> 01:59:43.160]   The only way that she got elected was through social media,
+[01:59:43.160 --> 01:59:45.240]   and she developed her own relationship with people there.
+[01:59:45.240 --> 01:59:49.480]   So she often is very dismissive of what the media does, doesn't care.
+[01:59:49.480 --> 01:59:52.600]   The media is now following after her, because they realize the boat they missed.
+[01:59:52.600 --> 01:59:58.520]   But her social media presence is sufficient unto itself.
+[01:59:58.520 --> 02:00:01.880]   So I think there are lessons there for everybody to use social media well.
+[02:00:01.880 --> 02:00:05.080]   She has constructive, smart conversations there.
+[02:00:05.320 --> 02:00:07.400]   Yes, and she's also good on regular media.
+[02:00:07.400 --> 02:00:08.600]   She's a good interview.
+[02:00:08.600 --> 02:00:12.040]   The, I mean, you have to talk about her, because she's probably the most
+[02:00:12.040 --> 02:00:17.160]   visible and effective freshman ever.
+[02:00:17.160 --> 02:00:21.480]   And because of her use of media, both social and other.
+[02:00:21.480 --> 02:00:25.320]   But I would say that to get elected, yes, but now that she's elected,
+[02:00:25.320 --> 02:00:27.880]   I mean, I read stories about her all the time in my political newsfeed.
+[02:00:27.880 --> 02:00:31.960]   She's like one of the top people out of nowhere, and she said this,
+[02:00:31.960 --> 02:00:32.600]   and she said that.
+[02:00:32.600 --> 02:00:34.760]   She said, you know, she's saying all these things.
+[02:00:34.760 --> 02:00:37.640]   And then when you dig down, you realize she's saying it on Twitter.
+[02:00:37.640 --> 02:00:43.960]   So I think now that she's in office, I think a lot of her media is just people
+[02:00:43.960 --> 02:00:47.800]   are going to her for the interview, but a lot of her media is like, she tweeted something.
+[02:00:47.800 --> 02:00:50.200]   And some of her best stuff is on Twitter.
+[02:00:50.200 --> 02:00:53.800]   Like some of her most quotable stuff is they're quoting tweets.
+[02:00:53.800 --> 02:00:57.080]   Interesting.
+[02:00:57.080 --> 02:01:00.600]   And for me, I got two.
+[02:01:00.600 --> 02:01:02.280]   One of them is an actual tool.
+[02:01:02.520 --> 02:01:07.080]   And it's a care of Kevin Tofel, friend of the show.
+[02:01:07.080 --> 02:01:14.200]   He wrote on his about Chromebooks.com site that a Chrome OS 73 dev channel
+[02:01:14.200 --> 02:01:19.800]   apparently supports instant tethering for some non pixel devices for the very first time.
+[02:01:19.800 --> 02:01:22.360]   This is a feature that you could do if you have a pixel device,
+[02:01:22.360 --> 02:01:27.640]   and you have a Chrome OS device, you can have it instantly tether automatically hop onto your
+[02:01:27.640 --> 02:01:31.960]   phone's data connection when it senses that it's close, and you've got it all set up.
+[02:01:31.960 --> 02:01:35.960]   Apparently, he got it working with an OKEA 7 Plus and a pixel slate,
+[02:01:35.960 --> 02:01:41.080]   and others are reporting that it works with the S9 and the OnePlus 6T.
+[02:01:41.080 --> 02:01:46.360]   So the feature hasn't officially been announced yet, so probably there will be more information
+[02:01:46.360 --> 02:01:48.840]   about this as it's developed out further.
+[02:01:48.840 --> 02:01:53.400]   Device list may be released at some point, but you need to enable the flag in order for it
+[02:01:53.400 --> 02:01:53.960]   to start working.
+[02:01:53.960 --> 02:01:57.400]   And then when you visit the settings, you can connect and verify the device,
+[02:01:57.400 --> 02:01:58.520]   and hopefully it'll work for you.
+[02:01:58.520 --> 02:02:01.800]   So, uh, so you're supposed to check that carriers must hate that.
+[02:02:01.800 --> 02:02:03.880]   They want to get another SIM card and other accounts.
+[02:02:03.880 --> 02:02:04.600]   Of course they do.
+[02:02:04.600 --> 02:02:07.080]   And this, you know, they're offering all these unlimited accounts,
+[02:02:07.080 --> 02:02:10.600]   and if you can just piggyback on that, you need one SIM card on account.
+[02:02:10.600 --> 02:02:11.480]   Absolutely.
+[02:02:11.480 --> 02:02:14.840]   And then another piece, which is just because it makes me happy.
+[02:02:14.840 --> 02:02:20.120]   Peter Jackson apparently is going to direct a new documentary,
+[02:02:20.120 --> 02:02:26.120]   a new Beatles documentary based on like tons of hours of unseen footage from the Let It Be
+[02:02:26.840 --> 02:02:30.840]   shoot. And I, there's just so much about that headline that I love.
+[02:02:30.840 --> 02:02:36.440]   It's like, all right, Peter Jackson documentary, Beatles, Let It Be, unseen footage.
+[02:02:36.440 --> 02:02:37.880]   I can't wait.
+[02:02:37.880 --> 02:02:40.040]   So I'm just really excited about that.
+[02:02:40.040 --> 02:02:40.520]   Yeah.
+[02:02:40.520 --> 02:02:44.040]   But all this obsessing over the Beatles is, you know, it's the opposite of letting it be.
+[02:02:44.040 --> 02:02:44.920]   What can they do?
+[02:02:44.920 --> 02:02:45.880]   It's true.
+[02:02:45.880 --> 02:02:47.640]   Really good point.
+[02:02:47.640 --> 02:02:50.200]   Because it's fun.
+[02:02:50.200 --> 02:02:51.080]   The Beatles are fun.
+[02:02:51.080 --> 02:02:53.000]   They are the joy that we need in this world.
+[02:02:54.280 --> 02:02:58.200]   They have the Seinfeld cast of music for the combination of artists.
+[02:02:58.200 --> 02:03:03.240]   On the day, on the day they eliminate inbox, I'll listen to Beatles to try to improve my mood.
+[02:03:03.240 --> 02:03:03.800]   All right.
+[02:03:03.800 --> 02:03:04.200]   Cool.
+[02:03:04.200 --> 02:03:05.000]   Tell me how that works.
+[02:03:05.000 --> 02:03:07.320]   Jeff Jarvis, Buzzmachine.com.
+[02:03:07.320 --> 02:03:11.480]   Jeff, it is always so much fun to get the chance to do this with you.
+[02:03:11.480 --> 02:03:12.040]   Thank you so much.
+[02:03:12.040 --> 02:03:12.600]   Thank you, Jeff.
+[02:03:12.600 --> 02:03:13.080]   Thank you, Jeff.
+[02:03:13.080 --> 02:03:13.480]   Good work.
+[02:03:13.480 --> 02:03:14.200]   On Twitter.
+[02:03:14.200 --> 02:03:17.400]   And yeah, man, I will talk to you soon.
+[02:03:17.400 --> 02:03:21.000]   And then Mike, this was, this was such a good time.
+[02:03:21.000 --> 02:03:22.040]   So happy to be here.
+[02:03:22.040 --> 02:03:23.080]   You have to do this.
+[02:03:23.080 --> 02:03:24.360]   I know your dog has an appointment.
+[02:03:24.360 --> 02:03:25.560]   And you got to have a happy...
+[02:03:25.560 --> 02:03:26.840]   Yeah, we'll see if I get there on time.
+[02:03:26.840 --> 02:03:28.440]   It's not looking too positive.
+[02:03:28.440 --> 02:03:32.280]   But if I can just invite everyone to join us on one of our Gastronomatic experiences,
+[02:03:32.280 --> 02:03:35.160]   we were talking at the beginning of the show about how I travel.
+[02:03:35.160 --> 02:03:35.320]   Yeah.
+[02:03:35.320 --> 02:03:38.520]   One of the reasons we do that is we host a small group of people.
+[02:03:38.520 --> 02:03:40.360]   We do amazing food stuff all day.
+[02:03:40.360 --> 02:03:42.840]   We make wine, then we taste wine.
+[02:03:42.840 --> 02:03:43.960]   We make cheese, then we taste it.
+[02:03:43.960 --> 02:03:45.480]   We bake, we cook, we learn.
+[02:03:45.480 --> 02:03:47.320]   It's just really fun.
+[02:03:47.320 --> 02:03:48.440]   Every minute is fun.
+[02:03:48.440 --> 02:03:50.600]   We're doing it in Morocco, Mexico City,
+[02:03:51.160 --> 02:03:54.920]   Provence, Prosecco Hills, and Barcelona.
+[02:03:54.920 --> 02:03:59.080]   So I would really invite everybody to contact me if you're interested in joining us.
+[02:03:59.080 --> 02:04:00.680]   Let me know that you saw it on Twig.
+[02:04:00.680 --> 02:04:04.440]   And I'd really love to know that's from Mexico City there.
+[02:04:04.440 --> 02:04:10.120]   So yeah, just shoot me an email or go to gastronomad.net.
+[02:04:10.120 --> 02:04:11.880]   Gastronomad.net.
+[02:04:11.880 --> 02:04:16.040]   And also, I don't want to forget, it's time for our yearly Twit survey.
+[02:04:16.040 --> 02:04:17.160]   We want to hear from you.
+[02:04:17.160 --> 02:04:19.160]   We want to hear what you think about all the Twit shows,
+[02:04:19.800 --> 02:04:21.640]   how we can serve you better.
+[02:04:21.640 --> 02:04:25.560]   So all you have to do is head over to twit.to/survey19
+[02:04:25.560 --> 02:04:27.320]   and you'll be heard and we really appreciate it.
+[02:04:27.320 --> 02:04:29.720]   You can find me here on Twit.
+[02:04:29.720 --> 02:04:31.000]   I just, I do shows.
+[02:04:31.000 --> 02:04:32.520]   Tomorrow, actually, Tech News Weekly.
+[02:04:32.520 --> 02:04:33.480]   That'll be my next show.
+[02:04:33.480 --> 02:04:39.160]   But always fun to get the chance to be Leo for a day on this week in Google.
+[02:04:39.160 --> 02:04:41.160]   Thanks for inviting me to be a part of the show.
+[02:04:41.160 --> 02:04:42.760]   And thanks to Jammerby.
+[02:04:42.760 --> 02:04:47.240]   Thanks to John for switching the show today and producing behind the Tricaster.
+[02:04:47.240 --> 02:04:53.480]   We record live every Wednesday at 4 p.m. Eastern, 1 p.m. Pacific, 2100 UTC.
+[02:04:53.480 --> 02:05:00.520]   You can find all the details about this show by going to twit.tv/twit.tv/twig.
+[02:05:00.520 --> 02:05:02.520]   There you're going to find all the back episodes.
+[02:05:02.520 --> 02:05:07.480]   You can start from episode one and follow along week after week
+[02:05:07.480 --> 02:05:13.880]   and see how Google has developed and how social media in general has developed over the years.
+[02:05:13.880 --> 02:05:17.720]   And then catch up today and then write a report and let us know what you thought.
+[02:05:17.720 --> 02:05:18.600]   That's it for this week.
+[02:05:18.600 --> 02:05:21.560]   We'll all see you next week on another episode of This Week in Google.
+[02:05:21.560 --> 02:05:22.760]   Bye, everybody.
+[02:05:22.760 --> 02:05:34.040]   [Music]
+

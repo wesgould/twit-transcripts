@@ -1,0 +1,1374 @@
+;FFMETADATA1
+title=A Clattering of Smart Phones
+artist=Leo Laporte, Jeff Jarvis, Stacey Higginbotham, Ant Pruitt
+album_artist=TWiT
+publisher=TWiT
+album=This Week in Google
+TRDA=2021-12-16
+track=642
+language=English
+genre=Podcast
+comment=Log4Shell, Assange extradition, person of the year, Meta naming rights
+encoded_by=Uniblab 5.3
+date=2021
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:03.200]   It's time for Twig this week in Google Stasis here. Jeff's here.
+[00:00:03.200 --> 00:00:10.720]   Ants here. We've got lots to talk about. The worst malware exploit in the last decade.
+[00:00:10.720 --> 00:00:15.280]   Julian Assange is coming to America. Can he get a fair trial?
+[00:00:15.280 --> 00:00:21.600]   And the typo that costs $297,000. It's all coming up next on Twig.
+[00:00:24.560 --> 00:00:30.320]   Podcasts you love. From people you trust. This is Twig.
+[00:00:30.320 --> 00:00:43.600]   This is Twig. This week in Google, episode 642, recorded Wednesday, December 15, 2021.
+[00:00:43.600 --> 00:00:50.640]   A clattering of smartphones. This week in Google is brought to you by Code Academy.
+[00:00:50.640 --> 00:00:55.920]   Join over 50 million people learning a code with Code Academy and see where coding
+[00:00:55.920 --> 00:00:59.440]   can take you. Get 15% off your Code Academy Pro Membership.
+[00:00:59.440 --> 00:01:03.440]   When you go to codecademy.com and use a promo code Twig.
+[00:01:03.440 --> 00:01:10.960]   And by AT&T Active Armor. When it comes to security, you already have to lock doors,
+[00:01:10.960 --> 00:01:16.960]   save passwords, and remember combinations. How about having one less thing to worry about?
+[00:01:16.960 --> 00:01:23.280]   Thankfully, AT&T makes your security a top priority. Download AT&T Active Armor's free mobile
+[00:01:23.280 --> 00:01:29.440]   security app to help protect your personal data so you have one less thing to worry about.
+[00:01:29.440 --> 00:01:37.200]   It's not complicated. AT&T Active Armor 24/7 network protection and free security apps to help stop
+[00:01:37.200 --> 00:01:42.960]   threats before they get to you. At no extra charge. Compatible device and service required,
+[00:01:42.960 --> 00:01:48.240]   data charges may apply. Visit att.com/active armor for details.
+[00:01:48.240 --> 00:01:54.640]   And by UserWay.org. UserWay ensures your website is accessible,
+[00:01:54.640 --> 00:01:59.520]   ADA compliant, and helps your business avoid accessibility related lawsuits.
+[00:01:59.520 --> 00:02:04.400]   The perfect way to showcase your brand's commitment to millions of people with disabilities.
+[00:02:04.400 --> 00:02:10.000]   It's not only the right thing to do, it's also the law. Go to UserWay.org/Twigt.
+[00:02:10.000 --> 00:02:14.480]   For 30% off UserWay's AI powered accessibility solution.
+[00:02:14.480 --> 00:02:19.440]   It's time for Twig! Hey! This week in Google. I'm sorry, I didn't mean to yell at you.
+[00:02:19.440 --> 00:02:27.680]   I'm a short fuse here. Welcome to this week in Google the show where you cover all the stuff
+[00:02:27.680 --> 00:02:31.680]   around the Google version, the meta version, Twitter version, all the other verses. Stacey
+[00:02:31.680 --> 00:02:40.000]   Higginbotham is here. Stacey on IOT.com. Oh look, you put up a bow and a snoopy.
+[00:02:40.000 --> 00:02:44.400]   Oh, other side. I have a point set up, but it's like over.
+[00:02:44.400 --> 00:02:47.520]   I can't see the point set up, but believe me, there's more than enough points set
+[00:02:47.520 --> 00:02:55.280]   as on my set to cover all the needs. The point set of needs. Stacey is the
+[00:02:56.080 --> 00:03:02.560]   meta D at staceyoniot.com. Lots of events there. There's a free newsletter. And of course,
+[00:03:02.560 --> 00:03:10.640]   she does that great podcast with Kevin Tovol, the IOT podcast. Now in episode 8,052, which is very
+[00:03:10.640 --> 00:03:16.560]   something like that. Impressive. No, it's not that many. It's very impressive. Also with us,
+[00:03:16.560 --> 00:03:21.760]   Jeff Jarvis, you know who he is, the Leonard Taill Professor for journalistic innovation at.
+[00:03:24.160 --> 00:03:30.320]   The Craig, Craig, Craig, Craig, Craig, new Mark graduate school of journalism
+[00:03:30.320 --> 00:03:38.480]   at the City University of New York. A little overproduced, I know, but that's our Jeff.
+[00:03:38.480 --> 00:03:44.560]   And Mr. Aproit from Hands on Photography. You're going to take some time off and I think you are
+[00:03:44.560 --> 00:03:50.960]   coming up soon. Yes, sir. I will take next week. Are you going to go to Carolina? Where are you
+[00:03:50.960 --> 00:03:56.720]   going to do? No, sir. I'm going to stay here and sit strategically in the but groove of my couch.
+[00:03:56.720 --> 00:04:05.600]   Just rolls right into it, doesn't it? It fits perfectly for you. As if it were custom ordered.
+[00:04:05.600 --> 00:04:10.240]   Nice. That sounds like a good thing to do. Sounds like a wonderful thing to do.
+[00:04:10.240 --> 00:04:15.680]   Simple pleasure, sir. Simple pleasure. All the world is a buzz with log4j, the
+[00:04:17.120 --> 00:04:24.720]   vulnerability that is called log4shell. It's a zero day fan and log4j version two, which is a
+[00:04:24.720 --> 00:04:30.400]   logging program from Apache that appears on a lot of companies. Service first discovered
+[00:04:30.400 --> 00:04:37.200]   last Thursday, right after the show on Minecraft servers. We now see it everywhere. And yes,
+[00:04:37.200 --> 00:04:45.600]   nation states are hacking it, including the Chinese hacking group. I want to call them Fazibear,
+[00:04:45.600 --> 00:04:52.640]   but I don't think that's right. But the Chinese hacking group would be kind of funny if they
+[00:04:52.640 --> 00:04:59.360]   were called Fazibear. They laugh into the grave, my friend. Yeah, that's a good point.
+[00:04:59.360 --> 00:05:06.480]   This is such an easy, it's really not a surprise. It's such an easy hack, apparently.
+[00:05:06.480 --> 00:05:11.760]   Steve Gibson talked extensively about it yesterday on security now, that you could do it in a
+[00:05:11.760 --> 00:05:17.200]   browser. You could do it. It's so simple. And it gives you full control over the
+[00:05:17.200 --> 00:05:23.200]   server that is using it for logging. And so it's devastating. And a lot of people worked over
+[00:05:23.200 --> 00:05:28.320]   the weekend. Some have called it the worst exploit, the worst vulnerability in a decade.
+[00:05:28.320 --> 00:05:35.120]   I think maybe even more than that. Patches are going out. The thing to us, at least to me,
+[00:05:35.120 --> 00:05:38.720]   on this show that's interesting. And I wonder if you talked about it on Floss this morning,
+[00:05:39.520 --> 00:05:47.440]   and that this is an open source project maintained by volunteers, part-time volunteers,
+[00:05:47.440 --> 00:05:54.560]   who spent a lot of hours of the last few days fixing it. And yet it's used by some of the biggest
+[00:05:54.560 --> 00:06:03.120]   companies in the world for profit. My understanding is that there was a lot of hackers played with
+[00:06:03.120 --> 00:06:07.120]   this tool right out to gate. And I'm like, "Wait a minute, this is an open source tool for hackers?"
+[00:06:07.120 --> 00:06:12.960]   Well, no, it's not for hackers. It's for anybody running a server, pretty much. It's a logging
+[00:06:12.960 --> 00:06:20.800]   utility, part of the Apache logging services. Because Apache is used so widely, it's pretty
+[00:06:20.800 --> 00:06:26.640]   much installed everywhere. I had a question about this. They talked about it a little bit this
+[00:06:26.640 --> 00:06:33.440]   morning on Floss Weekly. It seems like this is a file that's not really, or I guess it's a
+[00:06:33.440 --> 00:06:41.120]   server. The service is not really touched often. No, very frequently you'd install it and just
+[00:06:41.120 --> 00:06:48.240]   forget about it. So, people don't pay too much attention to it. And the thing that's interesting,
+[00:06:48.240 --> 00:06:52.880]   and Steve talked about this a little bit, is that the thing that they're exploiting was actually a
+[00:06:52.880 --> 00:07:00.640]   feature. They knew about it. It was a feature. Oh boy. We had support for user-defined
+[00:07:00.640 --> 00:07:07.040]   mesh and job objects, and it didn't do a lot of protecting, filtering, pre-processing.
+[00:07:07.040 --> 00:07:15.200]   Yeah, so it's quite a vulnerability was discovered by the Alibaba Cloud Security team.
+[00:07:15.200 --> 00:07:28.080]   Pretty much every server in the world runs it. And because it's so easy to exploit, it was exploited
+[00:07:28.080 --> 00:07:32.240]   almost. It's a zero day immediately. By nation states, by anybody.
+[00:07:32.240 --> 00:07:37.360]   With that said, what happens? And what happens? Who are most vulnerable? Is it
+[00:07:37.360 --> 00:07:45.280]   it? No, not your end users, because you're not probably not running logging software on your PC.
+[00:07:45.280 --> 00:07:50.000]   But if you run a server, absolutely, I'm running a bunch of Minecraft servers. First thing I did
+[00:07:50.000 --> 00:07:55.200]   is run over there and figure out if that was vulnerable. Stacy, what were you going to say?
+[00:07:55.200 --> 00:08:00.080]   Well, I was going to ask, once it's exploited, what kind of powers does it give them?
+[00:08:00.080 --> 00:08:08.000]   A remote code execution access. Oh, oh. Yeah, that's what we call as bad as it gets,
+[00:08:08.000 --> 00:08:12.720]   because you can get anything to run on the server as a result. And these are servers,
+[00:08:12.720 --> 00:08:19.840]   including iCloud, Amazon Web Services. These are services that are used by everybody.
+[00:08:20.640 --> 00:08:27.280]   Basically, and if you think about Apache as the A in the LAMP stack, which is on almost all of
+[00:08:27.280 --> 00:08:33.760]   the servers running any sort of cloud and web-based service out there. So if you're running a web-based
+[00:08:33.760 --> 00:08:38.800]   service somewhere, you have a server that's running that. And it's probably running,
+[00:08:38.800 --> 00:08:45.760]   it probably is vulnerable to this. Yeah, I was thinking about it from the aspect of, say, the
+[00:08:46.720 --> 00:08:52.320]   big tech companies out there are there the ones that are most affected. Is it more
+[00:08:52.320 --> 00:08:58.080]   the mid-range folks? Well, everybody. All of the above. That's the beauty of it, everybody.
+[00:08:58.080 --> 00:09:03.200]   So now we just need to wait on the attacks. Oh, no, they're on right now. They're
+[00:09:03.200 --> 00:09:06.800]   state everybody. Everybody in their brothers doing it. The Chinese,
+[00:09:06.800 --> 00:09:12.800]   nation-state hackers, everybody in their brothers doing it. So Mr. Bennett, some of his
+[00:09:12.800 --> 00:09:19.440]   clients were affected by it. And he's not dealing with huge tech companies. But I was just wondering
+[00:09:19.440 --> 00:09:25.600]   how many more of those smaller clients out there are seeing the results of this flaw?
+[00:09:25.600 --> 00:09:34.320]   Well, and that's the other problem is that you could patch the flaw, but that's closing the
+[00:09:34.320 --> 00:09:40.560]   barn door after the horses got away. And there could be still code. After the hackers are in.
+[00:09:40.560 --> 00:09:47.840]   They're already in. So too late. Yeah. So a version 2.15.0 suppresses the hole.
+[00:09:47.840 --> 00:09:55.040]   If you can't update, well, there are some workarounds, but in some cases, at least the
+[00:09:55.040 --> 00:10:00.240]   workarounds might be as bad as the, well, no, they're not quite as bad, but they're pretty bad.
+[00:10:00.240 --> 00:10:10.320]   Time to go to a terminal. Yeah. Yeah. Should I, would you like me to? I'm ready. I've got my
+[00:10:10.320 --> 00:10:15.120]   yeah. Show us how to install. No. Okay. It's okay. Put your hoodie on too now. You gotta make sure
+[00:10:15.120 --> 00:10:20.240]   you put it on the black hoodie. You're programming talent. That's right. Essentially, you're getting
+[00:10:20.240 --> 00:10:26.480]   you can with a malformed URL trick. The server. There you look good. You look scary. Well,
+[00:10:26.480 --> 00:10:29.040]   actually, you know, you might look like an aged monk.
+[00:10:29.040 --> 00:10:33.840]   It's like a Sith Lord. This Lord.
+[00:10:36.720 --> 00:10:45.440]   It may be somebody in the Sith Lord retirement community. Oh, ages of man coming from someone
+[00:10:45.440 --> 00:10:53.920]   who's also old. Oh, Lord. He goes after a Lord. A nice brother of the internet society.
+[00:10:53.920 --> 00:10:58.800]   You know what they do at the Sith Lord retirement community. They sit on the front porch and they
+[00:10:58.800 --> 00:11:05.600]   complain about Luke Skywalker. They just go damn jedi's. I swear get off my lawn. Hey,
+[00:11:06.480 --> 00:11:12.720]   uh, so yeah, it's so it's bad. We're just gonna, you know, it's gonna be around for a long time.
+[00:11:12.720 --> 00:11:19.200]   There is just it's it's the COVID of yeah, exploits. I mean, you can fix it, but the problem is there's
+[00:11:19.200 --> 00:11:24.480]   so many servers running all over the place. People aren't maintaining and people aren't paying attention.
+[00:11:24.480 --> 00:11:31.040]   You know, this is this is here's my plug for s bombs. Yeah, we want to talk about software bill
+[00:11:31.040 --> 00:11:38.480]   materials. This is why it matters. Have you been dying to get into software bill of material?
+[00:11:38.480 --> 00:11:42.160]   Oh, my God. I have been so excited about what is this?
+[00:11:42.160 --> 00:11:43.680]   Spong. Tell me more.
+[00:11:43.680 --> 00:11:49.920]   Y'all. Okay. You know how we're building like patch works of services like we're calling
+[00:11:49.920 --> 00:11:55.520]   APIs from somebody else. We're using software, you know, from third party vendors, we're cutting
+[00:11:55.520 --> 00:12:01.440]   and pasting. It's just a wild West and it's a mess. And the challenge, and this is actually part of
+[00:12:01.440 --> 00:12:07.120]   the new cyber executive order that was signed late. Oh, no, we're still in 2021. It was signed
+[00:12:07.120 --> 00:12:12.560]   earlier this year is that you have to create what's called a software bill of materials. And what
+[00:12:12.560 --> 00:12:18.800]   this is, it's a list of all the software that comprises your particular service or software.
+[00:12:18.800 --> 00:12:23.120]   Oh, that's actually a really good idea. Yeah, because you'd be able to check it. You'd see
+[00:12:23.120 --> 00:12:29.680]   J for log for J there. Yeah. And people have been like the cybersecurity community has been like,
+[00:12:29.680 --> 00:12:33.360]   we got to do this. We got to do this. And everyone's like, no, it's a frickin pain in the butt.
+[00:12:33.360 --> 00:12:39.600]   Let's not do it. And now we're like, thanks to the government finally being like, yeah,
+[00:12:39.600 --> 00:12:43.840]   you got to do this because it's the cybersecurity risk is way too high.
+[00:12:43.840 --> 00:12:50.960]   So this is a perfect use case of why we need this sort of thing. So you can track quickly and
+[00:12:50.960 --> 00:12:55.680]   you're like, Oh, am I running a version of this that's going to be affected? Well, yes, I am in this
+[00:12:55.680 --> 00:13:03.120]   server over here in this weird, weird, random thing I'm using. So yeah, so that's why S bombs
+[00:13:03.120 --> 00:13:07.520]   are important. You're going to hear a lot more about them in the coming year as people try to
+[00:13:07.520 --> 00:13:13.120]   engage or implement them. And you're going to see a lot of new tools come online. So super nerdy
+[00:13:13.120 --> 00:13:18.880]   moment. No, that's a that's a really cool. Yeah. So here's the, so here's the, here's the,
+[00:13:18.880 --> 00:13:25.760]   bad. We don't have to go into detail of how it works. It's just it's bad. It's bad. I was going
+[00:13:25.760 --> 00:13:29.120]   to show you the exploits. I mean, you don't need to know that. You don't need to know that.
+[00:13:29.120 --> 00:13:38.480]   Julian Assange is extradition is full speed ahead. Ruled. We're wait. I guess you have to,
+[00:13:38.480 --> 00:13:43.600]   the home secretary has to say, okay, by the UK High Court, granted an appeal by the US government
+[00:13:43.600 --> 00:13:51.280]   asking that they allow him to be extradited to the United States to be tried under the fairly
+[00:13:51.280 --> 00:13:57.760]   controversial espionage act, 18 counts connected with WikiLeaks.
+[00:13:57.760 --> 00:14:02.960]   Now the home secretary in the UK gets to decide.
+[00:14:05.360 --> 00:14:09.360]   I am curious. I asked this on Twitter as well. And I don't know if we reached a consensus.
+[00:14:09.360 --> 00:14:15.600]   I mean, look, there's a lot to say a negative about Julian Assange. But the US government's
+[00:14:15.600 --> 00:14:23.120]   going after him for the Chelsea Manning revelations, including, you know, the leaked videos of air
+[00:14:23.120 --> 00:14:30.080]   strikes against journalists and civilians that, you know, he definitely spoke truth to power.
+[00:14:31.040 --> 00:14:37.600]   And to some degree, the charges are chumped up. They're saying he taught people to have a,
+[00:14:37.600 --> 00:14:42.800]   I guess, Chelsea Manning had a hack in his conversations with her in the chat room.
+[00:14:42.800 --> 00:14:52.720]   I think those are pretty weak. This is that espionage act, which can be used as a weapon,
+[00:14:52.720 --> 00:14:58.720]   as a cudgel, as much as a law by the US government. On the other hand, you know, you can make a lot
+[00:14:58.720 --> 00:15:03.280]   of you can give a lot of examples where Julian Assange may have acted as a agent of the Russian
+[00:15:03.280 --> 00:15:09.680]   government, you know, that he, you know, there's, there's like, we don't have others of those around.
+[00:15:09.680 --> 00:15:14.160]   Yeah, that's true. What's your take on it, Jeff? Can Julie A,
+[00:15:14.160 --> 00:15:18.720]   can Julian Assange get a fair trial in the United States? Are these charges fair?
+[00:15:18.720 --> 00:15:25.360]   Or is it a chilling? Does it have a chilling effect on people, those who would speak truth
+[00:15:25.360 --> 00:15:30.960]   to power, including journalists? Yeah, I think, you know, Julian Assange could be a real jerk,
+[00:15:30.960 --> 00:15:35.360]   but isn't it always the case that you defend rights by defending the rights of jerks?
+[00:15:35.360 --> 00:15:41.120]   And as journalists, we should be standing with him here for the, for the chill that it could put
+[00:15:41.120 --> 00:15:45.360]   not only on the journalists, but also on the sources we have, and how we could be held liable
+[00:15:45.360 --> 00:15:50.960]   for being involved with those sources anyways, and then in interpretations, you know, here's my
+[00:15:50.960 --> 00:15:55.040]   phone number. Did you just, did you just explain to them how to use a phone, you know, they can
+[00:15:55.040 --> 00:16:00.320]   reach absurd levels? And can he get a fair trial here? No, I don't think so.
+[00:16:00.320 --> 00:16:03.600]   I don't think so. Now a journalist, if a journalist
+[00:16:03.600 --> 00:16:10.320]   subbourned somebody to hack, to do an illegal act in order to get information,
+[00:16:10.320 --> 00:16:16.960]   that journalist, that's, that's illegal. And as a journalist, Professor journalism,
+[00:16:16.960 --> 00:16:20.800]   you would tell your students, don't do that. Right. Yes. Right. Exactly.
+[00:16:20.800 --> 00:16:24.720]   You don't tell someone to go steal documents. You just, if they give you the stolen document,
+[00:16:24.720 --> 00:16:29.680]   right? And she's like, cool, thanks. So the prosecutors say that Assange helped
+[00:16:29.680 --> 00:16:37.120]   Chelsea Manning crack a password and did some hacking, which I don't think actually happened.
+[00:16:37.120 --> 00:16:41.760]   Allowed her log into the, which allowed her to log into the, a, a, a, a, a, a, a, a
+[00:16:41.760 --> 00:16:47.360]   suppernet government network using a username that didn't belong to her so that she could
+[00:16:47.360 --> 00:16:52.480]   sneak in and steal these documents. I think that there's a fairly weak evidence that he,
+[00:16:52.480 --> 00:16:57.360]   that man that Assange actually got Manning to do that or taught Manning how to do that.
+[00:16:57.360 --> 00:17:02.400]   But if that is a criminal act, I mean, we're not talking the first amendment here. If,
+[00:17:02.400 --> 00:17:05.760]   if Assange did that, that would be a criminal act.
+[00:17:05.760 --> 00:17:07.920]   We'll be asking you.
+[00:17:07.920 --> 00:17:13.760]   Or something. How about, how about, how about, uh, how about, uh, Stacy actively encouraging
+[00:17:13.760 --> 00:17:17.680]   manually confirmation? Is you saying that's a beyond the pale as well?
+[00:17:20.160 --> 00:17:25.280]   I'm trying to think about like in reporting, especially around like computer issues and digital
+[00:17:25.280 --> 00:17:34.080]   files and assets. Um, like, like I have sent people like bash script to run on their computers to
+[00:17:34.080 --> 00:17:39.120]   track like trace routes for like tracking, peering like when I'm, I'm ready. This is not
+[00:17:39.120 --> 00:17:44.160]   government. I wouldn't do that anymore if I were you. Well, I mean, that's actually,
+[00:17:44.160 --> 00:17:48.000]   I mean, that's how traffic's flowing on the internet. So I'm trying to think about like,
+[00:17:48.000 --> 00:17:53.600]   if you're, if you're handing someone, like I'm trying to get information from a white,
+[00:17:53.600 --> 00:17:59.280]   I'm reporting out something from a wider arrangement, like a wide geographic spread. So I'm, I'm
+[00:17:59.280 --> 00:18:04.400]   sitting here thinking about that. I'm like, I'm just pointing out the Espionage Act was written in 1917.
+[00:18:04.400 --> 00:18:11.600]   And it's pretty, I mean, I know not to convince my sources to like, you know, I don't, I don't
+[00:18:11.600 --> 00:18:15.760]   tell them, you know, here's how to pick a lock and I mean, but what if I sent them a YouTube
+[00:18:15.760 --> 00:18:20.080]   video on how to pick a lock to go get it. Yeah. Okay. There you go. Yeah.
+[00:18:20.080 --> 00:18:24.720]   Or just told them to Google it. Yeah. So the Espionage Act prohibits obtaining information,
+[00:18:24.720 --> 00:18:30.320]   recording pictures or copying descriptions of any information relating to national defense
+[00:18:30.320 --> 00:18:36.960]   with intent or reason to believe that the information may be used for the injury of the United
+[00:18:36.960 --> 00:18:43.200]   States or the advantage of any foreign nation. Well, but this is also where we have to decide.
+[00:18:43.200 --> 00:18:49.120]   Chelsea Manning was a whistleblower as you as you animated earlier. And so is this Espionage or is this
+[00:18:49.120 --> 00:18:54.560]   Patriot Patriotism? Yeah, this is the same question with Snowden, right?
+[00:18:54.560 --> 00:18:59.520]   Right. Right. And winning. What's your name, winning?
+[00:18:59.520 --> 00:19:05.200]   Reality with a winner. How can I forget her first name? Reality winning? Yeah,
+[00:19:05.200 --> 00:19:07.200]   winner. I often want to forget reality.
+[00:19:09.360 --> 00:19:15.760]   Or Daniel Ellsberg. Absolutely. Going back to the Watergate and Vietnam,
+[00:19:15.760 --> 00:19:21.280]   he like he spent his Pentagon papers. He leaked the Pentagon papers to the times. He also was charged
+[00:19:21.280 --> 00:19:28.000]   under the Espionage Act. The judge dismissed charges protecting. Yeah, right now we have a
+[00:19:28.000 --> 00:19:34.400]   judge that's trying to prevent the New York Times from publishing material that they have as
+[00:19:34.400 --> 00:19:40.800]   reporters on James O'Keefe. And that's prior restraint. And we've won that fight before
+[00:19:40.800 --> 00:19:44.800]   prior restraint. And right now the New York Times is losing it. And there's tons of
+[00:19:44.800 --> 00:19:51.440]   threats to the press and freedom of expression, freedom of speech going on right now. And so,
+[00:19:51.440 --> 00:19:58.080]   you know, this is troubling. That's why Snowden's in Russia. He was charged
+[00:19:58.080 --> 00:20:00.640]   on the Espionage Act. And rather than facing those charges,
+[00:20:01.200 --> 00:20:08.720]   fled the country and saw asylum in Russia. Much like Assange did in the Ecuadorian Embassy and then
+[00:20:08.720 --> 00:20:15.120]   later in the UK, he's in prison in the UK and should the home secretary approve,
+[00:20:15.120 --> 00:20:20.400]   pretty Patel approve the requests, he could be on his way to the United States. And I think
+[00:20:20.400 --> 00:20:24.960]   I kind of agree with you. It's not that he wouldn't receive a fair trial so much, Jeff, it's that
+[00:20:24.960 --> 00:20:29.840]   it's just like throwing the dice. You don't know. It depends on the judge. It depends on.
+[00:20:29.840 --> 00:20:33.920]   Yep. Well, isn't that is that so? I mean, welcome to Justice in America.
+[00:20:33.920 --> 00:20:36.560]   As I said, that's a lot less attention. Yeah.
+[00:20:36.560 --> 00:20:45.280]   All right. Well, we'll keep an eye on that one. So I'm very confused about the alpha
+[00:20:45.280 --> 00:20:49.200]   the shelf is over your right shoulder and the three shot and your left shoulder on the one
+[00:20:49.200 --> 00:20:53.840]   shot. Oh, he's crossing the line. Alpha the shelf across the line. This is nice to you.
+[00:20:53.840 --> 00:20:59.600]   There, there, you're going to make our audience nauseous. Yeah.
+[00:20:59.600 --> 00:21:08.640]   Can't cross the line. I've been pressing every button like a when you're off screen to try and
+[00:21:08.640 --> 00:21:14.640]   desecrate. Victor's trying to figure out how the alpha mission all works. Only John knows that John
+[00:21:14.640 --> 00:21:23.120]   is like, yeah, like, yeah, I'm being here. He's not here, man. Giggling right now. He is at home
+[00:21:23.120 --> 00:21:30.240]   laughing. Let's see. I would like to take a little break and then we come back. It's time to talk
+[00:21:30.240 --> 00:21:40.240]   about the man of the year. No, it ain't. No. Yes, the man of the year. But first of word,
+[00:21:40.240 --> 00:21:47.120]   from Code Academy. We were we were talking earlier on the show about the fun little exercises I'm
+[00:21:47.120 --> 00:21:52.160]   doing with the advent of code. And I have to give a little pat on the back to Code Academy.
+[00:21:52.880 --> 00:21:58.560]   Because it's where I learned. I think it's Python. It's I've been taking classes there. It's so much
+[00:21:58.560 --> 00:22:06.240]   fun. It is a great place to learn how to code. In fact, over 50 million people already know
+[00:22:06.240 --> 00:22:11.440]   Code Academy is the best way to learn to code because Code Academy not only teaches you job
+[00:22:11.440 --> 00:22:17.440]   ready coding skills, but helps you build unique projects for your portfolio. You'll have those
+[00:22:17.440 --> 00:22:21.600]   certificates you could put on your LinkedIn even prep for technical interviews, all the things
+[00:22:22.160 --> 00:22:29.440]   you need to get a new career as a programmer. Programming is so much fun. So much fun. But I have
+[00:22:29.440 --> 00:22:36.320]   to say, it's important when you're learning a program that you get a hands-on experience. And
+[00:22:36.320 --> 00:22:41.680]   that's what Code Academy does so well. You'll be writing code from your very first lesson.
+[00:22:41.680 --> 00:22:45.840]   And instant feedback too. As soon as you submit it, you hit the submit button,
+[00:22:45.840 --> 00:22:51.360]   you'll get feedback right away. You'll know if you're on the right track. It's a really great way
+[00:22:51.360 --> 00:22:57.440]   to learn. What is it? Record number of people quit their lousy jobs in the last few months.
+[00:22:57.440 --> 00:23:03.760]   Maybe you would like a better paying job with better conditions and a lot more satisfaction.
+[00:23:03.760 --> 00:23:07.840]   Maybe you'd like to learn to code. This is the place to do it. No matter what your experience
+[00:23:07.840 --> 00:23:13.920]   level, you'll be writing real working code in minutes and coding a lot of languages. Python,
+[00:23:13.920 --> 00:23:20.720]   HTML, CSS, SQL, JavaScript, they just added a whole Swift program, which is so exciting. That's
+[00:23:20.720 --> 00:23:28.240]   the language for iOS and Macintosh. If you want to write iPhone apps, this is the place to go.
+[00:23:28.240 --> 00:23:34.720]   You'll really be learning. And if you're not sure where to begin, you should still go to
+[00:23:34.720 --> 00:23:42.080]   codecademy.com because they've got a great personality quiz. Not a coding quiz. No math will be asked.
+[00:23:42.080 --> 00:23:46.960]   No coding questions. They ask you about the things you like, what your personality is.
+[00:23:46.960 --> 00:23:51.120]   And they give you an idea by the way, it was very good. Said you should be getting into computer
+[00:23:51.120 --> 00:23:55.680]   science. You seem to have an affinity for that. It'll get you tailored career advice and course
+[00:23:55.680 --> 00:24:01.360]   recommendations based on your personality, on your interests, your strengths. They told Lisa,
+[00:24:01.360 --> 00:24:06.240]   she should get into statistics, which is exactly right. She's very good with numbers. You'll get
+[00:24:06.240 --> 00:24:10.880]   instant feedback. Your code is tested as soon as you submit it. It's an interactive platform
+[00:24:10.880 --> 00:24:16.320]   where you'll learn by doing. You'll be building a portfolio. You'll get that certificate of completion
+[00:24:17.040 --> 00:24:22.160]   and then your dream job of whites, web development, programming, computer science, data science,
+[00:24:22.160 --> 00:24:27.840]   statistics, tons more. If you want to learn a new skill, whether it's to build websites,
+[00:24:27.840 --> 00:24:32.960]   troubleshoot tech issues, transition to a new career, it's even just fun for a hobby. Check out
+[00:24:32.960 --> 00:24:37.840]   codecademy. And by the way, I use there's cheat sheets at codecademy because they're really good
+[00:24:37.840 --> 00:24:44.240]   and they're really helpful even when I'm not studying. Join the 50 million people learning to
+[00:24:44.240 --> 00:24:52.080]   code with codecademy and see where coding can get you. I'm a big fan. Get 15% off your codecademy
+[00:24:52.080 --> 00:24:59.360]   pro membership. Just go to codecademy.com. Use the promo code twig twig. Use the promo code twig so
+[00:24:59.360 --> 00:25:09.760]   they know you saw it here. C-O-D-E-C-A-D-E-M-Y dot com. 15% off codecademy pro. The best way to
+[00:25:09.760 --> 00:25:16.480]   learn to code. Codecademy.com. Don't forget that promo code twig. We thank codecademy so much for
+[00:25:16.480 --> 00:25:25.040]   supporting this week in Google. It's a clever platform. Very clever way to learn how to
+[00:25:25.040 --> 00:25:33.360]   how to code. Time magazine has not always made the person of the year a good person.
+[00:25:34.320 --> 00:25:41.440]   Very famously Hitler was time magazine's person of the year during World War II.
+[00:25:41.440 --> 00:25:51.840]   So it's just influential. I bring that up because time magazine's person of the year this year
+[00:25:51.840 --> 00:26:02.320]   is Elon Musk. Look at that guy. Look at that guy. Wow. I guess that's reasonable as somebody
+[00:26:02.320 --> 00:26:10.160]   who's made a made his mark on for better or for worse on the country. Tesla's introduced electric
+[00:26:10.160 --> 00:26:16.640]   vehicles and now everybody's making them. SpaceX has been a huge success. But he didn't make the
+[00:26:16.640 --> 00:26:21.920]   electric vehicle this year. That's that's old news. Yeah. Although he did become the richest man
+[00:26:21.920 --> 00:26:26.320]   in the world this year thanks to the success of Tesla. So that makes you person of the year.
+[00:26:26.320 --> 00:26:31.440]   Criterion. Okay. Well, it's one of many but I. Has Bezos been?
+[00:26:31.440 --> 00:26:38.640]   Yes, Bezos hasn't even been the mayor. Okay. No, I truly don't know. This feels like one of those
+[00:26:38.640 --> 00:26:43.280]   silly like it's kind of like people's sexiest man in your opinion. Well, in fact,
+[00:26:43.280 --> 00:26:49.840]   in fact Stacey, let me tell you about that. I was in the room. The managed editor had a cover
+[00:26:49.840 --> 00:26:55.440]   and couldn't think of a cover billing for it. We just had the story that was it. Oh, the elf went
+[00:26:55.440 --> 00:27:02.160]   flying there. And there was no news. There was no news pegged for it. It was just it was just a
+[00:27:02.160 --> 00:27:06.160]   celebrity story. She Pat Ryan. She had no idea what to do. She finally just finally said,
+[00:27:06.160 --> 00:27:08.320]   Oh hell, why don't we just call him the sexiest man alive.
+[00:27:08.320 --> 00:27:14.080]   Cover sold like crazy. Of course. And annual institution, right? Of course. It's cheap. It's
+[00:27:14.080 --> 00:27:20.160]   cheap magazine tricks. It's worse than meaningless. It's you know, if we say we have news, judge,
+[00:27:20.160 --> 00:27:26.320]   we'll go to the pandemic and how about the insurrection? Well, and those are more important than Elon
+[00:27:26.320 --> 00:27:32.800]   Musk. I think the pandemic was they also do it was last year was event. Well, they have the MRNA
+[00:27:32.800 --> 00:27:39.040]   scientists as a person. They do these like secondary, but for time, isn't it also like a
+[00:27:39.040 --> 00:27:44.800]   money maker Gala kind of? They have a party into that where they have the like 100 most
+[00:27:44.800 --> 00:27:49.680]   important people. That's yeah, they've exploited it yet more. Yeah, it's all BS. It's pure
+[00:27:50.080 --> 00:27:58.160]   utter meaningless manipulative, cert desperation BS. Okay, thank you.
+[00:27:58.160 --> 00:28:03.840]   We're talking about it. Well, we're done talking about the idea of a person
+[00:28:03.840 --> 00:28:10.160]   if I had put together the rundown, it wouldn't be here. But I did, but you complained last week
+[00:28:10.160 --> 00:28:14.560]   about me on the rundown. So I put it on. So you can't blame me for this being here.
+[00:28:15.600 --> 00:28:22.400]   By the way, now it's just in the financial times man of the year. Elon Musk.
+[00:28:22.400 --> 00:28:30.720]   To F T. It worked for time. We're going to. So all right. Yeah, we don't we don't have to
+[00:28:30.720 --> 00:28:34.080]   mention it. We don't have to make a big deal out of it. By the way, Bezos is not. I don't have a
+[00:28:34.080 --> 00:28:37.680]   problem with person of the year. If it's someone that has done
+[00:28:39.760 --> 00:28:46.880]   no or it was credit to a bird two years ago. It was Biden and Harris last year.
+[00:28:46.880 --> 00:28:55.360]   See, nobody remembers this actually. Koshogi and other journalists who faced persecution
+[00:28:55.360 --> 00:29:03.520]   in 2018. The Me Too movement in 2017. Donald Trump in 2016, Angela Merkel in 2015.
+[00:29:04.320 --> 00:29:11.120]   In 2016, it's where they got that great ideal attacking him. Yeah. Oh my gosh. Yeah, that was
+[00:29:11.120 --> 00:29:16.960]   funny. The Ebola fighters in 2014. Pope Francis 2013. Barack Obama's.
+[00:29:16.960 --> 00:29:25.520]   It was us. Us. Oh, the God. You like that was 2006. You. It was you. You're the piece.
+[00:29:25.520 --> 00:29:31.360]   Which is us. In individual content creators on the World Wide Web. I guess it was us because we
+[00:29:31.360 --> 00:29:36.160]   were doing the show by then, weren't we? Yeah. I guess it was us. Bill him on
+[00:29:36.160 --> 00:29:42.800]   the gates in Bono in 2005. Again, those are people doing something for society.
+[00:29:42.800 --> 00:29:52.000]   You know, it was Rudy Giuliani in 2001. Oh, I'm sorry. Bezos was man was person. I keep saying
+[00:29:52.000 --> 00:29:58.640]   man, by the way, it's pursed. It's many women of one person of the year. 1999. Bezos. Oh, that's
+[00:29:58.640 --> 00:30:04.000]   good. All right. That's pressure. Yeah. They knew ahead of time. He was going to be the person of the
+[00:30:04.000 --> 00:30:10.880]   year. Yeah, you're right. It's just a cell magazine. I'm sorry. I gave him any time at all.
+[00:30:10.880 --> 00:30:16.880]   Well, I mean, if you want to talk about NFTs and gaming the market through social media and,
+[00:30:16.880 --> 00:30:22.640]   yeah, then I guess that's relevant. Look, we talk about him, you know, I would have been totally
+[00:30:22.640 --> 00:30:28.240]   fine with the show. The old, the old, I got it. If you got, you didn't have a shenanigans tied to all
+[00:30:28.240 --> 00:30:32.640]   of the things that he's done from a research then. He's a shenanigans.
+[00:30:32.640 --> 00:30:41.760]   I guess of the year. Leo, I think the twit should make a new feature every every December.
+[00:30:41.760 --> 00:30:47.920]   The year. I would call it the Twitter here. Yeah. There you go. Better. Far better.
+[00:30:47.920 --> 00:30:50.400]   Our Twitter the year this year. Ant Pruitt.
+[00:30:53.360 --> 00:30:59.760]   I didn't need an editorial panel. Any. Congratulations. I'd like to present you with the official
+[00:30:59.760 --> 00:31:08.880]   Twitter of the year award. It is lovely. I don't know. Golden deer. Golden deer award
+[00:31:08.880 --> 00:31:13.760]   for the Twitter the year that we're going to. This is the first annual. We'll engrave your name.
+[00:31:13.760 --> 00:31:22.560]   Can I have the receipt for that? It's. Can I have a receipt for it? Well, actually, if you do want to
+[00:31:22.560 --> 00:31:27.040]   return it, the price is on the bottom. Ladies, gentlemen, this right here is the Twitter of the year.
+[00:31:27.040 --> 00:31:40.160]   Ant Pruitt. 39.99. This costs 59.99 in Canada. It's called shimmer no well. And the crowd goes yawn.
+[00:31:40.160 --> 00:31:46.960]   I give you the. Jeff, would you hand that over? That's over. You can pick your award up in the
+[00:31:46.960 --> 00:31:54.640]   metaverse and it'll be waiting. It's an NFT. Send me the receipt, please.
+[00:31:54.640 --> 00:32:05.040]   Did you see the guy? I don't feel sorry for him at all. He sold the board chimpanzee and F T.
+[00:32:05.040 --> 00:32:11.280]   Oh, yeah, for the wrong rate. Yeah. It was at point three quarters of any of the.
+[00:32:11.280 --> 00:32:18.800]   Yeah, he says I fat fingered it and only charged $3,000 for it. I meant to charge $300,000.
+[00:32:18.800 --> 00:32:27.280]   And it sold almost immediately for like that much. So whoever bought it and what they were doing.
+[00:32:27.280 --> 00:32:32.320]   And then there's their bots out there looking for the stuff that are devalued like that. The whole
+[00:32:32.320 --> 00:32:40.000]   thing is just so stupid. I just I'm sorry. I'm trying to be open to. I have a love hate with it, sir. I
+[00:32:40.000 --> 00:32:47.040]   think it's great for artists that that can get some additional revenue and have people that have
+[00:32:47.040 --> 00:32:52.720]   an appreciation for the actual art that they're creating. My problem is the the minting process
+[00:32:52.720 --> 00:32:58.240]   and all of the fees associated with it just ridiculous, not cool at all.
+[00:32:58.240 --> 00:33:05.520]   And by the way, just right. The Verge has the picture of the board ape and you could just right
+[00:33:05.520 --> 00:33:09.360]   click it and save it. And then you have a copy of it for me. You got a copy of it then.
+[00:33:09.360 --> 00:33:14.640]   What does it cost you to make one and it's like 12 bucks, right? It depends on the
+[00:33:14.640 --> 00:33:19.520]   fees at that hour. Yeah, sometimes it's a lot higher. Sometimes it's a lot lower.
+[00:33:19.520 --> 00:33:28.160]   Anyway, I don't really feel sorry for the guy at all. And he has a good he had the good sense of
+[00:33:28.160 --> 00:33:34.480]   not saying, Oh, whoa, is me. Right. Right. He owned up to it and it's like, yeah, I'm never knowing.
+[00:33:34.480 --> 00:33:40.320]   It's only me. I mistakenly made $3,000 instead of 300,000.
+[00:33:40.320 --> 00:33:45.680]   Yeah, exactly. Yeah. For something that's utterly worthless. Yeah. It's not even very a good looking.
+[00:33:45.680 --> 00:33:51.200]   Well, and that's another thing that sort of I don't quite get. But again, it's art. So I
+[00:33:51.200 --> 00:33:57.440]   shouldn't be so judgy about it. But some of these crypto pieces of art that goes for a gazillion
+[00:33:57.440 --> 00:34:02.960]   as a dollar is unlike that. I just don't see it. And then the fact that a lot of the artists are
+[00:34:02.960 --> 00:34:09.760]   using some sort of automated system to create them, macros or whatever to just spit out
+[00:34:09.760 --> 00:34:15.840]   versions of these apes, it's not a lot of work involved in it. It just sort of cheapens it,
+[00:34:15.840 --> 00:34:21.440]   in my opinion, versus someone sitting down going through the process of creating this piece of art.
+[00:34:21.440 --> 00:34:25.920]   I put my heart into this, not a couple hotkeys to create it.
+[00:34:25.920 --> 00:34:32.080]   How would you feel about like Jeff Koons, who does he factory produces like his balloon dog?
+[00:34:32.080 --> 00:34:39.040]   So there are a series of artists out there today who come up with an idea and then just
+[00:34:39.040 --> 00:34:42.560]   replicated. Is it art?
+[00:34:42.560 --> 00:34:50.480]   I mean, Warhol had a whole room of people making his silk screens. He knew what he was doing. He
+[00:34:50.480 --> 00:34:56.080]   called him the factory. I was like, but for him, he was aware of it. And that was part of the art.
+[00:34:56.080 --> 00:35:01.920]   Like it was a statement that I think it's fascinating. I will say that I think all of it
+[00:35:01.920 --> 00:35:07.120]   is so like, could we not have gotten excited about something that doesn't look like something like
+[00:35:07.120 --> 00:35:10.720]   a kid doodled like a boy doodled on their textbook?
+[00:35:10.720 --> 00:35:17.920]   Yeah. Right. You know, I look at my guess last week on Hands on Photography, Mr. Peter Adams.
+[00:35:17.920 --> 00:35:24.960]   And he took photos of some giants in the tech industry, going back to Mr. Vent Cerf.
+[00:35:25.760 --> 00:35:33.440]   And they're NFTs now and people are devaluing that versus what's currently selling with these
+[00:35:33.440 --> 00:35:38.400]   stupid apes and things like that. And I'm like, what he did right there is way more valuable,
+[00:35:38.400 --> 00:35:42.720]   in my opinion, versus these little graphics that are selling all over the place for
+[00:35:42.720 --> 00:35:50.640]   because that gives a dollars. Yeah. Even as Mr. Torvos and Mad Dog and lots of people in there,
+[00:35:50.640 --> 00:35:58.560]   Doc Serals is in there. Legit people in this industry that have left the mark in technology
+[00:35:58.560 --> 00:36:03.600]   for a lot of the stuff that we're using today. And yet they're not getting, he's not going to
+[00:36:03.600 --> 00:36:07.760]   get much credit for that work and for that art. But you know, he put it out there anyway.
+[00:36:07.760 --> 00:36:15.520]   Did you aunt, I almost think this should be in the Google change log, like a new feature of Google.
+[00:36:15.520 --> 00:36:19.920]   I woke up this morning and I got a storm warning for a storm coming to the Philippines.
+[00:36:19.920 --> 00:36:26.000]   Did you get that? I got one of those. A PGA something. A PGA. Yes. It's like the basic.
+[00:36:26.000 --> 00:36:32.720]   You're not on the West Coast. Maybe. No, no. Everybody in the world, in the world,
+[00:36:32.720 --> 00:36:40.640]   got this public storm warning signal number one from PAG ASA. It's the Philippines weather
+[00:36:40.640 --> 00:36:45.120]   warning. It's about a big cyclone coming to the Philippines. There's a whole Reddit thread
+[00:36:45.760 --> 00:36:51.760]   on it right here. And that's noteworthy, but not really for me. And I chopped it up to
+[00:36:51.760 --> 00:36:58.720]   this is some other issue with Android 12. So I just, you expected nothing less.
+[00:36:58.720 --> 00:37:04.720]   All right. I mean, I've never, I've never heard of this happening before. That is a substantial bug
+[00:37:04.720 --> 00:37:11.600]   where I didn't know everybody got everybody. Everybody got it. Look at this thread. And I got
+[00:37:11.600 --> 00:37:19.600]   it in the central Florida. I got it in Switzerland. I got it in Michigan. Montreal. Everybody.
+[00:37:19.600 --> 00:37:24.960]   Here's the picture of it in case you, I guess it wouldn't look like this unless your wallpaper
+[00:37:24.960 --> 00:37:30.160]   would look like that. But that was, that was it. And you know, I saw that and I thought,
+[00:37:30.160 --> 00:37:35.200]   I actually, Lisa, are we getting a big storm? She said, yeah, and the Philippines.
+[00:37:38.320 --> 00:37:42.960]   Okay. I was excited. I got to learn about a whole new stores. Like I Googled it. And I was like,
+[00:37:42.960 --> 00:37:46.640]   Oh, and then I'm like sitting there for like five minutes learning about different store.
+[00:37:46.640 --> 00:37:52.640]   Oh, that's so stacy. That's so I saw it and thought, okay, we've had the atmospheric river
+[00:37:52.640 --> 00:37:56.720]   over here on the, yeah, I thought it was for us, but it's come, I was like, okay, all right.
+[00:37:56.720 --> 00:38:01.760]   Yeah, here's another. Came from the Philippine atmospheric geophysical and astronomical services
+[00:38:01.760 --> 00:38:03.760]   administration. Then look,
+[00:38:03.760 --> 00:38:08.080]   came from the Philippines. But I have to think it wasn't really from the Philippines, but it
+[00:38:08.080 --> 00:38:13.280]   was from Mr. Google himself, right? Who else could set that off on every Google Pixel phone?
+[00:38:13.280 --> 00:38:20.800]   Who else? Right. And that, I don't know. He's doing UAT. We were testing. We were talking about
+[00:38:20.800 --> 00:38:30.400]   on Windows Weekly about this bug. Microsoft Teams blocking 911 calls on Android phones.
+[00:38:30.400 --> 00:38:32.400]   Oh, yeah. I heard about that.
+[00:38:34.240 --> 00:38:41.520]   That should that. I don't know if that's an Android 11 bug or a Teams bug, but that's not good.
+[00:38:41.520 --> 00:38:50.160]   Oh, I've been hearing mostly people fussing that it's been a Microsoft Teams bug more so than.
+[00:38:50.160 --> 00:38:55.920]   Well, it only happens if you've got the Teams app installed and you're not logged in.
+[00:38:55.920 --> 00:39:00.480]   So the fix for Microsoft is we'll just log in.
+[00:39:01.440 --> 00:39:09.840]   I can't log into Teams. I hate it so much. Oh, I refuse. I'm literally about to switch my computer
+[00:39:09.840 --> 00:39:14.080]   out, not because I'm switching my computer out, but I think that's going to be the only way that I
+[00:39:14.080 --> 00:39:21.760]   can actually log into Teams. Freaking. Wow. So it isn't completely Teams fault. It is actually a bug
+[00:39:21.760 --> 00:39:28.960]   in Android 11. Microsoft. Wait, wait, Android 11? Another one. Yeah, it's not 12. Oh, I think it's,
+[00:39:28.960 --> 00:39:34.720]   oh, wait a minute. Let me check because we're all on 12. I don't think it's specific. I don't
+[00:39:34.720 --> 00:39:41.520]   know if it's specific to Microsoft rolled out a new version of Teams, but that just fixes it with
+[00:39:41.520 --> 00:39:50.400]   Teams. And it is a bug that could still block calling 911 until Google fixes the Android problem.
+[00:39:52.000 --> 00:40:00.560]   So it's kind of unclear what version of Android is because it's not all Android phones.
+[00:40:00.560 --> 00:40:06.320]   Google said we believe the issue is only present on a small number of devices
+[00:40:06.320 --> 00:40:10.240]   with the Teams app installed when the user's not logged. So they have Teams on their phones.
+[00:40:10.240 --> 00:40:14.480]   Yeah. Well, you might need, like, unfortunately, we have meetings with
+[00:40:14.480 --> 00:40:18.720]   sponsors and all kinds of people all the time. And sometimes they want to use something else.
+[00:40:20.480 --> 00:40:24.240]   Yeah. Well, Zoom is the default, but it's not the only.
+[00:40:24.240 --> 00:40:30.880]   Is it Zoom about the best we've ever had here for video? It is. But I will say something.
+[00:40:30.880 --> 00:40:33.920]   Last week, we had a problem on Windows Weekly and we had a problem yesterday,
+[00:40:33.920 --> 00:40:39.040]   I'm at Brick Weekly. And the problem with Zoom is you're going through Zoom servers. And if they're
+[00:40:39.040 --> 00:40:43.920]   having problems, maybe it was related a lot for Jay, I don't know, but we were having some very
+[00:40:43.920 --> 00:40:49.120]   inconsistent results that weren't our fault or the hosts fault. But it was, I believe,
+[00:40:49.120 --> 00:40:54.640]   and built into Zoom. You know, the Zoom servers. You break everything.
+[00:40:54.640 --> 00:40:57.360]   Jeez. Yeah, we're going to plan. Thanks. But you're right.
+[00:40:57.360 --> 00:40:58.400]   It's because you still in to terminal.
+[00:40:58.400 --> 00:41:14.880]   So I don't know if this really is appropriate for Twig. We certainly talk about it on Mac
+[00:41:14.880 --> 00:41:19.680]   Break Weekly. But you remember the big fewer when Apple announced that they were going to put a
+[00:41:19.680 --> 00:41:26.960]   scanner for child sexual abuse material on each and every iPhone. So yesterday they did roll out
+[00:41:26.960 --> 00:41:33.520]   one of the other features they announced at the same time, which was an ability for messages.
+[00:41:33.520 --> 00:41:40.560]   If parents turn it on to scan for incoming naked pictures and to warn the kids, you don't want to
+[00:41:40.560 --> 00:41:44.720]   see this and actually gives them three warnings before they can actually see it.
+[00:41:44.720 --> 00:41:51.840]   And in its initial format, alerted the parents, now it does not, Apple turned that off. And
+[00:41:51.840 --> 00:41:59.760]   some bright eye at Mac rumors noticed they've removed all message mentions of that
+[00:41:59.760 --> 00:42:06.240]   C that child sexual abuse material, CSAM scanning from its child safety webpage. It's all gone.
+[00:42:06.960 --> 00:42:14.000]   And there's some thinking that maybe Apple doesn't plan to keep going with this.
+[00:42:14.000 --> 00:42:20.240]   Seems like they're backing off. An Apple spokesperson told the Verge that although
+[00:42:20.240 --> 00:42:25.760]   the CSAM detection feature is no longer mentioned on the website, plans have not changed since
+[00:42:25.760 --> 00:42:30.800]   September, which means it's still coming. But they want to make improvements based on feedback
+[00:42:30.800 --> 00:42:37.440]   from customers, advocacy groups, researchers, Sith Lords in retirement and others.
+[00:42:37.440 --> 00:42:43.360]   I'd listen to the Sith Lords and just just in nickel millionaires.
+[00:42:43.360 --> 00:42:44.960]   As well, you should.
+[00:42:44.960 --> 00:42:57.840]   We did we mentioned I think we did last week that the better zoom call where the CEO got on and said,
+[00:42:58.480 --> 00:43:00.720]   all of you on this call, you're fired.
+[00:43:00.720 --> 00:43:06.240]   Fired, I think what was it? 600 people at the same time. 900. 900.
+[00:43:06.240 --> 00:43:09.520]   I don't know where he could have done that. 900.
+[00:43:09.520 --> 00:43:13.520]   If you're on this call, you're part of the unlucky group that's being laid off.
+[00:43:13.520 --> 00:43:20.880]   If anything, he could have been a little more human about it because
+[00:43:20.880 --> 00:43:24.800]   one of the reports I read said that he was sort of like,
+[00:43:25.440 --> 00:43:28.880]   like a days ago about it and just soil. Well, in a.
+[00:43:28.880 --> 00:43:34.000]   He wasn't like a day's ago because he made town hall afterwards. He said,
+[00:43:34.000 --> 00:43:38.320]   you will not be allowed to fail twice. You will be encouraged to fail once, but not
+[00:43:38.320 --> 00:43:43.040]   allowed to fail twice. Not meeting deadlines will not be acceptable. You're going to make
+[00:43:43.040 --> 00:43:50.320]   an excuse for him, Stacy. Well, I was just going to say, it's hard to fire people and you may
+[00:43:50.320 --> 00:43:54.240]   emotionally distance yourself from it. So other people may perceive he was being
+[00:43:55.040 --> 00:43:59.280]   something that you're not feeling. Yeah. Well, he's gone.
+[00:43:59.280 --> 00:44:02.160]   I try to give people the benefit of the day. He fired himself.
+[00:44:02.160 --> 00:44:06.960]   Vishal Garg is taking time off effective immediately.
+[00:44:06.960 --> 00:44:13.520]   An email sent on Friday morning and they leave though, right? That's not necessarily
+[00:44:13.520 --> 00:44:20.400]   going off. He's coming back better.com is a digital mortgage company. They have hired an
+[00:44:20.400 --> 00:44:24.320]   outside firm to quote, do a leadership and cultural assessment.
+[00:44:24.320 --> 00:44:32.720]   Yeah, you screwed. Yeah. Uh huh. He also apparently called the one of the top investors,
+[00:44:32.720 --> 00:44:45.280]   sewage. So that might have something to tell. Okay. He's gone. I'm sure he has a nice golden
+[00:44:45.280 --> 00:44:52.080]   parachute awaiting. Yeah. Yeah, I'm sure he'll be fine. As Motherboard reported this week,
+[00:44:52.080 --> 00:44:57.360]   Garg's temperament has been an issue repeatedly in the past. He called the top investor sewage
+[00:44:57.360 --> 00:45:03.200]   and told employees that rather than take indigenous people's day off, their time was better served
+[00:45:03.200 --> 00:45:09.120]   earning the company capital and therefore our freedom. Oh boy. Oh my.
+[00:45:09.120 --> 00:45:14.400]   Okay. Was there anybody in the video of him doing this? Have we seen him actually doing
+[00:45:14.400 --> 00:45:17.920]   that? Oh, I bet there is video somewhere. I bet there is. Yeah.
+[00:45:17.920 --> 00:45:28.320]   How about this? It can be challenging to work at MGM Resorts in Las Vegas and elsewhere.
+[00:45:28.320 --> 00:45:35.760]   Casino and hotel company. So before they hire you, they're giving you a VR headset and giving you
+[00:45:35.760 --> 00:45:42.800]   a chance to experience what it's like working at MGM Resorts, including nasty customers.
+[00:45:44.320 --> 00:45:50.960]   People yelling at you and so forth. Why would you do that? You're going to lose all the people.
+[00:45:50.960 --> 00:45:55.040]   Well, the problem is they have a lot of a lot of attrition. There's a lot of churn.
+[00:45:55.040 --> 00:46:02.560]   And so at the Bellagio, the MGM Grand, so they figure, look, if you can't handle the heat,
+[00:46:02.560 --> 00:46:08.080]   stay out of the kitchen. It would be nice if they would actually train people,
+[00:46:08.880 --> 00:46:15.600]   like using VR to train people to deescalate situations and or to help their colleagues would be
+[00:46:15.600 --> 00:46:21.920]   possibly a better way to handle this. I wonder who's to say they're not implementing that.
+[00:46:21.920 --> 00:46:25.680]   They might. They have that there as a warning and say, look, this is what you're getting into.
+[00:46:25.680 --> 00:46:29.440]   Who's to say they're not already? They don't already have this in place as part of their
+[00:46:29.440 --> 00:46:32.720]   onboarding procedure. That's your honor. You know,
+[00:46:33.920 --> 00:46:40.960]   Laura Lee, MGM Resorts, chief HR officer, said, sometimes candidates accept jobs without
+[00:46:40.960 --> 00:46:48.320]   realizing how difficult they may be. Yeah. So we're going to let them experience the job
+[00:46:48.320 --> 00:46:55.200]   beforehand. I like it. It also is to do that for a newsroom.
+[00:46:55.200 --> 00:47:01.680]   And nobody'd ever get to take the job. Oh, and by the way, we're going to underpay you at the
+[00:47:01.680 --> 00:47:04.480]   same time as you get yelled at.
+[00:47:04.480 --> 00:47:13.600]   Actually, yes. I was going to say, actually, my journalism professors did a good job.
+[00:47:13.600 --> 00:47:17.440]   They made sure they warned you. They warned you. Thank you. No, they actually,
+[00:47:17.440 --> 00:47:22.160]   like, I had classes where they would actually, like, I had a financial journalism class and
+[00:47:22.160 --> 00:47:27.600]   it started at like four o'clock. So when we arrived, he was like, okay, 30 minutes.
+[00:47:28.160 --> 00:47:31.760]   By 30 minutes, I need your market story. That's good. You know, yeah, that's a good
+[00:47:31.760 --> 00:47:34.960]   and it was it was great training. Yeah. This is what it's going to be like. My
+[00:47:34.960 --> 00:47:41.600]   will get used to it now. He did not scream at me like some of my other editors while trying to
+[00:47:41.600 --> 00:47:48.160]   write the story. Right. Right. So that was new. Hey, how about that pandemic?
+[00:47:48.160 --> 00:47:55.040]   How about it? How about it? So we're back in California. We're back with mask mandates.
+[00:47:55.600 --> 00:48:00.160]   So it's very confusing here in California because the state said you got to wear a mask
+[00:48:00.160 --> 00:48:04.800]   and then our county just said, no, you don't have to wear a mask. So I don't know.
+[00:48:04.800 --> 00:48:11.120]   Well, here in New York, the federal government employees are required to get vaccinated.
+[00:48:11.120 --> 00:48:16.160]   City employees are required to get vaccinated. Private employees are required to get vaccinated.
+[00:48:16.160 --> 00:48:21.120]   But me and CUNY, because we're a state institution, nope, faculty and staff are not required to get
+[00:48:21.120 --> 00:48:26.560]   vaccinated. Oh, really? Oh, it's awful. It's just awful. Meanwhile, NYU is now requiring all
+[00:48:26.560 --> 00:48:32.880]   faculty, staff and students to be boosted by January. Yeah, I got to get my get my booster.
+[00:48:32.880 --> 00:48:36.560]   I got my boosters. Yeah. But here's something pretty amazing. The
+[00:48:36.560 --> 00:48:41.200]   I'm going to get my just came across this. How dare I look at Twitter during the show. But I
+[00:48:41.200 --> 00:48:47.680]   but that's how I found this. The common well, shopping the common well fund did a study
+[00:48:48.800 --> 00:48:56.960]   and and in their estimation, the vaccination program has saved 1.1 million lives that there
+[00:48:56.960 --> 00:49:03.600]   would have been 1.1 million more deaths without it and 10.3 million additional COVID-19 hospitalizations
+[00:49:03.600 --> 00:49:11.840]   by November 2021. Wow. Yeah, how's that for sobering? How lucky we are, how fortunate we are,
+[00:49:11.840 --> 00:49:18.720]   as bad as it is, we have tools in front of us. I think I also saw an estimate that
+[00:49:18.720 --> 00:49:25.200]   about of the almost 800,000 deaths in the US, 160,000 could have been avoided by getting vaccinated
+[00:49:25.200 --> 00:49:32.560]   in the first place. Google, this all ties into an actual story about Google. Google is threatening
+[00:49:32.560 --> 00:49:41.200]   to fire on vaccinated employees. They're giving you seven months. Yeah, geez, God, one of which
+[00:49:41.200 --> 00:49:47.760]   will be paid. Yeah. Yeah. I'm not sure about all of the labor laws in different states and what not,
+[00:49:47.760 --> 00:49:53.600]   but is this is this something they can legally do? Yeah, you serve, you serve with their pleasure.
+[00:49:53.600 --> 00:49:58.400]   You have white hair, well, you can't eat, can't do with white hair, but you, you know, you,
+[00:49:58.400 --> 00:50:02.320]   you pick your teeth after the free lunch. They can give it to you.
+[00:50:02.320 --> 00:50:09.280]   Google gave its employees until December 3rd to upload proof of vaccination or receive approval
+[00:50:09.280 --> 00:50:14.480]   for a medical or religious exemption. The company says anyone who doesn't do either of those things
+[00:50:14.480 --> 00:50:20.560]   by January 13th will be placed on a 30 day paid administrative leave after the 30 days they
+[00:50:20.560 --> 00:50:24.960]   could face unpaid leave for up to six months and then be terminated. So they're going to get you
+[00:50:24.960 --> 00:50:28.720]   out of there. Okay, so they're not around that. They're getting you out of there. If you haven't
+[00:50:28.720 --> 00:50:36.000]   done it yet. Yeah, good. Good. Yeah. I mean, it makes sense. I'm okay. You don't have,
+[00:50:36.000 --> 00:50:42.080]   like, well, I'm just thinking from a purely cold business perspective, right? I would,
+[00:50:42.080 --> 00:50:48.400]   if your employees get sick, then you've got well, worse if they get everybody sick, right?
+[00:50:48.400 --> 00:50:57.120]   Yeah, people sick. I mean, it's just I, uh, I would feel weird requiring our staff to be vaccinated.
+[00:50:57.120 --> 00:51:02.320]   I we haven't gone that far, but we don't let you in the building if you're not. So if you can do
+[00:51:02.320 --> 00:51:06.640]   your job from home and you're not vaccinated, I guess what if you can't do the job from home
+[00:51:06.640 --> 00:51:10.480]   and you choose not to be vaccinated, then you they're pretty much worthless to you. Yeah,
+[00:51:10.480 --> 00:51:13.360]   I don't know. We that hasn't come up. Thank God. Thank God.
+[00:51:13.360 --> 00:51:18.080]   That's an interesting question. I wonder about stuff like that because you look at
+[00:51:18.080 --> 00:51:24.720]   that's Google and with their self-imposed mandates, this is Twitter with their self-imposed mandates
+[00:51:24.720 --> 00:51:31.280]   and compared that to say a hospital that may require it. It seems like it makes more sense
+[00:51:31.280 --> 00:51:36.240]   to me because the hospital is doing public service and trying to take care of people. It just makes
+[00:51:36.240 --> 00:51:42.000]   sense yet people will. What about public teachers? Because they're like, if you're a teacher,
+[00:51:42.000 --> 00:51:47.840]   you've got a vulnerable population that can't get a vaccine. So does that fit? That's why I was
+[00:51:47.840 --> 00:51:53.120]   like, maybe the hospital sounds like it's more lawful than anything versus what Google or any
+[00:51:53.120 --> 00:51:59.680]   other entity is doing. That's why I don't. I mean, we don't have, I mean, there's no OSHA
+[00:51:59.680 --> 00:52:04.800]   requirement, for example, but if you think about like, I can see someone filing like an ADA,
+[00:52:05.360 --> 00:52:09.760]   like if I'm immunocompromised, for example, and a vaccine just doesn't work well.
+[00:52:09.760 --> 00:52:13.440]   Oh, they're not making you. I'm no longer. Yeah, they're not making you do it in that case.
+[00:52:13.440 --> 00:52:16.960]   No, no, no. What I'm saying is I would argue that,
+[00:52:16.960 --> 00:52:20.880]   oh, I see. Yeah, if I'm immunocompromised, if my lawyer doesn't protect me,
+[00:52:20.880 --> 00:52:24.160]   right? Yeah. That is, I might sue for that.
+[00:52:24.160 --> 00:52:30.480]   I have two 911 cancers, a 911 heart condition and a respiratory condition and I'm obviously an old
+[00:52:30.480 --> 00:52:38.720]   SIF and you're a vulnerable one, a 95 year old father I visit. And so the fact that some of my
+[00:52:38.720 --> 00:52:45.840]   colleagues are not vaccinated, it puts me at risk and my family at risk. And I'm required to go
+[00:52:45.840 --> 00:52:51.680]   into class now. So I'm, I'm, I tweet constantly at my university doesn't do damn but a good
+[00:52:51.680 --> 00:52:55.680]   nobody listens to nobody cares, but I'm just enraged that they're not taking care of everybody in our
+[00:52:55.680 --> 00:53:02.240]   community. I understand why it's difficult, you know, but it's a difficult time.
+[00:53:02.240 --> 00:53:08.720]   It's a tough time period. Yeah. Speaking of tough times, of course, tragedy, those tornadoes
+[00:53:08.720 --> 00:53:15.200]   in the Southeast, the Amazon warehouse collapse. OSHA has now decided to open a probe
+[00:53:15.200 --> 00:53:19.600]   into the Edwardsville, Illinois collapse, which killed six employees.
+[00:53:19.600 --> 00:53:24.960]   We've heard stories that the employees were told they could not leave work even with
+[00:53:25.520 --> 00:53:30.480]   the tornado coming. Of course, they weren't allowed to have their cell phones, which might have given
+[00:53:30.480 --> 00:53:41.280]   them an early warning. Site leaders at the warehouse DL 14 or I'm sorry, DLI 4 told employees on duty
+[00:53:41.280 --> 00:53:48.000]   at the facility to take shelter around 816 PM local time. The tornado likely formed in the parking lot
+[00:53:48.000 --> 00:53:53.840]   then rolled through the site at approximately 835 PM walls on both sides of the warehouse,
+[00:53:53.840 --> 00:54:01.360]   collapsed in the roof, went down, killing six. OSHA is now investigating, they investigate all
+[00:54:01.360 --> 00:54:09.360]   workplace fatalities. So that's normal. And they should, I mean, I will say, not have like
+[00:54:09.360 --> 00:54:15.440]   forcing employees to come to work in a non-essential job. That's a really like,
+[00:54:15.440 --> 00:54:23.120]   I don't know the rules around that, but I think about the safety precautions in place. I mean,
+[00:54:23.120 --> 00:54:29.520]   like Leo, you have to put on a show, right? So what's your take on if there's a tornado warning
+[00:54:29.520 --> 00:54:36.160]   headed for your studio? Oh, we get the hell out. When the, I don't even have to ask because
+[00:54:36.160 --> 00:54:41.840]   not even hypothetical when the wildfires came through two years ago, and we were in an evacuation
+[00:54:41.840 --> 00:54:48.800]   area, we immediately told everybody, go home now. With tornado warnings, you don't get a
+[00:54:48.800 --> 00:54:54.400]   war. Do you get an evacuate? I've never seen anything. That's the thing. You don't get much
+[00:54:54.400 --> 00:54:59.360]   warning necessarily at all. And they're bad. And then the forecasting is bad. I'm not defending
+[00:54:59.360 --> 00:55:05.120]   Amazon on a handle factory for a second. But if every time you had a warning, you shut down,
+[00:55:05.120 --> 00:55:11.760]   warnings aren't necessarily reliable enough to warrant that. So when's it bad enough? And the
+[00:55:11.760 --> 00:55:16.240]   problem is that when you knew it was a bad storm, the warning you had was a matter of like 10 minutes.
+[00:55:16.240 --> 00:55:20.560]   Yeah, it's usually too late through. Yeah, that's the other problem. And they don't have a safe
+[00:55:20.560 --> 00:55:24.320]   place. You actually have worse shape on the road that you might be in the building. You don't know.
+[00:55:24.320 --> 00:55:33.360]   True. Yeah. Okay. So it's, I'm not defending that. I mean, if the candle
+[00:55:33.360 --> 00:55:39.040]   accompanied employees were told that if they left, they'd be fired. That ain't looking so good.
+[00:55:39.040 --> 00:55:44.080]   Yeah. That's pretty common. If the Amazon employees can have phones, that's not. Had they had phones,
+[00:55:44.080 --> 00:55:47.280]   there was a 30 minute warning from the National Weather Service.
+[00:55:47.280 --> 00:55:54.240]   The question is, you know, would they even have taken that seriously? I mean, you know, we get
+[00:55:54.240 --> 00:55:58.880]   warnings. We get warnings from the Philippines. I get the rule of the phone all the time. Hell of
+[00:55:58.880 --> 00:56:02.640]   Philippines, you know, you could have ducked under your desk because of that. Right.
+[00:56:02.640 --> 00:56:07.520]   But Amazon for years has prohibited workers from carrying phones on the warehouse floor.
+[00:56:08.480 --> 00:56:15.280]   I have heard stories reported. I haven't, I don't know if it's confirmed that some managers said
+[00:56:15.280 --> 00:56:20.560]   told employees stay on the floor even with the tornado on its way. So I'm not sure.
+[00:56:20.560 --> 00:56:26.400]   But I guess this is what the OSHA investigation will. Yeah. In six months, we'll have a clue.
+[00:56:26.400 --> 00:56:32.560]   Yeah. I don't know if that's what the SOPs are. Yeah. For them when when they have these
+[00:56:32.560 --> 00:56:37.680]   emergency situations, yeah. You know, there's something for fire. Just, you know, I wonder what
+[00:56:37.680 --> 00:56:43.840]   they what they have in place. Given climate change, it is, I mean, we're reassessing our
+[00:56:43.840 --> 00:56:49.200]   infrastructure, right? Because of climate change. It's possible that we should be reassessing our
+[00:56:49.200 --> 00:56:57.200]   safety protocols because of climate change and possibly how we manage things like how we construct
+[00:56:57.920 --> 00:57:02.480]   our office buildings. So you might see, I doubt we'll see this anytime in the short term because
+[00:57:02.480 --> 00:57:10.160]   government takes forever. But like, maybe you need to build a tornado shelter looks like a basement.
+[00:57:10.160 --> 00:57:17.600]   No, that makes you should start. If you're a proactive business, you probably should have
+[00:57:17.600 --> 00:57:21.680]   something that's a little bit better than like a phone tree in terms of like understanding how
+[00:57:21.680 --> 00:57:28.000]   you're going to react to the dangerous weather conditions in your area. And I mean, it's scary,
+[00:57:28.000 --> 00:57:34.800]   but nobody wants I don't think I mean, no one at Amazon is excited that people died. I mean,
+[00:57:34.800 --> 00:57:44.080]   you don't ever want that. Let's take a little break. We'll come back with more.
+[00:57:45.360 --> 00:57:56.560]   This week in Google, Stacey, Jeff and Pruitt, our show today brought to you by AT&T active armor.
+[00:57:56.560 --> 00:58:01.680]   When it comes to security, well, you already have to lock your doors, save your passwords,
+[00:58:01.680 --> 00:58:08.640]   remember combinations. How about one less thing to worry about? Thankfully, AT&T makes your
+[00:58:08.640 --> 00:58:16.240]   security a top priority download AT&T's active armor free mobile security app to help protect
+[00:58:16.240 --> 00:58:22.320]   your personal data. So you have one less thing to worry about. It's not complicated. AT&T active
+[00:58:22.320 --> 00:58:29.200]   armor 24/7 network protection and free security apps to stop threats before they get to you at
+[00:58:29.200 --> 00:58:37.440]   no extra charge compatible device and service required data charges may apply. Visit att.com/active
+[00:58:37.440 --> 00:58:47.120]   armor for details. Twitter is adding odd, I think this is great, auto captions to make video more
+[00:58:47.120 --> 00:58:54.560]   accessible. Yeah, good for them. Did Facebook start this? I feel like Facebook, everybody has
+[00:58:54.560 --> 00:58:57.920]   captions now at Facebook because they expect you won't have the audio on when you're looking at
+[00:58:57.920 --> 00:59:00.960]   your feed. I think that's I don't think it's an accessibility thing. I think it's I think it's
+[00:59:00.960 --> 00:59:12.080]   that. Yeah, yeah. And captions have gotten so much better too. Right, voice, tweets, and spaces
+[00:59:12.080 --> 00:59:19.360]   both have captioning and they'll be captioning on video as well, auto generated,
+[00:59:19.360 --> 00:59:24.560]   making it more accessible for deaf and hard of hearing users. But I have to say these days,
+[00:59:24.560 --> 00:59:30.080]   everybody is having a hard time hearing and we're all using captions. I don't know, have you,
+[00:59:30.080 --> 00:59:37.520]   do you guys use captions when you're watching TV shows? I only do it on, seems like Netflix most
+[00:59:37.520 --> 00:59:44.400]   of the time is beautiful is a lot of the Netflix original movies are the audio mix is always a
+[00:59:44.400 --> 00:59:50.080]   mess to me. The sound effects are just tremendous and rich and then the dialogue is just a
+[00:59:50.080 --> 00:59:56.160]   tough act. Yeah, actors mumble, they don't record it well, they mix it poorly. I turned up my set
+[00:59:56.160 --> 01:00:00.160]   on channel but a lot of the on succession because I want to catch the lines. Well,
+[01:00:00.160 --> 01:00:04.960]   success is another story because they sometimes have soda, Vocha stuff that you wouldn't hear but
+[01:00:04.960 --> 01:00:09.600]   then maybe you told me to do that. Yeah, you shows up in the kitchen. So did you watch the last
+[01:00:09.600 --> 01:00:15.360]   episode of the season? No, I haven't yet. No, shh. Nope. Halfway. There are some.
+[01:00:15.360 --> 01:00:21.520]   The I missed visual clues the first time around that I missed but I saw later on Reddit
+[01:00:22.800 --> 01:00:27.440]   that actually kind of help understand what's going on. It's a wonderful season, ender.
+[01:00:27.440 --> 01:00:33.360]   I'm going to start that season. I've yet to start that. Jeff and I are the only people who like it
+[01:00:33.360 --> 01:00:39.120]   but that's because we're really off. No, I love the first two seasons. I have to watch the video.
+[01:00:39.120 --> 01:00:44.160]   Yeah, it's people like us. It's our people. It's our people. You're far too nice to watch the
+[01:00:44.160 --> 01:00:48.960]   exhibition. No, no, hold on. Now when I thought I told you when I first started watching it, I was
+[01:00:48.960 --> 01:00:55.360]   angry. Yeah, I was angry when I first started watching it. I was like, this is bullsh. I was too
+[01:00:55.360 --> 01:01:00.080]   ant. That was the same way. But now it's it was right at the beginning of the pandemic and people
+[01:01:00.080 --> 01:01:05.760]   were struggling. I agree. I agree. Completely agree. I don't eat right, Ant. But then I was so
+[01:01:05.760 --> 01:01:09.360]   bored. I ended up watching it and everybody said you have to watch it. So I'm a sheeple and I
+[01:01:09.360 --> 01:01:13.600]   watched it and I'm glad I did. Oh, yeah. It's the best show. It's the best written show on TV.
+[01:01:14.160 --> 01:01:21.840]   It's pure Shakespeare. I also see bits not only of Murdoch having worked for all these vocals.
+[01:01:21.840 --> 01:01:27.520]   I see bits of Condé Nast. I see bits of Timing. I see bits of Robert Maxwell.
+[01:01:27.520 --> 01:01:36.080]   Well, you know, in a larger sense, this show is about old me and old, old media empire trying
+[01:01:36.080 --> 01:01:41.200]   to figure out how it survives in the new world. Yeah. Yeah. Right. So I mean, it does apply to
+[01:01:41.200 --> 01:01:45.120]   what we talk about all the time. Yeah. That's what I found fascinating. Yeah.
+[01:01:45.120 --> 01:01:50.400]   And they by the way, they still haven't solved it. Oh, wow.
+[01:01:50.400 --> 01:01:57.840]   I'm going to pick it up eventually. Maybe over the holiday break out. I'll pick it up. I'll watch
+[01:01:57.840 --> 01:02:02.080]   it all over again. I think I think you'll I think you'll you'll come back and curse this or thank
+[01:02:02.080 --> 01:02:06.800]   us. But I think you'll thank us for saying that you should watch it. All right. But it was
+[01:02:06.800 --> 01:02:10.400]   interesting. This week there was news that I actually see is somewhat related is that
+[01:02:10.400 --> 01:02:18.560]   Vox is buying nine media. Yeah. So let's talk about that because Lisa said they're merging and I
+[01:02:18.560 --> 01:02:24.320]   said, I my Vox can't. I mean, I think nine media is smaller than Vox. And I think you're right. I
+[01:02:24.320 --> 01:02:30.160]   think they're buying nine media, which is essentially, but it's a stock. Well, it's a stock transaction.
+[01:02:31.360 --> 01:02:38.720]   The phrase is merge in the Washington Post and it's by in the Wall Street Journal. So I'm not
+[01:02:38.720 --> 01:02:44.400]   getting off of the chart nine group nine or group nine. Sorry. Group nine.
+[01:02:44.400 --> 01:02:50.480]   And so so what struck me about this year? You also have obviously Buzzfeed acquiring
+[01:02:50.480 --> 01:02:58.000]   Huffington Post and whatever was they acquired and they went through this fact.
+[01:02:58.640 --> 01:03:02.880]   And and Joe Reparetti has been arguing for quite some time that they've got to consolidate to
+[01:03:02.880 --> 01:03:07.200]   compete with the big guys. It struck me as I was thinking about it that it's this is the last
+[01:03:07.200 --> 01:03:14.000]   supernova gasp of scale in media. These guys have to that's what they are.
+[01:03:14.000 --> 01:03:19.520]   Swimming upstream, you think this is against the trend? You think we're going niche and not
+[01:03:19.520 --> 01:03:23.760]   aggregate? Yeah, I do. I do. I think it's I think it's a different version of scale. And so and so
+[01:03:23.760 --> 01:03:28.880]   there but they're stuck in an ad market where either through getting RFPs from big agencies,
+[01:03:28.880 --> 01:03:38.080]   that still exists or getting programmatic to compete with Google and Facebook, they want scale. So
+[01:03:38.080 --> 01:03:44.400]   they're all saying scale scale scale. I think, you know, in this sense, that's advertising on
+[01:03:44.400 --> 01:03:53.680]   the subscription end, sub stack and and Spotify also go for scale on that end. But I don't know
+[01:03:53.680 --> 01:03:58.800]   that that's where the future of media fully is. I think I'm not gonna say it's all small,
+[01:03:58.800 --> 01:04:02.560]   but I think it may be an agglomeration of small. We may be back to the big industry
+[01:04:02.560 --> 01:04:07.760]   and become the big media giants. Listen to what Vox owns and then what they'll get with
+[01:04:07.760 --> 01:04:14.640]   Group 9, they own SB Nation, which is which was their, which was their basis, original sports,
+[01:04:14.640 --> 01:04:21.520]   they're a blog company in their culture. Right. New York magazine, they own the Verge. Of course,
+[01:04:21.520 --> 01:04:28.880]   we know that very well. Vox, Eater, the cut, Vulture, Polygon, the strategist,
+[01:04:28.880 --> 01:04:37.680]   and then Group 9 has the dodo, which is, you know, cute animal stuff. Yeah. Now this pop sugar,
+[01:04:37.680 --> 01:04:45.840]   which is female focused, Thrillist and Seeker. So this is, this is not so very different than
+[01:04:48.000 --> 01:04:53.200]   when Jason Calicanis sold his, you know, little blogs off. I mean,
+[01:04:53.200 --> 01:04:57.040]   that's, well, but at the same time, you have the opposite happening with it. When Time Inc. sold to
+[01:04:57.040 --> 01:05:03.920]   Meredith, minus Time magazine and Fortune and Sports Illustrated, and then the combination just
+[01:05:03.920 --> 01:05:08.640]   sold to Barry Diller, right, where they're going to become similarly, they're going to compete as
+[01:05:08.640 --> 01:05:14.880]   content back or Verizon selling off it a bit by pit pieces it bought of all the, you know,
+[01:05:14.880 --> 01:05:20.320]   the Time Warner media stuff. It's funny, the both aggregation and disaggregation is going on.
+[01:05:20.320 --> 01:05:25.600]   I think it's just people jockeying to try to figure out what makes sense in this kind of confusing
+[01:05:25.600 --> 01:05:29.680]   game. Which goes back to succession, where there's an asset that you can't beat them, join them.
+[01:05:29.680 --> 01:05:34.560]   Yeah. But it's also debating, you know, it's constantly, you know, is it, is it, is it,
+[01:05:34.560 --> 01:05:39.520]   is a content or distributionist king? And my smart ass line is neither is conversationless.
+[01:05:40.480 --> 01:05:44.240]   This. Yeah. That's why we're getting the big bucks, Jeff.
+[01:05:44.240 --> 01:05:50.080]   Yeah. But but some content leads to conversation, Mr. Jarvis.
+[01:05:50.080 --> 01:05:54.080]   Yes, but conversation is still king. Conversation is still the goal.
+[01:05:54.080 --> 01:06:00.400]   Contents is to tool them. You know, who's dissolving this kind of is a surprise to me.
+[01:06:00.400 --> 01:06:07.280]   Yeah. The Internet Association, which was really the lobbying arm of the, of the internet.
+[01:06:09.360 --> 01:06:13.440]   Represented Google, Facebook, Amazon, Microsoft is going to close by the end of the year.
+[01:06:13.440 --> 01:06:18.640]   I'm actually disturbed about this because somebody's got to defend the internet against
+[01:06:18.640 --> 01:06:24.240]   stupidity in Washington. And now they're all split up and they're all going to be targets,
+[01:06:24.240 --> 01:06:28.480]   and they're going to be worse off. I'm, I'm, I don't know if I should be, but I'm bothered by this.
+[01:06:28.480 --> 01:06:32.720]   Yeah. They were pulled out first, right? Yeah.
+[01:06:32.720 --> 01:06:37.200]   They describe themselves as quote, the unified voice of the internet economy.
+[01:06:38.800 --> 01:06:42.880]   But was it a traditional lobbying organization? They were in Washington, DC, and then go and they,
+[01:06:42.880 --> 01:06:49.520]   yeah. Yeah. Go to members of Congress and it would be wonderful. If you would get rid of this net
+[01:06:49.520 --> 01:06:56.080]   neutrality thing. I'm sorry. I never heard of the internet association. Well, unless you were a
+[01:06:56.080 --> 01:07:02.880]   member of Congress, you probably wouldn't have, but believe me, the briefcase is full of money.
+[01:07:02.880 --> 01:07:10.720]   How'd it come from somebody? Google's going to give the staff a big bonus this year.
+[01:07:10.720 --> 01:07:14.560]   Don't get your hopes up, man. Oh, shoot.
+[01:07:14.560 --> 01:07:23.360]   All employees, including the company's extended workforce and interns will get a one-time cash
+[01:07:23.360 --> 01:07:32.000]   bonus of $1,600. Everybody, everybody gets it. That's what's up. And you get $1,600 and you and
+[01:07:32.000 --> 01:07:38.080]   you. This is an addition to Google's work from home allowance and well-being bonus,
+[01:07:38.080 --> 01:07:43.920]   which is all COVID related. Earlier in March, Google's internal survey showed a drop in its
+[01:07:43.920 --> 01:07:50.160]   employee well-being over the last year. So they started giving them money. Sure, that fixes every
+[01:07:50.160 --> 01:07:55.440]   which, by the way, is old, old bosses, I would say. Oh, I see that everybody's having a rough year.
+[01:07:55.440 --> 01:08:01.360]   Let's have an off site. Yeah. Oh, no, no, that doesn't fix anything. I don't want to spend more
+[01:08:01.360 --> 01:08:08.640]   proud with these people. Yeah. That's why I'm having a rough day. Those were the days.
+[01:08:08.640 --> 01:08:15.280]   I haven't done an off site in a long time. Thank you. Good. Yeah.
+[01:08:15.280 --> 01:08:20.720]   They try to make the, okay, so in fact, I don't think I've ever done an off site. I'm trying to
+[01:08:20.720 --> 01:08:27.440]   think they try to make it fun by going somewhere good, right? If you're a rich company, go to Hawaii,
+[01:08:27.440 --> 01:08:31.600]   if you're just kind of a regular company, you go to Monterey and then what?
+[01:08:31.600 --> 01:08:34.000]   These people you try to get away from every day at five o'clock.
+[01:08:34.000 --> 01:08:37.040]   And then you have like lots of brainstorming sessions and stuff.
+[01:08:37.040 --> 01:08:42.240]   You get drunk and people do embarrassing things and then women get them.
+[01:08:42.240 --> 01:08:46.640]   It comes right after. Hit on. It says awful. They're awful. Oh, they're awful.
+[01:08:46.640 --> 01:08:53.440]   Speaking of my brief time, my very brief time is executive of Time Inc. I've been
+[01:08:53.440 --> 01:08:59.600]   taking the company jet down with the Bahamas. Wow. And I just didn't, I didn't, I sat there
+[01:08:59.600 --> 01:09:03.440]   saying what I thought. That was not, that was not welcome. That's the last time they let you
+[01:09:03.440 --> 01:09:09.280]   on the jet. Yeah, it was true. He's out of the club. I was soon thereafter.
+[01:09:09.280 --> 01:09:17.040]   For 10 years, Taya Mae Bauman has been on Instagram as @metiverse.
+[01:09:17.040 --> 01:09:22.480]   I think you can see where this is going. You can see where this is headed.
+[01:09:23.280 --> 01:09:28.560]   Ah, the minute Facebook decided to call itself meta, her account was disabled.
+[01:09:28.560 --> 01:09:33.280]   The app said, quote, your account has been blocked for pretending to be someone else.
+[01:09:33.280 --> 01:09:35.840]   I've been pretending to be me for 10 years, she said.
+[01:09:35.840 --> 01:09:39.840]   It came days after Facebook announced its new name.
+[01:09:39.840 --> 01:09:44.000]   She told the New York Times, the account is a decade of my life and work.
+[01:09:44.000 --> 01:09:48.720]   Imagine if your Facebook account, we're just, I mean Instagram account, we're just shut down.
+[01:09:48.720 --> 01:09:53.200]   All those images. I didn't want my contribution to the metaverse to be white from the internet.
+[01:09:53.200 --> 01:09:56.880]   This happens to women in tech, to women of color in tech all the time.
+[01:09:56.880 --> 01:10:00.400]   I don't think it has to do with that. I think it has to do with @metaverse.
+[01:10:00.400 --> 01:10:08.160]   But, you know, she started metaverse makeovers in 2012 to showcase her art and technology.
+[01:10:08.160 --> 01:10:12.560]   She's an Australian woman. She created an app that would display virtual holograms of her
+[01:10:12.560 --> 01:10:16.640]   company's fingernail designs. Anyway, it doesn't matter what she was doing with it.
+[01:10:17.440 --> 01:10:23.680]   But for crying out loud, Facebook, I mean, please, you can't just stop on everybody.
+[01:10:23.680 --> 01:10:26.960]   It's prior to you.
+[01:10:26.960 --> 01:10:30.880]   Right. What's going to happen with this?
+[01:10:30.880 --> 01:10:34.560]   Well, she went to the New York Times, right?
+[01:10:34.560 --> 01:10:38.800]   And then suddenly it started working. That's what's going to happen.
+[01:10:38.800 --> 01:10:44.160]   Facebook said, the account was incorrectly removed for impersonation.
+[01:10:44.160 --> 01:10:48.160]   We've now restored it. Sorry it happened. Never mind.
+[01:10:48.160 --> 01:10:52.560]   I thought that they would probably center a check and say, we like, you know,
+[01:10:52.560 --> 01:10:56.160]   what happened? The smarter thing. Well, the other thing was, I think there's another story
+[01:10:56.160 --> 01:11:02.160]   I put in there about how they got meta. And I mean, when I was in the business,
+[01:11:02.160 --> 01:11:06.560]   if you wanted to buy somebody's domain, you never did it yourself. You had a third party go in and
+[01:11:06.560 --> 01:11:10.560]   say, I have a client would like it. Oh, they're just a little, they're just a little Philip.
+[01:11:10.560 --> 01:11:15.840]   It's a family thing, you know. And so you try to buy it first.
+[01:11:15.840 --> 01:11:21.680]   So there was a little US regional bank called Meta Financial Corp.
+[01:11:21.680 --> 01:11:23.840]   Oh, that's right. It's there. Yes. Meta Financial Group.
+[01:11:23.840 --> 01:11:32.160]   And I guess Meta went in guns of blazing because they ended up giving them $60 million
+[01:11:32.160 --> 01:11:38.320]   for the name, $60 million. And Metaverse, what did she get?
+[01:11:38.880 --> 01:11:47.360]   She got her Instagram account back. Instagram hits 2 billion monthly users, 2 billion
+[01:11:47.360 --> 01:11:52.720]   monthly users. You're not surprised. And are you? You love Instagram.
+[01:11:52.720 --> 01:12:02.880]   I like it. I have a decent community there on Instagram. I just hate the fact that every
+[01:12:02.880 --> 01:12:10.800]   time I open it up, it says a meta product. That's that's. We don't know how many of those 2 billion
+[01:12:10.800 --> 01:12:18.240]   users are Finstas. I thought Congress was going to outlaw Finstas by now. Have they done anything?
+[01:12:18.240 --> 01:12:22.640]   Nope. No, they're still trying to figure out what it means, sir. Give it on.
+[01:12:22.640 --> 01:12:26.480]   I love it.
+[01:12:30.880 --> 01:12:37.200]   Let's see. I want to let me see here where we are in the in the flow of things. Let's do a few more
+[01:12:37.200 --> 01:12:42.160]   and then I'll I guess we could do the change log too. I do have the change log. All right. So
+[01:12:42.160 --> 01:12:47.600]   let's we're going to get a couple more than the than the change log. I mentioned this on
+[01:12:47.600 --> 01:12:51.520]   Sunday. I think it deserves the shaming.
+[01:12:51.520 --> 01:12:56.640]   Democratic Illinois Democratic State Representative Marcus Evans
+[01:12:58.480 --> 01:13:05.840]   noting a surge in carjacking around the Chicago area has decided it's because of Grand Theft Auto
+[01:13:05.840 --> 01:13:14.400]   and which came out by the way in 1997. And he is planning to introduce a bill in the state of
+[01:13:14.400 --> 01:13:20.400]   Illinois to ban sales of the game. State legislators could be some of the dumbest people on earth.
+[01:13:20.400 --> 01:13:26.160]   Carjacking is not normal and carjacking must stop says Marcus Evans.
+[01:13:26.160 --> 01:13:33.200]   He paired up the cause. He paired up with the early Walker community activist
+[01:13:33.200 --> 01:13:39.200]   to start Operation Safe Pump which could mean so many things but in this case
+[01:13:39.200 --> 01:13:44.080]   security teams patrol gas stations to protect people while they're pumping gas.
+[01:13:44.080 --> 01:13:49.360]   Now tell me the truth when I said Operation Safe Pump is that the first thing you thought of
+[01:13:50.320 --> 01:13:57.280]   that would be no. No. This guy is not it's not the sharpest tool in the shed. I'm just saying.
+[01:13:57.280 --> 01:14:02.640]   And apparently early Walker the activist agreed with Evans about the game.
+[01:14:02.640 --> 01:14:09.040]   Representative Evans and I says early Walker have researched they've researched note
+[01:14:09.040 --> 01:14:15.520]   and concluded that these very young offenders of carjacking are greatly influenced by the Grand
+[01:14:15.520 --> 01:14:26.240]   Theft Auto video game. And this sounds just like the late 1980s or the 1990s with the warning labels
+[01:14:26.240 --> 01:14:32.000]   on the hip-hop albums. Oh god this has been going on for years. Oh yeah. I truly believe there is
+[01:14:32.000 --> 01:14:38.480]   bipartisan support to ban this game from being sold in Illinois. Well you introduced that that
+[01:14:38.480 --> 01:14:44.080]   bill we'll see. We'll see. We'll see exactly how much bipartisan support there is. And it goes back
+[01:14:44.080 --> 01:14:49.440]   obviously to comic books and I just read a wonderful wonderful book. Oh I have to hold my book. This
+[01:14:49.440 --> 01:14:55.040]   is the British version but the US is out called The Library of Fragile History by Andrew Boudry and
+[01:14:55.040 --> 01:14:59.360]   Archer DeVedivin. I'd love to read it. It's really really quite good. It's also audible.
+[01:14:59.360 --> 01:15:09.600]   And and fiction was seen as a really dangerous influence on especially women. Yes. And it was
+[01:15:09.600 --> 01:15:14.800]   sorts of ideas. The Library shouldn't be stocking fiction because it can do terrible things to the
+[01:15:14.800 --> 01:15:21.600]   morals of women and young people. Wow. Andrew Pettigree and Arthur Vedivin.
+[01:15:21.600 --> 01:15:28.800]   He Pettigree is the dean of book historians. He's quite I've read tons of his books. He's
+[01:15:28.800 --> 01:15:35.120]   brilliant. University of St. Andrews. All right I am going to I have two credits I have to use
+[01:15:36.080 --> 01:15:43.120]   in six days. I have just purchased that book. Better be good. I don't know if I plugged this or not.
+[01:15:43.120 --> 01:15:47.840]   If we talked about yeah we talked about this. Matthew. So what's that? Matthew Kirschenbaum
+[01:15:47.840 --> 01:15:54.240]   wrote the book You and I Love which is Track Changes on Literary History of Word Processing.
+[01:15:54.240 --> 01:16:01.920]   Yes. Wonderful. Yes. So this is about the future of digital literacy heritage.
+[01:16:01.920 --> 01:16:07.200]   Right. How do we save that which is passing by us now? I'm writing a post right now about how
+[01:16:07.200 --> 01:16:12.960]   it really is oddly a continuum because this is how we were saving things in libraries and how
+[01:16:12.960 --> 01:16:17.600]   you know things passed by and some got lost and some got burned and so on and so forth.
+[01:16:17.600 --> 01:16:22.080]   But it's a process and I'm finally learning that it's just a natural process. This is about how we
+[01:16:22.080 --> 01:16:26.800]   do that in the future. And so there's a kind of a continuum from one to the next. So fascinating.
+[01:16:26.800 --> 01:16:33.120]   He goes into the archives in Princeton University for example and Tony Morrison's Beloved.
+[01:16:33.120 --> 01:16:38.400]   They have the complete archives there. Well there was a house fire and Tony Morrison's house and
+[01:16:38.400 --> 01:16:46.880]   the manuscript was singed and smoky and burned and he goes through the archiving of the discs
+[01:16:46.880 --> 01:16:50.320]   and everything else and who made what changed when and this is the bibliographer's dream.
+[01:16:50.320 --> 01:16:54.160]   So how do we look at creativity and how do we save that? What do we save about it? What's worth
+[01:16:54.160 --> 01:17:00.640]   saving? So anyway two little book recommendations there for Geeks. I see that Pettigree also wrote a
+[01:17:00.640 --> 01:17:07.520]   book about Luther. Yes it's very good. Brand Luther. Is that good? It's very good. The
+[01:17:07.520 --> 01:17:16.240]   invention of news I think is spectacular. The Renaissance is very nerdy for me.
+[01:17:17.200 --> 01:17:23.520]   In the Gutenberg brothers I quote him just constantly, constantly in the manuscript. He's brilliant.
+[01:17:23.520 --> 01:17:29.600]   Nice. Well thank you for that recommendation. Sorry about a little high-toned moment of
+[01:17:29.600 --> 01:17:38.080]   history. Are we already on recommendations? No not yet. Don't get your hopes up. Don't get your
+[01:17:38.080 --> 01:17:45.520]   hopes up. Are we done? Oh we're so lucky. December security patch is rolling out. Let's see if I
+[01:17:45.520 --> 01:17:49.520]   got it here. I still waiting on mine. Still I keep checking every time I see this story.
+[01:17:49.520 --> 01:17:57.600]   System update. You got yours? No nothing for me. Is this for Google? Is it for Android? Yes.
+[01:17:57.600 --> 01:18:02.320]   Yes I got my Pixel security update this morning. Oh the person that hates their phone the most gets
+[01:18:02.320 --> 01:18:08.720]   the update. So jealous. 80. Count them. Bug fixes. Speaking wheel van. Yeah this might be the what
+[01:18:08.720 --> 01:18:17.120]   you've been waiting for Ant. The O2 that was complicated is who's going to get it. It depends on
+[01:18:17.120 --> 01:18:21.520]   Google put it out a while ago. It depends on your carrier and your manufacturer. And if you have
+[01:18:21.520 --> 01:18:30.320]   a Pixel it should be right away. There's a feature drop with UWB letting you hold the back of your
+[01:18:30.320 --> 01:18:37.120]   phone toward the other device for nearby share. You can aim your phone at somebody. I know a lot
+[01:18:37.120 --> 01:18:43.760]   of people care about this stuff. I don't. UWB will be cooled later on. It's a lame
+[01:18:43.760 --> 01:18:49.760]   implementation. Yeah well. Is that similar to what Apple does with its flicking things from one
+[01:18:49.760 --> 01:18:56.960]   phone to another phone in the room? What is that called? Air drop? Air drop. Yeah. Is it similar
+[01:18:56.960 --> 01:19:01.840]   to that? Yeah it's like Air Drop except on. Actually I think Apple had this too because Apple
+[01:19:01.840 --> 01:19:07.840]   supports UWB Ultra Wideband as well. You can aim it. Air drop. You could aim at people so you could
+[01:19:07.840 --> 01:19:12.800]   say I want to because there's six people all who have Air Drop turned on that one. I think I could
+[01:19:12.800 --> 01:19:19.120]   aim the phone at that person that would air drop over to them. Miss Stacy you said. We're not in
+[01:19:19.120 --> 01:19:25.760]   the change log yet. We're not. Oh okay. Okay we could be you want to be. No I want to tell
+[01:19:25.760 --> 01:19:32.080]   Aunt why he would like this feature. Okay. Because as a photographer you can share your photographs
+[01:19:32.080 --> 01:19:36.720]   really easily with people so you don't have to do like 18 things or email photographs. You can
+[01:19:36.720 --> 01:19:40.880]   just send them directly to them. I mean that might be interesting for you. I don't know.
+[01:19:40.880 --> 01:19:46.160]   Actually. But I know people that would get a kick out of that being able to just flick a
+[01:19:46.160 --> 01:19:51.600]   flick of photo. Yeah. Yeah that's cool. I'm telling you. Family gatherings.
+[01:19:51.600 --> 01:19:58.720]   I'm sure. Yeah. Because how many I like I still have like people hand me a clattering of phones.
+[01:19:58.720 --> 01:20:01.840]   They're like hey can you take a picture and you get like 20 phones and you're like oh that's the
+[01:20:01.840 --> 01:20:07.840]   worst. Yeah. Yeah. You're like y'all. Is that is that like the flock of phones is the clattering
+[01:20:07.840 --> 01:20:14.400]   of phones. Oh I like it. That's a lettering. No one can. The phone is clattering. I think you've
+[01:20:14.400 --> 01:20:21.440]   just done it. The two of you in collaboration. Clattering of phones. I like it.
+[01:20:21.440 --> 01:20:27.200]   Let's actually let's do the. Can you get the changelog thing going here Victor? Yeah.
+[01:20:27.200 --> 01:20:32.720]   His finger was hovering on the button. See I think you were full you're playing with Victor.
+[01:20:32.720 --> 01:20:37.840]   I was teasing Victor. Yeah. Well I realize if we're going to talk about the things that are
+[01:20:37.840 --> 01:20:44.640]   coming in the the the dump. I was starting to talk about the update but the feature drop
+[01:20:44.640 --> 01:20:52.800]   they'll call it a dump. The feature drop is is a big is a big deal. Although you know there's
+[01:20:52.800 --> 01:20:58.800]   there's a lot of messes in Android 12 as you've been saying there's a security patch
+[01:20:59.520 --> 01:21:09.840]   100 Android 12 fixes. Are you still unhappy and with it? Yes sir. Very much so. Is there
+[01:21:09.840 --> 01:21:17.280]   anything in this in this list of fixes that might make you must unhappy? The list that I saw was
+[01:21:17.280 --> 01:21:22.320]   like trimmed down to 60 or so and it did not address anything that I complain about in particularly
+[01:21:22.320 --> 01:21:27.840]   Bluetooth connectivity and functionality. There's more base control for Pixel Buds A series.
+[01:21:29.120 --> 01:21:33.520]   Users can now adjust how long you have to hold the power button before Google Assistant activates.
+[01:21:33.520 --> 01:21:38.480]   The sound amplifier app on Pixel phones gets a conversation mode.
+[01:21:38.480 --> 01:21:44.800]   You point your phone via the camera UI at the person you want to have a conversation with
+[01:21:44.800 --> 01:21:49.200]   and then you can put the phone down. You don't have to keep holding it that way.
+[01:21:49.200 --> 01:21:54.480]   Quick tap. You went like this huh what you want to talk. What kind of conversation? I don't get
+[01:21:54.480 --> 01:22:00.320]   that. Look here's it's a hearing aid. Watch. Here's a video explaining. Let's turn on the sound.
+[01:22:00.320 --> 01:22:07.200]   Where's the sound? Come on man. It's not it's not sound. No we didn't trust. Here we go. No we didn't.
+[01:22:07.200 --> 01:22:15.040]   The irony here is not lost on us. I'm clicking the speaker button.
+[01:22:15.040 --> 01:22:21.840]   I see a statement. I'm holding the sound. Anyway the idea is we're having a conversation.
+[01:22:21.840 --> 01:22:27.280]   I'm a little deaf. I can use a sound amplifier and my earbuds. I aim the phone of the person I'm
+[01:22:27.280 --> 01:22:32.960]   talking to and then put it down it then figures it out. And then if she moves around the phone
+[01:22:32.960 --> 01:22:40.640]   no I can't know sure. No I don't think so. No. The residual life you had if you had a UWB device
+[01:22:40.640 --> 01:22:45.360]   on that person and they were compatible talking to each other. That's right. That's right.
+[01:22:47.200 --> 01:22:53.120]   Scooter X is saying this is all old. Okay but it's coming now. Car crash detection
+[01:22:53.120 --> 01:23:04.320]   is now available in Taiwan and France. Yeah. Android 12 fixes the residual light flickering
+[01:23:04.320 --> 01:23:11.120]   issue. Increased access to internet QS panel while on lock screen. No idea. Anyway you're right
+[01:23:11.120 --> 01:23:17.440]   hand. It's all just you know little little fixes. One of the fixes will be to support high speed
+[01:23:17.440 --> 01:23:24.080]   charging on the new second generation Pixel stand which should start arriving tomorrow.
+[01:23:24.080 --> 01:23:30.720]   Great. I don't know why. I did. I don't know why because I have the old Pixel stand and I
+[01:23:30.720 --> 01:23:35.520]   never never use it. This one's got a fan built into it anyway. And the idea is noisy while you're
+[01:23:35.520 --> 01:23:40.480]   trying to sleep. That's the white noise. It's a Bluetooth. Yeah it's a Bluetooth charger and the
+[01:23:40.480 --> 01:23:46.240]   idea is it's smart. It knows the Pixel and so it does special things. I have a Pixel stand as well.
+[01:23:46.240 --> 01:23:52.800]   But you have the old one. This is the new one. Second generation. This is part of Logitech's.
+[01:23:52.800 --> 01:23:57.680]   Oh that's different. Yeah I have a fan of those too. And my Pixel sits on it so it's a Pixel stand.
+[01:23:57.680 --> 01:24:02.080]   I guess anything with a Pixel standing on it would be a Pixel stand.
+[01:24:04.960 --> 01:24:11.120]   Okay so that's so if you you know if you ordered one get ready should be coming soon. And now you
+[01:24:11.120 --> 01:24:16.080]   can get high power 23 watt charging on the Pixel stand if you have the December update.
+[01:24:16.080 --> 01:24:25.200]   The battle rages on between YouTube TV and this and that in this case it's Disney ABC and ESPN.
+[01:24:25.200 --> 01:24:34.160]   YouTube TV could lose channels from all three providers if they can't make a deal.
+[01:24:34.800 --> 01:24:40.080]   Google's been saying YouTube TV is becoming a more important streaming vehicle.
+[01:24:40.080 --> 01:24:44.880]   It's important to me. Someone I use I really like it. I really like it.
+[01:24:44.880 --> 01:24:52.400]   And I really like retrans disagreements are so anti-consumer. I know it's just a
+[01:24:52.400 --> 01:24:57.760]   very rich review. Well it's the same idea though. It's the same idea. Oh yeah it's the same idea.
+[01:24:57.760 --> 01:25:05.680]   It's just it's less it's actually less defensible when it's over the public airwaves so the FCC
+[01:25:05.680 --> 01:25:11.760]   has an excuse to get involved. If you're talking about this it's really just like there's no reason
+[01:25:11.760 --> 01:25:20.320]   for government to get involved. So Google says it wants Disney to treat YouTube TV like any other
+[01:25:20.320 --> 01:25:25.520]   TV provider. In other words the same get the same rates at services of similar size pay
+[01:25:26.800 --> 01:25:32.800]   across Disney's channels for as long as we carry them. I wonder what the you know how many viewers
+[01:25:32.800 --> 01:25:41.200]   does YouTube TV deliver versus you know spectrum Comcast. It's probably a small fraction right?
+[01:25:41.200 --> 01:25:45.360]   Fraction but I wonder if it's proportional in the Google says it's in active conversations with
+[01:25:45.360 --> 01:25:52.400]   Disney but if a deal is not reached by Friday YouTube TV will lower its monthly price by $15.
+[01:25:53.520 --> 01:26:00.960]   It's $65 a good out of 50 while Disney content remains off her platform. Again Disney owns ABC
+[01:26:00.960 --> 01:26:04.800]   as well and ESPN as well as Disney so it's actually a lot of channels.
+[01:26:04.800 --> 01:26:10.880]   Well if you're not if you're someone like me who doesn't really care about ABC or ESPN that
+[01:26:10.880 --> 01:26:14.160]   be a smoking deal because then you just go over and subscribe to the Disney Plus.
+[01:26:14.160 --> 01:26:20.960]   Well do you like National Geographic or National Geographic Wild or ABC News Live or the Disney
+[01:26:20.960 --> 01:26:31.840]   Channel Disney Junior Disney XD Freeform FX FX M ESPN 123 and Ocho ESPN U ESPN News and the SEC
+[01:26:31.840 --> 01:26:36.000]   Network. Oh I bet ant likes the SEC Network of course that's the Southeast.
+[01:26:36.000 --> 01:26:40.000]   Journeys in a change commission. That's what I was like I was like look here dude.
+[01:26:40.000 --> 01:26:43.040]   Oh god that must be worse than C-SPAN. Oh my.
+[01:26:43.040 --> 01:26:48.560]   You get your Clemson games on the SEC Network.
+[01:26:49.280 --> 01:26:55.680]   Only when we play the SEC team. Oh you're not in the SEC. We're in the ACC but our rival is an
+[01:26:55.680 --> 01:27:00.000]   SEC team that hasn't scored on us in about three years. Well there you go and you can watch that
+[01:27:00.000 --> 01:27:05.440]   happen on TV except not on YouTube TV if this deal isn't made by Friday.
+[01:27:05.440 --> 01:27:12.560]   Do you? You can get some of those in other I mean there's Disney Plus and Hulu you can get FX
+[01:27:12.560 --> 01:27:21.520]   on Hulu. So yeah. Well I just again I hate these carrier battles nobody it's just ugly and usually
+[01:27:21.520 --> 01:27:26.480]   they resolve it before the plus. Yeah it's called it's a game it's chicken they're playing chicken
+[01:27:26.480 --> 01:27:29.600]   game of chicken. When I worked around the cable industry which I did for a while
+[01:27:29.600 --> 01:27:36.240]   they prided themselves it's macho pride. We never even scrap a meat on the table.
+[01:27:36.240 --> 01:27:40.880]   Look at if we don't care about it we fight over it. Succession.
+[01:27:40.880 --> 01:27:46.960]   Yeah there's that big swing in energy. Oh is there ever a lot of big rituals.
+[01:27:46.960 --> 01:27:52.720]   Well that's why I'm starting my new initiative. Watch out for the pump.
+[01:27:52.720 --> 01:27:58.800]   It's going to be a chance for anyway. Google releases a new Wear OS 3 preview
+[01:27:58.800 --> 01:28:03.840]   offering a better look at the design outside of Samsung. That's the headline I don't know what
+[01:28:03.840 --> 01:28:08.640]   it means but there you have it. I'm at least see if I can parse this.
+[01:28:08.640 --> 01:28:13.280]   Try what what is Google doing with Fitbit and Wear OS. My goodness.
+[01:28:13.280 --> 01:28:14.480]   It's insane.
+[01:28:14.480 --> 01:28:22.160]   Watch maybe gonna maybe show us some sense to this. So you get on your Galaxy
+[01:28:22.160 --> 01:28:30.080]   where for which I have you can get Wear OS 3 but that's the only thing you can get it. That's why
+[01:28:30.080 --> 01:28:36.640]   now there's a developer preview of Wear OS 3 for those of you not on Samsung watches.
+[01:28:38.240 --> 01:28:45.760]   It's nice. It's still a watch. I would love to see a pure pure android smart watch experience or
+[01:28:45.760 --> 01:28:51.520]   what have you but after seeing what's happening with Android 12 I'm like I don't know it's probably
+[01:28:51.520 --> 01:28:56.240]   just gonna be a new souring on the Android. Do you wish you had a Samsung phone instead?
+[01:28:56.240 --> 01:28:59.360]   That would be no that would be no. That's bad too right.
+[01:28:59.360 --> 01:29:01.760]   Do you want an iPhone?
+[01:29:03.120 --> 01:29:09.120]   Lord no. Lordy Lordy. I do keep that iPhone away from me.
+[01:29:09.120 --> 01:29:16.240]   iOS is pretty. Away with you devil. That all I could say about it. It is really pretty but
+[01:29:16.240 --> 01:29:22.640]   I never been able to just get down with it and function with it and especially if I'm doing
+[01:29:22.640 --> 01:29:29.680]   photos downloading from one place and then trying to find it on that phone. It's like the
+[01:29:29.680 --> 01:29:35.200]   file system doesn't exist on iOS to me. It's like oh it doesn't they don't want you in anywhere near
+[01:29:35.200 --> 01:29:40.560]   none this truth. That's the Google change long.
+[01:29:40.560 --> 01:29:48.720]   There is not a lot of news this week. I've got one for you. Let's test you Stacey Higginbotham
+[01:29:49.520 --> 01:30:01.280]   of stacey on IOT.com. Do you know who coined the term IOT? Kevin Ashton in 1996 while working at
+[01:30:01.280 --> 01:30:05.680]   well it was Proctor and Gamble but he was on the Revlon's lipstick team.
+[01:30:05.680 --> 01:30:19.360]   Gotcha. In 1985 a black man Peter T. Lewis coined the term and conceptualized the
+[01:30:19.360 --> 01:30:29.920]   Internet of Things in his speech to the Congressional Black Caucus once again robbed of their just
+[01:30:29.920 --> 01:30:36.320]   desserts. This courtesy of Kim Gallon who's a brilliant professor of music. Did he call it the
+[01:30:36.320 --> 01:30:40.880]   Internet of Things? Yes. I want to see his speech. Yes. Here it is right here. Here it is.
+[01:30:40.880 --> 01:30:47.840]   See it. Seek and he shall find it. The current thinking is the term first originated at the Auto
+[01:30:47.840 --> 01:30:55.680]   ID Center at MIT around 1999. Blah blah blah blah blah blah. In fact this is a long article.
+[01:30:55.680 --> 01:31:02.960]   It's from Chetting. Oh you know Chet Sharma? Yeah he's so delightful. Peter was at the head of his
+[01:31:02.960 --> 01:31:10.400]   time but didn't get credit he so deserved. Oh yeah he he actually didn't just coined the term he
+[01:31:11.760 --> 01:31:17.360]   called it. Corn and Chetting brought together the vision of IOT. Oh well I got to get him on my show.
+[01:31:17.360 --> 01:31:22.400]   Yeah. I mean he's alive. That's awesome. I don't know. Well he seems to have a LinkedIn page still.
+[01:31:22.400 --> 01:31:28.000]   By the way what's really said is Chetting found all of this. Took his findings to the media
+[01:31:28.000 --> 01:31:32.000]   let them investigate and publish it every single one of them declined. They didn't find it interesting.
+[01:31:32.000 --> 01:31:36.160]   He should have brought to you. He didn't email me. He should have brought it to you. I'm going to
+[01:31:36.160 --> 01:31:41.040]   email Chetting right now. So where did Chetting put it up? Where was that?
+[01:31:41.040 --> 01:31:46.080]   Peter wowed the audience. Some of the stuff he was saying seemed science fiction at the time.
+[01:31:46.080 --> 01:31:52.640]   Said one person who was at the event Chetting published his findings in a paper correcting the IOT
+[01:31:52.640 --> 01:32:00.720]   history. You can request it. It has the entire original speech from 1985. Oh there you go.
+[01:32:00.720 --> 01:32:10.720]   But here's an excerpt from the speech. I predict that not only humans but machines and other things
+[01:32:10.720 --> 01:32:17.600]   will interactively communicate via the internet. The internet of things or IOT even got the
+[01:32:17.600 --> 01:32:25.840]   acronym is the integration of people processes and technology with connectable devices and sensors
+[01:32:25.840 --> 01:32:30.960]   to enable remote monitoring status manipulation and evaluation of trends of such devices.
+[01:32:30.960 --> 01:32:34.880]   When all these technologies and voluminous amounts of things are interfaced together
+[01:32:34.880 --> 01:32:39.920]   lay me to namely devices, machines, supervisory controllers, cellular and the internet. There
+[01:32:39.920 --> 01:32:45.600]   is nothing we cannot connect to and communicate with. What I am calling the internet of things
+[01:32:45.600 --> 01:32:53.440]   will be far reaching. Can not be more explicit than that. Exactly right Peter Lewis. 1985.
+[01:32:53.440 --> 01:33:02.960]   That's awesome. Okay yeah I'm on that. By meanwhile go ahead. By connecting devices
+[01:33:02.960 --> 01:33:08.160]   such as traffic signal control boxes underground gas station tanks and home refrigerators
+[01:33:08.160 --> 01:33:12.480]   to supervisory control systems modems auto dialers. See he thought we'd have to have an
+[01:33:12.480 --> 01:33:17.680]   auto dialer and cellular phones. We could transmit the status of these devices to sell sites that
+[01:33:17.680 --> 01:33:22.160]   piped that data through the internet and address it to people near and far that need that information.
+[01:33:22.160 --> 01:33:28.400]   This is exactly the only thing missing is he didn't yet get how pervasive the internet would be or
+[01:33:28.400 --> 01:33:34.960]   how easy to use. That is really remarkable. Yeah in 1985. Yeah right. Makes sense. But wow okay yes.
+[01:33:34.960 --> 01:33:41.520]   Is that a great story? That's an awesome story. But and gee gee Stacy guess who put it on the
+[01:33:41.520 --> 01:33:52.320]   rundown. You mr. How yeah. Well I just even checked and I'm going to be like chadon what's up.
+[01:33:53.680 --> 01:34:00.320]   Meanwhile Stacy Nick Dover. Nicky Dover suggests that the internet of things boldly asks
+[01:34:00.320 --> 01:34:04.640]   what if everything in your house works like that new printer your mom just got.
+[01:34:04.640 --> 01:34:14.160]   Did you see my uh I did it like an article probably two or three weeks ago on the unbearable
+[01:34:14.160 --> 01:34:18.400]   fussiness of the smart home that basically talked about. Yes it was great. We talked about it on the
+[01:34:18.400 --> 01:34:21.840]   show. Yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah.
+[01:34:21.840 --> 01:34:27.360]   I think we did. I have no idea. Yes. No you're here. I believe you.
+[01:34:27.360 --> 01:34:33.440]   Somebody suggested that I purchased this for the
+[01:34:33.440 --> 01:34:43.200]   for you to get a new bike. I need a bike horn. This is the this sunberg nearly big. A fog horn.
+[01:34:44.080 --> 01:34:50.880]   Oh look at the size of that thing. It's got a big old compressor. That is a giant compressor.
+[01:34:50.880 --> 01:34:55.520]   He's he's like this. I like that oil can. I want that. That's great. Nice.
+[01:34:55.520 --> 01:34:59.680]   This is like whirling the tin woodsman. That's what I was thinking.
+[01:34:59.680 --> 01:35:07.360]   Spin the little thing. There we go. You ready? Oh he's going to pull that lever isn't he?
+[01:35:07.360 --> 01:35:09.760]   He's squirting something in there.
+[01:35:13.680 --> 01:35:20.400]   I want this job. Oh yeah. Oh yeah. It's just these here it goes. It's warming up.
+[01:35:20.400 --> 01:35:27.360]   Got a little pressure. I wonder what that that handles for in case you've got to do it manually.
+[01:35:27.360 --> 01:35:34.400]   You do do it manually. Somebody has to sit here and this I need this on my bike.
+[01:35:34.400 --> 01:35:40.240]   Are they going to play it? Yeah they are. They are. You're going to need a person with a side car.
+[01:35:40.240 --> 01:35:46.320]   There's a lot of work. It's not an emergency horn. Let's put it that way. Clearly it's not.
+[01:35:46.320 --> 01:35:52.240]   Oh you got a car. There's a staircase. I got a climb. Holy cow.
+[01:35:52.240 --> 01:36:01.920]   Is this Scotland's got to be Scotland? Oh there's a clock. I don't know why there's a clock.
+[01:36:01.920 --> 01:36:04.560]   But there's a clock. Well because it you know it's got a timer.
+[01:36:06.720 --> 01:36:10.080]   Uh oh. Oh here it is. Get ready.
+[01:36:10.080 --> 01:36:26.960]   Nice. That's beautiful. Theos coming. They have actually the San Francisco 49ers have a
+[01:36:26.960 --> 01:36:33.760]   fog horn at their new stadium in Silicon Valley. The stadium. Yeah when they square a touchdown
+[01:36:33.760 --> 01:36:40.160]   it's great. It goes. That's great. That's fun. We have fog horns. Because the ferry goes by
+[01:36:40.160 --> 01:36:46.880]   our house in the morning. It's not awesome. But in the morning. That's awesome.
+[01:36:46.880 --> 01:36:55.760]   Like around four in the morning you're like. Oh why is it that early? Who goes to work at four?
+[01:36:55.760 --> 01:37:02.960]   They've already been. If you're. Yeah I guess. No maybe. Is it around the clock?
+[01:37:02.960 --> 01:37:09.760]   The ferry to Bainbridge Island is around the clock. It stops between like two and four in the morning.
+[01:37:09.760 --> 01:37:18.240]   Okay that's not too bad. That's not too bad. Here's a nice story about the future of everything.
+[01:37:18.240 --> 01:37:24.480]   Toyota has a key fob as many cars do that you can use to remotely start your car.
+[01:37:25.440 --> 01:37:34.960]   It's a subscription service now. That sucks. You have to pay. $8 a month or $80 a year
+[01:37:34.960 --> 01:37:41.120]   to use your key fob to remote start. Where do they think they are? The time men of the year?
+[01:37:41.120 --> 01:37:48.960]   So hold up. Hold up. Apparently. So Kevin and I talked about this. But his wife had a I think
+[01:37:48.960 --> 01:37:54.080]   was a camera but I could just be picking an inserting camera in there. And he said it was
+[01:37:54.080 --> 01:37:58.000]   very clearly disclosed when you bought that service. Like that was a service that was
+[01:37:58.000 --> 01:38:03.600]   offered to you when you bought the car. And if you said no to it then you did know where you were
+[01:38:03.600 --> 01:38:07.840]   getting. So you I mean you could still get in the cars drive the car lock the car.
+[01:38:07.840 --> 01:38:14.480]   You just can't start it. I'm not saying. So I thought it was a bait and switch thing like
+[01:38:14.480 --> 01:38:17.440]   they didn't tell people and they were just like this. Oh no no no no no no no no no no no no no no.
+[01:38:17.440 --> 01:38:24.000]   It's the same thing BMW wanted to charge for car play. So by the way after a while people
+[01:38:24.000 --> 01:38:30.000]   got upset and they gave up. But yeah. Yeah and this is a really interesting thing like as we
+[01:38:30.000 --> 01:38:36.320]   implement more software features on hardware we're going to like right now you value your
+[01:38:36.320 --> 01:38:40.320]   software usually on like how much time it saves you or things like that. But when you look at
+[01:38:40.320 --> 01:38:48.240]   buying hardware you tend to value the or you tend to evaluate the cost based on like what went into
+[01:38:48.240 --> 01:38:53.600]   it plus some experiential stuff right. Like like the leather seats might be worth more too right.
+[01:38:53.600 --> 01:38:59.440]   But when we're starting to put more software and things that traditionally we think of as hardware
+[01:38:59.440 --> 01:39:07.520]   it makes sense that the companies want to push to charge for that value as opposed to the actual
+[01:39:07.520 --> 01:39:13.440]   cost to offer it. Now there ever new stream. We're fighting that. It's a really fun dynamic.
+[01:39:13.440 --> 01:39:16.880]   We've got subscriptions. You should be able to buy your car and run your car with all the
+[01:39:16.880 --> 01:39:21.280]   functionality it has. This was started by Musk. Right. Oh you want to go to the function now?
+[01:39:21.280 --> 01:39:29.600]   The ease you can walk you. I mean I used to buy like remote used to update your maps in your cars
+[01:39:29.600 --> 01:39:34.800]   before Musk you could you would you know you had the option at least once a year to be like
+[01:39:34.800 --> 01:39:40.240]   yeah I need to update my maps. Give me and thank goodness Google came along and made that
+[01:39:40.240 --> 01:39:46.800]   business go away. Yeah I'm not I mean maybe Toyota with a lot of this but I do think
+[01:39:46.800 --> 01:39:50.720]   it's just it's a really interesting question because we're seeing
+[01:39:50.720 --> 01:39:58.240]   I mean again most of the value in a lot of our stuff is becoming software. It's bad enough
+[01:39:58.240 --> 01:40:04.880]   you've got to go there and have them overcharge you for changing the oil and rotating the tires and
+[01:40:04.880 --> 01:40:10.080]   doing whoa you know dances around the car to think that they've done something to give you this
+[01:40:10.080 --> 01:40:14.400]   huge long sheet saying we looked at all this stuff when you should be able to go to any bloody
+[01:40:14.400 --> 01:40:18.160]   gas station you want but oh no I don't want to mess with the warranty and I want to do this
+[01:40:18.160 --> 01:40:23.040]   I want to do that so you're stuck go into the dealers and if you had to buy the bloody car
+[01:40:23.040 --> 01:40:30.880]   through the dealer you don't like anyway it all sucks. Hmm. Yeah. Those are some regulatory issues
+[01:40:30.880 --> 01:40:34.880]   we're getting right to repair so that'll help with some of this stuff and they'll have access to
+[01:40:34.880 --> 01:40:42.240]   the software codes. The dealer network that's a state thing and Lord knows that the dealers spend
+[01:40:42.240 --> 01:40:50.000]   a lot of money in local politics. So right so everybody three billion people use Facebook
+[01:40:50.000 --> 01:40:56.480]   untold billions use Google they're generally liked in the services that they do or you know
+[01:40:56.480 --> 01:41:01.840]   whatever yet and everybody hates the cable company they hate car dealers they hate the phone
+[01:41:01.840 --> 01:41:08.320]   company but who does Congress go after? The internet companies. Yeah. Let's take a break
+[01:41:09.440 --> 01:41:17.200]   your picks of the week coming up next. The Lord shows going fast. Yeah. We could do a whole lot
+[01:41:17.200 --> 01:41:23.680]   more if you want. No I don't want to talk about regulatory capture. We haven't touched more.
+[01:41:23.680 --> 01:41:28.160]   I got cookies to bake. Oh yeah. I'm gonna make macaroons this week I think.
+[01:41:28.160 --> 01:41:34.080]   You know they're really there's nothing to a macaroon it's just some egg whites to hold all
+[01:41:34.080 --> 01:41:38.880]   that coconut together you don't like it. Oh macaroons I thought you were talking about
+[01:41:38.880 --> 01:41:43.760]   macarons. Macaroon. Yeah I'm not that fond. Lisa loves macarons. Oh I'm not either. Yeah.
+[01:41:43.760 --> 01:41:49.280]   I don't either. Macaroons. The macaroons I do like. Dipped in chocolate. Mm-hmm. Yeah.
+[01:41:49.280 --> 01:41:53.760]   Yeah. I'll put a little cherry on the top just for you. Do you use that machine of yours to make
+[01:41:53.760 --> 01:42:01.360]   them? Oh probably could. Really pretty much we use that machine of mine to make mashed potatoes
+[01:42:01.360 --> 01:42:05.440]   and risotto. It's so good at that I haven't tried anything else. Oh risotto would be superb
+[01:42:05.440 --> 01:42:09.280]   at what? Yeah because you don't have to stir risotto you have to stir the whole time this does it on
+[01:42:09.280 --> 01:42:15.360]   that. Oh yeah that's great. Oh so Stacy's face right now. Oh oh the sadness in her face. We're talking
+[01:42:15.360 --> 01:42:23.840]   about a fifteen hundred dollar Swiss device called the thermo mix that occupies a massive amount of
+[01:42:23.840 --> 01:42:31.760]   space on your counter and requires a variety of cheap plastic implements that also occupy space
+[01:42:31.760 --> 01:42:37.280]   in your counter. However fifteen hundred dollars with cheap plastic implements. Yeah however it does
+[01:42:37.280 --> 01:42:43.760]   make a fine set of mashed potatoes you can make soup in it and stuff too. It chops so the important
+[01:42:43.760 --> 01:42:47.840]   thing to note is you just stick your ingredients in the order it tells you it chops you. And it has
+[01:42:47.840 --> 01:42:52.960]   a scale in it too. So it says three ounces of milk you just pour till it says thing you're done
+[01:42:52.960 --> 01:42:58.480]   and you go to the next and it's like it heats up so it's a it's like a crock pot but it also has a
+[01:42:58.480 --> 01:43:06.240]   blender in it. So it's like a blender like a cooking blender. It's this face he's so jealous.
+[01:43:06.240 --> 01:43:10.400]   It is a robot chef and I want it so bad. There's so many things wrong with it. I'll tell you some
+[01:43:10.400 --> 01:43:16.560]   other things you can't. Every time every time without fail that I turn it on it says I need to
+[01:43:16.560 --> 01:43:23.440]   update we'll be with you in ten. It's because it's android right it's gonna be Andrew. Don't be
+[01:43:23.440 --> 01:43:29.680]   hungry. Yeah so it's got to update without fail every time. I heard it's getting in the way of
+[01:43:29.680 --> 01:43:35.360]   your espresso machine. Oh no no no nothing's getting away my espresso machine. My espresso
+[01:43:35.360 --> 01:43:41.680]   machine has a counter all to itself and sorry sorry it doesn't have to share. The two of them
+[01:43:41.680 --> 01:43:47.040]   are just lusting. Oh god they want my they want my gadgets. It's like they're waiting for Uncle Leo
+[01:43:47.040 --> 01:43:54.800]   to put you in the will. Yeah exactly. I appreciate it. To Aunt Groot I give my coffee machine.
+[01:43:54.800 --> 01:44:04.480]   To Stacey Higginbotham. The reading of the trick will. To Jeff Jarvis I give absolutely
+[01:44:04.480 --> 01:44:10.960]   bup-kiss to that Nicole millionaire. Hey we got it on we got it on tape right now folks. I'm happy.
+[01:44:10.960 --> 01:44:18.640]   You get your award. I don't know Aunt is he in his right mind. Oh man. It's the end of a long week
+[01:44:18.640 --> 01:44:23.760]   he might be punchy. I'm a little bit punchy. Let's let's take a little break when we come back
+[01:44:23.760 --> 01:44:30.720]   your picks of the week. I think I said that already. Our show today brought to you by userway.org.
+[01:44:30.720 --> 01:44:36.000]   This is a I think a really important this more than a commercial to me. This is about doing the
+[01:44:36.000 --> 01:44:42.400]   right thing for your customers your website. You know very famous pizza company. We don't have
+[01:44:42.400 --> 01:44:48.640]   to name names but they're a national chain. Said we don't have to make my website accessible.
+[01:44:48.640 --> 01:44:54.400]   We have a phone number. People can just call us. And it went all the way to the Supreme Court.
+[01:44:54.400 --> 01:45:00.000]   They fought it and fought it. I don't know why. And the Supreme Court finally ruled no that's
+[01:45:00.000 --> 01:45:06.960]   called separate but equal. It's a public entity. It has to be accessible. That's the federal law.
+[01:45:06.960 --> 01:45:12.080]   The Americans with Disabilities Act. Every website without exception has to be accessible.
+[01:45:12.080 --> 01:45:16.960]   Now you might as a website owner say, Leo why are you telling me this? I prefer not to know. Well
+[01:45:16.960 --> 01:45:22.560]   I'm only telling you because there's a very good affordable easy way to make it accessible.
+[01:45:22.560 --> 01:45:27.520]   And that's userway.org. And by the way you want it to be accessible. It's not just about
+[01:45:27.520 --> 01:45:34.160]   doing the right thing or avoiding ADA lawsuits. It's also because that's 60 million Americans
+[01:45:34.160 --> 01:45:41.280]   who can't use your website. So if you want your shopping cart to be accessible, if you want your
+[01:45:41.280 --> 01:45:48.640]   forms and your images to be accessible, you need userway. Userway is an incredible AI powered
+[01:45:48.640 --> 01:45:55.280]   solution that automatically enforces the hundreds of web content accessibility guidelines. The
+[01:45:55.280 --> 01:45:59.680]   Woot Keg guidelines. And it does it. It's kind of amazing with one line of JavaScript. Now
+[01:45:59.680 --> 01:46:04.240]   obviously somebody said, how could one line of JavaScript do all that? Well it pulls in other
+[01:46:04.240 --> 01:46:09.360]   JavaScript. I'm not saying you see other stuff going. But all you have to do is paste in one line
+[01:46:09.360 --> 01:46:14.800]   of JavaScript and you're done. It can do more than an entire team of developers. And I'll tell you
+[01:46:14.800 --> 01:46:24.080]   what it works. So many people use userway. One million websites including Coca-Cola, Disney,
+[01:46:24.080 --> 01:46:32.000]   eBay, FedEx, UNICEF uses userway to make their site accessible. And now userway is making its
+[01:46:32.000 --> 01:46:36.960]   best in class enterprise accessibility tools available to small and medium sized businesses
+[01:46:36.960 --> 01:46:43.760]   for a very sweet price. Because I think they're on a mission to make the web accessible. When you
+[01:46:43.760 --> 01:46:50.160]   scale you need userway. It's good for business. It's just the right thing to do. Millions of people
+[01:46:50.160 --> 01:46:54.720]   will require userway to purchase your products. Fix all your images with all text automatically.
+[01:46:54.720 --> 01:47:01.040]   That's that computer vision at work. Fixes complex nav menus. Not even sighted people have a
+[01:47:01.040 --> 01:47:05.920]   hard time figuring out. It ensures that all the pop-ups are accessible. It'll fix your vague link
+[01:47:05.920 --> 01:47:10.160]   violations, your broken links. And make sure your website uses accessible colors. Now I gotta
+[01:47:10.160 --> 01:47:16.000]   say this happens all not on the front page, not on the thing cited users see, but on the accessibility
+[01:47:16.000 --> 01:47:21.760]   layer where the screen reader sees it. So it doesn't change how your site looks except to people who
+[01:47:21.760 --> 01:47:27.920]   can't use your site. And for them suddenly they can use it, they can customize it to fit their needs.
+[01:47:27.920 --> 01:47:32.640]   And they're going to love you. You also get a detailed report of all the violations you fixed
+[01:47:32.640 --> 01:47:38.160]   on your website. If you're curious there's a free scanning tool at userway.org/twit
+[01:47:38.160 --> 01:47:42.160]   that will tell you if you're compliant. You probably aren't. I hate to say it.
+[01:47:42.800 --> 01:47:48.960]   Userway works with WordPress Shopify Wix. It's cost effective. It's easy to add. Same goes for
+[01:47:48.960 --> 01:47:55.440]   AEM site course SharePoint. Userway integrates seamlessly with every website. Even that website
+[01:47:55.440 --> 01:47:59.520]   I wrote, I built myself as long as you can put that JavaScript in there. It works.
+[01:47:59.520 --> 01:48:04.560]   Help your business meet its compliance goals. Approve the experience for users.
+[01:48:04.560 --> 01:48:10.240]   Userway.org/twit. Just ask Susan Bennett the voice of Siri what she thinks.
+[01:48:10.240 --> 01:48:17.680]   Userway is trusted by more than 1 million websites and 60 million users with disabilities.
+[01:48:17.680 --> 01:48:24.160]   Visit Userway.org to learn how one line of code can make your website accessible.
+[01:48:24.160 --> 01:48:31.040]   Userway can make any website fully accessible and ADA compliant with userway. Everyone who visits
+[01:48:31.040 --> 01:48:35.760]   your site can browse seamlessly. Customize it to fit their needs. It's a great way to showcase
+[01:48:35.760 --> 01:48:41.200]   your brand's commitment to millions of people with disabilities. Go to userway.org/twit. You'll
+[01:48:41.200 --> 01:48:49.920]   get 30% off userway's AI powered accessibility solution userway. Making the internet accessible
+[01:48:49.920 --> 01:48:56.240]   for everyone. Visit userway.org/twit. We thank Userway for the job they're doing
+[01:48:57.200 --> 01:49:05.360]   and for the support of this week in Google. Thank you, Userway. Now, Stacy Higginbotham
+[01:49:05.360 --> 01:49:15.440]   with her pick of the week. You're muted. I was. It's because I went to get a cookie. I'm going to
+[01:49:15.440 --> 01:49:22.640]   give you two picks. One is a holiday cookie pick. The New York Times has a recipe for peppermint
+[01:49:22.640 --> 01:49:26.720]   brownie cookies. Okay, done. We're cooking them. I cannot recommend that enough. We're cooking
+[01:49:26.720 --> 01:49:32.000]   this weekend. Peppermint brownie cookies. They're freaking delicious. Are they like brownies with
+[01:49:32.000 --> 01:49:39.840]   peppermint in them? But they're cookies. Yes. Just yes. But they're so good. They're like peppermint
+[01:49:39.840 --> 01:49:45.040]   bark. Are they like? No, no, no, they're they're like the consistency of a brownie. A really
+[01:49:45.040 --> 01:49:48.800]   delicious brownie. It's like a pan cookie. I see it. I'm looking at it. No, it's it's not a pan
+[01:49:48.800 --> 01:49:54.240]   cookie. It's a round cookie. Oh, am I looking at the wrong one? I don't know. What are you looking at?
+[01:49:54.240 --> 01:50:00.160]   Sure. What I'm looking at. She didn't put it in the rundown. Oh, no, I didn't put it in the
+[01:50:00.160 --> 01:50:04.080]   rundown. This is New York Times peppermint brownies, but it's brownies, not cookies.
+[01:50:04.080 --> 01:50:12.000]   Ah, I see where I went wrong. Oh, okay. It's one of the real ones recipe. Oh, God. This recipe.
+[01:50:12.000 --> 01:50:20.480]   You may be an edge person or someone who loves middle pieces, a fudgy fanatic or a cakey purist.
+[01:50:21.200 --> 01:50:26.960]   This cookies will be will please all brownie lovers. And you know what? If you don't like
+[01:50:26.960 --> 01:50:30.400]   peppermint and chocolate, I don't know what's wrong with you. But if you don't, you could put
+[01:50:30.400 --> 01:50:34.720]   like vanilla extract and then just be brownie cookies or you could put like a bourbon extract.
+[01:50:34.720 --> 01:50:40.000]   And then you have like, I'm making the earlier talking bourbon. No, you're talking. I'm clicking
+[01:50:40.000 --> 01:50:45.200]   the same. I'm just a bourbon in there. Smash that save to recipe box button. That's good. I like it.
+[01:50:45.200 --> 01:50:49.840]   All right. Sorry. That is not my thing in the week, but having just consumed them.
+[01:50:50.560 --> 01:51:00.240]   Oh, okay. Today's thing is the flick buttons and hubs. And I got this because I love buttons.
+[01:51:00.240 --> 01:51:05.200]   I can't, I can't help myself. I love the IoT buttons and the flick hub. This is the hub.
+[01:51:05.200 --> 01:51:13.360]   And this is a click button. It is, it is like if accepted has a physical thing. So you can link
+[01:51:13.360 --> 01:51:16.880]   a couple different services together. So you can link Slack and
+[01:51:17.920 --> 01:51:21.840]   Oh, so this is how you would punch me. You'd have a flick button at that end
+[01:51:21.840 --> 01:51:27.280]   that activates the boxing glove at this end. Yeah, that would, that would be an option. If you
+[01:51:27.280 --> 01:51:30.960]   want that to happen though, because the flick buttons are Bluetooth and will work only with
+[01:51:30.960 --> 01:51:35.440]   your phone without that hub. So if you have the hub, that could ship Bluetooth to Wi-Fi. Got it.
+[01:51:35.440 --> 01:51:41.920]   So they're super fun. If you have like, I run a lot of different light bulbs because I test
+[01:51:41.920 --> 01:51:48.560]   them. So this way, it's very easy for me to like my nano leaf, my hues, my, I don't know what else
+[01:51:48.560 --> 01:51:53.760]   but other light bulbs. The first, the first stage of IoT, we wanted to eliminate switches. So we
+[01:51:53.760 --> 01:51:58.000]   could say, Hey, turn on the lights, travel lights. Now the second stage of IoT, we're bringing the
+[01:51:58.000 --> 01:52:05.280]   switches back. Yeah, it's true. And each click, you can do a single click, a double click, and a long
+[01:52:05.280 --> 01:52:09.440]   click. And so you've got each button has three options for you. You could also do things like
+[01:52:09.440 --> 01:52:13.280]   Spotify. So like you could put it, you could have some fun with this. If you wanted, you could stick
+[01:52:13.280 --> 01:52:17.200]   it in there and you could have a button that plays your favorite Spotify song, like you hit the button
+[01:52:17.200 --> 01:52:24.080]   when you come in. I still want to do the project where when my phone joins the Wi-Fi, it starts playing
+[01:52:24.080 --> 01:52:28.720]   my theme song so I can have my theme song as I come in the door. Nice. That's the one I want.
+[01:52:28.720 --> 01:52:33.520]   Yeah, that's not gonna. No, I don't have that for you yet.
+[01:52:36.720 --> 01:52:41.280]   But if you wanted to press the button when that happens, I could hit the button when I come in.
+[01:52:41.280 --> 01:52:45.360]   Short term, then maybe that's the solution. You could put it on your key fob and just be like,
+[01:52:45.360 --> 01:52:50.560]   no one has to see. They'll just be like, Oh, yeah. Remote Rocky key fob.
+[01:52:50.560 --> 01:52:56.640]   So anyway, that's that's my pick of the week. I've been having a lot of fun with these. I
+[01:52:56.640 --> 01:53:02.080]   gave this to my husband because I had the only button that controlled our bedside table lights.
+[01:53:02.080 --> 01:53:07.760]   And he was mad about that. So this hub has an ethernet connection, which is nice. I like that.
+[01:53:07.760 --> 01:53:13.360]   And I don't want everything to be Wi-Fi always. I like that. But it could be Wi-Fi as well.
+[01:53:13.360 --> 01:53:20.160]   Yeah, yeah. It could be either way. Yeah. Neat. I was like, I'm out of I'm out of ports on my
+[01:53:20.160 --> 01:53:26.000]   switches. So I need to go buy another switch. I bought I want to buy a 48 port switch. So I'm
+[01:53:26.000 --> 01:53:33.040]   pretty, pretty set. Of course, everything has to be in the closet. So that doesn't solve a lot of
+[01:53:33.040 --> 01:53:37.600]   problems. Wow. Can you turn the lights? Yeah. Hold on. Let me go to the wiring class.
+[01:53:37.600 --> 01:53:47.840]   Really going backwards on IOT. Let me go to the MDF. FLIC.io. Flick. FLIC.io for the flick.
+[01:53:48.880 --> 01:53:56.000]   Buttons and hubs. Jeff Jarvis, a number of the week. JJ. Could do a few things for one thing.
+[01:53:56.000 --> 01:54:02.080]   I could sample. What is that you've got there? That looks like a delicious salt.
+[01:54:02.080 --> 01:54:06.000]   So good. You can eat right out of it. Is that salt?
+[01:54:06.000 --> 01:54:12.160]   Hank salt. Oh, gosh, that came fast. And you got some too, Stacy?
+[01:54:12.880 --> 01:54:20.240]   I did. Which was sprinkled some on my brownies. Oh, yeah. Oh, yeah, my
+[01:54:20.240 --> 01:54:27.200]   favorite. We have the flaky sea salt blend with truffle and garlic. Oh, that's pricey. Did you get
+[01:54:27.200 --> 01:54:33.600]   all three? You got us all three. Oh, wow. And the fake flaky sea salt blend. Collaborate.
+[01:54:33.600 --> 01:54:38.160]   I have an end though. You got to put that up. That's going to be delicious on your ketchup.
+[01:54:39.360 --> 01:54:44.960]   I think I might do that tonight. Salthank.com. They're almost sold out.
+[01:54:44.960 --> 01:54:51.600]   This is my son. Refresh the page. You're cutting off my kid's face. Beautiful face.
+[01:54:51.600 --> 01:54:56.640]   Show my page. You don't need to pull up these pages. I do it. So you don't have to.
+[01:54:56.640 --> 01:55:02.080]   There you go. Salthank.com, a premier blend of sea salt. Curated from. Lucky's making.
+[01:55:02.080 --> 01:55:10.240]   Got your pep. Just for you. Just for you, Jeff. Look at that. That is my son, believe it or not,
+[01:55:10.240 --> 01:55:17.200]   who is a TikTok phenom with 1.7 million followers. One is seven now. Yeah, he's grown
+[01:55:17.200 --> 01:55:21.680]   growing faster. Wasn't that long ago at all when he passed one? No, I remember when he was just a
+[01:55:21.680 --> 01:55:29.440]   kid, but that's another story. He is a good looking boy though, I have to say. And if you,
+[01:55:29.440 --> 01:55:35.600]   it's a perfect gift for the holidays. They came fast. So that's good news. That means it's not
+[01:55:35.600 --> 01:55:41.840]   too late to get your salthank salt at salthank.com. Thank you, Jeff. So I appreciate the plug.
+[01:55:41.840 --> 01:55:47.200]   I have a couple numbers here. One is, interestingly, the elevator company Cone,
+[01:55:47.200 --> 01:55:53.920]   I presume it's pronounced that way, K-O-N-E. Cone is released stats on elevator use with the pandemic.
+[01:55:54.800 --> 01:56:00.480]   In the top 10 European cities, the average number of elevator journeys plummeted 80%
+[01:56:00.480 --> 01:56:04.960]   between February and April of 2020. Well, that's right at the beginning. Yeah.
+[01:56:04.960 --> 01:56:09.600]   The return to office buildings in Paris, Munich, Helsinki, Berlin, Milan, and Hamburg
+[01:56:09.600 --> 01:56:16.080]   has remained at 60% of pre-pregnant levels since the start of the year. So we are still avoiding
+[01:56:17.200 --> 01:56:25.520]   offices and such. Cone is very aggressive on IoT elevators and selling elevator
+[01:56:25.520 --> 01:56:30.560]   maintenance and such as a service just as an FYI. That data could come from their smart sensors.
+[01:56:30.560 --> 01:56:35.920]   Oh, interesting. Interesting. Yes. And they're going to start charging you if you want to go to
+[01:56:35.920 --> 01:56:45.440]   an even number four before long just like Toyota. So we did this one last year, and I think we
+[01:56:45.440 --> 01:56:49.200]   enjoyed it even before last year. But the 52 things I learned this year. Oh.
+[01:56:49.200 --> 01:56:55.840]   And who is I? Because that's going to really have something to do with it. It's Tom Whitwell.
+[01:56:55.840 --> 01:57:00.480]   Yeah. Yeah. So you can just pick some things at random number 41 here,
+[01:57:00.480 --> 01:57:07.200]   because we have the line number. We produce 200 times more computers per second than new human
+[01:57:07.200 --> 01:57:15.360]   Oh, that's a terrible stat. 200 times more new computers than new human beings.
+[01:57:15.360 --> 01:57:19.760]   Every. How much energy does a computer use versus a human being?
+[01:57:19.760 --> 01:57:24.000]   Probably. Yeah. But who's using all these computers?
+[01:57:24.000 --> 01:57:28.400]   Didn't you? Did you all talk about Intel in the metaverse and the demand for chips?
+[01:57:28.400 --> 01:57:34.400]   No, but yeah. Because I was not. I guess everything. You know what? This is because of Stacey's buttons.
+[01:57:34.400 --> 01:57:38.560]   If you count those as computers, oh, yeah. That's what that was. I thought I was going to go a
+[01:57:38.560 --> 01:57:46.160]   different way. I was like, excuse me. I blame you and your dang buttons. So this is just like a.
+[01:57:46.160 --> 01:57:54.480]   He's just like two odd things in number 51 in 1970s. Kodak started to reformulate their
+[01:57:54.480 --> 01:57:59.440]   photographic films to better represent dark brown colors because they'd had complaints from
+[01:58:00.240 --> 01:58:05.760]   chocolate companies and of course, manufacturers. Yes. It's a wooden furniture man. Consider the
+[01:58:05.760 --> 01:58:10.400]   wooden furniture manufacturer. Stacey's brownie cookies that are the fault here. It wasn't until
+[01:58:10.400 --> 01:58:17.680]   1995. They introduced a calibration card showing non white faces. Yeah. That's insulting. Yeah.
+[01:58:17.680 --> 01:58:23.920]   So your brownies? No, the people. Yes, it is. No, just to black people everywhere.
+[01:58:23.920 --> 01:58:28.000]   Yes, it is. It's awful. I mean, just. Yeah.
+[01:58:28.000 --> 01:58:35.600]   Yeah. This is a percent of US electricity is generated from old Russian nuclear warheads.
+[01:58:35.600 --> 01:58:44.960]   What? Well, that's not true. Okay. I call BS on that one. Where did we get these old Russian
+[01:58:44.960 --> 01:58:49.440]   warheads? And how can we turning them into electricity? I don't know. I didn't. I didn't
+[01:58:49.440 --> 01:58:54.960]   click through. That's a very into I call BS on that one. I mean, I actually had misinformation.
+[01:58:54.960 --> 01:59:00.800]   It's NPR. Okay. The past decade, two decades, 10 percent of electricians have been in
+[01:59:00.800 --> 01:59:05.920]   is part of a deal struck to end at the end of the Cold War. Oh, we bought their old missiles.
+[01:59:05.920 --> 01:59:11.280]   We bought their final fuel shipments. The deal ended. Oh, they were never in missiles.
+[01:59:11.280 --> 01:59:16.240]   Okay. It's a little fudge factor there. We bought fuel that was intended for Russian
+[01:59:16.240 --> 01:59:21.120]   missiles to use for nuclear power plants. It's not the same thing as old Russian missiles.
+[01:59:21.120 --> 01:59:25.680]   You're powering our fuel. That's true. That is it. Okay. Good. All right. I feel better. I could
+[01:59:25.680 --> 01:59:32.240]   buy the I could buy the real missile is powering the fog horn. But yeah. All right.
+[01:59:32.240 --> 01:59:39.920]   The battery in the new electric Hummer will weigh almost as much as an original land rover.
+[01:59:39.920 --> 01:59:49.440]   This is kind of this is your nightmare of me filling the rundown. Yeah. Yeah. Okay.
+[01:59:50.880 --> 01:59:59.120]   Good. That's this is from flux FLU XX a medium channel by Tom Whitwell.
+[01:59:59.120 --> 02:00:03.680]   And he 50 things I learned in 2021.
+[02:00:03.680 --> 02:00:10.400]   Bailey's Irish cream was invented in 45 minutes of 1973 by two ad creatives in Soho,
+[02:00:10.400 --> 02:00:16.000]   who had very bad taste. Bailey's Irish cream was invented in 1973 and so
+[02:00:16.000 --> 02:00:21.120]   I was like, Oh, this is traditional. It feels like a product of the 70s. I'm not going to lie.
+[02:00:21.120 --> 02:00:24.880]   That's what I'm going to do when I drag it. But that means wait a minute. My mind is
+[02:00:24.880 --> 02:00:28.560]   boggling. There was no there were no white Russians before 1973.
+[02:00:28.560 --> 02:00:32.160]   Okay. Wow. Wow. Wow.
+[02:00:32.160 --> 02:00:40.400]   That feels true. It has applied a patent to patent a method to identify bad smells
+[02:00:40.400 --> 02:00:46.880]   in shared cars, then transfer passengers into less smelly cars. I have a good one that you can
+[02:00:46.880 --> 02:00:55.280]   add to his list for 2022. NASA employs a full time sniffer to smell things before they get put
+[02:00:55.280 --> 02:01:04.000]   on the International Space Station in case the odors are offensive. That's a gig. Because as
+[02:01:04.000 --> 02:01:10.000]   one would imagine, if you're stuck on the ISS with a stinky something, you know, you're stuck.
+[02:01:10.000 --> 02:01:14.960]   What are you going to do? That's miserable. So this guy, there's no tuna fish in
+[02:01:14.960 --> 02:01:22.880]   no God. So this guy, you want to see a video? I've had sticky books and magazines. This guy,
+[02:01:22.880 --> 02:01:30.320]   he's NASA's staff sniffer. This is from nine. Apart from the stunning New Mexico landscaping.
+[02:01:30.320 --> 02:01:35.840]   This is from a YouTube channel, the science channel. This is a guy. This is what his job is.
+[02:01:35.840 --> 02:01:45.280]   He sniffs stuff for NASA. Let Mikey sniff it. But can he knows a glass of whiskey? You know,
+[02:01:45.280 --> 02:01:50.800]   tell me I'm guessing that he probably has a similar skill set. Yeah. By the way,
+[02:01:50.800 --> 02:01:55.120]   just want to point out, see this right here on the YouTube, if you go to the front page of YouTube.
+[02:01:55.120 --> 02:02:00.720]   Yeah, I'll just do this real quickly. This is a number you could have used, Jeff.
+[02:02:01.600 --> 02:02:07.440]   Oh, it's not saying it on the front page. But if I click a video, it's right up here. See in the
+[02:02:07.440 --> 02:02:18.080]   left? What's that one trillion? Click it. YouTube is celebrating one trillion viewers of Minecraft
+[02:02:18.080 --> 02:02:26.880]   content over the years. All that wasted life. Minecraft, one trillion views. It's the most viewed
+[02:02:26.880 --> 02:02:34.880]   my my daughter watches this Minecraft fan. It's it's remember Red versus Blue.
+[02:02:34.880 --> 02:02:44.320]   So it's basically that for Minecraft. It's a big deal. It's called dream. The dream server. So
+[02:02:44.320 --> 02:02:50.720]   they have these very loosely plotted episodes. And it's like a third season now. And she is like
+[02:02:50.720 --> 02:02:59.360]   crazy. Love Minecraft. Yeah. Clearly. Okay. Mr. Emperor, it is your turn.
+[02:02:59.360 --> 02:03:07.360]   On my pick of the week, which is funny, I also saw it somewhere else in the rundown. So maybe
+[02:03:07.360 --> 02:03:13.520]   this is a great minds think of like kind of thing. Adobe has their new creative cloud at
+[02:03:13.520 --> 02:03:22.240]   Express. I used to use this app is it used to be called Adobe Spark. Oh, this is a spark. Oh,
+[02:03:22.240 --> 02:03:29.280]   I know that that app and services so underrated for people that are just trying to put out, you
+[02:03:29.280 --> 02:03:36.080]   know, marketing content or, you know, messages, infographics and things like that is super useful.
+[02:03:36.080 --> 02:03:40.080]   And you can do it on the web. You can do it on your phone on the web. It gives you a little bit
+[02:03:40.080 --> 02:03:45.520]   more power. But they've, you know, basically done a little bit of updates and rebrand into it, if you
+[02:03:45.520 --> 02:03:52.960]   will. And it's now called creative cloud at Express. So it's mostly free. You can pay for templates.
+[02:03:52.960 --> 02:03:57.840]   But right, we played with it on Mac break weekly on Tuesday. It actually does a pretty nice job. I
+[02:03:57.840 --> 02:04:06.000]   thought it's great for people, you know, Instagram types and stuff like that. You know, anybody is
+[02:04:06.000 --> 02:04:11.360]   just trying to get a good message out that that can stand out from from other stuff that's out
+[02:04:11.360 --> 02:04:15.360]   there. And just because they give you all the nice templates and properly lays it out to fit
+[02:04:15.360 --> 02:04:20.880]   for all of the different social platforms, even down to YouTube thumbnails and stuff like that.
+[02:04:20.880 --> 02:04:25.680]   Yeah. Yeah. I just thought I'd give them a shout. So I think that they deserve it. This is really
+[02:04:25.680 --> 02:04:31.600]   great. There's a convert to gift feature. There's there's all sorts of remove background, reverse
+[02:04:31.600 --> 02:04:37.200]   video, trim video. There's all sorts of things you can do. This is for use it almost every day for
+[02:04:37.200 --> 02:04:42.720]   something. Yeah, social media, almost every day. Yeah. I wish I had the energy and time to do
+[02:04:42.720 --> 02:04:47.040]   stuff like that. That's really great. You don't even like social media. No.
+[02:04:47.040 --> 02:04:54.320]   Like social. I'm just, I just want to go to bed, honestly. Well, let's get you there, Leo.
+[02:04:54.320 --> 02:05:00.160]   Let's get you there. I just want to sleep. Let's talk them in.
+[02:05:01.280 --> 02:05:07.040]   Yeah. The white Russian first appeared in 1949. It's a black Russian with cream.
+[02:05:07.040 --> 02:05:12.560]   Yeah. You don't need Bailey's to make a white Russian. Oh, oh, you need Kalua, right?
+[02:05:12.560 --> 02:05:20.160]   Okay. Milk. So what's a black Russian? Just the kalua, no milk. Anyway,
+[02:05:20.160 --> 02:05:23.680]   cool. Yeah. Kalua and vodka. I think. Yeah. Yeah. Yeah.
+[02:05:23.680 --> 02:05:27.280]   I thought that I thought you had to have Bailey's for a white Russian.
+[02:05:28.480 --> 02:05:34.960]   You have to have Bailey's for my mom's coffee. Oh, yum. Or a mudslide, right?
+[02:05:34.960 --> 02:05:38.400]   Do you ever drink mudslides? When you're in. I don't like sweet drinks.
+[02:05:38.400 --> 02:05:44.800]   Engineer high school. Okay. Yeah. You have anything else in? I'm sorry. Go ahead.
+[02:05:44.800 --> 02:05:51.360]   Oh, sure. My other couple of picks is one that makes me laugh on Instagram every single time I
+[02:05:51.360 --> 02:05:57.120]   see it in its photography humor. And we've talked about Instagram in the past recently
+[02:05:57.840 --> 02:06:04.160]   pushing more towards video content. And I said openly that, yeah, I'm doing more video content
+[02:06:04.160 --> 02:06:09.840]   myself on Instagram. And this little meme right here from photography humor just I love it sums
+[02:06:09.840 --> 02:06:16.240]   it up perfectly. I love the sound effects of the background of her crying. And because if you
+[02:06:16.240 --> 02:06:22.080]   scroll through Instagram reels, you see a lot of photographers doing this type of behavior.
+[02:06:24.320 --> 02:06:30.560]   And the meme reads a photographer having to make real to stay relevant on Instagram. That's the joke.
+[02:06:30.560 --> 02:06:38.800]   However, you do have some reels on Instagram, I believe. Yeah, I do them fairly regularly because
+[02:06:38.800 --> 02:06:45.920]   it's part of my marketing and promotion. You know, I love my show and I put stuff up there for my
+[02:06:45.920 --> 02:06:51.600]   show. Oh, yeah, of course. I love just shooting stuff of the family or other random things or
+[02:06:51.600 --> 02:06:56.800]   tips and tricks that I'm doing and and life at the time, let's not forget you post about life at
+[02:06:56.800 --> 02:07:03.200]   Twitter. So you can see behind the scenes stuff. Yeah, life. That was my first meeting a couple
+[02:07:03.200 --> 02:07:12.320]   years ago before we told you about long pants, right? Yeah. Yeah. This is fun. This is the first
+[02:07:12.320 --> 02:07:19.120]   time getting under twig sets. Oh, nice. Coming in to coming in for a landing. Look at that.
+[02:07:19.680 --> 02:07:24.960]   That was so surprising. We love having you here. I'll tell you. Thank you. Yeah. But not. How did
+[02:07:24.960 --> 02:07:30.160]   the relationship is the gram is sort of a love hate because it's like I said, I don't like that
+[02:07:30.160 --> 02:07:35.920]   meta owns it, but I have a nice community. You know, Lisa loves it too. If it weren't meta,
+[02:07:35.920 --> 02:07:41.600]   I would love in fact, I did love I was on Instagram when it first started and posted a lot. I love it,
+[02:07:41.600 --> 02:07:49.600]   but I wish I was on that. I don't met his daughters was on the show. So cute. I'm good. John.
+[02:07:49.600 --> 02:07:53.600]   Hot. She's excited to see yourself on the show. That's nice.
+[02:07:53.600 --> 02:07:59.600]   How do you follow me on this gram to Jeff asked? How did we meet? Yeah.
+[02:07:59.600 --> 02:08:11.120]   I was on tech news weekly for something I wrote for tech Republic. And then Mr. Bondy,
+[02:08:11.120 --> 02:08:16.880]   reached out to me later about being on twig and then we just went on from there. Yeah.
+[02:08:16.880 --> 02:08:22.560]   Yeah, because I'm Chris tech Republic, you know, because Jason Heiner and so forth,
+[02:08:22.560 --> 02:08:26.240]   we've had a great relationship. So we have been very always aware of you,
+[02:08:26.240 --> 02:08:31.440]   working there. So yeah, just like everybody else.
+[02:08:31.440 --> 02:08:34.560]   You slowly hold you in.
+[02:08:36.560 --> 02:08:42.720]   Yeah, the black hole gravity that is slowly drew you in. Now, I do remember
+[02:08:42.720 --> 02:08:47.520]   the getting the invitation to be on this weekend and Google and in and saying,
+[02:08:47.520 --> 02:08:52.720]   I don't know if I really want me on here. I'm not ready for that discussion. Oh, yeah.
+[02:08:52.720 --> 02:08:58.800]   Yeah. Oh, yeah. Oh, yeah. You are. And I want to share your final pick.
+[02:08:58.800 --> 02:09:06.000]   Yeah, because this is the season I won't be here on the show next week, but I love Mr. Scott
+[02:09:06.000 --> 02:09:11.520]   Wilkinson and just I remember being able to talk to him at CES a couple of years ago when we're
+[02:09:11.520 --> 02:09:16.560]   in person at CES and just his I love that man's energy when he was talking about televisions,
+[02:09:16.560 --> 02:09:23.600]   but I love his energy when he's talking more about tubas. He's all into tubas. And this is,
+[02:09:23.600 --> 02:09:28.000]   they couldn't do tuba Christmas LA, which they do every year at Forest Lawn Cemetery.
+[02:09:28.000 --> 02:09:33.920]   They gather hundreds of tubas together and play Christmas carols. So conical supremacy,
+[02:09:33.920 --> 02:09:38.320]   which is, believe it or not, a tuba podcast. Yes, there is such a thing.
+[02:09:38.320 --> 02:09:45.200]   Got Scott and his friends together in his friends driveway for safety. And they did a Christmas
+[02:09:45.200 --> 02:09:49.680]   tuba concert. Listen for a little bit. So good.
+[02:09:49.680 --> 02:10:00.880]   You'd think a tuba would be kind of a legubrious instrument for Christmas carols.
+[02:10:01.680 --> 02:10:07.040]   It's quite beautiful. It is. It's really nice. Yeah.
+[02:10:07.040 --> 02:10:14.160]   And they play this. Some of Scott's original compositions and all sorts of fun stuff.
+[02:10:14.160 --> 02:10:19.040]   He emailed that and it just, it just warmed my heart. Because like I said, I love talking to him
+[02:10:19.040 --> 02:10:24.560]   while we were there. And if people go back and look at those segments of him walking through
+[02:10:24.560 --> 02:10:29.280]   the halls with you talking about the different television stuff. Oh, I missed that. That energy,
+[02:10:29.280 --> 02:10:36.800]   man. It was, I really was holding a camera to go back to CES this year. I just,
+[02:10:36.800 --> 02:10:44.320]   especially with it. I'm still going, but I'd like to go, but I get it. It's definitely.
+[02:10:44.320 --> 02:10:47.680]   Well, you can go if you want, but just stay away from us for the next six weeks.
+[02:10:47.680 --> 02:10:54.320]   I'd love to go. I would love to go. You should probably should go. We should probably send
+[02:10:54.320 --> 02:11:01.120]   somebody you're willing to take the chance. I'm going to come back and wait a day or two in a
+[02:11:01.120 --> 02:11:09.040]   hotel and then see my family on the backside after taking a test. So well, I'll book something
+[02:11:09.040 --> 02:11:12.960]   if you approve. I'll book something. I'll talk to Miss Lisa. She's the boss.
+[02:11:12.960 --> 02:11:18.880]   Just let me know. And of course, Scott, I love working it myself. Yeah, I know you do. You're
+[02:11:18.880 --> 02:11:25.200]   really a CES guy. That's your place. Those are your people. Get your booster now, though,
+[02:11:25.200 --> 02:11:32.000]   and if you're going to go. That's the thing. I can't get my booster until sometime in January.
+[02:11:32.000 --> 02:11:36.160]   Oh, I won't work that they gave me. Yeah. So just a cautionary tale,
+[02:11:36.160 --> 02:11:42.800]   Shira Lazar, who was on Twitter on Sunday. Yeah. Fully vaccinated, but like many of us got her
+[02:11:42.800 --> 02:11:50.880]   second shot in April. So it's been eight months, went to visit a family, the family on Thanksgiving.
+[02:11:50.880 --> 02:11:57.200]   They all got COVID-19. She got it. Her boyfriend got it. She was down. She's, I mean, she was
+[02:11:57.200 --> 02:12:02.960]   really down for two weeks, but really lost a whole month. And she said it was awful and you do not
+[02:12:02.960 --> 02:12:08.240]   want to get it. So just a word warning. I mean, even fully vaccinated is not maybe going to be
+[02:12:08.240 --> 02:12:14.000]   enough with only crying out there. Yeah. Get that booster when you can. A little tip and you can go
+[02:12:14.000 --> 02:12:18.160]   Safeway often has shots available at the end of the day. You could run over to Safeway right
+[02:12:18.160 --> 02:12:22.560]   now. Oh, yes. Right. Yeah. And see if they have you might be able to get right now. Yeah,
+[02:12:22.560 --> 02:12:28.880]   that's right. Okay. I'll try that Safeway, CVS, you know, Albertsons, they all are doing a
+[02:12:28.880 --> 02:12:34.960]   vaccination and still counts. Doesn't matter. You got in the grocery store, still counts. Yeah,
+[02:12:34.960 --> 02:12:39.840]   right. I'll try that. Yeah. But I got an appointment, but it wasn't until sometime in January. I don't
+[02:12:39.840 --> 02:12:44.000]   know. Yeah. Kaiser's way backed up. I'm not sure why. But same thing. I'm getting mine tomorrow.
+[02:12:44.000 --> 02:12:50.960]   Thank you, everybody. It's to do say, stay safe. This holiday season, we all want to get together.
+[02:12:50.960 --> 02:12:56.640]   We all want to be with friends and family, but nobody deserves to get COVID-19. So
+[02:12:56.640 --> 02:13:02.080]   wear your mask. Be careful socially distance. Wash your hands. All the things that we've done
+[02:13:02.080 --> 02:13:06.240]   all along. They've worked so well. And yes, if you haven't got your shots yet, get them. And if
+[02:13:06.240 --> 02:13:11.840]   you haven't gotten boosted yet, get them because it makes a difference. Thank you very much for
+[02:13:11.840 --> 02:13:18.400]   being here, Mr. Ant Pruitt, twit.tv/hop. We're going to miss you next week. Have a great vacation.
+[02:13:18.400 --> 02:13:23.120]   Ant, thank you. Wonderful, Merry Christmas. Happy new year. We'll see you in the new one.
+[02:13:23.120 --> 02:13:28.400]   We'll see you next year. Yeah. Yeah. We have a best of the following week. So I won't be back
+[02:13:28.400 --> 02:13:34.720]   here till whatever that is. I was like, wait, we have a show next week. You and I and Mr. J.J.
+[02:13:34.720 --> 02:13:41.680]   will be here on the 22nd. The 29th is the best of twig. Ant, you'll be back on the 5th unless we
+[02:13:41.680 --> 02:13:48.080]   send you to CES. Right. Oh, thank you and I can hang in. Oh, you know what would be fun is if you
+[02:13:48.080 --> 02:13:55.680]   guys did a show from CES, did the show. I'm going to have a lot of time. You are not. I know. But
+[02:13:55.680 --> 02:14:01.760]   when are the what is it? It's January 5th through 8th. So you could do the first day. You can go to
+[02:14:01.760 --> 02:14:07.440]   those little mini trade shows on Sunday, Monday and Tuesday and maybe join us on Wednesday. Yeah.
+[02:14:07.440 --> 02:14:11.840]   That'd be kind of cool. Might be a little late. I don't even know if you can get in these this
+[02:14:11.840 --> 02:14:18.720]   late. Probably can. I've already gotten approved. I just have to book. Okay. Let me talk. I think
+[02:14:18.720 --> 02:14:22.160]   you should send somebody down there. I think that's a good idea. We'll do and then you could be on
+[02:14:22.160 --> 02:14:28.640]   twig on that Wednesday on the 5th. Fine, Donnie. Jeff Jarvis, you know I'm as the director of the
+[02:14:28.640 --> 02:14:34.560]   Townite Center for Entrepreneurial Journalism at the Craig Newmark Graduate School of Journalism
+[02:14:34.560 --> 02:14:41.920]   at the City University of New York. He is a hooded Sith Lord by day, a nickel millionaire by night
+[02:14:41.920 --> 02:14:47.520]   and our regular buzz machine.com columnist. Thank you, Jeff. It's great to have you.
+[02:14:48.160 --> 02:14:54.560]   Former TV guy, critics and not your ones. Call them a bomb. And of course, Stacy Higginbotham.
+[02:14:54.560 --> 02:15:01.200]   Stacy on IOT.com is her website. Her podcast, the IOT podcast with Kevin Tofel. Don't forget the
+[02:15:01.200 --> 02:15:08.160]   newsletter. And she is the queen of peppermint brownie cookies. Technically, it's my daughter.
+[02:15:08.160 --> 02:15:13.200]   Waffles. I'm going to go ahead and get some sweet treats. That sounds so good. Thank you.
+[02:15:13.200 --> 02:15:18.960]   Thank you. Thank you, everybody. We will be back next week. We do twig every Wednesday,
+[02:15:18.960 --> 02:15:24.720]   except for that one Wednesday year we have the best of. It's around 2 p.m. Pacific, 5 p.m.
+[02:15:24.720 --> 02:15:31.200]   Eastern, 2200 UTC of a Wednesday. You can watch live at live.twit.tv. There's also an audio stream
+[02:15:31.200 --> 02:15:36.880]   there. If you're watching or listening live, chat live, our free IRC.twit.tv is open to all.
+[02:15:36.880 --> 02:15:41.120]   Club Twit members can join us in the Discord. If you're not already a club Twit member,
+[02:15:41.120 --> 02:15:46.640]   $7 a month gets you ad free versions of all the shows, access to our Discord channel and the
+[02:15:46.640 --> 02:15:53.280]   Twit Plus feed, including Stacy's book club, the untitled Linux show that gives you and so much
+[02:15:53.280 --> 02:16:00.400]   more community manager, Aunt Pruitt is of course making that sing. If you want to join Club Twit,
+[02:16:00.400 --> 02:16:05.040]   $7 a month for individuals. There's a corporate membership as well. We've got some corporate
+[02:16:05.040 --> 02:16:12.480]   members now, which is really fantastic. Twit.tv/club twit. After the fact everybody can get free
+[02:16:12.480 --> 02:16:21.280]   versions of the show ad supported at our website, twit.tv/twig. There's a YouTube channel, youtube.com/thisweekingoogle.
+[02:16:21.280 --> 02:16:26.960]   There's also on-demand versions of the show available not only from the website but also from
+[02:16:26.960 --> 02:16:31.280]   your favorite podcast application. Just, you know, all you have to do is just go
+[02:16:32.560 --> 02:16:37.520]   to your favorite podcast, your type in twig. Subscribe, you'll get it every week and if you
+[02:16:37.520 --> 02:16:44.400]   would, leave us a five star review and tell the world about this week. Thanks everybody.
+[02:16:44.400 --> 02:16:47.200]   Stay safe. We'll see you next time on Twig. Bye-bye.
+[02:16:47.200 --> 02:16:53.120]   Android is constantly evolving and if you're part of the Android faithful, then you'll be
+[02:16:53.120 --> 02:16:58.720]   just as excited about it as I am. I'm Jason Howell, host of all about Android, along with my co-hosts,
+[02:16:58.720 --> 02:17:04.240]   Florence Ion and Ron Richards, where every week we cover the news, we cover the hardware,
+[02:17:04.240 --> 02:17:09.760]   and we cover the apps that are driving the Android ecosystem. Plus, we invite people who are writing
+[02:17:09.760 --> 02:17:16.480]   about Android, talking about Android, and making Android onto the show. Every Tuesday at twit.tv,
+[02:17:16.480 --> 02:17:22.880]   look for all about Android.
+[02:17:22.880 --> 02:17:28.160]   [Music]
+
