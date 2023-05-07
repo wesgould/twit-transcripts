@@ -1,0 +1,1795 @@
+;FFMETADATA1
+title=MugBreak Weekly
+artist=Mikah Sargent, Alex Lindsay, Rene Ritchie, Andy Ihnatko
+album_artist=TWiT
+publisher=TWiT
+album=MacBreak Weekly
+TRDA=2022-02-02
+track=803
+language=English
+genre=Podcast
+comment=Apple Q1 Earnings, iOS 15.4, Apple Payment Platform
+encoded_by=Uniblab 5.3
+date=2022
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:05.280]   Coming up on Mac Break Weekly, yes, Leo is on vacation, but don't worry, I am here with
+[00:00:05.280 --> 00:00:09.760]   your regular panel of Renee Ritchie, Alex Lindsey and Andy Anatko, and we've got a
+[00:00:09.760 --> 00:00:11.120]   lot to talk about.
+[00:00:11.120 --> 00:00:14.120]   First, we talk about Apple's Q1 earnings.
+[00:00:14.120 --> 00:00:16.120]   They earned a lot of money.
+[00:00:16.120 --> 00:00:21.960]   Then we get into the really interesting details of the next version of iOS 15.
+[00:00:21.960 --> 00:00:24.920]   It's in beta right now, but there are a lot of fun features coming out, including new
+[00:00:24.920 --> 00:00:26.440]   emoji.
+[00:00:26.440 --> 00:00:33.480]   We talk about the potential future of authentication and unlock on our devices, and say goodbye
+[00:00:33.480 --> 00:00:35.800]   to Harry Potter Wizards Unite.
+[00:00:35.800 --> 00:00:40.280]   It's all that plus so much more coming up on Mac Break Weekly.
+[00:00:40.280 --> 00:00:46.000]   "Podcasts you love from people you trust."
+[00:00:46.000 --> 00:00:50.120]   "This is Twit."
+[00:00:50.120 --> 00:00:56.840]   This is Mac Break Weekly, Episode 803, recorded February 1, 2022.
+[00:00:56.840 --> 00:00:58.800]   Mug Break Weekly.
+[00:00:58.800 --> 00:01:03.040]   This episode of Mac Break Weekly is brought to you by ZipRecruiter.
+[00:01:03.040 --> 00:01:07.680]   According to research, 90% of employers plan to enhance their employee experience this
+[00:01:07.680 --> 00:01:08.680]   year.
+[00:01:08.680 --> 00:01:11.720]   And if you need to add more employees, there's ZipRecruiter.
+[00:01:11.720 --> 00:01:15.880]   ZipRecruiter's technology finds qualified candidates for your job, and you can invite
+[00:01:15.880 --> 00:01:17.800]   your top choices to apply.
+[00:01:17.800 --> 00:01:24.160]   Try ZipRecruiter for free today at ziprecruiter.com/macbreak.
+[00:01:24.160 --> 00:01:25.800]   And by Wealthfront.
+[00:01:25.800 --> 00:01:31.280]   To start building your wealth and get your first $5,000 managed for free for life, go
+[00:01:31.280 --> 00:01:35.040]   to wealthfront.com/macbreak.
+[00:01:35.040 --> 00:01:36.720]   And by CashFly.
+[00:01:36.720 --> 00:01:42.400]   CashFly is giving away a complimentary detail analysis of your current CDN bill and usage
+[00:01:42.400 --> 00:01:43.400]   trends.
+[00:01:43.400 --> 00:01:46.880]   See if you are overpaying 20% or more for CDN.
+[00:01:46.880 --> 00:01:49.960]   Learn more at twit.cashfly.com.
+[00:01:49.960 --> 00:01:58.400]   Hello, it is time for Mac Break Weekly, the show where we talk all things Apple, Macintosh
+[00:01:58.400 --> 00:02:02.960]   computers, and well, everything in between and sometimes some nerdy stuff too.
+[00:02:02.960 --> 00:02:04.880]   I, of course, am not Leo Laport.
+[00:02:04.880 --> 00:02:08.440]   If you are watching or listening, you can probably tell in both cases.
+[00:02:08.440 --> 00:02:12.480]   I am Micah Sargent, filling in for Leo who is on vacation.
+[00:02:12.480 --> 00:02:18.480]   But don't worry because we've got the full panel here to get you started.
+[00:02:18.480 --> 00:02:21.160]   Let's kick things off with youtube.com/ReneRitchie.
+[00:02:21.160 --> 00:02:22.160]   Rene Ritchie.
+[00:02:22.160 --> 00:02:23.160]   Hello, Rene.
+[00:02:23.160 --> 00:02:24.160]   Hello, Micah.
+[00:02:24.160 --> 00:02:30.200]   I made the mistake of trying to do an iMessage video and it went like 30 minutes long, some
+[00:02:30.200 --> 00:02:31.520]   about halfway editing it.
+[00:02:31.520 --> 00:02:34.360]   And I haven't stopped editing it yet, so I'm going to be a little bit loopy.
+[00:02:34.360 --> 00:02:36.160]   Infinite loopy for the show.
+[00:02:36.160 --> 00:02:37.160]   Infinite loopy.
+[00:02:37.160 --> 00:02:38.160]   Understood, understood.
+[00:02:38.160 --> 00:02:39.720]   The blue bubbles and the green bubbles.
+[00:02:39.720 --> 00:02:40.720]   It's an ongoing conversation.
+[00:02:40.720 --> 00:02:41.720]   They want teal bubbles.
+[00:02:41.720 --> 00:02:44.600]   Can we all get together with teal bubbles, just be friends?
+[00:02:44.600 --> 00:02:45.600]   I like that.
+[00:02:45.600 --> 00:02:46.600]   I like that.
+[00:02:46.600 --> 00:02:53.600]   Also, joining us today, it's Alex Lindsey, head of officehours.global, oh, nine oh
+[00:02:53.600 --> 00:02:54.600]   dot media.
+[00:02:54.600 --> 00:02:55.600]   I don't know.
+[00:02:55.600 --> 00:02:59.280]   Do you consider yourself the head, at least the founder of office hours?
+[00:02:59.280 --> 00:03:00.280]   Chief troublemaker.
+[00:03:00.280 --> 00:03:01.280]   I like that.
+[00:03:01.280 --> 00:03:02.280]   I like chief troublemaker.
+[00:03:02.280 --> 00:03:03.280]   I did get it.
+[00:03:03.280 --> 00:03:04.280]   I did get it.
+[00:03:04.280 --> 00:03:05.280]   Yeah.
+[00:03:05.280 --> 00:03:07.280]   So we're doing well.
+[00:03:07.280 --> 00:03:08.280]   Yeah.
+[00:03:08.280 --> 00:03:09.480]   We had.
+[00:03:09.480 --> 00:03:10.760]   We actually had someone on this morning.
+[00:03:10.760 --> 00:03:11.760]   You guys should check out.
+[00:03:11.760 --> 00:03:12.760]   It's called Streambudu.
+[00:03:12.760 --> 00:03:15.280]   It does kind of what Zoom does, but it's built for production.
+[00:03:15.280 --> 00:03:20.000]   So we've been, but it seems that we've got a lot of, not having a lot of fun.
+[00:03:20.000 --> 00:03:21.000]   Awesome.
+[00:03:21.000 --> 00:03:24.640]   Yeah, definitely go over to officehours.global.
+[00:03:24.640 --> 00:03:30.560]   I think some of the most common questions Leo and I have gotten on the tech guy show during
+[00:03:30.560 --> 00:03:34.280]   the weekends, it's like, well, office hours.global, I'd be able to help you out.
+[00:03:34.280 --> 00:03:36.360]   That's streaming question.
+[00:03:36.360 --> 00:03:45.040]   Using us as well, the ever jolly, the always, what's the word I want to do?
+[00:03:45.040 --> 00:03:50.000]   The always metaphorical WGBH's own Andy Anotko.
+[00:03:50.000 --> 00:03:51.000]   Hello, Andy.
+[00:03:51.000 --> 00:03:54.680]   As long as you don't call me buckethead, I'll take it.
+[00:03:54.680 --> 00:03:56.040]   Thank you.
+[00:03:56.040 --> 00:03:57.040]   No buckets today.
+[00:03:57.040 --> 00:03:59.400]   No, always, always metaphorical.
+[00:03:59.400 --> 00:04:05.040]   I think although you yourself are not metaphorical, I just, you have some very good conceits.
+[00:04:05.040 --> 00:04:06.920]   I've always thought of myself.
+[00:04:06.920 --> 00:04:07.920]   Exactly.
+[00:04:07.920 --> 00:04:08.920]   I was kind of say exactly that.
+[00:04:08.920 --> 00:04:14.320]   I've always, that's been my aim in life, but you know, I am but an imperfect vessel
+[00:04:14.320 --> 00:04:16.960]   to hold the universe's perfection.
+[00:04:16.960 --> 00:04:23.680]   All right, folks, let's kick things off today with earnings.
+[00:04:23.680 --> 00:04:27.960]   Earnings and of themselves can be kind of a boring topic.
+[00:04:27.960 --> 00:04:33.680]   Take it from someone who has spent time transcribing said earnings calls in the past.
+[00:04:33.680 --> 00:04:34.680]   All right.
+[00:04:34.680 --> 00:04:35.680]   Yeah.
+[00:04:35.680 --> 00:04:42.320]   You get some tidbits in there that are interesting, but the overall is mostly just, hey, here's
+[00:04:42.320 --> 00:04:44.680]   this ridiculous amount of money we made.
+[00:04:44.680 --> 00:04:46.080]   Would you call them Timbits?
+[00:04:46.080 --> 00:04:48.240]   We spent Tim, there you go, Timbits.
+[00:04:48.240 --> 00:04:49.240]   That's very good.
+[00:04:49.240 --> 00:04:54.920]   Renee, can you tell us kind of the highlights of Apple's Q1 earnings, which ended December
+[00:04:54.920 --> 00:04:56.320]   25th of 2021?
+[00:04:56.320 --> 00:04:57.320]   Yeah.
+[00:04:57.320 --> 00:05:00.880]   I mean, like, well, first, when you said that, I was like, did we have earnings?
+[00:05:00.880 --> 00:05:02.080]   Oh, that was last week.
+[00:05:02.080 --> 00:05:06.560]   And it seems like an eternity ago, as much as 2020 took forever, it was a week, it was
+[00:05:06.560 --> 00:05:08.880]   a year of Tuesdays in March.
+[00:05:08.880 --> 00:05:12.320]   I keep saying like this, this year is going by like the like the whispering angel, actually
+[00:05:12.320 --> 00:05:16.600]   the weeping angels and doctor who every time I blink another week is gone by.
+[00:05:16.600 --> 00:05:21.160]   So but yeah, the interesting thing to me was twofold.
+[00:05:21.160 --> 00:05:25.920]   One was that Apple made a phenomenal amount of money as they always do record breaking
+[00:05:25.920 --> 00:05:29.320]   quarters, like after another, but that they were still constrained that they could have
+[00:05:29.320 --> 00:05:34.040]   sold more, they could have given the people more and that constraint is not on the leading
+[00:05:34.040 --> 00:05:39.720]   edge node, not on like the A15 bionic and on the M1, but that's on all these legacy nodes.
+[00:05:39.720 --> 00:05:44.800]   And it just reminded me how dependent Apple still is on, we always talk about how Apple
+[00:05:44.800 --> 00:05:47.720]   is so advanced, they have all this silicon and it's all custom, but they still have a
+[00:05:47.720 --> 00:05:50.640]   bunch of dependencies on much older technologies.
+[00:05:50.640 --> 00:05:53.680]   And they sometimes have to pick and choose like is supply going to go to the iPhone?
+[00:05:53.680 --> 00:05:54.680]   Yes.
+[00:05:54.680 --> 00:05:57.840]   Is it going to go to the iPad mini after the iPhone?
+[00:05:57.840 --> 00:06:01.440]   So they had really robust sales of a lot of products, not as much as they wanted.
+[00:06:01.440 --> 00:06:05.000]   And the iPad mini was sort of left behind because they just could not make enough to
+[00:06:05.000 --> 00:06:06.000]   fill demand.
+[00:06:06.000 --> 00:06:09.360]   Do you think this is one of these opportunities?
+[00:06:09.360 --> 00:06:16.400]   Well, if we can call it that it's a learning opportunity, the idea that, you know, when
+[00:06:16.400 --> 00:06:23.520]   the pandemic was kind of kicking off at first, that became an object lesson of how our internet
+[00:06:23.520 --> 00:06:28.600]   infrastructure needed work because more people needed to be able to work from home, learn
+[00:06:28.600 --> 00:06:31.600]   from home and everything in between.
+[00:06:31.600 --> 00:06:34.720]   And now we're seeing the supply chain.
+[00:06:34.720 --> 00:06:42.080]   Is this one of these situations that financial analysts, investors, et cetera, are going to
+[00:06:42.080 --> 00:06:47.960]   be asking more questions about going forward and making sure that a company has protections
+[00:06:47.960 --> 00:06:53.400]   in place to make sure that they don't have to divert the chips that they have here or
+[00:06:53.400 --> 00:06:56.360]   the displays that they have there?
+[00:06:56.360 --> 00:06:57.800]   Or is this kind of one of those?
+[00:06:57.800 --> 00:06:59.720]   Well, let it move on.
+[00:06:59.720 --> 00:07:03.160]   It's two years after introduction, and he still can't go to the store and get a PS2 or
+[00:07:03.160 --> 00:07:06.280]   an NVIDIA or like a real NVIDIA GPU.
+[00:07:06.280 --> 00:07:10.280]   And there's very few fabs and those fabs had to close down and they were fires at some
+[00:07:10.280 --> 00:07:11.280]   of them.
+[00:07:11.280 --> 00:07:14.160]   And we just, and now Intel is going to build another huge fab, but they're going to license
+[00:07:14.160 --> 00:07:16.120]   to TSMC in the meantime.
+[00:07:16.120 --> 00:07:18.680]   And Alex is going to explain it to me because I don't know what's happening in the world
+[00:07:18.680 --> 00:07:19.680]   anymore.
+[00:07:19.680 --> 00:07:23.920]   Well, I think that what it's really shown is how good Apple is at this and what you can
+[00:07:23.920 --> 00:07:25.960]   do when you have a lot of money.
+[00:07:25.960 --> 00:07:29.680]   So, they bought a lot of this stuff ahead of time and they are the number one client
+[00:07:29.680 --> 00:07:31.520]   for most of their suppliers.
+[00:07:31.520 --> 00:07:34.720]   And so when they say we want the first stuff off the rack, they're probably going to get
+[00:07:34.720 --> 00:07:35.720]   it.
+[00:07:35.720 --> 00:07:38.840]   And so, the fact that Apple's been impacted has been interesting.
+[00:07:38.840 --> 00:07:42.840]   The fact that they still pulled off a record profit shows you how much control they have
+[00:07:42.840 --> 00:07:45.440]   over their whole system.
+[00:07:45.440 --> 00:07:47.760]   And so I think it's a fascinating thing to look at.
+[00:07:47.760 --> 00:07:53.080]   And in my world, we have production that are shut down basically for a year.
+[00:07:53.080 --> 00:07:59.040]   Like the weight on some of the mixers that we've been looking at is over a year, to buy
+[00:07:59.040 --> 00:08:00.040]   any.
+[00:08:00.040 --> 00:08:06.640]   And so, Apple being able to continue to operate may be a little bit sluggish, but this is
+[00:08:06.640 --> 00:08:11.120]   like saying, well, the guy ran a 440 and not a 430.
+[00:08:11.120 --> 00:08:15.120]   It's not, when everyone else is running a 48 or five.
+[00:08:15.120 --> 00:08:19.400]   So, they're doing very, very well for what they have.
+[00:08:19.400 --> 00:08:24.800]   Sure, they lost it, but also that revenue is probably pent up.
+[00:08:24.800 --> 00:08:28.000]   So, it's not like someone's, they couldn't buy an Apple product, so then they're going
+[00:08:28.000 --> 00:08:29.080]   to go buy another product.
+[00:08:29.080 --> 00:08:32.640]   So, most likely, they'll recover most of that in the next quarter.
+[00:08:32.640 --> 00:08:33.640]   Yeah.
+[00:08:33.640 --> 00:08:38.840]   Now, there's always the opportunity, again, timbits for some timbits in this.
+[00:08:38.840 --> 00:08:45.240]   And one of the things that was brought up was a conversation surrounding the metaverse,
+[00:08:45.240 --> 00:08:47.800]   surrounding augmented reality.
+[00:08:47.800 --> 00:08:53.080]   I think Tim would rather not have had a question about the metaverse in particular, but certainly
+[00:08:53.080 --> 00:08:54.200]   a response to that.
+[00:08:54.200 --> 00:09:01.560]   I'm curious, in the past, Tim Cook, I can remember on several occasions talking about how AR
+[00:09:01.560 --> 00:09:04.840]   was an important future for them.
+[00:09:04.840 --> 00:09:13.160]   And did we get much color on the AR initiative or VR initiative this time around?
+[00:09:13.160 --> 00:09:19.080]   I just sneak in and say real quick that it was so nice how he dodged Katie's question.
+[00:09:19.080 --> 00:09:22.920]   She was all in on metaverse, and he's like, "I am never going to enter the metaverse."
+[00:09:22.920 --> 00:09:25.160]   One, because Mark Zuckerberg wants to own it.
+[00:09:25.160 --> 00:09:28.600]   And two, because it is so cringy, like cyberspace and information is superhighway.
+[00:09:28.600 --> 00:09:31.080]   It's what your parents use in the Wall Street Journal, trying to think about what their
+[00:09:31.080 --> 00:09:33.360]   kids are doing and not what the actual kids use.
+[00:09:33.360 --> 00:09:35.320]   And then he just went right into Apple Talk.
+[00:09:35.320 --> 00:09:36.800]   I thought it was well done.
+[00:09:36.800 --> 00:09:43.640]   Well, he also mentioned like, "Hey, we have 14,000 AR kid apps in the App Store," which
+[00:09:43.640 --> 00:09:48.480]   was kind of hinting at, "We can't talk about anything that we haven't announced or that
+[00:09:48.480 --> 00:09:51.440]   we're not preparing to ship immediately."
+[00:09:51.440 --> 00:09:57.040]   However, we are saying that when we are not starting out at zero here, we've been actually
+[00:09:57.040 --> 00:10:00.920]   shipping these kind of apps and creating these kind of APIs for the hardware for years now.
+[00:10:00.920 --> 00:10:04.160]   And so as soon as we get something stupid, the people will willingly strap on their faces
+[00:10:04.160 --> 00:10:08.880]   for $3,000, we're going to clean up.
+[00:10:08.880 --> 00:10:11.320]   I also think that the metaverse is an ed.
+[00:10:11.320 --> 00:10:14.600]   It may turn out to be something very big, but it's still an edge case.
+[00:10:14.600 --> 00:10:17.280]   You still have to be a very vertical market of the kind of person.
+[00:10:17.280 --> 00:10:20.160]   I think Apple is not, that's not the market Apple is looking at for AR.
+[00:10:20.160 --> 00:10:21.840]   AR is something that everyone can use.
+[00:10:21.840 --> 00:10:28.200]   When I'm looking at getting a new stand under my TV and I went to Amazon and it just said,
+[00:10:28.200 --> 00:10:32.240]   "Would you like to see the stand that we have here in place?"
+[00:10:32.240 --> 00:10:33.240]   And I just said, "Sure."
+[00:10:33.240 --> 00:10:34.240]   I clicked on it.
+[00:10:34.240 --> 00:10:39.560]   It popped in at scale lit into my over-talkable one that was already sitting there.
+[00:10:39.560 --> 00:10:41.720]   And I go, "Oh, I kind of like that."
+[00:10:41.720 --> 00:10:46.080]   That's the kind of thing that Apple is looking for is how do you incorporate AR into everyday
+[00:10:46.080 --> 00:10:50.440]   life, not how do you escape life to go into something else.
+[00:10:50.440 --> 00:10:56.960]   And I think that the metaverse is very much driven from Ready Player One.
+[00:10:56.960 --> 00:11:02.520]   And I think that if I found Ready Player One to be a little bit dystopic, so I think
+[00:11:02.520 --> 00:11:07.720]   that there's some folks are kind of like, "Well, maybe that's not what we want."
+[00:11:07.720 --> 00:11:11.040]   But again, I think that the metaverse hat that I'm working on things that are related
+[00:11:11.040 --> 00:11:16.040]   to that, I think that it potentially could be a huge market of how people interact.
+[00:11:16.040 --> 00:11:19.560]   But it's still a long ways off before it becomes kind of common.
+[00:11:19.560 --> 00:11:22.440]   The common ground where the average person is going to be using it.
+[00:11:22.440 --> 00:11:23.440]   Apple is building something.
+[00:11:23.440 --> 00:11:28.520]   That their target market is typically what will 90% of the people want to do 90% of the
+[00:11:28.520 --> 00:11:31.640]   time, not what will 10% want to do 10% of the time.
+[00:11:31.640 --> 00:11:33.840]   Well, their vision is so different.
+[00:11:33.840 --> 00:11:34.840]   And the metaverse is still on it.
+[00:11:34.840 --> 00:11:35.840]   And not the 90/90.
+[00:11:35.840 --> 00:11:36.840]   Yeah.
+[00:11:36.840 --> 00:11:37.840]   Like their vision is so different too.
+[00:11:37.840 --> 00:11:40.200]   Like Mark literally wants people to live in the metaverse because he's tired of people
+[00:11:40.200 --> 00:11:44.280]   closing tabs on Facebook and shutting the WhatsApp app on their phone.
+[00:11:44.280 --> 00:11:47.560]   He wants it on your head so that you're immersed in it for your entire life.
+[00:11:47.560 --> 00:11:51.480]   And you look up at your kid's school and you see his toilet paper ad floating above it,
+[00:11:51.480 --> 00:11:54.920]   where I think Tim just wants you to put it on, play a couple of games, watch a movie,
+[00:11:54.920 --> 00:11:56.720]   then take it off and do something else.
+[00:11:56.720 --> 00:11:58.000]   For him, it's another end point.
+[00:11:58.000 --> 00:12:01.360]   The way the Mac was, the MacBook was, the iPhone, the iPad were.
+[00:12:01.360 --> 00:12:05.280]   The Apple watches now, they'll be the VR and AR endpoints.
+[00:12:05.280 --> 00:12:09.200]   He doesn't feel any need to sort of own your entire existence where I think Facebook really
+[00:12:09.200 --> 00:12:12.800]   wants us to be living, dreaming, eating, sleeping, buying, and doing everything else
+[00:12:12.800 --> 00:12:14.600]   in VR all the time.
+[00:12:14.600 --> 00:12:21.440]   Do we think that this category or this product is going to be more of an earner like the
+[00:12:21.440 --> 00:12:28.320]   iPhone or is this product a way for Apple to make more money in services, in a services
+[00:12:28.320 --> 00:12:29.320]   category?
+[00:12:29.320 --> 00:12:34.720]   Is this a, that's what we think that this was all about kind of ramping.
+[00:12:34.720 --> 00:12:35.720]   Oh, okay.
+[00:12:35.720 --> 00:12:40.920]   Well, I'm not sure because nothing earns like the iPhone.
+[00:12:40.920 --> 00:12:45.520]   I mean, the every time we get a quarterly result, especially the quarter that is right
+[00:12:45.520 --> 00:12:50.800]   after a new product release, we see exactly how big that slice of the pie is.
+[00:12:50.800 --> 00:12:56.520]   So Apple has more than, more than, more than thoroughly dismissed the idea that without
+[00:12:56.520 --> 00:13:01.040]   the iPhone, they couldn't be a profitable company because services is, services is really
+[00:13:01.040 --> 00:13:06.760]   the only pretty much straight uphill line that they've got in their quarterly results.
+[00:13:06.760 --> 00:13:08.600]   It's the one that doesn't have peaks and valleys.
+[00:13:08.600 --> 00:13:13.920]   It's not like, it's not like how much money we're making off of China depends on the pH
+[00:13:13.920 --> 00:13:16.120]   levels of our political relationship right now.
+[00:13:16.120 --> 00:13:18.880]   Well, how much are we, how much are we making on Macs?
+[00:13:18.880 --> 00:13:23.200]   Well, we started to turn things around when we come out with a product that people like,
+[00:13:23.200 --> 00:13:24.640]   they respond to it.
+[00:13:24.640 --> 00:13:28.800]   Services is the one that's just quarter after quarter after quarter.
+[00:13:28.800 --> 00:13:36.000]   However, I do, it's, I think I see it more of a, more like the cumulative role of the iPad
+[00:13:36.000 --> 00:13:42.280]   or fitness because there just isn't an emphatic reason yet for anybody to have one of these.
+[00:13:42.280 --> 00:13:47.280]   It's, and I suspect that it is going to be like the idea of an app like Instagram that
+[00:13:47.280 --> 00:13:53.040]   made absolutely no sense until we have a, we have a mobile devices that have really good
+[00:13:53.040 --> 00:13:55.960]   cameras and have really good internet connections everywhere.
+[00:13:55.960 --> 00:14:00.400]   And not all of those things were in the control of the person who is writing the Instagram
+[00:14:00.400 --> 00:14:01.400]   app.
+[00:14:01.400 --> 00:14:04.120]   And I think that VR AR is going to be exactly the same thing.
+[00:14:04.120 --> 00:14:08.160]   I think that it really is going to take this is one part of a, one part of a four-legged
+[00:14:08.160 --> 00:14:09.160]   stool.
+[00:14:09.160 --> 00:14:12.080]   We know what, we know for sure what one of the other legs is.
+[00:14:12.080 --> 00:14:13.920]   We think what we know what the third leg is.
+[00:14:13.920 --> 00:14:18.920]   The fourth one is still a mystery even to a two trillion, two, three trillion dollar company.
+[00:14:18.920 --> 00:14:19.920]   Yeah.
+[00:14:19.920 --> 00:14:22.680]   Well, I haven't, well, I don't know anything about the Apple one.
+[00:14:22.680 --> 00:14:26.520]   I have had the opportunity to look at AR and VR at a pretty high resolution, not stuff
+[00:14:26.520 --> 00:14:28.560]   that's publicly available.
+[00:14:28.560 --> 00:14:29.960]   And it's pretty compelling.
+[00:14:29.960 --> 00:14:33.960]   So if Apple actually follows through with what we're talking about, where we're, you
+[00:14:33.960 --> 00:14:39.000]   know, where we're talking about eight K per I, 120 frames per second or even 60 frames
+[00:14:39.000 --> 00:14:43.240]   a second at that resolution, it will, number one is that's why you would probably need
+[00:14:43.240 --> 00:14:45.920]   two M, M one chips to make that run.
+[00:14:45.920 --> 00:14:51.920]   But, but also it really, you really, at 120 frames, if it actually does 120 frames per
+[00:14:51.920 --> 00:14:56.760]   second at a hundred, at eight K as a VR goggles, because I think VR will be the first thing
+[00:14:56.760 --> 00:15:00.440]   that they do, it really is compelling.
+[00:15:00.440 --> 00:15:04.200]   Like that resolution and that frame rate becomes like a window into what you're looking
+[00:15:04.200 --> 00:15:05.200]   at.
+[00:15:05.200 --> 00:15:08.740]   And it's a much different experience than anything we've seen in, in, in VR so far.
+[00:15:08.740 --> 00:15:11.280]   So I think that it's going to be a really interesting to see where they take that.
+[00:15:11.280 --> 00:15:15.760]   I also think that I still feel like what we've done is what Apple's done is they're slowly
+[00:15:15.760 --> 00:15:17.480]   rolling out tools.
+[00:15:17.480 --> 00:15:21.720]   And I, and I think that those tools actually probably point towards even though I might,
+[00:15:21.720 --> 00:15:24.560]   I want to see it this year, I think that we're probably looking at next year because I think
+[00:15:24.560 --> 00:15:26.280]   some of those tools aren't completely done yet.
+[00:15:26.280 --> 00:15:28.960]   But what they're doing is very carefully rolling those out.
+[00:15:28.960 --> 00:15:32.600]   And so I think that I think that the first, this is going to be a very slow role.
+[00:15:32.600 --> 00:15:36.600]   I mean, I think that we see it maybe this year, probably next year, and then it'll be
+[00:15:36.600 --> 00:15:37.840]   a hobby, like everything else.
+[00:15:37.840 --> 00:15:41.320]   It'll be a $3,000 unit that a handful of people buy.
+[00:15:41.320 --> 00:15:45.560]   But at some point, it's, I think, I, at some point, I think AR just based on the stuff that
+[00:15:45.560 --> 00:15:49.760]   I've worked on in the last decade with AR and VR, that it'll be bigger than the phone,
+[00:15:49.760 --> 00:15:50.760]   you know, over time.
+[00:15:50.760 --> 00:15:53.600]   It just won't, but it doesn't necessarily have to be a metaverse to get back to what
+[00:15:53.600 --> 00:15:54.600]   we were talking about before.
+[00:15:54.600 --> 00:15:57.680]   It's something you throw on an experience and then take off and do something.
+[00:15:57.680 --> 00:16:00.840]   I don't think you have to spend, I don't think I would not recommend medically anybody
+[00:16:00.840 --> 00:16:04.560]   doing that for a long period of time, you know, more than, more than the length of a
+[00:16:04.560 --> 00:16:06.880]   movie because I don't think, I don't know, we don't know what's going to happen with
+[00:16:06.880 --> 00:16:08.520]   people's eyes when they do that.
+[00:16:08.520 --> 00:16:11.280]   And so, so I think that that's, you know, that's one of the challenges there.
+[00:16:11.280 --> 00:16:13.800]   As far as software goes, I mean, it'll definitely make money.
+[00:16:13.800 --> 00:16:17.600]   I think the real question, and I think that a lot of the legal proceedings that Apple
+[00:16:17.600 --> 00:16:21.080]   has right now may affect that, may affect what that store looks like.
+[00:16:21.080 --> 00:16:24.720]   You know, Apple may decide, like for instance, if we get all this side loading and all the
+[00:16:24.720 --> 00:16:27.840]   other stuff, Apple may decide, well, it's better for us just to do a closed system.
+[00:16:27.840 --> 00:16:29.360]   Like, we won't have any app developers.
+[00:16:29.360 --> 00:16:33.120]   Like, we'll just, we'll just contract it, you know, much like we see with consoles, you
+[00:16:33.120 --> 00:16:35.960]   know, and just, and, and because it's easier to do that at the beginning than to pull it
+[00:16:35.960 --> 00:16:36.960]   back later.
+[00:16:36.960 --> 00:16:40.720]   So they may, you know, so I think that as we watch all these things roll in, how that
+[00:16:40.720 --> 00:16:43.760]   it may be just be a subscription service to have access to all the stuff and it may not
+[00:16:43.760 --> 00:16:46.320]   be something that is an open platform.
+[00:16:46.320 --> 00:16:49.680]   And I think that a lot of the legal proceedings right now may affect that decision.
+[00:16:49.680 --> 00:16:55.680]   Renee, one of the things that you touched on, or you've touched on multiple times is how
+[00:16:55.680 --> 00:17:03.160]   some of the things that Apple does in public end up being part of the technology that's
+[00:17:03.160 --> 00:17:09.200]   used in devices that come later or used in implementations that come later.
+[00:17:09.200 --> 00:17:15.040]   Is there stuff right now that Apple is doing in public, like say the accessibility features
+[00:17:15.040 --> 00:17:22.600]   with the Apple Watch and grip movement that you think could become part of its AR/VR hardware
+[00:17:22.600 --> 00:17:23.600]   later on down the line?
+[00:17:23.600 --> 00:17:27.240]   Have you been kind of paying closer attention to anything that Apple's working on right
+[00:17:27.240 --> 00:17:31.000]   now that could be part of that experience?
+[00:17:31.000 --> 00:17:32.960]   Yeah, I mean for sure.
+[00:17:32.960 --> 00:17:34.360]   I think a lot of it is not always planned.
+[00:17:34.360 --> 00:17:38.520]   Like sometimes people think that Apple has this grand plan and they're laying all these
+[00:17:38.520 --> 00:17:41.400]   eggs that are going to hatch in three to five years.
+[00:17:41.400 --> 00:17:42.920]   But a lot of times it's just opportunistic.
+[00:17:42.920 --> 00:17:46.120]   Like iOS 8 introduced continuity and extensibility.
+[00:17:46.120 --> 00:17:49.280]   And then a few years later they're like, we need some way to transfer Appleogic and interface
+[00:17:49.280 --> 00:17:50.720]   between the watch and the iPhone.
+[00:17:50.720 --> 00:17:52.080]   Oh, hey, we have extensibility.
+[00:17:52.080 --> 00:17:53.080]   Let's use that.
+[00:17:53.080 --> 00:17:56.520]   And it seems like it was a genius move that they introduced it years ago and everyone adopted
+[00:17:56.520 --> 00:17:57.520]   it.
+[00:17:57.520 --> 00:18:01.880]   Like they do like like groundwork like groundwork like with size classes, you know, like, oh,
+[00:18:01.880 --> 00:18:04.160]   suddenly you can make resolution independent apps.
+[00:18:04.160 --> 00:18:05.160]   I wonder why?
+[00:18:05.160 --> 00:18:09.320]   Oh, because now every single iPad and iPhone have completely different screen sizes.
+[00:18:09.320 --> 00:18:12.960]   But with this stuff, I think like the extensibility is still going to be important because the
+[00:18:12.960 --> 00:18:16.760]   glasses are going to make the original Apple Watch look beefy in terms of compute power.
+[00:18:16.760 --> 00:18:18.840]   And it's going to remain that way for a couple of years.
+[00:18:18.840 --> 00:18:22.960]   The ability to transfer Appleogic back and forth is going to be really important.
+[00:18:22.960 --> 00:18:25.320]   Memoji and an emoji.
+[00:18:25.320 --> 00:18:29.960]   I mean, those originally were like just for fun, but it's steeped people in the idea of
+[00:18:29.960 --> 00:18:34.000]   having an avatar, like having an AR person out persona.
+[00:18:34.000 --> 00:18:37.680]   And now Apple spread them to where we were talking about the other day or the other week
+[00:18:37.680 --> 00:18:38.960]   that they animate and get mad at you.
+[00:18:38.960 --> 00:18:43.960]   If you put your password in wrong and that just lets people who aren't comfortable with
+[00:18:43.960 --> 00:18:47.440]   the whole idea of having a virtual presence, just like, oh, that's just my an emoji.
+[00:18:47.440 --> 00:18:49.480]   You know, it really just boils a water around people.
+[00:18:49.480 --> 00:18:52.960]   And then you add in all the AR kit things that they've been developing for years, which
+[00:18:52.960 --> 00:18:59.800]   required a lot of time from LIDAR sensors to, you know, occlusion to just like the way that
+[00:18:59.800 --> 00:19:03.840]   they can do vertical and diagonal and all these different vertices right now.
+[00:19:03.840 --> 00:19:07.680]   All that stuff is going to give them a huge advantage over a company that just tries to
+[00:19:07.680 --> 00:19:10.280]   land a product and do it, you know, all out in public.
+[00:19:10.280 --> 00:19:13.760]   I think there's just is a plethora of technologies that we're seeing.
+[00:19:13.760 --> 00:19:14.760]   Yeah.
+[00:19:14.760 --> 00:19:16.520]   And USDZ for Alex.
+[00:19:16.520 --> 00:19:17.960]   Yeah, absolutely.
+[00:19:17.960 --> 00:19:20.400]   Don't forget the USDZ.
+[00:19:20.400 --> 00:19:27.360]   We are going to take a quick break before we come back with loads more news, including
+[00:19:27.360 --> 00:19:32.920]   the latest betas, which are bringing a whole lot, potentially of new features to iOS and
+[00:19:32.920 --> 00:19:36.480]   macOS, including one I know Andy is excited about.
+[00:19:36.480 --> 00:19:41.200]   But let's take a quick break so I can tell you about ZipRecruiter.
+[00:19:41.200 --> 00:19:42.720]   So they've done some research.
+[00:19:42.720 --> 00:19:49.520]   According to the latest research, 90% of employers plan to make enhancing the employee experience
+[00:19:49.520 --> 00:19:52.720]   a top priority in 2022.
+[00:19:52.720 --> 00:19:58.200]   After all, a happy workplace is key to attracting and keeping great talent.
+[00:19:58.200 --> 00:20:02.720]   A few ways to make your employees happier could be by making your employees feel more
+[00:20:02.720 --> 00:20:08.280]   valued, such as asking them questions, focusing on company culture, offering more learning
+[00:20:08.280 --> 00:20:13.200]   opportunities, allowing for more flexibility in work schedules, or showing more empathy,
+[00:20:13.200 --> 00:20:14.200]   huh?
+[00:20:14.200 --> 00:20:15.680]   Like making time to connect.
+[00:20:15.680 --> 00:20:20.880]   And if you need to add more employees to your team, there's ZipRecruiter.
+[00:20:20.880 --> 00:20:28.200]   Right now, you can try ZipRecruiter for free at ziprecruiter.com/macbreak.
+[00:20:28.200 --> 00:20:32.640]   ZipRecruiter's technology finds the right candidates for your job and proactively presents
+[00:20:32.640 --> 00:20:33.760]   them to you.
+[00:20:33.760 --> 00:20:38.800]   You can easily review these candidates and invite your top choices to apply, which of
+[00:20:38.800 --> 00:20:41.600]   course encourages them to apply faster.
+[00:20:41.600 --> 00:20:46.560]   So it's no surprise that ZipRecruiter is the number one rated hiring site in the US based
+[00:20:46.560 --> 00:20:48.200]   on G2 ratings.
+[00:20:48.200 --> 00:20:54.000]   In fact, I know several gigs here at Twit were found through ZipRecruiter.
+[00:20:54.000 --> 00:20:57.160]   Find the right employees with ZipRecruiter.
+[00:20:57.160 --> 00:21:02.920]   Try it for free for free folks at this exclusive web address.
+[00:21:02.920 --> 00:21:14.000]   ZipRecruiter.com/macbreak.
+[00:21:14.000 --> 00:21:18.160]   And of course, thank you, ZipRecruiter, for sponsoring this week's episode of Macbreak
+[00:21:18.160 --> 00:21:19.160]   Weekly.
+[00:21:19.160 --> 00:21:21.160]   All right.
+[00:21:21.160 --> 00:21:24.160]   So I mentioned this on iOS today this morning.
+[00:21:24.160 --> 00:21:29.120]   In fact, Rosemary Orchard and I went into absolute depth and detail about the new features
+[00:21:29.120 --> 00:21:33.480]   for iOS 15.4, iPadOS 15.4, betas.
+[00:21:33.480 --> 00:21:35.880]   And so you can check that out if you want super in depth.
+[00:21:35.880 --> 00:21:41.880]   But a quick thing is that iOS 15.3 came out not too long ago.
+[00:21:41.880 --> 00:21:44.360]   And that was all about fixing things.
+[00:21:44.360 --> 00:21:47.520]   It was kind of setting things up for what was to come next.
+[00:21:47.520 --> 00:21:54.960]   iOS 15.3 fixed a vulnerability in Safari and basically a bunch of kind of security improvements
+[00:21:54.960 --> 00:21:56.960]   and other fixes there.
+[00:21:56.960 --> 00:22:02.760]   But that update, you know, I think people probably just let that roll in the background with that
+[00:22:02.760 --> 00:22:05.480]   automatic update setting turned on, let's hope.
+[00:22:05.480 --> 00:22:08.960]   iOS 15.4 is the real fun one.
+[00:22:08.960 --> 00:22:10.520]   It is currently in beta.
+[00:22:10.520 --> 00:22:16.360]   And so they of course have talked about some of the new features that folks can expect,
+[00:22:16.360 --> 00:22:22.440]   including one that I think a lot of people are going to celebrate given the conversation
+[00:22:22.440 --> 00:22:27.120]   that always happens whenever we talk about Face ID with a mask unlock.
+[00:22:27.120 --> 00:22:32.680]   Right now, if you have an Apple Watch and you put on the Apple Watch and you type your
+[00:22:32.680 --> 00:22:37.480]   little code in on the Apple Watch and the Apple Watch stays on your wrist, then the
+[00:22:37.480 --> 00:22:42.280]   Apple Watch can pretty much assume that you are you.
+[00:22:42.280 --> 00:22:44.560]   Then it can converse, so to speak.
+[00:22:44.560 --> 00:22:49.440]   It can communicate with the phone and say, "Hey, as long as this Apple Watch stays on
+[00:22:49.440 --> 00:22:51.200]   this person's wrist, I can authenticate it.
+[00:22:51.200 --> 00:22:52.520]   It's this person."
+[00:22:52.520 --> 00:22:58.480]   And if you are wearing a mask, then looking at your phone, it will communicate with the
+[00:22:58.480 --> 00:23:01.200]   Apple Watch and say, "Yeah, definitely still this person.
+[00:23:01.200 --> 00:23:02.280]   They're still wearing the watch.
+[00:23:02.280 --> 00:23:03.280]   They haven't taken it off.
+[00:23:03.280 --> 00:23:06.240]   It's them can unlock the phone and let you into it."
+[00:23:06.240 --> 00:23:10.840]   You get a little buzz on your wrist and it says, "Hey, I've unlocked your phone."
+[00:23:10.840 --> 00:23:13.040]   You can tap on that button to say, "No, no, no.
+[00:23:13.040 --> 00:23:14.040]   That wasn't me.
+[00:23:14.040 --> 00:23:15.040]   Lock my phone."
+[00:23:15.040 --> 00:23:17.600]   At which point the passcode will have to be typed in.
+[00:23:17.600 --> 00:23:20.800]   Let's complain that that's a great feature.
+[00:23:20.800 --> 00:23:24.080]   Super cool, but that means that you got to have an Apple Watch if you want to use this
+[00:23:24.080 --> 00:23:25.080]   feature.
+[00:23:25.080 --> 00:23:29.160]   What if I don't have an Apple Watch and I'm wearing a mask as is my duty?
+[00:23:29.160 --> 00:23:36.840]   So Apple has introduced a new version of Face ID that lets you unlock your phone while
+[00:23:36.840 --> 00:23:39.440]   you are wearing a mask.
+[00:23:39.440 --> 00:23:45.280]   I think Renee, one of the things that people have to be aware of is that it does Apple
+[00:23:45.280 --> 00:23:50.160]   kind of notes that it is using less information.
+[00:23:50.160 --> 00:23:57.240]   In that way, it's less secure because it's not using all of the details.
+[00:23:57.240 --> 00:24:00.200]   On the whole, it is still a very secure thing.
+[00:24:00.200 --> 00:24:05.400]   It'd be like maybe my brother and I, both wearing a mask and looking into it, there's
+[00:24:05.400 --> 00:24:12.400]   a very small chance that his eyes and upper bone structure would be able to unlock it.
+[00:24:12.400 --> 00:24:14.760]   For the most part, folks can do this.
+[00:24:14.760 --> 00:24:16.600]   There's also the option for glasses.
+[00:24:16.600 --> 00:24:20.240]   Are you pumped about being able to wear your glasses and your mask and still unlock your
+[00:24:20.240 --> 00:24:23.840]   phone up there in the wilds of Canada?
+[00:24:23.840 --> 00:24:28.720]   It's interesting because security, we think of it as an absolute as a binary state, but
+[00:24:28.720 --> 00:24:31.160]   it's really a threshold.
+[00:24:31.160 --> 00:24:33.440]   This is sort of like, let's say something happened in the world and everybody had to
+[00:24:33.440 --> 00:24:36.680]   start wearing a bandage on the bottom of their index finger.
+[00:24:36.680 --> 00:24:40.560]   All of a sudden touch ID couldn't get a full fingerprint anymore.
+[00:24:40.560 --> 00:24:44.360]   That's what we're dealing with here is that we're touch ID, sorry, Face ID traditionally
+[00:24:44.360 --> 00:24:49.720]   needed enough facial geometry data, enough points of facial geometry data to confirm
+[00:24:49.720 --> 00:24:53.800]   a match and that was everything from your eyes in a triangle down to your mouth.
+[00:24:53.800 --> 00:24:56.840]   That we started covering that whole bottom of our face, which it could not get enough
+[00:24:56.840 --> 00:24:57.840]   data.
+[00:24:57.840 --> 00:25:00.280]   What Apple's doing now is biasing towards the eyes.
+[00:25:00.280 --> 00:25:03.200]   It's trying to collect more data from around your eyes.
+[00:25:03.200 --> 00:25:06.720]   It doesn't have to rely as heavily on the data from the bottom of your face, which is
+[00:25:06.720 --> 00:25:08.680]   not getting at all anymore.
+[00:25:08.680 --> 00:25:12.760]   It was joking previously, they said, if you're an identical twin, they couldn't stop you
+[00:25:12.760 --> 00:25:13.760]   getting in with Face ID.
+[00:25:13.760 --> 00:25:19.160]   Now it's like, well, if you're a non-identical twin, you'll probably get in too.
+[00:25:19.160 --> 00:25:22.840]   It's just sliding that threshold a little bit and that's one of the reasons for the
+[00:25:22.840 --> 00:25:26.720]   glasses because if your glasses are foggy, then it starts to not be able to get the eye
+[00:25:26.720 --> 00:25:30.720]   detail that it needs to compensate for the mask detail and the likelihood of your eye
+[00:25:30.720 --> 00:25:34.080]   glasses being foggy goes up when it's cold and you're wearing a mask.
+[00:25:34.080 --> 00:25:36.960]   All these things, they have to juggle.
+[00:25:36.960 --> 00:25:40.880]   The point is, and Steve Gibson says this way better than I ever could, you have security
+[00:25:40.880 --> 00:25:42.320]   and you have convenience.
+[00:25:42.320 --> 00:25:44.200]   They are perpetually at war.
+[00:25:44.200 --> 00:25:47.760]   What the company's job is, what every company's job is, is to give you the greatest security
+[00:25:47.760 --> 00:25:51.720]   they can with the greatest convenience because if it's too secure, you yourself will get
+[00:25:51.720 --> 00:25:55.440]   locked out and if it's too convenient, everybody else will get in.
+[00:25:55.440 --> 00:25:56.960]   It's just finding that sweet spot.
+[00:25:56.960 --> 00:25:59.400]   Will this be as secure as like full face Face ID?
+[00:25:59.400 --> 00:26:03.840]   No, but it will be good enough for most people most of the time and it'll be way more convenient.
+[00:26:03.840 --> 00:26:05.960]   I think a lot of people are going to really appreciate it.
+[00:26:05.960 --> 00:26:06.960]   Absolutely.
+[00:26:06.960 --> 00:26:15.720]   Apple was already claiming that Face ID was a multiple times more secure than fingerprint
+[00:26:15.720 --> 00:26:18.680]   touch ID.
+[00:26:18.680 --> 00:26:20.920]   You can't fault them however.
+[00:26:20.920 --> 00:26:28.080]   They got themselves into a problem that they didn't anticipate, which is again the pandemic.
+[00:26:28.080 --> 00:26:33.200]   The idea of, well, how do you unlock your phone when your face is partially obscured?
+[00:26:33.200 --> 00:26:37.080]   That was going to be a problem, but that was going to be an edge problem.
+[00:26:37.080 --> 00:26:40.920]   Now they're stuck with phones that don't have any kind of fingerprint ID whatsoever.
+[00:26:40.920 --> 00:26:47.320]   You have to make Face unlock adapt to whatever the current situations for society are.
+[00:26:47.320 --> 00:26:52.680]   It's also a little bit beguiling that this is a problem that everybody's trying to solve,
+[00:26:52.680 --> 00:26:57.440]   not just Apple altruistically trying to make sure that people can still use this very,
+[00:26:57.440 --> 00:27:03.760]   a biometric unlock feature that's going to be way, way more secure than forcing you to
+[00:27:03.760 --> 00:27:07.600]   remember a passcode that's going to be probably easy to copy, but also all the people who
+[00:27:07.600 --> 00:27:13.280]   are in like invasive security, they're also working to solve this problem as well.
+[00:27:13.280 --> 00:27:17.960]   People who are basically selling all those $20,000 cameras mounted on poles that are
+[00:27:17.960 --> 00:27:23.320]   pointed towards activist's, activist aggregations, they want to make sure that they can see they
+[00:27:23.320 --> 00:27:27.720]   can do Face ID based on just the top half of the face as well.
+[00:27:27.720 --> 00:27:32.360]   So this is going to be a problem that's going to be solved much, much better as time goes
+[00:27:32.360 --> 00:27:33.360]   by.
+[00:27:33.360 --> 00:27:37.440]   And oddly enough, I think that it's going to yield a much, much better Face ID.
+[00:27:37.440 --> 00:27:42.640]   Winter is the one time that I really, really, really wish that I had Face unlock on my
+[00:27:42.640 --> 00:27:44.480]   phone.
+[00:27:44.480 --> 00:27:48.320]   All the other type, because again, it's like I don't want to have to pull off a glove during
+[00:27:48.320 --> 00:27:54.440]   my walk in order to do something, but all the other times of the year, it just feels more
+[00:27:54.440 --> 00:27:57.480]   natural to just whatever the angle of my phone is.
+[00:27:57.480 --> 00:28:04.360]   As long as I can find the scan pad, the touch pad for my thumb or my finger, it just simply
+[00:28:04.360 --> 00:28:05.360]   unlocks.
+[00:28:05.360 --> 00:28:09.880]   I think that we're going to start to see a better balance between where is this a better
+[00:28:09.880 --> 00:28:14.480]   solution because it requires less interactivity and where does it make less sense because
+[00:28:14.480 --> 00:28:21.080]   you're forcing people to basically say mirror, mirror, iPad, iPad on the wall, please let
+[00:28:21.080 --> 00:28:24.080]   me in right now, right now, please.
+[00:28:24.080 --> 00:28:27.320]   Which is what I go through with my iPad Pro all the time.
+[00:28:27.320 --> 00:28:32.000]   And a lot of it has to do also with the cameras, what those cameras are seeing and what they're
+[00:28:32.000 --> 00:28:33.320]   using them for.
+[00:28:33.320 --> 00:28:37.160]   For instance, almost all of us, while a lot of us have geometric features, almost all
+[00:28:37.160 --> 00:28:40.600]   of us have a heat map that is unique to us.
+[00:28:40.600 --> 00:28:44.680]   And I don't think that Apple's cameras right now would see that, but it's been used for
+[00:28:44.680 --> 00:28:45.680]   a long time.
+[00:28:45.680 --> 00:28:52.680]   So that heat map is pretty accurate at distance.
+[00:28:52.680 --> 00:28:57.720]   So I think that that's also whether they add more to those cameras as we move forward.
+[00:28:57.720 --> 00:29:02.160]   Because theoretically, those heat recognition systems can see through cloth.
+[00:29:02.160 --> 00:29:07.600]   So that might be something they update down the road.
+[00:29:07.600 --> 00:29:14.680]   Speaking of this sort of idea of multiple means of authentication and being able to just tap
+[00:29:14.680 --> 00:29:21.760]   the phone in some cases using your walking gate, there's a patent that Apple has applied
+[00:29:21.760 --> 00:29:28.000]   for over on patently Apple for its AirPods.
+[00:29:28.000 --> 00:29:37.280]   And the idea is that due to the microphones and the acoustic computation that happens
+[00:29:37.280 --> 00:29:45.360]   with those AirPods, it would be able to determine the unique structure of someone's ear canal
+[00:29:45.360 --> 00:29:49.920]   and use that as a means of helping to authenticate that device.
+[00:29:49.920 --> 00:29:55.280]   So now, suddenly, I can use my Apple watch to unlock my phone while I'm wearing a face
+[00:29:55.280 --> 00:30:02.400]   mask or use Face ID with the new way of doing things or maybe even my AirPods are also being
+[00:30:02.400 --> 00:30:03.400]   used to authenticate.
+[00:30:03.400 --> 00:30:07.240]   And Renee, you talk a lot about that ambient authentication future.
+[00:30:07.240 --> 00:30:09.040]   And be a passive authentication.
+[00:30:09.040 --> 00:30:10.040]   Yes.
+[00:30:10.040 --> 00:30:12.200]   I think with your Apple watch, you don't have to do anything.
+[00:30:12.200 --> 00:30:14.840]   Once you've unlocked it, as long as it's on your wrist, it is just unlocked.
+[00:30:14.840 --> 00:30:16.000]   It has a trust date.
+[00:30:16.000 --> 00:30:17.520]   That trust date is like it's on the wrist.
+[00:30:17.520 --> 00:30:19.400]   It's open with these other devices.
+[00:30:19.400 --> 00:30:22.560]   Like I have pixels with thumbprints and with Face IDs.
+[00:30:22.560 --> 00:30:24.360]   I have iPhones with thumbprints.
+[00:30:24.360 --> 00:30:26.360]   I have iris scanners.
+[00:30:26.360 --> 00:30:28.640]   Sneakers, my voice is my passport.
+[00:30:28.640 --> 00:30:29.640]   Authorize me.
+[00:30:29.640 --> 00:30:32.560]   They have so many ways of collecting data.
+[00:30:32.560 --> 00:30:34.520]   They're already doing the acoustic modeling.
+[00:30:34.520 --> 00:30:36.520]   Like you said, they're already doing gate analysis.
+[00:30:36.520 --> 00:30:38.520]   Just establish a threshold.
+[00:30:38.520 --> 00:30:40.600]   And if you're fairly certain it's me, don't prompt me.
+[00:30:40.600 --> 00:30:44.080]   If it ever goes below that threshold, then force me to do an active authentication.
+[00:30:44.080 --> 00:30:47.560]   Otherwise, it's their job to do the heavy lifting, not mine.
+[00:30:47.560 --> 00:30:52.000]   And over time, when you have a lot of these devices that you're interacting with, it can
+[00:30:52.000 --> 00:30:54.200]   error correct based on all of them going.
+[00:30:54.200 --> 00:30:56.920]   Yeah, that one doesn't look as good as we thought it was, but we've got all these other
+[00:30:56.920 --> 00:31:01.160]   things that would reduce the variables to almost zero because it's your heartbeat, your
+[00:31:01.160 --> 00:31:02.160]   heart rate.
+[00:31:02.160 --> 00:31:03.160]   Your behavior.
+[00:31:03.160 --> 00:31:10.520]   Oftentimes, your behavior, what you're doing, all of those things are things that are within
+[00:31:10.520 --> 00:31:11.960]   a range at any given time.
+[00:31:11.960 --> 00:31:15.480]   And the advantage that Apple has is you're wearing them and using them all the time.
+[00:31:15.480 --> 00:31:17.160]   So its sample rate is very high.
+[00:31:17.160 --> 00:31:18.920]   So we can see the trends.
+[00:31:18.920 --> 00:31:22.560]   So you may not be the same that you were six months ago, but you're the same as you were
+[00:31:22.560 --> 00:31:24.440]   yesterday or similar.
+[00:31:24.440 --> 00:31:26.040]   And so that's the end.
+[00:31:26.040 --> 00:31:29.600]   But this is also why Apple so intense about privacy is because they're pulling up stuff
+[00:31:29.600 --> 00:31:33.880]   that would be a goldmine to a lot of the companies that are trying to pull data.
+[00:31:33.880 --> 00:31:36.960]   And that's why their business probably will never be around data because they're gathering
+[00:31:36.960 --> 00:31:39.000]   all this biometric data.
+[00:31:39.000 --> 00:31:42.400]   But it also means that your phone will be the most secure thing you own.
+[00:31:42.400 --> 00:31:43.400]   Yeah.
+[00:31:43.400 --> 00:31:44.400]   You asked them again.
+[00:31:44.400 --> 00:31:45.400]   You asked them again.
+[00:31:45.400 --> 00:31:49.040]   And then you asked them again until they tell you to stop asking them.
+[00:31:49.040 --> 00:31:51.040]   That's what Steve.
+[00:31:51.040 --> 00:31:53.160]   Oh my.
+[00:31:53.160 --> 00:31:58.960]   I did want to mention something for folks who are considering upgrading or updating to
+[00:31:58.960 --> 00:32:00.280]   the beta.
+[00:32:00.280 --> 00:32:04.960]   If you use Dropbox or Microsoft OneDrive or other applications, those are kind of the
+[00:32:04.960 --> 00:32:11.600]   most popular that make use of a kernel extension that will be deprecated in the next version
+[00:32:11.600 --> 00:32:16.320]   of macOS, then you will not want to get on this beta because you will not be able to
+[00:32:16.320 --> 00:32:17.520]   use these.
+[00:32:17.520 --> 00:32:22.920]   Apple says, OK, Micah, my keyboard, my store is my stroll still OK.
+[00:32:22.920 --> 00:32:24.560]   No, my stroll for my strolls.
+[00:32:24.560 --> 00:32:26.360]   I didn't even think about that.
+[00:32:26.360 --> 00:32:32.800]   So what I my understanding is that Dropbox and Microsoft OneDrive aren't altogether.
+[00:32:32.800 --> 00:32:40.200]   But the beta version of Dropbox and the beta version of Microsoft OneDrive will work.
+[00:32:40.200 --> 00:32:45.360]   Dropbox lets you get in on the beta, but Microsoft OneDrive does not have that beta.
+[00:32:45.360 --> 00:32:48.560]   So that's just something to be aware of now.
+[00:32:48.560 --> 00:32:55.600]   Scooter X in the chat is saying that Dropbox is working fine for them in 12.3 beta one.
+[00:32:55.600 --> 00:32:57.400]   So I guess take that as you will.
+[00:32:57.400 --> 00:33:03.840]   But Apple did confirm to iMore that these it breaks the kernel extension.
+[00:33:03.840 --> 00:33:07.440]   So just be aware of that that you may have trouble.
+[00:33:07.440 --> 00:33:12.400]   It says in this in the case of Dropbox, third party apps can no longer open online only
+[00:33:12.400 --> 00:33:13.400]   files.
+[00:33:13.400 --> 00:33:19.840]   So if you're using that Dropbox sync method where you have files that just exist online,
+[00:33:19.840 --> 00:33:23.800]   then you need to be aware that that will not let you then open those files.
+[00:33:23.800 --> 00:33:27.240]   So you'd have to download them first and then be able to use them, which that's just something
+[00:33:27.240 --> 00:33:31.000]   that I do anyway, typically just like that.
+[00:33:31.000 --> 00:33:35.040]   That would affected me a lot 10 years ago, but I haven't taken haven't let Dropbox do
+[00:33:35.040 --> 00:33:37.280]   that automatic thing for a decade.
+[00:33:37.280 --> 00:33:41.200]   It's made me crazy because it just suddenly my drive is full.
+[00:33:41.200 --> 00:33:43.960]   I know that this is leaving them online, but I just stopped it all together.
+[00:33:43.960 --> 00:33:47.560]   I was like, I'm just going to use it in the web.
+[00:33:47.560 --> 00:33:51.160]   If you have the advanced plan, you can put literally unlimited stuff on Dropbox.
+[00:33:51.160 --> 00:33:57.280]   I was talking to a photographer who has like 70 terabytes of his hard cuts on Dropbox.
+[00:33:57.280 --> 00:34:01.760]   Getting it up is easy getting it down is not like it's really like, like I don't put anything
+[00:34:01.760 --> 00:34:05.080]   else on Dropbox and anything new because I'm still trying to get all the stuff that I
+[00:34:05.080 --> 00:34:06.280]   have in Dropbox down.
+[00:34:06.280 --> 00:34:10.920]   They're making a lot of money on me just because I can't get all of it off.
+[00:34:10.920 --> 00:34:12.760]   It's such a disaster.
+[00:34:12.760 --> 00:34:15.120]   And I would never use them again, except for the back of my.
+[00:34:15.120 --> 00:34:16.120]   You can't get out.
+[00:34:16.120 --> 00:34:17.120]   Yeah, you can go.
+[00:34:17.120 --> 00:34:20.520]   Yes, just know that when you start putting stuff on the web there, it's not trivial to
+[00:34:20.520 --> 00:34:21.520]   get it off.
+[00:34:21.520 --> 00:34:22.520]   Micah.
+[00:34:22.520 --> 00:34:23.520]   Yes, Renee.
+[00:34:23.520 --> 00:34:26.520]   No, I don't want to talk to Andy.
+[00:34:26.520 --> 00:34:31.560]   Oh, no, I just before we get back to the beta, one thing that was kind of interesting
+[00:34:31.560 --> 00:34:38.640]   about the new editions of OneDrive, they now support for packages for file bundles.
+[00:34:38.640 --> 00:34:46.240]   So for instance, famously, Scrivener saves its project files as packages.
+[00:34:46.240 --> 00:34:51.160]   So because there's so much data in there, it is one file, but technically it's a folder
+[00:34:51.160 --> 00:34:53.800]   that contains lots and lots and lots of individual files.
+[00:34:53.800 --> 00:34:58.880]   And that's why there isn't a really easy way to sync files through the cloud.
+[00:34:58.880 --> 00:35:05.680]   However, if the fact that OneDrive is about to support this, this unusual, here's a file
+[00:35:05.680 --> 00:35:09.280]   that's actually a folder, but we're going to be sort of wink, wink, nunch, nunch about
+[00:35:09.280 --> 00:35:10.280]   it.
+[00:35:10.280 --> 00:35:12.920]   Hopefully that means that a lot of Mac apps like Scrivener will be able to sync a lot
+[00:35:12.920 --> 00:35:17.280]   more reliably and a lot more easily through OneDrive than might through any other cloud
+[00:35:17.280 --> 00:35:18.280]   service.
+[00:35:18.280 --> 00:35:21.640]   I look up pro does bundles too.
+[00:35:21.640 --> 00:35:22.640]   Really?
+[00:35:22.640 --> 00:35:23.640]   Yeah.
+[00:35:23.640 --> 00:35:24.640]   Sorry.
+[00:35:24.640 --> 00:35:29.640]   Renee, you were about to bring up something.
+[00:35:29.640 --> 00:35:33.000]   I was just going to make a multi-face emoji joke because that was just so unpointable.
+[00:35:33.000 --> 00:35:34.000]   Oh, yeah.
+[00:35:34.000 --> 00:35:35.000]   That's next.
+[00:35:35.000 --> 00:35:36.000]   That's next.
+[00:35:36.000 --> 00:35:38.560]   But before you get there, I do have a perfect time to introduce that because this is how
+[00:35:38.560 --> 00:35:41.920]   I feel now after hearing about Dropbox.
+[00:35:41.920 --> 00:35:48.680]   I do want to, there's a really interesting conversation in the chat that I am curious
+[00:35:48.680 --> 00:35:52.520]   to hear folks take on.
+[00:35:52.520 --> 00:35:56.400]   So the conversation surrounds biometric authentication.
+[00:35:56.400 --> 00:36:01.200]   We were just talking about these sort of ambient means of biometric authentication.
+[00:36:01.200 --> 00:36:07.360]   And you will hear security folks who choose not to use any of this kind of thing, Face
+[00:36:07.360 --> 00:36:12.720]   ID, Touch ID, all sorts of methods of biometric authentication.
+[00:36:12.720 --> 00:36:23.560]   What is the reason why you feel comfortable sort of using these methods of getting into
+[00:36:23.560 --> 00:36:30.480]   your phone versus someone who is a quote security expert, unquote, not working for an
+[00:36:30.480 --> 00:36:32.480]   also bad agency is like Alex Lindsey does.
+[00:36:32.480 --> 00:36:33.480]   That's basically the reason.
+[00:36:33.480 --> 00:36:34.480]   Right.
+[00:36:34.480 --> 00:36:35.480]   And that's what I figured.
+[00:36:35.480 --> 00:36:41.480]   I just wanted to sort of have that conversation out loud because yeah, for me, I think it's
+[00:36:41.480 --> 00:36:47.640]   also important to talk about where that data is stored because, you know, to this day,
+[00:36:47.640 --> 00:36:55.440]   I still have to occasionally educate on the secure enclave on the iPhone and then some
+[00:36:55.440 --> 00:37:01.160]   of these different devices where your facial recognition data is stored versus where it's
+[00:37:01.160 --> 00:37:04.640]   not and your fingerprint data, all of that kind of thing.
+[00:37:04.640 --> 00:37:06.880]   Oh, can I just again, real quick, I don't want to get renditioned.
+[00:37:06.880 --> 00:37:09.120]   I was just making an agency shield joke about Alex.
+[00:37:09.120 --> 00:37:10.920]   Please do not rendition me.
+[00:37:10.920 --> 00:37:11.920]   Yeah.
+[00:37:11.920 --> 00:37:17.040]   The, I don't think that I think this is why Apple is so like they'll let you do what you
+[00:37:17.040 --> 00:37:18.040]   want to do.
+[00:37:18.040 --> 00:37:20.000]   And if a government asks for something in the cloud, they give them, they give them something
+[00:37:20.000 --> 00:37:21.000]   in the cloud.
+[00:37:21.000 --> 00:37:25.440]   But one of the reasons Apple is so careful about the phone is because they're keeping
+[00:37:25.440 --> 00:37:26.800]   all this many reasons.
+[00:37:26.800 --> 00:37:30.320]   But one of the big reasons is because they're keeping all this biometric data on the phone,
+[00:37:30.320 --> 00:37:31.800]   they're not putting it anywhere other than the phone.
+[00:37:31.800 --> 00:37:34.000]   The phone has has it sitting there.
+[00:37:34.000 --> 00:37:40.560]   And, and so like for instance, I, you know, I'm not, I'm no longer a target of state actors.
+[00:37:40.560 --> 00:37:45.680]   So, so the, so as a result, I'm a little less, little less worried about it.
+[00:37:45.680 --> 00:37:50.680]   When I, when I was, I definitely didn't let it do anything.
+[00:37:50.680 --> 00:37:59.200]   The, but the, the main thing is, is that that, that you do want to be careful with the phone.
+[00:37:59.200 --> 00:38:02.200]   You know, like it's, it's one of those things that it carries a lot.
+[00:38:02.200 --> 00:38:06.000]   It's a really powerful tool, but like for instance, mine turns off, I've got a very long
+[00:38:06.000 --> 00:38:09.440]   code, long, long in, and mine turns off immediately.
+[00:38:09.440 --> 00:38:12.360]   Like 30 seconds or 15 seconds or whatever.
+[00:38:12.360 --> 00:38:15.240]   And I, and I have it by habit when I set it down, I just turn it off.
+[00:38:15.240 --> 00:38:19.000]   And so, so I think that you get used to the fact that you're going to stay secure.
+[00:38:19.000 --> 00:38:22.880]   The, that someone could probably do something with that, but it would be very difficult.
+[00:38:22.880 --> 00:38:27.000]   Like, you know, and, and it, but it is the one place that I, that I'm probably the most
+[00:38:27.000 --> 00:38:30.080]   careful about what I, you know, what I do with it.
+[00:38:30.080 --> 00:38:31.520]   So I do think people have to be conscious of it.
+[00:38:31.520 --> 00:38:36.840]   I do think that if you're not, if you're boring, you know, you probably have to worry
+[00:38:36.840 --> 00:38:37.840]   about it less.
+[00:38:37.840 --> 00:38:39.720]   You know, I'm, I'm at this point pretty boring.
+[00:38:39.720 --> 00:38:43.440]   And so I, I, I don't work on anything that would put me in that, in that position anymore.
+[00:38:43.440 --> 00:38:47.680]   And so, so I think that it's, it's, it's one of those things that, uh, if you're, if you're
+[00:38:47.680 --> 00:38:50.680]   an exciting, you know, if you have an exciting life, then, then you have to pay attention
+[00:38:50.680 --> 00:38:53.360]   to all of those things, you know, like all of those things become important.
+[00:38:53.360 --> 00:38:55.360]   I think if you're boring, probably a little less.
+[00:38:55.360 --> 00:38:56.360]   Yeah.
+[00:38:56.360 --> 00:38:59.440]   And of course, like Apple doesn't store the actual images that they take.
+[00:38:59.440 --> 00:39:01.120]   They don't store the biometric data.
+[00:39:01.120 --> 00:39:04.560]   There was this problem for a while where like Samsung and HTC were storing the actual
+[00:39:04.560 --> 00:39:09.040]   photos in world readable directories, which was bad, but Apple converts them into math
+[00:39:09.040 --> 00:39:14.240]   and then only stores the math and then only stores the delta files for face ID changes.
+[00:39:14.240 --> 00:39:15.400]   And it is non trivial.
+[00:39:15.400 --> 00:39:19.120]   My understanding is it's non trivial up to like heat death of the universe to reverse
+[00:39:19.120 --> 00:39:21.920]   engineer that mathematical transformation.
+[00:39:21.920 --> 00:39:22.920]   Yeah.
+[00:39:22.920 --> 00:39:26.840]   Cause what, because the thing is the biometrics are great because you carry them with you
+[00:39:26.840 --> 00:39:27.840]   all the time.
+[00:39:27.840 --> 00:39:31.080]   Uh, they're terrible because you can't really change them.
+[00:39:31.080 --> 00:39:35.400]   So that if, if, if my bank said, Hey, we got this great new now, you no longer even need
+[00:39:35.400 --> 00:39:36.560]   to carry your card around.
+[00:39:36.560 --> 00:39:38.000]   You know, you carry a phone.
+[00:39:38.000 --> 00:39:42.120]   Just let us take a 3D scan of your face and just, you know, as soon as you're standing
+[00:39:42.120 --> 00:39:44.600]   there, it'll make sure it's you who's using your account.
+[00:39:44.600 --> 00:39:49.040]   But that's the point where I get paranoid saying, okay, but who is having control of
+[00:39:49.040 --> 00:39:50.960]   who's having control of that scan?
+[00:39:50.960 --> 00:39:55.080]   Are you storing just a checksum or you storing the actual data?
+[00:39:55.080 --> 00:40:00.840]   Because honestly, the things that drive me out of my mind are when there's the old
+[00:40:00.840 --> 00:40:05.720]   Joga at NASA, uh, about the astronauts at the top of a Saturn, Saturn rocket saying
+[00:40:05.720 --> 00:40:09.000]   it's, it's you trying to think about the fact that every part in this rocket was built
+[00:40:09.000 --> 00:40:13.680]   by the lowest, lowest bidder and the same thing is true of security where a bank is
+[00:40:13.680 --> 00:40:17.040]   not going to say, well, well, are we going to go for the best, tightest, most?
+[00:40:17.040 --> 00:40:20.360]   No, here's someone who said whatever, whatever the lowest bidder does will underbid them
+[00:40:20.360 --> 00:40:21.360]   by 10%.
+[00:40:21.360 --> 00:40:22.360]   Yeah.
+[00:40:22.360 --> 00:40:27.000]   There are the people who are going to be basically storing a JSON file on, on Dropbox or on,
+[00:40:27.000 --> 00:40:30.520]   on, on, on, on, on, on, on Amazon Web Services.
+[00:40:30.520 --> 00:40:35.800]   So with, with all my bit biometric information so that barring, barring getting into a car
+[00:40:35.800 --> 00:40:42.160]   accident and disabling the airbags, I am not going to be able to protect that.
+[00:40:42.160 --> 00:40:43.160]   It's really quick story.
+[00:40:43.160 --> 00:40:48.080]   It's like, I was, I was going through customs and I, I have a Nexus card and I went up and
+[00:40:48.080 --> 00:40:52.600]   in order to get into the US, it's like fingerprint or retina scan and it just did the retina
+[00:40:52.600 --> 00:40:57.520]   scan and I walked up and the person, the customs guy who was like, you know, very like, it
+[00:40:57.520 --> 00:40:58.520]   was like, why are you going to the US?
+[00:40:58.520 --> 00:40:59.720]   I said, I'm going for a meeting with Apple.
+[00:40:59.720 --> 00:41:00.880]   It's like, I hate Apple.
+[00:41:00.880 --> 00:41:02.520]   They stealing all our face data.
+[00:41:02.520 --> 00:41:08.320]   Like you just saw me scan to get like, and I'm sure that's going to like the company who's,
+[00:41:08.320 --> 00:41:12.440]   who just announced a hack three days ago is like that database is not secure.
+[00:41:12.440 --> 00:41:16.440]   And then when I came back, I had to go through the, I had to do a very brief trip recently
+[00:41:16.440 --> 00:41:19.960]   during like the loaves and I went up and it didn't even ask for it.
+[00:41:19.960 --> 00:41:23.680]   Like it used to make you scan your passport, scan your fingerprints, do the retinitis.
+[00:41:23.680 --> 00:41:26.320]   It just looked at my face and said, Renee, Richie, and I had all the information about
+[00:41:26.320 --> 00:41:27.320]   everything.
+[00:41:27.320 --> 00:41:29.320]   Like, I never gave them a face scan.
+[00:41:29.320 --> 00:41:30.960]   Like where did this come from?
+[00:41:30.960 --> 00:41:34.480]   And it was, but it was so fast that I almost didn't care.
+[00:41:34.480 --> 00:41:39.400]   Well, and, and the thing is, is that once you, once you know how deep the rabbit hole
+[00:41:39.400 --> 00:41:43.480]   is, you stop, you stop worrying about it, some degree, because you, you know, like the,
+[00:41:43.480 --> 00:41:46.760]   you know, when you stand in front of an ATM machine, you are identifying yourself in front
+[00:41:46.760 --> 00:41:47.760]   of a camera.
+[00:41:47.760 --> 00:41:51.480]   You know, and, and, and they don't tell you what kind of camera or what that does, but
+[00:41:51.480 --> 00:41:56.520]   it, you know, it could potentially potentially identify you by your iris, by your heat map,
+[00:41:56.520 --> 00:42:01.200]   by your, by your geometry, all of those things while you're pulling 20 bucks out.
+[00:42:01.200 --> 00:42:04.280]   So, so the thing is, is those kinds of things are, that's probably the ATM.
+[00:42:04.280 --> 00:42:09.320]   The most dangerous, you know, like it because it, because it has a sure fire.
+[00:42:09.320 --> 00:42:10.320]   You're saying I am me.
+[00:42:10.320 --> 00:42:12.840]   I'm going to type a code that proves that I'm me and I'm standing right in front of a
+[00:42:12.840 --> 00:42:14.800]   camera where I get a clear shot of the face.
+[00:42:14.800 --> 00:42:17.440]   You know, and so the thing is, is that those are the kind of things that, you know, but
+[00:42:17.440 --> 00:42:18.440]   we don't think about those.
+[00:42:18.440 --> 00:42:21.840]   Like, we, we just kind of like go get our money, you know, and so, so those are the
+[00:42:21.840 --> 00:42:25.280]   things that I think a lot of people are kind of unconscious too, that they're, that, that
+[00:42:25.280 --> 00:42:26.320]   are around them all the time.
+[00:42:26.320 --> 00:42:30.480]   And so you can worry about these things, but they can take you down a path of paranoia
+[00:42:30.480 --> 00:42:33.560]   that is probably not applicable to most of us.
+[00:42:33.560 --> 00:42:38.560]   If you are a reporter that is reporting on the Saudis and, and are negative, you need
+[00:42:38.560 --> 00:42:41.800]   to pay attention to absolutely every possible thing that is, is there.
+[00:42:41.800 --> 00:42:45.120]   I mean, like, I just want to make sure that there are people that need to be, you know,
+[00:42:45.120 --> 00:42:48.920]   they need proper trade craft and, you know, like to, to manage, you know, manage what
+[00:42:48.920 --> 00:42:50.080]   they're doing.
+[00:42:50.080 --> 00:42:53.600]   But, but if you're an average person, you know, most of us aren't, aren't getting hacked
+[00:42:53.600 --> 00:42:55.520]   because we're just not interesting.
+[00:42:55.520 --> 00:42:56.520]   Right.
+[00:42:56.520 --> 00:42:57.520]   Right.
+[00:42:57.520 --> 00:42:58.520]   Right.
+[00:42:58.520 --> 00:42:59.520]   Right.
+[00:42:59.520 --> 00:43:00.760]   We do, we should talk about a few other features.
+[00:43:00.760 --> 00:43:04.760]   The one I mentioned earlier that I think Andy would be excited about is one that you
+[00:43:04.760 --> 00:43:06.440]   talked about before.
+[00:43:06.440 --> 00:43:12.400]   After all this time of being promised that at some point we would see universal control,
+[00:43:12.400 --> 00:43:16.960]   we didn't even get it in the betas of testing it over the summer, anything like that.
+[00:43:16.960 --> 00:43:21.640]   But it has finally hit the betas universal control is in existence.
+[00:43:21.640 --> 00:43:26.200]   Andy, tell us what universal control is if somebody listening doesn't know.
+[00:43:26.200 --> 00:43:29.000]   It's, it's, it's one of those brilliant features.
+[00:43:29.000 --> 00:43:30.280]   That's just so very simple.
+[00:43:30.280 --> 00:43:35.000]   If you have, if you, if you have Max and iPads and they're within proximity of each other
+[00:43:35.000 --> 00:43:39.880]   and you've turned on these features, basically the keyboard and mouse in front of you leaves
+[00:43:39.880 --> 00:43:43.680]   the screen of your Mac and simply enters the screen of your iPad.
+[00:43:43.680 --> 00:43:46.720]   And if you have texts that you've selected on your iPad and you drag it off the screen
+[00:43:46.720 --> 00:43:50.160]   of the iPad, you can drag it into the screen of your Mac.
+[00:43:50.160 --> 00:43:52.560]   And it's not like you're just using it as an external display.
+[00:43:52.560 --> 00:43:58.320]   It's still an iPad and you're still interacting with all the apps of that iPad as iPad apps.
+[00:43:58.320 --> 00:44:03.080]   But now that they're just simply working together as one harmonious whole and now suddenly it
+[00:44:03.080 --> 00:44:08.040]   makes a lot more sense that all the stuff that I certainly was complaining about, excuse
+[00:44:08.040 --> 00:44:12.320]   me, skeptical about five years ago about, oh God, but they're, they're making them.
+[00:44:12.320 --> 00:44:16.840]   I don't know if it's a, if it's a really great bargain to be making the Mac interface looks
+[00:44:16.840 --> 00:44:21.000]   so much like the iPad interface, but they're creating that single seamless thing.
+[00:44:21.000 --> 00:44:24.440]   And the great thing about this feature is that it's not if you have this one, if you
+[00:44:24.440 --> 00:44:29.960]   have the Intel Mac and the Intel based, it's in Tomak God, if you have the Apple Silicon
+[00:44:29.960 --> 00:44:33.640]   Max and if you have the Apple Silicon M one based iPad, it works together.
+[00:44:33.640 --> 00:44:38.920]   Note works with a whole bunch of Intel and Apple Silicon Max works with a fairly recent
+[00:44:38.920 --> 00:44:45.400]   vintage and the best thing of all the reason why I wasn't, although this is a feature that
+[00:44:45.400 --> 00:44:49.520]   I've been looking forward to since it was first announced last year, I wasn't terribly
+[00:44:49.520 --> 00:44:51.440]   disappointed when it was delayed.
+[00:44:51.440 --> 00:44:54.960]   It didn't show up in betas because it has to work.
+[00:44:54.960 --> 00:44:59.840]   It can't be like the Bluetooth speaker that sometimes, sometimes connects, sometimes
+[00:44:59.840 --> 00:45:04.400]   doesn't, it can't be like the TV tuner that I've got on my network that sometimes my
+[00:45:04.400 --> 00:45:06.680]   DVR can find it sometimes it can't.
+[00:45:06.680 --> 00:45:11.000]   It has to be something that every, when I get home, I take my iPad out of my bag, I put
+[00:45:11.000 --> 00:45:15.560]   it on the stand next to, next to my Mac and without doing anything else, simply it's part
+[00:45:15.560 --> 00:45:17.360]   of my workflow for the Mac.
+[00:45:17.360 --> 00:45:21.160]   And I, unfortunately, I don't have enough copies.
+[00:45:21.160 --> 00:45:23.640]   I only have one Mac that it will work with.
+[00:45:23.640 --> 00:45:29.440]   And so I can't sacrifice that one on the beta, on a beta yet, but I've been voraciously devouring
+[00:45:29.440 --> 00:45:31.720]   every single video of people using it.
+[00:45:31.720 --> 00:45:35.520]   And it does look like it works as advertised, which I'm hoping is going to be the fact that
+[00:45:35.520 --> 00:45:38.720]   I'm sure Renee and Alex might have tried it.
+[00:45:38.720 --> 00:45:41.960]   I did, but I think you need a T2 Mac if it's Intel because I think it were, I don't know
+[00:45:41.960 --> 00:45:45.680]   if you need it, but if you have it, it does all the acceleration that you'd get off Apple
+[00:45:45.680 --> 00:45:50.000]   Silicon because T2 is essentially an A8 chip from an iPhone anyway.
+[00:45:50.000 --> 00:45:51.000]   So you have tried it.
+[00:45:51.000 --> 00:45:52.000]   It's higher.
+[00:45:52.000 --> 00:45:53.000]   Yeah.
+[00:45:53.000 --> 00:45:54.000]   I have it.
+[00:45:54.000 --> 00:45:55.000]   I have it.
+[00:45:55.000 --> 00:45:59.840]   Just quickly, I have it in front of me, MacBook, MacBook Pro 2016 and later, MacBook 2016 and
+[00:45:59.840 --> 00:46:06.600]   later, MacBook Air 2018 and later, iMac 2017 and later, iMac, like 2015, iMac Pro, iMac
+[00:46:06.600 --> 00:46:07.600]   Benny, right exactly.
+[00:46:07.600 --> 00:46:12.960]   iPad compatibility, any iPad Pro, iPad Air third generation later, iPad six generation
+[00:46:12.960 --> 00:46:13.960]   later.
+[00:46:13.960 --> 00:46:16.840]   I feel like I'm announcing school closures.
+[00:46:16.840 --> 00:46:26.640]   The real brutal vocational, public and pro-schools and the iPad mini fifth generation later.
+[00:46:26.640 --> 00:46:30.120]   So wide swath of hardware and the Apple TV.
+[00:46:30.120 --> 00:46:34.080]   Like I was like, it just shows up at display at Alex's office.
+[00:46:34.080 --> 00:46:35.080]   Okay.
+[00:46:35.080 --> 00:46:37.160]   So it's a really nice.
+[00:46:37.160 --> 00:46:38.160]   It's good.
+[00:46:38.160 --> 00:46:40.560]   Renee, what do you think of it?
+[00:46:40.560 --> 00:46:43.080]   I unfortunately have to use Dropbox every single day.
+[00:46:43.080 --> 00:46:46.360]   So I was not able to install it on my system.
+[00:46:46.360 --> 00:46:54.200]   But I am curious because I have an iPad that I did install the beta on and in general,
+[00:46:54.200 --> 00:46:56.240]   I think it's AirPlay and handoff settings.
+[00:46:56.240 --> 00:47:00.120]   There's now an option to toggle on the mouse and cursor option.
+[00:47:00.120 --> 00:47:04.760]   So I did that and just sat there kind of one day.
+[00:47:04.760 --> 00:47:07.000]   No, I mean, it's really cool.
+[00:47:07.000 --> 00:47:11.680]   I was using Sidecar anyway because like I have like it's a weird world we live in.
+[00:47:11.680 --> 00:47:18.800]   I have a mini LED HDR display on this M1 MacBook Pro and that I'm editing in Final Cut.
+[00:47:18.800 --> 00:47:24.560]   And now I can have like the full thing on a mini LED HDR iPad Pro next to me.
+[00:47:24.560 --> 00:47:30.800]   So I have like a full HDR workflow that would have been not impossible, but like like Simpsons
+[00:47:30.800 --> 00:47:32.840]   level, unpossible, but like $80,000.
+[00:47:32.840 --> 00:47:37.200]   There's some ridiculous amount of money just like five, six years ago.
+[00:47:37.200 --> 00:47:40.520]   And now that's just like an escalation because with Sidecar, you were just giving your iPad
+[00:47:40.520 --> 00:47:41.520]   over to the Mac.
+[00:47:41.520 --> 00:47:43.640]   It's ceased being an iPad anymore.
+[00:47:43.640 --> 00:47:46.120]   But now you can have like you need a Mac to start it.
+[00:47:46.120 --> 00:47:49.800]   You can't start it on iOS device yet that just for because of idiosyncrasies and how
+[00:47:49.800 --> 00:47:50.960]   that all works.
+[00:47:50.960 --> 00:47:55.960]   But as long as you have a Mac, you can have two other iPads, two other Macs, an iPad and
+[00:47:55.960 --> 00:47:59.000]   a Mac and it works just like you think.
+[00:47:59.000 --> 00:48:01.800]   It detects which direction your cursor is going in.
+[00:48:01.800 --> 00:48:05.880]   If you go beyond these, if you keep pushing beyond the side of the device and it detects
+[00:48:05.880 --> 00:48:09.880]   another device, it'll just go right over in that direction.
+[00:48:09.880 --> 00:48:11.640]   And you just control it.
+[00:48:11.640 --> 00:48:15.880]   It's so weird to describe it because it is so simple and describing simple things is
+[00:48:15.880 --> 00:48:17.200]   so difficult.
+[00:48:17.200 --> 00:48:23.480]   But it is if they are distinct devices, but you are controlling them with one device.
+[00:48:23.480 --> 00:48:24.680]   And I hate to say it.
+[00:48:24.680 --> 00:48:25.680]   It's like the musically shaped thing.
+[00:48:25.680 --> 00:48:26.680]   It just works.
+[00:48:26.680 --> 00:48:31.160]   You're opening things, you're closing things, you're doing things, you're doing iOS-y things
+[00:48:31.160 --> 00:48:35.320]   like on the iOS-y things, Mac things, opening windows, closing windows, launching things,
+[00:48:35.320 --> 00:48:36.640]   typing things.
+[00:48:36.640 --> 00:48:40.440]   And I like that there's both because sometimes I really just want an extra display, like
+[00:48:40.440 --> 00:48:44.120]   even like an Apple TV, like I'll just turn that next display, turn an iPad on an extra
+[00:48:44.120 --> 00:48:48.680]   display, watch my videos in different sizes and different ways to look for mistakes.
+[00:48:48.680 --> 00:48:54.520]   But as distinct devices, it is so nice that I could be doing this and not add any burden
+[00:48:54.520 --> 00:48:55.520]   to this device.
+[00:48:55.520 --> 00:48:56.520]   Like no extra GPU or nothing.
+[00:48:56.520 --> 00:48:57.520]   Yes.
+[00:48:57.520 --> 00:49:00.960]   You have an iPad over here and I can go and quickly write a message without taking my eyes
+[00:49:00.960 --> 00:49:04.200]   off you, Micah, and then go back and act like I'm paying attention again while I'm
+[00:49:04.200 --> 00:49:08.440]   doing this, but still like sending that sarcastic message to the Twit Discord.
+[00:49:08.440 --> 00:49:12.200]   You know, it's just it is so, I don't want to say magic because it's not magic.
+[00:49:12.200 --> 00:49:16.240]   It's just really clever application of compute technology.
+[00:49:16.240 --> 00:49:17.240]   Yeah.
+[00:49:17.240 --> 00:49:19.240]   It also works Mac to Mac, doesn't it?
+[00:49:19.240 --> 00:49:20.240]   Yeah.
+[00:49:20.240 --> 00:49:21.240]   Right now I have it.
+[00:49:21.240 --> 00:49:23.640]   I'm the third monitor is my Mac Mini.
+[00:49:23.640 --> 00:49:24.640]   Yeah.
+[00:49:24.640 --> 00:49:29.560]   So that's that's exactly one of the things I'm anticipating in the near future, Renee.
+[00:49:29.560 --> 00:49:36.920]   The idea of I can have my three four screen setup, my Buducon wall sound like exactly
+[00:49:36.920 --> 00:49:39.720]   my my wall of monitors.
+[00:49:39.720 --> 00:49:44.560]   But just just as you say, what I'm ripping or I'm transcoding is a DVD.
+[00:49:44.560 --> 00:49:49.240]   I don't necessarily I don't know that this I don't know that it's running on its own Mac
+[00:49:49.240 --> 00:49:50.240]   Mini.
+[00:49:50.240 --> 00:49:51.600]   However, that's what it's actually doing.
+[00:49:51.600 --> 00:49:54.680]   It's not like one computer that's has four screens onto it.
+[00:49:54.680 --> 00:50:00.640]   It's like on this screen, everything will be done by its own isolated set down computer.
+[00:50:00.640 --> 00:50:03.600]   And that's it really it's this is part of the payoff.
+[00:50:03.600 --> 00:50:07.880]   We don't always get such an explicit payoff for investing in the Apple ecosystem.
+[00:50:07.880 --> 00:50:14.400]   But this was one of the reasons why I pulled the trigger on the iPad Pro last year that
+[00:50:14.400 --> 00:50:21.120]   I because it's I can't spend $1,100, $1,200 with just Willie Nilly.
+[00:50:21.120 --> 00:50:27.040]   However, the fact that yes, but I be able to use this as a separate display on my desktop
+[00:50:27.040 --> 00:50:28.480]   when I'm traveling all the time.
+[00:50:28.480 --> 00:50:29.480]   I've got a deadline.
+[00:50:29.480 --> 00:50:30.560]   I've got a research project.
+[00:50:30.560 --> 00:50:34.840]   I wanted an extra monitor on my MacBook, but I certainly can't bring a second second
+[00:50:34.840 --> 00:50:36.560]   display with me.
+[00:50:36.560 --> 00:50:40.280]   And now universal control knowing that this is going to be this is not going to just be
+[00:50:40.280 --> 00:50:44.360]   the thing that I use when I'm going to be spending three or four hours in Boston for
+[00:50:44.360 --> 00:50:46.160]   the day in meetings and stuff.
+[00:50:46.160 --> 00:50:50.080]   This is going to be something that enhances all of my workflows in the office.
+[00:50:50.080 --> 00:50:52.280]   This is why you have to mitigate.
+[00:50:52.280 --> 00:50:57.400]   Yes, there is there is an Apple tax on a lot of things, but sometimes the intangibles are
+[00:50:57.400 --> 00:51:03.560]   actually make make make up for the expense and then some.
+[00:51:03.560 --> 00:51:07.200]   That of course is all about universal control.
+[00:51:07.200 --> 00:51:10.400]   I am pumped to get to give this a go whenever it comes out.
+[00:51:10.400 --> 00:51:18.160]   I'm using Sidecar right now to be the computer that the display that I use to monitor what's
+[00:51:18.160 --> 00:51:19.160]   going on.
+[00:51:19.160 --> 00:51:24.440]   It's where the zoom goes because I can put it right up beneath my webcam, which is handy.
+[00:51:24.440 --> 00:51:25.440]   There are a lot of others.
+[00:51:25.440 --> 00:51:26.440]   Can I say?
+[00:51:26.440 --> 00:51:27.440]   Absolutely.
+[00:51:27.440 --> 00:51:28.440]   I'm sorry.
+[00:51:28.440 --> 00:51:32.520]   I forgot to say one thing that's super exciting though is that I'm hoping to see a lot of
+[00:51:32.520 --> 00:51:38.800]   developers use Sidecar not to exploit Sidecar not just as an external display, but as an
+[00:51:38.800 --> 00:51:41.160]   external user interface control surface.
+[00:51:41.160 --> 00:51:45.600]   The idea of having an iPad flat on the desk that is like here's my color picker.
+[00:51:45.600 --> 00:51:48.400]   Here is my a scrubber controller for video.
+[00:51:48.400 --> 00:51:54.960]   I really think that's a huge opportunity that the the control bar kind of slapped at this,
+[00:51:54.960 --> 00:52:01.000]   but the idea of having an iPad mini that you're just using for buttons and and knobs and controls,
+[00:52:01.000 --> 00:52:02.000]   that is pretty damn.
+[00:52:02.000 --> 00:52:04.120]   So that would be pretty damn slick.
+[00:52:04.120 --> 00:52:05.120]   That would be delightful.
+[00:52:05.120 --> 00:52:06.120]   All right.
+[00:52:06.120 --> 00:52:12.120]   So a few other things that are coming in well should be coming in iOS 15.4 include a
+[00:52:12.120 --> 00:52:18.720]   bunch of new emoji, including as we mentioned earlier, the melting face emoji, the one that
+[00:52:18.720 --> 00:52:25.500]   continues to make me incredibly uncomfortable, which is the lip bite emoji and invisible.
+[00:52:25.500 --> 00:52:31.200]   What is possibly your own, the lymphoid emoji stress.
+[00:52:31.200 --> 00:52:33.040]   Are there worse than feet?
+[00:52:33.040 --> 00:52:35.000]   No, nothing's worse than that.
+[00:52:35.000 --> 00:52:39.000]   So that's yeah, look, I it's pretty bad, but nothing's worse than that.
+[00:52:39.000 --> 00:52:44.040]   And I think one that I will definitely be using a lot of, which is the invisible person emoji.
+[00:52:44.040 --> 00:52:49.520]   It's just got an outline of a person and it's reminiscent of comic books where the artist
+[00:52:49.520 --> 00:52:54.520]   would show that a person was either invisible or kind of undetected by drawing an outline
+[00:52:54.520 --> 00:52:55.520]   around the person.
+[00:52:55.520 --> 00:52:58.240]   We all feel invisible sometimes, Micah.
+[00:52:58.240 --> 00:52:59.240]   Exactly.
+[00:52:59.240 --> 00:53:02.600]   So when I'm in the group chat and everybody else is not paying attention to the thing that
+[00:53:02.600 --> 00:53:05.080]   I said, I can just send that emoji and.
+[00:53:05.080 --> 00:53:07.240]   Oh, passive aggressive emoji.
+[00:53:07.240 --> 00:53:09.240]   We're finally going to that point in the developer.
+[00:53:09.240 --> 00:53:11.440]   Yes, that's precisely what it is.
+[00:53:11.440 --> 00:53:14.600]   Or maybe you want to maybe maybe for me, sometimes I just want to be invisible.
+[00:53:14.600 --> 00:53:16.640]   I'm like, I don't want to.
+[00:53:16.640 --> 00:53:17.640]   That's great too.
+[00:53:17.640 --> 00:53:23.720]   I can think of a if you have like a roommate or something and they are a chatty, but maybe
+[00:53:23.720 --> 00:53:26.240]   I've had this experience in my past is what I'm saying.
+[00:53:26.240 --> 00:53:27.720]   Very chatty roommate.
+[00:53:27.720 --> 00:53:31.120]   If I could have just sent that emoji.
+[00:53:31.120 --> 00:53:34.800]   If I could have just sent that emoji and then like, this is the time when I just want
+[00:53:34.800 --> 00:53:38.200]   to go into the kitchen and get the beverage I was trying to get without having a three
+[00:53:38.200 --> 00:53:41.560]   hour conversation before I go back to the space that I was in.
+[00:53:41.560 --> 00:53:42.960]   It's just like invisible emoji.
+[00:53:42.960 --> 00:53:47.800]   What does a beverage say about you?
+[00:53:47.800 --> 00:53:53.680]   Any other iOS 15.4 tidbits worth talking about?
+[00:53:53.680 --> 00:53:57.960]   Can we mention the most interesting and I think positive, one of the most positive ones
+[00:53:57.960 --> 00:54:02.320]   is they've added a pregnant man emoji or it's being called the pregnant man emoji, which
+[00:54:02.320 --> 00:54:08.760]   is a human with male secondary sex characteristics who also has what appears to be a pregnancy
+[00:54:08.760 --> 00:54:13.240]   belly, which is yes, it could be yes, it could be funny for oh my god, I can't believe
+[00:54:13.240 --> 00:54:17.040]   I ate 15 cal zones, but I won the hat and the t-shirt.
+[00:54:17.040 --> 00:54:22.280]   But also it kind of reflects that there are there are for instance transgender men who
+[00:54:22.280 --> 00:54:23.840]   might be carrying a baby.
+[00:54:23.840 --> 00:54:31.200]   There might be it's it's it's it's I voice every time that there is a new new emoji proposed.
+[00:54:31.200 --> 00:54:35.600]   It's always a really fascinating thing to dig into because it always speaks to what society
+[00:54:35.600 --> 00:54:37.920]   is going through at that time.
+[00:54:37.920 --> 00:54:43.440]   New awareness, new new new tamping down of ignorance.
+[00:54:43.440 --> 00:54:50.000]   Society changes like, okay, well now a vax now a needle does not mean like I'm withdrawing
+[00:54:50.000 --> 00:54:51.000]   blood.
+[00:54:51.000 --> 00:54:53.000]   A needle probably means I'm receiving a vaccination.
+[00:54:53.000 --> 00:54:55.800]   So we need we need to change that emoji.
+[00:54:55.800 --> 00:55:00.720]   Now we actually need people with with breathing masks as an emoji because that's part of what
+[00:55:00.720 --> 00:55:02.240]   society is going through.
+[00:55:02.240 --> 00:55:06.000]   So that's it's such a fascinating window.
+[00:55:06.000 --> 00:55:10.120]   I think that of a thousand years from now, that's going to be a really it's going to
+[00:55:10.120 --> 00:55:14.000]   be like the ice core samples that we see that the people take say, okay, here's what here's
+[00:55:14.000 --> 00:55:20.640]   what was going on in 2021 because we can see what did the one of the few true international
+[00:55:20.640 --> 00:55:23.240]   methods of communication is the emoji.
+[00:55:23.240 --> 00:55:25.520]   And here is part of the language that we needed to add.
+[00:55:25.520 --> 00:55:30.000]   Here's the lexicography that was missing that we had to add in 2021 2022.
+[00:55:30.000 --> 00:55:32.240]   And I just thought that was very, very interesting.
+[00:55:32.240 --> 00:55:37.600]   Of course Fox News is is a bit upset about it because apparently the tech industry is
+[00:55:37.600 --> 00:55:41.320]   continuing to try to gas light real America, but oh well.
+[00:55:41.320 --> 00:55:47.720]   Well, I am not going to gas light real America when I take this break before we come back.
+[00:55:47.720 --> 00:55:52.080]   Can I just yell out one one last beta feature that's interesting one last feature.
+[00:55:52.080 --> 00:55:56.640]   It looks like you can have it better better support for progressive web apps, especially
+[00:55:56.640 --> 00:56:00.360]   for notifications from progressive web apps, which a lot of people are excited about on
+[00:56:00.360 --> 00:56:01.640]   the same baby lose wordle.
+[00:56:01.640 --> 00:56:05.680]   Yes, I understand the irony of all of this, but you know, the universe at the universe
+[00:56:05.680 --> 00:56:07.960]   acts with universe acts.
+[00:56:07.960 --> 00:56:13.880]   If that was very, very interesting to see how kind of different people reacted to that.
+[00:56:13.880 --> 00:56:14.880]   In fact, I've got it.
+[00:56:14.880 --> 00:56:18.600]   We might chat about that a little bit later, but the progressive web apps.
+[00:56:18.600 --> 00:56:26.600]   Yes, push notifications on iOS like they are on Mac OS as well as Apple has introduced
+[00:56:26.600 --> 00:56:30.120]   the M what is it?
+[00:56:30.120 --> 00:56:33.240]   M X yeah, or excuse me, X are.
+[00:56:33.240 --> 00:56:34.240]   That's what it is.
+[00:56:34.240 --> 00:56:42.840]   The X are API so that websites can take advantage of AR VR applications with their websites.
+[00:56:42.840 --> 00:56:48.440]   So right now there's not really a headset that would work with iOS.
+[00:56:48.440 --> 00:56:52.640]   So that would be something that could potentially be coming in the room.
+[00:56:52.640 --> 00:56:58.520]   And then also it gets a little bit easier for you to choose the icon that shows up whenever
+[00:56:58.520 --> 00:57:03.520]   you you as the developer to choose the icon that will show up for someone whenever they
+[00:57:03.520 --> 00:57:07.640]   add your app or your website to the desktop.
+[00:57:07.640 --> 00:57:13.520]   I remember reading this page of like, you have to name this file, this file, this file
+[00:57:13.520 --> 00:57:14.920]   and this file.
+[00:57:14.920 --> 00:57:16.320]   And they have to be named just like this.
+[00:57:16.320 --> 00:57:18.680]   They need to be in this part of the HTML tag.
+[00:57:18.680 --> 00:57:21.280]   They need to have this file for that.
+[00:57:21.280 --> 00:57:22.280]   Exactly.
+[00:57:22.280 --> 00:57:23.280]   Yeah, yeah.
+[00:57:23.280 --> 00:57:24.280]   Yeah.
+[00:57:24.280 --> 00:57:26.200]   And it's like all these different kinds.
+[00:57:26.200 --> 00:57:32.200]   Instead of using the standard, which is just an image that's labeled icon now, Safari
+[00:57:32.200 --> 00:57:35.400]   is or the I guess the system is using the standard one.
+[00:57:35.400 --> 00:57:39.160]   So that will be good as well.
+[00:57:39.160 --> 00:57:44.480]   Now we will take that break and we will come back with lots more to talk about including
+[00:57:44.480 --> 00:57:49.800]   a conversation Renee recently had with Apple's head of user privacy.
+[00:57:49.800 --> 00:57:54.280]   But first, this episode of Mac break weekly is brought to you by Wealthfront.
+[00:57:54.280 --> 00:57:56.320]   You've heard about Wealthfront.
+[00:57:56.320 --> 00:58:00.080]   Look, a lot of investment apps make it easy to start trading.
+[00:58:00.080 --> 00:58:05.840]   But just because it's easy to does not mean you know what you're doing.
+[00:58:05.840 --> 00:58:12.160]   Wealthfront makes it easy to invest and easy to grow your savings with a diversified portfolio
+[00:58:12.160 --> 00:58:15.800]   that balances your other riskier bets.
+[00:58:15.800 --> 00:58:20.640]   You can start investing in no time with Wealthfront's classic portfolio or make it your own with
+[00:58:20.640 --> 00:58:26.160]   things that you care about and include socially responsible funds, technology funds, yes, even
+[00:58:26.160 --> 00:58:30.040]   crypto trusts or hundreds of other investments.
+[00:58:30.040 --> 00:58:35.320]   Wealthfront was designed by financial experts to help you turn your good ideas into great
+[00:58:35.320 --> 00:58:37.960]   investments without the hassle of doing everything yourself.
+[00:58:37.960 --> 00:58:42.720]   If you don't want to spend hundreds of hours trying to lower your tax bill, well, don't
+[00:58:42.720 --> 00:58:45.040]   worry because they will help you do that.
+[00:58:45.040 --> 00:58:51.520]   Not sure how to rebalance your portfolio or like me, well, they do it for you automatically.
+[00:58:51.520 --> 00:58:58.200]   Wealthfront is trusted with more than $28 billion in assets helping nearly half a million people
+[00:58:58.200 --> 00:58:59.720]   build their wealth.
+[00:58:59.720 --> 00:59:03.200]   All you need is $500 to get started.
+[00:59:03.200 --> 00:59:07.480]   Grow your wealth the easy way and let Wealthfront do the work for you.
+[00:59:07.480 --> 00:59:13.080]   And the best part is, their product is so simple yet powerful that it has a 4.9 out of
+[00:59:13.080 --> 00:59:17.040]   5 star rating in the Apple App Store.
+[00:59:17.040 --> 00:59:22.920]   To start building your wealth and get your first $5,000 managed for free for life, go
+[00:59:22.920 --> 00:59:25.760]   to wealthfront.com/macbreak.
+[00:59:25.760 --> 00:59:35.400]   That's W-E-A-L-T-H-F-R-O-N-T.com/macbreak to start building your wealth.
+[00:59:35.400 --> 00:59:39.560]   Go to wealthfront.com/macbreak and get started today.
+[00:59:39.560 --> 00:59:45.920]   Thank you, Wealthfront, for sponsoring this week's episode of Macbreak Weekly.
+[00:59:45.920 --> 00:59:53.340]   All right, Renee, it is time to brag because I was really excited to see that you got to
+[00:59:53.340 --> 00:59:55.960]   speak to Apple's head of user privacy.
+[00:59:55.960 --> 00:59:59.960]   I was hoping you could just tell us a little bit about who you spoke to and the conversation
+[00:59:59.960 --> 01:00:00.960]   you had.
+[01:00:00.960 --> 01:00:03.120]   Of course, folks should go watch the video for the whole thing, but maybe you can give
+[01:00:03.120 --> 01:00:04.680]   us a little taste.
+[01:00:04.680 --> 01:00:10.720]   Yeah, it's Eric Neuswander, who's head of, I think is technically director of user privacy,
+[01:00:10.720 --> 01:00:12.320]   but Apple has different kinds of directors.
+[01:00:12.320 --> 01:00:13.840]   It's like marketing people, engineering people.
+[01:00:13.840 --> 01:00:19.240]   He's clearly a high-order, bit nerd engineer because he gets his hands dirty on architecting
+[01:00:19.240 --> 01:00:22.800]   and deploying all of this stuff.
+[01:00:22.800 --> 01:00:23.800]   It's fascinating.
+[01:00:23.800 --> 01:00:26.160]   It was World Privacy Day.
+[01:00:26.160 --> 01:00:30.440]   He wanted to talk about the things that they were doing with mail, namely hide my email
+[01:00:30.440 --> 01:00:35.680]   and mail privacy protection because that is such an old system and it was never architected
+[01:00:35.680 --> 01:00:39.720]   to have any understanding of security and privacy and people have tried to graft various
+[01:00:39.720 --> 01:00:44.280]   levels of security and privacy to it over the years, but it's hard because everyone uses
+[01:00:44.280 --> 01:00:47.480]   different clients and every implementation is different.
+[01:00:47.480 --> 01:00:52.000]   Apple is doing these things where you can supply sort of like burner emails to any company
+[01:00:52.000 --> 01:00:58.440]   that you sign up for and then manage them, but also a version of private relay where if
+[01:00:58.440 --> 01:01:02.080]   an email comes in, marketing companies use these things called tracking pixels.
+[01:01:02.080 --> 01:01:06.080]   Basically, there's a little invisible pixel that's included with the email and when you
+[01:01:06.080 --> 01:01:10.160]   open that pixel because it's stored on their server, they get a ping from it and then they
+[01:01:10.160 --> 01:01:13.240]   know where you are geographically based on your IP address.
+[01:01:13.240 --> 01:01:16.880]   When you opened it, how many times you opened it, all this information that maybe you don't
+[01:01:16.880 --> 01:01:22.120]   want to supply to them, even just validating that your email is real, that someone opened
+[01:01:22.120 --> 01:01:26.720]   it and that makes it more valuable when they resell it to the next mailing list company.
+[01:01:26.720 --> 01:01:31.400]   All those things, so now it happens is as it goes to you, Apple uses a private relay
+[01:01:31.400 --> 01:01:34.720]   service, which means they have no knowledge of what it's doing, but it basically opens
+[01:01:34.720 --> 01:01:39.600]   all the email for you at random times and random IP addresses so that nobody has any
+[01:01:39.600 --> 01:01:46.280]   idea whether you actually saw it because all they get is an Apple relay back or what
+[01:01:46.280 --> 01:01:48.480]   time it was where you were any of those data points.
+[01:01:48.480 --> 01:01:52.080]   He also really kindly touched on a lot of other stuff that Apple's doing in general and
+[01:01:52.080 --> 01:01:56.840]   their philosophy and what it's like working for a company where everybody from Steve Jobs
+[01:01:56.840 --> 01:02:01.280]   in that famous interview with Walt Mossberg and Cara Swisher went on about privacy to
+[01:02:01.280 --> 01:02:06.440]   Tim Cook saying it's a human right to Craig Federicki, just superhero three point stance
+[01:02:06.440 --> 01:02:10.960]   dropping into the back cave of every Apple park that would have a presentation to where
+[01:02:10.960 --> 01:02:14.600]   they keep Eric and the other privacy people hit it in the dark, it looks like most of
+[01:02:14.600 --> 01:02:15.600]   the time.
+[01:02:15.600 --> 01:02:21.160]   It was just fascinating to hear their philosophy because they really believe in building this
+[01:02:21.160 --> 01:02:22.160]   stuff in.
+[01:02:22.160 --> 01:02:27.080]   A feature gets proposed and they think about the privacy applications from the beginning.
+[01:02:27.080 --> 01:02:29.960]   They can't just shellac it on at the end when they want to kick the product out the
+[01:02:29.960 --> 01:02:30.960]   door.
+[01:02:30.960 --> 01:02:35.880]   It has to meet these privacy goals along the entire development process.
+[01:02:35.880 --> 01:02:39.000]   Just the responsibility, and we also talked a little bit about when Apple makes these
+[01:02:39.000 --> 01:02:43.680]   statements, we're going to hold them to account and he thinks that's a good thing too.
+[01:02:43.680 --> 01:02:47.160]   I think everybody knows they're going to stumble, they're going to fall at sometimes,
+[01:02:47.160 --> 01:02:53.480]   and making those statements means that we get to hold them into account way more than a
+[01:02:53.480 --> 01:02:56.560]   company who just comes out and says, "Yeah, we're tracking everything you do.
+[01:02:56.560 --> 01:03:00.080]   Can you please put our goggles back on for another hour?"
+[01:03:00.080 --> 01:03:04.960]   Yeah, that part I think was particularly good to hear.
+[01:03:04.960 --> 01:03:05.960]   Why that is important.
+[01:03:05.960 --> 01:03:07.160]   They're so passionate.
+[01:03:07.160 --> 01:03:09.160]   What power it gives us.
+[01:03:09.160 --> 01:03:14.120]   Yeah, one of the things I think that simple forget, when I spoke to Tom and Tim about
+[01:03:14.120 --> 01:03:17.640]   Apple Silicon and their love of the Mac, I got so many comments from people saying,
+[01:03:17.640 --> 01:03:21.640]   "It's really gratifying to hear this people at Apple who still love the Mac because honestly,
+[01:03:21.640 --> 01:03:22.640]   I was worried."
+[01:03:22.640 --> 01:03:27.400]   That's fair enough because you really didn't see that passion for a while.
+[01:03:27.400 --> 01:03:33.680]   The same thing, it's easy to get into philosophical arguments about things like, is data repatriation
+[01:03:33.680 --> 01:03:37.200]   okay when it's France asking versus when it's China asking?
+[01:03:37.200 --> 01:03:41.560]   Or is data encryption important when the US government wants a backdoor key?
+[01:03:41.560 --> 01:03:47.600]   Are child advocacy groups right to push Apple for CSAM filtering when privacy advocates
+[01:03:47.600 --> 01:03:49.920]   are saying that this is the beginning of the end?
+[01:03:49.920 --> 01:03:55.120]   One of the questions I had from that I'm most fascinated about is you have people who are
+[01:03:55.120 --> 01:03:59.440]   adamant that their position is the extreme correct position and that everybody else is
+[01:03:59.440 --> 01:04:03.800]   wrong and yet his job is to balance this not only between those different viewpoints,
+[01:04:03.800 --> 01:04:08.200]   but between the usability that we need as the end user of that product.
+[01:04:08.200 --> 01:04:12.640]   It's not an easy job but I was just fascinated to hear how he approached it.
+[01:04:12.640 --> 01:04:16.800]   Everyone should go check that out at youtube.com/renewritchee.
+[01:04:16.800 --> 01:04:18.280]   Go ahead, Andy.
+[01:04:18.280 --> 01:04:22.440]   I was just going to say, I saw the interview, I thought it was really, really great as usual,
+[01:04:22.440 --> 01:04:25.280]   great stuff from your name.
+[01:04:25.280 --> 01:04:29.480]   Also as usual, you can always tell what is part of the culture of a company when they
+[01:04:29.480 --> 01:04:32.160]   talk about that thing.
+[01:04:32.160 --> 01:04:33.160]   What is PR?
+[01:04:33.160 --> 01:04:34.160]   What is crisis management?
+[01:04:34.160 --> 01:04:35.160]   What is okay?
+[01:04:35.160 --> 01:04:37.320]   I guess this would be nice things for us to dabble in right now.
+[01:04:37.320 --> 01:04:44.120]   When Apple talks about security, when Apple talks about privacy, as Renee says, they can
+[01:04:44.120 --> 01:04:46.480]   be a little bit inconsistent sometimes.
+[01:04:46.480 --> 01:04:50.800]   Sometimes you can expect that like any big company they're going to fumble, but you can't
+[01:04:50.800 --> 01:04:55.400]   really doubt that their interest in this is absolutely sincere and it's baked right in.
+[01:04:55.400 --> 01:05:00.600]   You just can't separate that from the identity of the company.
+[01:05:00.600 --> 01:05:06.000]   That's why it's always interesting to hear interviews like this where you basically get
+[01:05:06.000 --> 01:05:11.800]   to see the lights on behind the eyes turned up an extra 10 to 20% when they're talking
+[01:05:11.800 --> 01:05:14.720]   about something that you know that they're really, really passionate about and that they
+[01:05:14.720 --> 01:05:17.640]   spend so much of their time thinking about.
+[01:05:17.640 --> 01:05:21.520]   I think that some of that might come from the fact that everyone's always trying to get
+[01:05:21.520 --> 01:05:22.520]   their data.
+[01:05:22.520 --> 01:05:26.320]   I think that they're a certain paranoia.
+[01:05:26.320 --> 01:05:31.280]   People trying to hack into their servers and find what's the next thing.
+[01:05:31.280 --> 01:05:34.240]   They've been under that attack for the last 20 years.
+[01:05:34.240 --> 01:05:37.880]   I think that that creates also affects that culture.
+[01:05:37.880 --> 01:05:40.800]   It's not like it's a theoretical thing for them.
+[01:05:40.800 --> 01:05:42.680]   It's everyone's trying to get our data all the time.
+[01:05:42.680 --> 01:05:48.800]   All of our employees, everyone, you have to worry about, it's great to build a big glass
+[01:05:48.800 --> 01:05:53.600]   headquarters, but then you have to worry about the windows.
+[01:05:53.600 --> 01:05:56.560]   All of those things are things that you have to think about.
+[01:05:56.560 --> 01:05:57.560]   Yeah, exactly.
+[01:05:57.560 --> 01:05:58.560]   Yeah.
+[01:05:58.560 --> 01:05:59.560]   That's a really good point.
+[01:05:59.560 --> 01:06:05.000]   It just was thinking about the whenever that was first being built and those drones flying
+[01:06:05.000 --> 01:06:07.200]   over and how they had to deal with that.
+[01:06:07.200 --> 01:06:11.320]   But that's not even the biggest problem is really cameras are seeing through the windows.
+[01:06:11.320 --> 01:06:18.760]   If you start writing your algorithms on the whiteboard, someone with a big enough camera.
+[01:06:18.760 --> 01:06:22.600]   That's the kind of pressure that they're under all the time.
+[01:06:22.600 --> 01:06:26.200]   I think that they're under the pressure of needing to be private and needing to be secret
+[01:06:26.200 --> 01:06:27.200]   all the time.
+[01:06:27.200 --> 01:06:33.800]   I think that that greatly amplifies this is a real world problem for them every day.
+[01:06:33.800 --> 01:06:37.040]   That affects how they view it.
+[01:06:37.040 --> 01:06:40.880]   It's really got to be disillusioning when you're working at Apple, you've been given
+[01:06:40.880 --> 01:06:45.880]   this really, really high profile project with lots of staff, lots of budget, lots of everything.
+[01:06:45.880 --> 01:06:49.600]   You have those moments of doubt about whether it's working correctly or whether Apple really
+[01:06:49.600 --> 01:06:50.600]   supports it.
+[01:06:50.600 --> 01:06:55.800]   At that point, you really have to ask yourself, is this one of those fake projects that they're
+[01:06:55.800 --> 01:07:01.240]   making me do so that other people will not look at the actual project?
+[01:07:01.240 --> 01:07:02.240]   Damn.
+[01:07:02.240 --> 01:07:04.000]   Yeah, which is a 500-pack.
+[01:07:04.000 --> 01:07:05.240]   There is no hover curve.
+[01:07:05.240 --> 01:07:07.040]   Wrong, and which one is a real one.
+[01:07:07.040 --> 01:07:08.040]   Thanks.
+[01:07:08.040 --> 01:07:10.000]   I really think that a digital hat would be great.
+[01:07:10.000 --> 01:07:15.480]   All right, maybe you don't believe in me, Mr. Took.
+[01:07:15.480 --> 01:07:18.120]   With a lot of these big companies, so many things end up at dead ends.
+[01:07:18.120 --> 01:07:20.120]   At some point, you just worry about the craft.
+[01:07:20.120 --> 01:07:23.440]   You just worry about you're just going to work on the thing and they may cancel it right
+[01:07:23.440 --> 01:07:25.360]   at the very end, or they may not come out.
+[01:07:25.360 --> 01:07:29.600]   I talked to someone who used to work at Apple a long time ago, and he said there's products
+[01:07:29.600 --> 01:07:32.760]   that got all the way to the end, and they just decided there's not enough big enough
+[01:07:32.760 --> 01:07:35.120]   market, or this is going to be a distraction.
+[01:07:35.120 --> 01:07:37.480]   It's not going to generate enough revenue.
+[01:07:37.480 --> 01:07:39.360]   He was like, I would have put that.
+[01:07:39.360 --> 01:07:42.200]   I would have used that every day.
+[01:07:42.200 --> 01:07:44.120]   It was just one of those.
+[01:07:44.120 --> 01:07:52.480]   It's a hard puzzle in the sense that Apple is so disciplined in that area where they'll
+[01:07:52.480 --> 01:07:58.200]   just kill a project hundreds of millions of dollars into the process to protect the brand
+[01:07:58.200 --> 01:08:00.400]   and protect their focus.
+[01:08:00.400 --> 01:08:05.480]   It used to be a much larger problem for hiring than it used to be, because there was a time
+[01:08:05.480 --> 01:08:07.400]   where, again, you're an engineer.
+[01:08:07.400 --> 01:08:08.720]   You have an expertise.
+[01:08:08.720 --> 01:08:12.040]   You were hired away from another company where this was going to be.
+[01:08:12.040 --> 01:08:15.920]   You're going to be using your expertise and your research to build an actual working thing.
+[01:08:15.920 --> 01:08:18.280]   Apple hired you away to develop their version of it.
+[01:08:18.280 --> 01:08:20.880]   They decided after four years, eh, no.
+[01:08:20.880 --> 01:08:22.720]   Unfortunately, you can't tell anybody about it.
+[01:08:22.720 --> 01:08:26.560]   You can't tell anybody what you can tell people vaguely what your job was and the sort
+[01:08:26.560 --> 01:08:28.240]   of technologies you were working with.
+[01:08:28.240 --> 01:08:33.160]   But you can't say, here is what I was doing for four years and use that to springboard
+[01:08:33.160 --> 01:08:35.320]   the next generation of your career.
+[01:08:35.320 --> 01:08:38.600]   AI research, for instance, was one of the biggest, all next.
+[01:08:38.600 --> 01:08:42.320]   I think that's one of the reasons why Apple started allowing the researchers to publish
+[01:08:42.320 --> 01:08:47.800]   white papers, because it's a tell of a thing to ask a researcher to do research but not
+[01:08:47.800 --> 01:08:52.160]   share that research, not publish it, because at some point you're not going to be of any
+[01:08:52.160 --> 01:08:56.240]   use to Apple anymore and you're going to have to be able to say, here's what I've been doing.
+[01:08:56.240 --> 01:08:57.720]   Here's the papers I've published.
+[01:08:57.720 --> 01:08:59.480]   You're my credential.
+[01:08:59.480 --> 01:09:02.520]   There's also, though, a lift of when you can't say anything.
+[01:09:02.520 --> 01:09:04.760]   Like you say, I used to work at Apple and say, what did you do?
+[01:09:04.760 --> 01:09:05.760]   I can't say anything.
+[01:09:05.760 --> 01:09:07.920]   That has a certain, you know, there's some juice there.
+[01:09:07.920 --> 01:09:09.480]   You know, like, there's a little bit of juice.
+[01:09:09.480 --> 01:09:14.120]   I mean, I had a company that, you know, we were a big game company and they were looking
+[01:09:14.120 --> 01:09:16.120]   and having us through streams and they were like, so who have you worked for?
+[01:09:16.120 --> 01:09:17.120]   I said, I can't tell you.
+[01:09:17.120 --> 01:09:18.120]   What projects I can't tell you.
+[01:09:18.120 --> 01:09:19.680]   Like, I just was like, I can't tell you anything.
+[01:09:19.680 --> 01:09:21.320]   He's like, how do I know to hire you?
+[01:09:21.320 --> 01:09:24.480]   And I said, well, who, who, someone recommended us?
+[01:09:24.480 --> 01:09:26.120]   He said, because we don't even have a webpage.
+[01:09:26.120 --> 01:09:28.520]   We didn't have a webpage that he even talked about it.
+[01:09:28.520 --> 01:09:30.920]   And he said, well, you have to trust him.
+[01:09:30.920 --> 01:09:31.920]   And then we got hired.
+[01:09:31.920 --> 01:09:36.240]   But, you know, but I am so going to play that card sometime.
+[01:09:36.240 --> 01:09:37.240]   I swear to God.
+[01:09:37.240 --> 01:09:39.000]   It so works.
+[01:09:39.000 --> 01:09:40.360]   But it was, and it was true.
+[01:09:40.360 --> 01:09:43.400]   I couldn't show anything, but it was, but it was, it was really effective.
+[01:09:43.400 --> 01:09:48.000]   So I think that the reason I bring that up is because, you know, Apple, I think once
+[01:09:48.000 --> 01:09:52.760]   someone, if you see Apple on someone's LinkedIn and especially the ones that have Apple and
+[01:09:52.760 --> 01:09:57.640]   don't say anything, like, you know, like I work at Apple, like, and then there's a lot
+[01:09:57.640 --> 01:09:58.640]   of them like that.
+[01:09:58.640 --> 01:09:59.640]   And you're like, okay, here.
+[01:09:59.640 --> 01:10:00.640]   There was this one.
+[01:10:00.640 --> 01:10:03.480]   It's like 20 years ago and has never been updated.
+[01:10:03.480 --> 01:10:04.480]   Exactly.
+[01:10:04.480 --> 01:10:05.480]   Exactly.
+[01:10:05.480 --> 01:10:06.480]   All right.
+[01:10:06.480 --> 01:10:10.120]   A couple of more things.
+[01:10:10.120 --> 01:10:16.440]   Apple, this is February and February is both heart month and black history month.
+[01:10:16.440 --> 01:10:24.680]   Yes, we do get the shortest month of the year for some reason, but they are spotlighting
+[01:10:24.680 --> 01:10:31.280]   black voices during black history month and also spotlighting some very interesting
+[01:10:31.280 --> 01:10:33.920]   resources with heart month.
+[01:10:33.920 --> 01:10:38.600]   Now, I wanted to talk about both of them because I think there's some really cool stuff here
+[01:10:38.600 --> 01:10:40.880]   for heart month.
+[01:10:40.880 --> 01:10:47.680]   There are some nice Apple fitness plus features that are specifically for cardio, energizing
+[01:10:47.680 --> 01:10:54.760]   workouts for heart month, as well as some unique challenges for the Apple Watch that
+[01:10:54.760 --> 01:10:56.680]   you can get with the badges.
+[01:10:56.680 --> 01:11:01.560]   And then some really interesting books that have been highlighted, including Heart of
+[01:11:01.560 --> 01:11:09.280]   History, which talks about how we have over time, doctors have over time learned more about
+[01:11:09.280 --> 01:11:16.760]   the heart and been able to understand how it works and what we can do to help it.
+[01:11:16.760 --> 01:11:23.560]   And then also some updates that they've provided on the ongoing heart and movement study.
+[01:11:23.560 --> 01:11:30.040]   So if you have the Apple Research app and you want to head and sign up to be part of
+[01:11:30.040 --> 01:11:34.000]   that heart and movement study, there's some information there worth checking out.
+[01:11:34.000 --> 01:11:38.880]   And then the other thing is that for Black History Month, there's some really cool Apple
+[01:11:38.880 --> 01:11:44.840]   music campaigns that involve music around healing.
+[01:11:44.840 --> 01:11:50.640]   Apple Fitness Plus, which also has some special workouts with playlists that feature black
+[01:11:50.640 --> 01:11:51.840]   artists.
+[01:11:51.840 --> 01:11:56.080]   And I like too that there are some really neat time to walk conversations.
+[01:11:56.080 --> 01:12:02.240]   So time to walk is an app for the Apple Watch that's part of the Fitness Plus feature set
+[01:12:02.240 --> 01:12:06.000]   that lets you listen to someone while you walk.
+[01:12:06.000 --> 01:12:12.240]   And so you and typically the person that's also there will talk to you and walk with you
+[01:12:12.240 --> 01:12:13.240]   as you're doing it.
+[01:12:13.240 --> 01:12:16.480]   So it's just you kind of feel involved with the process.
+[01:12:16.480 --> 01:12:23.960]   And then the very, very cool Apple Watch Unity Lights face is out.
+[01:12:23.960 --> 01:12:24.960]   Folks can get that.
+[01:12:24.960 --> 01:12:26.120]   I'm going to read this.
+[01:12:26.120 --> 01:12:27.480]   The band is complimented.
+[01:12:27.480 --> 01:12:30.840]   We'll talk about the band in a second by the Unity Lights Watch face, which is designed
+[01:12:30.840 --> 01:12:36.120]   using 2D ray tracing, a technology never before implemented for a watch face.
+[01:12:36.120 --> 01:12:41.440]   Each pixel on the screen simulates the light and shadow falling across it and the movement
+[01:12:41.440 --> 01:12:46.680]   of the clock hands simultaneously reveal and hide the light changing dynamically throughout
+[01:12:46.680 --> 01:12:48.040]   the day.
+[01:12:48.040 --> 01:12:52.200]   The Unity Lights Watch face can be customized to be a full screen or circular dial and includes
+[01:12:52.200 --> 01:12:56.160]   a black and white option, tick marks and up to four complications.
+[01:12:56.160 --> 01:12:58.160]   I love this watch face.
+[01:12:58.160 --> 01:13:01.040]   It's so cool looking.
+[01:13:01.040 --> 01:13:02.040]   It's just really neat.
+[01:13:02.040 --> 01:13:05.520]   And what I love about it is as you look at it throughout the day, the way that it changes
+[01:13:05.520 --> 01:13:07.720]   and you see the shadows is really cool.
+[01:13:07.720 --> 01:13:10.680]   And then of course, I think this is Apple's second.
+[01:13:10.680 --> 01:13:11.840]   Renee can probably correct me.
+[01:13:11.840 --> 01:13:15.980]   Apple's second black Unity watch band.
+[01:13:15.980 --> 01:13:24.860]   This one is the braided solo loop band, which features the colors of the Pan-African flag.
+[01:13:24.860 --> 01:13:29.980]   So I of course, picked that up as well because I'm trying to be a collector of the Pride
+[01:13:29.980 --> 01:13:34.540]   Edition and now the black Unity Edition bands, which are very neat.
+[01:13:34.540 --> 01:13:41.020]   And of course, Apple donates a portion of the proceeds to some different organizations.
+[01:13:41.020 --> 01:13:43.500]   So yeah, just wanted to highlight those things.
+[01:13:43.500 --> 01:13:49.420]   You can check out the news, the press releases, which I'll include in the show notes that
+[01:13:49.420 --> 01:13:55.180]   has all sorts of information about these different initiatives and highlights that are there.
+[01:13:55.180 --> 01:13:57.380]   So you can check all of that stuff out.
+[01:13:57.380 --> 01:14:00.140]   But wanted to give that a little brief highlight.
+[01:14:00.140 --> 01:14:06.620]   I'd like to see how they put together the Unity Lights Watch face because my first impression
+[01:14:06.620 --> 01:14:11.540]   was that, wow, what an interesting flex about how powerful the processor inside the Apple
+[01:14:11.540 --> 01:14:12.540]   watches.
+[01:14:12.540 --> 01:14:17.620]   But then immediately, if they're actually calculating things, how is that affecting battery life?
+[01:14:17.620 --> 01:14:20.460]   And I'm sure it's not affecting battery life.
+[01:14:20.460 --> 01:14:27.980]   So I've loved to hear about exactly what went into this and how they handle rendering dynamic
+[01:14:27.980 --> 01:14:33.860]   watch faces in such a way that it doesn't have an appreciable effect on the battery.
+[01:14:33.860 --> 01:14:39.780]   I mean, every kind of thing, but it's probably not always on watch faces it.
+[01:14:39.780 --> 01:14:41.940]   Oh, that's a good question.
+[01:14:41.940 --> 01:14:44.220]   Let me swipe over to it and see if it's in case.
+[01:14:44.220 --> 01:14:47.820]   It hides the second hand when you're in always on mode.
+[01:14:47.820 --> 01:14:48.820]   Got it.
+[01:14:48.820 --> 01:14:53.100]   Yeah, that is, I would love to hear about that too, Andy.
+[01:14:53.100 --> 01:14:54.700]   That would be interesting to hear what.
+[01:14:54.700 --> 01:14:58.420]   It's not updating the screen except for once every minute if it has to.
+[01:14:58.420 --> 01:15:01.060]   How they went about developing this with the ray tracing.
+[01:15:01.060 --> 01:15:06.300]   Because yeah, the last time I heard conversation about ray tracing, it was about the PlayStation
+[01:15:06.300 --> 01:15:08.900]   5 and the Xbox one hand.
+[01:15:08.900 --> 01:15:09.900]   Right.
+[01:15:09.900 --> 01:15:13.940]   So yeah, the fact that it's happening on my Apple watch is pretty impressive.
+[01:15:13.940 --> 01:15:15.860]   Yeah.
+[01:15:15.860 --> 01:15:20.780]   And I think that the it could be something that's cashed too.
+[01:15:20.780 --> 01:15:23.940]   You know, so so it doesn't have to you don't have to actually render it.
+[01:15:23.940 --> 01:15:26.940]   And ray tracing has become ray tracing is pretty efficient.
+[01:15:26.940 --> 01:15:30.180]   You know, when you have a single point and you're not animating it, it can be pretty
+[01:15:30.180 --> 01:15:32.780]   efficient about it doesn't have to count because it doesn't have to update everything.
+[01:15:32.780 --> 01:15:34.780]   It has to update what's changing.
+[01:15:34.780 --> 01:15:37.100]   And so you can become a lot more efficient.
+[01:15:37.100 --> 01:15:38.100]   Still more.
+[01:15:38.100 --> 01:15:39.100]   I'm trying to find it.
+[01:15:39.100 --> 01:15:40.100]   Like this is the unity one.
+[01:15:40.100 --> 01:15:41.100]   Gotta go to the new face.
+[01:15:41.100 --> 01:15:42.860]   You gotta go to the new faces and type of new faces.
+[01:15:42.860 --> 01:15:45.300]   I added unity, but it's I don't see what I'm looking at.
+[01:15:45.300 --> 01:15:46.300]   That's ray tracing.
+[01:15:46.300 --> 01:15:47.940]   It's got the green and the red.
+[01:15:47.940 --> 01:15:48.940]   Yeah.
+[01:15:48.940 --> 01:15:51.500]   Are you looking at the old unity face?
+[01:15:51.500 --> 01:15:52.500]   No, he's got it.
+[01:15:52.500 --> 01:15:53.660]   He's just not.
+[01:15:53.660 --> 01:15:55.140]   Yeah.
+[01:15:55.140 --> 01:15:57.620]   So that's the one with the green on top and the red on the bottom, but there's another
+[01:15:57.620 --> 01:15:59.900]   one that I'm missing.
+[01:15:59.900 --> 01:16:00.900]   That's the one I'm looking for.
+[01:16:00.900 --> 01:16:01.900]   That's the old one.
+[01:16:01.900 --> 01:16:06.900]   John, can you pull up the newsroom page?
+[01:16:06.900 --> 01:16:10.020]   I think he's got the right one, Alex.
+[01:16:10.020 --> 01:16:11.020]   Row 29.
+[01:16:11.020 --> 01:16:12.020]   I still see those hands.
+[01:16:12.020 --> 01:16:13.020]   Yeah.
+[01:16:13.020 --> 01:16:14.020]   Yeah.
+[01:16:14.020 --> 01:16:15.020]   Yeah, the town.
+[01:16:15.020 --> 01:16:16.020]   Yeah.
+[01:16:16.020 --> 01:16:17.020]   I don't know.
+[01:16:17.020 --> 01:16:18.020]   And then yeah, go.
+[01:16:18.020 --> 01:16:19.020]   I don't want to take up the thing.
+[01:16:19.020 --> 01:16:20.020]   No, no, that's okay.
+[01:16:20.020 --> 01:16:21.020]   Because I am kind of curious.
+[01:16:21.020 --> 01:16:22.380]   I'm the kind of the nine that that part I don't understand.
+[01:16:22.380 --> 01:16:25.540]   Like that doesn't look like anything that doesn't look like ray tracing to me.
+[01:16:25.540 --> 01:16:27.380]   That's what I got when I got unity.
+[01:16:27.380 --> 01:16:33.300]   When I did the unity watch face, I got that 10 and nine that we see in the thing where
+[01:16:33.300 --> 01:16:34.740]   I see it in the bottom.
+[01:16:34.740 --> 01:16:35.740]   I think that the bottom.
+[01:16:35.740 --> 01:16:39.540]   Yeah, I'm not sure why it's not showing up because I think that he's talking about that
+[01:16:39.540 --> 01:16:44.500]   the one from last year, Renee, where it's just like two splotches of color.
+[01:16:44.500 --> 01:16:45.500]   Yeah.
+[01:16:45.500 --> 01:16:46.500]   And that's why that's what shows up on my watch.
+[01:16:46.500 --> 01:16:47.500]   Maybe I need to update it.
+[01:16:47.500 --> 01:16:49.060]   Yeah, that's probably what it is.
+[01:16:49.060 --> 01:16:50.060]   It just has enough.
+[01:16:50.060 --> 01:16:53.700]   Sorry for all my listeners listening to Alex, like, I don't understand.
+[01:16:53.700 --> 01:16:54.700]   I don't understand.
+[01:16:54.700 --> 01:17:03.740]   I just want you're looking for the new unity face, the one with the duty ray tracing.
+[01:17:03.740 --> 01:17:04.740]   Yeah.
+[01:17:04.740 --> 01:17:05.740]   Yeah.
+[01:17:05.740 --> 01:17:07.460]   Oh, Renee's got it on the screen.
+[01:17:07.460 --> 01:17:08.460]   I ran the update.
+[01:17:08.460 --> 01:17:10.900]   I ran the update before the show and I just forgot.
+[01:17:10.900 --> 01:17:11.980]   I just went to my phone.
+[01:17:11.980 --> 01:17:13.300]   I was like, why is this not new?
+[01:17:13.300 --> 01:17:18.940]   And it turns out it's because it's a I didn't hit the approve the new legal.
+[01:17:18.940 --> 01:17:19.940]   Oh, yeah.
+[01:17:19.940 --> 01:17:20.940]   Yeah.
+[01:17:20.940 --> 01:17:22.940]   So that's why I was like, it's not there.
+[01:17:22.940 --> 01:17:23.940]   Anyway, never mind.
+[01:17:23.940 --> 01:17:26.780]   All right, folks.
+[01:17:26.780 --> 01:17:27.780]   I'm sorry.
+[01:17:27.780 --> 01:17:29.700]   Do we have time for a quick second quick thing?
+[01:17:29.700 --> 01:17:31.180]   You have a quick sec, yes.
+[01:17:31.180 --> 01:17:33.180]   OK, sorry.
+[01:17:33.180 --> 01:17:37.740]   It would be amazing if Apple created an API for this kind of thing, like really super
+[01:17:37.740 --> 01:17:42.100]   dynamic watch faces that aren't just simply complications, not just simply, oh, well,
+[01:17:42.100 --> 01:17:43.860]   there's a little animated person on it.
+[01:17:43.860 --> 01:17:48.340]   Like there's a there's a dust designer by the name of had to look at the name Martin
+[01:17:48.340 --> 01:17:54.340]   Boss who like 10 years ago came up with a an art series called real time where they're
+[01:17:54.340 --> 01:17:59.620]   there clocks, but it's a video projection so that like there's a one of these installed
+[01:17:59.620 --> 01:18:04.060]   in the train station, airport station in Amsterdam where it looks like there is just
+[01:18:04.060 --> 01:18:10.380]   a guy behind a round panel of frosted glass who is just simply drawing in like the letter
+[01:18:10.380 --> 01:18:15.220]   drawing in the hands, scraping off the paint from the old one, drawing in the new one.
+[01:18:15.220 --> 01:18:19.620]   And he makes he makes he makes versions of this like in all kinds of different articulations
+[01:18:19.620 --> 01:18:25.980]   and imagine I would I would be OK with having an Apple watch that doesn't work with my Android
+[01:18:25.980 --> 01:18:30.980]   phone if when I tell the time there's just like a pair of there's a dude behind the watch
+[01:18:30.980 --> 01:18:35.660]   face that is like physically with a Sharpie drawing in the hands and erasing them once
+[01:18:35.660 --> 01:18:36.660]   a minute.
+[01:18:36.660 --> 01:18:41.060]   And that's it's exactly the sort of stylish thing for Apple to enable this sort of time
+[01:18:41.060 --> 01:18:45.380]   based moving art on your wrist that I think Apple would just really really dig.
+[01:18:45.380 --> 01:18:48.620]   So it would be wonderful they came up with a low party PI for it.
+[01:18:48.620 --> 01:18:52.100]   There's something so weird about them because they've had a tool for years that makes all
+[01:18:52.100 --> 01:18:57.060]   these animated backgrounds for iPhones and iPads and they just there's no public way
+[01:18:57.060 --> 01:19:00.900]   to use it like I would give anything to have like Brad Ellis and all these talented designers
+[01:19:00.900 --> 01:19:04.060]   have access to this tool and make us like a bunch of does not like Apple makes a ton
+[01:19:04.060 --> 01:19:05.060]   of animated wall.
+[01:19:05.060 --> 01:19:09.940]   We got like two a year maybe we can't design any really we can't really get any design
+[01:19:09.940 --> 01:19:14.700]   watch faces like that like regardless of the animated version I just want to watch I just
+[01:19:14.700 --> 01:19:18.300]   want to be able to design watch faces I just want to be able to yeah I mean like like I
+[01:19:18.300 --> 01:19:22.860]   don't this is a definitely a world that I feel like there's something about there's
+[01:19:22.860 --> 01:19:27.620]   something there that must be really important that they won't let me let people build their
+[01:19:27.620 --> 01:19:30.740]   own watch faces like it's just and I get that there might be a power consumption.
+[01:19:30.740 --> 01:19:32.380]   How about a hot spot shoots.
+[01:19:32.380 --> 01:19:36.300]   Yeah there's something there's something because I'm just like I can't understand why I can't
+[01:19:36.300 --> 01:19:39.940]   because I have very specific things I want to put on the watch face like seconds and I
+[01:19:39.940 --> 01:19:44.140]   don't want the sports one everyone always sends me tweets when I say that but I just
+[01:19:44.140 --> 01:19:47.980]   want seconds on a bunch on and some some data and I want to be able to design that and the
+[01:19:47.980 --> 01:19:52.780]   fact that I can't design something simple you know on my watch face just makes me insane
+[01:19:52.780 --> 01:19:56.340]   so I'm just kind of giving up I just use it for timers.
+[01:19:56.340 --> 01:20:00.300]   I find like I because I get over the watch face I just kind of really got into my watch
+[01:20:00.300 --> 01:20:04.780]   my watch is still better than what I had before but I'm not as excited about it because
+[01:20:04.780 --> 01:20:10.300]   I can't if I was able to design watch faces and do it exactly the way I want I think I'd
+[01:20:10.300 --> 01:20:15.020]   be much more passionate about my watch it's something that I use but I don't like I'm
+[01:20:15.020 --> 01:20:16.780]   not over the moon about it.
+[01:20:16.780 --> 01:20:20.700]   I always I also use mine for a timer most of the time I do like that but I like that
+[01:20:20.700 --> 01:20:27.180]   that's the number one number one use number one use for my watch is timers.
+[01:20:27.180 --> 01:20:32.780]   For me it's that and eh no it's not worth like reaching over the bed to the nightstand
+[01:20:32.780 --> 01:20:34.780]   answer that yeah yeah yeah.
+[01:20:34.780 --> 01:20:41.420]   Do you like the fact that I can turn the alarm off it snooze on my phone my turn off snooze
+[01:20:41.420 --> 01:20:42.940]   from your watch is used.
+[01:20:42.940 --> 01:20:47.900]   Pausing my Apple TV as well if I've gotten up and I'm across the room and I want to
+[01:20:47.900 --> 01:20:52.860]   I want to be able to see whatever it is then I will pause it so yeah there are a few of
+[01:20:52.860 --> 01:20:56.860]   those kind of lazy day features that I like to use as well as the fact that it's always
+[01:20:56.860 --> 01:20:59.820]   tracking my by my or my health stuff.
+[01:20:59.820 --> 01:21:05.020]   Alright we are going to take a quick break before we come back with the rest of the show
+[01:21:05.020 --> 01:21:10.380]   but I want to tell you about cash fly because guess what this episode of Backbreak Weekly
+[01:21:10.380 --> 01:21:13.180]   is literally brought to you by CashFly.
+[01:21:13.180 --> 01:21:17.100]   How do we know the CashFly is amazing it's because we've been using them for more than
+[01:21:17.100 --> 01:21:22.060]   10 years now and it's been pretty awesome.
+[01:21:22.060 --> 01:21:29.020]   Deliver your video with CashFly the best throughput and global reach making your content
+[01:21:29.020 --> 01:21:31.020]   infinitely scalable.
+[01:21:31.020 --> 01:21:37.580]   You can go live in hours not days with sub one second latency ditch your unreliable web
+[01:21:37.580 --> 01:21:43.820]   RTC solution for their web socket live video workflow that is scalable to millions of users.
+[01:21:43.820 --> 01:21:49.740]   That lets you beat the competition because no one wants to wait for content to load with CashFly's
+[01:21:49.740 --> 01:21:55.660]   ultra low latency video streaming you will dramatically increase your sites and applications
+[01:21:55.660 --> 01:21:58.940]   speed for global audiences.
+[01:21:58.940 --> 01:22:03.180]   Reach your audience anywhere in the world with 50+ locations around the globe content
+[01:22:03.180 --> 01:22:08.060]   will be delivered closer to your customers outperforming local CDNs.
+[01:22:08.060 --> 01:22:13.580]   You can take a load off your origin servers and reduce those S3 bills so reducing the bandwidth
+[01:22:13.580 --> 01:22:19.420]   and increasing your cash hit ratio to 100% with CashFly's storage optimization system
+[01:22:19.420 --> 01:22:22.940]   and the fully managed CDN solutions.
+[01:22:22.940 --> 01:22:28.220]   With CashFly's elite managed packages you're going to get the VIP treatment 24/7 support
+[01:22:28.220 --> 01:22:32.780]   and response times in less than an hour and in most cases they will already know of any
+[01:22:32.780 --> 01:22:36.300]   issue so I'll be working to fix them before your team even knows.
+[01:22:36.300 --> 01:22:40.780]   With CashFly you'll get ultra low latency video streaming that will deliver video
+[01:22:40.780 --> 01:22:47.180]   to more than a million concurrent users lightning fast gaming which will deliver downloads faster
+[01:22:47.180 --> 01:22:54.060]   with zero lag glitches or outages mobile content optimization that offers automatic and simple
+[01:22:54.060 --> 01:23:01.020]   image optimization so your site will load faster on any device and multi CDN for redundancy and
+[01:23:01.020 --> 01:23:06.700]   failover which intelligently balances your traffic across multiple providers giving you
+[01:23:06.700 --> 01:23:10.860]   the shortest routes and mitigating against performance glitches.
+[01:23:10.860 --> 01:23:16.780]   CashFly is 10 times faster than traditional methods and it's on six continents.
+[01:23:16.780 --> 01:23:24.380]   They are 30% faster than other major CDNs with a 98% cash hit ratio and have had how much
+[01:23:24.380 --> 01:23:31.900]   100% availability in the past 12 months. Best of all they have 24/7, 365,
+[01:23:31.900 --> 01:23:35.820]   priority support so you know they'll always be there for you when you need them.
+[01:23:35.820 --> 01:23:41.100]   Just for Twit listeners CashFly is giving away a complementary detailed analysis of your current
+[01:23:41.100 --> 01:23:48.380]   CDN bill and usage trends. See if you are overpaying 20% or more for CDN.
+[01:23:48.380 --> 01:24:00.220]   Learn more at twit.cashfly.com. That's twit.cashfly.com. Thank you CashFly for bringing everyone this
+[01:24:00.220 --> 01:24:05.500]   episode of Mac Break Weekly. We appreciate it. This continues to be awesome.
+[01:24:06.700 --> 01:24:15.260]   All right we're holding up a lighter, a candle pouring a bit of Butterbeer out. I'm trying to
+[01:24:15.260 --> 01:24:20.460]   think of other Harry Potter references. I don't know a whole lot about it but Harry Potter Wizards
+[01:24:20.460 --> 01:24:29.500]   Unite has been discontinued. This was a Pokemon Go style game that was Harry Potter themed and
+[01:24:29.500 --> 01:24:37.340]   I'm just curious. Renee I think you still play Pokemon Go. What are your thoughts on?
+[01:24:37.340 --> 01:24:42.380]   Yes exactly. I think you are you and her are the people who are just like keeping that game alive.
+[01:24:42.380 --> 01:24:50.300]   What are your thoughts on sort of the life of Harry Potter Wizards Unite and maybe why this one
+[01:24:50.300 --> 01:24:57.740]   ended up dropping off before Pokemon Go did and if we're going to continue to see these kinds of
+[01:24:58.380 --> 01:25:04.220]   real world sort of AR experiences. I mean I'd like to think that it was just because a lot of people
+[01:25:04.220 --> 01:25:08.220]   decided that JK Rowling was intolerable and we're never going to play it again but I think it's much
+[01:25:08.220 --> 01:25:15.020]   more likely that it was just the worst parts of Pokemon Go's gameplay made into one single app for
+[01:25:15.020 --> 01:25:24.620]   like it was like the most annoying, exasperating, arduous aspects of Pokemon Go all packaged together
+[01:25:24.620 --> 01:25:29.340]   into like what looked like a cheap franchise grab and I think people see through that kind of stuff.
+[01:25:29.340 --> 01:25:33.020]   It wasn't a good game at the end of the day and doesn't matter what your IP is if you're not a
+[01:25:33.020 --> 01:25:37.260]   good game that people enjoy and want to play. I think Pokemon Go benefited from being novel at
+[01:25:37.260 --> 01:25:42.620]   the time but also being a beloved franchise and having interesting like not it is annoying
+[01:25:42.620 --> 01:25:46.780]   many aspects that are right with Pokemon Go but also a lot of fun parts to it. I think it was just
+[01:25:46.780 --> 01:25:54.540]   way better balanced. I played Harry Potter Wizards Unite for longer than I played
+[01:25:54.540 --> 01:26:01.020]   Pokemon Go but I still ended up giving it up. I don't really play any of those.
+[01:26:01.020 --> 01:26:05.500]   They I dropped it in a trash can outside Chick-fil-A and I never looked back.
+[01:26:05.500 --> 01:26:11.820]   Exactly but anyway I just wanted to give a little moment for that.
+[01:26:11.820 --> 01:26:14.940]   I think the Kingdom Rush is amazing.
+[01:26:14.940 --> 01:26:22.140]   That's the only game I play. Every time I see a game I'm like well I only play one level on one
+[01:26:22.140 --> 01:26:24.460]   game and I've been playing the same level for the last six months.
+[01:26:24.460 --> 01:26:29.660]   I'm getting better at it. What about you Andy? Do you have any mobile games you play?
+[01:26:29.660 --> 01:26:38.700]   Honestly my mobile game is Lightroom Mobile. It feels exactly the same role that a mobile game
+[01:26:38.700 --> 01:26:43.180]   on my phone plays which is that when I have some downtime whether I'm waiting for a train or
+[01:26:43.180 --> 01:26:49.420]   whether I'm just you know trying to not do actual work I will go through my Google Photos or my
+[01:26:49.420 --> 01:26:56.300]   Apple Photos. Real I will find a photo that I took a day ago a month ago a year ago that I never
+[01:26:56.300 --> 01:27:01.260]   did anything with and then like the next time I checked the times like oh 53 minutes have gone
+[01:27:01.260 --> 01:27:05.340]   by and I've done like three a.r.a. different iterations of this four of which I think are
+[01:27:05.340 --> 01:27:10.060]   really really cool so that's I have to say that that really really is my game.
+[01:27:10.060 --> 01:27:18.700]   Nice. All right let's talk about this this rumor and then we'll head into the
+[01:27:18.700 --> 01:27:26.460]   picks of the week. I wanted to talk about this report from Mark German. This one is not as far as
+[01:27:26.460 --> 01:27:33.900]   I can tell I will scour the page and this one is not a newsletter article. It is instead just an
+[01:27:33.900 --> 01:27:41.820]   article. Apple to Rival Square by turning iPhones into payment terminals. So the idea here is that
+[01:27:42.700 --> 01:27:50.940]   you could just use the iPhone itself or an iPad even thanks to the NFC chip that's used for Apple
+[01:27:50.940 --> 01:27:59.740]   Pay to create a little payment terminal system which I would quite like I think if there was the
+[01:27:59.740 --> 01:28:07.900]   ability to create a little you know store that you wanted to create at a farmers market or a pop-up
+[01:28:07.900 --> 01:28:14.380]   or something like that and to be able to just tap my phone Apple Pay to someone the cost of whatever
+[01:28:14.380 --> 01:28:23.100]   it happens to be. Of course it's unclear yet what exactly this could look like how exactly this is
+[01:28:23.100 --> 01:28:28.940]   going to be released but in the article German said Apple may begin rolling out the feature via a
+[01:28:28.940 --> 01:28:32.780]   software update in the coming months the company is expected to release the first beta version of
+[01:28:32.780 --> 01:28:37.740]   iOS 15.4 in the near future which is likely to see a final release for consumers as early as the
+[01:28:37.740 --> 01:28:44.300]   spring. So this could potentially come as early as the spring. It could be later but I'm just curious
+[01:28:44.300 --> 01:28:52.620]   your thoughts on this potential feature in general and if you see Apple like is this a space that
+[01:28:52.620 --> 01:28:59.340]   Apple would want to be in sort of business small business payment processing and this would go
+[01:28:59.340 --> 01:29:04.060]   into the services category right? Well I think that the thing the interesting thing is is the
+[01:29:04.060 --> 01:29:08.140]   Apple Pay makes it relatively easy for them to implement they just have to you know ID the
+[01:29:08.140 --> 01:29:12.460]   connection between folks and make that a little bit reduce some of the friction. The real challenge
+[01:29:12.460 --> 01:29:18.460]   with charging people isn't really making the charge it is managing that charge okay where did that
+[01:29:18.460 --> 01:29:21.340]   money come from and what did they buy and what do they you know that's the thing that Square
+[01:29:21.340 --> 01:29:26.700]   when you have a Square terminal there's a lot more to it than than just I can you know validate
+[01:29:26.700 --> 01:29:31.740]   a charge between two phones it's it's keeping track and managing that so if Apple was able to do
+[01:29:31.740 --> 01:29:35.980]   that and were able to it has to either integrate with something that can manage that but it has
+[01:29:35.980 --> 01:29:40.620]   to it's the entire charge history that's going to be important to that retailer and we don't know
+[01:29:40.620 --> 01:29:46.620]   what that looks like yet but as far as being able to casually what this sounds like it's doing that's
+[01:29:46.620 --> 01:29:52.380]   different is I can give money to a stranger like right now we can text money you know to folks but
+[01:29:52.380 --> 01:29:57.340]   I can basically you know do that and of course I the question also is is will this only work with
+[01:29:57.340 --> 01:30:01.020]   iPhones or if you're going to make it a teller system you kind of have to have me able to support
+[01:30:01.020 --> 01:30:05.740]   Android as well so that that can work and how does that work you know and maybe say I can only do
+[01:30:05.740 --> 01:30:09.980]   iPhones but it does become much harder if someone quacks things like I can't take your money because
+[01:30:09.980 --> 01:30:17.340]   I need an an I need an app iPhone yeah I support all the play yeah this is this is also interesting
+[01:30:17.340 --> 01:30:22.620]   if you think of way way in the future more and more governments are starting to look into digital
+[01:30:22.620 --> 01:30:27.420]   currencies just as regular legal currency as fiat tender and we're not talking about Ethereum
+[01:30:27.420 --> 01:30:33.740]   we're not talking about you know do you know that a character from the office is is is creating
+[01:30:33.740 --> 01:30:40.140]   their own like cryptocurrency that's gonna mind up really what but but yeah oh god this is
+[01:30:40.140 --> 01:30:47.420]   which was what was his name is what he's one of the salesman he was always doing a crossword puzzle
+[01:30:47.420 --> 01:30:53.500]   oh Stanley Hudson Stanley thank you that's it because there was there was there was a joke in
+[01:30:53.500 --> 01:30:58.300]   which the Dwight Shrute was like was temporary manager and my mode actually you get your
+[01:30:58.300 --> 01:31:04.380]   inner family nickels right so so he was doing like crypto like that that's not gonna end well
+[01:31:04.380 --> 01:31:10.220]   but but actually even the even the US government the Fed has actually just released like a long
+[01:31:10.220 --> 01:31:15.900]   long paper I think just a week or two ago saying that we're looking into this we're gonna go
+[01:31:15.900 --> 01:31:19.740]   cautiously but we're definitely investigating this here are the problems that we think we'd
+[01:31:19.740 --> 01:31:24.620]   like to address before we start thinking about a digital dollar and we're opening up like the
+[01:31:24.620 --> 01:31:30.380]   phone lines for for comments from people who are invested in this but you could imagine what happens
+[01:31:30.380 --> 01:31:35.420]   if five years from now this becomes even bigger thing than it is right now and that the
+[01:31:35.420 --> 01:31:43.980]   a phone is is kind of required to be a wallet for cash not just not just a
+[01:31:43.980 --> 01:31:49.180]   an allegorical wallet that this is how I pay this is how I take money out of my wallet and give it to
+[01:31:49.180 --> 01:31:56.060]   you whether it is like Ethereum whether it is a federal currency and you think that this is I
+[01:31:56.060 --> 01:32:00.220]   don't think that this is necessarily what Apple is doing I think one of the questions is that is
+[01:32:00.220 --> 01:32:05.340]   this something that anybody any Apple phone user will be able to set up point to point or is this
+[01:32:05.340 --> 01:32:10.780]   simply something that if you are if you are the creator of PayPal if you are the creator of another
+[01:32:10.780 --> 01:32:15.980]   payment processor you can actually access this API if you have the right permissions but it would be
+[01:32:15.980 --> 01:32:21.420]   interesting to see if Apple if five years from now phones have to have that ability to be able to
+[01:32:21.420 --> 01:32:27.340]   do that kind of point to point transaction to exchange digital digital currency just on a regular
+[01:32:27.340 --> 01:32:33.660]   basis without having to go through any sort of a payment processor as a middleman and I have to say
+[01:32:33.660 --> 01:32:39.900]   that my for 90% of my transactions when I'm out of the house it's all through Apple Pay like I don't
+[01:32:39.900 --> 01:32:44.300]   I don't even use my credit card or anything else I just use I just put money into my Apple Pay all
+[01:32:44.300 --> 01:32:49.260]   the time so I just have you know that's my wallet you know and I walk around and and if someone won't
+[01:32:49.260 --> 01:32:56.780]   take it usually I'm it goes somewhere else so so so so the so that usually is I mean at first it
+[01:32:56.780 --> 01:33:01.340]   was an experiment and I prioritize but at this point you know I don't carry cash you know and so
+[01:33:01.340 --> 01:33:07.900]   so that that you know I have to be able to do that and so it's it's a really I think for a
+[01:33:07.900 --> 01:33:11.260]   growing number of people it's become that where you're not really you don't really want to touch
+[01:33:11.260 --> 01:33:14.460]   the cash you know with COVID you know like you're just kind of like I don't really want to touch
+[01:33:14.460 --> 01:33:18.860]   that and I don't want to I don't want to handle it and so that so it's become that for me I know
+[01:33:18.860 --> 01:33:24.140]   when I go to buy groceries gas even even at the farmers market I walk around with my phone and
+[01:33:24.140 --> 01:33:29.180]   just they everybody has something that you can do that with yeah but it is going to be with this
+[01:33:29.180 --> 01:33:34.460]   another topic that could be at our conversation because it's so interesting but it it's the the
+[01:33:34.460 --> 01:33:39.900]   weakness of those kind of payment systems whether it is apple pay whether it's a paypal whether it's
+[01:33:39.900 --> 01:33:44.540]   any sort of a tapped pay system is that at some point a credit card company has to go through it
+[01:33:44.540 --> 01:33:49.980]   at some point the user has to have a bank account not all people have access to banking and the
+[01:33:49.980 --> 01:33:54.780]   ability to exchange digital currency as easily as they could exchange cash cash the ability to
+[01:33:54.780 --> 01:34:01.260]   receive money as easily as currency without having to have a fixed address without having to show up
+[01:34:01.260 --> 01:34:07.420]   in a bank without having to prove to visa mastercard America express that yes please give me a 500
+[01:34:07.420 --> 01:34:10.780]   dollar credit limit and let me have let me have a credit card so I can have those digits that
+[01:34:10.780 --> 01:34:16.220]   will allow me to access these services that could be extremely transformative well and the thing is
+[01:34:16.220 --> 01:34:21.100]   is that there's parts of Africa that that people are using their mobile phone right now to pay for
+[01:34:21.100 --> 01:34:26.540]   almost everything you know like and so so the you know and they have you know it's actually an access
+[01:34:26.540 --> 01:34:31.500]   is magnifier for them because they you know they can't get the cash they can't get those things but
+[01:34:31.500 --> 01:34:35.740]   they can pay each other back and forth in mobile and buy things and sell them and everything else
+[01:34:35.740 --> 01:34:42.540]   and so that that is a it's already become a huge access enabler for you know different parts of the
+[01:34:42.540 --> 01:34:52.380]   world yeah all right let us move in to the final stage of the show which is the picks of the week
+[01:34:52.380 --> 01:34:58.060]   I think Andy we will start with you tell us about your pick of the week
+[01:34:58.060 --> 01:35:04.300]   mine is as a set of lock picks it's the covert instruments genesis lock pick set
+[01:35:04.300 --> 01:35:10.140]   which you can go at covert instruments calm a lot of you are pumping your fists in the air oh yes
+[01:35:10.140 --> 01:35:14.540]   the lock picking lawyer the lock picking lawyer yeah that's the lock picking lawyer is one of the
+[01:35:14.540 --> 01:35:20.860]   great channel on youtube where he is an expert locksmith lock picker and locksmith and he will
+[01:35:20.860 --> 01:35:27.100]   spend these videos of just two or three minutes of the same format in which he will show you this
+[01:35:27.100 --> 01:35:32.300]   incredibly impressive lock and then he'll give you like a 20 second tour of it and then he'll like
+[01:35:32.300 --> 01:35:38.380]   take out like one of his lock picking tools and say okay good and try to pick it say okay good
+[01:35:38.380 --> 01:35:42.380]   good good sound of one nothing out of two nothing out of three false set on three
+[01:35:42.380 --> 01:35:48.620]   and he'll get it open and so this is this is one of the reasons why whenever you're buying a lock
+[01:35:48.620 --> 01:35:53.180]   particularly if you go into Home Depot right there in the store go hold your phone and do it with
+[01:35:53.180 --> 01:35:57.100]   search for lock picking lawyer and then the name of the lock that you're looking at because chances
+[01:35:57.100 --> 01:36:03.820]   are excellent that like a like I did I'm putting in a smart lock partly to test out smart locks
+[01:36:03.820 --> 01:36:08.220]   but also because it'll solve a problem for me but the first thing I did was after getting the
+[01:36:08.220 --> 01:36:12.460]   features like okay we'll see what the what the pick resistance it is and he was able to open it
+[01:36:12.460 --> 01:36:18.140]   in like five seconds and the the that's not a concern if it's this guy who has had thousands
+[01:36:18.140 --> 01:36:23.420]   and thousands of hours of expertise and sometimes he will bring out a tool that he and a partner
+[01:36:23.420 --> 01:36:28.460]   built specifically to defeat this kind of lock what you worry about is when there is a common
+[01:36:28.460 --> 01:36:35.980]   lock picking tool that you don't need any expertise whatsoever to use and even I I haven't done
+[01:36:35.980 --> 01:36:40.780]   anything with lock picking or or safe cracking since college and they have every every every nerdy
+[01:36:40.780 --> 01:36:48.220]   kid has a has a story either about how they got into magic hacking or lock picking because oftentimes
+[01:36:48.220 --> 01:36:52.380]   they're all the same thing where people believe what they want to believe and our existence is
+[01:36:52.380 --> 01:36:58.300]   in largely a collective illusion of the moment that if you're like 17 18 19 and you learn that all
+[01:36:58.300 --> 01:37:03.900]   locks are a lie that will change your outlook on a lot of things in life but so so I got I just
+[01:37:03.900 --> 01:37:10.460]   ordered this is like 25 bucks it contains a set of set a simple picks and levers to like put pressure
+[01:37:10.460 --> 01:37:16.780]   on the lock as you're trying to pick it and have not used this tool ever and I won't point out
+[01:37:16.780 --> 01:37:22.300]   which one it is but it's like a very simple tool and within about 20 or 30 seconds I got this lock
+[01:37:22.300 --> 01:37:28.060]   open and after actually watching a video on how to use that tool which is a description of maybe
+[01:37:28.060 --> 01:37:34.140]   two or three sentences I was able to start opening it in like five to ten seconds so the the news is
+[01:37:34.140 --> 01:37:40.220]   not all bad I'm glad that I found out about this it's it's I'm gonna basically take the the one of
+[01:37:40.220 --> 01:37:45.660]   the reasons that I picked this lock is because you can just basically take out the core take it to a
+[01:37:45.660 --> 01:37:50.860]   locksmith and say hi this is garbage so only one that is like more pick resistant but it does go
+[01:37:50.860 --> 01:37:56.540]   to show that if you have one of these not only is it fun to basically learn lock picking but also
+[01:37:56.540 --> 01:38:02.220]   just get this one specific tool this one little lever test out a lock that you're trying to buy
+[01:38:02.220 --> 01:38:08.380]   if your if securities are really big issue find out how quickly this just someone with no experience
+[01:38:08.380 --> 01:38:14.140]   can open it because I don't worry about the pros when it comes to stuff like this I worry about the
+[01:38:14.140 --> 01:38:18.140]   the knuckleheads the people who like might have seen a video like this and like so now they've got
+[01:38:18.140 --> 01:38:22.540]   one of these in their pocket saying hey it's good boy it's raining outside hey baby I can like pick
+[01:38:22.540 --> 01:38:26.780]   open this door break break break break break hey look I'm inside huh now that I'm here let's see
+[01:38:26.780 --> 01:38:31.100]   what cut what the person got they've gotten in their mail today so that's the sort of stuff you
+[01:38:31.100 --> 01:38:35.340]   kind of want to protect against it's only 25 bucks the whole site is really cool but this is a good
+[01:38:35.340 --> 01:38:42.140]   starter set that comes in a nice case they're very very well made and unfortunately it's it's
+[01:38:42.140 --> 01:38:46.780]   let's it will open your open your eyes to a much larger world once you start taking a look at this
+[01:38:46.780 --> 01:38:56.060]   stuff did you share a price I forgot I'm sorry I think it's $25 I could be if it's the genesis lock
+[01:38:56.060 --> 01:39:03.900]   pick set yes it's exactly 25 bucks all right Renee Richie tell us about your pick of the week
+[01:39:03.900 --> 01:39:12.220]   so I was complaining on Twitter which is something I do really really frequently because Final Cut
+[01:39:12.220 --> 01:39:17.980]   Pro is a terrific tool I love it it's the fastest thing to get work off of SD cards and onto YouTube
+[01:39:17.980 --> 01:39:23.100]   for me but it's perplexingly missing some features like it needs like if I drag stuff around it
+[01:39:23.100 --> 01:39:27.580]   doesn't align the way it does in keynote and also there's no strip silence which is a great feature
+[01:39:27.580 --> 01:39:32.540]   in Logic Pro that I'll just go through and automatically put cuts for you wherever dialogue ends and
+[01:39:32.540 --> 01:39:35.980]   begins so then you can just go through and eliminate all that stuff or it'll actually eliminate it
+[01:39:35.980 --> 01:39:42.220]   for you but they don't have that in Final Cut if you do that all manually so Rafael I get his last
+[01:39:42.220 --> 01:39:47.980]   name wrong but well-known YouTuber Rafael recommended to me this app called TimeBolt where
+[01:39:47.980 --> 01:39:54.300]   it's not a plugin for any existing editor although it will export XML for Final Cut and premiere
+[01:39:54.300 --> 01:39:59.500]   and resolve and all those things and all it does is ingest the video and then you set the parameters
+[01:39:59.500 --> 01:40:05.100]   like for how long the attack and releases and it'll go through and cut out all the silence
+[01:40:05.100 --> 01:40:09.660]   in your video and I believe it'll do audio as well I was only paying attention to the video part
+[01:40:09.660 --> 01:40:14.220]   similar to how Logic Pro works and then you can either edit in that app if you're only doing
+[01:40:14.220 --> 01:40:19.660]   something really simple or you can go and export that XML loaded into Final Cut and
+[01:40:19.660 --> 01:40:26.620]   a lot of the grunt work in editing a roll or voiceover is done for you it's not exactly what I want
+[01:40:26.620 --> 01:40:33.180]   because I prefer to edit inside multi-cam or compound clips because that way if I make a change to the
+[01:40:34.140 --> 01:40:39.900]   the root clip it'll propagate across every cut that I make for that clip where with this it'll
+[01:40:39.900 --> 01:40:43.820]   just give me the end result of all those cuts so if I want to color correct something I have to do
+[01:40:43.820 --> 01:40:48.460]   it on cut by cut basis which is just not how I like to work but I love the idea of this and if
+[01:40:48.460 --> 01:40:53.500]   it was if you are just doing things where you're cutting single clips or you're cutting voiceover
+[01:40:53.500 --> 01:40:59.260]   or you're cutting a roll and you don't care about compound or multi-cam it is a phenomenal
+[01:40:59.820 --> 01:41:05.260]   phenomenal time saver the pricing is a little bit like there's a subscription you can get for like
+[01:41:05.260 --> 01:41:10.380]   20 bucks a month 100 bucks a year or you can pay once 300 bucks lifetime so you got to figure out
+[01:41:10.380 --> 01:41:14.540]   the value prop for you but for a lot of people especially when you're editing time is you know
+[01:41:14.540 --> 01:41:18.300]   you can make more money you can never make more time so it's worth it's absolutely worth looking
+[01:41:18.300 --> 01:41:25.420]   into and it's m1 compatible and the people I know who use it really really like it nice all right
+[01:41:25.420 --> 01:41:33.100]   time bolt at time bolt dot IO Alex Lindsey your pick of the week so I want to thank
+[01:41:33.100 --> 01:41:38.700]   Hasmuk Gajar from South Africa who sent me this case to play with it I was like I was like I want
+[01:41:38.700 --> 01:41:43.420]   to take a look at this case and he's not part of the company he just he just is a friend of mine
+[01:41:43.420 --> 01:41:48.780]   and anyway so he said it it's so great so um so what it does is this is peak designs and you
+[01:41:48.780 --> 01:41:53.740]   you can see that I can this hat this pops off so this is the wallet part he one of the things we
+[01:41:53.740 --> 01:41:59.740]   talked about on office hours at some point was that the I have to have a wallet with my phone
+[01:41:59.740 --> 01:42:03.420]   because although I'll lose the phone or I'll lose the wallet but I never lose both of them
+[01:42:03.420 --> 01:42:07.820]   when they're together and so I always have phones with wallets and so anyway I've had it for the
+[01:42:07.820 --> 01:42:11.900]   last five or six years so anyway this one but I've always wanted to be able to attach it to a tripod
+[01:42:11.900 --> 01:42:17.740]   as well and be able to attach it to other things and those don't mix well together so what this one
+[01:42:17.740 --> 01:42:22.940]   has it's got little mount that you'll see here and it's magnetized so it goes this pops on and this is
+[01:42:22.940 --> 01:42:28.780]   my credit cards that are in here um that are there and so this is something I can just kind of carry
+[01:42:28.780 --> 01:42:33.900]   around it's a wallet it's a phone it's you know those things but what's cool is that it also has
+[01:42:33.900 --> 01:42:39.260]   this is a tripod mount so this is a tripod mount now and I can just simply and it works really
+[01:42:39.260 --> 01:42:45.180]   well it just snaps in and now it's you know it's on and it's I mean I don't know if it would survive a
+[01:42:45.180 --> 01:42:52.380]   9.1 earthquake but probably six you know and um and so but it's you know it's it's on it's on there
+[01:42:52.380 --> 01:42:57.100]   you know and so now I have this and it locks so it's got this little once the magnet guides it
+[01:42:57.100 --> 01:43:02.380]   and gets it in there but then it's really I mean I'll damage the case before it comes off I have
+[01:43:02.380 --> 01:43:07.900]   to push down here to and then and then it'll pull off like that and that was cool is that when you
+[01:43:07.900 --> 01:43:12.860]   pull it down like this it's the magnet keeps it from just falling off so the magnet's enough to
+[01:43:12.860 --> 01:43:18.220]   hold it so if I hold it on the magnet's enough to hold it but so it's it's not like you you you
+[01:43:18.220 --> 01:43:22.780]   do a quick release and your phone falls on the ground so it's it's it's got kind of a nice
+[01:43:22.780 --> 01:43:26.860]   setup and they've got a bunch of different mounts they've got mounts for your so it really is on
+[01:43:26.860 --> 01:43:32.700]   it's mechanically connected not magnetic magnetically connected but the magnet makes it just pop on
+[01:43:32.700 --> 01:43:38.540]   anyway and so but it has ones for your bike it has ones for your car it has you know lots of
+[01:43:38.540 --> 01:43:43.740]   other ones these are the ones that I'm sorry did you say that again no series talking series like
+[01:43:44.460 --> 01:43:51.100]   anyway so it's really cool it's a really cool case I had it for you know and and it's anyway that's
+[01:43:51.100 --> 01:43:59.340]   that's my pick yeah that's a really cool pick I think I think we may have talked about this this
+[01:43:59.340 --> 01:44:04.860]   line before but actually seeing it in use there especially that sort of locking mechanism that's
+[01:44:04.860 --> 01:44:11.180]   very easy and stand so you can you can open up as a stand as well so did your friend send it to
+[01:44:11.180 --> 01:44:14.860]   you and say ah me and Alex I've got this guys for you got to check it out I've been using it for
+[01:44:14.860 --> 01:44:18.700]   y'all's and y'all's it's a very nice guy so you got it just like that
+[01:44:18.700 --> 01:44:24.700]   he just with a funny part it was he has my address wasn't it just showed up and he's like
+[01:44:24.700 --> 01:44:29.820]   I didn't know what was coming like it was just uh you know so it was great yeah yeah so um
+[01:44:29.820 --> 01:44:33.180]   the key is quite a space we've been we've been friends for a long time so anyway so as I just
+[01:44:33.180 --> 01:44:39.740]   wanted to call it out so anyway so it's a really really cool case car mounts a bar mount a bike
+[01:44:39.740 --> 01:44:45.100]   mount motorcycle mount it's a big design it's like peak design is just one of those names where if
+[01:44:45.100 --> 01:44:48.620]   they announce something I just want to know about it I don't know if I'm gonna need it or not but I
+[01:44:48.620 --> 01:44:54.220]   know that it's gonna be really well made and extremely well thought out I have so much lust for their
+[01:44:54.220 --> 01:45:01.340]   travel tripod I've come so close to pulling the triggers to buying it say you have compact
+[01:45:01.340 --> 01:45:06.060]   tripods I know but I don't have that one I know but you're doing fine maybe maybe you want
+[01:45:06.060 --> 01:45:10.540]   340 dollars in the bank more than you want a travel tripod that you're not going to quite use
+[01:45:10.540 --> 01:45:16.860]   that much yeah but it's so well done I want to I'm so I'm supporting the designer I'm supporting
+[01:45:16.860 --> 01:45:23.500]   small business oh god Andy now you really are desperate you are a small business you are the
+[01:45:23.500 --> 01:45:27.980]   smallest possible business you are a freelance journalist in a rapidly collapsing market they
+[01:45:27.980 --> 01:45:37.260]   should be buying things from you my pick of the week I read far too many stories in 2021 about
+[01:45:37.260 --> 01:45:46.140]   people swallowing the air pods they had in their ears and so I began to get paranoid I think twice
+[01:45:46.140 --> 01:45:52.140]   I woke up and the air pod had fallen out of my ear and I was genuinely concerned that I you know
+[01:45:52.140 --> 01:45:57.260]   I checked my breathing I'm like I'm having trouble breathing so twice was enough for me to say I've
+[01:45:57.260 --> 01:46:05.980]   got to try out something else I have a partner and so there are two people that go to bed and because
+[01:46:05.980 --> 01:46:11.580]   of that I the way that I fall asleep is by listening to audiobooks from audible.com not currently a
+[01:46:11.580 --> 01:46:18.780]   sponsor of this show but certainly the network and so that helps me focus the part of my brain
+[01:46:18.780 --> 01:46:22.540]   that wants to spin up on a thousand different things it just focuses on that and the rest of
+[01:46:22.540 --> 01:46:27.580]   me can fall asleep so because there's someone else in the bed I obviously don't want to play that
+[01:46:27.580 --> 01:46:35.180]   audiobook out loud and disturb their sleep so I choose to listen to it I was before using just
+[01:46:35.180 --> 01:46:40.300]   one I'm a side sleeper so I just put one air pod into my ear and lay down and be able to listen to
+[01:46:40.300 --> 01:46:46.060]   the audiobook it's super low volume but after all that paranoia and me sort of scrambling every night
+[01:46:46.060 --> 01:46:51.500]   or every morning going did I swallow it this time I decided to invest in something else this is called
+[01:46:51.500 --> 01:46:57.980]   the acoustic sheep sleep phones I guess these are called the acoustic sheep sleep phones and
+[01:46:57.980 --> 01:47:04.540]   essentially what it is is a headband that wraps around your head so you just put it over your forehead
+[01:47:04.540 --> 01:47:11.420]   and then it loops down over your ears kind of like one of those ear muff formers and inside of
+[01:47:11.420 --> 01:47:18.700]   the sleep phones band there's a speaker on one side and a speaker on the other and they're just
+[01:47:18.700 --> 01:47:27.020]   sort of loose in there but they are sewn into this really really really soft felt and then the wire
+[01:47:27.020 --> 01:47:32.140]   leads to the Bluetooth module that has the battery in it and this sits at the back of your head
+[01:47:32.140 --> 01:47:38.780]   and so you turn it on with this and it does the standard like connected I feel like that voice is
+[01:47:38.780 --> 01:47:46.380]   very common with any third party Bluetooth headphones and from there it connects to your phone and it
+[01:47:46.380 --> 01:47:55.020]   plays music or in my case an audiobook very well and yes as a side sleeper I was concerned
+[01:47:55.020 --> 01:47:59.660]   okay I'm going to be laying on a speaker is that going to hurt me no it's very soft
+[01:47:59.660 --> 01:48:04.860]   I've had no problems with it and then that means also that I'm listening out of both ears instead
+[01:48:04.860 --> 01:48:12.460]   of just one and it's just it's delightful it's quiet enough that because that was the other thing
+[01:48:12.460 --> 01:48:17.100]   is that I tried a bunch of different options ones that may be stuck in my ear better but the problem
+[01:48:17.100 --> 01:48:24.060]   was the Bluetooth profile or whatever it was it would not let me make the music or I mean excuse
+[01:48:24.060 --> 01:48:28.940]   me the audiobook quiet enough which is what I need I need to just be in a very low volume
+[01:48:28.940 --> 01:48:32.700]   so it was kind of like I'd get down it'd still be too loud I'd hit the thing again and then it would
+[01:48:32.700 --> 01:48:39.660]   go completely off it would mute so this has plenty of space to turn up or down the volume as you need
+[01:48:39.660 --> 01:48:47.100]   to and it's great it works for me as a side sleeper occasionally I'll sleep on my back and in that
+[01:48:47.100 --> 01:48:51.740]   position it's also nice and the fabric's very breathable too so it doesn't make me too hot because I was
+[01:48:51.740 --> 01:48:56.700]   worried if my ears were covered that I was going to get too warm but the fabric is super breathable
+[01:48:56.700 --> 01:49:01.340]   so that hasn't been an issue and yeah it's solved my problem and I don't have to wake up with the
+[01:49:01.340 --> 01:49:09.900]   anxiety of yeah breathing in an air pod which is quite nice so oh my god Micah you I saw when
+[01:49:09.900 --> 01:49:14.380]   you're scrolling when you're rolling over the all the different options there's a purple one
+[01:49:14.380 --> 01:49:18.940]   because you should buy one because you would so totally look like Prince like when he was
+[01:49:18.940 --> 01:49:25.180]   when he was wearing that headband that's true maybe I should when I was younger one of my
+[01:49:25.180 --> 01:49:29.100]   one of our family friends always used to say you have to go as Prince for Halloween one year you
+[01:49:29.100 --> 01:49:34.540]   have to go to Prince because she very much like Prince has to go as Micah you don't you don't
+[01:49:34.540 --> 01:49:39.900]   I just you don't look like Prince but you've got all the all the architectural foundations that
+[01:49:39.900 --> 01:49:44.300]   if you made up like Prince people would be like oh my god that guy looks exactly like Prince
+[01:49:44.300 --> 01:49:53.260]   you say there's all losses there's also a wireless charging option for folks who are bougie and
+[01:49:53.260 --> 01:50:01.180]   want the wireless charging option the one that I have was expensive enough at 99.95 there's a
+[01:50:01.180 --> 01:50:06.060]   wired version where you just plug it into your phone or what have you I guess if you got an iPod
+[01:50:06.060 --> 01:50:10.780]   shuffle still you could clip it on the side of the headband which is much less expensive so yeah
+[01:50:10.780 --> 01:50:17.020]   their most expensive model is completely wireless and you just pop it onto this little charging puck
+[01:50:17.020 --> 01:50:22.300]   whenever you need to I've found that it lasts several days before I have to recharge it and then
+[01:50:22.300 --> 01:50:29.980]   afterwards it's just a USB what is it micro on the side to plug it in and get it charged up so
+[01:50:29.980 --> 01:50:38.220]   all right that is that that brings us to the end of this episode of Mac break weekly
+[01:50:38.220 --> 01:50:49.660]   of course you can tune in to watch the show live which records every Tuesday at 11 a.m. Pacific
+[01:50:49.660 --> 01:50:55.900]   time or round about that time at twit.tv/live I think the best way to get the show though is by
+[01:50:55.900 --> 01:51:05.820]   going to twit.tv/mbw because when you do you get the show via audio or video in whatever podcast
+[01:51:05.820 --> 01:51:10.620]   or audio listening application you want you just click subscribe to audio subscribe to video you
+[01:51:10.620 --> 01:51:17.740]   choose apple podcasts google podcasts pocket casts whatever you want to do you can get it there
+[01:51:18.300 --> 01:51:22.940]   and make sure that you get the show as soon as it's available it's kind of the best way to do it
+[01:51:22.940 --> 01:51:30.380]   I should also mention club twit twit.tv/club twit is where you go to check that out club twit is the
+[01:51:30.380 --> 01:51:37.900]   very awesome club where for seven bucks a month you can get every single one of twits shows ad-free
+[01:51:37.900 --> 01:51:43.500]   that's a feed that has all that awesome content ad-free you also get access to the twit plus bonus
+[01:51:43.500 --> 01:51:48.460]   feed that has extra content you won't find anywhere else out takes behind the scenes today
+[01:51:48.460 --> 01:51:54.620]   there'll be a little clip about bragging about hats and mugs and other flexing we did before the
+[01:51:54.620 --> 01:51:59.740]   show kicked off and access to the members only discord which is where you can hang out with your
+[01:51:59.740 --> 01:52:04.620]   fellow club twit members while the show's going on and even when the show's not going on and also
+[01:52:04.620 --> 01:52:10.300]   those of us here at twit are often there seven bucks a month for all that at twit.tv/club twit
+[01:52:10.300 --> 01:52:16.540]   awesome place to go to check that out and I do want to briefly mention one other thing which is that
+[01:52:16.540 --> 01:52:24.700]   our survey is now available our audience survey it is the way that we get to know who all of you
+[01:52:24.700 --> 01:52:30.620]   are out there who are you what are you talking about we want to know what you're into what you
+[01:52:30.620 --> 01:52:37.900]   like and that survey helps us make sure that we understand our audience it's a twit.tv/survey22
+[01:52:37.900 --> 01:52:42.300]   it'll only take you a few minutes we were testing it before I think I took it eight times and only
+[01:52:42.300 --> 01:52:49.260]   took me a few minutes to do it eight times so should take you even less time to do it twit.tv/survey22
+[01:52:49.260 --> 01:52:56.140]   all right it is time to thank our awesome guests Alex Lindsay office hours dot global what do you
+[01:52:56.140 --> 01:53:02.620]   have coming up oh it's it's great we we to um we've we had a big discussion about digital events on
+[01:53:02.620 --> 01:53:07.260]   Monday today we we were talking about stream voodoo which is another kind of point-to-point
+[01:53:07.260 --> 01:53:13.900]   connection tomorrow talking about photogrammetry so so the how to turn you know photos into models
+[01:53:13.900 --> 01:53:21.100]   and then Thursday we talk about our new launch of all the big video system that we're building
+[01:53:21.100 --> 01:53:25.580]   and then on Friday we have Microsoft on talking about teams and broadcast and stuff like that
+[01:53:25.580 --> 01:53:30.300]   so it's a busy week busy week at office hours it always is and of course we do education on
+[01:53:30.300 --> 01:53:35.020]   Saturdays which we don't broadcast to YouTube so you have to be there and zoom to see it but it's
+[01:53:35.020 --> 01:53:39.260]   an unbelievable conversation among educators I'm just talking about the issues that they're
+[01:53:39.260 --> 01:53:44.060]   dealing with and there some of it is philosophical some of it is technical it's just an incredible
+[01:53:44.060 --> 01:53:50.940]   two hours and so that's on Saturdays eight o'clock in the morning brilliant Andy Anotko of course
+[01:53:50.940 --> 01:53:59.420]   folks can listen to you on WGBH but yeah anything you want to plug? Yep I'm on 1230 in the afternoon
+[01:53:59.420 --> 01:54:06.700]   on Friday this week go to WGBH News.org to stream it live or stream it probably about eight hours
+[01:54:06.700 --> 01:54:13.740]   later because they usually break out my segment my weekly high-tech hidey-ho as a separate thing
+[01:54:13.740 --> 01:54:21.660]   but yeah WGBH News.org. Excellent and Renee Richie at youtube.com/Renee Richie what do you have to
+[01:54:21.660 --> 01:54:28.620]   plug today? Oh I mean go take a look at Eric's interview he was really great talk all about
+[01:54:28.620 --> 01:54:33.340]   Apple and privacy and hopefully by either later tonight or tomorrow I'll have my really long
+[01:54:33.340 --> 01:54:42.540]   how Apple can annihilate SMS video up. All right I am @mikasargent on many a social media network or
+[01:54:42.540 --> 01:54:51.580]   you can head to chihuahua.coffee@chua.coffee or I've got links to the places I'm most active online
+[01:54:51.580 --> 01:54:58.300]   of course here iOS today or recorded earlier today as well as tech news weekly which records on
+[01:54:58.300 --> 01:55:07.260]   Thursdays and soon after everything gets back to somewhat normal say I'll rejoin Leo Laport on
+[01:55:07.260 --> 01:55:15.900]   Saturdays for the tech guy. Thank you all for tuning in to today's episode of Mac Break Weekly. I
+[01:55:15.900 --> 01:55:23.660]   believe this is the time where I say get back to work because break time is over. Bye everybody.
+[01:55:24.380 --> 01:55:29.580]   The world is changing rapidly so rapidly in fact that it's hard to keep up that's why
+[01:55:29.580 --> 01:55:34.620]   Mike Asargent and I Jason Howell talk with the people making and breaking the tech news on tech
+[01:55:34.620 --> 01:55:40.540]   news weekly every Thursday they know these stories better than anyone so why not get them to talk
+[01:55:40.540 --> 01:55:45.500]   about it in their own words subscribe to tech news weekly and you won't miss a beat every Thursday
+[01:55:45.500 --> 01:55:52.940]   at twit.tv.
+[01:55:52.940 --> 01:55:58.940]   you
+

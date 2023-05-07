@@ -1,0 +1,1442 @@
+;FFMETADATA1
+title=Snarky By Default
+artist=Leo Laporte, Alex Lindsay, Andy Ihnatko, Jason Snell
+album_artist=TWiT
+publisher=TWiT
+album=MacBreak Weekly
+TRDA=2023-01-04
+track=851
+language=English
+genre=Podcast
+comment=Dark Sky Shutdown, iPhone SE, Apple Batteries
+encoded_by=Uniblab 5.3
+date=2023
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:06.240]   It's time for Mac Break Weekly, our brand new first show of 2023 with Jason Stell, Alex
+[00:00:06.240 --> 00:00:13.040]   Lindsey and the Inako. Yes, there wasn't a lot of news, but we managed to do a full show
+[00:00:13.040 --> 00:00:18.400]   around the few stories we had, including a screw up in the Apple chip design.
+[00:00:18.400 --> 00:00:25.680]   Big story there. We also will talk a little bit about why there were no new Macs in Q4 2022.
+[00:00:25.680 --> 00:00:32.480]   First time that's happened in 22 years and the end of Dark Sky. What do you do next for
+[00:00:32.480 --> 00:00:35.200]   weather? It's all coming up next on Mac Break Weekly.
+[00:00:35.200 --> 00:00:40.640]   Podcasts You Love From People You Trust
+[00:00:40.640 --> 00:00:43.440]   This is Twit
+[00:00:43.440 --> 00:00:54.320]   This is Mac Break Weekly, episode 851. For Tuesday, January 3rd, 2023.
+[00:00:54.960 --> 00:00:56.480]   Snarky By Default
+[00:00:56.480 --> 00:01:03.360]   Mac Break Weekly is brought to you by ACI Learning, respective companies and government agencies
+[00:01:03.360 --> 00:01:09.600]   around the globe turned to ACI Learning year after year to help them maintain their competitive edge.
+[00:01:09.600 --> 00:01:16.560]   Supporting organizations across audit, IT and cybersecurity readiness, ACI Learning
+[00:01:16.560 --> 00:01:21.680]   keeps your team at the top of their game. Visit ACIlearning.com to learn more.
+[00:01:22.640 --> 00:01:30.640]   And by Fastmail. Reclaim your privacy, boost productivity and make email yours with Fastmail.
+[00:01:30.640 --> 00:01:38.640]   Try it free for 30 days at fastmail.com/twit. Fastmail is also giving Twit listeners a 15% discount
+[00:01:38.640 --> 00:01:44.720]   in the first year when you sign up today. Thanks for listening to this show. As an ad supported
+[00:01:44.720 --> 00:01:50.720]   network, we are always looking for new partners with products and services that will benefit our
+[00:01:50.720 --> 00:01:56.880]   qualified audience. Are you ready to grow your business? Reach out to advertise at twit.tv
+[00:01:56.880 --> 00:02:03.040]   and launch your campaign now. Well, happy new year everybody. It's time for Mac Break Weekly,
+[00:02:03.040 --> 00:02:09.120]   the first show of 2023. I'm going to have to get used to that. And you might notice if you're
+[00:02:09.120 --> 00:02:14.720]   watching the video that our Twit studios are now sponsored by ACI Learning, which is a home of IT
+[00:02:14.720 --> 00:02:21.040]   Pro as well as Auto Pro Practice Labs and Hubs. So welcome ACI Learning and welcome to our
+[00:02:21.040 --> 00:02:27.200]   esteemed panel, Jason Snell. It's on the horn from beautiful Northern California,
+[00:02:27.200 --> 00:02:33.760]   sixcolours.com as his website. Did you have a good holiday, Jason? I did. It's great to be back.
+[00:02:33.760 --> 00:02:39.840]   And yeah, it was nice to take a little time off after the last show. I got in the car and
+[00:02:40.640 --> 00:02:45.920]   drove to visit my mom in Arizona. And my family flew down a little bit later and we had a great
+[00:02:45.920 --> 00:02:53.360]   time and adopted a dog on the way back. Surprise. And yeah, we're doing great. So it's good to be
+[00:02:53.360 --> 00:02:59.760]   back in the swing of things. You know, because you just got home too. It's like something about
+[00:02:59.760 --> 00:03:05.840]   taking a week or two off. You kind of lose like, how does this keyboard work? It's not even
+[00:03:05.840 --> 00:03:12.400]   long, but it feels like things do and different. You got paler and I got Tanner. I don't understand
+[00:03:12.400 --> 00:03:17.280]   quite how that works. I understand that. I haven't seen the sun in weeks and raining a lot in
+[00:03:17.280 --> 00:03:23.840]   California. Andy and I was here from, of course, New England, where it is also raining. And he's
+[00:03:23.840 --> 00:03:29.520]   in the library this week. Hi, Andy. I thought it'd be more mysterious if I say I'm at a government
+[00:03:29.520 --> 00:03:36.160]   location. Let's not disclose exactly where it is. But it is. Yes. Yeah, there's a it's it's a
+[00:03:36.160 --> 00:03:41.200]   terrible weather outside. So everyone decided, Hey, let's start like bulldozering and Jack Cameron
+[00:03:41.200 --> 00:03:46.480]   outside my office windows. Hey, what better day than to walk in the rain with a backpack full of
+[00:03:46.480 --> 00:03:51.440]   expensive gear? Well, I'm glad you did that. Thank you. We appreciate it. It's great to have you.
+[00:03:51.440 --> 00:03:57.520]   And of course, Alex Lindsey from not so far away either down the peninsula a little ways.
+[00:03:57.520 --> 00:04:02.000]   Oh, nine Oh, and office. I was like, well, how's it been for you? How were your holidays?
+[00:04:02.000 --> 00:04:06.800]   They were great. It was dreary and cold and rainy, just like I like it.
+[00:04:06.800 --> 00:04:13.680]   I've been in heaven. I haven't seen I haven't seen this much clouds and rain for, you know,
+[00:04:13.680 --> 00:04:19.840]   years. I know in my house. It's funny. We it was dry when we left and we went down to Mexico where
+[00:04:19.840 --> 00:04:24.720]   it was raining and we thought, Oh, no, because we went for the beach. But the sun came out. It was
+[00:04:24.720 --> 00:04:30.960]   nice and sunny and warm. And a great way to spend New Year's Eve because they know how to party.
+[00:04:30.960 --> 00:04:38.720]   Anyway, I hope you all had a wonderful holiday. We missed you. Glad to be back on a week with
+[00:04:38.720 --> 00:04:43.200]   there's literally nothing to talk about. The one thing that happened while we were gone. And I saw
+[00:04:43.200 --> 00:04:50.560]   a lot of morning about it. The dark sky went dark. Apple as you know, bought dark sky and I guess
+[00:04:50.560 --> 00:04:57.760]   January 1st was the last day for the app. Yeah. It joins it joins peanuts. The peanut's gang in
+[00:04:57.760 --> 00:05:04.800]   the Apple jail. Sorry. We have acquired you. You must not go out and entertain and amuse other
+[00:05:04.800 --> 00:05:12.480]   people. The API continues. They say through March 31st. But I saw a lot of people saying, you know,
+[00:05:12.480 --> 00:05:18.960]   there's nothing cool. Even Apple weather with the new hyper local features and so forth is not as
+[00:05:18.960 --> 00:05:25.600]   good as dark sky. Do you feel like I would say? Yeah. They did not. They, you know, they
+[00:05:25.600 --> 00:05:29.600]   Apple eyes that it feels a little bit more. I don't know. But it just doesn't it doesn't have
+[00:05:29.600 --> 00:05:35.040]   the same. I mean, I use dark skies since it was released and and I just feel like the ease of just
+[00:05:35.040 --> 00:05:40.240]   even adding a city is much harder in weather than it is that it was in dark sky. Like it's just like
+[00:05:40.240 --> 00:05:44.560]   all little like all the little things that make dark sky great. Apple is not. I don't feel like
+[00:05:44.560 --> 00:05:49.840]   Apple added that back in weather is serviceable. But it's not it's not great. The way dark sky was.
+[00:05:49.840 --> 00:05:56.720]   Yeah. The I we should say that there is so the dark sky API became weather kit and it is it has a
+[00:05:56.720 --> 00:06:01.920]   a REST API. So it can be used by websites or by Android apps or by anybody else. It doesn't just
+[00:06:01.920 --> 00:06:08.400]   it's not just on iOS. I wrote a Python script and I use it for like my weather station. So it's it's
+[00:06:08.400 --> 00:06:13.200]   you can you can do people can still write apps that use it. It's just now it's the weather kid
+[00:06:13.200 --> 00:06:18.000]   API instead of the dark sky API. I know like carrot weather. There are a bunch of other apps that
+[00:06:18.000 --> 00:06:23.040]   that give you at least the option to use that API. I think carrot weather also now has a new
+[00:06:23.040 --> 00:06:28.160]   because that's a like that app. It's a subscription app. It's a little pricey, but it's so good and
+[00:06:28.160 --> 00:06:33.920]   it actually has among its many different layouts that you can choose and build yourself one that
+[00:06:33.920 --> 00:06:38.640]   it pretty much apes the the look and feel of dark sky. So if you're desperate to get something
+[00:06:38.640 --> 00:06:44.080]   that looks a lot like dark sky carrot weather is is worth exploring Apple weather app. You know,
+[00:06:44.080 --> 00:06:48.320]   it's like all the other Apple apps, right? It's it's the data is the same basically, but
+[00:06:48.320 --> 00:06:54.240]   it's a stock app. So its features are all sanded off and you know, Alex strikes me as somebody who
+[00:06:54.240 --> 00:07:00.400]   doesn't want the the you know, four buttons sanded off version of any app and quite rightly so quite
+[00:07:00.400 --> 00:07:04.560]   rightly so. It's it's the little things like just adding I still haven't quite figured out how to
+[00:07:04.560 --> 00:07:08.160]   smooth like there's just usually a lot of swearing that goes on when I try to add a new city. Oh,
+[00:07:08.160 --> 00:07:12.160]   yeah, me too. You know, like, what I don't understand. Like, I used to be able to just tap this and
+[00:07:12.160 --> 00:07:17.600]   add a city and it's like, it's not even like shaving off the edges. It's like taking away a really
+[00:07:17.600 --> 00:07:21.600]   useful thing and making it. Yeah, I look at it. Yeah, very unappled. I don't quite understand how
+[00:07:21.600 --> 00:07:26.800]   that happened. Especially especially when it takes a little while to realize that like you just went
+[00:07:26.800 --> 00:07:31.120]   on vacation or you want to visit a month on the business trip and the app has not yet figured out
+[00:07:31.120 --> 00:07:34.720]   that you're no longer in New York City or you're no longer in San Francisco that you're now in New
+[00:07:34.720 --> 00:07:40.000]   England. And so if you're thinking, wow, 58 degrees, wow, wonderful. Like, no, no, no, I kept giving
+[00:07:40.000 --> 00:07:44.960]   rain starting warnings while I was in LA for the rain in Northern California. Oh, yeah, I got
+[00:07:44.960 --> 00:07:49.840]   I got rain warnings a week and I was in Mexico. Yeah, yeah.
+[00:07:49.840 --> 00:07:58.160]   The rain's gonna come. I said, no, no, it's not here. It's in Babylon. The sun is going to shine here.
+[00:07:59.040 --> 00:08:05.120]   That yeah, I also wanted to point out there was a funny slate story last week about how apparently
+[00:08:05.120 --> 00:08:10.640]   meteorologists hated dark sky. Because it took their job away. Yeah, well, so this is the thing
+[00:08:10.640 --> 00:08:14.560]   is like, it's not meteorologists are all about the weather models. And if you read anything about
+[00:08:14.560 --> 00:08:19.280]   this, Michael Lewis wrote about this and in a couple of his books, the accuracy of the National
+[00:08:19.280 --> 00:08:25.360]   Weather Service in the last 20 years, even since 2000 has improved dramatically. Like, we are so
+[00:08:25.360 --> 00:08:30.080]   much better at forecasting whether the computer models for weather forecasts are so good. But
+[00:08:30.080 --> 00:08:34.160]   there is this moment where there's this sort of chauvinism, which is anything that isn't spat
+[00:08:34.160 --> 00:08:39.280]   out of a computer model is considered lesser. And what they say about dark sky is you guys don't
+[00:08:39.280 --> 00:08:44.640]   understand it's not a computer model. It's analyzing the precipitation radar and the direction it's
+[00:08:44.640 --> 00:08:50.400]   moving and just extrapolating from that, which is like it that is absolutely true. It's not running
+[00:08:50.400 --> 00:08:54.960]   a big computer model of the entire atmosphere. It's looking at where the rain is headed and saying
+[00:08:54.960 --> 00:09:01.840]   it's headed toward you. But that's valuable in lots of cases. And that's why people like dark sky.
+[00:09:01.840 --> 00:09:07.200]   And you know, it can't be both. No, it's not going to be able to tell you based on that that a sudden
+[00:09:07.200 --> 00:09:10.800]   thunderstorm is going to appear or something like that in Oklahoma or something like that. But like,
+[00:09:10.800 --> 00:09:15.920]   the reason people like dark sky is that you could look at where you were on the map. And it's what
+[00:09:15.920 --> 00:09:22.080]   we all do with radar images anyway, right, which is, Oh, it's coming my way. And it just put that
+[00:09:22.080 --> 00:09:26.480]   into practice. And that's why people loved it. I felt I felt very like James Bond. There was one
+[00:09:26.480 --> 00:09:32.000]   point where I had dark sky and I could just see a cliff of water coming. And my wife was in Washington
+[00:09:32.000 --> 00:09:35.760]   DC and she was with the kids and they're they're walking around some of the things to see there.
+[00:09:35.760 --> 00:09:40.000]   And I'm working at the office. And I literally said, I need you to get into there's an Uber coming
+[00:09:40.000 --> 00:09:45.760]   for you. I need you to get into the car right now right now. And she literally said, close the door
+[00:09:45.760 --> 00:09:52.400]   and suddenly the rain was like, you know, like it just gets in the car right now. I looked at it
+[00:09:52.400 --> 00:09:58.160]   now, but there's a wall. There's a wall headed towards my family. I will never understand why
+[00:09:58.160 --> 00:10:04.640]   people are so and I include myself in this why we are so fast and with weather, especially here in
+[00:10:04.640 --> 00:10:08.160]   Northern California with the weather isn't, you know, I could see maybe if you were worried about
+[00:10:08.160 --> 00:10:12.800]   tornadoes or I can't think about it much except for the winter. I mean, during the summer, it's like
+[00:10:12.800 --> 00:10:18.560]   it's not going to be clear and yeah, it's but during the winter, I will pay attention.
+[00:10:18.560 --> 00:10:22.560]   Yeah, we go go go visit someplace that actually has weather and we can actually can actually
+[00:10:22.560 --> 00:10:28.560]   cause disasters like the difference between like last weekend when it was like low teens
+[00:10:28.560 --> 00:10:36.000]   for the weekend in new in Boston, New England. That was a big deal because again, my place is kind
+[00:10:36.000 --> 00:10:41.280]   of old and there's you have to make the choice of do we really want to heat the whole house or do we
+[00:10:41.280 --> 00:10:46.560]   want to make sure the pipes don't freeze in half the house and just sort of bunker in the one half
+[00:10:46.560 --> 00:10:53.840]   of the house you're going to keep super, super warm and yeah, and like I said, I lost my December 23
+[00:10:53.840 --> 00:11:00.240]   plans were totally skeezics because again, high tides plus the rain meant that it might there was
+[00:11:00.240 --> 00:11:05.600]   no way to get in or out of my neighborhood for good three or four hours. And so yeah, so you
+[00:11:05.600 --> 00:11:10.800]   really have to know 24 hours in advance. Is there anything I need to dread? Sometimes it's more
+[00:11:10.800 --> 00:11:15.920]   than just do I take a hat? It really is. Okay, do I double check to make sure the sun pump is working?
+[00:11:15.920 --> 00:11:20.240]   Do I make sure that the heater that's that's the heater strip that's on the pipes there or that's
+[00:11:20.240 --> 00:11:24.240]   sort of near the entranceway? Do I want to make sure that those things are absolutely working
+[00:11:24.240 --> 00:11:32.000]   perfectly because otherwise it's dramatic man. It is dramatic. The world's best terrible
+[00:11:32.000 --> 00:11:40.480]   weather app writes, right? So Jacobs in a slate. He tells the story of dark sky, which I'd
+[00:11:40.480 --> 00:11:46.480]   forgotten. I remember was created in 2011 by Jack Turner and Adam Grossman, who did a Kickstarter,
+[00:11:46.480 --> 00:11:53.360]   raised $40,000. It is, of course, we're talking about it because it's gone now. Apple bought it
+[00:11:53.360 --> 00:11:59.600]   and they'm sure they made more than $40,000 when Apple bought it. He writes, suddenly,
+[00:11:59.600 --> 00:12:04.800]   everyone I knew was a meteorologist pulling out their pocket sized radar display to chime in about
+[00:12:04.800 --> 00:12:10.720]   whether a baseball game would be post boner wedding ceremony moved inside. Was it perfect God,
+[00:12:10.720 --> 00:12:15.200]   though? The other thing that stood out about dark side sky, it wasn't very good. Dark sky's
+[00:12:15.200 --> 00:12:20.640]   forecasts failed me at hike spike trips, park days, beach days, birthdays and more. He says,
+[00:12:20.640 --> 00:12:29.040]   meteorologists hated dark sky. Yeah. As you said, Jason, it was processing the images, said Andrew
+[00:12:29.040 --> 00:12:37.920]   Blum, author of the weather machine. But there's more to forecasting than looking at images.
+[00:12:37.920 --> 00:12:44.240]   It wasn't using the physics models you were talking about. Any weather forecast beyond a
+[00:12:44.240 --> 00:12:48.240]   couple of hours, he's quoting Andrew Blum here. Any computer forecast beyond a couple of hours
+[00:12:48.240 --> 00:12:52.240]   is going to depend on the weather models, supercomputer models that work according to the laws
+[00:12:52.240 --> 00:12:56.640]   of physics. We're getting right now, we're getting weather models about what's going to happen,
+[00:12:56.640 --> 00:13:00.160]   because we're expecting a lot of rain. Of course, in the week, and I'm amazed that they said,
+[00:13:00.160 --> 00:13:04.320]   well, Saturday, it's going to be, I mean, it's amazing. That's the five day forecast, the 10 day
+[00:13:04.320 --> 00:13:09.200]   forecast. Dark sky, I guess, I didn't really use dark sky. So I'm kind of recusing myself.
+[00:13:09.200 --> 00:13:13.440]   But he says, when we talk about anything past a few hours, we're talking about physics.
+[00:13:13.440 --> 00:13:17.840]   When we talk about dark sky, all it was doing was taking the visual imp part of the input of the
+[00:13:17.840 --> 00:13:21.920]   radar and telling us what was going to happen over the next couple of hours. But people did love
+[00:13:21.920 --> 00:13:28.160]   that. That warning rain is 27, seven minutes away. Rain is right. People love that.
+[00:13:28.160 --> 00:13:33.600]   If this is, yeah, they love the CSI effect. The expect computers to be able to tell them things
+[00:13:33.600 --> 00:13:38.800]   as precisely as that when really, there's there's the kind of weather where you're just curious,
+[00:13:38.800 --> 00:13:42.880]   do I need a coat? Do I not need a coat? When you realize though that yes, there is like a big
+[00:13:42.880 --> 00:13:46.640]   winter storm coming or there really is like a flood watch and effect or there's a hurricane
+[00:13:46.640 --> 00:13:51.200]   that's coming in, that's when you stop. That's when I stop using apps and that's when I start
+[00:13:51.200 --> 00:13:55.520]   going to the Twitter feeds of like my local meteorologist, meteorologist, because
+[00:13:55.520 --> 00:14:00.800]   like I said, it really is all about these models. There are multiple different weather models out
+[00:14:00.800 --> 00:14:07.200]   there. And the meteorologist who's been working in your part of the state for the past 10 years
+[00:14:07.200 --> 00:14:13.200]   knows that ordinarily I would use this model, but it's really no good when you've got this
+[00:14:13.200 --> 00:14:18.400]   situation that we're looking at in this situation. This other model tends to be more accurate in my
+[00:14:18.400 --> 00:14:24.000]   opinion. So I'm going to make my guesses based on this model not and informed by others. So yeah,
+[00:14:24.000 --> 00:14:29.040]   I mean, it's there's there's there's there's the off the shelf stuff that kind of fits,
+[00:14:29.040 --> 00:14:33.280]   but then you really want the really tailor made stuff up people who know what they're doing
+[00:14:33.280 --> 00:14:36.080]   when you want to avoid burst pipes and you want to leave floods.
+[00:14:36.080 --> 00:14:41.520]   Why meteorologist who went to school who studied it who has his own makeup artist and hairstylist
+[00:14:41.520 --> 00:14:47.280]   might might be a little jealous. For instance, suffice to suffice to say there's a library of
+[00:14:47.280 --> 00:14:52.960]   skills that you need to be a successful meteorologist. It really is not not knowing not just knowing
+[00:14:52.960 --> 00:14:56.720]   what the models are saying, but knowing exactly how these models were put together. And so where
+[00:14:56.720 --> 00:15:01.280]   are their blind spots of being able to navigate all this data and assimilated for this specific
+[00:15:01.280 --> 00:15:05.440]   situation. And I have to say that I will say that one of the reasons that I stopped I stopped
+[00:15:05.440 --> 00:15:08.480]   even thinking about looking at the weather forecast was because I had an app on my phone that
+[00:15:08.480 --> 00:15:14.000]   held me mostly. Yeah, so it did take money out of your meteorologist mouse. Well, definitely took
+[00:15:14.000 --> 00:15:17.440]   my interest out of it. I mean, it was the only it was the last, although vestige of the news that
+[00:15:17.440 --> 00:15:21.440]   was actually something that was local. And then I had something on my phone and I was like, okay,
+[00:15:21.440 --> 00:15:28.080]   well, I'm done. But people always said, I don't know if it's true. They always hated meteorologists
+[00:15:28.080 --> 00:15:35.200]   because they were always wrong, right? What was the movie where he's playing Steve Martin?
+[00:15:35.200 --> 00:15:39.760]   He's playing a meteorologist and and they somebody dumps a slurpee on him because he said what's
+[00:15:39.760 --> 00:15:44.960]   gonna rain it didn't or advice a version. You see that all the time. And that's maybe a trope that's
+[00:15:44.960 --> 00:15:50.160]   not so much a truism was dark sky more accurate? No, it was less accurate, right? For the long term.
+[00:15:50.160 --> 00:15:55.360]   It was more current. Like, so you would go, what is it like? What's going out? What's going on
+[00:15:55.360 --> 00:15:58.720]   this afternoon? I didn't have to look at something the evening before to see what I'm going to do
+[00:15:58.720 --> 00:16:04.800]   tomorrow. I just looked up like what is it going on? And while it wasn't as accurate, it was very,
+[00:16:04.800 --> 00:16:09.040]   again, it would respond very quickly. So it might be wrong for tomorrow, but it's usually right for
+[00:16:09.040 --> 00:16:14.080]   the next couple hours. And so you see something because it's looking at that process.
+[00:16:14.080 --> 00:16:17.920]   So and the big like weather.com and AccuWeather and these they use
+[00:16:17.920 --> 00:16:22.240]   NOAA's predictions, right? They use these big models.
+[00:16:22.240 --> 00:16:30.480]   So shouldn't we just what is Apple doing? Is Apple just doing the dark sky thing or is it
+[00:16:30.480 --> 00:16:37.200]   rolling in some stuff from the weather? Like dark sky, it's aggregating information from the
+[00:16:37.200 --> 00:16:41.280]   National Weather Service and other weather providers. There are other models and other
+[00:16:41.280 --> 00:16:47.280]   providers. It's not all coming from NOAA or it's not all based on the same NOAA projection. And then,
+[00:16:47.280 --> 00:16:50.800]   of course, Apple has to cover rest of the world, right? They have to cover everywhere. And so
+[00:16:50.800 --> 00:16:54.960]   there are different different weather sources in different countries of varying degrees of quality.
+[00:16:54.960 --> 00:17:02.160]   Carrot weather, like more different models. Yeah, I like the door. But so those big forecasts,
+[00:17:02.160 --> 00:17:06.960]   those are all super physics models, right? Those are super computer models. Is that right?
+[00:17:06.960 --> 00:17:11.760]   Yeah. Yeah, that's it. That was the wrong thing about dark sky was it wasn't.
+[00:17:11.760 --> 00:17:16.960]   Yeah, that's why I don't get that the meteorologists are so mad at dark sky, which is like, it's like
+[00:17:16.960 --> 00:17:21.280]   finding out that a friend of yours just absolutely hates a perfectly innocuous thing. And you're like,
+[00:17:21.280 --> 00:17:25.920]   why do you hate that so much? But I think this is because people were giving all this credit to
+[00:17:25.920 --> 00:17:29.520]   dark sky for being brilliant. And they're like, it's not brilliant. It's just looking at the radar.
+[00:17:29.520 --> 00:17:36.560]   But it's often wrong. It's often wrong. But it's hyper local and super specific to things that
+[00:17:36.560 --> 00:17:42.560]   the computer model can't do, which is, isn't going to rain outside my door in 10 minutes.
+[00:17:42.560 --> 00:17:46.480]   And the computer models aren't built to do stuff like that. They'll have probabilities over the
+[00:17:46.480 --> 00:17:53.280]   course of many hours that were made several hours ago. Whereas you are, if you look at the radar
+[00:17:53.280 --> 00:17:58.400]   and there's a blob and it's like going like a video game monster, it's like, and it's coming
+[00:17:58.400 --> 00:18:03.440]   right at you. And the app can say, yeah, that blob is going to be here in 15 minutes. You know that
+[00:18:03.440 --> 00:18:07.680]   if you need to walk the dog, do it now or it's or you're going to get rained on. And like,
+[00:18:07.680 --> 00:18:12.480]   I don't know why that makes the meteorologist angry. It's a different thing. And it's very clever.
+[00:18:12.480 --> 00:18:17.520]   And it's we were all using your radar images that way. Anyway, people, do you not understand that?
+[00:18:17.520 --> 00:18:26.240]   This is the movie, the weatherman Nicholas Cage getting hit by slurpier milkshake. And
+[00:18:26.240 --> 00:18:32.000]   because his forecast is so bad. And there's Michael Kane about to berate him for his terrible forecasts.
+[00:18:32.000 --> 00:18:35.520]   Well, such a bit Nicholas Cage's hair. That was a long time ago. Like I said,
+[00:18:35.520 --> 00:18:40.000]   really is the stats are amazing at how much better we've gotten at weather for
+[00:18:40.000 --> 00:18:42.480]   testing in the last year. People hate weather. People hate weathermen.
+[00:18:42.480 --> 00:18:49.360]   But they don't hit him like they used to because in the fifth, the fifth risk by Michael Lewis and
+[00:18:49.360 --> 00:18:54.560]   also the signal on the noise by Nate Silver goes into into great detail. Nate Silver's book is
+[00:18:54.560 --> 00:18:59.200]   really good at talking about just how much forecasting has changed in the last 20 years
+[00:18:59.200 --> 00:19:03.120]   for the better. But the conundrum of it is that people don't understand probability,
+[00:19:03.120 --> 00:19:07.440]   which is sort of Nate Silver's whole point in that book. And the example is, look, if I tell you
+[00:19:07.440 --> 00:19:10.800]   that there's a 30% chance of rain and so you don't bring an umbrella and you get rained on,
+[00:19:10.800 --> 00:19:15.440]   you're mad at me. But I told you there was a 30% chance and this was in the 30% right? And
+[00:19:15.440 --> 00:19:16.560]   like people don't want to know.
+[00:19:16.560 --> 00:19:23.760]   On the first step, is it good? Never quote me. The odd. So never quote me. The odd. It's Han Solo
+[00:19:23.760 --> 00:19:29.120]   tells us the book of solo. So yeah, again, we just want to know what's going to happen. And the
+[00:19:29.120 --> 00:19:32.320]   fact is the computer models can't tell you exactly what's going to happen, although they are way
+[00:19:32.320 --> 00:19:37.840]   more accurate way further out too. I like they say it's going to rain really hard on Wednesday
+[00:19:37.840 --> 00:19:41.520]   night. You know what guess it's going to I mean, they're they're not wrong. They're not going to
+[00:19:41.520 --> 00:19:45.760]   be wrong. But it well, I mean, it's also though, a chaotic environment and no matter how good you're
+[00:19:45.760 --> 00:19:51.040]   supercomputer models were got more complexity than the than the earth is not possible.
+[00:19:51.040 --> 00:19:58.160]   Yeah, exactly. Apparently, I didn't know this the developers of dark sky more or less boasted
+[00:19:58.160 --> 00:20:02.400]   when they first launched the app. They weren't weather scientists. They had been working on a
+[00:20:02.400 --> 00:20:09.760]   project called tiny face, which was an app designed to scientifically measure how small
+[00:20:10.320 --> 00:20:18.000]   someone could make their face. Gee, you know, I kind of wish that they were using highfalutin
+[00:20:18.000 --> 00:20:27.040]   computer vision algorithms. They got there eventually, right? Yeah. Yeah. How tiny can you
+[00:20:27.040 --> 00:20:33.600]   make your face? Okay, so so I'm sure they made a lot of money. Apple is charging.
+[00:20:35.280 --> 00:20:43.840]   But not a lot if you want to use the Apple weather kit. If you're a $99 a year developer,
+[00:20:43.840 --> 00:20:48.560]   as I am, and obviously you are Jason, you can do half a million APA. Yeah,
+[00:20:48.560 --> 00:20:54.080]   half a million calls for your 99 bucks. But if you want to do an app, it's going to cost you as
+[00:20:54.080 --> 00:20:58.080]   much as a thousand bucks. Brian Mueller, the guy, the guy who does care whether says that the prices
+[00:20:58.080 --> 00:21:02.320]   are pretty are actually reasonable. He was he was holding his breath right about how how
+[00:21:02.320 --> 00:21:06.880]   expensive was that APA going to be for app developers? And the answer is not apples not trying to rip
+[00:21:06.880 --> 00:21:11.360]   people off with it. It's a it's a reasonably priced API. And I mean, they have competition,
+[00:21:11.360 --> 00:21:15.680]   right? Like that that's the beauty of it is, you know, if you don't want to use Apple's API,
+[00:21:15.680 --> 00:21:20.000]   there are other options, which is not the case with so much of what Apple charges for these days.
+[00:21:20.000 --> 00:21:24.720]   It's very unclear on this site. If it's a thousand dollars a month or a thousand dollars a year,
+[00:21:24.720 --> 00:21:29.520]   I'm going to guess it's a year since it's $99 a year for half a million. So it must be
+[00:21:30.240 --> 00:21:35.440]   $99.99 above a certain level. It's like call me like ask for a quote.
+[00:21:35.440 --> 00:21:44.720]   I might that's kind of fun. It's a Jason interface. Yeah, yeah, it's it's a perfectly normal rest
+[00:21:44.720 --> 00:21:48.880]   API. And you can use it like I've been doing with Python and you get back a little JSON blob.
+[00:21:48.880 --> 00:21:53.440]   And it's pretty cool, right? Because so I I am one of those people who is obsessed with the weather,
+[00:21:53.440 --> 00:21:56.800]   even though I live in California and I have a home weather station and all of that. And I got
+[00:21:56.800 --> 00:22:01.360]   so used to all of my data being retrospective, which is like what was what was the high
+[00:22:01.360 --> 00:22:07.200]   yesterday? What was the low yesterday? And then I look at the JSON blob from from weather kit.
+[00:22:07.200 --> 00:22:13.760]   And it's the future. It's weird. It's like what will be the what will be the temperature later today?
+[00:22:13.760 --> 00:22:20.880]   What about tomorrow? And it's all just in there out 10 days, I think, super easy to to use. And if
+[00:22:20.880 --> 00:22:25.440]   you're yes, if you're a registered Apple developer and you're using it for your own personal projects,
+[00:22:25.440 --> 00:22:30.160]   you've got more API calls, you could query it every minute and you would never use the API calls.
+[00:22:30.160 --> 00:22:35.760]   Alex, aside from the UI, which obviously you like the dark sky UI better, are there features
+[00:22:35.760 --> 00:22:40.640]   missing in Apple weather? I don't think that there's anything missing. In fact, there's probably more
+[00:22:40.640 --> 00:22:45.520]   there that's that's there. It's just the interfaces and as smooth and literally the one that the
+[00:22:45.520 --> 00:22:48.560]   first phase me the most every single time I just don't do it often enough. Maybe if I do it
+[00:22:48.560 --> 00:22:53.280]   is just adding a city like it just seems like I used to be able to just tap on it and just go
+[00:22:53.280 --> 00:22:56.880]   okay, I want a new city and it's like you're scrolling through it and I always figure it out,
+[00:22:56.880 --> 00:23:00.800]   but I don't figure it out in a way that I remember. I just figure it like I just hang on it, swear at
+[00:23:00.800 --> 00:23:07.360]   it until I get a new city. And then I go like, okay, I'm so I guess we should do it. All the
+[00:23:07.360 --> 00:23:13.520]   magazines you're doing. What are your top five replacements for dark sky? Besides Apple weather
+[00:23:13.520 --> 00:23:17.440]   with everybody's guys, there's something better than Apple weather. The worst the worst part is
+[00:23:17.440 --> 00:23:21.040]   is that I'm probably just going to use Apple weather. I'm frustrated with it. I'll eventually
+[00:23:21.040 --> 00:23:26.320]   figure it out. It's kind of widget and carrots number two. It's fun. I'm all in. I'm carrot.
+[00:23:26.320 --> 00:23:30.400]   Again, if you care enough to pay for a weather app, carrots the one, you can set up the layout
+[00:23:30.400 --> 00:23:35.440]   to be whatever you want it to be. You can choose there's various levels of premium membership that
+[00:23:35.440 --> 00:23:41.760]   lets you tie it into local weather stations for actual accurate temperatures, which is always a
+[00:23:41.760 --> 00:23:47.920]   problem here in the Bay Area because of all the micro climates. And it's snarky by default. It
+[00:23:47.920 --> 00:23:53.920]   does like wacky makes wacky statements like it's like a very hal 9000 kind of character.
+[00:23:53.920 --> 00:23:57.680]   But you can also turn that off. I actually haven't turned off. I haven't be. It's just a
+[00:23:57.680 --> 00:24:02.560]   sedate weather robot for me. But it's a it's state of the art. I think it's the best weather app for
+[00:24:02.560 --> 00:24:07.440]   sure on Apple platforms. And you said it's a little expensive. Yeah, I think it's I mean,
+[00:24:07.440 --> 00:24:11.200]   they have various in-app purchase subscription levels. So I mean, some people are not going to
+[00:24:11.200 --> 00:24:15.440]   blink at paying whatever $20 a year for a weather app and other people are going to say that's
+[00:24:15.440 --> 00:24:20.720]   outrageous. There's a free version. Yeah, I think I think it starts free. And then and then you add
+[00:24:20.720 --> 00:24:26.560]   features with like like I have my home weather station feeding into it for the current temperature.
+[00:24:26.560 --> 00:24:31.520]   And that I have to pay at a premium level for that. But I love it because it means that like the
+[00:24:31.520 --> 00:24:36.160]   temperature on my Apple Watch is my actual temperature and not, you know, a weather station that's
+[00:24:36.160 --> 00:24:40.960]   eight miles away and 15 degrees different, which you know, you know, Leo in the Bay Area.
+[00:24:40.960 --> 00:24:47.440]   Yeah, we have a lot of where you are. Yeah. So the chatroom had some recommendations,
+[00:24:47.440 --> 00:24:52.720]   but I'm going to ask you again, because they're, you know, I figure if you're in an
+[00:24:52.720 --> 00:24:59.120]   IRC chat while watching a technology podcast stream live, you're probably also into the weather.
+[00:24:59.120 --> 00:25:08.560]   So you got to got some expertise in all this. So I'm just curious if there's one that that you guys
+[00:25:09.680 --> 00:25:14.080]   really like. I will say just download the weather. I already had the
+[00:25:14.080 --> 00:25:18.480]   Friday ad care. I realized when I went to download an early page, this is really fun.
+[00:25:18.480 --> 00:25:22.480]   It's really fun. Yeah. But you're standing too. You mentioned the Norwegian weather, but like
+[00:25:22.480 --> 00:25:28.320]   my understanding is that a lot of people in there's there's like an authority in your region for weather.
+[00:25:28.320 --> 00:25:33.760]   Like, and I believe in Scandinavia and especially like in Norway, I think they like have there's a
+[00:25:33.760 --> 00:25:38.400]   Norwegian weather app that's like if you're in Norway, that's the app to get. So it depends. Whereas,
+[00:25:38.400 --> 00:25:41.600]   like if you're in Australia, I saw a thing today about how Apple weather is apparently
+[00:25:41.600 --> 00:25:46.000]   incredibly bad in Australia. For some reason, I don't know if that's true or not, but like,
+[00:25:46.000 --> 00:25:49.280]   it may vary based on where you are in the world, what your best app choice is.
+[00:25:49.280 --> 00:25:56.000]   So with Carrot, you can choose a personality ranging from professional care. It will behave
+[00:25:56.000 --> 00:26:01.680]   like a normal weather app to overkill. Carrot will go way over the effing line.
+[00:26:03.440 --> 00:26:09.440]   Definitely want to do that. I agree with everyone. I don't know. Yes, yes, yes. I have to restore
+[00:26:09.440 --> 00:26:16.800]   settings apparently. So I have used this before. Here's my current location. So it does. Okay.
+[00:26:16.800 --> 00:26:20.960]   I can't show this on the screen because there's so much profanity. So
+[00:26:20.960 --> 00:26:28.640]   well, you turn it all the way up. See that that's why I turn that off like really quick.
+[00:26:28.640 --> 00:26:33.600]   It's fun for the first couple of days, but then you have no idea how much it sort of
+[00:26:33.600 --> 00:26:37.840]   starts to weigh on you when you're having a bad day anyway. And you're just okay, I'm just
+[00:26:37.840 --> 00:26:42.240]   going to get through the day and your app is just saying, hey, idiot, you're going to go
+[00:26:42.240 --> 00:26:46.320]   outside. Anyway, were you a big idiot? Like, you know what? I don't think I want to pay
+[00:26:46.320 --> 00:26:52.480]   10 dollars a year. It says right now, clouds form and cat pee evaporates and condenses high up in
+[00:26:52.480 --> 00:27:01.040]   the cooler air. So it's not factual, but I guess you don't need that. And I presume it's highly
+[00:27:01.040 --> 00:27:08.160]   customizable with all of the features and so forth. So basically, it's chat GPT as a weather service,
+[00:27:08.160 --> 00:27:12.800]   as a weather as a weather forecaster. A lot of people like weather underground. I remember
+[00:27:12.800 --> 00:27:17.760]   in the early days of smartphones, there was quite a brisk competition for weather apps.
+[00:27:17.760 --> 00:27:23.840]   Dark Sky kind of eliminated a lot of, I think, third party apps. Snowflake weather. So you can
+[00:27:23.840 --> 00:27:33.680]   select your provider. All right, so there's a few others. I guess it's really, it's a personal
+[00:27:33.680 --> 00:27:39.280]   kind of thing. I have snowflake. Actually, I think I did snowflake because of knowing
+[00:27:39.280 --> 00:27:45.680]   dark sky was going away. But it all seems like kind of the same, maybe because of where we live.
+[00:27:46.480 --> 00:27:52.080]   There's not that. And there's different flavors of apps, but there's not that many flavors of
+[00:27:52.080 --> 00:27:57.360]   weather sources, right? In the end, there are only a handful of weather forecast back ends
+[00:27:57.360 --> 00:28:03.040]   that exist. And I mean, on one level, that's the beauty of these weather apps is it's more like
+[00:28:03.040 --> 00:28:07.120]   the interface playground, like pick your poison. The weather is not going to change, right? It's
+[00:28:07.120 --> 00:28:12.560]   just what app brings it to you in a way that you find enjoyable. Yeah, weather bug. Remember,
+[00:28:12.560 --> 00:28:18.480]   weather bug? That's still around. I paid for that way back in the day. That was a very early one.
+[00:28:18.480 --> 00:28:22.640]   All right. Well, I think we're actually, I was a little worried we weren't going to be able to get
+[00:28:22.640 --> 00:28:27.040]   a three or four hour show out of this. But given that we spent 26 minutes discussing weather,
+[00:28:27.040 --> 00:28:32.000]   I feel pretty positive about the future. We're now right in line with your standard
+[00:28:32.000 --> 00:28:38.160]   broad local broadcast. We have taken small talk and turned it into a commodity.
+[00:28:39.440 --> 00:28:46.080]   How about that weather? Oh my god. I'm glad I got those gunners clean because oh my goodness.
+[00:28:46.080 --> 00:28:52.400]   I do like the ice dams for having sake. I do like the salon app that Jason sent us. And I mean,
+[00:28:52.400 --> 00:28:57.680]   the slate app. Sorry. You sent us highly recommend that if you're a fan of weather,
+[00:28:57.680 --> 00:29:01.360]   has a lot of good stuff in it, including some grumpy meteorologists.
+[00:29:01.360 --> 00:29:02.640]   So angry.
+[00:29:05.280 --> 00:29:10.080]   Less coffee guys. Come on. I know it's raining outside, but it's big and easy. Other meteorologists
+[00:29:10.080 --> 00:29:15.680]   see the death of dark sky as an opportunity. Jonathan Porter, Accuweather's chief meteorologist,
+[00:29:15.680 --> 00:29:21.360]   pointed to the group zone app for soon to be weather orphans. I shall have my revenge dark sky.
+[00:29:21.360 --> 00:29:29.600]   We have outlasted you. All right. So if you're sad about dark sky, so are we. We share, we share
+[00:29:29.600 --> 00:29:38.560]   your pain. The world's best terrible weather app is no more. Our show today brought to you by,
+[00:29:38.560 --> 00:29:43.200]   we'll have more. Yes, there's more news in just a bit. ACI learning. We want to welcome these guys
+[00:29:43.200 --> 00:29:50.560]   to our shores. Our brand new studio sponsor, ACI. We've talked about ITPro for years. In fact,
+[00:29:50.560 --> 00:29:56.400]   I think since 2013, since they started, they are now a whole family of great stuff.
+[00:29:57.120 --> 00:30:03.840]   ITPro, auditPro, practice labs, hubs, all under the umbrella of ACI learning. ACI learning offers
+[00:30:03.840 --> 00:30:09.200]   fully customizable training for your team. In formats for all kinds of learners,
+[00:30:09.200 --> 00:30:15.760]   audit, cybersecurity, IT. Their partners at ITPro, formerly ITPro TV,
+[00:30:15.760 --> 00:30:20.640]   recently became one of the many respected companies and government agencies around the
+[00:30:20.640 --> 00:30:26.000]   globe who continue to turn to ACI learning year after year to help maintain a competitive edge.
+[00:30:26.640 --> 00:30:32.640]   ACI learning's unique video platform hosts a library of engaging conversational and convenient
+[00:30:32.640 --> 00:30:37.600]   on-demand video learning. If you love ITPro and I know you do, you will love it all.
+[00:30:37.600 --> 00:30:44.160]   This is a perfect match for us. We thought, boy, if they want to sponsor the studio, that's a win
+[00:30:44.160 --> 00:30:48.800]   all around. We're really happy to have them explore everything with ACI learning.
+[00:30:48.800 --> 00:30:53.680]   Build your organization's protection and readiness with ITPro. Of course, they've got the team training
+[00:30:53.680 --> 00:30:59.520]   for CompTIA and Microsoft IT, Cisco, Linux, Apple, Security Cloud and more.
+[00:30:59.520 --> 00:31:03.920]   Let me tell you about some of the other branches, auditPro. Courses are built in alignment with
+[00:31:03.920 --> 00:31:10.000]   the National Association of State Boards of Accountancy or NASBA. Those gold standards in
+[00:31:10.000 --> 00:31:17.360]   audit programming, they've got enterprise solutions, webinars, and the skeptical auditor podcast,
+[00:31:17.360 --> 00:31:22.960]   which sounds like an awesome list that I have to say. Practice labs too. Ensure your personnel
+[00:31:22.960 --> 00:31:27.600]   has the opportunity to test and experiment before deploying new apps or updates without
+[00:31:27.600 --> 00:31:32.960]   compromising your live system. You get a broad range of IT topics covering fundamental,
+[00:31:32.960 --> 00:31:37.760]   intermediate, even advanced levels for all of your employees. It includes live hardware. It's
+[00:31:37.760 --> 00:31:43.360]   not simulations. You get rapid learning tool interoperability, LTI. You get integrations.
+[00:31:43.360 --> 00:31:49.840]   You get standardized reporting and evaluations. It's a vendor agnostic platform, works with everything.
+[00:31:49.840 --> 00:31:54.080]   You get localization and customization options as well. Then there are those learning hubs.
+[00:31:54.080 --> 00:31:58.960]   You see the hubs as the fourth item in that list. Take advantage of one-on-one support
+[00:31:58.960 --> 00:32:05.520]   from an instructor, one-on-one support directly from an instructor at one of their five hub locations,
+[00:32:05.520 --> 00:32:11.520]   as well as quizzes, virtual labs, study games, videos, practice exams, and more as you prepare.
+[00:32:12.640 --> 00:32:21.040]   This is all now a family of tools with one goal in mind. Get you up to speed and your company
+[00:32:21.040 --> 00:32:28.400]   up to speed on modern technology and IT. ACI learning will cover the cost of your first exam
+[00:32:28.400 --> 00:32:34.480]   voucher, by the way, at learning hubs. Here's what you do. Go to acilearning.com. ACI learning
+[00:32:34.480 --> 00:32:40.960]   supports organizations across audit, IT, cybersecurity protection, and readiness. Maintain your company's
+[00:32:40.960 --> 00:32:51.920]   competitive edge. ACI learning visit acilearning.com. We thank them. From the bottom of our hearts,
+[00:32:51.920 --> 00:32:58.240]   from being a part of the family, for supporting the shows, and for sponsoring this beautiful studio,
+[00:32:58.240 --> 00:33:03.120]   acilearning.com. Thank you, ACI, and welcome to the team.
+[00:33:06.000 --> 00:33:11.600]   Oh boy. Oh boy, let's see. Many, many stories now to talk about. So many.
+[00:33:11.600 --> 00:33:23.840]   Mac rumors did some math and realized Apple hasn't... It's the first... Apple didn't release any new
+[00:33:23.840 --> 00:33:32.080]   Macs in the fourth quarter of last year. As you might have noticed, those of us like me and Alex
+[00:33:32.080 --> 00:33:39.840]   waiting for new Mac minis, new M2 laptops, new new maybe even Mac Pros, nothing. So
+[00:33:39.840 --> 00:33:45.120]   Mac rumors did a little math and they said, "This is the first time that's happened since 2000.
+[00:33:45.120 --> 00:33:52.560]   It's been 22 years since Apple has gone in the entire fourth quarter without releasing Macs."
+[00:33:52.560 --> 00:33:58.320]   Now obviously that's because the fourth quarter is a big selling quarter, right? It's
+[00:33:58.320 --> 00:34:03.680]   when the iPhones come out and so forth. Why did Apple not release anything this past quarter?
+[00:34:03.680 --> 00:34:09.680]   I'm sure they wanted to. I think that there's this assumption that everything has gotten slid back
+[00:34:09.680 --> 00:34:16.560]   six months in terms of the Mac. That the M2 MacBook Air was at one point rumored to come out
+[00:34:16.560 --> 00:34:23.040]   late last year and it ended up coming out in July. So I think when we look at... There were lots
+[00:34:23.040 --> 00:34:28.080]   of rumors that the Mac mini and the Mac Pro were going to come out, or the Mac mini and the MacBook
+[00:34:28.080 --> 00:34:34.160]   Pro. Then that got pushed off. It sounds to me like that's really what's going on here is that
+[00:34:34.160 --> 00:34:39.760]   everything is lagging, whether it's the chip development or the assembly or whatever. It seems
+[00:34:39.760 --> 00:34:46.000]   like the Mac is just behind and it's probably COVID shutdown related that has just put everything behind.
+[00:34:46.000 --> 00:34:55.120]   Yeah. And chip shortages are real still. They're not imaginary, right? We haven't solved that problem.
+[00:34:56.400 --> 00:35:01.440]   Also, it's harder to go people into upgrading a Mac. They absolutely have to desperately need
+[00:35:01.440 --> 00:35:05.440]   to replace a Mac in order for them to get them buy on the Mac. So you think this is the very
+[00:35:05.440 --> 00:35:11.920]   normal that we're going to see this despite one of two chips? No, I think that this is temporary.
+[00:35:11.920 --> 00:35:17.440]   I think that they would have loved to have filled out the rest of the Mac's Apple Silicon line in
+[00:35:17.440 --> 00:35:22.560]   the Macs this year. I also think that they're leaving money on the table by not making sure that
+[00:35:22.560 --> 00:35:27.840]   they're really compelling upgrades available for those people who you never predict. There's no
+[00:35:27.840 --> 00:35:33.280]   real cycle for Mac upgrades. You can never predict when someone's going to say, "Gee, I can't wait
+[00:35:33.280 --> 00:35:37.360]   any longer. I really do need to do a book. I really do want to buy a brand new Mac right now."
+[00:35:37.360 --> 00:35:42.560]   So I think they're leaving money on the table. However, if they're going to have to focus where
+[00:35:42.560 --> 00:35:46.560]   they can, if they have to focus where their manufacturing is, if they're going to focus their
+[00:35:46.560 --> 00:35:50.640]   logistics, they're going to have to focus it on their most popular and their most profitable products.
+[00:35:50.640 --> 00:35:55.520]   And that's that ain't going to be the Mac for a while. I mean, it's Apple's job to create the
+[00:35:55.520 --> 00:36:01.760]   demand. I mean, if any good company manages to create demand for a product, just because people
+[00:36:01.760 --> 00:36:05.680]   don't want to upgrade, doesn't mean that we can't make them. It's a little less like it's going to
+[00:36:05.680 --> 00:36:09.440]   be the product under the tree, though. And that's Andy's, I think, very excellent point is that an
+[00:36:09.440 --> 00:36:15.520]   iPhone or an iPad is more likely than a Mac mini to be under the tree. So getting it out in the
+[00:36:15.520 --> 00:36:22.560]   holiday quarter seems less vital. The MacBook Air, absolutely. And they missed last year,
+[00:36:22.560 --> 00:36:28.080]   but it's out in the channel now since July. And I'm sure they sold a bunch for the holidays.
+[00:36:28.080 --> 00:36:33.280]   But yeah, it feels a little almost antiquated to say, "Oh, we got to get our Macs set for Christmas."
+[00:36:33.280 --> 00:36:39.920]   I don't think that's what is driving their holiday revenue is a brand new Mac drop in October.
+[00:36:39.920 --> 00:36:44.480]   And there also could be calculations like managing their quarterlies of going,
+[00:36:44.480 --> 00:36:48.640]   you know, we're going to make whatever we wanted to make for the fall. And we want to push this
+[00:36:48.640 --> 00:36:54.320]   to release in the spring in the first quarter to fill that out a little bit. So sometimes that
+[00:36:54.320 --> 00:37:02.000]   happens as well. Those weren't those days, though. And you were young and you were looking
+[00:37:02.000 --> 00:37:05.920]   forward to getting that Commodore 64 or the VIC-20 under the tree.
+[00:37:05.920 --> 00:37:10.480]   Those were the days. It's not quite the same as getting a Mac mini.
+[00:37:10.480 --> 00:37:19.520]   I wasn't asking for no $399 computer under the tree. I was hoping that I would get a pair of socks.
+[00:37:19.520 --> 00:37:24.960]   I didn't have to share with my sisters. Thank you very much. This is an Apple IIC
+[00:37:24.960 --> 00:37:34.240]   from Bright Ideas in Guilford. Here we are in Midway Utah, where little Johnny is hoping to get a
+[00:37:34.240 --> 00:37:38.880]   2C for Christmas. The Johnny has spreadsheets.
+[00:37:38.880 --> 00:37:46.560]   He's my budget for Christmas this year.
+[00:37:46.560 --> 00:37:54.160]   Get that down. Oh my God. The dude, you're getting a Dell guy as an elf.
+[00:37:54.160 --> 00:38:00.640]   Yeah. The Apple IIC under the tree is a little bit like the Lexus with the big bow.
+[00:38:02.400 --> 00:38:07.600]   It's although there's not Jonathan Colton's song about a kid once on Notary 2600 under the tree.
+[00:38:07.600 --> 00:38:13.120]   And man, I feel that one. That was me. That was absolutely me back in 1977.
+[00:38:13.120 --> 00:38:19.840]   How about this Tandy 1000 HXPC compatible only $399? We should get this for the kids, honey.
+[00:38:19.840 --> 00:38:26.960]   Think of all they can do. And honey, you can store over 50 recipes in its RAM.
+[00:38:27.520 --> 00:38:32.800]   And I'll be downloading porno when you're asleep. Just $399. Very slowly.
+[00:38:32.800 --> 00:38:38.880]   Yes, we ask. If we ask you, but yeah, it's askeared, but it's not askeared.
+[00:38:38.880 --> 00:38:42.880]   Oh, you're saying we don't have anything to talk about? Is that what's happening? Yeah.
+[00:38:42.880 --> 00:38:49.120]   Yeah. Here comes ET. The dog's all excited. ET is going to leave a little something.
+[00:38:49.120 --> 00:38:54.720]   Maybe the ET game. Oh my God. Oh, no. Oh, what a Christmas this is going to be.
+[00:38:55.520 --> 00:39:04.240]   Oh, this was the game. Oh, geez. Oh, yeah. Get this out of here.
+[00:39:04.240 --> 00:39:10.560]   Well, can we say that, you know, ET always had that pro environmental bent so he does not want
+[00:39:10.560 --> 00:39:15.680]   to put more coal into the ecosystem. So let's have something that's a little bit safer for the
+[00:39:15.680 --> 00:39:20.720]   environment such as ET game cartridges. Yeah, let's bury those in the landfill. That was funny.
+[00:39:20.720 --> 00:39:27.600]   This was a collection of vintage holiday computer commercials on. You can find anything you want
+[00:39:27.600 --> 00:39:34.160]   on YouTube, but I love it. The ET cartridge. And you may remember the history of that was they were
+[00:39:34.160 --> 00:39:38.560]   rushing to get it out in time for Christmas because it was a movie tie-in.
+[00:39:38.560 --> 00:39:45.840]   And as a result, it was the world's worst video. Yeah. And ended up in a landfill near Albuquerque,
+[00:39:45.840 --> 00:39:51.840]   as I remember. When the company decides to simply take a right off for inventory.
+[00:39:51.840 --> 00:39:57.840]   And that's a bad visual when the company is legally required to not only put in a landfill,
+[00:39:57.840 --> 00:40:03.520]   but bulldoze it to prove that these are now unsalable. They can't even figure out how to
+[00:40:03.520 --> 00:40:06.960]   give these things away and somehow make it look good for the company. That's probably
+[00:40:06.960 --> 00:40:12.240]   made the case that that killed the Atari 2600. I mean, certainly there were a lot of very unhappy
+[00:40:12.240 --> 00:40:17.840]   families who excitedly bought that and put it under the tree. And the kids said, what's that smell?
+[00:40:17.840 --> 00:40:25.840]   Burke is saying in our chat as a 12 year old kid, I even I knew the ET game sucked.
+[00:40:25.840 --> 00:40:36.960]   By the way, speaking of games, Fortnite is coming back to iOS, at least according to Tim Sweeney of
+[00:40:36.960 --> 00:40:45.840]   Epic Games. In fact, Sweeney tweeted next year on iOS before New Year's Eve. But in fact, there's been
+[00:40:45.840 --> 00:40:49.920]   significant rumors that it won't just be epic that all the game companies are going to bring.
+[00:40:49.920 --> 00:40:57.040]   If Apple allows alternative app stores, which I was gone for a week, did Apple ever confirm that
+[00:40:57.040 --> 00:41:00.640]   rumor? No, no, still speculations. But the bill died.
+[00:41:01.600 --> 00:41:07.360]   That was the job job. Remember was effective. You didn't promise anything. You might only do it in
+[00:41:07.360 --> 00:41:12.880]   Europe. But but we took the edge off of the push. My guess is when Sweeney says,
+[00:41:12.880 --> 00:41:19.920]   Fortnite will come back to iOS. He is saying it'll come back in an epic store on iOS. We shall see.
+[00:41:19.920 --> 00:41:27.440]   We shall see. This is all from the chat room. By the way, now I'm down to the chat room.
+[00:41:27.440 --> 00:41:33.520]   Submit a story. Next generation Chi two wireless charging embraces MagSafe,
+[00:41:33.520 --> 00:41:41.200]   which is very good news. This was announced today. Chi two is the new unified wireless charging
+[00:41:41.200 --> 00:41:47.760]   standard. Of course, Chi, its predecessor is pretty much universal except in the Apple world.
+[00:41:47.760 --> 00:41:53.040]   Although Apple phones will work with Chi chargers, just not as well as they do with MagSafe.
+[00:41:54.240 --> 00:41:59.040]   So now MagSafe will be part of it. It's called the magnetic power profile.
+[00:41:59.040 --> 00:42:05.280]   Devices that adopt Chi two in the future will use the same MagSafe magnetic technology
+[00:42:05.280 --> 00:42:10.480]   in the iPhone. Do they license it from Apple or are they just kind of copying it?
+[00:42:10.480 --> 00:42:15.440]   I think it's a standard. I think Apple is probably in the standards body and I think it's contributed.
+[00:42:15.440 --> 00:42:21.360]   The story of Mac rumor says supplied by Apple, which makes sense, right? They're in the standards
+[00:42:21.360 --> 00:42:24.960]   body and it's this typical Apple thing where they're like, well, we're going to just do this.
+[00:42:24.960 --> 00:42:27.040]   You can have it if you want.
+[00:42:27.040 --> 00:42:37.600]   Hey, speaking of things that are not coming this year or next year, Apple, according to Ming
+[00:42:37.600 --> 00:42:43.040]   Chi Kuo, is canceling or at least postponing mass production for the iPhone SE4.
+[00:42:43.040 --> 00:42:47.440]   Kuo said this in a series of tweets. He's still tweeting, I guess.
+[00:42:48.560 --> 00:42:53.280]   Ming, come on over to the mastodon though. What is fine? Kuo says he believes Apple
+[00:42:53.280 --> 00:42:58.720]   delay or scrap the device due to consistently lower than expected shipments of mid tier and
+[00:42:58.720 --> 00:43:02.000]   lower in smartphones, not just iPhones, but smartphones in general.
+[00:43:02.000 --> 00:43:09.680]   There was another story about the, just to jump this in there, about the iPhone 14 plus not
+[00:43:09.680 --> 00:43:16.000]   selling well either. Interesting, maybe some limits to the shape of the iPhone market that
+[00:43:16.000 --> 00:43:21.600]   Apple didn't realize. Or people wanted the pro. Is that possible? They said,
+[00:43:21.600 --> 00:43:24.400]   if I'm going to spend that much, I might spend a hundred bucks more and get a pro.
+[00:43:24.400 --> 00:43:27.440]   Right. I think a lot of people are buying pros.
+[00:43:27.440 --> 00:43:34.640]   Pro is selling well, apparently. In fact, Apple says they're back in stock and they've
+[00:43:34.640 --> 00:43:39.920]   started running ads again for them. Yeah, I can see it. Did you notice that? I got a kick out
+[00:43:39.920 --> 00:43:47.520]   of the fact that all the ads during football games were for the iPhone 14, no pro. I see
+[00:43:47.520 --> 00:43:53.440]   what's going on here. Then right after Christmas, the pro ads came back. I guess the stock is coming
+[00:43:53.440 --> 00:43:58.560]   back. I do wonder if, because by all accounts, the 14 is doing fine. I wonder if there's just a
+[00:43:58.560 --> 00:44:03.920]   limit to, if you want the cheaper phone, you just get the cheaper phone and you're not shopping
+[00:44:03.920 --> 00:44:09.120]   for the more expensive cheaper phone or the cheaper, cheaper phone. That level of complexity in the
+[00:44:09.120 --> 00:44:14.320]   product line is not relevant to the buyers who are down there. It's interesting because it's like
+[00:44:14.320 --> 00:44:18.080]   Apple keeps trying to do an alternate, cheaper phone, the Mini and now the Plus.
+[00:44:18.080 --> 00:44:24.560]   Maybe the answer is that there isn't room down there for that much variation and there really
+[00:44:24.560 --> 00:44:29.280]   should just be, there's the one simple, the iPhone 14. Everybody knows what that is.
+[00:44:29.280 --> 00:44:32.480]   Then beyond that, give me the pro and that's it. I don't know.
+[00:44:34.000 --> 00:44:41.840]   And is Apple, is the world changed enough that now it's really, really hard to sell a phone
+[00:44:41.840 --> 00:44:45.200]   that that expensively anymore, that Apple's going to have to figure out how to get a couple
+[00:44:45.200 --> 00:44:50.560]   hundred bucks off the price from now on? It doesn't seem like the folks that are buying it. I think
+[00:44:50.560 --> 00:44:55.120]   the problem is Apple's really taking over that top market and then not really able to activate
+[00:44:55.120 --> 00:45:00.240]   the smaller market, but they're building around a use case where a lot of people are, if you're
+[00:45:00.240 --> 00:45:04.560]   spending a certain amount of money, you're buying a lot of people are buying iPhones.
+[00:45:04.560 --> 00:45:10.880]   I mean, I run into a handful of people that have high-end Android, but generally, I find people
+[00:45:10.880 --> 00:45:15.040]   are looking for a better deal when they're getting an Android. That's most what I run into that have
+[00:45:15.040 --> 00:45:20.320]   Android. And so I think that if people are buying into that, they're just buying up. I know mine is
+[00:45:20.320 --> 00:45:25.600]   when I buy one, it's kind of stocked. We're going to add all the things to it.
+[00:45:26.800 --> 00:45:32.080]   But I meant more like the 14, the 14 plus. It's not so much that people are lukewarm to the phone or
+[00:45:32.080 --> 00:45:38.720]   its features, but that people who are not interested in paying top tier are now saying, "Gee,
+[00:45:38.720 --> 00:45:44.720]   I'm not sure that this is going to be worthy of the amount of money for upgrade. I think I'll
+[00:45:44.720 --> 00:45:49.760]   stick around with my 11 or my 12 for another couple of years until something excites me about this."
+[00:45:49.760 --> 00:45:55.680]   And given that there's so many really good Android phones out there that really are kind of,
+[00:45:56.560 --> 00:46:02.400]   I would really put them in the same weight class as the 14 and the 14 plus. And they would be
+[00:46:02.400 --> 00:46:08.880]   costing about $150, $200 less. I mean, one of the reasons why Google's Pixel phones got so many
+[00:46:08.880 --> 00:46:12.560]   awards this year was simply not necessarily because they were the greatest phones in the world,
+[00:46:12.560 --> 00:46:16.480]   but because they were seen as exceptional value for everything that they were delivering.
+[00:46:16.480 --> 00:46:25.520]   And I hope that Apple makes sure that whatever they're doing with the non-pro line of their phones,
+[00:46:25.520 --> 00:46:31.200]   people can still get a top tier iPhone of the year without necessarily feeling as though they're
+[00:46:31.200 --> 00:46:36.560]   paying $150 that they're not getting value from. Yeah, I think the lock-in, of course, is the
+[00:46:36.560 --> 00:46:41.040]   thing that the thing of course of Android is that an iPhone user very rarely goes to an Android
+[00:46:41.040 --> 00:46:48.240]   interface. And so they're making decisions within the iPhone ecosystem. I think that the issue also
+[00:46:48.240 --> 00:46:54.480]   is that when you look at if you bought a pro two or three years ago, I still pretty good.
+[00:46:55.360 --> 00:47:02.640]   It's a step down to go to, if you buy a pro, you can go a solid two or three years before you
+[00:47:02.640 --> 00:47:07.920]   buy another pro. But the ones that are the plus or the regular ones or the minis are so much less
+[00:47:07.920 --> 00:47:12.880]   than that pro that you even bought a couple of years before that without the third lens and
+[00:47:12.880 --> 00:47:19.120]   without those pieces. So I think that that becomes, because I don't think there's that much
+[00:47:19.120 --> 00:47:22.320]   difference between the pros, but there is a big difference. There's a big drop off from the pros
+[00:47:22.320 --> 00:47:27.920]   to the regular ones in the plus. Yeah, but I think the biggest competition that Apple has for the 14
+[00:47:27.920 --> 00:47:35.440]   are the iPhone 11 with a crack screen, like where people are a crack screen, a crack screen is a
+[00:47:35.440 --> 00:47:39.680]   good out of Apple care is a good excuse for someone saying, Oh geez, well, if I'm going to be paying
+[00:47:39.680 --> 00:47:43.200]   a few hundred dollars for a replacement screen anyway, I mean, this may as well be a good time
+[00:47:43.200 --> 00:47:48.080]   for me upgrade. But if they don't feel as though, if they feel as though the price of an iPhone 14
+[00:47:48.080 --> 00:47:52.720]   is way more than they would like to spend and they're not necessarily seeing or feeling
+[00:47:52.720 --> 00:47:58.560]   the advantages of the 14, that will get them to spend the $300 for a replacement screen rather than
+[00:47:58.560 --> 00:48:03.440]   upgrade sort of weighted out for the three years. I think though, the iPhone 14 itself is actually
+[00:48:03.440 --> 00:48:07.760]   selling pretty well. I do think though that you get to the really the heart of this, which is if
+[00:48:07.760 --> 00:48:12.480]   you're in that situation, like Apple is, I guess made this assumption that when you're shopping for an
+[00:48:12.480 --> 00:48:16.880]   iPhone 14, you're going to behave like you do when you're shopping for an iPhone 14 pro, which is
+[00:48:16.880 --> 00:48:21.920]   all right. Now do I want the bigger one that I spend more money on? And I don't think that that's
+[00:48:21.920 --> 00:48:27.280]   what an iPhone 14 buyer is doing at all. And to Andy's point, like, I think that that's where
+[00:48:27.280 --> 00:48:31.920]   they're looking at like, you know, I don't want to, I'm definitely not buying the pro. Do I want
+[00:48:31.920 --> 00:48:38.240]   to fix the screen? Do I want to hold off a year? And for them, they're much more price sensitive.
+[00:48:38.240 --> 00:48:41.840]   And they look at the 14 and they're like, well, yeah, I'm just going to get the 14. I'm not going to
+[00:48:41.840 --> 00:48:47.040]   spend more money for this slightly larger one. And that's a totally different algorithm that
+[00:48:47.040 --> 00:48:52.560]   they're going through than what an iPhone pro buyer is going through. And I think maybe this shows
+[00:48:52.560 --> 00:48:57.760]   that if this if this report is true, given what happened with the mini, that Apple really doesn't
+[00:48:57.760 --> 00:49:04.160]   understand who's buying the iPhone 14 in that price category, because they keep trying to market
+[00:49:04.160 --> 00:49:09.600]   them an alternate product to also sell. And nobody seems to be buying it, which is fascinating, right?
+[00:49:09.600 --> 00:49:15.440]   Like Apple, Apple knows a lot about the iPhone buying market, but apparently not everything,
+[00:49:15.440 --> 00:49:19.920]   right? Like they have not gotten this one right. And people have read some articles about this
+[00:49:19.920 --> 00:49:23.600]   that I didn't really think about that much. But you know, there's a status thing that gets very
+[00:49:23.600 --> 00:49:27.520]   much connected to whether it has three lenses or two. Like you look at it, you know, like,
+[00:49:27.520 --> 00:49:30.240]   it's not an accident that they're so visibly different, is it?
+[00:49:30.240 --> 00:49:34.400]   Yeah, you know, well, and that's why you put things on your Cadillac.
+[00:49:35.360 --> 00:49:41.680]   But like, you know, I know that like when until my until my wife had the I gave her the 13 and got
+[00:49:41.680 --> 00:49:46.480]   the 14 and and she, you know, but before that, she was always just handing just I need you to take
+[00:49:46.480 --> 00:49:50.160]   pictures of the kids like we get some of that. And like, because she had like a, you know,
+[00:49:50.160 --> 00:49:53.600]   a 10 or something like that. And it was, she was just like, Oh, I need you to take that photo
+[00:49:53.600 --> 00:49:56.880]   because I want to actually keep it. And so and I think that that's the problem. But I think that
+[00:49:56.880 --> 00:50:02.080]   one of the challenges for Apple is can you keep going at that pace with the pros? And so there's
+[00:50:02.080 --> 00:50:05.920]   still hundreds of millions of people that have older phones. And so there's that's the market
+[00:50:05.920 --> 00:50:10.480]   that Apple's really going towards because once you get a pro, the changes, if I wasn't on this
+[00:50:10.480 --> 00:50:15.280]   show, I wouldn't be upgrading every year, you know, like I would I would be skipping a year or two
+[00:50:15.280 --> 00:50:19.040]   between phones because they're because it's it's kind of like the same problem that PCs have is
+[00:50:19.040 --> 00:50:24.160]   that Excel runs as fast as it's ever going to run on a PC unless you're doing really heavy tables.
+[00:50:24.160 --> 00:50:30.080]   And so and so the and so that PC market has a hard time getting people to update and these phones
+[00:50:30.080 --> 00:50:35.920]   and these and they have Apple has to find ways to or not Apple, but the developers have to find ways
+[00:50:35.920 --> 00:50:42.160]   to push the phones harder because the big reason that I got the new 14 was 48 megapixels, which I
+[00:50:42.160 --> 00:50:50.000]   can't have a hard time getting to do all the time. But yeah, I think that oftentimes we ignore and
+[00:50:50.000 --> 00:50:54.880]   I mean, all of us not just the not just the people's conversation, but we ignore the fact that first,
+[00:50:54.880 --> 00:51:01.120]   I think I do believe that for the majority of the people a phone is a practical and functional item
+[00:51:01.120 --> 00:51:05.200]   that they don't get excited about the new camera. They don't get excited about, oh, well, this is
+[00:51:05.200 --> 00:51:13.360]   going to this this has new a new a 14 16 18 822 chip. That's going to be well set up for for AR and VR.
+[00:51:13.360 --> 00:51:18.000]   Oh, this is more system memory. I really do think that this is at some point their old form,
+[00:51:18.000 --> 00:51:23.040]   their own their old phone gets worn out. And so they they have to buy a new phone. So they buy
+[00:51:23.040 --> 00:51:26.960]   a new phone that's within the price range that they feel is those about what they what they
+[00:51:26.960 --> 00:51:32.320]   spend for the last one. And if the new phone has gobs of new features that are really, really fun and
+[00:51:32.320 --> 00:51:37.440]   really, really great, that's great too. But really, all they want is a working phone. They want a
+[00:51:37.440 --> 00:51:43.680]   fleet vehicle for a phone and they're they're brand loyal enough not to want to switch to Android
+[00:51:43.680 --> 00:51:51.280]   to save a couple hundred bucks. But I don't think that there that every iPhone 14 user is potentially
+[00:51:51.280 --> 00:51:57.120]   an iPhone 14 pro pro user. I agree. And it depends on what the what the deal is like my mom has an
+[00:51:57.120 --> 00:52:00.480]   Android phone. I said, why did you get an Android phone? And she said, because it was free, like,
+[00:52:00.480 --> 00:52:05.040]   okay, like my other phone broke. I walked in. They said, with your members with your whatever
+[00:52:05.040 --> 00:52:09.040]   subscription you can have any of these phones. And that was the one that was available. And she
+[00:52:09.040 --> 00:52:13.520]   didn't to Andy's point, she didn't really think about anything else. And so so there's definitely
+[00:52:13.520 --> 00:52:19.760]   a by the way, got 99, well, maybe 90% of the value of a smartphone without paying anything.
+[00:52:20.720 --> 00:52:27.680]   So I mean, to go to your status argument, I mean, a lot of it, but there's an awful lot of people
+[00:52:27.680 --> 00:52:32.880]   that are status not functionality. I don't know. I think some people are, but some people are,
+[00:52:32.880 --> 00:52:37.280]   but but I think that it is when you start taking pictures with the cameras, then the more
+[00:52:37.280 --> 00:52:42.320]   specific cameras, whether it's Samsung or whether it's an iPhone, those, you know, Samsung, Google,
+[00:52:42.320 --> 00:52:46.480]   an app are all making incredible, incredible, incredible cameras. And so you start, but you're
+[00:52:46.480 --> 00:52:50.320]   spending more money. And once you get up there, it's just a matter of the first vacation we did not
+[00:52:50.320 --> 00:52:55.840]   take fans, you know, our our expensive cameras with us. We just took the phones and it was fine.
+[00:52:55.840 --> 00:53:03.360]   Got the best pictures. Yeah, I take my I take my bigger cameras out every once in a while, but it's
+[00:53:03.360 --> 00:53:09.840]   really shift between. I see I have a little prediction. I think some of this is, of course,
+[00:53:09.840 --> 00:53:17.280]   just manufacturing troubles, whether it's chip shortages or concern about China, etc, etc.
+[00:53:17.280 --> 00:53:22.480]   And I think Apple's is also kind of understands that the market is shifting a little bit.
+[00:53:22.480 --> 00:53:30.320]   Hence, it's shift toward making more money per user. It's increasing its ARPU over trying to get
+[00:53:30.320 --> 00:53:36.240]   the revenue out of selling more hardware. So in fact, when you if you go to apple.com today,
+[00:53:36.960 --> 00:53:43.440]   what are they pushing? They're pushing fitness plus. Now all you need is an iPhone and they're
+[00:53:43.440 --> 00:53:48.640]   giving you know, they're free trial of fitness plus they're really for them. This is this is
+[00:53:48.640 --> 00:53:54.240]   where they see revenue, incremental revenue increase. Of course, it's not going to make up
+[00:53:54.240 --> 00:53:58.880]   for the margins you get in hardware. But I think they also see that this is kind of the way it's
+[00:53:58.880 --> 00:54:05.520]   going to be moving. Well, if they can get you if they can get you in for $30 for for the full package.
+[00:54:05.520 --> 00:54:09.760]   And it winds up being something that it's three years before you even remember that you're
+[00:54:09.760 --> 00:54:13.520]   subscribed to it that this is this is how you're getting Apple TV plus or this is how you're getting
+[00:54:13.520 --> 00:54:18.560]   your phone backups. That's a pretty serious win. Yeah, you're right. That's true. And they got me on
+[00:54:18.560 --> 00:54:23.680]   that. Let's take a little break. I do want to talk about a story that broke right before Christmas
+[00:54:23.680 --> 00:54:30.640]   last year. And it actually is kind of an interesting story. And I'd like to get your take on it.
+[00:54:31.920 --> 00:54:40.400]   Fellas, if I can. And this is the issue with the iPhone GPU, maybe another reason for some trouble
+[00:54:40.400 --> 00:54:48.400]   in paradise. But first a word from our sponsor. And I'm really happy about this one too. We've been,
+[00:54:48.400 --> 00:54:53.200]   I've been using fast mail for more than a decade. It's my choice of email. In fact, for a long time,
+[00:54:53.200 --> 00:55:00.080]   I've been saying, if you care about email, stop using free email for your privacy, sake,
+[00:55:00.080 --> 00:55:06.640]   but also for functionality, but also for support. When you're a customer, you just get better
+[00:55:06.640 --> 00:55:11.840]   functionality, better support, and of course, better privacy. And that's why I really love
+[00:55:11.840 --> 00:55:18.640]   fast mail, reclaim your privacy, boost your productivity, free email is really, and we know
+[00:55:18.640 --> 00:55:23.680]   it's not free. Nobody's given you anything for nothing. For over 20 years, fast mail has been a
+[00:55:23.680 --> 00:55:29.680]   leader in email privacy. I'd say leader and email as well. They contribute back into open
+[00:55:29.680 --> 00:55:35.200]   source. They have been proposing standards all this time. If you think email is getting better because
+[00:55:35.200 --> 00:55:41.680]   of SPF and DKIM and DMARC and all of the authentication protocols, thank fast mail.
+[00:55:41.680 --> 00:55:48.720]   Fast mail not only prioritizes your privacy, your personal data is kept safe and away from
+[00:55:48.720 --> 00:55:57.200]   third parties, better spam filters, no ads. Just to reassure you all the data is stored in the US,
+[00:55:57.200 --> 00:56:04.560]   but it is fully GDPR compliant. They also offer this is great for customers who use
+[00:56:04.560 --> 00:56:11.120]   our sponsor Bitwarden or OnePassword, a way to make a masked email when you make a new password
+[00:56:11.120 --> 00:56:16.400]   automatically. So you have multiple addresses when you sign up for various websites. One of the
+[00:56:16.400 --> 00:56:22.320]   things I do, I would say I'm an advanced fast mail user because I've been using it for so long.
+[00:56:22.320 --> 00:56:29.760]   So I use many of the advanced features. It works just like your web mail from those other guys.
+[00:56:29.760 --> 00:56:34.960]   In fact, they have a wonderful web mail interface. In fact, it's so good. I use their apps also on
+[00:56:34.960 --> 00:56:40.560]   the iPhone instead of Apple's mail. It gives you all the features you want and a whole lot more.
+[00:56:40.560 --> 00:56:47.760]   You can customize your workflow with colors and custom swipes, night mode and more. But I also do,
+[00:56:47.760 --> 00:56:54.000]   and I think if you're a high end user, it's great for anybody, easy to get into. If you're a high end
+[00:56:54.000 --> 00:57:00.720]   user, you'll like some of the high end features. For instance, Fastmail uses the Cyrus iMap server,
+[00:57:00.720 --> 00:57:06.640]   which is the best out there. They've contributed back to open source with that. But Cyrus and Fast
+[00:57:06.640 --> 00:57:12.880]   Mail's implementation allows you to do real iMap unlike Google, which is real folders. But if you
+[00:57:12.880 --> 00:57:20.080]   like Google's tagging features, they have that too. So you can do both, which is fantastic.
+[00:57:20.080 --> 00:57:25.520]   They have fantastic built-in automatic spam protection, but I like the fact that I can access
+[00:57:25.520 --> 00:57:33.280]   the Civ tool that they use and write my own code. You can actually code your own filters. If you
+[00:57:33.280 --> 00:57:37.600]   want, you don't need to. They have an automated system that works very, very well. But I also
+[00:57:37.600 --> 00:57:43.680]   write some special custom filters. And tie that in with the iMap folders and the tags.
+[00:57:43.680 --> 00:57:50.160]   You've got an amazing power tool. You can organize your inbox with scheduled send.
+[00:57:50.160 --> 00:57:53.520]   All this is very easy, by the way. I'm kind of, I shouldn't probably push the
+[00:57:53.520 --> 00:57:57.520]   high end features, except that's what I really love Fastmail for. But you've got
+[00:57:57.520 --> 00:58:03.600]   scheduled send, snooze, folders, labels, search bar. Keep track of all the important details
+[00:58:03.600 --> 00:58:08.880]   in your life easily with Fastmail's powerful sidebar. If you like the privacy proposition,
+[00:58:08.880 --> 00:58:14.640]   you can move your calendar and contacts and notes over to Fastmail too. And it works just
+[00:58:14.640 --> 00:58:20.000]   the same. It's a very powerful system. It's where I keep all my stuff. I'll give you an example of
+[00:58:20.000 --> 00:58:25.280]   how you Civ, for instance, I have a filter that says, because my contacts are kept at Fastmail,
+[00:58:25.280 --> 00:58:29.680]   if somebody, if I'm going to email for somebody to not in my contacts, put that aside. But if
+[00:58:29.680 --> 00:58:33.680]   you're in my contacts, put that in an important folder. And that important folder is really where
+[00:58:33.680 --> 00:58:38.880]   the mail I care most about lives. And then I have much, many other filters to take the other stuff.
+[00:58:38.880 --> 00:58:44.960]   I have a filter that looks for unsubscribe in the body of a message and moves it into a newsletter
+[00:58:44.960 --> 00:58:51.360]   folder. It's really nowadays with email, the only way to manage email is to, and to improve your
+[00:58:51.360 --> 00:58:57.280]   productivity is to use a really good tool. If you are not using Fastmail, you're missing out of the
+[00:58:57.280 --> 00:59:02.160]   best features of email. And the other thing I love about Fastmails, I have most of my domains
+[00:59:02.160 --> 00:59:07.360]   hosted by Fastmail. I mean, I wouldn't use it for a website. But what's great is I have many,
+[00:59:07.360 --> 00:59:14.400]   many email domains, and I can have an unlimited number of addresses to those domains. So it's
+[00:59:14.400 --> 00:59:21.040]   great for that really adds to the filtering capabilities as well. And for spam elimination.
+[00:59:21.040 --> 00:59:25.760]   You have the ability to send and receive emails, of course, from your own domain.
+[00:59:25.760 --> 00:59:30.880]   You can manage multiple email addresses in a single space. So you all go in the same inbox.
+[00:59:30.880 --> 00:59:36.640]   I love how it works with the password manager. What else can I tell you? The mobile app is
+[00:59:36.640 --> 00:59:44.320]   fantastic. Highly recommended. The support is in the US. They're email experts. In fact,
+[00:59:44.320 --> 00:59:49.840]   it's kind of nice because as you get more expert with email, as you make it more powerful,
+[00:59:49.840 --> 00:59:55.680]   having them there and to ask questions is incredible. Fastmail team believes that working for customers
+[00:59:55.680 --> 01:00:02.080]   as people to be cared for, not products to be exploited. No advertisers. They're left out.
+[01:00:02.080 --> 01:00:08.800]   Your privacy and you are at the center. It couldn't be better. It couldn't be faster.
+[01:00:08.800 --> 01:00:14.400]   It couldn't be more reliable. They've got a Gmail transfer tool. If you're ready to get off
+[01:00:14.400 --> 01:00:19.840]   Gmail, you could completely replace those Google services with Fastmail. It's incredible.
+[01:00:19.840 --> 01:00:25.120]   And don't worry about losing information. You're never locked in. It's easy to download your old
+[01:00:25.120 --> 01:00:30.000]   data imported into your new Fastmail inbox. And if you wanted to move away, move away, it's easy too.
+[01:00:30.000 --> 01:00:34.480]   You don't have to leave anything behind when you switch from any email provider.
+[01:00:34.480 --> 01:00:39.760]   Fastmail. Fastmail. It's moving email forward with new internet standards and open source
+[01:00:39.760 --> 01:00:46.560]   innovations that power many email services. They really are a leader in email. Just ask anybody
+[01:00:46.560 --> 01:00:52.080]   who's an email expert. This is the way to go. Trust me, I've been a Fastmail customer for more
+[01:00:52.080 --> 01:00:58.400]   than a decade. Finally, get to really sell it to you because if you care about email,
+[01:00:58.400 --> 01:01:04.320]   stop using the free services, the outlook.com, the Yahoo heaven for Fend AOL.
+[01:01:04.320 --> 01:01:13.520]   It's better than Gmail. Reclaim your privacy, boost productivity, and make email yours. Fastmail.
+[01:01:15.040 --> 01:01:21.600]   And it's surprisingly affordable. Try it free for 30 days. Fastmail.com/twit,
+[01:01:21.600 --> 01:01:27.840]   F-A-S-T-M-A-I-L.com/twit. And you'll get a 15% discount on the first year if you sign up today,
+[01:01:27.840 --> 01:01:35.600]   which makes it even more affordable. I just couldn't. I've been telling people for years about Fastmail.
+[01:01:35.600 --> 01:01:42.080]   I can't recommend it more highly. It's just the best way to do email. If you're suffering
+[01:01:42.080 --> 01:01:49.360]   with email, especially if you're still using a free provider, you got to do it. Fastmail.com/twit.
+[01:01:49.360 --> 01:01:55.600]   Thank you, Fastmail, for finally joining the Twit family because you guys, I've been in your
+[01:01:55.600 --> 01:02:04.880]   family for a long, darn time. So, a big story from the information, which I subscribe to,
+[01:02:06.400 --> 01:02:12.320]   it's behind a paywall. So, you could read it in other places. But this is Wayne Ma, who has some
+[01:02:12.320 --> 01:02:18.720]   very good sources. I'd love to know what you all think of this. Apple planted generational leap
+[01:02:18.720 --> 01:02:25.440]   for the graphics processor in the iPhone 14 Pro. According to Ma, engineers were too
+[01:02:25.440 --> 01:02:31.040]   ambient at his sources. Engineers were too ambitious with adding new features. Early prototypes
+[01:02:31.040 --> 01:02:37.520]   drew more power than what the company had expected based on software simulations. It hurt battery
+[01:02:37.520 --> 01:02:41.360]   life makes the device too hot according to two people with direct knowledge of the incident.
+[01:02:41.360 --> 01:02:48.240]   But unfortunately, Apple didn't realize this till late in development. So, it had to base its
+[01:02:48.240 --> 01:02:55.040]   graphics processor on the Pro on the design of a chip that was from last year's model. In fact,
+[01:02:55.040 --> 01:03:01.440]   you probably noticed when they announced the iPhone 14, they did not claim any improvements in GPU
+[01:03:01.440 --> 01:03:07.680]   performance. This is according to four people familiar with the matter. The people described as
+[01:03:07.680 --> 01:03:14.560]   snafu, which has not been previously reported as unprecedented in the group's history. I think
+[01:03:14.560 --> 01:03:20.480]   some of it is really that Apple, when it started Apple Silicon, first in the iPhone and later on
+[01:03:20.480 --> 01:03:27.520]   the Mac's leapfrog to the industry. But those performance increases can't continue forever.
+[01:03:27.520 --> 01:03:32.640]   And they wanted them to. They wanted to say 20% every year. They wanted to say 30% every year.
+[01:03:32.640 --> 01:03:41.040]   But you can't. What makes it remarkable though is that it's not just a failure of engineering.
+[01:03:41.040 --> 01:03:45.440]   It's more what's more impressive to me is that it sounds like a failure of process.
+[01:03:45.440 --> 01:03:52.320]   That this is going to take them by surprise that their simulations are so far off of reality that
+[01:03:52.320 --> 01:03:57.200]   they wind up in a lifeboat situation like this. If this is true, that's amazing. I can't think of
+[01:03:57.200 --> 01:04:02.960]   any other Apple product, any other Apple component where we even heard rumors just like that.
+[01:04:02.960 --> 01:04:06.800]   There's also the issue of more than two dozen former Apple employees
+[01:04:06.800 --> 01:04:14.560]   and a review of legal findings showing that Apple has lost dozens of key people to chip startups
+[01:04:14.560 --> 01:04:19.600]   and more established Silicon companies in the last three years, including
+[01:04:19.600 --> 01:04:27.760]   Gerard Williams III, an Apple executive responsible for the CPU and iPhones. He left to create Nuvia.
+[01:04:27.760 --> 01:04:36.160]   Name you will remember because of course they were snapped up. Was a Qualcomm bottom in a couple
+[01:04:36.160 --> 01:04:42.240]   of years ago. And we're looking to see what Nuvia's impact will be on the Qualcomm processors.
+[01:04:42.240 --> 01:04:47.520]   Alex? I mean, once Apple, by the way, I think they had it in the article of
+[01:04:47.520 --> 01:04:51.600]   snafu but technically it would be PhuBar. PhuBar would be the right one.
+[01:04:51.600 --> 01:04:57.040]   Snafu is a report on the new one. Situation normal all after as opposed to
+[01:04:57.040 --> 01:05:01.920]   a bar which is F. Beyond all recognition. And all recognition.
+[01:05:01.920 --> 01:05:05.680]   So, and I don't know if it would rise. Let's get your military terminology correct.
+[01:05:05.680 --> 01:05:08.720]   Exactly. We just want to make sure to get your nomenclature correct.
+[01:05:08.720 --> 01:05:16.880]   So, but as a graphics person, this is a little bit of a yawn. I mean, it's so it couldn't do
+[01:05:16.880 --> 01:05:21.920]   ray tracing. And you'll see almost no ray tracing anywhere on a phone. And even if it did, it would
+[01:05:21.920 --> 01:05:28.000]   probably be aliased at that size. It's not like it's great. And ray tracing is excited there.
+[01:05:28.000 --> 01:05:31.360]   In the articles that I've seen, they talk about it being a lighting technique and it's not usually
+[01:05:31.360 --> 01:05:35.440]   a lighting technique. It does some more accurate shadows than global illumination, which we're
+[01:05:35.440 --> 01:05:40.000]   still not getting to. But most of us who are doing high end graphics are more interested in the
+[01:05:40.000 --> 01:05:44.000]   global illumination opportunities than the ray tracing opportunities. It's more around
+[01:05:44.000 --> 01:05:47.760]   refractions and reflections and someone who spent a year and a half rendering a big
+[01:05:47.760 --> 01:05:50.800]   silver ship without ray tracing. You know, I'm not that.
+[01:05:50.800 --> 01:05:53.840]   You didn't do it real time. You had to do it. Pain stick.
+[01:05:53.840 --> 01:05:54.960]   45 minutes of frame. Yeah.
+[01:05:54.960 --> 01:05:56.160]   Pain stick.
+[01:05:56.160 --> 01:05:59.600]   You'll be rendered out in real time. But I'm saying I didn't have ray tracing. I
+[01:05:59.600 --> 01:06:03.600]   rendered the queenship for, you know, for a lot of shots without any ray tracing at all because
+[01:06:03.600 --> 01:06:09.760]   we didn't have it. And so I don't think that I don't think it's that big of a deal.
+[01:06:09.760 --> 01:06:15.520]   Like I think it's a process issue, as Andy said, that they weren't able to calculate it.
+[01:06:15.520 --> 01:06:20.480]   The fact that it happened. I mean, a lot of this kind of stuff happens in Apple products and other
+[01:06:20.480 --> 01:06:24.960]   people's products all the time. Like they make a calculation, they get on the ground, it doesn't
+[01:06:24.960 --> 01:06:30.880]   work. And they basically tamp down what they're going to promise and what the iOS is going to use
+[01:06:30.880 --> 01:06:36.560]   from that hardware. And that is not a, that's not actually a very, a very rare thing to have
+[01:06:36.560 --> 01:06:41.200]   happened. So I think that they obviously need to figure that out. But I also don't know what apps,
+[01:06:41.200 --> 01:06:45.840]   I mean, the only the first app that we've seen that really pushes iOS, and I think this was in
+[01:06:45.840 --> 01:06:51.840]   the list of things, is the new resolve. But you know, that's where we start to see apps starting
+[01:06:51.840 --> 01:06:58.400]   to actually push the hardware hard. But most iPhone apps do not. They don't, they don't,
+[01:06:58.400 --> 01:07:02.720]   they're going as fast as they're going to go. And the GPU is not going to make any significant
+[01:07:02.720 --> 01:07:08.560]   difference in how those apps run right now. But this could impact also the desktop
+[01:07:08.560 --> 01:07:14.240]   process. Just Dylan Patel, chief analyst at semi analysis quoted by Wayne Ma in the
+[01:07:14.240 --> 01:07:19.040]   information article, he says, the gains in Apple CPU performance over the last few years
+[01:07:19.040 --> 01:07:24.560]   have been very minor, mostly due to improvements in chip manufacturing, rather than Apple's chip
+[01:07:24.560 --> 01:07:31.200]   design. Since Williams left Apple CPU performance gains have slowed significantly. Apple sued
+[01:07:31.200 --> 01:07:38.240]   Williams six months after he left accusing him of intellectual, of stealing intellectual property
+[01:07:38.240 --> 01:07:44.720]   and poaching cheat key chip engineers to work at Nuvia. Earlier Apple made similar
+[01:07:44.720 --> 01:07:50.800]   accusations against a company called Revos. It is also luring away Apple silicon engineers.
+[01:07:50.800 --> 01:07:55.680]   And I will say that the biggest failure that Apple had was losing Williams and losing
+[01:07:55.680 --> 01:07:59.760]   a key engineer, like how did you not pay attention to that and pay them whatever they,
+[01:07:59.760 --> 01:08:06.800]   that's more of the issue. And again, when you come out with a processor that is as revolutionary
+[01:08:06.800 --> 01:08:12.720]   as the M1 is, to the rest of the industry, your entire staff is going to be under pressure to
+[01:08:12.720 --> 01:08:15.760]   leave and they're going to be offered all the money. Sure. They're going to be,
+[01:08:15.760 --> 01:08:19.280]   like, how about we give you a million dollar signing bonus or a million dollars worth of stock or
+[01:08:19.280 --> 01:08:24.000]   $2 million or $10 million? Because everyone, Apple's now done something that no one else was able to
+[01:08:24.000 --> 01:08:27.040]   quite figure out and they're all trying to figure it out. Of course, they're going to come poaching.
+[01:08:27.040 --> 01:08:31.200]   And Apple could have seen this coming. I mean, you know, you succeed at that rate.
+[01:08:31.200 --> 01:08:36.640]   It's now the clock is ticking on these guys. According to Wayne Ma, again, the information,
+[01:08:36.640 --> 01:08:41.280]   people familiar with the two startups, Revos and Nuvia say the departures have had a deeply
+[01:08:41.280 --> 01:08:46.160]   personal impact on Johnny Suruji, given his friendship with former Apple employees.
+[01:08:46.960 --> 01:08:51.120]   There's also, and this is maybe the soap opera. I don't know how interested you are in this,
+[01:08:51.120 --> 01:08:57.760]   but they've created tensions with a pair of venture capitalists, Lip Bhutan and Amajit Gil,
+[01:08:57.760 --> 01:09:03.840]   who are investors in both Nuvia and Revos. Tan is a powerful figure in the chip industry,
+[01:09:03.840 --> 01:09:08.800]   sits on the board of Intel. Close the link to Apple is a key supplier of software tools for chip
+[01:09:08.800 --> 01:09:14.880]   design. Gil worked briefly at Apple after it bought his former startup. Oh, he started P.A.
+[01:09:14.880 --> 01:09:22.640]   Semi. That's how Apple got their scholarships. So Tan and Gil, two very well connected,
+[01:09:22.640 --> 01:09:28.960]   smart guys have been investing in these two companies, Nuvia and Revos. In fact,
+[01:09:28.960 --> 01:09:33.040]   this investment in Revos is a scoop for the information.
+[01:09:33.040 --> 01:09:37.840]   It does feel a little like they're laundering engineers here, right? Like what we're going to do
+[01:09:37.840 --> 01:09:42.160]   is we're going to take you and we're going to put you in a startup and you're going to work on that.
+[01:09:42.160 --> 01:09:49.040]   And then that's going to allow us then for you to sell out to the competitor to your previous
+[01:09:49.040 --> 01:09:54.240]   employer or to the highest bidder. Maybe it's your previous employer again, right? It's not,
+[01:09:54.240 --> 01:09:59.440]   I mean, look, if they can get the money, they deserve the money for it, but it is kind of a
+[01:09:59.440 --> 01:10:03.280]   funny way to do it, right? Which is we're going to go do this chip startup that's immediately going
+[01:10:03.280 --> 01:10:08.800]   to get bought out by our competitor. The thing is, this is like welcome to Silicon Valley too,
+[01:10:08.800 --> 01:10:14.640]   because I know one person I was talking to at an event over the last week sold three companies to
+[01:10:14.640 --> 01:10:21.600]   Google. It was a Google for a little while, got it and handed off, went back, went back into the
+[01:10:21.600 --> 01:10:24.960]   thing and Google was like, it didn't seem like Google was fine with it. We can't,
+[01:10:24.960 --> 01:10:31.120]   but this is a, I mean, it is so cutthroat and part of that is because of the non-compete is not
+[01:10:31.120 --> 01:10:36.720]   really applying in California. So we happen to be in an environment where the individual can just
+[01:10:36.720 --> 01:10:41.200]   walk away at any given time and start working on exactly what they were doing. You can get a
+[01:10:41.200 --> 01:10:45.520]   company to do a non-compete, but you can't get an individual. And you know, that's in the interest
+[01:10:45.520 --> 01:10:49.360]   of the implicit protecting the employee. I mean, it's hard on the company. Absolutely. If you got
+[01:10:49.360 --> 01:10:55.280]   those skills, I liken it to, and Jason will recognize this, the success of the San Francisco 49ers
+[01:10:55.280 --> 01:11:02.400]   this year. We have an amazing defensive coach, D'Amico Rianz, who we would love to keep forever,
+[01:11:02.400 --> 01:11:06.480]   right? Right. But if he gets offered a head coaching job, he should take it.
+[01:11:06.480 --> 01:11:10.880]   He's going to go. Stop him and he's going to go. Just like the last defensive coordinator,
+[01:11:10.880 --> 01:11:14.720]   went and made the Jets almost serviceable. Yeah. And it'll happen again. And it's,
+[01:11:14.720 --> 01:11:19.120]   that's just the way of the world. It is. Yeah, these people have rights to,
+[01:11:19.120 --> 01:11:24.800]   to make money on their genius and their brilliance as chip engineers when there are
+[01:11:24.800 --> 01:11:29.280]   these huge companies that find this incredibly valuable, right? Like that, that's the, I think
+[01:11:29.280 --> 01:11:33.680]   non-competes are about as un-American a thing as they can be. And I'm glad they're not legal in
+[01:11:33.680 --> 01:11:38.400]   California. It's definitely in the interest of the company, not of the individual, you know?
+[01:11:38.400 --> 01:11:43.360]   Yeah. And let's, let's not, let's not forget that, uh, uh, since Silicon Valley, Apple and a lot of
+[01:11:43.360 --> 01:11:47.520]   other companies gone to trouble because they had a quote, gentlemen's agreement, unquote,
+[01:11:47.520 --> 01:11:51.520]   to make sure that they wouldn't, they would refuse to hire each other's employees to make
+[01:11:51.520 --> 01:11:56.480]   sure they can keep those salaries, uh, nice and low and to keep all their employees very, very
+[01:11:56.480 --> 01:12:02.240]   grateful specifically forbidden by antitrust law of all things. Yeah. Yeah. And our relative was in
+[01:12:02.240 --> 01:12:06.880]   any trust lawyer, uh, and years ago, he told me, you know, Apple and Google are doing something,
+[01:12:06.880 --> 01:12:10.960]   they're going to get in a lot of trouble for him. Right. Today, a little handshake agreement.
+[01:12:10.960 --> 01:12:14.000]   I wanted to bring up, you mentioned the Mac. I actually do think that the Mac is the thing
+[01:12:14.000 --> 01:12:18.880]   that's potentially large, the largest impact here because when you talk about more powerful GPUs
+[01:12:18.880 --> 01:12:23.680]   and a whole bunch of GPs, yeah, you know, keep in mind this is the A 16. So what we're talking
+[01:12:23.680 --> 01:12:28.720]   about is not what's in the M one or the M two, but what could potentially be in the M three.
+[01:12:28.720 --> 01:12:33.840]   And I've been wondering for a while now, giving that the M series chips are on a seems like 18
+[01:12:33.840 --> 01:12:39.920]   month cycle and the A series chips are on an annual cycle tied to the iPhone. I've been wondering
+[01:12:39.920 --> 01:12:45.920]   if we might get to a step where they skip one of the generations. And when I read this story
+[01:12:45.920 --> 01:12:52.400]   about the GPU being the old GPU, I thought, I wonder if this is it. I wonder if the A 16 is just not
+[01:12:52.400 --> 01:12:57.200]   going to go in an M series, not going to be the basis of the M three and they may jump right over
+[01:12:57.200 --> 01:13:04.080]   it to the A 17 this fall. That's a speculation. Let me give you some back stories for people
+[01:13:04.080 --> 01:13:08.560]   who are listening. What is he talking about? The chips, the M one and the M two chips are actually
+[01:13:08.560 --> 01:13:14.560]   last year's. A 14 and A 15. Yeah, they're they're old iPhone chips. Not exactly, but you know,
+[01:13:14.560 --> 01:13:19.280]   they've been beefed up with RAM. Of course, are right. The GPU cores are the same. And then they're
+[01:13:19.280 --> 01:13:23.280]   there are more of them and there's more stuff in there, but they are that's what they are.
+[01:13:23.280 --> 01:13:28.320]   And second, they're like that. Yeah. In the in the move to M one or Apple Silicon,
+[01:13:28.320 --> 01:13:35.920]   they abandoned third party GPUs. And so it's very important from Apple's point of view to get
+[01:13:35.920 --> 01:13:40.960]   better GPUs into Apple Silicon because they're they're now competing not only within tell,
+[01:13:40.960 --> 01:13:46.640]   but they're competing with Nvidia. Yeah. Yeah. And so when they have this GPU hiccup,
+[01:13:46.640 --> 01:13:51.040]   I think that I immediately thought that's not going to cut it on the Mac, right? Like,
+[01:13:51.040 --> 01:13:55.840]   although we think the concerns on the phone are heat and battery life, that's less of a
+[01:13:55.840 --> 01:14:00.560]   pout problem on exactly. I mean, it's also possible that the M three would be based on the A 16,
+[01:14:00.560 --> 01:14:04.400]   but use that GPU that they didn't put in the A 16, right? Like that's the other possibility
+[01:14:04.400 --> 01:14:08.560]   here, but it will be interesting to see if Apple mixes and matches a little bit or just leaps over
+[01:14:08.560 --> 01:14:15.440]   to the A 17 cores, depending on the timing of it. But like the M one doesn't have to move the M
+[01:14:15.440 --> 01:14:19.680]   series doesn't have to move in lockstep with the iPhone processors. I guess was my point. And this
+[01:14:19.680 --> 01:14:25.760]   might be a really good reason for it not to is that the GPU is underwhelming. And if you're looking
+[01:14:25.760 --> 01:14:32.640]   at an M three that you're going to use as the basis for all of your Macs in 2024, then the A 16
+[01:14:32.640 --> 01:14:38.400]   might not might not measure up. And I would say it's fairly important because the Apple was never
+[01:14:38.400 --> 01:14:45.200]   before M one Apple's GPU performance was horrible, like it was, you know, and so so the thing is,
+[01:14:45.200 --> 01:14:50.000]   is that you put an Nvidia card in there and you couldn't that was the problem. You had only had
+[01:14:50.000 --> 01:14:59.440]   ATI. Oh, that's right. You had the AMD. You see, I aged myself at you know, the AMDs and the AMDs
+[01:14:59.440 --> 01:15:03.680]   that worked on the Mac were not very good. And so graphics performance was not something that we
+[01:15:03.680 --> 01:15:13.040]   expected as this and talking to, you know, the M one has jumped dramatically forward with graphics
+[01:15:13.040 --> 01:15:18.640]   processing. But as you said before, if that's your number one concern, you should get a PC.
+[01:15:18.640 --> 01:15:22.800]   If you're going to really stack it up, you have to get a PC. I mean, you know, and so the thing is,
+[01:15:22.800 --> 01:15:28.160]   is that like, you know, for some of the operations that have really have PCs with 4, you know,
+[01:15:28.160 --> 01:15:33.040]   4 professional level Nvidia cards and that kind of thing. And then we need, we can't do that on a
+[01:15:33.040 --> 01:15:39.520]   Mac. But the, but but if you the biggest problem Apple has right now is not that the hardware can't
+[01:15:39.520 --> 01:15:43.600]   do what's necessary. It's that the software developers are not taking advantage of it. When I talked to
+[01:15:43.600 --> 01:15:49.600]   Andy Carluccio, who's been up up in the office up in in Twitch, the more that he they write to
+[01:15:49.600 --> 01:15:55.040]   straight to that to the Apple protocols, they're just more performance to pull out of them out of
+[01:15:55.040 --> 01:15:59.920]   those M ones and M twos all the time. And the developers just aren't using those yet because
+[01:15:59.920 --> 01:16:04.480]   it's not as convenient. It's not as portable. So there's so much processing power. I mean,
+[01:16:04.480 --> 01:16:11.920]   we can take my little studio can do 16 1080p outputs, you know, from zoom at one time. And it's
+[01:16:11.920 --> 01:16:15.600]   still just kind of humming along at about, I don't know, I think it's like 60% like whatever.
+[01:16:15.600 --> 01:16:22.720]   Yeah, we're running your four, your four videos are mine mine as well, I guess on what a kind of
+[01:16:22.720 --> 01:16:29.440]   base level Mac mini, base Mac mini. And it could do a lot more. Yeah, so it's. So the thing is,
+[01:16:29.440 --> 01:16:34.000]   is that like when I'm running resolve, I'm going to have to use to have a Mac mini for each of you.
+[01:16:34.000 --> 01:16:38.560]   Remember Skype, a store, you step up your own dedicated Mac mini. Now we're running all
+[01:16:38.560 --> 01:16:42.400]   again one Mac mini and there's a lot of headroom. We could do a lot more and that Mac mini could do
+[01:16:42.400 --> 01:16:47.200]   eight of us, you know, and so the thing is, is Apple's already made this giant step forward.
+[01:16:47.200 --> 01:16:52.240]   The developers haven't caught up. Most of them haven't caught up to taking full advantage of it.
+[01:16:52.240 --> 01:16:56.880]   So the real pro and where I see it like in resolve on my studio, it's my drive speed,
+[01:16:56.880 --> 01:17:02.240]   my RAM, those things make a big difference. The I'm not tapping the, you know, the CPU out. I
+[01:17:02.240 --> 01:17:05.600]   only see it tap out when I'm doing like compression and a couple other things. And so
+[01:17:05.600 --> 01:17:12.960]   in photogrammetry, but, but I think that, I think that Apple, you know, if the GPU didn't
+[01:17:12.960 --> 01:17:17.920]   improve that much between the over the next year, it probably would impact very few people,
+[01:17:17.920 --> 01:17:24.480]   very, very few users. But it obviously, you know, we want to see it keep going, growing at the pace
+[01:17:24.480 --> 01:17:28.480]   that it's been growing. There's a certain amount of pride too. You want to, you don't want to say,
+[01:17:28.480 --> 01:17:33.360]   yeah, well, we're not great in GPU, but that's the way it is. You know, right. We got used to,
+[01:17:33.360 --> 01:17:37.360]   we spent a decade not being able to say, well, it's a Mac, you know, we don't really expect to be
+[01:17:37.360 --> 01:17:42.880]   that good. Williams, according to Wayne, mom Williams, the Surugiate grown close,
+[01:17:42.880 --> 01:17:48.160]   the two men and their wife socialized together outside work to convince Williams to say,
+[01:17:48.160 --> 01:17:54.720]   Surugi offered Williams a six month paid sabbatical. Williams declined it. Court filings show that
+[01:17:54.720 --> 01:18:00.160]   on Williams last day at Apple, the company through going away party with Surugi and his
+[01:18:00.160 --> 01:18:04.960]   lieutenant, Santanam, praising Williams work and presenting him with an iPad and grave with a
+[01:18:04.960 --> 01:18:13.440]   message. Thanks for making us fast. Not surprising because if because of that job market, if he leaves,
+[01:18:13.440 --> 01:18:19.120]   if they leave in 2022, they could be back in 2024. Right. Yeah. Well, days later,
+[01:18:19.120 --> 01:18:22.080]   Williams founded Nuvia with two other former Apple colleagues. Okay, true.
+[01:18:22.080 --> 01:18:27.440]   Right. And the answer, the answer there was was $10 million of stock that that, that,
+[01:18:27.440 --> 01:18:30.160]   yeah, they got to do something. And you got to understand on these.
+[01:18:30.160 --> 01:18:34.720]   All you say is, what are they offering you? And I'm going to match it, except you cannot match it.
+[01:18:34.720 --> 01:18:39.280]   If what they're, what the option is, I'm going to start a company. I've got two VCs,
+[01:18:39.280 --> 01:18:43.280]   Gil and Tan, who are going to do who investing in it. They took board seats.
+[01:18:43.280 --> 01:18:46.960]   And then I'll be back in a couple of years and you'll be giving me $2 billion.
+[01:18:47.760 --> 01:18:51.680]   How you can get it? And I'll be running. And I'm going to run it because Johnny Schruggie isn't
+[01:18:51.680 --> 01:18:55.280]   going anywhere at Apple. And this time I run my own thing and call my own shots.
+[01:18:55.280 --> 01:18:57.440]   You can't compete with that. The other part of this. Right. Yeah.
+[01:18:57.440 --> 01:19:01.280]   The main thing though is there's always the bird in the hand versus the bird in the bush.
+[01:19:01.280 --> 01:19:05.520]   And so if you make it sweet, a sweet enough deal for a lot of folks, they'll go, well,
+[01:19:05.520 --> 01:19:12.560]   I think I could do that. But if I'm getting, you know, 10 or 20 or $30 million in stock options,
+[01:19:12.560 --> 01:19:17.120]   that's a pretty big, you know, that's a life changing number, you know, for a lot of folks. And
+[01:19:17.120 --> 01:19:22.880]   if it's, you know, and that's what that's the, you know, what they obviously often refer to as
+[01:19:22.880 --> 01:19:27.360]   the golden handcuffs, which is that we're just going to keep on. And I know people in a lot of
+[01:19:27.360 --> 01:19:31.680]   Silicon Valley that they work for companies that throw them a million dollars a year of stock.
+[01:19:31.680 --> 01:19:36.560]   That's going to, that's going to do it. It's going to slowly turn over to just make it harder
+[01:19:36.560 --> 01:19:41.040]   to make that decision harder to take the risk because it's always a risk when you walk out.
+[01:19:41.920 --> 01:19:48.960]   And so I think that that's what they're, they offered him six months off. That wasn't enough.
+[01:19:48.960 --> 01:19:51.040]   They could not fall six months off is not.
+[01:19:51.040 --> 01:19:55.840]   That's not much. Yeah, six months, six months to do nothing when you have people who are
+[01:19:55.840 --> 01:19:59.200]   ambitious. And you don't want it to do not. Yeah, you don't want to take six months off. You want
+[01:19:59.200 --> 01:20:04.480]   they want they want you to say, well, we'll give you opportunities to do things that have
+[01:20:04.480 --> 01:20:08.080]   been your goals for the past five years that you've hitherto thought you would not be able to
+[01:20:08.080 --> 01:20:13.120]   realize you're not. You put your arm around and say, I'm 58. I'm retiring in three years and you're
+[01:20:13.120 --> 01:20:19.200]   going to take my job. Maybe still, I think, honestly, you know, when you, if I'm going to go out and
+[01:20:19.200 --> 01:20:22.400]   start a company that you're going to buy for billions of dollar two billions, probably more
+[01:20:22.400 --> 01:20:28.080]   like 30 billion in a couple of years, it's pretty hard for them. The biggest problem Apple had was
+[01:20:28.080 --> 01:20:36.080]   the people liked Williams and many engineers followed him. In fact, according to Williams
+[01:20:36.080 --> 01:20:42.560]   countersuit, according to Williams lawyers, uh, Santonam at Apple warned Gil, the investor,
+[01:20:42.560 --> 01:20:48.000]   that he'd face consequences if new via continued hiring Apple employees. Oh, you're in your
+[01:20:48.000 --> 01:20:55.440]   little trouble now. Uh, and yeah, you're going to, we're going to, you'll be sorry. Um,
+[01:20:55.440 --> 01:21:00.400]   Williams filed his own suit claiming that Apple was stifling innovation by punishing him for
+[01:21:00.400 --> 01:21:07.920]   merely coming up with the idea for a startup ball on Apple. Um, Williams lawyer said Apple's lawsuit
+[01:21:07.920 --> 01:21:13.840]   has heard his reputation and bogged Novea down in litigation. He accused Apple of spying inappropriately
+[01:21:13.840 --> 01:21:18.960]   on new via employees, noting that many of the call logs and text messages between Williams and
+[01:21:18.960 --> 01:21:24.000]   others. It is cited in its complaints occurred after, oh, and on Apple employees occurred after
+[01:21:24.000 --> 01:21:31.840]   work hours or even after he had left Apple. Oh boy. Um, so this is, this is, uh, these are a couple
+[01:21:31.840 --> 01:21:37.840]   of years old, these lawsuits, but, uh, this is lawsuits, losses are where you, where you dig up
+[01:21:37.840 --> 01:21:43.120]   the ugly. Yeah, no kidding. Um, the stuff that, the stuff that every company, every person tries to
+[01:21:43.120 --> 01:21:47.440]   hide will come right to the surface in a lawsuit. This is why it's a no, but he's interest to let
+[01:21:47.440 --> 01:21:51.840]   it go with that far a few weeks after lodging the lawsuit in 2019, Apple gathered more than a
+[01:21:51.840 --> 01:21:57.920]   hundred senior members of the central processor team flying in some from other parts of the country
+[01:21:57.920 --> 01:22:03.760]   to reveal. The chip they'd been working on for years was the M one. Suruji gave a speech,
+[01:22:03.760 --> 01:22:09.760]   encouraging attendees to stick with the company as it was making exciting new products.
+[01:22:09.760 --> 01:22:17.600]   Several people in attendance quit. Nevertheless, enjoy Novea. Please stay with us. You got to do
+[01:22:17.600 --> 01:22:23.200]   better than that. Uh, Apple corporate security teams confiscated and analyzed the laptop of at
+[01:22:23.200 --> 01:22:31.440]   least one employee who told his manager he was considering going to Novea. What this, uh, this is
+[01:22:31.440 --> 01:22:38.960]   good reporting by Wayne Ma the information inside Apple's war for chip talent. Um,
+[01:22:40.160 --> 01:22:52.560]   very interesting read. I can see why, um, Apple is at this point slowing down a little bit in its
+[01:22:52.560 --> 01:22:58.880]   release of Max and maybe even phones. I mean, that's what we began the show with today. And
+[01:22:58.880 --> 01:23:03.840]   that maybe we understand hard to keep up that pace too. Right? Like this is a, an exciting new
+[01:23:03.840 --> 01:23:07.760]   thing they brought it, chip design in house. They did the iPhone, they had other worlds to conquer.
+[01:23:07.760 --> 01:23:12.080]   They expanded to the iPad and they had in their mind that they were eventually going to execute
+[01:23:12.080 --> 01:23:16.400]   this thing where the Mac chips came off, right? Like all of that was like, and they were, and,
+[01:23:16.400 --> 01:23:20.400]   and they saw the huge accolades because it was so much better than the Intel processors and they
+[01:23:20.400 --> 01:23:26.320]   really sort of dragged the Mac into, into arm and made the rest of the industry go, Oh geez, right?
+[01:23:26.320 --> 01:23:30.320]   And keep in mind also on the smartphone side, they basically been a more than a year ahead of
+[01:23:30.320 --> 01:23:35.040]   Qualcomm this entire time. Like they really have killed it. But those people have also been killing
+[01:23:35.040 --> 01:23:42.960]   it and working really hard for like more than a decade now, right? And, and it seems like a
+[01:23:42.960 --> 01:23:47.200]   perfectly logical time to want to maybe step off or challenge yourself in a different way.
+[01:23:47.200 --> 01:23:50.880]   And that is going to be, I mean, I think we've talked about this before here, but like,
+[01:23:50.880 --> 01:23:55.600]   I think this is one of the biggest existential crises for Apple is that they've got a whole
+[01:23:55.600 --> 01:24:01.600]   lot of people who have conquered all the worlds. And how do you keep them there? Because even if
+[01:24:01.600 --> 01:24:06.320]   you offer them money, it's not always just about the money. I mean, it's about the money, but it's
+[01:24:06.320 --> 01:24:11.920]   also about the challenge and doing something new. And Apple always is trying to do something new,
+[01:24:11.920 --> 01:24:17.200]   but they also have to maintain a whole bunch of stuff. And that is not necessarily what the stars
+[01:24:17.200 --> 01:24:23.920]   want to do. Yeah. Apple managers began showing a two slide presentation to employees warning them
+[01:24:23.920 --> 01:24:27.920]   that chip startups are risky and that few end up being successful.
+[01:24:27.920 --> 01:24:34.000]   And you'll never get a job. It's like somebody's mom. You'll not a chip designer. What is that?
+[01:24:34.000 --> 01:24:42.880]   You're never going to get a job. The presentation mentioned Gill, one of the investors by name,
+[01:24:42.880 --> 01:24:48.000]   saying he was ultimately the one who had benefited from the hard work of the startups employees.
+[01:24:48.000 --> 01:24:52.960]   The slides also said it was safer for employees to stay at Apple during an economic downturn.
+[01:24:53.520 --> 01:24:58.000]   And oh, by the way, Apple is planning to release new products that will be game changers.
+[01:24:58.000 --> 01:25:04.400]   The slides rate. This is the final paragraph. The slides raised eyebrows among former Apple
+[01:25:04.400 --> 01:25:10.000]   Silicon engineers. Several of them said Apple's warnings were hypocritical, given that people
+[01:25:10.000 --> 01:25:15.200]   like Santanam had seen their crews flourish after working at a chip startup. P.A. Semi,
+[01:25:15.200 --> 01:25:22.640]   which Apple then bought for many, many billions of dollars. Wow. Kind of a I thought, you know,
+[01:25:22.640 --> 01:25:28.000]   this just came out December 23rd and I've just been waiting for 10 days now to talk about it.
+[01:25:28.000 --> 01:25:34.000]   Very interesting story. It's awfully hard to control people who actually make things.
+[01:25:34.000 --> 01:25:37.600]   It's very easy to control investors. People who are just, hey, we're the
+[01:25:37.600 --> 01:25:41.600]   angel investor for this. They're so you get way enough money and they will sell or they will
+[01:25:41.600 --> 01:25:47.440]   join whoever's board when someone's job is to actually design chips with someone's job is to
+[01:25:47.440 --> 01:25:53.120]   actually write the software. It's really above make sure that make after they've achieved a
+[01:25:53.120 --> 01:25:59.360]   certain level of wealth, unless they have priorities that that that hit them with their third,
+[01:25:59.360 --> 01:26:04.560]   fourth or fifth child, it's really hard to simply keep them there with a with a higher paycheck.
+[01:26:04.560 --> 01:26:08.640]   You really have to make sure that whatever it is they enjoy making, they're going to enjoy the
+[01:26:08.640 --> 01:26:16.720]   next phase of that career even more. I, you know, and non Apple news, but relevant news in this is
+[01:26:16.720 --> 01:26:20.720]   another story that everybody was talking about while we were on our break last pass,
+[01:26:20.720 --> 01:26:24.720]   had perhaps the worst thing that could happen to a password manager,
+[01:26:24.720 --> 01:26:32.880]   happened to them. They admitted finally that the hackers who had broken in stole customer
+[01:26:32.880 --> 01:26:40.160]   vault data and that as far as we can tell, all of the customer faults were lost to the bad guy.
+[01:26:40.160 --> 01:26:46.800]   So I only say this as a word of warning. We advertise last pass heavily for several years.
+[01:26:46.800 --> 01:26:55.920]   They were a studio sponsor in 2020. And so I guess I owe you an apology. We still use it
+[01:26:55.920 --> 01:27:04.960]   corporately, but I guess my recommendation would be at this point, it may be it's time to look elsewhere
+[01:27:04.960 --> 01:27:09.200]   or at the very least, if you're going to stay with last pass, you now need to change all your
+[01:27:09.200 --> 01:27:15.280]   passwords. Because the hackers have had those vaults for at least a couple of months now.
+[01:27:15.280 --> 01:27:22.960]   That means reinforcing it as hard as they can. Yeah. And there's still unless I've missed some
+[01:27:22.960 --> 01:27:28.080]   news, there's still being really cagey about how when was the penetration, when did the penetration
+[01:27:28.080 --> 01:27:33.120]   occur? And also they were really cage about, oh, well, there was there was an incident, but we don't
+[01:27:33.120 --> 01:27:38.320]   we don't feel feel the need to raise an alarm. But when you need to give people the option of the
+[01:27:38.320 --> 01:27:43.920]   moment that they even if they even if I think that I'm overreacting by changing my most important
+[01:27:43.920 --> 01:27:48.960]   passwords, you have to give me that you have to give me the opportunity to overreact. Yeah,
+[01:27:48.960 --> 01:27:55.040]   because maybe I'm not overreacting. Yeah. It all followed on an August break in.
+[01:27:55.040 --> 01:28:04.160]   And then last month, last past actually November, last past CEO said certain elements of customer
+[01:28:04.160 --> 01:28:09.360]   information were gained. Now we know that the certain elements included your vaults. And also,
+[01:28:09.360 --> 01:28:14.880]   because last past did not encrypt metadata like the sites that you had passwords for all the sites
+[01:28:14.880 --> 01:28:24.800]   you'd visited. I hope you all use a strong master password and two factor. Even then there's some
+[01:28:24.800 --> 01:28:31.120]   risks Steve Gibson will be covering this in a few minutes on security now. The title of his
+[01:28:32.320 --> 01:28:39.040]   show is leaving last pass. We at the time, when the when the first information came out, Steve
+[01:28:39.040 --> 01:28:45.920]   went over it and said, you know, you probably are right, because you know, failing, you know,
+[01:28:45.920 --> 01:28:52.400]   the the the the password vaults well encrypted and failing the loss of those vaults, you're probably
+[01:28:52.400 --> 01:29:00.480]   all right. Well, now we know they got the vaults. Something to be to pay attention to, I guess.
+[01:29:00.960 --> 01:29:07.200]   Because brute force is very powerful these ways, these deals.
+[01:29:07.200 --> 01:29:13.680]   Anything else? Let's see what else we wanted to talk about. Oh, Apple battery replacements going
+[01:29:13.680 --> 01:29:20.240]   up. So is it too late to get your new battery quickly? Get it before March 1st? I guess that's
+[01:29:20.240 --> 01:29:27.920]   when the the batteries go up. Yeah, and also check for Apple warranty extension programs to see if
+[01:29:27.920 --> 01:29:34.880]   your your phone or your laptop actually has a has a extended warranty for just the battery,
+[01:29:34.880 --> 01:29:39.040]   because oftentimes I've had this experience myself and I've heard other people have that
+[01:29:39.040 --> 01:29:44.160]   experience where they they took their their laptop in for an unrelated issue. And then they
+[01:29:44.160 --> 01:29:48.000]   follow also we gave you a brand new battery because you're under a warranty extension program for
+[01:29:48.000 --> 01:29:54.800]   replacement batteries on this model. So all right, that's great. Yeah, out of out of warranty fee,
+[01:29:54.800 --> 01:30:00.480]   we'll go up by $20 for all iPhone models prior to iPhone 14. If you have a home button,
+[01:30:00.480 --> 01:30:09.360]   that's how you could tell your price will be going from $49 to $69. If you have a face ID
+[01:30:09.360 --> 01:30:19.840]   from 69 to $89. For MacBook Air models, price increase will be $30 from $129,
+[01:30:19.840 --> 01:30:26.480]   $159 for the MacBook. It's a shame because these batteries used to be pretty easy to replace yourself.
+[01:30:26.480 --> 01:30:32.960]   In fact, in the early days, you could just open a hatch. Now I think they're pretty well glued in.
+[01:30:32.960 --> 01:30:37.440]   They're not I'd have to look that I fix it, but I would guess you do not want to do your MacBook
+[01:30:37.440 --> 01:30:43.760]   Air battery unless you're very handy. Well, last time I swatched the battery, it wasn't so bad.
+[01:30:43.760 --> 01:30:49.040]   Yeah, because the battery's up by the top and you can just pull it out. If it is, it's one of those
+[01:30:49.040 --> 01:30:53.760]   things where you put the warmer on it and then pull it out. But I mean, they're pretty easy,
+[01:30:53.760 --> 01:30:57.920]   I think, in the grand scheme of things. I don't know about the M2, but the M1 and that whole
+[01:30:57.920 --> 01:31:02.400]   generation of Intel at the end, it wasn't so bad. I've had batteries also going up. All the
+[01:31:02.400 --> 01:31:06.800]   batteries come presumably because of increased costs. Yes, I mean, I don't think it's just a
+[01:31:06.800 --> 01:31:11.040]   money grab. I think they probably cost them more to me. And batteries, especially, are in demand
+[01:31:11.040 --> 01:31:15.520]   for so many things, including so many electric cars now that all that battery stuff is just
+[01:31:15.520 --> 01:31:30.000]   super expensive. Remember the Wall Street PowerBooks that actually had two cartridges for
+[01:31:30.000 --> 01:31:34.800]   battery? Those are great. So basically, you could have either double extend your battery life,
+[01:31:34.800 --> 01:31:39.680]   or you could be running off a one, you have another one in the bag. When you're running low,
+[01:31:39.680 --> 01:31:42.960]   you just simply put in the second one on the left, remove the other one on the right,
+[01:31:42.960 --> 01:31:47.360]   drop that in the charger, and keep on going back to Mac world expo.
+[01:31:47.360 --> 01:31:55.840]   Nothing. This is the last story. Then we'll get to your fix app. And I don't even know if this is a
+[01:31:55.840 --> 01:32:04.880]   story. Apple adds iOS 16.2's home app upgrade to internal list of major issues. Apple says that
+[01:32:04.880 --> 01:32:11.520]   the home architecture update, which they're planning for 16.2, is going to have to hold up.
+[01:32:11.520 --> 01:32:18.640]   Yes. They're going to have to wait for a bit. You used to get the option if you knew where to
+[01:32:18.640 --> 01:32:22.960]   look. It was surreptitiously, you could update to the new home architecture, which will support
+[01:32:22.960 --> 01:32:28.240]   matter down the road and all of that. And that option disappeared without a software update. So
+[01:32:28.240 --> 01:32:32.080]   there was obviously a switch somewhere where Apple was like, look, we're going to roll this out,
+[01:32:32.080 --> 01:32:35.040]   and we're going to hide it. And the nerds are going to install it. And if there any problems,
+[01:32:35.040 --> 01:32:39.520]   we're going to turn that button. Apparently there were. And there were. I mean, I admire them for
+[01:32:39.520 --> 01:32:43.280]   not just rolling it out to everybody and saying, good luck, everybody. Instead, they were like,
+[01:32:43.280 --> 01:32:48.480]   hide it and have the kill switch. And then they flipped the kill switch. So I guess
+[01:32:48.480 --> 01:32:55.840]   there are issues there. So if you're waiting for the next generation of HomeKit and the home app
+[01:32:55.840 --> 01:33:01.280]   and then matter support, apparently they're just waiting to wait a little bit longer.
+[01:33:01.280 --> 01:33:04.880]   Hold up. Yeah. Wait a second. Hold on there. Yeah.
+[01:33:04.880 --> 01:33:11.120]   It's the time it breaks. The intention was to offer a faster, more reliable app.
+[01:33:11.120 --> 01:33:16.080]   Also slight adjustments to the design, which are probably much needed.
+[01:33:16.080 --> 01:33:22.080]   Apple claimed the update would improve the app experience, but a significant amount of users
+[01:33:22.080 --> 01:33:26.720]   reported their HomeKit devices, scenes and setups were broken after the update. The
+[01:33:26.720 --> 01:33:31.040]   Wides, this is all according to Mac rumors, the widespread issues caused by the update forced
+[01:33:31.040 --> 01:33:36.400]   Apple to pull the upgrade. Now Mac rumors has learned Apple has added the Home app update to a
+[01:33:36.400 --> 01:33:42.560]   database of hardware and software issues internally. This is a list used by Apple Apple stores and
+[01:33:42.560 --> 01:33:47.920]   authorized service providers. Typically, it only includes widespread issues faced by customers.
+[01:33:49.040 --> 01:33:52.080]   It's rare that you'd see this for software. You see it for hardware more.
+[01:33:52.080 --> 01:33:58.880]   So a big deal. This is an effective warning to customer service and
+[01:33:58.880 --> 01:34:03.040]   technicians. Yeah. It doesn't work so good. Yeah.
+[01:34:03.040 --> 01:34:06.560]   It still doesn't work. It's still not working so good. Sorry.
+[01:34:06.560 --> 01:34:12.240]   You're still better off with one of those like reach your clause to turn switches on and off.
+[01:34:12.240 --> 01:34:17.200]   You don't want to leave bad just, you know, for the time being, they're on it. I'm sure they're on it.
+[01:34:17.200 --> 01:34:21.600]   Automation, I tell you. I tell you. Jason, I feel like you're a Home Automation guy.
+[01:34:21.600 --> 01:34:27.360]   You got all the lights. I got some lights. I got some stuff. I got, yeah. I got it.
+[01:34:27.360 --> 01:34:31.600]   Although my favorite Home Automation stuff is the stuff that's invisible and that regular
+[01:34:31.600 --> 01:34:36.320]   people don't need to know is smart. So like the Lutron, Caseta stuff, which is it's got its own
+[01:34:36.320 --> 01:34:42.080]   back end wireless network that doesn't ever go down. It has switch, there are switches in the wall
+[01:34:42.080 --> 01:34:46.800]   so that, you know, they are smart switches, but nobody needs to know you have you can buttons,
+[01:34:46.800 --> 01:34:50.480]   you can turn them on and off because the worst ones are where there's like tape over the light
+[01:34:50.480 --> 01:34:57.040]   switch and there's a sign that says, oh, don't turn this off. And then somebody in your house
+[01:34:57.040 --> 01:35:00.080]   who's not you turns to you and it's like, oh, how do I get that light on? I'm on the phone.
+[01:35:00.080 --> 01:35:04.480]   That's like, well, you got to take out your phone and go to the app and like that is you've lost at
+[01:35:04.480 --> 01:35:09.040]   that point, right? Yeah. So it needs to be stuff where there can be a button or a switch somewhere
+[01:35:09.040 --> 01:35:14.480]   that actually works. And I do love the smart home stuff, but I mostly, you know, again,
+[01:35:14.480 --> 01:35:18.880]   I want it to be usable by regular people. And then I use it for like automation and stuff where
+[01:35:18.880 --> 01:35:23.280]   like it can come on at certain times and off at certain times. And most of that is what I use
+[01:35:23.280 --> 01:35:28.800]   that stuff for now, like the lights outside come on at a certain time after sunset, turn off midnight.
+[01:35:28.800 --> 01:35:35.200]   It's that kind of stuff. Yeah. Oh, one more story. You remember when the crash detection
+[01:35:35.200 --> 01:35:45.200]   became a problem on roller coasters, apparently a 911 dispatcher fielded 71 calls from skiers
+[01:35:45.200 --> 01:35:51.760]   over one weekend in Colorado, Colorado Sun reports that 71 automatic calls went to Summit
+[01:35:51.760 --> 01:35:56.960]   County's 911 Center from four separate scary areas triggered automatically by crash detection
+[01:35:56.960 --> 01:36:07.360]   and iPhone 14 14 pro in the new watch series eight. Apparently skiing now is something you should
+[01:36:07.360 --> 01:36:14.000]   take your watch off for or just learn to ignore this this winter, somebody at Apple is spending a
+[01:36:14.000 --> 01:36:21.120]   lot of time on the slopes doing some data data analysis and gathering so that they can train their
+[01:36:21.120 --> 01:36:26.160]   model to work right because like the model should be able to realize that you're sledding or skiing
+[01:36:26.160 --> 01:36:30.960]   and not fire off then but they didn't do that. I mean, here's the problem. It's the problem for
+[01:36:30.960 --> 01:36:35.920]   the 911 too. If it's a real emergency, Apple doesn't want to ignore it, nor does 911 ignore it.
+[01:36:35.920 --> 01:36:43.520]   Pitkin County 911 in Colorado gets 15 to 20 automated calls a day from skiers,
+[01:36:43.520 --> 01:36:47.600]   not one of which has been a real emergency. Yeah, that's the after a
+[01:36:47.600 --> 01:36:52.800]   day. Have to check everyone you can't. And there's some irresponsibility on the user's part two.
+[01:36:52.800 --> 01:36:58.320]   I mean, Apple needs to train this better, but I will say when that thing fires off, you are prompted
+[01:36:58.320 --> 01:37:02.960]   like and maybe Apple should do a better job of having it make up shrill noise or whatever, but
+[01:37:02.960 --> 01:37:10.240]   like you are immediately asked, are you okay? And if you don't respond, then it sends the message,
+[01:37:10.240 --> 01:37:16.720]   which how many of us have looked down and said, Oh, let me turn that off. Yeah,
+[01:37:18.720 --> 01:37:24.480]   but again, I think this is on Apple to one, make that more visible. And two, you know, the
+[01:37:24.480 --> 01:37:28.960]   training either the training needs to be better or it needs to lock out certain areas, but it
+[01:37:28.960 --> 01:37:34.480]   sounds to me I'm actually surprised that stuff like sledding is setting it off because while I
+[01:37:34.480 --> 01:37:40.560]   know that there are bumps and stuff, I get it. You should be able to like the profile, the speed
+[01:37:40.560 --> 01:37:45.440]   are going where you are. There are so many inputs that should be able to detect that is not a
+[01:37:45.440 --> 01:37:49.840]   correct respect. There are going to be a few of these, a lot of these who knows, and Apple will
+[01:37:49.840 --> 01:37:56.560]   one by one fix them. According to a picking county's batch center director, Brett Loeb,
+[01:37:56.560 --> 01:38:02.400]   they've spoken to Apple about the issue and Apple says it fixes on the way in Q1, twice, 23.
+[01:38:02.400 --> 01:38:09.040]   So I will say that I have had a situation where I mean, skiing, where I took a pretty hard hit and
+[01:38:09.040 --> 01:38:13.280]   woke up under wedge between a tree and a
+[01:38:13.280 --> 01:38:15.840]   sea. Then you want it. It would have been really nice. It would have been really nice.
+[01:38:15.840 --> 01:38:19.040]   It would have been fun. I'm trying to get old as well. Yeah. Yeah.
+[01:38:19.040 --> 01:38:26.720]   Long before the watches. But another factor specifically for skiing and sledding is that,
+[01:38:26.720 --> 01:38:31.200]   okay, so you've got your watch, but it's under a couple of layers of coat and you've got gloves
+[01:38:31.200 --> 01:38:36.480]   on and they got so basically. That's probably why it's skiing. Yeah. Yep. So it would be hard
+[01:38:36.480 --> 01:38:42.160]   to know that by the way your phone is calling 911. And if you know that the timer is going,
+[01:38:42.160 --> 01:38:48.720]   like, how do you quickly can you get that glove off to get it going? I wonder if there are alternative
+[01:38:48.720 --> 01:38:56.240]   ways, like a risk gesture is to say cancel, cancel, cancel. Right. All right. Go ahead.
+[01:38:56.240 --> 01:39:01.680]   Just be shaking your hand. Don't do that. I'm still alive. I've had it go off. I just
+[01:39:01.680 --> 01:39:06.880]   see you're lapping the desk, you know, so yeah. Actually, that's fall detection. That's not
+[01:39:06.880 --> 01:39:12.640]   crash detection. But they say specifically this is a crash detection. Yeah. All right.
+[01:39:12.640 --> 01:39:17.200]   Let us take a little break. And when we come back, if you would prepare your picks of the week.
+[01:39:17.200 --> 01:39:25.120]   Hey, everybody. It's Leo LaPorte, the founder and host of many of the TWIT podcasts. I don't
+[01:39:25.120 --> 01:39:30.000]   normally talk to you about advertising, but I want to take a moment to do that right now.
+[01:39:30.000 --> 01:39:36.320]   Our mission statement at TWIT, we're dedicated to building a highly engaged community of tech
+[01:39:36.320 --> 01:39:42.560]   enthusiasts. That's our audience and you, I guess, since you're listening, by offering them the
+[01:39:42.560 --> 01:39:49.280]   knowledge they need to understand and use technology in today's world. To do that, we also create
+[01:39:49.280 --> 01:39:54.400]   partnerships with trusted brands and make important introductions between them and our audience. That's
+[01:39:54.400 --> 01:39:59.920]   how we finance our podcasts, but it's also and our audience tells us this all the time.
+[01:39:59.920 --> 01:40:05.760]   A part of the service we offer, it's a valued bit of information for our audience members. They
+[01:40:05.760 --> 01:40:12.960]   want to know about great brands like yours. So can we help you by introducing you
+[01:40:12.960 --> 01:40:20.240]   to our highly qualified audience? And why do you get a lot with advertising on the TWIT podcasts?
+[01:40:20.240 --> 01:40:24.320]   Partnering with TWIT means you're going to get, if I may say so, humbly, the gold standard
+[01:40:24.320 --> 01:40:29.520]   in podcast advertising. And we throw in a lot of valuable services. You get a full service
+[01:40:29.520 --> 01:40:35.280]   continuity team supporting everything from copyright into graphic design. I don't think anybody else
+[01:40:35.280 --> 01:40:40.800]   does this or does this as well as we do. You get ads that are embedded in our content that are
+[01:40:40.800 --> 01:40:46.480]   unique every time. I read them, our hosts read them. We always over deliver on impressions. And
+[01:40:46.480 --> 01:40:54.000]   frankly, we're here to talk about your product. So we really give our listeners a great introduction
+[01:40:54.000 --> 01:41:00.160]   to what you offer. We've got onboarding services, ad tech with pod sites that's free for direct
+[01:41:00.160 --> 01:41:05.440]   clients. We give you a lot of reporting so you know who saw your advertisement. You'll even know
+[01:41:05.440 --> 01:41:10.960]   how many responded by going to your website. We'll also give you courtesy commercials that you can
+[01:41:10.960 --> 01:41:16.400]   share across social media and landing pages. We think these are really valuable. People like me
+[01:41:16.400 --> 01:41:22.480]   and our other hosts talking about your products sincerely and informationally. Those are incredibly
+[01:41:22.480 --> 01:41:27.280]   valuable. You also get other free goodies, mentions in our weekly newsletter that sent out to thousands
+[01:41:27.280 --> 01:41:33.440]   of fans. We give bonus ads to people who buy a significant amount of advertising. You'll get
+[01:41:33.440 --> 01:41:38.640]   social media promotion too. But let me tell you, we are looking for an advertising partner
+[01:41:38.640 --> 01:41:44.640]   that's going to be with us long term. Visit twit.tv/advertise. Check out our partner testimonials.
+[01:41:44.640 --> 01:41:52.800]   Tim Broome, founder of ITProTV. They started ITProTV in 2013, immediately started advertising with us
+[01:41:52.800 --> 01:42:01.120]   and grew that company to a really amazing success. Hundreds of thousands of ongoing customers.
+[01:42:01.120 --> 01:42:06.000]   They've been on our network for more than 10 years and they say, and I'll quote Tim,
+[01:42:06.000 --> 01:42:09.840]   "We would not be where we are today without the twit network." That's just one example.
+[01:42:09.840 --> 01:42:16.080]   Mark McCurry, who's the CEO of Authentic, he was actually one of the first people to buy ads
+[01:42:16.080 --> 01:42:22.000]   on our network. He's been with us for 16 years. He said, and I'm quoting, "The feedback from many
+[01:42:22.000 --> 01:42:28.160]   advertisers over those 16 years across a range of product categories is that if ads and podcasts
+[01:42:28.160 --> 01:42:33.920]   are going to work for a brand, they're going to work on twit shows." I'm proud to say that the ads
+[01:42:33.920 --> 01:42:39.760]   we do over deliver, they work really well because they're honest, they have integrity.
+[01:42:39.760 --> 01:42:44.800]   Our audience trusts us and we say, "This is a great product." They believe it. They listen.
+[01:42:44.800 --> 01:42:49.920]   Our listeners are highly intelligent. They're heavily engaged. They're tech savvy.
+[01:42:49.920 --> 01:42:55.440]   They're dedicated to our network. That's partly because we only work with high integrity partners
+[01:42:55.440 --> 01:43:03.120]   that we have thoroughly and personally vetted. I approve every single advertiser on the network.
+[01:43:03.120 --> 01:43:07.520]   If you're ready to elevate your brand and you've got a great product, I want you to reach out to us.
+[01:43:07.520 --> 01:43:15.120]   Advertise at twit.tv. I want you to break out of the advertising norm. Grow your brand
+[01:43:15.680 --> 01:43:24.160]   with HostRed authentic ads on twit.tv. Visit twit.tv/advertise for more details or email us,
+[01:43:24.160 --> 01:43:30.080]   advertise at twit.tv if you're ready to launch your campaign now. Meanwhile, I just want to give
+[01:43:30.080 --> 01:43:38.160]   a little plug out to our fine club members and thank them for making this show possible. Club
+[01:43:38.160 --> 01:43:45.360]   Twit has been a huge success. We launched it last year and I would love to double or triple the
+[01:43:45.360 --> 01:43:51.920]   membership this year for a couple of reasons. One, it's just a great thing. You get ad-free
+[01:43:51.920 --> 01:43:58.080]   versions of all of our shows. You get the Twit+ bonus content, which includes shows like Hands-on
+[01:43:58.080 --> 01:44:03.520]   Mac with Mike Asargent that we don't put out in public. Club members support those shows so they
+[01:44:03.520 --> 01:44:08.720]   get access to their shows. You also get access to our fantastic Discord, which is really, I've
+[01:44:08.720 --> 01:44:12.880]   been hanging. Even when I was on vacation, I spent some time hanging out in the Discord in the
+[01:44:12.880 --> 01:44:18.240]   coding channel. There are channels for all sorts of geeky activities, including all of the shows.
+[01:44:18.240 --> 01:44:23.920]   All of that for just seven bucks a month. Now, that's a pretty good deal, but there's an even
+[01:44:23.920 --> 01:44:30.000]   more important reason why you should join Club Twit. It helps us keep Twit not only going,
+[01:44:30.000 --> 01:44:34.960]   but growing. That seven bucks a month makes a huge difference to us.
+[01:44:34.960 --> 01:44:39.680]   I am very grateful to those of you who've already joined and know a lot of you have.
+[01:44:39.680 --> 01:44:47.920]   If you haven't yet, please consider it. Twit.tv/clubtwit. This is kind of a big deal,
+[01:44:47.920 --> 01:44:54.720]   it says "dogam," in our Discord. It really does make a big difference. You probably saw the...
+[01:44:56.000 --> 01:45:00.880]   We certainly, everybody in podcasting did see the article in the Verge this past week about how
+[01:45:00.880 --> 01:45:07.280]   podcasting was about to crash because advertisers were pulling back significantly. We've known that
+[01:45:07.280 --> 01:45:14.640]   for a couple of months. It really makes a big difference. Twit.tv/clubtwit. Some day, I dream of
+[01:45:14.640 --> 01:45:19.840]   a day where we don't even need advertisers, where the club supports it all. That would be fantastic.
+[01:45:21.440 --> 01:45:29.120]   Twit.tv/clubtwit. Join us. It says the club. All right, time for the picks of the week.
+[01:45:29.120 --> 01:45:33.840]   Let's start with the big bucks guy, Alex Linden. I don't know how much I have left for Jason and
+[01:45:33.840 --> 01:45:36.080]   Andy. No, Andy, it's no where me. It's a big bucks.
+[01:45:36.080 --> 01:45:45.040]   So I was able to pick up a... I got a little bit of a sale on a June oven, and I...
+[01:45:45.040 --> 01:45:51.200]   I love my June. I love my June. So much fun. It's so much fun. I think I've made a meal
+[01:45:51.200 --> 01:45:56.160]   every day in it since I opened it. I love it so much. I got it from my mom.
+[01:45:56.160 --> 01:46:01.200]   Because she's 90. She just turned 90 yesterday. Happy birthday, mom.
+[01:46:01.200 --> 01:46:10.400]   Yeah. Yeah. And she doesn't cook much anymore. So she's... Honey, I just put a bagel in and it
+[01:46:10.400 --> 01:46:16.160]   knew it was a bagel, and it toasted it perfectly. And then they gave an egg thing. You could put
+[01:46:16.160 --> 01:46:22.000]   an egg in and they'll cook the egg. And she got one for me. She said, "This is so great." So it's
+[01:46:22.000 --> 01:46:28.720]   really... It did come up. The discussion did come up with, once you have one, you know, the egg
+[01:46:28.720 --> 01:46:33.520]   sandwiches for the whole family would be easier to do if we had to. Exactly. And then we could do
+[01:46:33.520 --> 01:46:39.280]   the breaded one of them and the eggs in another. That's exactly the problem. Right. Yeah. I have
+[01:46:39.280 --> 01:46:44.240]   two two separate stages. I need a second June. Yeah. My wife was like, "Whoa, whoa, whoa, this one."
+[01:46:45.680 --> 01:46:51.280]   We can have... We can stack, though. You know what I mean? And so... You cannot stack them. I have to
+[01:46:51.280 --> 01:46:56.560]   tell you, they need to cool. They need that fresh air all around them. These are not... These are not
+[01:46:56.560 --> 01:47:02.480]   Mac Mini's Alex. You don't... You can't like, quad the processing power by just simply...
+[01:47:02.480 --> 01:47:07.520]   Yeah. So this is a chicken that I made. And literally, I just followed the instructions. I'm
+[01:47:07.520 --> 01:47:11.360]   like, "Oh, it doesn't go by these things." It's got a little probe. Throw some veggies down. I put
+[01:47:11.360 --> 01:47:15.600]   probe in. I turned the thing on. And then... And if I wonder how it's going, I just go to my phone.
+[01:47:15.600 --> 01:47:19.840]   It's not a camera. And I just show me the video. Show me the video of the... Oh, it looks pretty good.
+[01:47:19.840 --> 01:47:24.960]   And so it is... And then it'll pair to multiple phones. So, you know, so not everybody has to use
+[01:47:24.960 --> 01:47:28.720]   my phone to use it. They can... You know, so my kids can have their own whatever they want to do.
+[01:47:28.720 --> 01:47:32.560]   The new ones are air fryers, too. Do you use the air fryer?
+[01:47:32.560 --> 01:47:37.440]   Haven't used the air fryer yet. I literally gave it to my... I gave it to my... To my... To
+[01:47:37.440 --> 01:47:43.120]   Carlita about a Christmas. Oh, okay. So I've only had a couple days, but it's just like a...
+[01:47:43.120 --> 01:47:48.320]   Obviously, it replaced the very old... The 20-year-old toaster. Yeah.
+[01:47:48.320 --> 01:47:54.240]   Two. And it's been a huge jump forward. And so again... I wouldn't say it's the best thing for
+[01:47:54.240 --> 01:48:00.080]   toasting bread. You probably should have a separate toaster. We don't. But... I gave it. As soon as I...
+[01:48:00.080 --> 01:48:05.520]   The toast came out. Good enough. It's good. It's a little slower than a toaster, I guess.
+[01:48:05.520 --> 01:48:08.960]   It is slower unless you're doing... Unless you have... It depends on how many slices.
+[01:48:08.960 --> 01:48:12.640]   No, you're right. Four of us. And so you put them all in there and turn it all on and off and go.
+[01:48:12.640 --> 01:48:18.080]   That's a good point. We made a bunch of... That's the first thing that seems a lot of
+[01:48:18.080 --> 01:48:21.840]   us do... I talked to a couple other people that are like, "Girl, gee sandwich works okay." You know.
+[01:48:21.840 --> 01:48:26.480]   Oh, how do you do that? Oh, you do it open. So you have the... You take the little pan,
+[01:48:26.480 --> 01:48:30.320]   then you flip it over, butter it, and then you put it open, and then you just flip it together.
+[01:48:30.320 --> 01:48:33.680]   And so... And it's super easy, and it works really well.
+[01:48:33.680 --> 01:48:39.360]   But this thing is an Android device in the front, and it has the camera, so it knows.
+[01:48:39.360 --> 01:48:42.880]   So I guess if you put it in open face, it goes, "You want to make grilled cheese?"
+[01:48:42.880 --> 01:48:45.760]   And you go, "Yeah." It did. It just jumped right in. And then it tells you how to do the whole thing.
+[01:48:45.760 --> 01:48:48.640]   Yeah. Is it how do you want it? Like, are you using whole wheat or white?
+[01:48:48.640 --> 01:48:51.280]   I do want it. Like, it literally adds like, "Are you using whole wheat or white?" I was like,
+[01:48:51.280 --> 01:48:57.280]   "Okay, I'm using whole wheat." And I... So... And I will admit that I have a tendency to buy appliances
+[01:48:57.280 --> 01:49:02.640]   for my kitchen. So... Very bad that way. Well, Stacey Higginbotham told me about the June.
+[01:49:02.640 --> 01:49:07.920]   I bought it when they first were starting, and it was $1,500. It's a lot less now.
+[01:49:07.920 --> 01:49:12.800]   It's much more affordable. So... Anyway, let's get one for $8.99.
+[01:49:12.800 --> 01:49:17.200]   I got a bunch of accessories. Well, yeah, if you get the $12.99 version,
+[01:49:17.200 --> 01:49:22.400]   then you get all of the... All the doohickeys. Yeah. So anyway, it's good stuff.
+[01:49:22.400 --> 01:49:28.240]   iGreetJuneaven.com. One of the better Silicon Valley startups.
+[01:49:29.200 --> 01:49:35.680]   Mr. Andy Naco, what do you got for us? Mine is a really cool update on a very, very classic
+[01:49:35.680 --> 01:49:42.960]   Mac app. Daniel Jelkutz, Mars at 5, has just been released. It's from Red Sweater software. It is a...
+[01:49:42.960 --> 01:49:49.120]   It's for writing blogs without having to actually go through the WordPress interface or your
+[01:49:49.120 --> 01:49:53.920]   blog interface. It is a... It is basically a Mac word processor that is intimately connected to
+[01:49:53.920 --> 01:50:01.840]   your blog. So much so that when you first fire it up and set it up with your URL and your account
+[01:50:01.840 --> 01:50:06.640]   number, it can actually just basically grab every single one of those blog posts and put it safe
+[01:50:06.640 --> 01:50:11.280]   on your desktop so that now the truth, so to speak, of all the stuff that you've written for your
+[01:50:11.280 --> 01:50:17.440]   blog is now actually on your Mac, on your Mac, and not necessarily on the website. And so it's
+[01:50:17.440 --> 01:50:23.360]   been a great app because I got one of my biggest difficulties. I'm trying to solve as many historic
+[01:50:23.360 --> 01:50:29.360]   problems I've been having with my blog at once. And one of them is that I get sucked into distractions
+[01:50:29.360 --> 01:50:35.280]   when I go into the WordPress console because there's so many other... I really just want to fire off
+[01:50:35.280 --> 01:50:39.600]   this right three or four words for a blog post. But then I see that, "Oh, I need some maintenance
+[01:50:39.600 --> 01:50:45.360]   to show this plugin needs to be updated." And it feels like that writing is incidental. We're
+[01:50:45.360 --> 01:50:49.200]   asked when you're using Mars at it, "You can access all the features you can whenever you're
+[01:50:49.200 --> 01:50:53.760]   formatting or organizing a blog post." But it feels like you're just using a word processor that's
+[01:50:53.760 --> 01:50:58.080]   designed for the blog post. And then, of course, then you click publish and it publishes just normally.
+[01:50:58.080 --> 01:51:03.280]   And so this is yet another update to a really, really griddle that, but a really significant one
+[01:51:03.280 --> 01:51:09.120]   and a new feature that really speaks to me. They've added... Daniel Jelkut has added a micro-blogging
+[01:51:09.120 --> 01:51:16.880]   feature to it. So that if... One of the things I've noticed is that about my own online publishing
+[01:51:16.880 --> 01:51:23.040]   and writing is that I spend a lot of time writing Instagram posts and a lot of time
+[01:51:23.040 --> 01:51:27.920]   writing Twitter posts. And oftentimes, it's not just, "Oh, gosh, this writing today,
+[01:51:27.920 --> 01:51:32.800]   I've... Boy, this is sucked to be raining." There are times where I will have a fully formed thought
+[01:51:32.800 --> 01:51:37.040]   that has to go out in three different tweets to really express it fully, or I'll take a picture...
+[01:51:37.040 --> 01:51:42.800]   I'll be out and I'll get a picture that I know that, "Oh, wow, not only will this be a really good
+[01:51:42.800 --> 01:51:48.560]   picture, but I could write a really good little story about this picture." And it'll be very...
+[01:51:48.560 --> 01:51:53.200]   I'm incredibly engaged in doing it. And so I'm wasting a lot of my creative time writing stuff
+[01:51:53.200 --> 01:51:58.480]   for Twitter and Instagram, whereas when my blog lies fallow. So he added this macro-blogging feature
+[01:51:58.480 --> 01:52:03.520]   so that anytime, anywhere you can... Wherever you are on your Mac, you can issue a hotkey,
+[01:52:03.520 --> 01:52:07.200]   a quick little mar set at Windle will pop up. That's not the full feature editor, it's just
+[01:52:07.200 --> 01:52:13.040]   there for essentially the window that you put a... The window that you format a Twitter
+[01:52:13.040 --> 01:52:20.000]   post or an Instagram post in. And whatever it is that you were about to waste on Elon Musk's latest
+[01:52:20.000 --> 01:52:24.480]   folly, you will now actually be putting on your blog. And I re-up-diting it like three or four times a
+[01:52:24.480 --> 01:52:28.320]   day. We almost made it through an entire two-hour show without saying the words Elon Musk.
+[01:52:28.320 --> 01:52:35.760]   So close! So close! Again, we need to... Andy, you owe us $5. You did it.
+[01:52:35.760 --> 01:52:46.640]   It's put it in the swear jar! I will put the $5 in so long as we continue to blaspheme that name.
+[01:52:46.640 --> 01:52:49.200]   I think that we're doing God's work. Yes, I think you're right.
+[01:52:49.200 --> 01:52:59.200]   I love Daniel. He is awesome. I love it that he's just an independent developer
+[01:52:59.200 --> 01:53:04.480]   right in great software. I think he used to work for Apple, didn't he? But he's just doing his own
+[01:53:04.480 --> 01:53:06.560]   thing. He's got a couple of great apps. He's got a couple of great apps.
+[01:53:06.560 --> 01:53:09.280]   He's got a couple of great apps. He's got a couple of great apps. He's got a very very very Mac, flying
+[01:53:09.280 --> 01:53:15.120]   the flag. Mac type apps. We recommended before his Black Ink, which I love as the ultimate crossword
+[01:53:15.120 --> 01:53:20.240]   puzzle app. I think you recommended that. And I use his fast scripts. Which is a great way to put
+[01:53:20.240 --> 01:53:27.360]   OSA scripts in your menu bar. But Mars Edit is the easiest way to blog. If you have a blog that supports
+[01:53:28.080 --> 01:53:33.440]   meta web blog or Adam Pub, WordPress micro.blog, tumblr typepad, movable type.
+[01:53:33.440 --> 01:53:40.480]   Boy, I always love posting with this. It's so much easier. Thank you. Great recommendation.
+[01:53:40.480 --> 01:53:48.880]   Mars Edit is from redswatter.com. Mr. J. Sennell, what do you got for us?
+[01:53:48.880 --> 01:53:55.440]   The second thing, Maris Edit, by the way. All my blog posts to six colors from my Mac.
+[01:53:55.440 --> 01:53:58.560]   Really? You did six colors in Mars Edit? Wow.
+[01:53:58.560 --> 01:54:04.640]   Yeah. I will write off it in BB Edit. And then I have a script that actually moves it to Mars
+[01:54:04.640 --> 01:54:09.280]   Edit so that I can use that to post into the blogging interface that WordPress uses.
+[01:54:09.280 --> 01:54:15.760]   It's an app that I heard a lot of people talking about and I never got into it. And I finally,
+[01:54:15.760 --> 01:54:20.960]   a couple of months ago, got into it in a big way. It's called channels. It's available at getchannels.com.
+[01:54:20.960 --> 01:54:27.280]   It is a server app you run somewhere in your house. And then it's got client apps for Mac and
+[01:54:27.280 --> 01:54:32.800]   iPhone and iPad and Apple TV and a bunch of other. There's an Android app, I think. And like,
+[01:54:32.800 --> 01:54:38.400]   here's the thing. So it's a DVR server that you run at home, which means if you're somebody who's
+[01:54:38.400 --> 01:54:42.960]   a cord cutter and you're doing over the air on an antenna, you can buy a box that connects to your
+[01:54:42.960 --> 01:54:48.320]   device and boom, now you've got a DVR. Your server is a DVR accessible from anywhere on the
+[01:54:48.320 --> 01:54:53.680]   internet, not just in your house. If you are using cable, you can get a box that you pop a cable
+[01:54:53.680 --> 01:55:00.640]   card in and attach it to your computer and boom, you have a DVR and it's available everywhere
+[01:55:00.640 --> 01:55:06.960]   inside and outside your house. But I don't have those things. I am a cord cutter and I use what's
+[01:55:06.960 --> 01:55:11.920]   called a VM PVD, which is like a virtual cable service like YouTube TV or in my case, Fubo TV.
+[01:55:12.720 --> 01:55:18.800]   And guess what? I didn't realize this was the thing. There's this thing called, I think it's called
+[01:55:18.800 --> 01:55:25.360]   watch everywhere. It's something like that. It is a web standard for authentication where you
+[01:55:25.360 --> 01:55:31.040]   authenticate with your login. And instead of going back to your provider, it actually goes to the
+[01:55:31.040 --> 01:55:38.240]   source. So like I log in, I set this up on the channel server saying I'm a here's my Fubo credentials.
+[01:55:38.240 --> 01:55:44.080]   And it said, okay, well, I can get you all your locals and I can get you all of these cable
+[01:55:44.080 --> 01:55:50.480]   channels. It's not every cable channel I get on Fubo, but it's a subset of them. And all of them
+[01:55:50.480 --> 01:56:00.960]   can now be viewed and recorded locally whenever I want to. And I use this because although my
+[01:56:00.960 --> 01:56:06.800]   although Fubo and these other services have cloud DVRs, the latency on the cloud DVR is terrible.
+[01:56:06.800 --> 01:56:10.880]   Like you go fast forward and it's like, wait, wait, wait, now it's fast forwarding.
+[01:56:10.880 --> 01:56:16.720]   And let me tell you the latency on a hard drive in your house way better than that. Plus, plus,
+[01:56:16.720 --> 01:56:22.320]   if you want to save that forever, you've got an MPEG file on the hard drive on your server.
+[01:56:22.320 --> 01:56:26.880]   You can put it in Plex. Some other things though that are great about it. It integrates with Plex.
+[01:56:26.880 --> 01:56:31.200]   If you've got a library of shows or movies or whatever, it looks like you create virtual channels.
+[01:56:31.920 --> 01:56:37.280]   Virtual channels. It's like, you know, if you miss flipping around, like I made a Star Trek
+[01:56:37.280 --> 01:56:42.240]   channel. It literally, it's all the Star Trek shows that I have on my Plex. And it's random. I
+[01:56:42.240 --> 01:56:47.680]   have a mash channel that just places episodes of mash. And you can set like, do you want it to
+[01:56:47.680 --> 01:56:51.680]   be random? Do you want to be sequential? Do you want to do like a mini marathon where it groups
+[01:56:51.680 --> 01:56:56.400]   like five sequential ones together and then goes to another random block? You can choose multiple
+[01:56:56.400 --> 01:57:01.280]   shows, multiple movies. I have a Miyazaki channel. You just flip it on. What's on the Miyazaki channel
+[01:57:01.280 --> 01:57:07.760]   right now? It'll be one of the Miyazaki movies that I've got. It's amazing. And then so that's good.
+[01:57:07.760 --> 01:57:12.960]   The DVR is great because I'm recording like Jeopardy. And it's so much better to have that on a local
+[01:57:12.960 --> 01:57:18.000]   DVR than on the cloud DVR. And then my last item is a lot of these services, when you leave your
+[01:57:18.000 --> 01:57:22.720]   region, you lose access to what you have because you're not. I found that. So I'm visiting my mom.
+[01:57:22.720 --> 01:57:27.760]   I'm visiting my mom in Phoenix and the 49ers are playing, right? And I want to see the game. And
+[01:57:27.760 --> 01:57:32.800]   it's not on a Phoenix. I was so upset. It's not on a Phoenix. But you know where it is on is in my
+[01:57:32.800 --> 01:57:38.480]   house where my channel server is. And so I was able to not watch it on Fubo, but I could load the
+[01:57:38.480 --> 01:57:43.520]   channels out of my iPad or so you can't watch it on Fubo because we will affect what we're in
+[01:57:43.520 --> 01:57:50.160]   Mexico. So everybody I tried ExpressVPN. Everybody says no, then we know don't don't give us that.
+[01:57:50.160 --> 01:57:57.040]   Yeah, right. So I know so I couldn't watch Fubo on YouTube TV. But same thing. So you can watch
+[01:57:57.840 --> 01:58:02.480]   so what do you do? You tell channels to record it and then watch it a second later or you don't
+[01:58:02.480 --> 01:58:06.560]   channels has channels has a watch now feature. So you don't even have to tell it to record it.
+[01:58:06.560 --> 01:58:12.240]   And the difference is it's it's not from Fubo TV's perspective and from, you know, from CBS's
+[01:58:12.240 --> 01:58:19.040]   perspective or Fox's perspective, I'm not in Phoenix, right? Because my server is at my house
+[01:58:19.040 --> 01:58:24.640]   in the Bay Area. Oh man, I wish I noticed ahead of time. Totally worked.
+[01:58:25.840 --> 01:58:31.040]   And I actually had this situation the other day where the Fubo service got really slow.
+[01:58:31.040 --> 01:58:37.520]   They had an outage basically. But this TV everywhere feature doesn't come from your
+[01:58:37.520 --> 01:58:43.040]   over the top provider. It comes from the source. So I switched when Fubo was sluggish and I wanted
+[01:58:43.040 --> 01:58:50.080]   to watch the football game, I switched to channels and then brought up the Fox channel. And it's
+[01:58:50.080 --> 01:58:54.560]   not going to Fubo, it's going to Fox. And it's the same stream as like the Fox app would use,
+[01:58:54.560 --> 01:59:01.760]   basically. So it's not it's not a way around. You still need to subscribe to TV. But it so this
+[01:59:01.760 --> 01:59:06.880]   all of these features put together is why I went it's like a month of trial and then I was like
+[01:59:06.880 --> 01:59:13.760]   $80 a year done, like done because having those jeopardy files that I can access fast and being
+[01:59:13.760 --> 01:59:21.200]   able to go from anywhere back to my home market and get on TV and then those channels, the channels
+[01:59:21.200 --> 01:59:26.400]   again, just being able to say I'm just feeling in the mood for mash or Star Trek or news radio or
+[01:59:26.400 --> 01:59:33.440]   whatever and just press or Miyazaki. The Miyazaki channel. That's a and it's a virtual channel,
+[01:59:33.440 --> 01:59:38.000]   right? It doesn't really exist. But if you if you press play, it will actually land you
+[01:59:38.000 --> 01:59:42.080]   in the middle, although you can back it doesn't it doesn't even start at the beginning. It's like
+[01:59:42.080 --> 01:59:46.480]   it's a channel. It's a it's a setting. You can have it you can have it started at the beginning
+[01:59:46.480 --> 01:59:52.240]   or you can have it drop in if it's 23 at the hour. And then when that episode is done, guess what?
+[01:59:52.240 --> 01:59:56.240]   It just shows that you're the next episode and you just keep going and it's all based on your
+[01:59:56.240 --> 02:00:01.200]   on your flex. So there's there's so many good features in it. And if you are somebody who's
+[02:00:01.200 --> 02:00:07.120]   got cable, you can buy the HD home run with a cable card and use it as as your cable source.
+[02:00:07.120 --> 02:00:12.400]   And and if you've got over if you're an over the air person with an antenna, you buy the HD home
+[02:00:12.400 --> 02:00:19.040]   run OTA and hook that up. And all that stuff is being consumed into this DVR that uses. I'm using
+[02:00:19.040 --> 02:00:24.960]   a Mac mini for this. So it's great. It also works. I'm happy to say on a Raspberry Pi.
+[02:00:24.960 --> 02:00:31.040]   It does. And Synology Qnap, my cloud net gear seagets, free.
+[02:00:31.040 --> 02:00:36.080]   Some of the features don't work on a NAS. I think maybe the TV everywhere feature might not
+[02:00:36.080 --> 02:00:42.160]   work on a NAS. But if you've got yeah, a Raspberry Pi will do it. An old PC or Mac will do it.
+[02:00:42.160 --> 02:00:46.800]   And it's again, I know it's a little bit nichey, but like if you your ears perked up at any of this,
+[02:00:46.800 --> 02:00:52.080]   it's like I we've come a long way. The interface is really good. It's got a live TV grid. It's got
+[02:00:52.080 --> 02:00:59.600]   a recording interface. It's very responsive. It is as dare I say it. It's kind of like a Tivo
+[02:00:59.600 --> 02:01:06.960]   replacement to yeah. And I love Tivo. It has commercials. It says it has commercial skip.
+[02:01:06.960 --> 02:01:11.360]   Does it work? It works. Okay. It works. Okay. The beauty of it is you can set it. What I have
+[02:01:11.360 --> 02:01:18.160]   for Jeopardy is it offers it if it thinks it's a commercial break because it's not 100% good at it.
+[02:01:18.160 --> 02:01:23.920]   So it offers it. Can I skip the part where they go and interview the contestants? That's what I
+[02:01:23.920 --> 02:01:28.320]   really want to skip. Well, you just go tap, tap, tap. And if you do it on YouTube TV and you go
+[02:01:28.320 --> 02:01:32.560]   tap, tap, it goes wait a second. Wait a second. Wait a second. Here it is. But if it's on your
+[02:01:32.560 --> 02:01:36.560]   local hard drive in your house and you go tap, tap, tap, it just goes tap, tap, tap. And you've
+[02:01:36.560 --> 02:01:42.080]   moved on. It's beautiful. So anyway, yeah, it's a great little app and it is $80 a year. But you
+[02:01:42.080 --> 02:01:47.760]   know, if anything I've described to you has hit home, you know what to do. Getchannels.com.
+[02:01:47.760 --> 02:01:54.400]   Wow. And I hope we don't lose a whole generation of people who are unaware that there was a time
+[02:01:54.400 --> 02:02:01.360]   where if there was something on TV, we wanted to be able to watch later, even added to a permanent
+[02:02:01.360 --> 02:02:06.640]   library, we could do that. We could put a VHS cassette into a machine that was beautiful. And
+[02:02:06.640 --> 02:02:11.360]   suddenly we have every episode of Mystery Science Theater 3000. And now it's anatomized.
+[02:02:11.360 --> 02:02:16.000]   It's like most, wait a minute. You have that on your phone. It's not for sale.
+[02:02:16.000 --> 02:02:21.200]   Ever. Yeah. Our friend, I don't know if she uses channels or not, but our friend,
+[02:02:21.200 --> 02:02:27.040]   Shelley Brisbane, who we work with back at Mac user, she does an old movie podcast on the
+[02:02:27.040 --> 02:02:31.200]   Uncomparable now. And she's got a huge library of old movies that are not widely available. And
+[02:02:31.200 --> 02:02:37.680]   the answer is she records them off TCM. And then she can keep them, right? Because she's recording
+[02:02:37.680 --> 02:02:42.000]   them somewhere where it's a file on a hard drive. And then she can keep them and put them in her
+[02:02:42.000 --> 02:02:47.120]   library. Imagine that like sticking a tape in the VCR. What an idea. And they are literally
+[02:02:47.120 --> 02:02:52.800]   channels isn't doing anything on that server. There's just a folder full of shows. And they are
+[02:02:52.800 --> 02:02:58.560]   all just MPEG files. There's nothing special about it at all, which is great. I like it.
+[02:02:58.560 --> 02:03:03.920]   It's good. Man, someday I'm going to have to just go through the whole thing
+[02:03:03.920 --> 02:03:10.320]   and fix it all. And because I'm still not a Ford cutter, but this is, I have all the pieces in
+[02:03:10.320 --> 02:03:16.480]   place, but I know it's like four days of hell. But then everything will be one. And I can go to
+[02:03:16.480 --> 02:03:23.280]   Mexico and watch TV. So it's worth it. I mean, it was so frustrating not being able to watch
+[02:03:23.280 --> 02:03:28.080]   the Niners game this Sunday. It was so hard. Yeah. And I, it's a little like sling box. If you
+[02:03:28.080 --> 02:03:33.840]   can get it to a channel that you want, yeah, using channels since it's coming from your house,
+[02:03:33.840 --> 02:03:39.200]   it's coming from inside. It's very much like a sling box. You're you're not it, you know,
+[02:03:39.200 --> 02:03:43.120]   all of the lights said, whatever happened to the sling box? I said, we have that a sling box.
+[02:03:43.120 --> 02:03:48.320]   They showed it. They showed that service down like three weeks ago. Oh, did they three weeks ago?
+[02:03:48.320 --> 02:03:52.080]   Yeah. Yeah. Finally, finally, just finally went to end of life. But anyway, this will do
+[02:03:52.080 --> 02:03:56.000]   something like that because it's not it's your streaming service at that point, right? And it's
+[02:03:56.000 --> 02:04:00.480]   in your house. So your house is just, which is, yeah, if you're traveling internationally, you can
+[02:04:00.480 --> 02:04:04.880]   set things to record and then play them back later or cash. You don't even know how to get to your
+[02:04:04.880 --> 02:04:09.520]   house. You just, you just, it just opens up. It's UP and P. Yeah, it just does it. I didn't, I, you
+[02:04:09.520 --> 02:04:15.280]   know, I just, I held my breath and check the box and it totally opened the right port and it works
+[02:04:15.280 --> 02:04:26.000]   great. Mr. Jason Snell, you see him at six colors.com. He's got the podcasts there. Six colors.com/podcast.
+[02:04:26.000 --> 02:04:32.480]   Six colors.com/Jason Nellio is the page I made just for you with all of my things in one place.
+[02:04:32.480 --> 02:04:37.840]   Well, but everybody's going to love it. So it's not just for me. It's for everyone.
+[02:04:38.560 --> 02:04:41.840]   Everything you ever want to know about what Jason does. There are.
+[02:04:41.840 --> 02:04:47.840]   I'm available. I'm available on places and podcasts and columns and you name it. I'm, I'm there.
+[02:04:47.840 --> 02:04:52.560]   I'm, you know, I remember when you launched this and I am so glad that it has been a success for you.
+[02:04:52.560 --> 02:04:58.000]   This is really worked out. I'm so happy for you. Eight, eight years now. And I, you know, I,
+[02:04:58.000 --> 02:05:00.720]   I'm still defying gravity. So that's good. Good job.
+[02:05:00.720 --> 02:05:06.480]   Don't you haven't hit the ground yet? Good job. Good job. And I'm so glad we got you on the
+[02:05:06.480 --> 02:05:08.720]   show as a regular. It's wonderful to have you. Thank you.
+[02:05:08.720 --> 02:05:13.600]   Yeah. Andy, what are you going to be on WGBH in Boston next?
+[02:05:13.600 --> 02:05:17.680]   Well, I'm a day early this week. I'm on Thursday at 12th,
+[02:05:17.680 --> 02:05:21.040]   or in the afternoon. I'll be streaming. So you won't be able to see me at the
+[02:05:21.040 --> 02:05:25.840]   Boss Public Library Studios of GBA. But you go to wgphnews.com and be a live or,
+[02:05:25.840 --> 02:05:31.600]   be a later, or go see him in the Westley Rhode Island Public Library every Tuesday.
+[02:05:32.800 --> 02:05:36.400]   During that break, right? Right. Basically, basically drive around.
+[02:05:36.400 --> 02:05:43.760]   If you hear lots of ways, a thread and threaded through, there is really like base baritone
+[02:05:43.760 --> 02:05:48.880]   cursing in Russia. Probably I'll be at a library soon. Yes.
+[02:05:48.880 --> 02:05:56.640]   Thank you, Andrew. Always a pleasure. Mr. Alex Lindsey. He is the Maven at office hours.global,
+[02:05:56.640 --> 02:06:05.600]   a continual stream of information about all kinds of media. Today's show was focused on
+[02:06:05.600 --> 02:06:12.160]   brainstorming graphics. We're basically taking the week to decide what we're going to do for
+[02:06:12.160 --> 02:06:15.360]   the next quarter. Because we use being everyday. And so we're like, so what we do is.
+[02:06:15.360 --> 02:06:18.880]   So your brainstorming. We stop. Subject matter. So we're talking like,
+[02:06:18.880 --> 02:06:21.280]   what do we want to talk about? And what are the things that are important to us?
+[02:06:21.280 --> 02:06:25.040]   And how do we want to do this? And so it makes it a lot easier for us to figure out what to do next.
+[02:06:25.040 --> 02:06:29.600]   And so everyone, I mean, this is the, it's an odd show that everyone is involved. Like, you know,
+[02:06:29.600 --> 02:06:34.320]   the producers that are listening are involved. And I mean, all the listeners, the panel, the
+[02:06:34.320 --> 02:06:38.560]   back end team, they're all everybody's trying to figure out what we want to do next. So it's,
+[02:06:38.560 --> 02:06:45.120]   so unlike this, we can Google it is a democracy. It's something like a democracy. It's a
+[02:06:45.120 --> 02:06:49.120]   collaboration. I don't, we don't really do any voting. Oh, we vote for the questions. So there you
+[02:06:49.120 --> 02:06:54.160]   go. So that's it. And by the way, I did ask, I did look for a render of how ET felt when they
+[02:06:54.160 --> 02:06:57.200]   released the, you know, that game.
+[02:06:57.200 --> 02:07:01.040]   Let's see what mid journey says. Oh, he was unhappy. He was very unhappy.
+[02:07:01.040 --> 02:07:06.480]   I don't dressed up and he was just, that's really good. That's really good.
+[02:07:06.480 --> 02:07:10.960]   That's really good. That's my journey. Wow. That's really, it's kind of so good.
+[02:07:10.960 --> 02:07:16.000]   Alex gets bored during the show. So he generates graphics.
+[02:07:16.000 --> 02:07:20.800]   Well, no, it's easy. I have, I have discord open all the time. And so I just, all you do is go to
+[02:07:20.800 --> 02:07:26.400]   mid journey and go, you know, ET as Santa, you know, make it three by two. And that's it.
+[02:07:26.400 --> 02:07:29.360]   Like it's like during a commercial break, you just type something in and then you get,
+[02:07:29.360 --> 02:07:33.120]   and then you just start hitting just go, give me more of this and less of this. And before you
+[02:07:33.120 --> 02:07:38.640]   know what you're, you're done. We're selling on the new name for this because MIT is calling it
+[02:07:38.640 --> 02:07:43.440]   a prompt engineering or prompt engineer. Right. I believe it should be a diffusionist.
+[02:07:43.440 --> 02:07:44.960]   No, I like that.
+[02:07:44.960 --> 02:07:50.720]   A diffusionist. It's definitely a coding. It's kind of like coding. You actually did a whole show
+[02:07:50.720 --> 02:07:56.960]   last week on it on mid journey and how to use it part of the hours global.
+[02:07:56.960 --> 02:08:01.200]   We're talking a lot about AI because it really affects a lot of us. And we're just pushing the
+[02:08:01.200 --> 02:08:05.040]   envelope of what that actually means. We actually put mid journey. You can put mid journey as a
+[02:08:05.040 --> 02:08:10.640]   bot into your into your server or discord server. So we put that in. So now people are in the group,
+[02:08:10.640 --> 02:08:16.240]   you know, generating, you know, pushing things we can experiment with what that nomenclature is
+[02:08:16.240 --> 02:08:21.280]   because it is important. And we're also experimenting with things like code. I just asked JPT to
+[02:08:21.280 --> 02:08:26.880]   write me an entire Swift app and just wow. Why don't you do this? Wow. I was just like, and I was
+[02:08:26.880 --> 02:08:30.880]   like, I wouldn't do this line in this line, but the rest of it looks pretty good. So we'll see.
+[02:08:30.880 --> 02:08:33.280]   I might release it on the app store. I won't have any copyright for it.
+[02:08:33.280 --> 02:08:38.160]   You have so much content here. Here's a thing on voiceover, performers and technicians that I
+[02:08:38.160 --> 02:08:42.880]   have to watch. I don't have enough time in the day to watch all the stuff you make. It's incredible.
+[02:08:42.880 --> 02:08:47.520]   It's really good. And we're, you know, the it's an incredible team too that puts it in the
+[02:08:47.520 --> 02:08:51.840]   back. You know, there's a team that comes together every day. You know, it's, you know, the show
+[02:08:51.840 --> 02:08:58.000]   takes about with with including the panelists is about 20 25 people. Yeah. And everyone
+[02:08:58.000 --> 02:09:03.520]   volunteer at the time to put it together. And it's quite a good job. You can play along at office
+[02:09:03.520 --> 02:09:12.080]   hours dot global. And if you need an expert in streaming, Alex is available at 090.media. He
+[02:09:12.080 --> 02:09:18.320]   is the king of this stuff. Thank you, Alex. Thank you, Andy. Thank you, Jason. Thanks to all of
+[02:09:18.320 --> 02:09:25.200]   you for joining us. Thanks to ACI learning our new studio sponsor making this show possible. Of
+[02:09:25.200 --> 02:09:30.640]   course, our club Twit members as well. We really appreciate your contributions. I thought the club
+[02:09:30.640 --> 02:09:35.920]   started last year. It did not out of sync. Tells me it's been almost two years, it'll be two years
+[02:09:35.920 --> 02:09:43.280]   in April. Wow. How time flies. I know I can't believe it. Thanks to one and all. We appreciate
+[02:09:43.280 --> 02:09:48.320]   your participation. Stay tuned. If you're watching live security now is coming up next.
+[02:09:48.320 --> 02:09:54.560]   We do Mac break weekly every Tuesday 11 a.m. Pacific 2 p.m. Eastern. We're now back on schedule
+[02:09:54.560 --> 02:10:02.400]   with a new year. That's 1800. I'm sorry, 1900 UTC. You can watch us live at live dot twit.tv.
+[02:10:02.400 --> 02:10:08.640]   Chat with us live at IRC dot twit.tv or in the club Twit discord. After the fact on demand versions
+[02:10:08.640 --> 02:10:14.560]   of the show are available at the website, twit.tv slash mbw. You can also go to YouTube. There's a
+[02:10:14.560 --> 02:10:18.720]   dedicated channel actually best place to go is youtube.com slash twit. That's where you'll get the
+[02:10:18.720 --> 02:10:23.840]   little twit bits, the promotional stuff, all the tech breaks, all of that. And you'll see links to
+[02:10:23.840 --> 02:10:30.240]   all the individual pages for each show. So I should just say go to youtube.com slash twit.
+[02:10:30.240 --> 02:10:36.080]   Probably the best way to get this show if you're a devotee is to subscribe in your favorite podcast
+[02:10:36.080 --> 02:10:41.280]   application. That way you'll get it automatically as soon as we publish it. Since we edit it all
+[02:10:41.280 --> 02:10:47.200]   down, take off all out all the swear words, all the Elon Musk's and we'll put it out probably later
+[02:10:47.200 --> 02:10:53.440]   today. So go and subscribe if you would. Thank you so much. We'll see you next time. Now get back
+[02:10:53.440 --> 02:11:01.760]   to work because break time is over. Happy new year. Once again time for the Twit audience
+[02:11:01.760 --> 02:11:06.560]   survey. The annual survey helps us understand you so we can make your listening experience
+[02:11:06.560 --> 02:11:11.040]   even better. It only takes a couple of minutes, but it sure helps us out a lot completely optional.
+[02:11:11.040 --> 02:11:19.840]   But if you could, please go to twit.tv slash survey 23. That's twit.tv slash survey 23.
+[02:11:20.720 --> 02:11:24.080]   You have till the end of the month, but if you would do me a favor and do it today,
+[02:11:24.080 --> 02:11:36.640]   I can stop mentioning it. Twit.tv slash survey 23. Thanks in advance.
+[02:11:36.640 --> 02:11:39.220]   (upbeat music)
+[02:11:39.220 --> 02:11:41.720]   (upbeat drum music)
+

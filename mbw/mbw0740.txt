@@ -1,0 +1,1771 @@
+;FFMETADATA1
+title=I'm a Desktop Stan
+artist=TWiT
+album_artist=TWiT
+album=MacBreak Weekly
+track=740
+genre=Podcast
+comment=https://twit.tv/mbw
+copyright=These podcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2020
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:05.680]   It's time for Mac Break Weekly. Renee is back. So is Lori Gill and the Enochos here.
+[00:00:05.680 --> 00:00:11.920]   Renee has all three of the new Macintosh computers. We will of course be talking
+[00:00:11.920 --> 00:00:18.920]   about the M1 chip real-world benchmarks. Some of them are so fast that even Mac
+[00:00:18.920 --> 00:00:23.760]   Pro users are gonna feel bad. We'll also talk about big certs and big changes
+[00:00:23.760 --> 00:00:28.800]   there and the Apple Security kerfuffle and Apple's response. All that coming up
+[00:00:28.800 --> 00:00:33.760]   next on Mac Break Weekly. Mac Break Weekly comes to you from Twits LastPass Studios.
+[00:00:33.760 --> 00:00:37.520]   Securing every access point in your company does not have to be a challenge.
+[00:00:37.520 --> 00:00:42.000]   LastPass unifies access and authentication to make securing your
+[00:00:42.000 --> 00:00:46.400]   employees simple and secure. Even when they're working remotely check out
+[00:00:46.400 --> 00:00:50.600]   lastpass.com/twit to learn more.
+[00:00:50.600 --> 00:01:00.600]   Podcasts you love. This is Twits.
+[00:01:00.600 --> 00:01:08.440]   This is Mac Break Weekly, episode 740 recorded Tuesday November 17th 2020 on
+[00:01:08.440 --> 00:01:13.120]   a desktop stand. This episode of Mac Break Weekly is brought to you by
+[00:01:13.120 --> 00:01:18.440]   Armor Lock. Take control of your data privacy with G Technologies Armor Lock
+[00:01:18.440 --> 00:01:25.880]   NVMe SSD. Never again compromise speed for security. Go to get Armor Lock.com to
+[00:01:25.880 --> 00:01:31.920]   learn more and get yours today. And by IT Pro TV. Get professional IT
+[00:01:31.920 --> 00:01:37.240]   training with the experts. Visit itpro.tv/macbreak for an additional 30%
+[00:01:37.240 --> 00:01:41.240]   off all consumer subscriptions with a lifetime of your active subscription.
+[00:01:41.240 --> 00:01:47.600]   Use the code MacBreak30 at check out. It's time for Mac Break Weekly, the show
+[00:01:47.600 --> 00:01:52.240]   where we cover the latest news from Apple. And yes there's news from Apple.
+[00:01:52.240 --> 00:01:55.760]   Renee Richie is here. He was on Twitch on Sunday but I think there's a little
+[00:01:55.760 --> 00:02:00.600]   more you could talk about today from youtube.com/r. Look at that Mac mini in
+[00:02:00.600 --> 00:02:04.160]   his hot little hands. I want it so badly to tell you that we could talk about it
+[00:02:04.160 --> 00:02:08.280]   on Tuesday. I know I can think very seriously. And you were good and Apple
+[00:02:08.280 --> 00:02:13.320]   should know you honored your embargo with Verve, gusto and integrity.
+[00:02:13.320 --> 00:02:17.880]   So we have at least a hounds now. So yeah I noticed when I got up this morning
+[00:02:17.880 --> 00:02:22.480]   quite a few reviews of Apple Silicon Macs both the Mac book here the Mac mini and
+[00:02:22.480 --> 00:02:27.040]   the Mac book Pro 13 and Iainakos also here from WGBH Boston. Good to see you
+[00:02:27.040 --> 00:02:30.840]   Andrew. Good to see all of you again. Good to have the whole team back. Yep.
+[00:02:30.840 --> 00:02:36.680]   And of course Lori Gill who I think also might have a little something.
+[00:02:37.920 --> 00:02:44.720]   Not yet. No. Mine comes Friday. I've got a little I checked because you said
+[00:02:44.720 --> 00:02:48.520]   right check. It was they were saying it will come on Tuesday a week from today
+[00:02:48.520 --> 00:02:54.760]   on the 24th and I just checked and I am UPS tells me it will be coming this
+[00:02:54.760 --> 00:02:58.240]   Friday. So I'm going to go on today. Some people got him really early. I know I
+[00:02:58.240 --> 00:03:02.200]   saw that on you read it a number of people and of course the review units.
+[00:03:02.200 --> 00:03:04.840]   How long did you get it the day of Renee?
+[00:03:04.840 --> 00:03:14.240]   I forget because FedEx was delayed for me. It's like on Twitter where you see
+[00:03:14.240 --> 00:03:17.040]   all the reviewers just complaining about FedEx and you're pretty certain
+[00:03:17.040 --> 00:03:22.440]   something's arriving that day. Yeah. So you got it but you've had it for
+[00:03:22.440 --> 00:03:27.680]   almost a week then. Yeah I've had it since I think Thursday or Thursday.
+[00:03:27.680 --> 00:03:31.560]   Okay. Plenty of time to say benchmark it.
+[00:03:33.240 --> 00:03:36.320]   Oh I benchmarked this. I did the stonks version of benchmarking Leo because I
+[00:03:36.320 --> 00:03:39.040]   knew that's only the only thing anyone would be asking. So I did the geek
+[00:03:39.040 --> 00:03:42.920]   benches, the center benches, the GFX anything that with the word bench and I
+[00:03:42.920 --> 00:03:46.080]   think I did a park bench. There's a lot of these benchmarks. There is a geek
+[00:03:46.080 --> 00:03:50.720]   bench native M1 benchmark but a lot of these benchmarks are not their Intel
+[00:03:50.720 --> 00:03:55.320]   benchmarks. So you'd be really benchmarking Rosetta to as much as anything else.
+[00:03:55.320 --> 00:04:01.120]   I will hold up. Let me hold off on your thoughts while we just summarize what
+[00:04:01.120 --> 00:04:07.920]   we're seeing from Matthew Panzorino on TechCrunch from ours Technica from
+[00:04:07.920 --> 00:04:12.160]   Neelai Patel at the Verge. Actually the Verge had all three and had three
+[00:04:12.160 --> 00:04:19.920]   different reviewers test all of them. Consensus from everybody is whoa.
+[00:04:19.920 --> 00:04:28.800]   These things are fast and of course Matthew who did a lot of battery testing.
+[00:04:29.280 --> 00:04:34.680]   Amazing battery. Whoops I pushed the wrong button there. Amazing battery life as
+[00:04:34.680 --> 00:04:40.000]   well. Apple's new. This is Matthew Panzorino. Apple's new M1 powered MacBook
+[00:04:40.000 --> 00:04:47.000]   shows impressive performance gains that make Intel's chips obsolete overnight.
+[00:04:47.000 --> 00:04:50.400]   I. Is that hyperbole in your opinion or name?
+[00:04:50.400 --> 00:04:54.440]   So I managed to get all three of them as well and I've been testing them all
+[00:04:54.440 --> 00:04:58.040]   weekend and there is one area that Intel still dominates and I said this in my
+[00:04:58.040 --> 00:05:01.640]   video. If you need your coffee cup kept warm by your Mac mini.
+[00:05:01.640 --> 00:05:07.000]   Use your Mac Pro as a heat blanket in the winter then you are still going to
+[00:05:07.000 --> 00:05:10.760]   have to go with Intel because I pushed these things like 30 minute loops
+[00:05:10.760 --> 00:05:15.200]   everything I could do and they barely get hot. Like it took me 10 minutes to
+[00:05:15.200 --> 00:05:20.160]   get the MacBook Airs fan to come on and it was hard to get the MacBook Air to
+[00:05:20.160 --> 00:05:24.160]   down ramp and to get the MacBook Pros fan to even come on and even then it was
+[00:05:24.160 --> 00:05:29.760]   whisper quiet while the Intel Air and the Intel MacBook Pro were gasping for air
+[00:05:29.760 --> 00:05:33.800]   like they'd been sucked out into space. This is a room and this animated
+[00:05:33.800 --> 00:05:37.240]   gift from Matthew Panzorino kind of tells the story he is launching in
+[00:05:37.240 --> 00:05:43.040]   succession. Each application in his dock there is zero bouncing. They all
+[00:05:43.040 --> 00:05:45.960]   launched. It's just once I was an iPad. It's like it's feeling it feels like
+[00:05:45.960 --> 00:05:49.880]   having an iPad. Are these real launches though? I mean are they ready to run or
+[00:05:49.880 --> 00:05:54.640]   is this one of those tricks that where they they stop bouncing and they've got
+[00:05:54.640 --> 00:05:58.400]   they render a screen but it's not really usable yet. No it depends on the app
+[00:05:58.400 --> 00:06:02.000]   like Photoshop and Final Cut Pro will still take a few bounces but it's not
+[00:06:02.000 --> 00:06:05.360]   like eight. I made this joke and I thought it was a joke at first. I said
+[00:06:05.360 --> 00:06:10.680]   like a movie trailer like imagine a world with no more bouncing. Imagine a
+[00:06:10.680 --> 00:06:15.160]   world where you're not waiting. Imagine a world without beach balls. It would be
+[00:06:15.160 --> 00:06:19.320]   beautiful. Yeah, but that's really close to what I did not get a single beach
+[00:06:19.320 --> 00:06:23.880]   ball. I did not get a stammer a stutter in Final Cut Pro. Did not drop a frame and
+[00:06:23.880 --> 00:06:29.000]   these are the low power low end worst of any ammo machine that's ever gonna come
+[00:06:29.000 --> 00:06:32.600]   out. Well and we should say this because on Sunday now you had this on Sunday
+[00:06:32.600 --> 00:06:36.360]   but you couldn't tell anybody. So you were talking with some knowledge of a
+[00:06:36.360 --> 00:06:41.600]   forethought but the rest of us including Alex Lindsey were not and and you and
+[00:06:41.600 --> 00:06:46.120]   Alex kind of agreed that these are not really pro even the Macbook Pro is not
+[00:06:46.120 --> 00:06:51.160]   pro. I mean I think nobody would deny that there will be the next generation and
+[00:06:51.160 --> 00:06:54.920]   the generation after that and they will get faster and faster and faster but yes
+[00:06:54.920 --> 00:06:59.000]   I would have to say given what I've seen in the benchmarks even given the
+[00:06:59.000 --> 00:07:06.240]   performance with admittedly only 16 gigs of RAM that this MacBook Pro for
+[00:07:06.240 --> 00:07:13.760]   instance outperformed the Mac Pro in some cases. Almost yeah so the big
+[00:07:13.760 --> 00:07:17.040]   constraint is going to be ports I think for people who are our legitimate pro
+[00:07:17.040 --> 00:07:21.280]   users because you just can't without a hook. Get a freaking dog then. Yeah no
+[00:07:21.280 --> 00:07:24.320]   that's what you do but the thing with the RAM is like the machines these
+[00:07:24.320 --> 00:07:28.040]   replaced only had 16 gigabytes but and your an apple was really good they did
+[00:07:28.040 --> 00:07:31.880]   memory compression they did ultra fast swap but now you have a unified memory
+[00:07:31.880 --> 00:07:35.920]   pool which operates completely differently than a traditional VRAM and
+[00:07:35.920 --> 00:07:40.160]   DRAM system you're not copying things back and forth everything is instantly
+[00:07:40.160 --> 00:07:44.600]   available it's a pool and we're gonna have to reconceptualize how we talk about
+[00:07:44.600 --> 00:07:48.240]   RAM on a like it's like talking about it on an iPad now it's not like talking
+[00:07:48.240 --> 00:07:54.440]   about it. That was my bet and I still haven't used it my Macbook Pro 13 comes
+[00:07:54.440 --> 00:07:59.280]   on Friday but that was my bet was that you shouldn't compare 16 gigs of RAM on
+[00:07:59.280 --> 00:08:03.280]   this device to an Intel device especially because of the unified memory
+[00:08:03.280 --> 00:08:08.320]   architecture. Pan's Arena even goes so far as to say I think Apple might phase
+[00:08:08.320 --> 00:08:15.880]   out the notion of RAM entirely and you might have some sort of shared storage
+[00:08:15.880 --> 00:08:20.480]   slash RAM some sort of obtain wouldn't be obtained. It's like an idea of dream
+[00:08:20.480 --> 00:08:23.680]   for years right? Like being kind of patented to sell that for years but it
+[00:08:23.680 --> 00:08:27.800]   could be possible. So you might have you know two tera up to two terabytes of
+[00:08:27.800 --> 00:08:33.880]   RAM let's say except that it's RAM plus storage and because it's on chip it's
+[00:08:33.880 --> 00:08:41.760]   all equally fast. I mean I just want to say my guess was at this even before
+[00:08:41.760 --> 00:08:46.240]   the announcement last week but even but at the announcement for sure that this
+[00:08:46.240 --> 00:08:50.480]   was an inflection point in desktop computing that's that that everything
+[00:08:50.480 --> 00:08:55.360]   was going to be kind of before Apple Silicon and after Apple Silicon and I
+[00:08:55.360 --> 00:09:01.800]   don't see anything at all to doubt that assessment. This is now Andy you pointed
+[00:09:01.800 --> 00:09:07.600]   out that a number of the Intel fanboys on YouTube and elsewhere Lewis Rossman
+[00:09:07.600 --> 00:09:13.720]   and people like that are saying whoo what is their complaint? A lot of their
+[00:09:13.720 --> 00:09:18.360]   complaint is that their their I think they took Umbridge at the hey this is
+[00:09:18.360 --> 00:09:23.880]   faster than 98% of all Windows laptops released in the past year and yeah that's
+[00:09:23.880 --> 00:09:27.680]   marketing lingo but they didn't really focus on the actual performance of this
+[00:09:27.680 --> 00:09:31.800]   actual thing. They're also complaining about RAM of expandability but they're
+[00:09:31.800 --> 00:09:36.160]   also complaining about the GPU performance is not going to be as good
+[00:09:36.160 --> 00:09:40.560]   as a dedicated GPU. Well wait a minute because hold your they obviously hadn't
+[00:09:40.560 --> 00:09:45.600]   benchmarked it yet. Yeah I mean a lot but really to sum up a lot of this is
+[00:09:45.600 --> 00:09:50.040]   really sounds familiar to the first Mac that was released and the first iPad
+[00:09:50.040 --> 00:09:56.680]   that was released where they're trying to compare it to a stand they're trying
+[00:09:56.680 --> 00:10:00.280]   to compare it to the architecture and the sort of devices that they're used to
+[00:10:00.280 --> 00:10:05.880]   when it's really really becoming clear that Apple didn't just swap from one
+[00:10:05.880 --> 00:10:12.280]   processor to another they reinvented the Mac from the ground up and so there was
+[00:10:12.280 --> 00:10:15.680]   going to be there as people continue to use these things they're certainly going
+[00:10:15.680 --> 00:10:21.960]   to be able to find I'm sure or rather I have to believe despite all immediate
+[00:10:21.960 --> 00:10:26.440]   evidence that they're going to find areas in which this this a new M1 CPU is
+[00:10:26.440 --> 00:10:32.280]   not the not the the wondering to rule them all but the thing is as you say it
+[00:10:32.280 --> 00:10:36.640]   feels more like an iPad because it was designed more like an iPad just a
+[00:10:36.640 --> 00:10:40.400]   CPU swap. I don't like the feels more like an iPad because that implies it's
+[00:10:40.400 --> 00:10:44.160]   somehow it's less than desktop computing. This is instantaneous though like the
+[00:10:44.160 --> 00:10:48.520]   the iPad is so responsive like to me that's the thing whenever somebody says I
+[00:10:48.520 --> 00:10:52.480]   wish I had like Final Cut Pro on the iPad I try to figure out what do they
+[00:10:52.480 --> 00:10:55.800]   actually mean and there's a responsiveness and immediacy and
+[00:10:55.800 --> 00:10:59.920]   instant-tainality instantaneous-nality to the iPad like you press something it
+[00:10:59.920 --> 00:11:03.360]   happens you're never waiting it's like it never feels like it's beach balling it
+[00:11:03.360 --> 00:11:06.480]   just it feels like it's doing exactly what you want the second your fingers
+[00:11:06.480 --> 00:11:11.360]   touch it and for the first time that's what these Macs feel like and it's not
+[00:11:11.360 --> 00:11:15.320]   just that like yes the performance is outlandish the battery life I ran all my
+[00:11:15.320 --> 00:11:20.960]   benchmarks on battery and the Macbook Air MacBook Pro were down to like 68 and
+[00:11:20.960 --> 00:11:27.320]   70% and the Intel ones were like 27% and 40% but beyond even that it just felt
+[00:11:27.320 --> 00:11:30.680]   like I was getting slices of my life back like just using Final Cut without
+[00:11:30.680 --> 00:11:33.920]   every time I go over a plug-in it spins without every time I go over
+[00:11:33.920 --> 00:11:37.480]   something it stops to render without it having to load and not like it was like
+[00:11:37.480 --> 00:11:41.440]   getting seconds and minutes of my life back and I was just smiling the whole
+[00:11:41.440 --> 00:11:43.620]   time.
+[00:11:43.620 --> 00:11:47.920]   Laurie can you can you hold your breath and wait?
+[00:11:47.920 --> 00:11:53.600]   So I'm thinking about things like so World of Warcraft just recently
+[00:11:53.600 --> 00:11:56.240]   announced that they are already set up out of the box.
+[00:11:56.240 --> 00:12:02.680]   Yeah and it was it made me think of things like I everybody knows that Macs
+[00:12:02.680 --> 00:12:08.560]   aren't meant for gaming but now I'm starting to think maybe Macs can be meant
+[00:12:08.560 --> 00:12:14.160]   for gaming right now and and maybe this is opening up a whole new world in
+[00:12:14.160 --> 00:12:18.760]   terms of you know what is possible on a Mac and whether or not people would be
+[00:12:18.760 --> 00:12:24.080]   interested in playing games on a Mac and a lot of it has been limitations and
+[00:12:24.080 --> 00:12:28.120]   what you know the Mac could do in terms of you know a dedicated GPU and things
+[00:12:28.120 --> 00:12:33.720]   like that so I don't know it seems it's crazy.
+[00:12:33.720 --> 00:12:38.880]   Single threaded performance better than almost anything including
+[00:12:38.880 --> 00:12:45.280]   Maybe Ryzen 3.
+[00:12:45.280 --> 00:12:51.440]   Even for mobile this is a killer but even for not mobile for desktop this is a
+[00:12:51.440 --> 00:12:52.440]   killer.
+[00:12:52.440 --> 00:12:54.920]   Web kit render speeds were ridiculous.
+[00:12:54.920 --> 00:12:59.800]   Multi-threading is is also very strong multi-course very strong and I think the
+[00:12:59.800 --> 00:13:03.160]   GPUs are stronger than people thought to.
+[00:13:03.160 --> 00:13:05.520]   Is that been your experience Renee?
+[00:13:05.520 --> 00:13:09.840]   Yeah I mean so the other integrated graphics I mean if you're
+[00:13:09.840 --> 00:13:13.920]   Yes that's what it's going to say like compared to Intel yeah yeah it's like it
+[00:13:13.920 --> 00:13:16.840]   runs laps around it then goes and does calisthetics in the middle of the field
+[00:13:16.840 --> 00:13:20.720]   while it's waiting for the Intel ones to finish like again like some people like
+[00:13:20.720 --> 00:13:25.520]   well you didn't compare it to our DNA to you didn't compare it to ampere and it
+[00:13:25.520 --> 00:13:28.440]   makes me want to do a wellness check for our slash Android sorry our slash
+[00:13:28.440 --> 00:13:32.160]   hardware at that point because those are like thousand dollar cards with
+[00:13:32.160 --> 00:13:36.480]   literally the shield halic carrier as their ventilation you know those are 300
+[00:13:36.480 --> 00:13:40.800]   watts of power draw this is this is literally a low power system and it's
+[00:13:40.800 --> 00:13:44.760]   doing performance that no longer makes you regret it's like like the MacBook
+[00:13:44.760 --> 00:13:48.200]   Air just feels like you're not making any compromises anymore and with zero
+[00:13:48.200 --> 00:13:52.520]   fan and that's pretty amazing yeah let's not let's not overlook the fact that
+[00:13:52.520 --> 00:13:56.560]   oftentimes when they're benchmarking these systems against AMD and Intel
+[00:13:56.560 --> 00:14:00.320]   devices they're talking about fifteen hundred dollar two thousand dollar builds
+[00:14:00.320 --> 00:14:05.200]   these are these are the machines that have historically been the low end of
+[00:14:05.200 --> 00:14:09.600]   Macs with the with the exception of the MacBook Pro the the entry level Mac has
+[00:14:09.600 --> 00:14:15.040]   been the Mac mini the entry level Mac book has been the Mac book air and Apple is
+[00:14:15.040 --> 00:14:21.600]   delivering revolutionary leaps and speed at this low end so it's a great boon for
+[00:14:21.600 --> 00:14:27.160]   people who are in the budget to moderate price to price range but it also kind
+[00:14:27.160 --> 00:14:31.560]   of gets you all tingly inside thinking about what happens when they really really
+[00:14:31.560 --> 00:14:35.560]   really want to say well what if we put four fans in it and put a thousand watt
+[00:14:35.560 --> 00:14:40.400]   power supply in it and make it a tower how fast can we make it then it's an
+[00:14:40.400 --> 00:14:46.000]   exciting time to be a Mac fan and people who say oh it's a first-generation it's
+[00:14:46.000 --> 00:14:50.280]   important to point out that Apple has been using has been building their own
+[00:14:50.280 --> 00:14:56.680]   chips since 2007 with the iPhone they acquired PA semiconductor
+[00:14:56.680 --> 00:15:02.120]   shortly after that which was a chip manufacturing design company they have
+[00:15:02.120 --> 00:15:04.960]   more than a thousand engineers and they've been doing this for more than ten
+[00:15:04.960 --> 00:15:09.560]   years so this isn't really the first Apple chip this is just the first Apple
+[00:15:09.560 --> 00:15:15.240]   chip in a Mac it is it does have a little bit of weight to it because I do get
+[00:15:15.240 --> 00:15:19.160]   the impression that they designed a chip that was kind of ideal for the Mac
+[00:15:19.160 --> 00:15:23.320]   book air and then they also put it in the Mac book in the Mac mini and the Mac book
+[00:15:23.320 --> 00:15:27.120]   pro the only thing that I'm disappointed with as you were as you were saying
+[00:15:27.120 --> 00:15:31.200]   you earlier is that the I believe it's it would you would think that maybe the
+[00:15:31.200 --> 00:15:35.680]   I owe of this chip is kind of limited because look at the bat just look at the
+[00:15:35.680 --> 00:15:39.400]   back of the back mini there is so much space to put more stuff yeah and the
+[00:15:39.400 --> 00:15:44.480]   fact that they can put admittedly two channels of super super fast thunderbolt
+[00:15:44.480 --> 00:15:49.280]   of their that's really good but nonetheless you would like to not have to
+[00:15:49.280 --> 00:15:54.280]   buy a two hundred fifty dollar dock in order to just plug in my webcam and my
+[00:15:54.280 --> 00:15:58.520]   keyboard in my mouse well I'm sure they'll solve this in later versions absolutely
+[00:15:58.520 --> 00:16:04.520]   this is this is on the SOC there's only two thunderbolt for slash USB 4 right
+[00:16:04.520 --> 00:16:08.480]   really fast ones though they're fast absolutely yeah but there's only two of
+[00:16:08.480 --> 00:16:13.120]   them and there's only enough space for 16 gigs of RAM so that's but presumably
+[00:16:13.120 --> 00:16:16.840]   that will be solved in later generations yeah that's first generation for
+[00:16:16.840 --> 00:16:20.440]   heaven's sake what a great what a great explosion of the gate I almost don't
+[00:16:20.440 --> 00:16:26.040]   want to say oh but it's you know I don't want to say it's iPad like or oh it's
+[00:16:26.040 --> 00:16:30.320]   just first generation because I think I mean yes if in the back of your head
+[00:16:30.320 --> 00:16:33.480]   you say wow they've done this in the first generation what's the next
+[00:16:33.480 --> 00:16:37.360]   generation to look like that's fine but I think that that diminishes it somehow
+[00:16:37.360 --> 00:16:40.960]   their accomplishment here this is the compound here though is like it's not
+[00:16:40.960 --> 00:16:44.640]   just the silicon because like you said like this is basically an a 14 the the
+[00:16:44.640 --> 00:16:48.840]   X variant with plus plus because it has Mac dedicated IP but when you look at
+[00:16:48.840 --> 00:16:52.040]   how clever they were like yes there was all sorts of stuff that you can dunk
+[00:16:52.040 --> 00:16:56.160]   on about how things like catalyst were implemented over the last few years and
+[00:16:56.160 --> 00:16:59.040]   then getting rid of like they systematically took on a bunch of short-term
+[00:16:59.040 --> 00:17:03.960]   pain 32-bit apps you know do they deprecated a ton of stuff but they got to
+[00:17:03.960 --> 00:17:07.760]   a point where if you don't have any native apps if you only have the Intel
+[00:17:07.760 --> 00:17:11.920]   apps you hit a button and it downloads and translated doesn't emulate it it
+[00:17:11.920 --> 00:17:16.720]   translates it at download everything that is compiled anything that's not just in
+[00:17:16.720 --> 00:17:21.040]   time just in time it'll do in real time and then anytime that's updated it'll
+[00:17:21.040 --> 00:17:25.880]   redo the translation at launch and then they feel like native app like they
+[00:17:25.880 --> 00:17:29.960]   don't get the acceleration that a truly native app does they're not faster than
+[00:17:29.960 --> 00:17:34.080]   you'd expect but they run as expected and when you look at Windows on arm or
+[00:17:34.080 --> 00:17:39.520]   even think back to power PC Rosetta it is a it is a a sea change in how good
+[00:17:39.520 --> 00:17:44.320]   they've gotten at making one like something compiled for x86 run on
+[00:17:44.320 --> 00:17:48.600]   something compiled for Apple Silicon that you barely notice even on cranky
+[00:17:48.600 --> 00:17:52.840]   apps like like the Adobe suite you really barely notice yeah I have to use
+[00:17:52.840 --> 00:17:57.640]   because my codec my codec for my can of camera then I shoot with is Rosetta
+[00:17:57.640 --> 00:18:02.680]   it's running it the codec is running is Rosetta inside Final Cut and it's as
+[00:18:02.680 --> 00:18:06.680]   fast on this stupid MacBook Air and I use that term lovingly as it is on my
+[00:18:06.680 --> 00:18:10.520]   Mac my 16 inch MacBook Pro I just don't like that the screen is smaller that's
+[00:18:10.520 --> 00:18:17.800]   my pain point now is yeah this is great but my screen is too small there so a
+[00:18:17.800 --> 00:18:20.120]   number of people in the chat room are saying well how is it possible that
+[00:18:20.120 --> 00:18:24.500]   Apple's doing something nobody else has done and there's two things I mean the
+[00:18:24.500 --> 00:18:29.840]   first one is this is taking a long time this is a decades or more work but also
+[00:18:29.840 --> 00:18:34.520]   these other companies are hampered by it's the innovators dilemma they hampered
+[00:18:34.520 --> 00:18:40.280]   by their existing platforms and an unwillingness to burn the ships behind
+[00:18:40.280 --> 00:18:47.040]   them in this case Apple's burning its ships they're saying all full speed ahead
+[00:18:47.040 --> 00:18:51.520]   and the commitment to doing that I mean yes they're still selling Intel max but
+[00:18:51.520 --> 00:18:56.440]   you'd be I still can't combine my eyes easily everyone has legacy debt but
+[00:18:56.440 --> 00:19:00.080]   legacy debt is not to be and that's it when it entails next chip is gonna be
+[00:19:00.080 --> 00:19:05.000]   14 nanometers yes with more cores and running at a higher voltage can you
+[00:19:05.000 --> 00:19:08.240]   imagine when they went to Apple and said hey listen that I'm at your building you
+[00:19:08.240 --> 00:19:11.600]   want to make it look like an iPad well we're gonna use a bigger chip with more
+[00:19:11.600 --> 00:19:14.800]   cores and run it at a higher voltage just so we can say it's got 10%
+[00:19:14.800 --> 00:19:21.040]   performance improvement is that okay with you yeah so I think some people in
+[00:19:21.040 --> 00:19:24.880]   the PC world are saying well okay but so what I don't mind it's plugged in I
+[00:19:24.880 --> 00:19:29.280]   don't mind using more power but there are other advantages to being low power
+[00:19:29.280 --> 00:19:37.040]   yeah performance if you're using a laptop the chances of your i7 or i9
+[00:19:37.040 --> 00:19:42.040]   being throttled are very very high no one that I've read so far has been able
+[00:19:42.040 --> 00:19:48.200]   to notice any throttling in these M1 chips at any temperature right it the
+[00:19:48.200 --> 00:19:52.280]   air has no fan so if you get to about 9 10 minutes it'll start to ramp down
+[00:19:52.280 --> 00:19:57.280]   very slowly you get to about 30 minutes you get maybe like I don't know 5% to
+[00:19:57.280 --> 00:20:02.560]   10% the MacBook Pro will just turn the fan on almost inaudibly and it will
+[00:20:02.560 --> 00:20:06.120]   not it will not down ramp at all that might be why you want the Pro or the
+[00:20:06.120 --> 00:20:10.520]   Mini because you have the active cooling eliminating you're doing 10
+[00:20:10.520 --> 00:20:16.240]   minute plus workloads the yeah for sure right you excited Laurie oh my gosh
+[00:20:16.240 --> 00:20:21.200]   I'm like I think people know me well enough I'm not a fanboy I'm not gonna
+[00:20:21.200 --> 00:20:26.280]   squeeze just because Apple came out with something but but I am a tech I am a
+[00:20:26.280 --> 00:20:30.840]   technology fanboy and a desktop computing fanboy especially a desktop
+[00:20:30.840 --> 00:20:35.960]   computing fanboy and I include laptops in that a stand that's yeah I'm a desktop
+[00:20:35.960 --> 00:20:41.400]   stand and I want to see progress in the desktop and I've been as many of us have
+[00:20:41.400 --> 00:20:45.400]   over the last few years disappointed by Apple's seeming lack of commitment to
+[00:20:45.400 --> 00:20:51.240]   Mac that the kind of this the the absolute stasis on the Intel side they
+[00:20:51.240 --> 00:20:53.840]   haven't done anything really interesting and chips in a long time
+[00:20:53.840 --> 00:20:58.280]   AMD's rise and that was pretty exciting but it's still an x86 64
+[00:20:58.280 --> 00:21:06.680]   architecture I feel like we were we were living in we were frozen in amber in the
+[00:21:06.680 --> 00:21:10.960]   PC marketplace for a decade and the phones and the tablets took all the all
+[00:21:10.960 --> 00:21:13.920]   the spotlight all the attention and now finally it's back like the Mac is doing
+[00:21:13.920 --> 00:21:18.080]   it again it's amazing I think this this from a from the point of view of
+[00:21:18.080 --> 00:21:23.280]   somebody who the desktop stand this is really really important now it's bad
+[00:21:23.280 --> 00:21:30.080]   news for Windows stands and Intel stands because it's Apple only and there I
+[00:21:30.080 --> 00:21:35.200]   don't see any reason to think that any of these advances will migrate over to the
+[00:21:35.200 --> 00:21:39.440]   other side will they I don't see how they can absolutely not it's not just the
+[00:21:39.440 --> 00:21:44.080]   chip fab it's that Apple we it's legitimate for people to complain
+[00:21:44.080 --> 00:21:47.520]   developers to complain about the control that Apple has over developers
+[00:21:47.520 --> 00:21:52.680]   however it does benefit consumers because they can pull off things like this they
+[00:21:52.680 --> 00:21:57.400]   can say they can make an environment in which it is you are at a a Darwinian
+[00:21:57.400 --> 00:22:01.920]   of inflection point here as a developer if you support the new M1 chips you will
+[00:22:01.920 --> 00:22:05.840]   continue to thrive and survive if you decide that you're not going to do that
+[00:22:05.840 --> 00:22:09.680]   or if you stop development of your app a couple years ago your app is just not
+[00:22:09.680 --> 00:22:13.520]   going to be able to compete with any other app that does support it and on
+[00:22:13.520 --> 00:22:18.000]   the window side Microsoft no nobody has the ability to tell all of its
+[00:22:18.000 --> 00:22:21.640]   developers we have this brand new architecture it's gonna give at least
+[00:22:21.640 --> 00:22:25.400]   ten years of performance and the superiority to our platform and we are
+[00:22:25.400 --> 00:22:29.720]   going to make you do this they're gonna say yeah good good night nice story we're
+[00:22:29.720 --> 00:22:33.920]   gonna continue to our own development cycles on our own time so it's it's
+[00:22:33.920 --> 00:22:38.280]   a completely holistic approach there is it's it's possible that a there's such
+[00:22:38.280 --> 00:22:42.160]   a thing as a benevolent dictatorship and Apple is the the example of that
+[00:22:42.160 --> 00:22:49.600]   Microsoft today announced the pluton chip which is a joint venture with AMD
+[00:22:49.600 --> 00:22:57.640]   Intel and Qualcomm to do a T2 like co-processor they are years behind let's
+[00:22:57.640 --> 00:23:07.040]   just face it 2016 and even if they do things like this it's gonna be a hodge
+[00:23:07.040 --> 00:23:13.000]   podge of different companies all working with different economic you know
+[00:23:13.000 --> 00:23:19.480]   business goals it's just not the same and now some people will prefer it
+[00:23:19.480 --> 00:23:26.040]   yeah okay but I'm admittedly I I don't like the walled garden ecosystem lock in
+[00:23:26.040 --> 00:23:32.560]   that Apple is benefiting from here I don't like that but honestly that's this
+[00:23:32.560 --> 00:23:36.920]   is the upside to something like that is that you can say no you're gonna do it
+[00:23:36.920 --> 00:23:40.560]   this way everybody's gonna do it this way this is our walled garden you don't
+[00:23:40.560 --> 00:23:44.800]   like it go over there and use pluton because that's well no but for like 80%
+[00:23:44.800 --> 00:23:48.200]   of the market maybe a little bit more this is a great solution is basically
+[00:23:48.200 --> 00:23:51.000]   appliance computing it's like a Chromebook that can do way more than a
+[00:23:51.000 --> 00:23:54.920]   Chromebook can do so if all you want is a computer that's fast has great battery
+[00:23:54.920 --> 00:23:58.520]   life and you don't have to worry about it which is what a lot of people want
+[00:23:58.520 --> 00:24:02.520]   this is great if you are a hobbyist or enthusiast or pro or you want to run
+[00:24:02.520 --> 00:24:06.000]   homebrew we want to do any of other things you are gonna legitimately rightfully
+[00:24:06.000 --> 00:24:10.000]   hate this and you're gonna look elsewhere for your computing I think you
+[00:24:10.000 --> 00:24:13.080]   know unless you really really want the Apple stuff I think a lot of people
+[00:24:13.080 --> 00:24:16.280]   there's just people who want to be able to change their RAM and they want to be
+[00:24:16.280 --> 00:24:20.280]   able to like no I don't care about that but I want to use homebrew I want to use
+[00:24:20.280 --> 00:24:24.920]   Unix I want to use a command line I want to do development I mean Xcode runs
+[00:24:24.920 --> 00:24:29.800]   light years faster on this I can't wait to try do all of that yeah I can't wait
+[00:24:29.800 --> 00:24:33.800]   to try some of my open source development tools on here emax is gonna
+[00:24:33.800 --> 00:24:39.640]   run fantastic on this I don't feel like I'm gonna be so happy I'm gonna say oh man
+[00:24:39.640 --> 00:24:44.600]   I can't I better go get my Linux box because I can't use emax it's not that
+[00:24:44.600 --> 00:24:49.160]   way you know Python's gonna run faster everything's gonna run better on this
+[00:24:49.160 --> 00:24:52.760]   right you'll just have to turn off sip of it annoys you that's like the that's
+[00:24:52.760 --> 00:24:56.560]   that's your new chore or and it's just a run stuff integrity protection and this
+[00:24:56.560 --> 00:25:00.400]   is we're gonna get into the weeds a little bit on this because this we talked
+[00:25:00.400 --> 00:25:04.280]   about it on Sunday on Twitter and there's more information about this but Apple
+[00:25:04.280 --> 00:25:08.880]   has now changed how kernel extensions work they've changed how firewalls work
+[00:25:08.880 --> 00:25:13.560]   you are in a much more you're kind of in a lockdown environment but I still
+[00:25:13.560 --> 00:25:17.240]   don't feel like why did you say homebrew am I gonna have a problem with homebrew
+[00:25:17.240 --> 00:25:21.720]   no I just think philosophically those people dislike I don't say those really
+[00:25:21.720 --> 00:25:25.160]   like philosophically there's a bunch of people who really believe in like the
+[00:25:25.160 --> 00:25:28.360]   essence of hobbyist computing where you give me the atoms and that is the
+[00:25:28.360 --> 00:25:31.800]   extent of our relationship you know I are done with there are people who will buy
+[00:25:31.800 --> 00:25:38.680]   the pine laptop because it is completely open and I completely support that I
+[00:25:38.680 --> 00:25:43.480]   have a catch on encumbered Linux yeah I have a core boot Linux box that's
+[00:25:43.480 --> 00:25:50.880]   completely open it's not a great experience and and ultimately at some
+[00:25:50.880 --> 00:25:55.840]   point even if you are with that kind of a geek you want a good desktop experience
+[00:25:55.840 --> 00:26:01.960]   there's it's there's no reason you should have to crank your engine with a
+[00:26:01.960 --> 00:26:06.560]   hand crank to drive you're playing while you're doing it Leo that's the thing is
+[00:26:06.560 --> 00:26:09.520]   if we give them the Mac but they can complain about it on Twitter they get
+[00:26:09.520 --> 00:26:16.240]   the best of both worlds I understand I'm not a fan of proprietary but
+[00:26:16.240 --> 00:26:20.600]   sometimes proprietary wins and we got it you got to acknowledge the the advantage
+[00:26:20.600 --> 00:26:26.840]   that the proprietary ecosystem that apples built has for well then there's
+[00:26:26.840 --> 00:26:29.760]   some and there's some issues for instance there are people already I
+[00:26:29.760 --> 00:26:35.520]   can't remember where I read this maybe it was it was on the verge but running IOS
+[00:26:35.520 --> 00:26:43.680]   apps on M1 laptops works but as ugly as sin depends on the app you're probably
+[00:26:43.680 --> 00:26:47.760]   gonna want to use catalyst still even though you don't need to use catalyst if
+[00:26:47.760 --> 00:26:51.280]   you're taking an iOS app and you want to make it available on Mac OS is that
+[00:26:51.280 --> 00:26:54.600]   there's two big problems one is that a lot of the apps that people thought they'd
+[00:26:54.600 --> 00:26:57.200]   be able to run like you know like Instagram finally we'll have a native
+[00:26:57.200 --> 00:27:00.560]   client for Instagram or something they just they're not allowing it so you get
+[00:27:00.560 --> 00:27:03.360]   the instant that's up to Facebook that's not up to Apple that's that's
+[00:27:03.360 --> 00:27:06.800]   Facebook decision but it's still user frustration like you I want these you
+[00:27:06.800 --> 00:27:11.440]   by default you have to actually opt out of it by default it's opt you are gonna
+[00:27:11.440 --> 00:27:16.080]   run right you don't have to do anything I'm not sure if it's opt in or opt out but
+[00:27:16.080 --> 00:27:18.840]   I know a lot of the bigger apps that where they really want people to go to
+[00:27:18.840 --> 00:27:21.760]   their websites because they want all the stuff that comes from having them click
+[00:27:21.760 --> 00:27:25.240]   into their websites are not allowing it to run yeah natively on me so for their
+[00:27:25.240 --> 00:27:30.240]   business reasons they're not gonna allow it yes but but most iOS apps if they
+[00:27:30.240 --> 00:27:33.240]   don't do it it's my understanding if they don't do anything they'll just run
+[00:27:33.240 --> 00:27:37.320]   the problem is they don't run full screen they don't they're well some do
+[00:27:37.320 --> 00:27:40.320]   anything that was made it's the same old problem anything that was made by a
+[00:27:40.320 --> 00:27:43.760]   developer who cares about or like I don't want to say cares about but if you
+[00:27:43.760 --> 00:27:47.520]   have the luxury of doing it like your app using all of apples frameworks
+[00:27:47.520 --> 00:27:50.960]   everything they give you it's like it's like a few minutes like if cable
+[00:27:50.960 --> 00:27:54.520]   saucer says it took me like 10 minutes he really means that but there's some
+[00:27:54.520 --> 00:27:57.560]   companies that you know their product managers said you have to use open GL you
+[00:27:57.560 --> 00:28:01.600]   have to use these things like Niele said the HBO Max app won't go full screen all
+[00:28:01.600 --> 00:28:05.720]   the real like all the app made with you I can't go full screen but HBO Max did
+[00:28:05.720 --> 00:28:09.320]   what HBO Max is gonna do so now you're stuck in a little window and that kind of
+[00:28:09.320 --> 00:28:13.880]   things can take a while for them to get best practices going okay so it may not
+[00:28:13.880 --> 00:28:17.640]   be but I never expected it would be these perfect experience of just taking all
+[00:28:17.640 --> 00:28:22.760]   my OSMs there are available anyway and you could
+[00:28:23.480 --> 00:28:27.760]   big sir well indie developers just ran circles around the big companies of
+[00:28:27.760 --> 00:28:33.320]   course like usual there's so much more to talk about in this and this could be
+[00:28:33.320 --> 00:28:39.600]   a 10 hour show easily yeah so I just want to pick the highlights Rosetta
+[00:28:39.600 --> 00:28:46.520]   2's working well yeah said no flaws no no crashes no I'm sure there will be I
+[00:28:46.520 --> 00:28:49.360]   like like everyone uses different apps and I got a lot of people asking about
+[00:28:49.360 --> 00:28:52.320]   the tests really niche apps so I'm again I'm guessing that the development
+[00:28:52.320 --> 00:28:55.400]   houses where you know they care a lot needed a lot of good work I'll run fine
+[00:28:55.400 --> 00:28:59.320]   and there might be some stuff that had a bunch of really ugly work around at
+[00:28:59.320 --> 00:29:01.800]   some point they give you trouble I haven't had any yet it's been really
+[00:29:01.800 --> 00:29:05.080]   good I have to say it feels like good news that Adobe is already saying
+[00:29:05.080 --> 00:29:12.640]   Photoshop for M1 is it native is in beta that Lightroom is already native the
+[00:29:12.640 --> 00:29:17.680]   world of Warcraft is native day one that's encouraging because it means that
+[00:29:17.680 --> 00:29:22.200]   developers who want it to run on natively on an M1 can do a universal
+[00:29:22.200 --> 00:29:28.160]   binary and it works right this is this is I think the M1 chip is actually
+[00:29:28.160 --> 00:29:33.360]   going to be really big for Mac development I think the Mac has kind of
+[00:29:33.360 --> 00:29:39.000]   been a it's an awkward situation for developers that are that are developing
+[00:29:39.000 --> 00:29:44.160]   for PC and for Mac and Mac tends to be like well we'll get around to Mac because
+[00:29:44.160 --> 00:29:48.120]   it's kind of a pain in the butt you know there's also a small market share I
+[00:29:48.120 --> 00:29:52.400]   mean right economically it may not be sensible to spend time on the Mac
+[00:29:52.400 --> 00:29:59.400]   platform now we're looking at a process that not only will it just be easier
+[00:29:59.400 --> 00:30:03.720]   you know it's it's from what I understand it's very easy to make your apps
+[00:30:03.720 --> 00:30:08.160]   universal making in other words making them compatible with M1 it's very very
+[00:30:08.160 --> 00:30:14.680]   easy to do and this also is opening up the door in a lot of ways for consumers
+[00:30:14.680 --> 00:30:20.280]   to want a Mac and therefore want all the apps that run great on PC to also run
+[00:30:20.280 --> 00:30:25.920]   great on Mac but also for developers to actually have reasons to want to develop
+[00:30:25.920 --> 00:30:31.280]   more from Mac and to improve their apps for Mac because the performance is so
+[00:30:31.280 --> 00:30:35.760]   much better so that it's it's just gonna be better in a lot of situations I think
+[00:30:35.760 --> 00:30:42.600]   this is this I think what we're seeing today is a pathway down Mac development
+[00:30:42.600 --> 00:30:48.840]   becoming as ubiquitous as iPhone and iPad development and therefore will also
+[00:30:48.840 --> 00:30:52.040]   become a problem for Apple in the future because they will sort of have a
+[00:30:52.040 --> 00:30:56.200]   monopoly on apps that are being developed for computers and there's gonna be
+[00:30:56.200 --> 00:31:00.960]   lots of companies who are feeling like Apple is you know taking where their
+[00:31:00.960 --> 00:31:06.240]   rights and you know forcing them to do things they don't want to do but for
+[00:31:06.240 --> 00:31:10.600]   now like we I think we're seeing of almost a Wild West of development for
+[00:31:10.600 --> 00:31:15.880]   Mac that is it's gonna be great you know for a couple years before Mac gets so
+[00:31:15.880 --> 00:31:19.480]   big that it's a problem I think for now it's gonna be really exciting for
+[00:31:19.480 --> 00:31:23.840]   developers and for users to have this this coming up in the next few years
+[00:31:23.840 --> 00:31:27.840]   it's they're gonna leverage the popularity of iOS I mean if you are
+[00:31:27.840 --> 00:31:32.360]   a developer for mobile you're gonna develop for iOS it's the exact opposite
+[00:31:32.360 --> 00:31:36.960]   right because iOS is dominant platform and you make more money on iOS than on
+[00:31:36.960 --> 00:31:42.120]   Android I think that that's why it's so important that you can run iOS apps on
+[00:31:42.120 --> 00:31:46.720]   Mac and OS because because you can't run Windows apps this feels like app yeah
+[00:31:46.720 --> 00:31:53.680]   well it also leverages what is a very big and and vibrant market of software
+[00:31:53.680 --> 00:31:58.240]   I'm sure I think the rights eventually go ahead any yeah I just think that the
+[00:31:58.240 --> 00:32:01.880]   big strength of iOS apps is that they they aren't really productivity apps
+[00:32:01.880 --> 00:32:05.560]   there's there are exceptions to that for the iPad but she think we're talking
+[00:32:05.560 --> 00:32:10.320]   about those little useful apps that help us out in little bits day to day to day
+[00:32:10.320 --> 00:32:15.520]   and there's the question of what's the upside of a developer to write a tiny
+[00:32:15.520 --> 00:32:20.720]   app for for the Mac it's just gonna fill in that little gap I really don't see
+[00:32:20.720 --> 00:32:24.880]   an iOS developer saying oh that's great I'll just have my iOS app running on the
+[00:32:24.880 --> 00:32:30.200]   Mac because if you do that's a lot like back in 1984's you know that's great I'll
+[00:32:30.200 --> 00:32:33.520]   just take my command line app and translate it to the Mac no you have to
+[00:32:33.520 --> 00:32:37.360]   develop something that is intended for a desktop and tended for a laptop who you
+[00:32:37.360 --> 00:32:42.200]   can't just simply take a an iPad app or an iPhone app and translate it up but
+[00:32:42.200 --> 00:32:48.320]   yeah it definitely patches a hole in in the in the it adds a new trick to the
+[00:32:48.320 --> 00:32:53.160]   Mac that it didn't have before having just these little sidebar apps that just
+[00:32:53.160 --> 00:32:56.080]   do these one or two little tests very well very well as a matter of fact my
+[00:32:56.080 --> 00:32:59.800]   pick of the week is an app that's kind of like that we there's a dearth of these
+[00:32:59.800 --> 00:33:04.120]   tiny little utility apps that do one thing extremely well and extremely slick
+[00:33:04.120 --> 00:33:09.520]   and as we're seeing with this first run of trying to run iOS apps on the on the
+[00:33:09.520 --> 00:33:14.240]   Mac desktop a lot of them they just don't scale well to a resizable window they
+[00:33:14.240 --> 00:33:18.800]   just don't work well when you're trying to replace touches with mouse clicks but
+[00:33:18.800 --> 00:33:22.120]   it's so it's not revolutionary but it's not it doesn't take the place of running
+[00:33:22.120 --> 00:33:25.840]   Intel apps but that was a that was a perfectly okay thing to trade away for
+[00:33:25.840 --> 00:33:31.160]   the performance that we're getting an on tech which did a really good I thought
+[00:33:31.160 --> 00:33:35.800]   piece on the M1 when they didn't have an M1 now has a Mac mini and they've gone
+[00:33:35.800 --> 00:33:41.520]   back and confirmed some of their suspicions and done a lot of testing this
+[00:33:41.520 --> 00:33:48.000]   is from a chip you know focused fan site or enthusiast site and it's Andre who is
+[00:33:48.000 --> 00:33:52.080]   not an Apple stand and knows this stuff really well really really well yeah
+[00:33:52.080 --> 00:33:56.920]   Andre writes for years now we've seen Apple's custom CPU micro architecture in
+[00:33:56.920 --> 00:34:02.040]   the in a series phone system on a chips post impressive and repeated
+[00:34:02.040 --> 00:34:08.400]   performance jumps generation after generation and today it looks like Apple's
+[00:34:08.400 --> 00:34:12.760]   new silicon devices are essentially the culmination of the inevitable
+[00:34:12.760 --> 00:34:17.320]   trajectory that Apple has been on he is very impressed with both the thermal
+[00:34:17.320 --> 00:34:24.160]   profiling of it the performance 3.2 gigahertz in the high efficient in the
+[00:34:24.160 --> 00:34:27.960]   high performance chips 3 gigahertz in the high efficiency chips really high
+[00:34:27.960 --> 00:34:34.880]   clock speeds very fast memory architecture he's yeah he's not really
+[00:34:34.880 --> 00:34:41.200]   reviewing them the device he's reviewing the performance of the chip and it's
+[00:34:41.200 --> 00:34:48.080]   it's really quite impressive if you want to kind of dive deep into into this I
+[00:34:48.080 --> 00:34:54.440]   I have to say it looks to me as if our initial thoughts about this I've been
+[00:34:54.440 --> 00:35:00.400]   not only matched but exceeded in some respects that this is this is a very
+[00:35:00.400 --> 00:35:04.760]   important step and I think next year we're gonna see Macintosh computers
+[00:35:04.760 --> 00:35:14.320]   that just kicked the mama's butt yeah I just wonder what happens on the x86
+[00:35:14.320 --> 00:35:18.320]   side is it gonna become enthusiast architecture only I mean I guess if
+[00:35:18.320 --> 00:35:21.800]   you're a business user you don't care you're using Windows you don't really
+[00:35:21.800 --> 00:35:25.480]   performance is not important like a compliant right yeah all that matters
+[00:35:25.480 --> 00:35:29.600]   yeah and actually Microsoft's really moving to that the notion of running it
+[00:35:29.600 --> 00:35:34.080]   off the in the cloud I guess you know you're gonna continue to buy x86 because
+[00:35:34.080 --> 00:35:38.400]   you don't know any better your care but I honestly think that people care about
+[00:35:38.400 --> 00:35:42.840]   performance and this includes a lot of enthusiasts and a lot of developers are
+[00:35:42.840 --> 00:35:48.000]   gonna be very tempted by this platform this is where all the excitement in
+[00:35:48.000 --> 00:35:53.960]   desktop computing is headed I think also if it wasn't for coronavirus this would
+[00:35:53.960 --> 00:35:57.360]   be these machines would be ideal for developers you're like yeah I have my
+[00:35:57.360 --> 00:36:02.360]   big big beige box or my big Mac Pro or you know I have my rise in or my
+[00:36:02.360 --> 00:36:05.760]   whatever machine my Z on machine at home but I just want something that I can
+[00:36:05.760 --> 00:36:09.920]   sit all day in the coffee shop and use I mean that's or I can try itself yeah
+[00:36:09.920 --> 00:36:15.880]   yeah just to be perfect all day battery life is not to be sneezed at yeah I do
+[00:36:15.880 --> 00:36:20.400]   I mean I'm certain that Intel Windows is still gonna thrive and survive
+[00:36:20.400 --> 00:36:25.760]   chiefly because Apple is just not able to fulfill the hardware needs of the
+[00:36:25.760 --> 00:36:31.880]   entire planet interested in exactly and they can't make $300 Chromebooks they
+[00:36:31.880 --> 00:36:36.960]   can't make even $600 very very good I three or I five powered Windows type
+[00:36:36.960 --> 00:36:42.400]   notebooks and also they can't give people kind of flexibility where if you if
+[00:36:42.400 --> 00:36:46.920]   you have a specific need in mind like let's say you're doing fluid dynamic
+[00:36:46.920 --> 00:36:50.760]   simulations where you're you want to build a machine that is opt where every
+[00:36:50.760 --> 00:36:54.680]   dollar you put into it does nothing but help you get those answers faster you
+[00:36:54.680 --> 00:36:58.760]   won't be able to get that for Mac but the thing that the trouble for Windows
+[00:36:58.760 --> 00:37:03.560]   is that what Apple has always been interested in is plain old consumers and
+[00:37:03.560 --> 00:37:08.120]   a lot a lot of their market are consumers who do professional video editing
+[00:37:08.120 --> 00:37:11.600]   consumers who do professional development but they've always wanted to
+[00:37:11.600 --> 00:37:15.640]   get like the biggest the biggest possible market possible the biggest
+[00:37:15.640 --> 00:37:18.600]   audience they could possibly have for this thing and these are the people for
+[00:37:18.600 --> 00:37:23.080]   whom it's gonna be really really hard when you when you go on to like new egg
+[00:37:23.080 --> 00:37:25.800]   or go on to the web anywhere with a thousand dollars or fifteen hundred
+[00:37:25.800 --> 00:37:30.040]   dollars to spend on a computer and not have your head turned by what the Mac
+[00:37:30.040 --> 00:37:34.980]   can do that's that's what I budgeted for a year ago several months ago today I
+[00:37:34.980 --> 00:37:39.360]   was thinking that probably I'm gonna wait until next year to buy and buy an
+[00:37:39.360 --> 00:37:45.000]   Apple Silicon based Mac and this this fall I'll build like my own PC A because
+[00:37:45.000 --> 00:37:48.360]   it would be fun to do but also I think that it would serve a nice purpose inside
+[00:37:48.360 --> 00:37:53.800]   my house and I was budgeting about $1,500 to $2,000 for it but now that is kind
+[00:37:53.800 --> 00:37:57.360]   of out the window after seeing the performance that I can get off of the
+[00:37:57.360 --> 00:38:00.360]   same amount of money or even less amount of money when's the last time
+[00:38:00.360 --> 00:38:03.920]   anybody even considered saying that I wanted performance I wanted to save
+[00:38:03.920 --> 00:38:06.720]   money so I bought a Mac and that's that's a reality that we're looking
+[00:38:06.720 --> 00:38:13.800]   yet now yeah it's it's gonna be interesting yeah
+[00:38:13.800 --> 00:38:19.320]   if you also consider right now today there's you know there's a only a couple
+[00:38:19.320 --> 00:38:26.160]   of prices that you can spend on a on the M1 chip Apple Mac $1,000 being the
+[00:38:26.160 --> 00:38:32.920]   bottom line but next year two years from now the the MacBook Air today that is
+[00:38:32.920 --> 00:38:39.360]   $9.99 is gonna be less than $600 and and maybe even lower than that so we're
+[00:38:39.360 --> 00:38:45.440]   also gonna see a lot of people who want we want in on Mac and just cannot afford
+[00:38:45.440 --> 00:38:49.440]   the premium price point getting refurbished versions of them and also
+[00:38:49.440 --> 00:38:55.360]   entering the world but still using a Mac that's more powerful than a PC two years
+[00:38:55.360 --> 00:38:59.840]   later you know because like the performance is so good with the M1 chip
+[00:38:59.840 --> 00:39:06.200]   today that it it's gonna beat the PCs of tomorrow and possibly the next next
+[00:39:06.200 --> 00:39:12.280]   you know year you know near future so even a two-year-old MacBook Air with an
+[00:39:12.280 --> 00:39:18.520]   M1 chip in it is gonna be top of the line compared to PCs and when you know
+[00:39:18.520 --> 00:39:22.680]   you're buying refurbished and you don't have the $1000 to put down you know a
+[00:39:22.680 --> 00:39:26.360]   five or six hundred dollar refurbished one is gonna be a really nice buy for
+[00:39:26.360 --> 00:39:31.800]   you the other thing and this is obviously in Apple's roadmap the other
+[00:39:31.800 --> 00:39:37.280]   thing that's important is other platforms like augmented reality glasses
+[00:39:37.280 --> 00:39:43.560]   you're gonna have low power chips incredibly capable that tie in across an
+[00:39:43.560 --> 00:39:50.040]   ecosystem that goes from everywhere from the AirPods to a Mac Pro and then your
+[00:39:50.040 --> 00:39:54.320]   glasses as well I think this is Apple you know we we now really understand that
+[00:39:54.320 --> 00:39:59.520]   every step Apple takes as a strategic step that is gonna play out over years
+[00:39:59.520 --> 00:40:04.080]   to come I might you think this is fair run a and that what we're seeing here is
+[00:40:04.080 --> 00:40:09.520]   more than just a revolution in desktop computing this is Apple kind of
+[00:40:09.520 --> 00:40:15.720]   planning its flag in low power high performance computing platforms yeah
+[00:40:15.720 --> 00:40:20.760]   it's it's almost an idea like they realized early on that if you go for
+[00:40:20.760 --> 00:40:24.520]   really good efficiency you get really good performance it's like doesn't
+[00:40:24.520 --> 00:40:27.120]   matter how fast your Lamborghini is if it's stuck on the highway you know it's
+[00:40:27.120 --> 00:40:30.480]   sorry if it's stuck in traffic so the more that you can get all that space
+[00:40:30.480 --> 00:40:35.080]   opened up around you the better that you can go and they proceeded to sort of
+[00:40:35.080 --> 00:40:39.440]   prove that by going to the ex-chip designs on the iPad going you know
+[00:40:39.440 --> 00:40:42.880]   wide and slow with the graphics and just adding more and more lanes to it and
+[00:40:42.880 --> 00:40:47.600]   now they've just expanded on that idea for the Mac and it turns out if you can
+[00:40:47.600 --> 00:40:52.680]   nail it on really low wattage and with really small constrained thermal envelopes
+[00:40:52.680 --> 00:40:56.280]   when you increase the size of those envelopes and you start pumping up that
+[00:40:56.280 --> 00:41:01.040]   wattage wow does it fly and a lot of people said it would never work they
+[00:41:01.040 --> 00:41:04.320]   just doubted that it would and it still remains to be seen how high they can
+[00:41:04.320 --> 00:41:07.720]   scale and what that scale curd like is it linear does it really start to drop
+[00:41:07.720 --> 00:41:11.560]   off after a point we don't know but it looks like they built a really really
+[00:41:11.560 --> 00:41:16.600]   smart architecture the same way they did with the software and the hardware and
+[00:41:16.600 --> 00:41:20.080]   I'm excited to see it like it feels like now it's starting to pay off it's about
+[00:41:20.080 --> 00:41:24.640]   an architecture that's I guess that was the point I was making so who should by
+[00:41:24.640 --> 00:41:30.240]   which you have all three yes the dimensions of the you know I bought the
+[00:41:30.240 --> 00:41:35.720]   MacBook Pro the dimensions of the MacBook Pro 13 are very very similar to the
+[00:41:35.720 --> 00:41:39.440]   MacBook Air there are a couple of apps in MacBook Air Pro yeah it's a few
+[00:41:39.440 --> 00:41:43.760]   not as heavier that's probably because of the fan but also maybe a bigger battery
+[00:41:43.760 --> 00:41:48.240]   substantially larger longer battery life so presumably better performance
+[00:41:48.240 --> 00:41:53.120]   because of the fan screens the same the the actual dimensions of the screens a
+[00:41:53.120 --> 00:41:56.800]   hundred nits brighter so a little brighter I don't know if you pay if that really
+[00:41:56.800 --> 00:42:00.280]   matters to you and I but it's a hundred nits brighter so as a touch bar which
+[00:42:00.280 --> 00:42:04.040]   is a positive or negative depending on your yeah at least it has a real escape
+[00:42:04.040 --> 00:42:08.600]   key I can live with the touch bar if I have a real escape key remember I'm an
+[00:42:08.600 --> 00:42:13.720]   e-max user so what runs do now apparently the doom the touch bar doom
+[00:42:13.720 --> 00:42:19.200]   is is the definitive edition so who should buy the mini who should buy the
+[00:42:19.200 --> 00:42:24.600]   air who should buy the pro so I would say that your default is just the MacBook
+[00:42:24.600 --> 00:42:28.120]   air if you think you're going to be regularly running workloads that are
+[00:42:28.120 --> 00:42:32.000]   longer than 10 minutes or you just need the longer battery you're really
+[00:42:32.000 --> 00:42:35.120]   susceptible to that hundred nits like you really want that brightness or you
+[00:42:35.120 --> 00:42:38.640]   just love you some touch bar then you should go up to the MacBook it's only a
+[00:42:38.640 --> 00:42:42.720]   few hundred dollars more expensive it's not vastly more expensive and it's at my
+[00:42:42.720 --> 00:42:47.100]   point was it's not vastly heavier nor is it vastly bigger no it's actually
+[00:42:47.100 --> 00:42:51.300]   thinner in it in its dimensions in the thickest part of the air which is really
+[00:42:51.300 --> 00:42:55.200]   weird but and the fans are even loud so like but like if you hate fans don't get
+[00:42:55.200 --> 00:42:58.300]   the yeah it's not even that loud yeah and then the Mac mini I'm gonna just echo
+[00:42:58.300 --> 00:43:01.440]   what Alex Lindsay said like there is gonna be a Mac mini pro that has the
+[00:43:01.440 --> 00:43:06.080]   same chip in it that that the higher end Mac book pros have and at the lower end
+[00:43:06.080 --> 00:43:10.400]   I'm acts have so if you want a current version of the Intel Mac mini wait but
+[00:43:10.400 --> 00:43:14.880]   if you just want a small cheap box to throw on a television or a display or
+[00:43:14.880 --> 00:43:18.060]   like Alex uses when he puts it as glue and it's pretty like you just need it to
+[00:43:18.060 --> 00:43:23.220]   do a transcoding job like some sort of job in your larger array of devices then
+[00:43:23.220 --> 00:43:27.860]   it's a hundred bucks cheaper and wow does it perform laughs around the Intel the
+[00:43:27.860 --> 00:43:31.660]   current Intel version never mind the older silver version that it's replacing
+[00:43:31.660 --> 00:43:36.780]   well yeah Lisa's so unhappy with her year old MacBook here she says so slow
+[00:43:36.780 --> 00:43:40.500]   can I have your MacBook Air your 2020 MacBook Air when you get the new
+[00:43:40.500 --> 00:43:44.960]   computer as at least a let's just get you a new MacBook Air
+[00:43:44.960 --> 00:43:48.960]   George will throw her in the trash on Friday brilliant yeah let's just get you
+[00:43:48.960 --> 00:43:52.440]   a new one and she says no we can't afford it right now I don't want to spend
+[00:43:52.440 --> 00:43:56.960]   that money I think you're in your 2020 air your last Intel air will be fast
+[00:43:56.960 --> 00:44:00.960]   enough but I know the minute she starts using that 13 inch MacBook Pro
+[00:44:00.960 --> 00:44:07.160]   don't let her use yours yeah oh this is this is much better which one did you
+[00:44:07.160 --> 00:44:12.960]   buy Laurie get the year oh I have not bought oh your review
+[00:44:12.960 --> 00:44:21.140]   oh okay yeah so here's the thing is I don't need a new Mac laptop yet and I
+[00:44:21.140 --> 00:44:25.940]   think I do cut not because this is a special one you need it's what you want
+[00:44:25.940 --> 00:44:31.540]   Laurie and but I want I want to see what they do next and I do you're gonna wait
+[00:44:31.540 --> 00:44:35.940]   till next year yeah I think what they're gonna do next is gonna come soon and I
+[00:44:35.940 --> 00:44:41.260]   might end up getting the MacBook Air but I want to see what they do next
+[00:44:41.260 --> 00:44:45.380]   before I make that decision I don't need it right now so I want to see what kind
+[00:44:45.380 --> 00:44:50.820]   of other things come of it so that's why I haven't purchased one yeah I that's
+[00:44:50.820 --> 00:44:55.620]   smart yeah I if you don't need it I would go with the MacBook Air I would
+[00:44:55.620 --> 00:45:00.500]   because I don't need exactly what Renee is talking about I don't need I don't
+[00:45:00.500 --> 00:45:05.540]   do things that would require ramping up of the of the processors for more than
+[00:45:05.540 --> 00:45:10.780]   ten minutes at a time so the MacBook Air considering that it's pretty much just
+[00:45:10.780 --> 00:45:15.660]   the MacBook bro without a fan that that is that's the most sense cool and I'm
+[00:45:15.660 --> 00:45:19.820]   also much more willing to spend a couple extra hundred dollars to get more ram
+[00:45:19.820 --> 00:45:24.500]   than to spend a couple extra dollars to get the bottom line MacBook Pro right
+[00:45:24.500 --> 00:45:31.020]   that makes more sense to me that's sensible yeah Andy this is I this is
+[00:45:31.020 --> 00:45:34.900]   really been on my mind for the past week I mean I've had my finger over a buy it
+[00:45:34.900 --> 00:45:39.300]   now button so many times over the past week my here's but here's my situation
+[00:45:39.300 --> 00:45:46.740]   my my desktop Mac mini is is like eight years old my Mac book is now five years
+[00:45:46.740 --> 00:45:53.380]   old they're both very very due for for updates and I am so eager for I'm much
+[00:45:53.380 --> 00:45:55.620]   more eager for these I'm ones than I thought it would I thought it would be
+[00:45:55.620 --> 00:46:00.460]   easy for me to get a get a loaner for 30 30 to 60 days that would like like my
+[00:46:00.460 --> 00:46:03.740]   original Thursday I could wait until next year when they fill out the line a
+[00:46:03.740 --> 00:46:10.660]   little bit more and now I'm thinking that I am gravitating towards buying a
+[00:46:10.660 --> 00:46:16.340]   minimal Mac book Air by the end of the year and my thinking is that I will
+[00:46:16.340 --> 00:46:22.220]   definitely buy a Mac mini like the next generation of it when they have more
+[00:46:22.220 --> 00:46:27.020]   IO when they have more ports or if they're if their rumors are again rumor
+[00:46:27.020 --> 00:46:31.820]   rumor rumors are true that they're coming up with like a Mac Pro mini that
+[00:46:31.820 --> 00:46:36.460]   would be totally up my alley that and the reason why I'm leaning towards the
+[00:46:36.460 --> 00:46:40.540]   Mac book Air instead of the Mac book Pro is that I'm thinking about what when we
+[00:46:40.540 --> 00:46:45.740]   get back to like normal times what are the gaps in my hardware and the single
+[00:46:45.740 --> 00:46:49.620]   biggest annoyance I have in hardware is that the number of times where I have to
+[00:46:49.620 --> 00:46:53.380]   be in New York for two or three days for a meeting there is going to be I have to
+[00:46:53.380 --> 00:46:58.060]   do a podcast of some kind whether it's Mac break or some other thing particularly
+[00:46:58.060 --> 00:47:03.580]   requires video and I have to bring a lot of hard I can't just bring my my my iPad
+[00:47:03.580 --> 00:47:08.260]   with me I can't just bring my little Chromebook with me and for me the Mac
+[00:47:08.260 --> 00:47:14.100]   book Air would cover that even even in 2021 2022 when there are much better M1
+[00:47:14.100 --> 00:47:19.620]   Macs out there I this would cover that that line of I don't I only need a real
+[00:47:19.620 --> 00:47:24.260]   laptop for this one thing let me give me the latest longest battery life thing I
+[00:47:24.260 --> 00:47:29.420]   can possibly get and for I'm all secures to see what how good is this thing going
+[00:47:29.420 --> 00:47:34.860]   to be with minimal arrangement if for a thousand bucks that is right in the
+[00:47:34.860 --> 00:47:40.700]   sweet spot of a laptop purchase for me but again I can't I can't get over the
+[00:47:40.700 --> 00:47:43.660]   fact that I was all going home about saying but wouldn't be nice to have a
+[00:47:43.660 --> 00:47:48.100]   a tower PC where when you want to upgrade the CPU in two or three years you
+[00:47:48.100 --> 00:47:51.660]   just upgrade the CPU or you just up you don't have to throw the entire thing out
+[00:47:51.660 --> 00:47:55.860]   every five or six years and we'll find a new use for it and now it's like oh but
+[00:47:55.860 --> 00:48:00.780]   that's it seems like buying it seems like spending sixty thousand dollars on a
+[00:48:00.780 --> 00:48:06.140]   gas-powered car right now when you know that in five six seven years it's just
+[00:48:06.140 --> 00:48:09.180]   not going to be there there's so much more interesting things happening in
+[00:48:09.180 --> 00:48:13.500]   electrics these days right now all the really interesting things even besides
+[00:48:13.500 --> 00:48:17.820]   performance are happening with the M1 chip on on the Mac these days that's a
+[00:48:17.820 --> 00:48:22.940]   really good point to vendor harder our rights in and gadget one thing is clear
+[00:48:22.940 --> 00:48:27.580]   now with the M1 chip Apple finally has a way to truly differentiate Macs from
+[00:48:27.580 --> 00:48:32.540]   Windows PCs yeah now there's more of a reason to opt for a Mac beyond a slightly
+[00:48:32.540 --> 00:48:36.720]   different OS and Apple's excellent build quality the M1 chip makes the Macbook
+[00:48:36.720 --> 00:48:40.740]   Air one of the fastest ultra portables you can buy today and even the biggest
+[00:48:40.740 --> 00:48:44.180]   Windows fans will have a hard time denying that actually they aren't having a hard
+[00:48:44.180 --> 00:48:56.420]   time but I think that's really that's a very I think a very apt analogy Andy
+[00:48:56.420 --> 00:49:02.340]   the it's like an internal combustion engine and we're going electric it's
+[00:49:02.340 --> 00:49:07.420]   it's it's time to look to the future and Apple really seems to have in by the way
+[00:49:07.420 --> 00:49:13.020]   unfortunately seems to have a lock on the future I'd love to see M1 based
+[00:49:13.020 --> 00:49:17.580]   Windows machines I'd love to put Linux on this I don't think I'm gonna be able
+[00:49:17.580 --> 00:49:20.820]   to I think it's just but it wasn't a wake up for Qualcomm like when Apple went
+[00:49:20.820 --> 00:49:25.660]   64 bit and Qualcomm was like was was trying to milk 32 bit for all its was
+[00:49:25.660 --> 00:49:28.740]   worth at first you have like they went through like the five stages at first
+[00:49:28.740 --> 00:49:32.740]   there was denial doubt anger but eventually they got through it to
+[00:49:32.740 --> 00:49:36.260]   acceptance they started making way better Qualcomm like I firmly believe
+[00:49:36.260 --> 00:49:40.100]   Qualcomm is better today and we have better Qualcomm competition is always good
+[00:49:40.100 --> 00:49:45.140]   because yeah because Apple entered that market and these aren't dumb like Intel
+[00:49:45.140 --> 00:49:48.340]   I'm gonna say these aren't dumb companies Intel is just severely hurting
+[00:49:48.340 --> 00:49:52.940]   right now in in so many different metrics but AMD is not dumb and Qualcomm is not
+[00:49:52.940 --> 00:49:56.300]   dumb and MediaTek is not dumb and they won't have the advantage of
+[00:49:56.300 --> 00:49:59.580]   integration that Apple offers but they've they've always been able to leverage
+[00:49:59.580 --> 00:50:04.020]   their their modularity or their you know they're different different form
+[00:50:04.020 --> 00:50:07.340]   factors and they're gonna be things that by by its nature Apple just will
+[00:50:07.340 --> 00:50:10.900]   never offer like if you if you really want you know like right now it's a
+[00:50:10.900 --> 00:50:15.940]   maybe a split I figure what they call a convertible machine or you know something
+[00:50:15.940 --> 00:50:19.260]   in an odd for there's gonna be a whole bunch of needs that Apple doesn't serve
+[00:50:19.260 --> 00:50:23.260]   and if they let if they don't deny this but let this inform them and make them
+[00:50:23.260 --> 00:50:28.020]   better there'll be a whole bunch of really interesting new arm-based windows
+[00:50:28.020 --> 00:50:31.820]   machines in two three years for people to hopefully faster to enjoy absolutely
+[00:50:31.820 --> 00:50:36.940]   Apple there's gonna be temptation at Apple's part to over diversify because
+[00:50:36.940 --> 00:50:41.140]   there's so many things they could do with this there's gonna be a real temptation
+[00:50:41.140 --> 00:50:48.220]   to say oh you want a 64 core 64 core performance cores 32 core efficiency
+[00:50:48.220 --> 00:50:53.980]   cores and 162 you have the Mac Pro version and you have the same
+[00:50:53.980 --> 00:50:57.100]   architecture that using now for afterburner that lets you plug in M1
+[00:50:57.100 --> 00:51:01.100]   accelerators I just give you more cores there's gonna be a real temptation for
+[00:51:01.100 --> 00:51:06.460]   Apple to over diversify because there's so much they can do with this and
+[00:51:06.460 --> 00:51:10.500]   if they don't then there is an opportunity for the PC marketplace to show
+[00:51:10.500 --> 00:51:14.860]   with its diversity what they can do and maybe some people just don't really I
+[00:51:14.860 --> 00:51:20.180]   mean most people don't really care it's funny because the trend in computing was
+[00:51:20.180 --> 00:51:24.220]   to not care about how what processor or what the clock speed was or any of that
+[00:51:24.220 --> 00:51:29.580]   stuff now all of a sudden what's inside might make a difference might be kind
+[00:51:29.580 --> 00:51:33.300]   of something I pay attention to I just love the thought of now when you go into
+[00:51:33.300 --> 00:51:37.220]   an Apple store again assuming you can go pretend you can go to an Apple store
+[00:51:37.220 --> 00:51:42.300]   with a thousand dollars you can come out with an M1 either an M1 MacBook Air
+[00:51:42.300 --> 00:51:48.060]   which is super super sexy and fast or you can come out with a iPhone iPhone
+[00:51:48.060 --> 00:51:53.820]   Pro with amazing lenses or you can come out with an iPad Pro which is like the
+[00:51:53.820 --> 00:51:57.700]   king of multi-touch you're kind of like you're kind of like bottled by choice
+[00:51:57.700 --> 00:52:03.020]   at this point and it's there very few companies like I say the same thing
+[00:52:03.020 --> 00:52:06.940]   about where it's like I am excited about what I would walk out of that store with
+[00:52:06.940 --> 00:52:11.780]   us this is not a practical and functional item this is something that I'm excited
+[00:52:11.780 --> 00:52:15.660]   about the possibilities of the things that I will be able to do like if I was
+[00:52:15.660 --> 00:52:19.100]   ever like sort of turned off by 4k video editing well now this makes it a lot
+[00:52:19.100 --> 00:52:22.620]   more possible even if you're just an idiot like me instead of like a
+[00:52:22.620 --> 00:52:27.060]   professional like like our friend Renee here
+[00:52:27.060 --> 00:52:31.260]   I was just doing 8k on the MacBook Air and she was just laughing because like
+[00:52:31.260 --> 00:52:35.140]   Marquez carries his iMac pro around with him and now she's getting a camera
+[00:52:35.140 --> 00:52:39.340]   yeah yeah and I have to say I'm glad I could afford to do both the new iPhone
+[00:52:39.340 --> 00:52:43.820]   and the new because the new iPhones really good too yeah well they're
+[00:52:43.820 --> 00:52:47.100]   canceling the Galaxy notes you'll have an extra look are they they're canceling
+[00:52:47.100 --> 00:52:51.660]   the note really yeah they're gonna put a pencil on the on the Galaxy S 21 oh
+[00:52:51.660 --> 00:52:56.460]   that's right yeah I wish I could get the money back yeah your your MacBook Pro
+[00:52:56.460 --> 00:53:03.820]   has nothing on this adorable oh you got the little baby show you love it
+[00:53:03.820 --> 00:53:09.180]   it's wonderful you love it so much I do I can wrap my hands around it entirely
+[00:53:09.180 --> 00:53:15.620]   it's so wonderful so size does matter the smaller is better yeah I don't know
+[00:53:15.620 --> 00:53:20.340]   you know who was it I think it was it was John Gruber is complaining about the
+[00:53:20.340 --> 00:53:26.420]   size of the max like this is too big I like it it's yeah and I love the new
+[00:53:26.420 --> 00:53:32.660]   design I love the flat edge I can definitely say that the max really does
+[00:53:32.660 --> 00:53:38.820]   feel like a computer in your hands like yeah I love the way it feels because of
+[00:53:38.820 --> 00:53:44.340]   it's because it's solid it's unwieldy it's not something I will own it's I it's
+[00:53:44.340 --> 00:53:49.180]   just too big for me but I can definitely see how this is a computer replacement
+[00:53:49.180 --> 00:53:54.220]   for a lot of people in the world it's it's that screen is so nice it's a
+[00:53:54.220 --> 00:53:58.460]   beautiful screen but you're not really sacrificing anything significant with
+[00:53:58.460 --> 00:54:02.460]   the mini except maybe that third lens I mean it's not it's yeah it's really
+[00:54:02.460 --> 00:54:06.700]   mainly it's really the telephoto lens and and the light are scattered for me
+[00:54:06.700 --> 00:54:14.340]   honestly the light are scanner on the iPhone 12 pro and I hope 12 pro max it's
+[00:54:14.340 --> 00:54:21.340]   astounding like nobody has really to me given it the credit it deserves and
+[00:54:21.340 --> 00:54:26.460]   it's all about those nighttime shots nighttime action shots the difference is
+[00:54:26.460 --> 00:54:31.740]   absolutely recognizable and it really is the only thing I will I miss on it I
+[00:54:31.740 --> 00:54:37.860]   if I would never go for the larger phone now that I've got the mini in my hand
+[00:54:37.860 --> 00:54:42.940]   but if it's if a person is like the size of the phone isn't as important to me
+[00:54:42.940 --> 00:54:47.500]   what are the what are the spec differences I would actually say the iPhone 12 pro
+[00:54:47.500 --> 00:54:53.260]   is worth that yeah it's really good for night night vision or night shots it
+[00:54:53.260 --> 00:54:57.100]   really helps a lot okay I'll have to play with that I haven't played with it
+[00:54:57.100 --> 00:55:01.580]   I Alex Lindsay was saying oh you really ought to try the developer on the
+[00:55:01.580 --> 00:55:05.340]   develop a developer page there's augmented reality models and he said you
+[00:55:05.340 --> 00:55:10.300]   got to try this with a light are this is here I'll just do a can you show this
+[00:55:10.300 --> 00:55:14.580]   over the shoulder do you have this John oh he's got to set it up here hold on a
+[00:55:14.580 --> 00:55:22.220]   second so if these are USD Z models this this Apple focused 3D model but if I
+[00:55:22.220 --> 00:55:28.620]   hit this and I aim it at a flat surface that's gonna be the I could airplay it
+[00:55:28.620 --> 00:55:33.020]   but I think you want to see it so I guess it's decided that the surface
+[00:55:33.020 --> 00:55:39.900]   studio is flat enough it really does it does an amazing job of gluing to the
+[00:55:39.900 --> 00:55:47.020]   surface the surface of the surface because the light are I mean it's just it
+[00:55:47.020 --> 00:55:51.020]   placed that you saw how quickly it placed that places it really quickly
+[00:55:51.020 --> 00:55:56.940]   and accurately so I don't know if this is just a gimmick frankly yeah and that's
+[00:55:56.940 --> 00:56:02.420]   the thing is right now AR the light are scanner of being used for a dot AR I
+[00:56:02.420 --> 00:56:06.900]   would say that's not worth it for that specifically it's just not like AR is
+[00:56:06.900 --> 00:56:10.900]   just not really consumer usable right now it will be someday but right now it's
+[00:56:10.900 --> 00:56:16.860]   just not really it's not very yet but when it comes to the can't the use of the
+[00:56:16.860 --> 00:56:21.380]   lighter scanner with camera with the camera at nighttime I think there really
+[00:56:21.380 --> 00:56:25.820]   is a difference there that that people can see and will be impressed with yeah
+[00:56:25.820 --> 00:56:29.820]   that's pretty I'm just surprised we haven't seen a resurgence in QuickTime VR
+[00:56:29.820 --> 00:56:36.180]   that remember how exciting it was yeah but it was pretty excited to say here is
+[00:56:36.180 --> 00:56:39.660]   just an environment and you can scroll around and look up down left right zoom
+[00:56:39.660 --> 00:56:44.540]   in zoom out what a one of the things have been so intriguing to me about about
+[00:56:44.540 --> 00:56:49.260]   people who've gotten their new pros is just all the 3D models I've been seeing
+[00:56:49.260 --> 00:56:53.060]   of I just like took I just took a 3D model 3D scan of my room with the light
+[00:56:53.060 --> 00:56:59.060]   are and it's just such an interesting new trick that you didn't have before in
+[00:56:59.060 --> 00:57:04.140]   terms of not only for actual productive useful things like again getting
+[00:57:04.140 --> 00:57:08.620]   measurements of a room being able to like share spaces but also just recording
+[00:57:08.620 --> 00:57:14.060]   moments of your life the the it's I would love to see this turn into an
+[00:57:14.060 --> 00:57:18.900]   actual thing an actual set of tools an actual set of social media tools that
+[00:57:18.900 --> 00:57:22.900]   here I want to you can't come visit my house grandma but here is a virtual
+[00:57:22.900 --> 00:57:26.940]   reality space that you can simply navigate in 3D and walk through yeah
+[00:57:26.940 --> 00:57:32.060]   speaking of cameras Renee just real quickly that 720p camera is it improved
+[00:57:32.060 --> 00:57:41.460]   by all of the image processing and so it's it's I want to say this says politely
+[00:57:41.460 --> 00:57:45.540]   is like it's still garbage in but it's like it's like nicely made up garbage
+[00:57:45.540 --> 00:57:48.500]   out like it's still not impressive it's still constrained by the size of the lid
+[00:57:48.500 --> 00:57:53.740]   it's still 720p boy to those 720p pixels look better but it's still like it just
+[00:57:53.740 --> 00:57:57.980]   doesn't have the information to make a really great-looking camera experience
+[00:57:57.980 --> 00:58:02.620]   yeah yeah all right and just just to be fair I did check out
+[00:58:02.620 --> 00:58:08.020]   well but my I did check things out and so many of the top tier windows laptops
+[00:58:08.020 --> 00:58:12.220]   like low-yose like X1 carbon they also have some they're on camera so it does
+[00:58:12.220 --> 00:58:17.260]   it doesn't it doesn't put a band-aid on our hurt feelings but still it's it
+[00:58:17.260 --> 00:58:20.980]   should be particularly dinged for this probably the form factor this surface
+[00:58:20.980 --> 00:58:26.020]   cameras are awful on Microsoft laptops what I saw a tweet from Marco Arm out
+[00:58:26.020 --> 00:58:29.260]   where everyone was praising him for how well overcast works on the Mac and he
+[00:58:29.260 --> 00:58:32.500]   said never have I earned so much praise for simply not pressing that does not
+[00:58:32.500 --> 00:58:34.500]   work
+[00:58:34.500 --> 00:58:44.060]   that's awesome here from this is I think 9 to 5 Mac a video of launching every
+[00:58:44.060 --> 00:58:50.500]   default app on the Mac book here with Apple Silicon at the same time just
+[00:58:50.500 --> 00:58:58.180]   watch how fast this is why geez Louise holy kim Molly is this the Mac book
+[00:58:58.180 --> 00:59:04.380]   air Mac book this is the air that's incredible yeah launched everything this
+[00:59:04.380 --> 00:59:07.180]   is like when you get any chainsaw for the first time and all you want to do is
+[00:59:07.180 --> 00:59:10.560]   see how to see what things down yeah just cut just cut them down just cut
+[00:59:10.560 --> 00:59:13.100]   things down the silly thing is like for anything like this anything under 10
+[00:59:13.100 --> 00:59:16.260]   minutes it doesn't matter the all three work exactly the same you can just choose
+[00:59:16.260 --> 00:59:22.660]   like the niceties that you want on top of it actually correction fan okay that is
+[00:59:22.660 --> 00:59:29.700]   from a Mac rumors forum member I Chan who did that on his new or her new Mac
+[00:59:29.700 --> 00:59:35.420]   book here as long as you're spending money can I suggest a little something
+[00:59:35.420 --> 00:59:41.620]   from G technology this is our sponsor for the show today and this is fantastic
+[00:59:41.620 --> 00:59:45.540]   this is the new armor lock I don't know I guess I'm doing my pick of the week a
+[00:59:45.540 --> 00:59:53.980]   little bit early this is a cryptographically secure external drive that's
+[00:59:53.980 --> 01:00:02.700]   super fast and super convenient it's inside an NVMe SSD running its a USB 3.2
+[01:00:02.700 --> 01:00:09.420]   so it's running at 10 gigabits per second but it is fully encrypt with 256 bit
+[01:00:09.420 --> 01:00:16.140]   AES X TS hardware encryption and I want to show you how you unlock it because
+[01:00:16.140 --> 01:00:20.100]   perhaps you've seen these before and I hated you know I've had other in so-called
+[01:00:20.100 --> 01:00:24.380]   encrypted USB and third-party external drives where you had to install a
+[01:00:24.380 --> 01:00:29.140]   kernel extension that's not gonna fly this needs nothing in fact I'm gonna hook
+[01:00:29.140 --> 01:00:34.340]   this up onto my Windows machine I have it formatted XFAT so I can run it on
+[01:00:34.340 --> 01:00:38.220]   Windows or Mac but you notice I don't know can you see that it's locked it has
+[01:00:38.220 --> 01:00:42.580]   the the yellow locked indicator on it and then I'm gonna show you how easy it is
+[01:00:42.580 --> 01:00:47.100]   to unlock the armor lock I'm gonna use the armor lock app here on my iPhone
+[01:00:47.100 --> 01:00:53.220]   it's gonna use Bluetooth LE to see the device so now it sees it and watch this
+[01:00:53.220 --> 01:00:57.300]   tap to unlock and it's gonna use face ID or fingerprint it's gonna use
+[01:00:57.300 --> 01:01:02.420]   biometrics and now this lock goes to unlocked now this is a standard drive
+[01:01:02.420 --> 01:01:07.660]   that I can use I can copy everything onto it in fact I do I keep this is where I
+[01:01:07.660 --> 01:01:12.900]   keep all my most valuable documents it's my secure enclave that I can carry with
+[01:01:12.900 --> 01:01:17.900]   me all my dot files my PGP keys everything's my last password everything's
+[01:01:17.900 --> 01:01:22.300]   on here but it's secure if you're a videographer and you're mailing hard
+[01:01:22.300 --> 01:01:28.900]   drives you know how risky that feels sending your new movie out with armor
+[01:01:28.900 --> 01:01:34.580]   lock you've got an external drive it's robust as heck this thing is tough IP67
+[01:01:34.580 --> 01:01:40.180]   dust and water resistant ultra rugged you can mail that in the mail and be
+[01:01:40.180 --> 01:01:44.420]   completely confident that no one will get into this because what's cool about
+[01:01:44.420 --> 01:01:49.100]   the armor lock app is you can actually authorize other users so you can say
+[01:01:49.100 --> 01:01:53.140]   okay I'm gonna let Joe unlock this and I can revoke that as well you don't need
+[01:01:53.140 --> 01:01:57.020]   to remember passwords you don't need to install software you just open the
+[01:01:57.020 --> 01:02:01.660]   armor lock app on your phone and your Mac tap the button to unlock and off you
+[01:02:01.660 --> 01:02:08.140]   go this is the way to do an external drive and never worry about that data
+[01:02:08.140 --> 01:02:11.620]   getting into the wrong hands it uses the biometric authentication you already
+[01:02:11.620 --> 01:02:16.100]   have set up on your phone you saw how easy it was how frictionless it's very
+[01:02:16.100 --> 01:02:22.580]   easy to set up a new drive anytime if if for some reason I want to give this to
+[01:02:22.580 --> 01:02:25.660]   somebody else they can wipe the drive and set it up it started all by
+[01:02:25.660 --> 01:02:30.420]   themselves that it is no weird thing they have to do to un lock it they just
+[01:02:30.420 --> 01:02:34.980]   don't get any of the data on it they have to start fresh and of course armor
+[01:02:34.980 --> 01:02:39.340]   lock and G technology manufacture their own flash technology and their own SSDs
+[01:02:39.340 --> 01:02:45.220]   so this is built from the ground up with high quality components my maybe one of
+[01:02:45.220 --> 01:02:48.420]   the reasons they just run the consumer innovation award at the flash memory
+[01:02:48.420 --> 01:02:52.220]   summit this is what you want the last thing you want is leaked films are
+[01:02:52.220 --> 01:02:57.300]   lost or stolen drives and private data getting out Taylor Swift needs this for
+[01:02:57.300 --> 01:03:01.300]   our next album take control of your data privacy with G technologies armor lock
+[01:03:01.300 --> 01:03:09.260]   solid state drive NVMe SSD it's fast it's secure it's easy I could buy a few more
+[01:03:09.260 --> 01:03:13.340]   of these actually get armor lock calm to learn more and get yours today get
+[01:03:13.340 --> 01:03:17.500]   armor lock calm I just think this is awesome I'll just show you real quickly
+[01:03:17.500 --> 01:03:24.700]   that it shows up as a as a regular drive on my PC it's my it's my D drive in
+[01:03:24.700 --> 01:03:29.500]   here I can see all the files that are on it I can write to them and when I'm
+[01:03:29.500 --> 01:03:36.380]   done I just eject it and it's locked it's it's completely secure I never have to
+[01:03:36.380 --> 01:03:41.220]   worry about it ever again get armor lock dot come please use that address
+[01:03:41.220 --> 01:03:47.540]   because that way they know you saw it here so eject armor lock it's gonna go
+[01:03:47.540 --> 01:03:52.420]   when I eject it it goes fun locked to lock and there it is oh by the way it's
+[01:03:52.420 --> 01:03:56.060]   really pretty those are the heatsinks I thought oh you did a nice design touch
+[01:03:56.060 --> 01:03:59.780]   no that's actually the heatsink it never gets hot because it's got really nice
+[01:03:59.780 --> 01:04:04.860]   big aluminum heatsinks on both sides to keep it from getting more get armor
+[01:04:04.860 --> 01:04:08.660]   lock calm thank you armor lock for supporting Mac break weekly that was
+[01:04:08.660 --> 01:04:14.740]   that's my pick of the week in all sincerity it's really awesome yeah I've
+[01:04:14.740 --> 01:04:18.500]   been looking for a way because I was synchronizing I was doing I just was
+[01:04:18.500 --> 01:04:21.780]   never comfortable with you know getting my dot files and other secret stuff
+[01:04:21.780 --> 01:04:26.420]   around and this is this is I just carry this my briefcase it's perfect
+[01:04:26.420 --> 01:04:33.420]   okay I have one last question if we're not if we're about to move away from
+[01:04:33.420 --> 01:04:39.140]   them one for if a grenade have you tried if you sing how pop fast the the
+[01:04:39.140 --> 01:04:44.580]   Macbook air and the Macbook Pro take a charge off of your species honestly I
+[01:04:44.580 --> 01:04:50.220]   haven't charged them yet oh wow there you go that's a testimonial they're
+[01:04:50.220 --> 01:04:54.180]   probably near empty but like I ran all the tests and then they were still at
+[01:04:54.180 --> 01:05:01.380]   65 and 70 percent after two days of benchmarks Wow I was rendering the
+[01:05:01.380 --> 01:05:05.060]   what is the big buck bunny file just because I use that to benchmark rendering
+[01:05:05.060 --> 01:05:11.420]   and it reduced the Macbook Pro by like 2 percent and the Intel Macbook Pro by
+[01:05:11.420 --> 01:05:18.180]   like 18 or 19 percent it's the same battery technology as on an existing
+[01:05:18.180 --> 01:05:23.740]   Mac book yes and so I doubt it would take any longer to charge which we we
+[01:05:23.740 --> 01:05:27.860]   don't know yet I fix it we're waiting till they take it apart how big the
+[01:05:27.860 --> 01:05:31.500]   battery is in there that would be the only thing that would maybe impact it
+[01:05:31.500 --> 01:05:35.940]   it's identical in specs I can't imagine like unless they they took the few like
+[01:05:35.940 --> 01:05:38.900]   ounces that they made up for losing the Intel motherboard and filled that with
+[01:05:38.900 --> 01:05:44.420]   battery like frosting we didn't mention though somebody's asking about the SSD
+[01:05:44.420 --> 01:05:49.580]   speed the speed is roughly twice the apples at twice as fast and the black
+[01:05:49.580 --> 01:05:53.620]   magic twice as fast yeah the black magic benchmarks are are very very
+[01:05:53.620 --> 01:05:58.420]   very quick right yeah and it that's part of what makes up like for a normal
+[01:05:58.420 --> 01:06:01.740]   person unless you're run let's you're using files that are huge like say like
+[01:06:01.740 --> 01:06:05.060]   unless you're doing photogrammetry like Alex does where you're running multiple
+[01:06:05.060 --> 01:06:10.340]   VMs the 16 gigabytes plus memory compression plus the speed of that swap I
+[01:06:10.340 --> 01:06:15.860]   could not hit a limit on it Wow we're gonna Anthony Nielsen is going to send
+[01:06:15.860 --> 01:06:22.100]   me one of his extra big motion projects and I'm gonna he's gonna test it on his
+[01:06:22.100 --> 01:06:31.340]   he has my old i9 16 inch I have an iMac Pro with Zions in it and then I'll
+[01:06:31.340 --> 01:06:34.700]   have the Mac book Pro we're gonna get some speed comparisons we have a video
+[01:06:34.700 --> 01:06:37.420]   of you both carrying them outside the Twix studios and throwing them a track
+[01:06:37.420 --> 01:06:42.860]   yeah really I just think it's gonna be really we want to do I'm you know geek
+[01:06:42.860 --> 01:06:46.340]   bench only goes so far to tell you anything I mean it's good for comparing
+[01:06:46.340 --> 01:06:50.300]   apples to apples I guess but I really think it's a real world performance
+[01:06:50.300 --> 01:06:55.420]   things like just watching all those apps launch that's what you really care
+[01:06:55.420 --> 01:07:02.700]   about yeah I'm so pleased that so many common users are gonna find so many
+[01:07:02.700 --> 01:07:05.860]   benefits to this right out the right out the gate this is one of those subtle
+[01:07:05.860 --> 01:07:09.460]   things where well because we've changed to this new multi-channel architecture
+[01:07:09.460 --> 01:07:13.580]   you might find that if you're using 8k and transcoding to know it's your
+[01:07:13.580 --> 01:07:18.020]   apps will launch faster your battery will last a lot lot longer you will be
+[01:07:18.020 --> 01:07:21.660]   able to run apps you weren't able to run before these are the things that these
+[01:07:21.660 --> 01:07:24.420]   are the things you like to see in the first few days that you're using a
+[01:07:24.420 --> 01:07:30.500]   machine you also like to see oh I I haven't even taken I forgot to charge this
+[01:07:30.500 --> 01:07:38.060]   because I haven't needed to I haven't I haven't seen the Xcode benchmarks but
+[01:07:38.060 --> 01:07:43.380]   Curtis B in the chat room says Xcode compile tests are apparently beating a
+[01:07:43.380 --> 01:07:48.140]   10 core iMac Pro yeah oh boy you know has him in his timeline he also unzipped
+[01:07:48.140 --> 01:07:50.740]   Xcode for all the developers out there that's apparently porn for the
+[01:07:50.740 --> 01:07:56.580]   developers just yeah it's the worst thing ever is unzipping Xcode it takes
+[01:07:56.580 --> 01:08:02.540]   it's ridiculous it takes forever and yeah that was really impressive again
+[01:08:02.540 --> 01:08:06.300]   that's Matthew Panzerino's tech crunch yeah
+[01:08:06.300 --> 01:08:13.260]   yeah can't wait I'm sorry yeah and he compiled webkits and it was and Dave
+[01:08:13.260 --> 01:08:17.380]   2D on his video - he was showing people like it's 42 seconds to build his
+[01:08:17.380 --> 01:08:21.060]   standard test suite on in Xcode and that's the same as people were getting
+[01:08:21.060 --> 01:08:24.820]   with top of the end hack and tosses and they think they just hit the IO limit at
+[01:08:24.820 --> 01:08:29.260]   that point there's not even a processor living here's the web kit compile time
+[01:08:29.260 --> 01:08:34.900]   so this is kind of an ex-core benchmark on the left smaller is obviously better
+[01:08:34.900 --> 01:08:41.980]   the Mac mini 19 minutes compared to you know keep going do it don't do it 20
+[01:08:41.980 --> 01:08:48.420]   minutes on the Mac Pro it's actually faster compiling webkit than a then the
+[01:08:48.420 --> 01:08:53.620]   2019 Mac Pro and this is exactly what I was saying to people who said well you
+[01:08:53.620 --> 01:08:58.180]   gonna want to still get that Intel for all the you know raw performance or
+[01:08:58.180 --> 01:09:03.900]   what-evs you need to really want all those you like you need to have a
+[01:09:03.900 --> 01:09:07.540]   specific reason to have that many specifically Xeon cores at this point I
+[01:09:07.540 --> 01:09:11.900]   have that 10 core iMac Pro I bought a few years ago on your recommendation
+[01:09:11.900 --> 01:09:18.820]   Renee and I'm figuring it's not gonna be it's not gonna be the display is nice
+[01:09:18.820 --> 01:09:30.020]   it's a nice display I really I look forward to your comparison between the iMac
+[01:09:30.020 --> 01:09:35.500]   Pro and the MacBook Pro 13 inch I mean they should not be comparable but it
+[01:09:35.500 --> 01:09:39.100]   actually sounds like there's reasons to make comparisons between them I can't
+[01:09:39.100 --> 01:09:43.140]   wait to hear what you think about the differences between the two now Matthew
+[01:09:43.140 --> 01:09:48.780]   was getting a little bit faster speeds some some some some different with the
+[01:09:48.780 --> 01:09:54.700]   Mac mini than with the Mac book Pro for some reason on long build it's
+[01:09:54.700 --> 01:09:58.260]   completely unconstrained like it will never because it's just cool because it's
+[01:09:58.260 --> 01:10:04.900]   got more space and it's so empty now it's empty this is one here you should be
+[01:10:04.900 --> 01:10:10.620]   able to store mince in there just you know make use of that space yeah if if
+[01:10:10.620 --> 01:10:16.100]   the Mac mini box was easy to open and access and you could just like put a
+[01:10:16.100 --> 01:10:21.260]   little face of flowers inside here is the here's the X code that it'll be Apple
+[01:10:21.260 --> 01:10:25.940]   TV size one day because I want to get the developers aroused here's the X code
+[01:10:25.940 --> 01:10:35.820]   on zip time Mac Pro 10 minutes and 19 seconds Mac mini M1 five minutes and five
+[01:10:35.820 --> 01:10:41.180]   seconds less twice as fast as a Mac Pro just Mac mini that's Mac book that's the
+[01:10:41.180 --> 01:10:46.300]   Mac book air - the air is five minutes five seconds put on some Barry White when
+[01:10:46.300 --> 01:10:51.340]   you talk like this Leo please baby baby you know your Mac Pro that unzips X code
+[01:10:51.340 --> 01:10:56.980]   in 10 minutes my Mac book air is gonna do it twice as fast yeah
+[01:10:56.980 --> 01:11:03.700]   I'm talking to you late night yeah baby yeah you want to know about M1 after
+[01:11:03.700 --> 01:11:12.620]   you performance Wow it's ridiculous now that's a function also of drive of
+[01:11:12.620 --> 01:11:17.780]   drive speed I would guess because isn't a disc bound or I don't know is it
+[01:11:17.780 --> 01:11:22.820]   CPU well the Mac Pro's drives are super fast that's true can't be bad
+[01:11:22.820 --> 01:11:32.060]   oh baby yeah throw it out on the garbage you know all the reviewers were
+[01:11:32.060 --> 01:11:36.440]   saying that I am gonna get you rent a U-Haul and just stand by on all of the
+[01:11:36.440 --> 01:11:42.580]   traffic yeah I'm not even need for all the multi-processes are going to be
+[01:11:42.580 --> 01:11:55.900]   hyped this year gigabytes per second on the Mac mini let's say versus the well
+[01:11:55.900 --> 01:12:01.340]   this is compared to the Mac books so but they've been significantly faster drive
+[01:12:01.340 --> 01:12:06.100]   speeds not not not twice as fast it was the air that got the biggest boost the
+[01:12:06.100 --> 01:12:11.860]   other ones were yeah the air was really pretty slow right yeah yeah here's the
+[01:12:11.860 --> 01:12:17.460]   crappy camera although it's the same crappy camera on both the 16 and the and
+[01:12:17.460 --> 01:12:21.580]   the Mac book pro but you could see that at least the processing is making it
+[01:12:21.580 --> 01:12:25.780]   look color-wise a little bit better it makes it look like he's less sleepy it's
+[01:12:25.780 --> 01:12:35.100]   not so purple okay okay okay just the ability to sense that oh maybe the
+[01:12:35.100 --> 01:12:38.340]   reason why there's a blue cast on this person's face is because his face is
+[01:12:38.340 --> 01:12:42.100]   right next to an LCD screen and why don't we just correct that yeah that's
+[01:12:42.100 --> 01:12:47.260]   just that is good pretty pretty it's twice the battery life for WebEx or for
+[01:12:47.260 --> 01:12:49.980]   web conferencing in general which is great for people to do what we do oh I
+[01:12:49.980 --> 01:12:54.380]   don't want to zoom for twice as long that's for sure but we have we do
+[01:12:54.380 --> 01:12:57.660]   skype Leo and so if you if you want to go wireless for the next few weeks of
+[01:12:57.660 --> 01:13:02.420]   what you could do it I guess I could let's talk about security actually let's
+[01:13:02.420 --> 01:13:08.060]   talk about Big Sur because that also came out last week I'm not completely
+[01:13:08.060 --> 01:13:11.860]   crazy about the aesthetics I guess I'll get used to it the menu bar seems a
+[01:13:11.860 --> 01:13:18.020]   little hard to read icons the icons somebody pointed out that this might be
+[01:13:18.020 --> 01:13:21.340]   an indicator it was on i'm war as a matter of fact that maybe this is an
+[01:13:21.340 --> 01:13:25.340]   indicator that we are headed towards a touchscreen Mac despite all
+[01:13:25.340 --> 01:13:29.500]   protestations from Apple that they're never doing yeah I don't I don't think
+[01:13:29.500 --> 01:13:34.700]   that that's true I don't think we are heading to you know just because there's
+[01:13:34.700 --> 01:13:40.540]   more room in the in the touch bar or I just a touch bar in the and the menu bar
+[01:13:40.540 --> 01:13:47.500]   I think that it's more it's more to get us in line with all of Apple devices and
+[01:13:47.500 --> 01:13:52.300]   what all of the Apple devices look like it's not to train you or to it's not
+[01:13:52.300 --> 01:13:55.460]   evidence that there's all this room because your fingers gonna be tapping
+[01:13:55.460 --> 01:14:00.220]   on things it's to say feel comfortable this is what it looks like on an iPad
+[01:14:00.220 --> 01:14:04.180]   this is also what it looks like on a Mac it's familiar you're comfortable they
+[01:14:04.180 --> 01:14:07.780]   all kind of have a similar design aesthetic I don't think we're going to
+[01:14:07.780 --> 01:14:11.740]   touch screen I don't think that this particular thing is evidence that we're
+[01:14:11.740 --> 01:14:14.540]   going to a touchscreen I don't know whether or not we're going to a touch
+[01:14:14.540 --> 01:14:18.660]   screen with Mac because you know everything is completely different right
+[01:14:18.660 --> 01:14:23.380]   now and now that there's an M1 chip and it's totally possible but this this to
+[01:14:23.380 --> 01:14:29.580]   me it just meant Apple is trying to have a cohesive design aesthetic across all
+[01:14:29.580 --> 01:14:33.980]   of its I think and I think you're right one thing though one thing I'll point
+[01:14:33.980 --> 01:14:37.460]   out is that Steve Jobs said we're never no one ever wants video on an iPod that's
+[01:14:37.460 --> 01:14:41.460]   never gonna make a phone that's true that no one wants to ever say never yeah
+[01:14:41.460 --> 01:14:45.740]   with Apple there's three things like either they are never gonna do it they're
+[01:14:45.740 --> 01:14:49.620]   about to do it and don't want to tell you or someone in the executive chain is
+[01:14:49.620 --> 01:14:54.940]   saying no until Eddie and Phil convinced them otherwise why wouldn't you want to
+[01:14:54.940 --> 01:14:59.460]   put I mean since you doing all this why wouldn't you want to put out a touchscreen
+[01:14:59.460 --> 01:15:04.380]   Mac is there more work more work for them I mean they're kind of busy right now
+[01:15:04.380 --> 01:15:08.380]   okay they'd have to actually go and implement pervasive persistent touch
+[01:15:08.380 --> 01:15:11.500]   through all of all of you see that's the thing though it took Microsoft three
+[01:15:11.500 --> 01:15:15.220]   years to do it right Apple doesn't tell us this they do like oh we have really
+[01:15:15.220 --> 01:15:18.820]   crappy catalyst apps oh catalyst is a beta now oh look catalyst is fully
+[01:15:18.820 --> 01:15:21.780]   functional so it could be like oh we're not doing touch but here's a more
+[01:15:21.780 --> 01:15:24.940]   spacious operating system oh we're not doing touch but look at how everything
+[01:15:24.940 --> 01:15:29.540]   now maps over oh look here's a touchscreen Mac yeah yeah yeah totally I do
+[01:15:29.540 --> 01:15:35.780]   think I do think that Apple would have really improved Macs if they had brought
+[01:15:35.780 --> 01:15:40.180]   multi-touch to it early on because I still think that the two-in-one
+[01:15:40.180 --> 01:15:45.780]   Windows laptops are wonderful the ability to flip a screen over and use it just
+[01:15:45.780 --> 01:15:50.300]   as a display on your table as you're watching Netflix or just as a device
+[01:15:50.300 --> 01:15:53.780]   it makes it so much more flexible wonderful at this point the reason why
+[01:15:53.780 --> 01:15:56.740]   they don't have to do it is because they can point people towards the iPad
+[01:15:56.740 --> 01:15:59.860]   saying that well we can give you a multi if you if you really want a multi
+[01:15:59.860 --> 01:16:02.660]   touch experience on a big screen we can give you a much much better
+[01:16:02.660 --> 01:16:06.820]   experience that you ever could have on a hybrid device so I don't think it's as
+[01:16:06.820 --> 01:16:12.100]   necessary today as it as it might have been five or six or seven years ago and
+[01:16:12.100 --> 01:16:14.980]   I don't think it'll be on the desktops but I wouldn't mind seeing it on the
+[01:16:14.980 --> 01:16:19.340]   laptops and I agree at two and one Mac book would be a pretty awesome device I
+[01:16:19.340 --> 01:16:23.100]   would love to see the huge yes and a huge no still the huge yes is that for
+[01:16:23.100 --> 01:16:26.100]   kids growing up is gonna seem broken right touch they're just all touch
+[01:16:26.100 --> 01:16:29.380]   natives but in the minute they put nano texture on it Lori's gonna want to
+[01:16:29.380 --> 01:16:38.180]   touch it so it's your fault Lori Gill so in any normal world big sir would be a
+[01:16:38.180 --> 01:16:42.100]   big deal this would be a huge story we're just is we're relegating it to a
+[01:16:42.100 --> 01:16:46.340]   number two position because the M1 is such a big story but big sir is a big
+[01:16:46.340 --> 01:16:52.020]   change big in many ways it's 12 gigabytes it's the largest OS now I was
+[01:16:52.020 --> 01:16:57.940]   gonna say OS 10 but it's also OS 11 oh and as of today 11.1 beta so people are
+[01:16:57.940 --> 01:17:01.820]   wondering are they gonna use iOS style numbers now does that mean I like Mac
+[01:17:01.820 --> 01:17:08.660]   OS 12 next year yeah they did ship when they shipped it was 11.0.1 it
+[01:17:08.660 --> 01:17:15.460]   wasn't even the 11.0 and I have advised people as as Alex Lindsey always does
+[01:17:15.460 --> 01:17:19.900]   not to install it immediately not to install the first update but wait to
+[01:17:19.900 --> 01:17:26.380]   the update the fixes the problems the first update broke created are there
+[01:17:26.380 --> 01:17:31.500]   showstoppers any big issues I have one and maybe it's just unique to my setup I
+[01:17:31.500 --> 01:17:36.500]   don't know what it is but whenever I use disk utility to format my Drobo the
+[01:17:36.500 --> 01:17:44.220]   whole thing goes it actually here an audible pop and it reboots I don't know
+[01:17:44.220 --> 01:17:49.820]   if they have I'm using a Drobo design for big sir a Drobo driver design for big
+[01:17:49.820 --> 01:17:54.740]   sir I don't know what the problem is I don't know what it is but it's thought
+[01:17:54.740 --> 01:17:57.260]   they had a dashboard warning or something saying don't use a dashboard
+[01:17:57.260 --> 01:18:01.380]   yet but I don't remember for sure now I got an updated dashboard now I don't
+[01:18:01.380 --> 01:18:05.300]   know I don't know if it's just a Drobo I don't like I don't want to keep trying
+[01:18:05.300 --> 01:18:10.020]   it I did a couple it I was able to reproduce it so I won't put it on my
+[01:18:10.020 --> 01:18:13.660]   production machine for mine like usually I wait three to six months before I put
+[01:18:13.660 --> 01:18:17.020]   it on my production machine but I have another computer there is the issue with
+[01:18:17.020 --> 01:18:21.540]   2013 Mac books I don't know how widespread this is but we're seeing and
+[01:18:21.540 --> 01:18:26.340]   lots of reports of it breaking them not just crashing them but breaking them so
+[01:18:26.340 --> 01:18:31.540]   that you have to bring them to Apple is that a T2 problem what is it no because
+[01:18:31.540 --> 01:18:39.940]   it's 2013 yeah 2013 and 2014 what is it with those I think it's I think it's
+[01:18:39.940 --> 01:18:43.380]   still unknown Apple has I think Apple is acknowledged as a problem but they don't
+[01:18:43.380 --> 01:18:47.940]   I have not seen anything new about it yikes as of last night when I was
+[01:18:47.940 --> 01:18:52.180]   starting when I was reading about this and he had did you update did you update
+[01:18:52.180 --> 01:18:56.580]   your Mac book to Big Sur are you behind on do you do not do it right away as
+[01:18:56.580 --> 01:19:01.340]   well I'm I only have one Mac book I do need that machine to work so I have not
+[01:19:01.340 --> 01:19:08.860]   updated it yeah I man I have updated everything my Mac book air my iMac my iMac
+[01:19:08.860 --> 01:19:14.860]   pro at home my iMac 5k here without problems I was gonna do a clean install
+[01:19:14.860 --> 01:19:18.860]   I had it so I all prepped and everything to do a clean install and then I
+[01:19:18.860 --> 01:19:23.780]   realized oh you it's you got to jump through hoops to boot to an external
+[01:19:23.780 --> 01:19:28.740]   drive now it's not as easy as it used to be there's security that you have to
+[01:19:28.740 --> 01:19:34.020]   turn off and and this is a issue for people using carbon copy cloner or
+[01:19:34.020 --> 01:19:38.180]   super duper to make bootable external yeah drive copies you can't do that
+[01:19:38.180 --> 01:19:46.660]   anymore Apple has turned the security up to 11 now so in Catalina Catalina they
+[01:19:46.660 --> 01:19:51.060]   used APFS to create two volumes a read only system volume and then everything
+[01:19:51.060 --> 01:19:54.580]   else read and write and you wouldn't notice that because to the operating
+[01:19:54.580 --> 01:19:58.060]   system it looked like one big drive but if you went into disk utility you could
+[01:19:58.060 --> 01:20:02.420]   see the two volumes and that really was a good idea to protect the system volume
+[01:20:02.420 --> 01:20:07.700]   now that system read only system volume is signed so not only can it not be
+[01:20:07.700 --> 01:20:12.140]   modified if it is modified it will not boot if it's not signed it will not boot
+[01:20:12.140 --> 01:20:17.060]   so if you use carbon copy cloner to make a bootable external drive you will have
+[01:20:17.060 --> 01:20:20.940]   a drive with all the right files on it but it won't be signed by Apple so the
+[01:20:20.940 --> 01:20:25.860]   Mac will decline to boot from it so the fix Mike bomb bitch it carbon copy
+[01:20:25.860 --> 01:20:33.820]   cloner says the fixes to it install big sir onto your bootable backup and then
+[01:20:33.820 --> 01:20:37.220]   in the installation process it will sign it and you'll be able to boot from it
+[01:20:37.220 --> 01:20:41.020]   I'm sure there will be some work around at some point but as of now these are
+[01:20:41.020 --> 01:20:45.820]   things this is always probably a good move because it makes it more secure you
+[01:20:45.820 --> 01:20:50.780]   is now like a Chromebook where you you can't run a modified operating system on
+[01:20:50.780 --> 01:20:54.860]   that Mac yeah but on a Chromebook you don't have to worry about backing things
+[01:20:54.860 --> 01:20:58.820]   up because that happens automatically as you go and the whole selling point of
+[01:20:58.820 --> 01:21:01.620]   the Chromebook is that you can do a flash restore pretty much anytime you want
+[01:21:01.620 --> 01:21:06.300]   if it comes down to what do I expect what kind of permissions what kind of
+[01:21:06.300 --> 01:21:11.100]   power do I expect to have on a desktop operating system and Apple is certainly
+[01:21:11.100 --> 01:21:14.860]   erring on the side of let's make this thing more secure and more stable at the
+[01:21:14.860 --> 01:21:19.460]   cost of taking power away from users and it's going to take a few months before
+[01:21:19.460 --> 01:21:23.300]   you figure out how much of a big pain of the butt is this going to be there was
+[01:21:23.300 --> 01:21:27.900]   there was already some people up in arms when they first started installing big
+[01:21:27.900 --> 01:21:33.980]   sewer but sir about how wow it seems as though Apple is is as recording every
+[01:21:33.980 --> 01:21:37.700]   single app that you launch so they're tracking everything that you do and
+[01:21:37.700 --> 01:21:43.340]   cooler heads later on did a more more impressive analysis and said that no the
+[01:21:43.340 --> 01:21:46.380]   first time you launch an app it does check with the it does check with the
+[01:21:46.380 --> 01:21:50.300]   Apple store with Apple to make sure that this is that the developer of this
+[01:21:50.300 --> 01:21:53.700]   app has not had his credentials that have not had their credentials pulled yet and
+[01:21:53.700 --> 01:21:57.620]   so and if that passes it doesn't check again for a for a while but that's the
+[01:21:57.620 --> 01:22:00.780]   sort of thing that we kind of I kind of think it's okay to be a little bit
+[01:22:00.780 --> 01:22:04.500]   paranoid about with Apple is there going to be a time in which Apple is going to
+[01:22:04.500 --> 01:22:09.500]   say for your I don't know if this app is has been signed off on or is okay or
+[01:22:09.500 --> 01:22:12.540]   not but I'm gonna be make I'm gonna make sure you're safe by making sure that
+[01:22:12.540 --> 01:22:15.900]   you can't possibly use this machine for this incredibly important thing you
+[01:22:15.900 --> 01:22:19.220]   needed to do in the next two hours so that's that's one of the reasons why I'm
+[01:22:19.220 --> 01:22:23.460]   holding off on big sir until I know that these increase in security in
+[01:22:23.460 --> 01:22:26.980]   addition to everything else hasn't compromised what I like to do with my
+[01:22:26.980 --> 01:22:31.980]   machine losing super duper to make bootable bootable backups the ability
+[01:22:31.980 --> 01:22:35.900]   that the worst case scenario is that I don't have to even work I don't even
+[01:22:35.900 --> 01:22:39.900]   have to try to fix this Mac I could just simply boot off this drive that I
+[01:22:39.900 --> 01:22:43.540]   backed up just yesterday be up and running get through my day and then
+[01:22:43.540 --> 01:22:47.340]   after I've had dinner in a couple of scotches I can finally look into see
+[01:22:47.340 --> 01:22:51.660]   fixing this actual drive so that would be a big big loss if I were to lose that
+[01:22:51.660 --> 01:22:58.420]   ability bomb is has a beta of carbon copy cloner that apparently works but I
+[01:22:58.420 --> 01:23:03.660]   haven't dared to try it he says he says he thinks he will be able to use Apple
+[01:23:03.660 --> 01:23:09.100]   software restore ASR to which is a utility Apple uses to create the system
+[01:23:09.100 --> 01:23:16.940]   image to do this so if he can then that would solve it I don't know what super
+[01:23:16.940 --> 01:23:20.780]   duper is doing for this but you're I agree with you that's an important thing
+[01:23:20.780 --> 01:23:26.140]   and yet there's a huge security gain here you know I mean it's annoying for me
+[01:23:26.140 --> 01:23:29.700]   because I had like four or five max I wanted to update download it once and
+[01:23:29.700 --> 01:23:33.660]   go around and so when you're able to get that working or what did you do no no
+[01:23:33.660 --> 01:23:36.620]   like I looked it up and I looked at the process I'm way too lazy to do any of
+[01:23:36.620 --> 01:23:39.260]   yeah I gave up I'm just gonna press that download button I'm on limited
+[01:23:39.260 --> 01:23:43.140]   internet what do I get yeah and as it turned out the download really went well
+[01:23:43.140 --> 01:23:47.420]   and in effect you are getting a clean install because it's completely
+[01:23:47.420 --> 01:23:51.180]   replacing the system partition with a new system right it's not I was also
+[01:23:51.180 --> 01:23:54.620]   worried about micro cookers like they do like when the app store people get
+[01:23:54.620 --> 01:23:57.340]   upset now that the app store doesn't clone over from their old device but
+[01:23:57.340 --> 01:24:00.220]   they're literally downloading bit code version specific for the processor
+[01:24:00.220 --> 01:24:03.700]   exactly that you're running on and I don't know if the picture is doing that
+[01:24:03.700 --> 01:24:07.100]   now because suddenly we have Apple's a look in processors is it gonna be doing
+[01:24:07.100 --> 01:24:10.980]   like special bits for the exact installation I have and I'm just like okay
+[01:24:10.980 --> 01:24:15.220]   I'm putting I used to have a manual car I have an automatic car now if I need
+[01:24:15.220 --> 01:24:18.820]   to I'll put it neutral and push but I'm just gonna just gonna be the accelerator
+[01:24:18.820 --> 01:24:24.300]   right now let go and let Apple that's the advice Apple and Elon they can send
+[01:24:24.300 --> 01:24:29.340]   me to Mars and give me a back let them so yeah because I really I you know I
+[01:24:29.340 --> 01:24:34.220]   have this bad I guess bad habit of wanting to do clean installs from time to
+[01:24:34.220 --> 01:24:37.860]   time but I think I just gonna have to give that up right when you get a new
+[01:24:37.860 --> 01:24:40.460]   machine that's what I do now when I get a new machine I started off fresh and
+[01:24:40.460 --> 01:24:43.660]   then I just add stuff back as I need it and that seems to keep me just a
+[01:24:43.660 --> 01:24:46.580]   little bit ahead of bit rot that's all I want to do is make it stay ahead of
+[01:24:46.580 --> 01:24:50.580]   bit rot and I'll be fine yeah actually with this new Mac book Pro I'll be yeah
+[01:24:50.580 --> 01:24:55.020]   I mean it's it's a clean install and you're saying instead of doing the software
+[01:24:55.020 --> 01:25:00.460]   restore from your old Mac just install everything natively and start over
+[01:25:00.460 --> 01:25:04.260]   that's probably what I'll do that's actually what's where the armor lock is
+[01:25:04.260 --> 01:25:07.940]   on Dropbox so much just syncs who iCloud and Google and stuff now anyway I get to
+[01:25:07.940 --> 01:25:11.780]   like 80% of everything just by turn but just by logging into the right accounts
+[01:25:11.780 --> 01:25:17.380]   now I don't I don't I don't I used to put all my stuff in the cloud but now
+[01:25:17.380 --> 01:25:21.180]   it's because that's what the armor lock is useful for this is gonna be that this
+[01:25:21.180 --> 01:25:24.140]   is the documents folder this is all the local stuff and it won't care what
+[01:25:24.140 --> 01:25:28.540]   computers attached to any way it'll work right I just copy that over so I'm
+[01:25:28.540 --> 01:25:33.740]   actually I think this is my gonna be my my clean install by just buying a
+[01:25:33.740 --> 01:25:36.900]   computer what's wrong with that last pass what you'll log into everything so
+[01:25:36.900 --> 01:25:40.220]   if you need something you don't think it'll be too crazy yeah I don't think
+[01:25:40.220 --> 01:25:44.420]   it'll be too bad now there is and this is an evolving story so I think there's
+[01:25:44.420 --> 01:25:52.980]   even more since I read up on this this morning there is a new framework for
+[01:25:52.980 --> 01:25:56.860]   firewalls you can no longer do a kernel extension in Big Sur we knew that was
+[01:25:56.860 --> 01:26:02.620]   coming the kernel extensions would be kind of deprecated and Patrick Wardle of
+[01:26:02.620 --> 01:26:07.660]   Objective-C and others are complaining because it looks like Apple's own apps
+[01:26:07.660 --> 01:26:16.740]   don't use the network extension that firewalls are using so they effectively
+[01:26:16.740 --> 01:26:27.300]   bypass firewalls is that still true this was true yesterday there was the
+[01:26:27.300 --> 01:26:30.380]   thing that Andy mentioned I think like you know when Big Sur had those problems
+[01:26:30.380 --> 01:26:35.140]   it exposed how Apple is running the gatekeeper functionality and I think a lot
+[01:26:35.140 --> 01:26:37.540]   of people applied malice to it but I think there was really just some bad
+[01:26:37.540 --> 01:26:41.340]   architecture decisions like the ability for it to fail in a way that took down
+[01:26:41.340 --> 01:26:45.300]   all of these processes that needs to be fixed and I think you know it's a huge
+[01:26:45.300 --> 01:26:49.980]   transplant moving the kernel extensions out of kernel space and into userland
+[01:26:49.980 --> 01:26:52.620]   and I think there's just things that they haven't finished or things that they
+[01:26:52.620 --> 01:26:55.260]   didn't think all the way through and they've already announced that they're
+[01:26:55.260 --> 01:26:59.300]   making some changes over the course of the next year people got upset because
+[01:26:59.300 --> 01:27:01.420]   they said all the course the next year but you never know what you're gonna
+[01:27:01.420 --> 01:27:04.020]   break when you're messing with this kind of stuff you don't want to rush it
+[01:27:04.020 --> 01:27:07.620]   and break things oh no oh no we never realized there was this dependency so I
+[01:27:07.620 --> 01:27:10.060]   imagine we'll be faster but they're gonna let you switch a bunch of stuff
+[01:27:10.060 --> 01:27:13.380]   off originally I was saying you know if you're serious about this stuff you're
+[01:27:13.380 --> 01:27:16.900]   just gonna do this on the router or the server anyway but people pointed out in
+[01:27:16.900 --> 01:27:20.740]   a world after COVID people will travel again and you just want your computer
+[01:27:20.740 --> 01:27:25.420]   safe no matter where you are and that's totally fair so my guess is that Apple
+[01:27:25.420 --> 01:27:29.580]   is gonna re-architect this to make sure that everything that you want is going
+[01:27:29.580 --> 01:27:33.460]   is going through the place that you know it's going through there were of course
+[01:27:33.460 --> 01:27:38.980]   some real concerns about the OCSP failure the the failure of the
+[01:27:38.980 --> 01:27:43.540]   certificate server or this wasn't a failure the slowdown of the certificate
+[01:27:43.540 --> 01:27:48.340]   server on Big Sur Day last week and a lot of people saw slowdowns on their Mac
+[01:27:48.340 --> 01:27:52.420]   I did not but apparently if you were launching an app that hadn't checked
+[01:27:52.420 --> 01:27:57.660]   its certification or its notarization the slow server was really slowing that
+[01:27:57.660 --> 01:28:03.700]   down there was a lot of fun about that about oh Apple's sending a hash about
+[01:28:03.700 --> 01:28:08.260]   every app you use that's not the case they're checking the certificate and
+[01:28:08.260 --> 01:28:13.540]   they're checking the notarization the certificate does say that you are
+[01:28:13.540 --> 01:28:18.020]   launching an app by this developer if it's Adobe it'll be one of the Adobe apps
+[01:28:18.020 --> 01:28:22.140]   and Apple has that information they have responded by saying they will no longer
+[01:28:22.140 --> 01:28:26.020]   they were logging IPs that will no longer log IP addresses there's no
+[01:28:26.020 --> 01:28:32.180]   personally identifiable information associated with that so now not even the
+[01:28:32.180 --> 01:28:37.980]   IP address so there is no way to say oh yeah Leo just launched Adobe Lightroom
+[01:28:37.980 --> 01:28:43.420]   so that's not something apparently to why I want him eliminated yeah right and
+[01:28:43.420 --> 01:28:47.060]   and there was an issue there is I guess somewhat of an issue that it's not just
+[01:28:47.060 --> 01:28:52.220]   Apple getting this information because the nature of OCSP the traffic is
+[01:28:52.220 --> 01:28:56.540]   unencrypted can't be encrypted because who would verify the certificate so it's
+[01:28:56.540 --> 01:29:00.700]   set unencrypted to the servers so that means your ISP and anybody in the
+[01:29:00.700 --> 01:29:05.220]   middle could see what you were doing and perhaps log your IP address and all
+[01:29:05.220 --> 01:29:07.860]   that information Apple says they're gonna respond to that next year by
+[01:29:07.860 --> 01:29:11.660]   arranging a way for that data to be encrypted and transit so that it is no
+[01:29:11.660 --> 01:29:15.860]   longer leaking that information they might is that up as up to date Renee I'm
+[01:29:15.860 --> 01:29:20.020]   trusting you to have kept up on all yeah yeah no I they've made a bunch they
+[01:29:20.020 --> 01:29:22.900]   made a bunch of promises and changes over the last couple days to they reacted
+[01:29:22.900 --> 01:29:25.900]   really quickly on the weekend as well which I always appreciate because you
+[01:29:25.900 --> 01:29:29.260]   know everyone's gonna make mistakes so it's how they respond that I usually
+[01:29:29.260 --> 01:29:33.780]   judge a company I just wish like they used to say a lie goes all around the
+[01:29:33.780 --> 01:29:36.740]   world before the truth can put on a stance and now it's more like FUD goes
+[01:29:36.740 --> 01:29:40.220]   around and I just all the time people are asking me over and over again everyone
+[01:29:40.220 --> 01:29:44.620]   saw the really badly reported really funny sensational scary stuff almost
+[01:29:44.620 --> 01:29:49.180]   nobody has seen the really technical interesting smart analysis that either
+[01:29:49.180 --> 01:29:53.380]   refuted or clarified it so I think it's just we have to I we just got to keep
+[01:29:53.380 --> 01:29:58.500]   sharing the better information and I wish people would spend an ounce just
+[01:29:58.500 --> 01:30:01.620]   think through a second like when you see a story like this because it was
+[01:30:01.620 --> 01:30:04.620]   technical people that spent that spread the flood in the beginning to stop and
+[01:30:04.620 --> 01:30:09.620]   think if I am architecting gatekeeper how would I do it and then see if you can
+[01:30:09.620 --> 01:30:12.980]   reconcile that with the problems that you're seeing it was like oh they just
+[01:30:12.980 --> 01:30:16.180]   screwed up this part that's fine you'll save the world a lot of stress and a lot
+[01:30:16.180 --> 01:30:21.580]   of anxiety yeah it's but it's a lot easier to write a blog post it says your
+[01:30:21.580 --> 01:30:27.300]   computer is in yours and Stalman was right and you know then it is to actually
+[01:30:27.300 --> 01:30:32.380]   think about this stuff and reason it out so there was a lot of cause for
+[01:30:32.380 --> 01:30:36.460]   concern over the week and even through the weekend but I think I think that's
+[01:30:36.460 --> 01:30:41.340]   mostly been responded to by Apple and I think it's probably overplayed and it
+[01:30:41.340 --> 01:30:45.780]   is the trick and you can turn off SIP you don't have to have system integrity
+[01:30:45.780 --> 01:30:49.220]   protection but in this day and age I think that would be a foolish thing to do
+[01:30:49.220 --> 01:30:54.940]   unless you are extremely careful about what you're doing online because it
+[01:30:54.940 --> 01:31:00.180]   works it does a good job we I think Apple people are a lot safer because of it
+[01:31:00.180 --> 01:31:07.260]   than gatekeeper and and all of that so anything more to say Andrew or Lauren
+[01:31:07.260 --> 01:31:12.300]   no just that when there are things you you're always a little bit suspicious of
+[01:31:12.300 --> 01:31:17.020]   Google anytime there is a privacy and security question that's fair there is
+[01:31:17.020 --> 01:31:21.060]   with Apple you're always a little bit curious whenever there's a question about
+[01:31:21.060 --> 01:31:25.860]   not having control of your computer that's also fair but yeah I do think that a
+[01:31:25.860 --> 01:31:30.620]   lot of people kind of jumped the gun on this sort of thing yeah and Apple and
+[01:31:30.620 --> 01:31:37.740]   a lot of credit to Apple they are gonna respond to this they're gonna change a
+[01:31:37.740 --> 01:31:40.500]   lot of the things that they're doing they say over the next year we'll
+[01:31:40.500 --> 01:31:43.620]   introduce several changes to our security checks specifically a new
+[01:31:43.620 --> 01:31:48.580]   encrypted protocol for developer ID certificate revocation checks strong
+[01:31:48.580 --> 01:31:52.420]   protections against server failure that was the thing to slow things down and a
+[01:31:52.420 --> 01:31:56.700]   new preference for users to opt out of these security protections which I don't
+[01:31:56.700 --> 01:31:59.980]   think any of us would recommend doing at least you'll have the you could do it
+[01:31:59.980 --> 01:32:03.780]   you'd have boy the steps were complicated if you're Patrick Whirl you
+[01:32:03.780 --> 01:32:10.260]   can do it yeah it was I should show you the steps it was insane including a lot
+[01:32:10.260 --> 01:32:16.660]   of command line food and stuff but having a switch I guess is okay certainly
+[01:32:16.660 --> 01:32:21.300]   having the switch if the servers aren't responding and suddenly you're you're
+[01:32:21.300 --> 01:32:24.580]   slowing down be able to say oh yeah turn that off for the time being that would
+[01:32:24.580 --> 01:32:28.940]   be useful although I thought I don't think that'll happen again to be honest
+[01:32:28.940 --> 01:32:33.940]   what else about big sir anything I I have to say I love widgets I thought I
+[01:32:33.940 --> 01:32:38.300]   would hate widgets these are basically duplicates of the widgets on iOS and
+[01:32:38.300 --> 01:32:44.220]   iPad OS but I now I have a calorie counting app that is the same on all my
+[01:32:44.220 --> 01:32:49.500]   platforms uses the widgets I'm liking the widgets I'm not crazy about the fact
+[01:32:49.500 --> 01:32:53.380]   that they've collapsed all my notifications which makes it a little bit
+[01:32:53.380 --> 01:32:56.060]   harder to handle them I know you you didn't notice that Laurie is that
+[01:32:56.060 --> 01:33:00.220]   bothering yeah it's it gets a little weird and confusing I think it's a matter
+[01:33:00.220 --> 01:33:04.780]   of just getting used to the way it does because it's actually pretty much
+[01:33:04.780 --> 01:33:08.700]   exactly the way the way it is on your iPhone and your iPad it's just that our
+[01:33:08.700 --> 01:33:12.340]   brains need to wrap our heads around the fact that it's doing the same thing on
+[01:33:12.340 --> 01:33:15.420]   our Mac yeah I mean they're acting like seeing it that way the Mac screen is
+[01:33:15.420 --> 01:33:19.020]   constr- as constrained as the iPhone I think I bet it is it's not you have
+[01:33:19.020 --> 01:33:23.020]   plenty of space you don't have to collapse everything down and but okay
+[01:33:23.020 --> 01:33:26.140]   once I understand that's a collapsed stack and I can go through the items in
+[01:33:26.140 --> 01:33:32.300]   the stack I can close the stack as a whole and I do like the the options button
+[01:33:32.300 --> 01:33:36.620]   because you can you can respond appropriately to a notification using
+[01:33:36.620 --> 01:33:41.020]   the options yeah that's kind of nice I love control center I feel like
+[01:33:41.020 --> 01:33:44.940]   control center belongs on the Mac that's again that's a very I always be the
+[01:33:44.940 --> 01:33:49.740]   hardest thing for me to get used to that's my pain point believe it or not you
+[01:33:49.740 --> 01:33:52.340]   know I like it because I can get rid of a lot of those things that were taken
+[01:33:52.340 --> 01:33:56.860]   space up on the menu bar like blue two-s and Wi-Fi well you can leave those on
+[01:33:56.860 --> 01:34:00.260]   but I turn them off and leave in the control center so now I because I was
+[01:34:00.260 --> 01:34:05.380]   using all sort I was using tools to collapse my menu because I might if you
+[01:34:05.380 --> 01:34:09.700]   have I I stat menus in there and a few other things your menu bar goes way
+[01:34:09.700 --> 01:34:15.140]   yep way too much goes almost all the way across the screen and there's
+[01:34:15.140 --> 01:34:18.500]   apps that when the menus on the apps open up there's no it actually
+[01:34:18.500 --> 01:34:21.860]   includes stuff on the menu bar so being able to collapse some of that down into
+[01:34:21.860 --> 01:34:25.100]   the control center I don't mind that yes that that's a good but that's a good
+[01:34:25.100 --> 01:34:29.220]   example the sort of thing that it seems like a native thing for multi-touch I
+[01:34:29.220 --> 01:34:34.460]   can't get my I don't think it's quite as natural when I'm using a mouse and like
+[01:34:34.460 --> 01:34:38.020]   Lori said there are things about the status things where I like to have them
+[01:34:38.020 --> 01:34:40.660]   in the menu bar there's it's such a great thing to be able to look up and
+[01:34:40.660 --> 01:34:45.900]   suddenly see things that don't actually require a notification so I think we'll
+[01:34:45.900 --> 01:34:50.140]   see we'll might see some adjustments in in the future or it might be just the
+[01:34:50.140 --> 01:34:54.220]   classic case of this is different and my brain is rebelling just because it's
+[01:34:54.220 --> 01:34:59.860]   something that's so different yeah what's different and it's not different I mean
+[01:34:59.860 --> 01:35:04.060]   it's it isn't different because it's from iOS so we're kind of used to it
+[01:35:04.060 --> 01:35:08.300]   right yeah we just got to wrap our brains around doing the same things on
+[01:35:08.300 --> 01:35:13.020]   our Mac yeah yeah you're right it is kind of more touch-targety than mouse
+[01:35:13.020 --> 01:35:18.980]   target II I don't know I just I to me this makes sense it does kind of there's
+[01:35:18.980 --> 01:35:23.420]   a less of a cognitive load if everything works the same they chose to
+[01:35:23.420 --> 01:35:27.660]   make everything work the same as iOS I don't have as much of a problem with that
+[01:35:27.660 --> 01:35:33.340]   there's definitely as of Big Sur a much smaller difference between Mac OS and
+[01:35:33.340 --> 01:35:38.020]   iOS right that's part of it isn't it yeah the design language is very similar
+[01:35:38.020 --> 01:35:42.580]   yeah but I think Apple's been working toward this for a very long time I'm not
+[01:35:42.580 --> 01:35:47.260]   surprised that this is as close as it is to exactly the same across the board
+[01:35:47.260 --> 01:35:54.180]   is that it's as a user for user experience to be really good you want to
+[01:35:54.180 --> 01:35:58.820]   be really familiar with all of your operating systems and Apple is is very
+[01:35:58.820 --> 01:36:03.900]   close to succeeding at making all three of these operating systems seamless so
+[01:36:03.900 --> 01:36:07.820]   that going from your iPhone to your Mac or your iPad to your Mac is so
+[01:36:07.820 --> 01:36:11.340]   comfortable that you're not you know questioning where's that button where's
+[01:36:11.340 --> 01:36:17.020]   that icon how do I get to it's there for you in a in a more seamless way across
+[01:36:17.020 --> 01:36:24.260]   devices and you know we've been on you know OS 10 all this time and and yeah
+[01:36:24.260 --> 01:36:29.180]   you know we're the old guys we're the ones who are you know why doesn't
+[01:36:29.180 --> 01:36:32.860]   everything work the way it used to but you know there's generations of people
+[01:36:32.860 --> 01:36:37.300]   who grew up on iPhones and iPads and they're looking at max going it doesn't
+[01:36:37.300 --> 01:36:42.700]   make any sense to me so for them this is huge because it's giving them this like
+[01:36:42.700 --> 01:36:46.980]   familiarity that they have with devices that they grew up with it doesn't have
+[01:36:46.980 --> 01:36:50.940]   help that there is no control center system preference pain that they've
+[01:36:50.940 --> 01:36:57.180]   hidden it away in the dock and menu bar system preference pain but once you get
+[01:36:57.180 --> 01:37:00.740]   to the dock and menu bar system preference pain at least you I mean I
+[01:37:00.740 --> 01:37:06.180]   there is some some granularity in the control that I I like I like the ability
+[01:37:06.180 --> 01:37:11.700]   to turn Wi-Fi off in the menu bar and turn it on in the control center and all
+[01:37:11.700 --> 01:37:15.580]   that stuff I think that's kind of nice so it's worth if if you're new to big
+[01:37:15.580 --> 01:37:18.740]   sir and you're trying to figure out what the heck all this is go to the dock and
+[01:37:18.740 --> 01:37:23.180]   menu bar system preference pain and just work your way down I did a complete
+[01:37:23.180 --> 01:37:27.100]   hands-on Macintosh on this specific subject it'll come out in a couple of
+[01:37:27.100 --> 01:37:30.900]   weeks unfortunately because we're recording ahead but I think it's worth
+[01:37:30.900 --> 01:37:34.700]   spending a little time in there to customize it I feel fairly comfortable
+[01:37:34.700 --> 01:37:40.020]   I also made there is a switch in accessibility to make the menu bar like
+[01:37:40.020 --> 01:37:47.820]   infinitesimally bigger but it I did it I mean it's better than nothing I wish it
+[01:37:47.820 --> 01:37:52.860]   could be even bigger still anything else about big sir you guys wanted to talk
+[01:37:52.860 --> 01:37:57.900]   about before we move on I did check out Dave Nadion's shirt pocket watch this
+[01:37:57.900 --> 01:38:03.860]   blog about super duper development he says that oh hang on actually got and I
+[01:38:03.860 --> 01:38:07.220]   have a message from him he's a he's a friend of mine Dave hi Dave we're talking
+[01:38:07.220 --> 01:38:12.900]   about you right now he says that we're not yet compatible with big sir it wasn't
+[01:38:12.900 --> 01:38:17.740]   even possible to create a bootable copy until November 5th beta RC one working
+[01:38:17.740 --> 01:38:21.560]   on it strongly recommend using time machines is going to be well tested with
+[01:38:21.560 --> 01:38:26.780]   the new OS in a way nothing else can be yet and reading his tweets in the meantime
+[01:38:26.780 --> 01:38:31.340]   and reading the blog post yeah even with apples built in like command line tools
+[01:38:31.340 --> 01:38:36.020]   it was only November 5th until he was even able to create not even with super
+[01:38:36.020 --> 01:38:41.300]   duper any kind of a bootable backup of big sir he also mentioned he also made
+[01:38:41.300 --> 01:38:46.140]   a really good point in Twitter saying that is probably that maybe you should
+[01:38:46.140 --> 01:38:50.060]   do a complete back a complete super duper style or carbon copy style backup
+[01:38:50.060 --> 01:38:54.500]   before you upgrade because he finds it is if you it'll make it almost impossible
+[01:38:54.500 --> 01:38:59.420]   to downgrade great to another operating system later on but if you do have that
+[01:38:59.420 --> 01:39:03.100]   bootable copy that you made before you upgraded you will be able to boot off
+[01:39:03.100 --> 01:39:10.380]   that copy and then downgrade much much easier yeah Dave thank you and I owe you
+[01:39:10.380 --> 01:39:18.060]   money because I bought super duper like 15 years ago and I've never it's sad
+[01:39:18.060 --> 01:39:22.420]   because he's never charged me more he never said pay for an upgrade I should
+[01:39:22.420 --> 01:39:27.980]   just buy a couple more copies because it is the best tool I love it yeah and I
+[01:39:27.980 --> 01:39:32.180]   I am clarifying that he is like a really good friend but they when I say when I
+[01:39:32.180 --> 01:39:36.580]   say that it's because of his great tech support of me we became friends after my
+[01:39:36.580 --> 01:39:39.820]   like making complaints about it I don't know why doesn't give me a time to
+[01:39:39.820 --> 01:39:43.260]   doesn't tell them why does it tell me how long it's gonna take to pack it up
+[01:39:43.260 --> 01:39:47.300]   and oh I can't make it this to work and it's no matter who you are it's like an
+[01:39:47.300 --> 01:39:50.860]   almost instantaneous response and then oh wait a minute you actually live only
+[01:39:50.860 --> 01:39:55.500]   15 miles away no no actually what happened was I was at my local comic book
+[01:39:55.500 --> 01:40:01.060]   shop and he walked in he's a comic fan too yeah
+[01:40:01.060 --> 01:40:04.380]   yeah they live nearby so we should actually like get together on Wednesdays
+[01:40:04.380 --> 01:40:10.140]   yeah so yes nice good good news thank you David yeah so this is you know develop
+[01:40:10.140 --> 01:40:14.500]   you were you even said Laurie last week they'll release Big Sur you know they'll
+[01:40:14.500 --> 01:40:19.500]   give you two whole days to get ready for instead of instead of one we knew
+[01:40:19.500 --> 01:40:23.500]   this would be you know challenging for developers thank you developers for
+[01:40:23.500 --> 01:40:29.820]   doing that work Apple did update I work do we still call and I work no but it's
+[01:40:29.820 --> 01:40:36.700]   easier to say it iMovie and GarageBand for Big Sur and they dropped the 10 off
+[01:40:36.700 --> 01:40:42.100]   a final cut is just final cut now final cut pro what pro 10 oh yeah oh okay
+[01:40:42.100 --> 01:40:47.140]   okay the tens for everything easier no more tens easier to say ours Technica
+[01:40:47.140 --> 01:40:51.060]   has their usual long piece on it although it ended up being more about
+[01:40:51.060 --> 01:40:54.700]   cosmetics than anything else one thing I did glean from that is if you are using
+[01:40:54.700 --> 01:41:01.860]   time machine it would be a good idea to either use a new disc or start over
+[01:41:01.860 --> 01:41:05.780]   because you won't get APFS on your time machine unless you do that it can't
+[01:41:05.780 --> 01:41:14.220]   back upgrade time machine APFS but the APFS time machine is done right using
+[01:41:14.220 --> 01:41:18.540]   snapshots instead of the hard sim links and the folders and all the weird
+[01:41:18.540 --> 01:41:23.260]   clue g stuff the time machine used to do I would anticipate time machine being
+[01:41:23.260 --> 01:41:30.540]   a much better tool using APFS drives so I'm planning just I think I already did
+[01:41:30.540 --> 01:41:36.420]   I just nuked my time machine and said format this is APFS I think that worked
+[01:41:36.420 --> 01:41:41.260]   and now back up again I think that worked okay yeah well since trying to
+[01:41:41.260 --> 01:41:46.180]   look so I'm finally gonna have to set up like a space on my on my file server
+[01:41:46.180 --> 01:41:50.020]   to do to as a time machine backup target because I've avoided it for years
+[01:41:50.020 --> 01:41:53.980]   because super duper works so well for what I do but for the time being at least
+[01:41:53.980 --> 01:41:57.380]   if I want data security I'm just gonna have to make sure the time machine is
+[01:41:57.380 --> 01:42:02.460]   up and I do both actually yeah because I like having a time machine for
+[01:42:02.460 --> 01:42:07.540]   versioning I like having super duper for a bootable external you know get back
+[01:42:07.540 --> 01:42:14.340]   up and running and have a beer solution so I do do both I guess I'll have to
+[01:42:14.340 --> 01:42:18.940]   just wait till super duper is updated all right one more break a couple of
+[01:42:18.940 --> 01:42:24.180]   final thoughts we also have your picks of the week even though I've already done
+[01:42:24.180 --> 01:42:31.780]   mine are shown today brought to you by IT pro TV man if you love tech clearly
+[01:42:31.780 --> 01:42:35.660]   you must if you watch any of our shows and maybe you're thinking about a career
+[01:42:35.660 --> 01:42:43.420]   in tech this is the best way to become an IT professional IT pro TV what a great
+[01:42:43.420 --> 01:42:47.980]   way to learn the skills you need to get that job to pass those certification
+[01:42:47.980 --> 01:42:54.860]   exams IT pro TV it really started about teaching to the exam teaching to the
+[01:42:54.860 --> 01:43:00.420]   certs and they have lots of fifty eight hundred hours of IT training for three
+[01:43:00.420 --> 01:43:04.780]   hundred and seventy five combined certifications so it still is the best
+[01:43:04.780 --> 01:43:08.980]   way to get your certification training if you're trying to get into the IT
+[01:43:08.980 --> 01:43:12.300]   business they're the official video training partner for CompTIA they have
+[01:43:12.300 --> 01:43:17.140]   I think it does in CompTIA courses they provide Microsoft IT training Cisco
+[01:43:17.140 --> 01:43:20.620]   training Linux training Apple training security cloud or more but it's also a
+[01:43:20.620 --> 01:43:24.820]   great place to go if you're already in IT you've already got the certs you got
+[01:43:24.820 --> 01:43:29.220]   the experience you just want to get the skills you want to upgrade update because
+[01:43:29.220 --> 01:43:33.940]   IT pro TV is the most up-to-date way to get the information always working on
+[01:43:33.940 --> 01:43:37.460]   the new versions that's why they're constantly recording they have five
+[01:43:37.460 --> 01:43:42.420]   studios running Monday through Friday 9 to 5 to constantly create new content so
+[01:43:42.420 --> 01:43:46.820]   they're always up to date when the exams change their shows change you're
+[01:43:46.820 --> 01:43:52.100]   gonna learn it's the best most current IT online education platform whether
+[01:43:52.100 --> 01:43:56.780]   you're learning to be a developer to do help support network administrator
+[01:43:56.780 --> 01:44:01.260]   business professional sis admin you'll find what you need and if you've got a
+[01:44:01.260 --> 01:44:04.580]   team that you're trying to keep up to date they have a great team portal as
+[01:44:04.580 --> 01:44:09.860]   well it is the best IT training from expert IT trainers who are also
+[01:44:09.860 --> 01:44:15.100]   entertainers performers I don't mean it's yuk yuk ha ha but I mean they keep it
+[01:44:15.100 --> 01:44:19.300]   light they keep it moving they keep it informative it's so it's so good you're
+[01:44:19.300 --> 01:44:22.500]   just gonna want to keep it on in the background and good news it's available
+[01:44:22.500 --> 01:44:28.420]   on Roku fire TV Apple TV every platform iOS Android on the web as well so you
+[01:44:28.420 --> 01:44:32.540]   can watch it wherever you are all the time they have a great podcast I want to
+[01:44:32.540 --> 01:44:37.700]   give them a plug for Tech NATO Don Pazette who is one of their founders and a
+[01:44:37.700 --> 01:44:43.300]   real IT pro has created this it has industry guests IT news recaps it's a it's
+[01:44:43.300 --> 01:44:49.180]   it's not training so much is just a deep dive into the realm of IT in fact a lot
+[01:44:49.180 --> 01:44:52.420]   of fun I highly subscribe recommend subscribing to that even if you don't
+[01:44:52.420 --> 01:44:57.580]   become an IT pro TV member it's a really great way to keep up on what's going on
+[01:44:57.580 --> 01:45:03.300]   there right now this month in their live tapings they're focusing on certain
+[01:45:03.300 --> 01:45:07.700]   nexus certifications for November you can learn more about getting certified as
+[01:45:07.700 --> 01:45:14.100]   a cyber sec first responder a cyber secure coder I wish everybody would take that
+[01:45:14.100 --> 01:45:18.500]   class or a certified Internet of Things practitioner look there's no question
+[01:45:18.500 --> 01:45:23.220]   about IT pro TV is the first and last place you should go for IT training it's
+[01:45:23.220 --> 01:45:28.900]   just the best get a professional IT education the right way go to IT pro
+[01:45:28.900 --> 01:45:35.220]   dot TV slash Mac break the offer code Mac break 30 gets you 30% off any
+[01:45:35.220 --> 01:45:40.500]   consumer subscription as long as you stay active 30% less that's that's a
+[01:45:40.500 --> 01:45:45.540]   lifetime of savings that is a great deal go to IT pro dot TV slash Mac break don't
+[01:45:45.540 --> 01:45:50.820]   forget that offer code Mac break 30 for additional 30% off the lifetime of your
+[01:45:50.820 --> 01:45:57.420]   active subscription IT pro TV build or expand your IT career and enjoy the
+[01:45:57.420 --> 01:46:03.020]   journey IT pro TV IT pro TV slash Mac break
+[01:46:03.020 --> 01:46:08.380]   wait it's so much Apple news they're gonna have another event one more one
+[01:46:08.380 --> 01:46:15.820]   more thing we decided not to cover it it is day after tomorrow it's the Apple
+[01:46:15.820 --> 01:46:22.780]   and Verizon event 5G 5G 5G can you say I think we're gonna skip that one we
+[01:46:22.780 --> 01:46:28.140]   would normally cover it but I think it's a business stream there is a way we
+[01:46:28.140 --> 01:46:33.100]   went from 3G to LTE and now we're back at 5G nobody likes NR it's just so it's
+[01:46:33.100 --> 01:46:38.740]   the whole thing it's so weird NG it's NG next generation and love to dream has a
+[01:46:38.740 --> 01:46:43.940]   prediction he's reliable it's reliable she's reliable I don't know what generate
+[01:46:43.940 --> 01:46:47.780]   what the gender loved so they have good information if you can sort through all
+[01:46:47.780 --> 01:46:52.500]   the nonsense they have good information that they seem to want to be delir-
+[01:46:52.500 --> 01:46:55.660]   like they'll put up false things just see if other people copy them which means
+[01:46:55.660 --> 01:46:59.020]   you never know what's false or what's real and then they see more interested
+[01:46:59.020 --> 01:47:02.260]   in watch bands and they are in rumors and now they keep saying they're retiring
+[01:47:02.260 --> 01:47:06.700]   so it's it's hard so they're saying right now this is as of November 14th a
+[01:47:06.700 --> 01:47:13.380]   few days ago you'll get a Christmas surprise from Apple PS winter exclusive
+[01:47:13.380 --> 01:47:16.980]   good for winter
+[01:47:17.420 --> 01:47:24.380]   air tags I don't know maybe it's maybe a fuzzy watch band I mean it could be but
+[01:47:24.380 --> 01:47:32.900]   we were also expecting I there's still this air tags AirPods studio thing I guess
+[01:47:32.900 --> 01:47:37.140]   you could make it especially I mean they just there's evidence of it in 14.3
+[01:47:37.140 --> 01:47:42.380]   even so like air tags especially it seems like I was sure it was coming at the
+[01:47:42.380 --> 01:47:47.220]   Mac event I was sure of it it could be something as silly as Apple's typical
+[01:47:47.220 --> 01:47:53.300]   holiday discount but but it or might be air tags and air
+[01:47:53.300 --> 01:47:58.100]   pods still coming we haven't got finished so waiting for fitness plus and
+[01:47:58.100 --> 01:48:01.100]   that's supposed to be coming by the end of the year so I mean if that's the
+[01:48:01.100 --> 01:48:05.900]   Christmas surprise then there you go it will be it will be I hope I press
+[01:48:05.900 --> 01:48:10.020]   release although now it feels like Apple discovered a new toy right hey now that
+[01:48:10.020 --> 01:48:12.220]   we can record them let's do more let's do more
+[01:48:12.220 --> 01:48:16.100]   you said it was the Apple it was the unannounced TV plus television show just
+[01:48:16.100 --> 01:48:21.940]   every month there's an Apple is an episode hey I said I'm more has been
+[01:48:21.940 --> 01:48:26.900]   calling this this Apple season one and each each event has been an episode yeah
+[01:48:26.900 --> 01:48:38.100]   yeah the morning show a few few year old F bombs Apple Apple Apple has added a
+[01:48:38.100 --> 01:48:43.460]   nice little feature in their podcast app you can now embed their web player so
+[01:48:43.460 --> 01:48:47.860]   I encourage you if you hear something on this show you like embed it on your
+[01:48:47.860 --> 01:48:55.060]   favorite web page when you're all you have to do is click the copy embed button
+[01:48:55.060 --> 01:48:59.180]   which copies the code your clipboard you could paste it in what are you laughing
+[01:48:59.180 --> 01:49:03.140]   no I'm just realizing that I'm gonna have to like set the keyboard macro for I was
+[01:49:03.140 --> 01:49:14.500]   quoted out of context so I'm sorry I I didn't get your joke Renee there is a
+[01:49:14.500 --> 01:49:23.660]   next G yes it's it's so commercial 6G that's what I was saying is a like 3G
+[01:49:23.660 --> 01:49:26.900]   they didn't call it by its name they just called it 3G and then 4G they didn't
+[01:49:26.900 --> 01:49:30.820]   call 4G they called LTE long-term employment I mean long-term evolution
+[01:49:30.820 --> 01:49:35.580]   and now 5G is properly called NR new radio or never retire I guess it depends
+[01:49:35.580 --> 01:49:40.940]   on what side of that equation you're ready for calling it 5G next G which is
+[01:49:40.940 --> 01:49:49.340]   6G that's all I'm gonna say about it because I can't even I've got 5G on my
+[01:49:49.340 --> 01:49:53.460]   phone and it was nothing nothing I tell you nothing they were vacuuming the sofa
+[01:49:53.460 --> 01:49:56.860]   and what do you know they found another G there's another G behind the
+[01:49:56.860 --> 01:50:02.620]   kitchens let's see what else there is an iPhone 12 mini teardown I would show
+[01:50:02.620 --> 01:50:07.540]   show you but I don't want to traumatize Laurie oh I've already seen it it's a
+[01:50:07.540 --> 01:50:13.980]   durable it's a dorbs it's everything in the iPhone 12 bit smaller pro raw is
+[01:50:13.980 --> 01:50:19.380]   coming in 14 3 they have the beta is out for 14 3 when do you think we'll see
+[01:50:19.380 --> 01:50:27.820]   14 3 on our on our devices I mean you never know I a week or two pretty soon
+[01:50:27.820 --> 01:50:31.980]   yeah I probably pretty soon they're they're working through this one right
+[01:50:31.980 --> 01:50:37.100]   now I want the pro raw that will be really cool I really like that although
+[01:50:37.100 --> 01:50:43.260]   with halide - you get something you can get something similar yeah and as you
+[01:50:43.260 --> 01:50:52.500]   mentioned 14 3 includes support for air tags new solo are you still a watch
+[01:50:52.500 --> 01:50:55.900]   band guy or if you given that up to love to know maybe they can't find the
+[01:50:55.900 --> 01:50:59.340]   air tags wouldn't that oh they lot we love we had them we lost them we don't
+[01:50:59.340 --> 01:51:02.860]   know where we put them and because there are no air tags on our air tags
+[01:51:02.860 --> 01:51:07.100]   no no if they work fine it's just that they didn't realize it doesn't work with
+[01:51:07.100 --> 01:51:11.960]   a big syrup grade and now nobody's gonna correct how a PC
+[01:51:11.960 --> 01:51:17.000]   air I'm sorry I interrupted you Apple updates is Apple watch solo loop and
+[01:51:17.000 --> 01:51:23.540]   sport band with new colors Renee I do like that plum that plum is pretty mm-hmm
+[01:51:23.540 --> 01:51:27.100]   I wanted him braided though I won't go back I'm all about the braided so the
+[01:51:27.100 --> 01:51:30.900]   little braided yeah the braided read is you guys like your braided mm-hmm yeah
+[01:51:30.900 --> 01:51:35.980]   of it and they fit oh yeah how did you get them to fit did you go to a look at
+[01:51:35.980 --> 01:51:43.760]   that he snapped it I for me it mine sized correctly so I didn't I'd never had a
+[01:51:43.760 --> 01:51:47.560]   problem with it I did it you know I printed out the piece of paper I put the
+[01:51:47.560 --> 01:51:52.480]   credit card on it it's sized right I ordered my my braided solo loop it came
+[01:51:52.480 --> 01:51:58.320]   it was the right size so I I can't speak to how people can do it but you know
+[01:51:58.320 --> 01:52:02.800]   what actually I do have a recommendation for how to do it right you can actually
+[01:52:02.800 --> 01:52:08.660]   measure your wrist the circumference of your wrist and put that amount that
+[01:52:08.660 --> 01:52:15.220]   that those inches even down to the quarter inch into apples measuring tool
+[01:52:15.220 --> 01:52:19.900]   and then it tells you what the right size is that's better so don't use the
+[01:52:19.900 --> 01:52:24.580]   printout use use like actually measure your wrist because that's gonna give you
+[01:52:24.580 --> 01:52:28.460]   that like that's how it's determined the size of its and where is the measuring
+[01:52:28.460 --> 01:52:33.440]   tools that on the Apple store online it is when you go to order with the order
+[01:52:33.440 --> 01:52:37.320]   page for the solo loop or the solo braided loop there it's when it says pick a
+[01:52:37.320 --> 01:52:41.820]   size and it says how do I know my size and you click on the little tool and
+[01:52:41.820 --> 01:52:45.920]   then there's three different options for how you can do that it gives you three
+[01:52:45.920 --> 01:52:50.420]   different options and one of them is get out of tape measure measure your wrist
+[01:52:50.420 --> 01:52:56.000]   and then put the exact amount including the quarter of an inch and you know down
+[01:52:56.000 --> 01:52:59.200]   to the the fraction of an inch put that in there and then it tells you what size
+[01:52:59.200 --> 01:53:03.760]   Wow the braided loop is twice as expensive as the solo loop I know that's
+[01:53:03.760 --> 01:53:07.480]   the that makes it so expensive the hardest part I want to solo loops to
+[01:53:07.480 --> 01:53:13.320]   braid it I want all of the colors but at $100 each
+[01:53:13.320 --> 01:53:19.560]   little bit yeah a little bit more than but you know if they come out with more
+[01:53:19.560 --> 01:53:22.920]   of these colors I bet you I'm gonna be spending a hundred dollars at least
+[01:53:22.920 --> 01:53:27.960]   every season on a new color I review and 50 bucks will prevent you from ordering
+[01:53:27.960 --> 01:53:32.360]   the loops that'll save you money in the end so you and you but you both of you
+[01:53:32.360 --> 01:53:35.720]   like the the I'm wearing I'm like an animal I'm wearing the hook and loop so
+[01:53:35.720 --> 01:53:41.920]   look at that old boxy thing look at this terrible oh my yeah I can't use an M1
+[01:53:41.920 --> 01:53:46.120]   with this watch band oh is that is that vintage Leo yeah oh yeah it's vintage
+[01:53:46.120 --> 01:53:52.720]   almost let's not only that shaming so but you guys like prefer that to the
+[01:53:52.720 --> 01:53:56.920]   rubber loop so comfortable it's nice John which one are you like you like John
+[01:53:56.920 --> 01:54:02.240]   likes a solo loop no you like the braided he's got to turn on his mic I
+[01:54:02.240 --> 01:54:07.440]   like the rubber better than the braided the braided you like the rubber
+[01:54:07.440 --> 01:54:11.000]   seems to fit better the braided seems a little looser they're both the same
+[01:54:11.000 --> 01:54:16.880]   size there you go solo is like Han Solo the braided is like Lando so it just
+[01:54:16.880 --> 01:54:22.040]   depends how much swagger you have so here's the thing if you do click that it
+[01:54:22.040 --> 01:54:25.600]   says how would you like to measure your wrist printable tool or every day items
+[01:54:25.600 --> 01:54:32.760]   if you enter every day items then you can measure it and then and then enter it
+[01:54:32.760 --> 01:54:39.960]   in here okay cool yeah and it just it just asks you to enter the the measurement
+[01:54:39.960 --> 01:54:43.680]   and then it says you you should be wearing a size 7 or whatever that size
+[01:54:43.680 --> 01:54:48.080]   yeah all right maybe I'll get I don't know I like this I like how it looks the
+[01:54:48.080 --> 01:54:54.640]   pretty loop and I love the idea of no buckle no no attachment device the the
+[01:54:54.640 --> 01:54:59.800]   the sport loop that you have it's really great this is how I describe it Renee
+[01:54:59.800 --> 01:55:06.880]   calls sweat he says right he calls the yeah he calls the the sport loop the yoga
+[01:55:06.880 --> 01:55:12.480]   pants of Apple watch pants and I call the braided loop the sweat pants
+[01:55:12.480 --> 01:55:16.440]   sweat pants yeah I think it's sweat pants because it doesn't make my butt look
+[01:55:16.440 --> 01:55:26.200]   good that's what you think LaPorte changing the subject very quickly you
+[01:55:26.200 --> 01:55:31.400]   have the home pod mini Renee I know I'm so jealous mine's aren't mine aren't
+[01:55:31.400 --> 01:55:36.480]   coming till tomorrow he has the sense of candle they've started shipping for
+[01:55:36.480 --> 01:55:43.280]   Monday delivery so it means last Monday yesterday anything to say it
+[01:55:43.280 --> 01:55:49.080]   doesn't it's not you said on Twitter on Sunday sounds good but not better than
+[01:55:49.080 --> 01:55:53.480]   say the nest hundred dollar speaker of the Amazon oh no sounds way better than
+[01:55:53.480 --> 01:55:56.920]   it does as good as the big as a home pod biggie because it's it's much
+[01:55:56.920 --> 01:56:00.080]   more symmetrically you wouldn't expect it can't push as much air but the
+[01:56:00.080 --> 01:56:03.880]   computational stuff is amazing like it maintains well first we need to wait
+[01:56:03.880 --> 01:56:07.240]   for Lori Gil because this is her milieu I just pretend to know what I'm talking
+[01:56:07.240 --> 01:56:11.280]   about she's the expert on this but like it increases volume without any
+[01:56:11.280 --> 01:56:15.440]   distortion it is really good at filling it doesn't fill the room the way the
+[01:56:15.440 --> 01:56:19.440]   bigger one does of course but the way to think about it is this is like a 2.0
+[01:56:19.440 --> 01:56:23.400]   system like a Dolby 2.0 system and the other one is atmos so this will sound
+[01:56:23.400 --> 01:56:29.760]   amazing it just won't sound like as 3d as the the big one can yeah and if you
+[01:56:29.760 --> 01:56:34.320]   had a bunch of them it could well you can connect you now but I'm hoping that
+[01:56:34.320 --> 01:56:37.320]   once they get you one chips in all of them they'll actually know where they are
+[01:56:37.320 --> 01:56:40.840]   and then you can make intelligence systems that both follow you around but
+[01:56:40.840 --> 01:56:45.000]   also are aware of each other and can put sound precisely physically in the room
+[01:56:45.000 --> 01:56:51.240]   I think that would be magnificent yeah somebody told me as is Scott Wilkinson
+[01:56:51.240 --> 01:56:56.680]   somebody used home pod minis to create a surround sound system but more than two
+[01:56:56.680 --> 01:57:01.960]   or maybe not maybe just to use to right now to zol it's his own use with a biggie
+[01:57:01.960 --> 01:57:07.160]   you can do full Dolby like it'll take it'll ingest a 5.1 7.1 or at most
+[01:57:07.160 --> 01:57:11.400]   signal and give you a computational sound they were doing can you pair more
+[01:57:11.400 --> 01:57:16.240]   than two though on the biggie no no so that's what we really want I want to put
+[01:57:16.240 --> 01:57:22.480]   them all around me you know I personally in my household I would I won't be
+[01:57:22.480 --> 01:57:27.360]   doing this but if you could have two home pod biggies as Renee calls them
+[01:57:27.360 --> 01:57:32.640]   plus you know three or four smaller ones just peppered out your living room and
+[01:57:32.640 --> 01:57:35.560]   they're all connected to your Apple TV and they're all connected to each other
+[01:57:35.560 --> 01:57:39.400]   that would be ideal that's what I want absolutely yeah they probably will head
+[01:57:39.400 --> 01:57:45.120]   that direction they probably just need more you know in in the in the wild
+[01:57:45.120 --> 01:57:50.120]   actions happening so that they can kind of test out you know the different
+[01:57:50.120 --> 01:57:52.840]   living room settings and how that works and they're probably gonna have that
+[01:57:52.840 --> 01:57:56.240]   available at some point in the future they just didn't have it ready at this
+[01:57:56.240 --> 01:57:59.600]   point so good all right so the audio is good that was really the only question
+[01:57:59.600 --> 01:58:03.240]   is is how you know it's not gonna be great it's the size of a cent of candle
+[01:58:03.240 --> 01:58:08.360]   but it's but it's but if it's pretty good that's good we're gonna do mica
+[01:58:08.360 --> 01:58:13.160]   sergeants getting all three of the hundred dollar speakers Amazon Google
+[01:58:13.160 --> 01:58:19.680]   and apples and we'll do ahead-to-head maybe we could do a blind testing testing
+[01:58:19.680 --> 01:58:24.600]   where I just won't get it I'd say that that sounds good that's not good that
+[01:58:24.600 --> 01:58:28.240]   sounds better yeah something like that yeah I'm starting to think though that
+[01:58:28.240 --> 01:58:32.800]   maybe sometimes it becomes like like pixel peeping on photos yeah cameras
+[01:58:32.800 --> 01:58:36.480]   that there comes it that there comes a time where you can say that yes if I
+[01:58:36.480 --> 01:58:40.560]   have all four of these side by side by side by side I can say that on the music
+[01:58:40.560 --> 01:58:44.160]   I listened to I like this one better but if you didn't if you weren't listening
+[01:58:44.160 --> 01:58:47.280]   to them for up would use in any way be disappointed with the sound you're
+[01:58:47.280 --> 01:58:51.480]   getting from this hundred dollar speaker I think I think that one one of the big
+[01:58:51.480 --> 01:58:54.840]   revolutions is just having more speakers around I'm I'm becoming a
+[01:58:54.840 --> 01:58:58.600]   convert to the idea of rather than having two big speakers in my living
+[01:58:58.600 --> 01:59:02.480]   room that have to flood the entire room to give me the sort of presence what if
+[01:59:02.480 --> 01:59:06.360]   I have smaller speakers that are kind of like posted near the chair and it's
+[01:59:06.360 --> 01:59:11.280]   like I can see I can hear much better things it's much more present it's a
+[01:59:11.280 --> 01:59:14.320]   it's a it's a more it's more complicated calculus than it used to be 10 years ago
+[01:59:14.320 --> 01:59:20.400]   yeah and sound quality in to some degree is subjective because there's gonna be
+[01:59:20.400 --> 01:59:25.840]   people who prefer more bass in their audio and there's gonna be people who
+[01:59:25.840 --> 01:59:31.040]   prefer more you know trouble in their audio and so like listening to these
+[01:59:31.040 --> 01:59:36.200]   speakers side by side it's not that that isn't of like a direct comparison
+[01:59:36.200 --> 01:59:39.120]   because they're gonna be tuned differently they're gonna have different
+[01:59:39.120 --> 01:59:43.200]   you know sound qualities in terms of the low end and the high end and it like
+[01:59:43.200 --> 01:59:47.120]   what's important to think about and keep in mind is they're just general
+[01:59:47.120 --> 01:59:50.440]   robustness and how they fill a room whether or not they fill a room if they
+[01:59:50.440 --> 01:59:56.040]   distort when they're too loud can they get as loud as you as you want to and
+[01:59:56.040 --> 02:00:00.520]   and then at all of these levels do you still get a balance across the board
+[02:00:00.520 --> 02:00:03.840]   because I think that's that's what's really important there is making sure
+[02:00:03.840 --> 02:00:08.240]   that you know you're you're like when you're making those comparisons that
+[02:00:08.240 --> 02:00:12.680]   you're not just saying like well I like warm sounding music better so this
+[02:00:12.680 --> 02:00:16.560]   speaker is better because it's got more base to it that's not actually like you
+[02:00:16.560 --> 02:00:27.440]   know a good comparison yeah okay okay I think we can do our picks of the week
+[02:00:27.440 --> 02:00:32.040]   anything else did I miss anything anything important well Apple did
+[02:00:32.040 --> 02:00:35.480]   point out that this is the version of the air of the AirPod that does not
+[02:00:35.480 --> 02:00:40.480]   stain your fine furniture oh yeah so what a relief what a relief
+[02:00:40.480 --> 02:00:46.320]   all right our picks of the week coming up let me start the pick of the week
+[02:00:46.320 --> 02:00:54.720]   this week with I pick you Renee Richie so I had a hard time choosing what to
+[02:00:54.720 --> 02:00:58.320]   pick because I was looking at all the new DJI stuff that was coming out you know
+[02:00:58.320 --> 02:01:01.520]   I'm doing my best to fill in for Alex Lizzy while he's on sabbatical but they've
+[02:01:01.520 --> 02:01:07.080]   had a really really good last you know but a really good month including the
+[02:01:07.080 --> 02:01:11.680]   the new gimbals that they put out which are fantastic but it's this DJI mini that
+[02:01:11.680 --> 02:01:14.520]   really interested me and they've got a video up and just Dean and a bunch of
+[02:01:14.520 --> 02:01:18.560]   other Peter McKinnon a bunch of people have videos up on them because
+[02:01:18.560 --> 02:01:25.720]   started taking it's pretty nice it's it's nice yeah though all that stuff is
+[02:01:25.720 --> 02:01:29.520]   awesome the thing that drew me to the drones though is that a lot of people
+[02:01:29.520 --> 02:01:32.720]   got a lot of people love them and then regulators found out and just clamped
+[02:01:32.720 --> 02:01:36.240]   down on them and basically said yeah you've got to pass a pilot's license and
+[02:01:36.240 --> 02:01:40.960]   respect aerospace now buddy so what DJI has done this for the second time now
+[02:01:40.960 --> 02:01:45.000]   the improved version is make one light enough that it's it's exempted from
+[02:01:45.000 --> 02:01:48.360]   most of the regulations so you don't need all the certification you don't
+[02:01:48.360 --> 02:01:51.520]   need everything because these are under the weight limit and the first one was
+[02:01:51.520 --> 02:01:56.280]   was interesting was okay this new one is 4k so obviously it's not as good as the
+[02:01:56.280 --> 02:02:00.840]   as the big drones but then again like you need to like literally put out cones
+[02:02:00.840 --> 02:02:04.320]   and get your license and announce that you're doing it and all like nobody's
+[02:02:04.320 --> 02:02:07.760]   nobody's gonna use those anymore except for professionals so this is a drone
+[02:02:07.760 --> 02:02:11.960]   again that you can just use you be totally respectful be super respectful
+[02:02:11.960 --> 02:02:17.440]   of course be careful with it be responsible but it's it's in your pocket
+[02:02:17.440 --> 02:02:25.440]   it's in your own and it's for it's got everything that you could want if you
+[02:02:25.440 --> 02:02:30.720]   want to do this kind of of work and I just love that this kind of stuff is
+[02:02:30.720 --> 02:02:34.720]   pushing forward respecting the regulations and guidelines of course but not
+[02:02:34.720 --> 02:02:38.840]   giving up using technology to solve a problem so it's so light it's just not
+[02:02:38.840 --> 02:02:41.440]   regulated you don't have to be so worried about it well I mean they're
+[02:02:41.440 --> 02:02:44.640]   like you can't go into air like obviously yeah there's still that stuff
+[02:02:44.640 --> 02:02:49.560]   face right and the the app that comes that you use with the DJI it actually
+[02:02:49.560 --> 02:02:53.800]   comes with its own limitations on it so it warns you when you're getting into
+[02:02:53.800 --> 02:02:57.640]   airspace that you're not supposed to be in and it puts limitations on like how
+[02:02:57.640 --> 02:03:04.040]   high up into the sky it'll go so you can turn those off but it it allows
+[02:03:04.040 --> 02:03:08.760]   especially newcomers and this is the thing I love the most about the the mini
+[02:03:08.760 --> 02:03:14.320]   and the Mavic too from DJI is that you can be a beginner drone user and be
+[02:03:14.320 --> 02:03:19.760]   very very comfortable with this it's really easy to use and set up and it
+[02:03:19.760 --> 02:03:24.520]   and it comes by default with a bunch of limitations on it to protect you and
+[02:03:24.520 --> 02:03:27.560]   then once you start feeling comfortable with what you're doing and you
+[02:03:27.560 --> 02:03:32.000]   understand like the regulations and where airspace is okay and not okay you
+[02:03:32.000 --> 02:03:37.000]   can lift those limitations and then take it even further so yeah really really
+[02:03:37.000 --> 02:03:43.560]   good picked and I didn't mean to take over this is the mini - I gave my son
+[02:03:43.560 --> 02:03:49.120]   the mini last year for Christmas then had to give him the mini the pro because
+[02:03:49.120 --> 02:03:53.200]   he wanted to use it for his business and then the pro stopped working in a
+[02:03:53.200 --> 02:03:56.800]   like some sort of gyroscope issue with his in for repair so maybe I'll give him a
+[02:03:56.800 --> 02:04:05.440]   mini - to tie them over how much is he like in use it inside for BTS footage
+[02:04:05.440 --> 02:04:14.080]   so small okay so same price is the last mini it's 450 bucks if you want to get
+[02:04:14.080 --> 02:04:19.920]   the fly more combo which you really should it's a 600 bucks so we live in an
+[02:04:19.920 --> 02:04:23.640]   age of wonders it keeps me it makes me smile every day yeah pretty cool pretty
+[02:04:23.640 --> 02:04:29.800]   cool Laurie Gill your pick of the week I'm getting ready for the holiday season
+[02:04:29.800 --> 02:04:35.160]   so my pick of the week is twinkly smart Christmas lights and they are
+[02:04:35.160 --> 02:04:40.360]   Christmas lights that have a wife they're compatible or their their Wi-Fi
+[02:04:40.360 --> 02:04:46.480]   connected and you have an app on your phone and it lets you program the
+[02:04:46.480 --> 02:04:50.480]   twinkles and the blinkles and the colors it's program the whole thing it even
+[02:04:50.480 --> 02:04:55.920]   can be set to Christmas music so it can have like a theme I haven't bought them
+[02:04:55.920 --> 02:05:00.640]   yet because I'm trying to figure out exactly what I want but I'm definitely
+[02:05:00.640 --> 02:05:07.640]   getting a set of twinkly this year I think based on the website is amazing
+[02:05:07.640 --> 02:05:12.520]   it actually asks you you know you if you have the question how many lights do I
+[02:05:12.520 --> 02:05:17.240]   need because they come in increments of a hundred two fifty and four hundred so
+[02:05:17.240 --> 02:05:20.600]   you're like I don't know how many I need because I've never seen lights that
+[02:05:20.600 --> 02:05:27.040]   like this before so it asks you what size of a tree you normally get and how
+[02:05:27.040 --> 02:05:32.560]   how robust lighting you want and then it tells you how many lights you should
+[02:05:32.560 --> 02:05:38.280]   get based off of that I mean it's amazing and well you do that dance well
+[02:05:38.280 --> 02:05:42.400]   you do the dance for us if you get those on your house you get to put them out
+[02:05:42.400 --> 02:05:48.320]   inside or inside my plan is for the Christmas tree this year and they've
+[02:05:48.320 --> 02:05:53.680]   already they have an outdoor lamp lamp style lighting now too so I'm sure
+[02:05:53.680 --> 02:05:56.880]   they're gonna start getting more and more outdoor lighting so for now it'll
+[02:05:56.880 --> 02:05:59.520]   just be the Christmas tree and then we'll go from there this is the most
+[02:05:59.520 --> 02:06:06.240]   expensive Mac break weekly since last week I'm looking at the page Lori
+[02:06:06.240 --> 02:06:10.000]   and I'm I can so I can't see myself spending like five hundred dollars on
+[02:06:10.000 --> 02:06:14.240]   like the entire all the windows in the house I can so totally see me spending
+[02:06:14.240 --> 02:06:18.400]   like a hundred dollars on one set for the tree and then just like with the
+[02:06:18.400 --> 02:06:21.880]   just like with my smart bulbs by three or four years later turns out yeah I spent
+[02:06:21.880 --> 02:06:25.360]   five or six hundred dollars getting the getting this entire house a little bit
+[02:06:25.360 --> 02:06:29.800]   at a time exactly over time yeah I mean you can use a little smart plug and make
+[02:06:29.800 --> 02:06:33.240]   your lights smart and that's you know that's what I do right now all of my
+[02:06:33.240 --> 02:06:37.360]   lights currently are plugged into small into smart plugs so that I can use home
+[02:06:37.360 --> 02:06:41.560]   kit to turn things on or off but this is next level and I can't wait to
+[02:06:41.560 --> 02:06:46.540]   decorate my tree with it available at Best Buy and other places but if you
+[02:06:46.540 --> 02:06:51.880]   go to twinkly.com you can find a retail location near you and I do
+[02:06:51.880 --> 02:06:56.240]   remember I do recommend going to twinkly.com to find out how many how many
+[02:06:56.240 --> 02:06:59.600]   lights you should get for you it's really helpful well you also want to
+[02:06:59.600 --> 02:07:04.240]   know about the variety available there's apparently quite a few twinkles you
+[02:07:04.240 --> 02:07:07.280]   get this. Yeah I think I'm going to go with the special edition because that
+[02:07:07.280 --> 02:07:13.320]   includes the lighting that allows for the warm white so most of them are the
+[02:07:13.320 --> 02:07:17.840]   RBG lights but they also have a separate warm white but then they have the
+[02:07:17.840 --> 02:07:23.200]   special edition that is the warm white and RBG combined so I'm pretty sure I'm
+[02:07:23.200 --> 02:07:28.120]   going with that one. Look at your house it's so beautiful. And look look at that
+[02:07:28.120 --> 02:07:32.320]   fireplace. Yes the fireplace the fireplace looks like it's gonna fire at it.
+[02:07:32.320 --> 02:07:37.040]   And I have a fireplace that's actually unusable it's it's a hundred years
+[02:07:37.040 --> 02:07:40.720]   old and it just doesn't you can't put it have a fire in it it's it's pretty
+[02:07:40.720 --> 02:07:47.400]   typical. So I'm definitely gonna do that I'm gonna have a nice little fake fire
+[02:07:47.400 --> 02:07:51.880]   inside my fireplace with that. I'm looking at the tree and wondering how how many
+[02:07:51.880 --> 02:07:57.640]   months before someone does like Christmas tree Tetris playable. Wow
+[02:07:57.640 --> 02:08:00.520]   that's what's sitting on this tree but snowflakes building up. You could do it.
+[02:08:00.520 --> 02:08:06.320]   Well you can draw on the tree this is really amazing. Okay this is pretty
+[02:08:06.320 --> 02:08:09.960]   amazing. I guess I better buy these before they're sold out. Do you want
+[02:08:09.960 --> 02:08:14.840]   strings? Isakaloo curtain. What would you like your choice? How many do I need
+[02:08:14.840 --> 02:08:20.800]   for my Christmas tree? Yeah oh I gotta show this to Lisa. She's gonna want these
+[02:08:20.800 --> 02:08:25.960]   twinkles. And that was the time of the year to do it. It's the most wonderful
+[02:08:25.960 --> 02:08:32.360]   twinkly time of the year. Thank you Laurie Gill. Andy what else should I spend my
+[02:08:32.360 --> 02:08:37.560]   money on? Well I got I'll open up by saying that I'm sympathizing with you
+[02:08:37.560 --> 02:08:41.960]   because I still all the conversation we've been having about the M1 like I
+[02:08:41.960 --> 02:08:46.760]   have that I have that MacBook Air like the window open it's configured and I'm
+[02:08:46.760 --> 02:08:51.640]   looking at it's so bad that I'm looking at the and I could pick it up today at my
+[02:08:51.640 --> 02:08:56.040]   local store even though I promised myself it would be irresponsible to do
+[02:08:56.040 --> 02:09:01.800]   the like go uh anyway so yes this this show I'll probably get it delivered but
+[02:09:01.800 --> 02:09:07.000]   this will be a $1300 show thank you very much. But so thank goodness that my
+[02:09:07.000 --> 02:09:09.960]   pickle week is something that's absolutely free but it's something that I've
+[02:09:09.960 --> 02:09:13.960]   oh god we've had an experience where you've gone from not knowing that an app
+[02:09:13.960 --> 02:09:18.280]   exists to not be able to imagine like your life without it. Icon Factory has
+[02:09:18.280 --> 02:09:24.920]   this really amazing app called TOT and they got the domain tot.rocks which
+[02:09:24.920 --> 02:09:30.520]   it's truth and advertising. All it is is it's a it's just a window you can put
+[02:09:30.520 --> 02:09:35.160]   text into for all of those times when like someone is about to read you
+[02:09:35.160 --> 02:09:38.840]   something over the phone like here's your RMA number and you're you don't and
+[02:09:38.840 --> 02:09:42.280]   you just need someplace to put some text or you're doing a whole bunch of
+[02:09:42.280 --> 02:09:45.240]   editing and you just need a place to park some boilerplate stuff that you're
+[02:09:45.240 --> 02:09:48.440]   going to be copying pasting throughout the day or throughout the week.
+[02:09:48.440 --> 02:09:53.000]   And this is the most beautiful like almost iOS like interface
+[02:09:53.000 --> 02:09:58.520]   super clean it doesn't do any more than it absolutely has to. You get
+[02:09:58.520 --> 02:10:03.720]   seven pages or like seven tabs of like seven containers let's say of text
+[02:10:03.720 --> 02:10:08.200]   it can be style text as well and it also there's a version of this also for
+[02:10:08.200 --> 02:10:11.240]   iOS and the two at the desktop and the mobile apps
+[02:10:11.240 --> 02:10:16.520]   will sync together via iCloud and you can launch it from the dock you can also
+[02:10:16.520 --> 02:10:21.240]   use an option to have it launched through open it up through the menu bar icon
+[02:10:21.240 --> 02:10:24.920]   and it's I've installed this about a week ago and I've been using it several
+[02:10:24.920 --> 02:10:28.680]   times a day since again because all the times where it's like you're about to
+[02:10:28.680 --> 02:10:32.360]   read me a string of digits that I desperately need if my life is
+[02:10:32.360 --> 02:10:35.240]   going to be on a good track for the next two weeks we've all been in that
+[02:10:35.240 --> 02:10:39.400]   situation but I need to I you know I just I don't need fancy formatting I
+[02:10:39.400 --> 02:10:42.920]   don't need margins I just need something I can type into
+[02:10:42.920 --> 02:10:46.440]   and not have to wonder if I'm saving it correctly and if it will be there when
+[02:10:46.440 --> 02:10:50.840]   I restart tomorrow it beautiful stuff and again free free free it's available to
+[02:10:50.840 --> 02:10:55.720]   the app store both the iOS and the Mac is it free because I see 20
+[02:10:55.720 --> 02:11:01.400]   dollars no it's TOT what am I looking at I
+[02:11:01.400 --> 02:11:05.000]   because I just because I just checked it again but I'm going to the
+[02:11:05.000 --> 02:11:10.440]   time loop I'm looking at TOT pocket $20 from the icon the desktop the desktop
+[02:11:10.440 --> 02:11:16.360]   version is free I have not oh that's clever so it's free on your
+[02:11:16.360 --> 02:11:22.840]   Mac but if you want to have a companion on iOS that'll cost you
+[02:11:22.840 --> 02:11:28.360]   oh clever if you want to just you know cheese them out by just getting the free
+[02:11:28.360 --> 02:11:31.800]   app it's a really wonderful Mac OS app but well this this makes more sense on
+[02:11:31.800 --> 02:11:37.720]   Mac OS frankly than it does on iOS yeah but this is but I think I will I
+[02:11:37.720 --> 02:11:42.040]   haven't installed the iOS app because I obviously my phone is an Android
+[02:11:42.040 --> 02:11:46.360]   and I only use iOS on iPad but I think that I think I will buy that version
+[02:11:46.360 --> 02:11:49.800]   because this is one of those apps where I wish that I could just put money in a
+[02:11:49.800 --> 02:11:54.040]   box and mail it to them it's such a it's such it's so completely
+[02:11:54.040 --> 02:11:57.480]   not only something that I need but so a perfect execution
+[02:11:57.480 --> 02:12:03.480]   of the sort of thing that I need yeah I you know in a way I'm glad the icon
+[02:12:03.480 --> 02:12:07.160]   factory charges 20 bucks for it yeah make sure please make some
+[02:12:07.160 --> 02:12:11.160]   money stay in business and let's be honest right seems like a lot for an iOS
+[02:12:11.160 --> 02:12:15.240]   app but if you walk down the street and you stopped at a Starbucks with a
+[02:12:15.240 --> 02:12:20.520]   friend you'd spend 20 bucks easy so you know it's not that crazy
+[02:12:20.520 --> 02:12:22.680]   not all you have is a sugar high afterwards yeah
+[02:12:22.680 --> 02:12:26.600]   just got a whole app think think of it this way you think of all the time that
+[02:12:26.600 --> 02:12:30.200]   you spent twice and three times that month or on a ticket master surcharge
+[02:12:30.200 --> 02:12:34.440]   that they could never adequately explain to you that's exactly right
+[02:12:34.440 --> 02:12:37.480]   if only I were spending money on ticket master
+[02:12:37.480 --> 02:12:41.480]   so I am thinking as I'm you know I was gonna do a clean install a big
+[02:12:41.480 --> 02:12:45.560]   sir on my Mac i'm at pro can't do that not gonna do that
+[02:12:45.560 --> 02:12:49.960]   but I will get a brand new Mac on Friday and m1 Mac so I'm thinking
+[02:12:49.960 --> 02:12:57.640]   about what I'm gonna do with it I've been using homebrew forever as a way to put
+[02:12:57.640 --> 02:13:01.480]   Unix command line apps and and actually there's you can even put gooeys and
+[02:13:01.480 --> 02:13:05.240]   fonts and other things on my Mac it's a really easy way to do it
+[02:13:05.240 --> 02:13:11.720]   but I'm thinking maybe now's the time to go to back to Mac ports Mac ports was
+[02:13:11.720 --> 02:13:16.120]   created by the original Darwin team on at Apple
+[02:13:16.120 --> 02:13:19.880]   it is the oldest package manager fully open source
+[02:13:19.880 --> 02:13:25.160]   it is a little different than homebrew real Unix geeks will appreciate
+[02:13:25.160 --> 02:13:30.520]   uh that it is actually probably more traditional in the way it does things
+[02:13:30.520 --> 02:13:34.120]   than homebrew homebrew puts everything into user local bin
+[02:13:34.120 --> 02:13:39.480]   uh it uh it doesn't require pseudo every which is perhaps not a good thing
+[02:13:39.480 --> 02:13:42.680]   uh that makes it easier but Mac ports you have to
+[02:13:42.680 --> 02:13:46.600]   as you do and you have to in fact you have to build everything it
+[02:13:46.600 --> 02:13:51.080]   doesn't do pre-compiled binaries so it's a little bit more like an old-fashioned
+[02:13:51.080 --> 02:13:54.520]   package manager I think I'm gonna try it
+[02:13:54.520 --> 02:13:59.480]   especially since I think X class X code is going to be really fast in this m1
+[02:13:59.480 --> 02:14:03.240]   so I won't mind building my apps from scratch
+[02:14:03.240 --> 02:14:08.200]   so I think I'm going to put Mac ports on it these are both free home
+[02:14:08.200 --> 02:14:12.840]   I did a whole series hands-on Mac on homebrew and I think for most people
+[02:14:12.840 --> 02:14:17.080]   homebrew is a good default but Mac ports I think for the
+[02:14:17.080 --> 02:14:22.840]   serious Unix geek might be a better choice and I will let you know
+[02:14:22.840 --> 02:14:26.440]   and the thing is you cannot install homebrew and back out and
+[02:14:26.440 --> 02:14:30.360]   redo it with Mac ports was kind of a pain best time to make that switch would be a
+[02:14:30.360 --> 02:14:35.400]   new Mac or a clean install so I will give you update but Mac ports for
+[02:14:35.400 --> 02:14:41.080]   me on Friday uh because yeah I get to find a good way to
+[02:14:41.080 --> 02:14:45.480]   install emacs right it's all about getting emacs running
+[02:14:45.480 --> 02:14:49.720]   ladies and gentlemen that concludes this edition the m1 edition
+[02:14:49.720 --> 02:14:55.560]   of Mac break weekly Renee Richie is prolifically posting
+[02:14:55.560 --> 02:15:00.120]   on his youtube channel all about the new Macs his reviews the new phones this is
+[02:15:00.120 --> 02:15:04.600]   a busy season for Renee youtube.com/Renee Richie you
+[02:15:04.600 --> 02:15:10.600]   absolutely must subscribe and follow because it's worth it it's great to see
+[02:15:10.600 --> 02:15:13.240]   Renee thank you for being here twice in one week
+[02:15:13.240 --> 02:15:17.960]   Lori Gill is at iMore she's the managing editor there
+[02:15:17.960 --> 02:15:25.720]   also quite busy yes yes this has been a busy season for anybody doing this
+[02:15:25.720 --> 02:15:28.840]   kind of stuff so thank you for the hard work you're doing
+[02:15:28.840 --> 02:15:32.680]   and uh just pass along to your animal crossing friends
+[02:15:32.680 --> 02:15:36.680]   thank them for the hard work they're doing it's
+[02:15:36.680 --> 02:15:41.080]   holiday season on my island and I want to decorate it I just wish I could get
+[02:15:41.080 --> 02:15:45.400]   twinkly lights thank you Lori Gill and the inaco
+[02:15:45.400 --> 02:15:51.160]   GBH Boston when you're going to be on next Thursday at 1 p.m probably talking
+[02:15:51.160 --> 02:15:55.160]   about the m1 again whether or not I actually own one by then I
+[02:15:55.160 --> 02:16:01.720]   would put the odds at 70 30 but yeah go to gph news.org
+[02:16:01.720 --> 02:16:05.080]   you can listen to it live streamed or later on just search for my name they
+[02:16:05.080 --> 02:16:08.520]   usually chunk out my segments and let you listen to them
+[02:16:08.520 --> 02:16:12.920]   individually very nice thank you Andy Lori Renee thank you all for
+[02:16:12.920 --> 02:16:18.120]   being here Mac break weekly records right after ios today so it's an easy
+[02:16:18.120 --> 02:16:23.400]   one two punch if you're an apple fan tune in roughly 11 a.m pacific 2 p.m
+[02:16:23.400 --> 02:16:27.080]   eastern time that would be now I'm all confused
+[02:16:27.080 --> 02:16:33.240]   on my UTC times I think it's plus seven so that would be 1800 UTC I think
+[02:16:33.240 --> 02:16:37.800]   go to twit.tv/live for the live streams they're always going
+[02:16:37.800 --> 02:16:41.080]   audio and video if you're doing uh doing the live thing you should
+[02:16:41.080 --> 02:16:45.880]   probably be in the chatroom at irc.twit.tv after the fact
+[02:16:45.880 --> 02:16:51.160]   you can get all of our shows on the website twit.tv in this case twit.tv/mbw
+[02:16:51.160 --> 02:16:54.440]   there's a youtube channel dedicated to Mac break weekly you could watch the
+[02:16:54.440 --> 02:16:58.600]   shows there best thing to do get a there it is it's a pretty we got to
+[02:16:58.600 --> 02:17:05.400]   update that it's a pretty old-fashioned looking Mac OS icon there
+[02:17:05.400 --> 02:17:11.720]   oh you got to get to get to at least Mac OS 11 you can also subscribe in your
+[02:17:11.720 --> 02:17:14.520]   favorite podcast application that's the best way to get it that way you'll get
+[02:17:14.520 --> 02:17:19.720]   it the minute it's available of a Tuesday afternoon
+[02:17:19.720 --> 02:17:22.600]   thank you everybody for being here now I'm sorry to say time to get back to work
+[02:17:22.600 --> 02:17:28.600]   because break time is over bye bye I'm Jason Howell host of Tech News
+[02:17:28.600 --> 02:17:33.320]   weekly here on twit.tv along with my co-host mica sergeant each and every
+[02:17:33.320 --> 02:17:36.760]   week we talk to people who are making and breaking the tech news it could be
+[02:17:36.760 --> 02:17:41.240]   journalists writing amazing tech stories it could be experts it could be
+[02:17:41.240 --> 02:17:45.880]   the sources of the stories themselves developers you name it we bring them
+[02:17:45.880 --> 02:17:49.880]   onto the show and we talk to them about why their story is resonating
+[02:17:49.880 --> 02:17:56.040]   with the world you can watch and subscribe by going to twit.tv/tnw make
+[02:17:56.040 --> 02:17:59.320]   sure you do that you won't miss a single episode we'll see you there
+[02:17:59.320 --> 02:18:12.280]   you
+

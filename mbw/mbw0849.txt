@@ -1,0 +1,1515 @@
+;FFMETADATA1
+title=Decorate Your Notch
+artist=Leo Laporte, Alex Lindsay, Andy Ihnatko, Jason Snell, Rich Siegel
+album_artist=TWiT
+publisher=TWiT
+album=MacBreak Weekly
+TRDA=2022-12-21
+track=849
+language=English
+genre=Podcast
+comment=Rich Siegel, Rapid Security Response, M2 Mac Pro
+encoded_by=Uniblab 5.3
+date=2022
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:05.680]   It's time for Mac Break Weekly. We got a very special guest joining us this week, Rich Segal,
+[00:00:05.680 --> 00:00:11.520]   from Bearbone Software, the creator of BB Edit, Yo Jimbo, and many other fine programs for the
+[00:00:11.520 --> 00:00:16.960]   Macintosh. We'll talk to him about Apple's plans for the App Store, what it's like to develop for
+[00:00:16.960 --> 00:00:23.280]   the App Store, and what he hopes Apple will do going forward. We'll also talk about a new security
+[00:00:23.280 --> 00:00:29.040]   flaw that bypasses Gatekeeper. Don't worry. If you update your patch, also a new feature Apple's
+[00:00:29.040 --> 00:00:35.520]   going to introduce that will provide rapid updates, quick fixes for urgent security problems, all that
+[00:00:35.520 --> 00:00:40.640]   and a whole lot more coming up next, including Andy's Weird Hat, a Mac Break Weekly.
+[00:00:40.640 --> 00:00:46.080]   Podcasts You Love From People You Trust
+[00:00:46.080 --> 00:00:48.800]   This is Twit
+[00:00:52.320 --> 00:01:01.040]   This is Mac Break Weekly, Episode 849, recorded Tuesday, December 20, 2022. Decorate Your Notch.
+[00:01:01.040 --> 00:01:07.680]   Mac Break Weekly is brought to you by Adegy, the only Apple device management platform that
+[00:01:07.680 --> 00:01:14.080]   combines MDM with live agent capabilities to manage and secure your Apple ecosystem.
+[00:01:14.080 --> 00:01:20.800]   Visit adagie.com/twit for a free 14-day trial to see how Adegy helps you manage your Apple devices in
+[00:01:20.800 --> 00:01:25.840]   real time, and if you purchase by December 31, you'll get 10% off your first year.
+[00:01:25.840 --> 00:01:33.360]   And by Worldwide Technology with an innovative culture, thousands of IT engineers, application
+[00:01:33.360 --> 00:01:39.440]   developers, unmatched labs and integration centers for testing and deploying technology at scale,
+[00:01:39.440 --> 00:01:46.960]   WWT helps customers bridge the gap between strategy and execution. To learn more about WWT, visit
+[00:01:46.960 --> 00:01:54.400]   www.wt.com/twit. Thanks for listening to this show. As an ad-supported network,
+[00:01:54.400 --> 00:01:59.600]   we are always looking for new partners with products and services that will benefit our
+[00:01:59.600 --> 00:02:05.760]   qualified audience. Are you ready to grow your business? Reach out to Advertise at Twit.tv
+[00:02:05.760 --> 00:02:07.040]   and launch your campaign now.
+[00:02:08.560 --> 00:02:12.480]   It's time for Mac Break Weekly, the show we cover the latest Apple news. Our last show
+[00:02:12.480 --> 00:02:18.720]   of 2022. And it's a very special episode. Before I introduce our special guest, let me say hello
+[00:02:18.720 --> 00:02:26.320]   to Alex Lindsey, 090.media and office hours. Global celebrating your 20th anniversary of office hours.
+[00:02:26.320 --> 00:02:33.760]   Or what was it? Thousands, thousands consecutive shows. We haven't missed a day since March 25th
+[00:02:33.760 --> 00:02:40.400]   of 2020. When we actually bought during COVID, we should start this thing.
+[00:02:40.400 --> 00:02:44.720]   So we had our 20th, our arm turned and got me to go and think about 20th. But our
+[00:02:44.720 --> 00:02:46.160]   thousands of episodes yesterday.
+[00:02:46.160 --> 00:02:50.720]   You know, it's not going to be too long. Trust me, I know. Before you are celebrating your 20th.
+[00:02:50.720 --> 00:02:54.080]   It sneaks up on you.
+[00:02:54.080 --> 00:02:55.200]   Yeah, exactly.
+[00:02:55.200 --> 00:03:00.800]   Yeah. Great. Congratulations. That's wonderful. And anybody who is not yet watching office hours,
+[00:03:00.800 --> 00:03:04.400]   you can see it on YouTube. Best place to go is office hours.global. And you can find out more
+[00:03:04.400 --> 00:03:09.520]   about all the cool stuff. It's not just one thing. It's everything. Sabado Gigante.
+[00:03:09.520 --> 00:03:15.440]   My dear friend, Annie Enoco is also here, dressed for the occasion.
+[00:03:15.440 --> 00:03:23.120]   Yes, I'm in my holiday costume. I'm a, I'm a high powered New York City, big city corporate
+[00:03:23.120 --> 00:03:28.560]   financier who along the way, as was climbed for power and material things, has lost touch with
+[00:03:28.560 --> 00:03:33.040]   faith and family. But he's coming back to his small town town town to actually to
+[00:03:33.040 --> 00:03:36.720]   foreclose on the community center because he's always way too good an investment.
+[00:03:36.720 --> 00:03:43.120]   But it's unlikely that he'll reconnect with an old, old flame that is mentor, grandfather,
+[00:03:43.120 --> 00:03:47.360]   who wanted him to be a musician, artist, will tell him that maybe he's lost a little
+[00:03:47.360 --> 00:03:50.400]   something on the way. Well, we'll see how that comes up. But yeah,
+[00:03:50.400 --> 00:03:54.400]   I think it has a backstory for his outfit.
+[00:03:55.600 --> 00:04:02.640]   I decided I want to live that lifetime holiday movie sort of thing.
+[00:04:02.640 --> 00:04:13.440]   You know what? Maybe maybe maybe the the the the the Joey that we grew up with isn't the Joseph
+[00:04:13.440 --> 00:04:19.920]   Esquire that moved off to the big city. I'm still the same person. Hey, let's go skate down to
+[00:04:19.920 --> 00:04:26.400]   the the quarry with cardboard boxes and then you look like maybe you were getting ready for the
+[00:04:26.400 --> 00:04:30.400]   French Revolution. So maybe I don't know. I don't know. I'll take that too.
+[00:04:30.400 --> 00:04:36.000]   As long as I'm on the right side of it. And I love the time. Is that a is that a Jerry Garcia
+[00:04:36.000 --> 00:04:43.440]   that looks like maybe I don't know that is that is a New York City thrift store. Oh, I bought it
+[00:04:43.440 --> 00:04:49.600]   last week. It is a Robert Talbot. Oh, a tell and it is and it is it is best of class. It's not a
+[00:04:49.600 --> 00:04:55.200]   couldn't say it on the label. Good to see you, Andy. Happy holidays. Also with his happy Halloween.
+[00:04:55.200 --> 00:05:01.680]   Jason Snell, who has delayed his holiday trip around the world in a sleigh to be with us.
+[00:05:01.680 --> 00:05:06.160]   That's true. Here's my backstory, Leo, I'm a guy who works in this garage.
+[00:05:06.160 --> 00:05:10.640]   There you go. It's a simple story, but it's an honest tale.
+[00:05:10.640 --> 00:05:14.560]   There's no heating out here. So I have to word layers and there's a freezing.
+[00:05:14.560 --> 00:05:19.920]   We were getting it's okay. It's coast weather. It might even be colder today here than it is in
+[00:05:19.920 --> 00:05:25.280]   where Andy is. I don't know. It's yeah, it's a we're going to have what people on the east coast
+[00:05:25.280 --> 00:05:30.240]   would consider a mild winter day. And it's like freezing cold for us. 49 degrees.
+[00:05:30.240 --> 00:05:36.720]   And I'm done. I can say it's like 60 degrees. It's actually as low as 45, I think is.
+[00:05:36.720 --> 00:05:43.520]   Can I add your backstory to mine where I come back home? I'm surprised that my best friend
+[00:05:43.520 --> 00:05:47.760]   in high school, Jason, always love to tinker with cars is still working in a garage. And although
+[00:05:47.760 --> 00:05:52.080]   at first I'm filled with a little bit of contempt that you never moved out of our small town,
+[00:05:52.080 --> 00:05:56.640]   that I suddenly come to realize, Oh my God, he has friends. He has family. He has children.
+[00:05:56.640 --> 00:06:03.760]   All the things that I foresaw my holy dash up the golden ladder that now seems so hollow.
+[00:06:03.760 --> 00:06:10.320]   But things get interesting. Okay. When Andy meets Jason's kid sister, played by Anne Hathaway,
+[00:06:10.320 --> 00:06:17.520]   who has a cute smile, dimples and a fascination with Mandy. Mandy is your name.
+[00:06:17.520 --> 00:06:22.960]   Mandy is her name. And it's Mandy. It's appropriate. It's a what a story. Oh my God.
+[00:06:22.960 --> 00:06:27.440]   It's a love story. Mandy together at last. I hear heartstrings being plucked all over middle
+[00:06:27.440 --> 00:06:32.720]   America. I think we got something here. Get me hallmark. Get me hallmark right now. All right.
+[00:06:32.720 --> 00:06:39.120]   Poor our poor guest has been sitting in the wings. It's it's time to bring him in. Mystery
+[00:06:39.120 --> 00:06:44.720]   guest will you sign in please. We've actually this is somebody we wanted to get on for some time
+[00:06:44.720 --> 00:06:48.800]   now. He's been on the show many times before. But this couldn't be a better time given that
+[00:06:48.800 --> 00:06:54.400]   the rumors are Apple is open is going to offer a sideloading on the iPhone. Rich Siegel is here
+[00:06:54.400 --> 00:07:01.520]   from bare bones software. Good afternoon. Long time Apple developer creator of BB edit,
+[00:07:01.520 --> 00:07:08.240]   which is a must have for anybody with a Macintosh. Hey, Rich, it's great to see you. And your parent
+[00:07:08.240 --> 00:07:14.400]   may show up. Is it a parrot? A parakeet? What is it? It's a parrot. If you call him a parakeet,
+[00:07:14.400 --> 00:07:19.600]   he gets angry. Yeah. He's the big the big brother of the parakeet. He's a beautiful gray.
+[00:07:21.040 --> 00:07:26.080]   And you have more than one as I remember the last time you were on. I do. I have two because I'm insane.
+[00:07:26.080 --> 00:07:34.720]   And he is not in his cold garage. He's in his parrot shelter. That's right. Joining us today.
+[00:07:34.720 --> 00:07:40.080]   There's one. If I occasionally look over to my left, it's because somebody is making trouble on
+[00:07:40.080 --> 00:07:49.760]   the floor. Also, he is rich is a little backstory removed. The sweat sock from his microphone. And
+[00:07:49.760 --> 00:07:56.000]   it turns out it looks exactly like the gray. And so there may be at some point an attempt to mate
+[00:07:56.000 --> 00:08:01.360]   with his microphone. I just want to warn the audience. Children maybe should avert their eyes.
+[00:08:01.360 --> 00:08:07.440]   That's a hell of a showtease. That is why you are a professional broadcaster for decades.
+[00:08:07.440 --> 00:08:09.920]   Stay tuned for the confusion.
+[00:08:09.920 --> 00:08:16.160]   You know, I'm trendy in here. I got to say that's even more disturbing than the amount of
+[00:08:16.160 --> 00:08:21.200]   effort that Andy put into the back story. Well, I am a creative professional.
+[00:08:21.200 --> 00:08:27.840]   We bring you on to Disturb your rich. Actually, it was in the show last week, Jason reminds me
+[00:08:27.840 --> 00:08:34.240]   that Apple, the rumor from Mark Gurman came out that Apple was going to exceed to the EU
+[00:08:34.240 --> 00:08:42.080]   and allow sideloading perhaps even alternate stores, app stores on iOS. And you immediately
+[00:08:42.080 --> 00:08:47.120]   came to mind, Rich, because you had kind of a back and forth with the app store on the Macintosh.
+[00:08:47.120 --> 00:08:51.760]   At first BB, it was not available there because you said there would be too many limitations to
+[00:08:51.760 --> 00:08:58.560]   what you could do. And then, I guess you put a stripped down version up. And is it there now?
+[00:08:58.560 --> 00:09:03.840]   And it's full fledged beauty. Yep. Yeah. BB, BB, edit is in the app store.
+[00:09:04.880 --> 00:09:13.920]   We were in the app store day one when the app store was first introduced. And we did our best
+[00:09:13.920 --> 00:09:19.360]   to make a go of it. But the technology was a little bit immature. The politics were a little bit
+[00:09:19.360 --> 00:09:29.280]   Byzantine isn't quite the right word. But there were politics. And we realized at the time,
+[00:09:29.280 --> 00:09:33.760]   it's like, yeah, we just can't do this. Jason actually did a great piece in six colors.
+[00:09:34.640 --> 00:09:40.160]   Back in the day about that. And so we took a break from the app store. And then when Apple
+[00:09:40.160 --> 00:09:47.040]   relaunched the store for Mac OS Mojave, they came to us and they said, okay, what do you need?
+[00:09:47.040 --> 00:09:51.840]   And we said, well, we need this and we need this. And it sort of boiled down to we need to be able
+[00:09:51.840 --> 00:09:58.320]   to ship the same product to everybody so that we can give our customers the choice they want to
+[00:09:58.320 --> 00:10:05.600]   have, but then make the decision about where to get the app. And so we were again able to deliver
+[00:10:05.600 --> 00:10:12.400]   a fully functional product in the app store. Was that because Apple conceded things or?
+[00:10:12.400 --> 00:10:22.480]   It was more a matter of the development and OS technology advanced to the point where
+[00:10:23.520 --> 00:10:31.280]   it was simpler for us to conform to the requirements of the app store. They added a couple of API
+[00:10:31.280 --> 00:10:38.320]   features that we needed. There was a little bit of grandfathering involved because we'd been in
+[00:10:38.320 --> 00:10:43.600]   the app store previously. And if you've been in the app store, if you shipped a product,
+[00:10:43.600 --> 00:10:49.120]   you can usually make an argument with App Review and App Review and argument. They go to a bit,
+[00:10:49.120 --> 00:10:55.600]   they go together like peanut butter and jelly. You can make an argument with App Review saying,
+[00:10:55.600 --> 00:10:59.680]   you know, this is what we're doing. This is why we're doing it. This is what you approved before
+[00:10:59.680 --> 00:11:06.320]   it hasn't changed. And we had a few of those conversations. I actually remember that when Apple
+[00:11:06.320 --> 00:11:13.600]   announced its changes, they mentioned you as coming back, right? They took your name in vain.
+[00:11:13.600 --> 00:11:19.280]   And at the time, I thought we should get rich on to see if he agrees with Apple. What Apple's
+[00:11:19.280 --> 00:11:27.200]   describing. Yeah. And it went pretty well. There are a lot of folks that
+[00:11:27.200 --> 00:11:36.000]   within Apple who were really working hard on our behalf. And that I think made the whole thing
+[00:11:36.000 --> 00:11:41.120]   feasible. Yeah. Good. So you're going to settle a bit.
+[00:11:42.960 --> 00:11:47.200]   Uh oh. No, you're not. But that means somebody's going to be mad at me if I give the wrong answer.
+[00:11:47.200 --> 00:11:51.440]   That's what that's usually what that means, right? Alex Lindsey has been a strong defender of the
+[00:11:51.440 --> 00:11:56.240]   app store and its exclusivity. He thinks it's better for consumers. He thinks it's fine for
+[00:11:56.240 --> 00:12:03.600]   developers. And he really, I think, I won't put words in your mouth, Alex, but you so you step in
+[00:12:03.600 --> 00:12:08.080]   here, but you I think you decry the whole idea of modifying the app store in any form.
+[00:12:08.960 --> 00:12:12.800]   Yeah, I don't know, but modifying the app store in any form might be a little heavy handed.
+[00:12:12.800 --> 00:12:19.680]   Many room for it to improve and so on and so forth. I think that the main thing that and my
+[00:12:19.680 --> 00:12:24.160]   background a little bit for rich, I don't think you see the show very much, I've developed,
+[00:12:24.160 --> 00:12:27.440]   you know, few apps there for other companies and so on and so forth. So I've gone through the
+[00:12:27.440 --> 00:12:36.160]   process of it. And so the thing, I guess, for me as a user is I don't really, you know, I think
+[00:12:36.160 --> 00:12:42.640]   that 99.9% of the users, given how many users there are out there, paid for something that's just
+[00:12:42.640 --> 00:12:47.040]   like it just works. They don't care. They don't care what it looks like. They just wanted to work.
+[00:12:47.040 --> 00:12:51.440]   They just wanted to work. They don't want it to be start to be chaos. And where I see chaos
+[00:12:51.440 --> 00:12:57.920]   beginning is not so much with what you're doing, but when Netflix or meta or other companies say,
+[00:12:57.920 --> 00:13:01.760]   well, we're only going to we're going to have a new store and you can only get Facebook on our
+[00:13:01.760 --> 00:13:04.800]   store. You can only get Instagram on our store. In fact, we're going to build up a whole bunch of
+[00:13:04.800 --> 00:13:09.840]   other things that are connected to us. And what for the user, what that does is it takes
+[00:13:09.840 --> 00:13:14.640]   something away from us, we still have the choice of not going over there and using their tools.
+[00:13:14.640 --> 00:13:19.360]   But now what's happened is is by making an update to the store, Apple has basically
+[00:13:19.360 --> 00:13:23.280]   allowed all these other companies to take something from the user that we had before,
+[00:13:23.280 --> 00:13:26.640]   you know, like, you know, like, you know, and so we and we are the ones that paid for everything.
+[00:13:26.640 --> 00:13:31.600]   Like, you know, like we as the user, we bought the apps, you know, we bought the hardware. We are the,
+[00:13:32.480 --> 00:13:37.440]   in my opinion, the most important stakeholder, you know, in this in this process, the developers
+[00:13:37.440 --> 00:13:43.120]   are important for the ecosystem, but the users are the stakeholder, like we're the ones underwriting
+[00:13:43.120 --> 00:13:49.200]   everything. And so I think that, so I think that that's that's the concern that I have is mostly if
+[00:13:49.200 --> 00:13:54.240]   you open up the app store or you create new app stores or you create sideloading that companies
+[00:13:54.240 --> 00:14:00.160]   like Epic and Meta and Amazon and many other people build all these stores that don't that then
+[00:14:00.160 --> 00:14:04.800]   as a user, I have a choice of either having this now deal with all a complexity that I didn't have
+[00:14:04.800 --> 00:14:12.240]   to deal with before. And in light of Epic's lawsuit that they just lost today, you know, of privacy,
+[00:14:12.240 --> 00:14:17.440]   I have, you know, these stores are not may not be the same level of of security or privacy that
+[00:14:17.440 --> 00:14:23.120]   that we have with the current app store. And so so I think that I think of it from, I think the
+[00:14:23.120 --> 00:14:27.440]   prism that I'm looking at it to is from the user, you know, otherwise known as the person,
+[00:14:27.440 --> 00:14:33.040]   the people paying for everything that we're doing here. So the customer is as I like to call them,
+[00:14:33.040 --> 00:14:36.000]   right? Yeah. So I think the user because I watched too much.
+[00:14:36.000 --> 00:14:41.280]   And we should be able to reach you don't have it. You don't have an app in the iOS app store,
+[00:14:41.280 --> 00:14:48.000]   right, Rich? I mean, we do we do have an app in iOS app store. It's the iPad. It's the iPad
+[00:14:48.000 --> 00:14:54.880]   companion for your Jimbo on the desktop. Oh, okay. So, you know, we but we, you know, it's not,
+[00:14:54.880 --> 00:14:59.280]   it's not the app that we're known for. It's not the app that makes our living the iOS app.
+[00:14:59.280 --> 00:15:03.600]   It's because it's a, it's really a companion component.
+[00:15:03.600 --> 00:15:11.840]   It's, it's not a big player. But you do have some experience with the app store process then.
+[00:15:11.840 --> 00:15:18.320]   Yeah. I mean, the I was. Is the store very different from the Mac App Store in that regard?
+[00:15:19.040 --> 00:15:24.800]   No, the, the experience is identical. Okay. The only, I think I'm sure on the back end,
+[00:15:24.800 --> 00:15:28.800]   it's a different reviewer. Yeah. Or different reviewing development.
+[00:15:28.800 --> 00:15:30.720]   The kid. Just one person doing this.
+[00:15:30.720 --> 00:15:36.720]   Anyway, it could be, it could be. It's that slow. But
+[00:15:36.720 --> 00:15:44.480]   actually, yeah, no counter-argument. It couldn't possibly be because nobody seems to remember
+[00:15:44.480 --> 00:15:51.040]   anything, but I digress. Alex, I think all of your points are 100% valid and are, and on target.
+[00:15:51.040 --> 00:16:01.440]   I think there is a very real risk that these big, big, big players will do precisely that. They
+[00:16:01.440 --> 00:16:08.080]   want to be able to monetize their platforms because that's what they have, right? Netflix is a platform,
+[00:16:08.080 --> 00:16:14.480]   Meta has a platform, Epic has a platform. They want to be able to monetize their platforms
+[00:16:14.480 --> 00:16:21.680]   without Apple's interference, if you will. And the best way to do that is to not
+[00:16:21.680 --> 00:16:32.720]   be tied to the app store. I agree. Now, on the Mac, you can do that as you have. You can still
+[00:16:32.720 --> 00:16:39.040]   sideload on the Mac, but you can't on iOS. Correct. And I guess the question-
+[00:16:39.040 --> 00:16:41.600]   That's mostly a legacy issue. That's mostly a legacy issue.
+[00:16:41.600 --> 00:16:49.440]   Right. And to your point, yeah. That's because the Mac has its origins in 1984,
+[00:16:49.440 --> 00:16:56.080]   and there's a long established pattern of user installation of the software.
+[00:16:56.080 --> 00:17:02.480]   Crazy, but computer users have this notion they should be able to install stuff on their computer.
+[00:17:02.960 --> 00:17:07.040]   If Apple were to take that away, there's a lot of people, myself included, who would stop using
+[00:17:07.040 --> 00:17:13.120]   Macs. Well, not on these, not on these budget, $1,400 laptops. I mean, when you buy the $3,000
+[00:17:13.120 --> 00:17:18.400]   pro, yeah, you have higher expectations. But, well, and we were very worried when Gatekeeper,
+[00:17:18.400 --> 00:17:23.120]   you know, took over and became stronger and stronger that that might be the direction that
+[00:17:23.120 --> 00:17:27.920]   it's taken. And again, from, I think that there's a larger number of people that are doing things
+[00:17:27.920 --> 00:17:31.360]   that there's more peripherals, there's more things that you connect to on a Mac. It's a much
+[00:17:31.360 --> 00:17:40.000]   it's a more complicated, you know, I know, I know as a user, if the product has to be very unique
+[00:17:40.000 --> 00:17:43.920]   for me to not buy it in the App Store, like it I have to look at it and go, I can't find that
+[00:17:43.920 --> 00:17:48.640]   anywhere else because man, opening up a computer and hitting install everything back on this computer
+[00:17:48.640 --> 00:17:54.880]   is magical. Like, yeah, the, yeah, the user experience provided by the App Store is
+[00:17:55.520 --> 00:18:01.840]   it's a well crafted, very smooth experience, you know, a non trivial quantity of our customers
+[00:18:01.840 --> 00:18:07.120]   prefer the App Store for that reason. It's like their updates, their updates happen,
+[00:18:07.120 --> 00:18:13.280]   their software is always available to reinstall when they need it. They don't have to think about
+[00:18:13.280 --> 00:18:19.360]   their credit card or their, you know, their billing mechanics. It all just happens. It just works.
+[00:18:20.080 --> 00:18:28.320]   And, and I mean, that's a valid reason to, that's a valid preference. That's one of the reasons
+[00:18:28.320 --> 00:18:31.600]   we're still in the App Store is because we know that a lot of our customers want that.
+[00:18:31.600 --> 00:18:36.320]   I keep thinking of it as being like, there are two different things at play here. One is the
+[00:18:36.320 --> 00:18:43.360]   home field advantage of being a platform owner and the other is the monopoly power. And I don't
+[00:18:43.360 --> 00:18:49.280]   think I have a problem with the platform owner having a home field advantage. It is their platform.
+[00:18:49.280 --> 00:18:54.400]   So to a certain degree, I think it's okay. The challenge, of course, with Apple is that
+[00:18:54.400 --> 00:19:01.280]   on iOS, it's also the only option. And I think we've seen with like even what Epic tried on Android,
+[00:19:01.280 --> 00:19:07.120]   right? They tried to just take their ball and go home. And the fact is, I think there are very
+[00:19:07.120 --> 00:19:13.920]   few companies that have so much power and so much draw that they are willing to forego the default
+[00:19:13.920 --> 00:19:20.320]   experience altogether in order to force you into an outside download or App Store. There might be
+[00:19:20.320 --> 00:19:24.720]   some, but I think like somebody was saying, Oh, Facebook will send up their own App Store and
+[00:19:24.720 --> 00:19:28.480]   you'll have to download the Facebook App Store in order to get Facebook on iOS. It's like,
+[00:19:28.480 --> 00:19:33.200]   I don't believe it because Facebook knows they need to be on the iOS App Store because that is
+[00:19:33.200 --> 00:19:39.040]   always going to be number one for users for most users who are never going to want to turn off that
+[00:19:39.040 --> 00:19:45.520]   switch. And although an outside vendor like Facebook might have some leverage, there is a limit to
+[00:19:45.520 --> 00:19:51.200]   the leverage and saying you can only use Facebook's app on your iPhone if you turn off security
+[00:19:51.200 --> 00:19:56.480]   that Apple puts up a lot of scary dialogue boxes. Like that is a big move. They could try it,
+[00:19:56.480 --> 00:19:59.600]   but I bet they're going to regret it and they're going to be back in the App Store if they do.
+[00:19:59.600 --> 00:20:04.560]   So I think that's the challenge is like accepting that Apple and the Apple App Store will always
+[00:20:04.560 --> 00:20:10.240]   have the home field advantage, but allowing people to escape from it if they choose to.
+[00:20:10.240 --> 00:20:15.200]   Like I can imagine Amazon offering a better version of the Kindle app and the Comixology app
+[00:20:15.200 --> 00:20:19.840]   outside of the App Store, but I can't really imagine them saying we're never going to be in the
+[00:20:19.840 --> 00:20:28.880]   in the iOS App Store ever again. Yeah, I mean, for me, the thing is that if Apple's dogmatic approach
+[00:20:28.880 --> 00:20:35.760]   towards taking a percentage of all revenue generated by every app released on the iPhone,
+[00:20:35.760 --> 00:20:40.400]   is that if that's going to be held as just absolute dogma, that could become a poison pill
+[00:20:40.400 --> 00:20:46.160]   for every business for so many different businesses. And I think it's reasonable for these businesses.
+[00:20:46.160 --> 00:20:51.440]   Again, don't cry for me Amazon, but there's there's for a lot of different businesses,
+[00:20:51.440 --> 00:20:56.880]   there's a real good reason for them to ask what did you do to earn 30% of the sale of
+[00:20:58.720 --> 00:21:05.360]   of this week's Superman comic? You did nothing. I mean, yes, you it's you provide an environment
+[00:21:05.360 --> 00:21:10.720]   for this app to exist, but I would also argue that Apple benefits from the Kindle app being
+[00:21:10.720 --> 00:21:15.200]   available and the Facebook app being available and the Instagram app being available and streaming
+[00:21:15.200 --> 00:21:19.120]   game apps being available. And when you basically say that, look, our profit margins are such that
+[00:21:19.120 --> 00:21:25.280]   we anticipate being able to make X dollars from in game purchases or in app content. And you basically
+[00:21:25.280 --> 00:21:32.800]   shut that door, there's going to be kickback. And with my biggest positive thing about all of
+[00:21:32.800 --> 00:21:38.000]   this pressure on Apple is that it is pressure that Apple almost never has to deal with. We've seen
+[00:21:38.000 --> 00:21:42.880]   so many changes for the app store in the past three or four or five years, none of them came
+[00:21:42.880 --> 00:21:48.400]   out of the goodness of Apple's heart. None of them came after a frank and honest self evaluation of
+[00:21:48.400 --> 00:21:52.080]   what the policies were set when they first set up the app store and whether they're still
+[00:21:52.080 --> 00:21:57.280]   important or relevant now, it's because they were getting pressure from other companies, from
+[00:21:57.280 --> 00:22:02.800]   developers, from from governments across the world. So if this if the new if a presence of a new app
+[00:22:02.800 --> 00:22:10.960]   store is actually happens and all it does is basically says to Apple, okay, look, you basically
+[00:22:10.960 --> 00:22:16.880]   basically now there's basically now every Facebook and Amazon and all these other companies,
+[00:22:16.880 --> 00:22:21.760]   they have the weapon in their drawer, they can now make a decision about whether they want to
+[00:22:21.760 --> 00:22:28.240]   actually now, sideload an app, provide their own app experience just so that they can hold on to
+[00:22:28.240 --> 00:22:35.280]   all these in get in app purchases. I think Apple now would would have to respond to that in a way
+[00:22:35.280 --> 00:22:38.720]   that's a little bit more important than one thing you do now, which is to say, Hey, we're Apple,
+[00:22:38.720 --> 00:22:43.840]   you can't make us do something we don't want to do. And I think the danger, one of the dangers
+[00:22:43.840 --> 00:22:50.800]   there is that we were assuming all of this in a vacuum. You know, users, you know, if stuff starts
+[00:22:50.800 --> 00:22:54.640]   to get pulled away from them, and we don't know if your Jason's very valid, they may not do that.
+[00:22:54.640 --> 00:23:00.160]   But if stuff starts getting pulled away, you could end up with a fair number of of angry users,
+[00:23:00.160 --> 00:23:06.000]   and you end up hitting the users against the against the the the stores. And, you know, people
+[00:23:06.000 --> 00:23:12.240]   will think that it takes millions of people to to cause trouble, but it takes about less than a
+[00:23:12.240 --> 00:23:17.120]   thousand people that are committed to just ruin everything for everybody committed and organized.
+[00:23:17.120 --> 00:23:20.240]   You can cause an enormous amount of damage with a very small number of people.
+[00:23:20.240 --> 00:23:25.200]   And and I think, you know, trolls can cause trouble with three or four of them. If you get a thousand
+[00:23:25.200 --> 00:23:29.440]   of them that are angry, and if they start, if the if the stores actually start to take traction,
+[00:23:29.440 --> 00:23:34.640]   and they actually start to exclude people, you'll end up with a lot of fuel in the air, you know,
+[00:23:34.640 --> 00:23:40.480]   like, you know, and and it's just a matter of people, probably like me, that will light start
+[00:23:40.480 --> 00:23:45.520]   lighting lighters. I want to end, you know, and so the thing is, is that the because, you know, a
+[00:23:45.520 --> 00:23:50.160]   lot of I view it again is, I don't I just want myself to be secure and work like as a user,
+[00:23:50.160 --> 00:23:53.920]   I just don't care. Like I just want to be clear, like, I don't care. I've done a bunch of I've
+[00:23:53.920 --> 00:23:58.000]   developed a bunch of apps. I give it two to three weeks to get into the app store. We go back and
+[00:23:58.000 --> 00:24:02.080]   forth a couple times, and then I end up with an app in the app store, you know, and I most of my
+[00:24:02.080 --> 00:24:06.560]   apps have been, you know, not charged for and the ones that have been charged for don't have it
+[00:24:06.560 --> 00:24:10.800]   made over a million dollars. So I'm not thinking 30% I'm thinking 15, which is 98% of the developers
+[00:24:10.800 --> 00:24:17.360]   out there. So the so I, you know, as a user, though, all I care about is that when I download
+[00:24:17.360 --> 00:24:22.800]   something, I don't want to worry that it's going to be tracking me or, you know, selling things or
+[00:24:22.800 --> 00:24:28.400]   doing whatever. And when I and I just want it to work. And I think that that if we get very, I think
+[00:24:28.400 --> 00:24:34.480]   the real danger is that, you know, that that I think and I do think that we'll see in your,
+[00:24:34.480 --> 00:24:38.480]   if Apple actually does this, we'll see what happens. But it could just end up with a lot of chaos.
+[00:24:38.480 --> 00:24:42.800]   I just think I just think you're right. The users in the end are the answer here,
+[00:24:42.800 --> 00:24:46.000]   and they're going to want to keep it simple. And that's why the app store is going to be the
+[00:24:46.000 --> 00:24:51.200]   default and remain the default. I think the difference is just right now everybody has to be in the
+[00:24:51.200 --> 00:24:57.200]   app store because there's no choice. But well, there is a choice. It's called well, I mean,
+[00:24:57.200 --> 00:25:01.840]   because there's no choice on iOS. I just hate that. I guess that's all.
+[00:25:01.840 --> 00:25:07.040]   It's also it's also not right because if you're an app developer and you're right in iOS app and
+[00:25:07.040 --> 00:25:11.760]   it gets rejected, you have nowhere to take it because you can't just take it and install it.
+[00:25:11.760 --> 00:25:16.800]   It is it is very limited. But my, my point is more Apple doesn't right now have to compete
+[00:25:16.800 --> 00:25:23.360]   on the fact that it the things that are true, the fact that it is safer and more secure in the
+[00:25:23.360 --> 00:25:28.800]   app store and they do approve things and scam things. And they do use their own payment system
+[00:25:28.800 --> 00:25:32.480]   where your credit card already is. So it's super convenient. And you have a level of trust that
+[00:25:32.480 --> 00:25:36.800]   you might not have on the outside. Right now those aren't competitive issues really because
+[00:25:36.800 --> 00:25:42.400]   there's no competition, but they will be competitive advantages to that default app store regardless.
+[00:25:42.400 --> 00:25:47.200]   And I also want to throw out one other thing which I know rich definitely experience which is
+[00:25:47.200 --> 00:25:54.960]   Apple being motivated by market issues in terms of their app store can change Apple's behavior too.
+[00:25:54.960 --> 00:26:00.320]   The Mac app store got a lot better when Apple realized that lots of key apps, including riches,
+[00:26:00.320 --> 00:26:06.400]   weren't there. And they started asking questions about like, why is that and can we fix it? And if,
+[00:26:06.400 --> 00:26:11.520]   and in a scenario where Apple has a little bit of competition on its own platform,
+[00:26:11.520 --> 00:26:17.600]   I think Apple's app store will get better because they know they're going to need to be better.
+[00:26:17.600 --> 00:26:21.280]   But I think they're fundamentally going to be better right out of the gate just because of
+[00:26:21.280 --> 00:26:26.160]   everything that Alex said it is much you're much more safe and it's convenient and it's easy and
+[00:26:26.160 --> 00:26:30.160]   like and people don't want to bother people want to just be easy. There there you go. That's the
+[00:26:30.160 --> 00:26:35.680]   point of competitive regulation to encourage competition and to make everybody better all around.
+[00:26:35.680 --> 00:26:41.600]   I'm sure what Apple's going to do as you already said is just have a switch that's barely seen.
+[00:26:41.600 --> 00:26:48.000]   We showed last week Google it's hard to find now on a side look on Android. They're going to do
+[00:26:48.000 --> 00:26:54.880]   the same thing and it will it will follow the letter of the law. But 99 you know the default
+[00:26:54.880 --> 00:27:00.720]   of the deteriorated default 99% of users won't know or care. And I you know I don't see how that's
+[00:27:00.720 --> 00:27:07.200]   harmful. Do you think that's harmful Alex? It's it's only if if the what arises is big
+[00:27:07.200 --> 00:27:11.920]   big store it's not it's not if a couple apps want to be sideloaded that doesn't mean anything.
+[00:27:11.920 --> 00:27:18.560]   It is in fact it'll be probably not a great experience. It is it is if there are big stores
+[00:27:18.560 --> 00:27:24.000]   that start to make things exclusive. So if if you start seeing an Amazon store or when or my
+[00:27:24.000 --> 00:27:29.840]   my window store and a you know and they really start forcing new things to that to that puzzle
+[00:27:29.840 --> 00:27:37.280]   is where I think that it'll be it'll be problematic. You know and and again I think that there are
+[00:27:37.280 --> 00:27:45.360]   ways for users to take take take their case directly to the store you know through resistance.
+[00:27:45.360 --> 00:27:50.160]   You know so I think that there's lots of ways to making that and so I think that that can be
+[00:27:50.160 --> 00:27:54.960]   done but it's still just a bummer that it you know like for for us I guess I don't I don't see how
+[00:27:54.960 --> 00:28:00.080]   much of this positively affects 99.9% of the users.
+[00:28:00.080 --> 00:28:05.040]   Is it? Yeah I go ahead Rich you're the you're the expert here as a developer.
+[00:28:05.040 --> 00:28:14.800]   So I well I was just going to say that I mean you I I'm not trying to like but everybody up
+[00:28:14.800 --> 00:28:22.400]   but are everybody up but you're all making really solid points and I think I think Jason's right on
+[00:28:22.400 --> 00:28:29.600]   by saying what's going to happen here is I think this is going to create motivation for Apple to
+[00:28:29.600 --> 00:28:37.440]   improve the pain points that give developers a reason to not want to be in the app store and
+[00:28:37.440 --> 00:28:45.440]   yes okay at the moment they don't have a choice. If a choice gets forced on Apple then smaller
+[00:28:45.440 --> 00:28:51.680]   developers who are overwhelmed by those pain points will say yeah maybe I just don't need to
+[00:28:51.680 --> 00:28:58.480]   deal with this I'll build a developer ID notarized app which is what you do on Mac OS and
+[00:28:58.480 --> 00:29:02.800]   and my customers can can download and install that.
+[00:29:04.400 --> 00:29:10.800]   I think the really really really really big players Facebook sorry meta Netflix
+[00:29:10.800 --> 00:29:19.920]   and so forth they're going to stay in the app store but there's now that little little bit of
+[00:29:19.920 --> 00:29:27.120]   cloudiness on the horizon that gives them I think negotiating power right they can say you know
+[00:29:27.120 --> 00:29:34.000]   if you want to charge us too much money for what we're doing or if you make our lives too hard
+[00:29:34.960 --> 00:29:37.040]   we will go open our own stores.
+[00:29:37.040 --> 00:29:43.120]   Yeah and I think what they're going to want more than money is data like that's what they
+[00:29:43.120 --> 00:29:47.920]   that's what they want from us. Well and you know that companies like Epic or you know and I guess
+[00:29:47.920 --> 00:29:54.400]   Microsoft and EA have been champing it a bit to open their own gaming stores. Not clear first of
+[00:29:54.400 --> 00:30:01.360]   all let's again underscore this is a rumor it's from Mark Gurman it makes a lot of sense Mark had
+[00:30:01.360 --> 00:30:05.520]   all so many details it feels like he had probably inside knowledge
+[00:30:05.520 --> 00:30:11.360]   and we don't know what Apple's going to do exactly they didn't even in his story
+[00:30:11.360 --> 00:30:16.400]   Mark said it wasn't clear if Apple would allow other third party payment systems you know
+[00:30:16.400 --> 00:30:22.880]   Apple's going to do the minimum that the EU will accept and that's probably an negotiation
+[00:30:22.880 --> 00:30:26.320]   so we don't know yet what it's going to what it's going to look like.
+[00:30:27.600 --> 00:30:33.520]   I just feel like you can say you can say and I think you're right all of you that the users
+[00:30:33.520 --> 00:30:38.320]   are what really count but I'm going to defend the developers too it's important that you have
+[00:30:38.320 --> 00:30:45.360]   developers on a platform and that developers I mean you can treat them unfairly to a certain
+[00:30:45.360 --> 00:30:51.360]   point but some point you could chase and without actually I got to tell you Windows Phone died
+[00:30:51.360 --> 00:30:55.920]   for one reason only because there were no developers for it. But the developers aren't
+[00:30:55.920 --> 00:31:00.400]   Apple's not like losing a lot of developers I mean it's the best it's the best online platform
+[00:31:00.400 --> 00:31:04.400]   in the world like it is it is worth putting and I'm sure it can complain about it but it's worth
+[00:31:04.400 --> 00:31:07.200]   putting up with the trouble because you're in the app store.
+[00:31:07.200 --> 00:31:12.480]   Rich has been developing longer than I have but you know I've been developing apps since the late
+[00:31:12.480 --> 00:31:17.120]   90s that I've been selling on a variety of different things and I got to tell you like for me
+[00:31:17.120 --> 00:31:23.040]   given that no app has ever made more than a million dollars a year that I made so 15 percent like I
+[00:31:23.040 --> 00:31:28.480]   paid you know digital river was 23 percent. You have four nothing like you know and I don't have
+[00:31:28.480 --> 00:31:33.600]   to manage security I don't have to like there are so many things I don't have to do as a developer
+[00:31:33.600 --> 00:31:38.320]   as a small developer for 98 percent of the developers that out there it's pretty magical little place.
+[00:31:38.320 --> 00:31:43.120]   Now people you know like it's that for the 98 percent they're paying 15 percent that are
+[00:31:43.120 --> 00:31:50.000]   that it's for the big bigger developers that this starts to hurt because it's a lot more money
+[00:31:50.640 --> 00:31:57.680]   for them but I think that it's it is a the problem is that all things are confidence game and if the
+[00:31:57.680 --> 00:32:01.920]   user starts to get frustrated with the apps if they start getting frustrated with the platform as a
+[00:32:01.920 --> 00:32:07.680]   small developer that I am now and again I'm concerned that there's two things that I'm concerned about
+[00:32:07.680 --> 00:32:13.760]   one is as confidence lowers we start to end up with people not wanting to buy not buy as fluidly like
+[00:32:13.760 --> 00:32:17.040]   I go on the app store now and I go oh I don't know if I like that app or not but I'll download it
+[00:32:17.040 --> 00:32:20.960]   and buy it just because I want to see what four dollars gets me you know that may go away the
+[00:32:20.960 --> 00:32:24.720]   other side of it is the most efficient thing for Apple to do if there's any real competition is to
+[00:32:24.720 --> 00:32:30.080]   start building subscriptions like arcade so the the most you know Apple's most efficient way to
+[00:32:30.080 --> 00:32:33.840]   continue to generate revenue would be to have a bigger subscription it's a little bit more
+[00:32:33.840 --> 00:32:38.880]   that gets you productivity apps get you you know and starts to you know just dig into that and that
+[00:32:38.880 --> 00:32:42.640]   as a small as a big developer that's not going to affect epic but as a small developer that's
+[00:32:43.200 --> 00:32:47.920]   you know if Apple starts taking up that that space to generate revenue it's a real
+[00:32:47.920 --> 00:32:54.000]   really painful you know like you know for people to build their own thing when again there's a
+[00:32:54.000 --> 00:32:57.760]   there's a thing that I don't pay I don't pay a subscription I get it all so that's those are the
+[00:32:57.760 --> 00:33:01.600]   two and again we don't know what is going to happen but that's the thing that I worry about is I
+[00:33:01.600 --> 00:33:06.080]   have something that I'm quite happy with as a user like I don't have any complaints as a user and
+[00:33:06.080 --> 00:33:10.240]   even as a developer I haven't run into any I mean we've gotten a kickback and then we we figured out
+[00:33:10.240 --> 00:33:13.920]   I'm not trying to develop I'm not trying to release something the next day like I we we sit there and
+[00:33:13.920 --> 00:33:19.440]   we have in our timeline there's a either a two or three week window of we're gonna finish the app
+[00:33:19.440 --> 00:33:23.440]   then we're gonna do the app store thing and then we're gonna come out the other end you know and
+[00:33:23.440 --> 00:33:27.680]   and so when you a lot of complaints I find obviously someone's don't try to do something really exotic
+[00:33:27.680 --> 00:33:31.120]   or they're trying to do something in a very short type time frame which is you know and those are
+[00:33:31.120 --> 00:33:34.640]   the two things that we see people complaining on Twitter about you know and so the thing is is
+[00:33:34.640 --> 00:33:40.800]   that I think that we have some and I've just seen this happen in other places we have something that
+[00:33:40.800 --> 00:33:45.600]   works really well we don't know what all the ingredients are and if we start pulling the ingredients
+[00:33:45.600 --> 00:33:50.000]   out we may end up with something a lot less that we can't put back into where it was before yeah yeah
+[00:33:50.000 --> 00:33:55.360]   well we've been talking a lot about like just the money part of it and the things are part of it
+[00:33:55.360 --> 00:34:00.400]   one things I really want to ask rich about is that like since you've got like BB Edit you've got
+[00:34:00.400 --> 00:34:04.000]   customers you you get from outside the app store on the Mac you've got customers you've got from
+[00:34:04.000 --> 00:34:10.080]   inside the Mac store app store on the Mac like is it harder what's the difference between your
+[00:34:10.080 --> 00:34:14.080]   relationship with your customers because it does feel like Apple makes it really hard to know
+[00:34:14.080 --> 00:34:19.120]   who your customers are to just respond directly to them to make life better for them if they're
+[00:34:19.120 --> 00:34:22.480]   buying through the app store and I don't that's that's not one of those dogma things that I really
+[00:34:22.480 --> 00:34:28.160]   wish that Apple would reconsider but again I'm not a developer well that's a really good question
+[00:34:30.400 --> 00:34:36.160]   the the app store fundamentally it makes it impossible for us to have a relationship with
+[00:34:36.160 --> 00:34:41.360]   the app store customer and I'm I'm sorry about the glare that's good it works really well with
+[00:34:41.360 --> 00:34:48.640]   your head I think oh geez that's all right good morning thank you thank you for sitting for your
+[00:34:48.640 --> 00:34:53.360]   quick quick contest now you're walking along a driver of her bed you see a turtle while it's back
+[00:34:55.920 --> 00:35:04.560]   a little a little a blade runner reference okay keep going so so um um Apple does not share
+[00:35:04.560 --> 00:35:13.120]   uh customer data with developers uh app store developers so I have no idea who has purchased
+[00:35:13.120 --> 00:35:19.200]   BB Edit in the app store and we're very careful about the relationship we have with our customers
+[00:35:19.200 --> 00:35:26.320]   when when when somebody when somebody buys from us it's not a license to spam them but we do have a
+[00:35:26.320 --> 00:35:32.080]   mailing list where we occasionally send out news and announcements and app store customers
+[00:35:32.080 --> 00:35:39.520]   miss out on that because we can't connect with them we can't find out we don't get a report
+[00:35:39.520 --> 00:35:46.080]   like we do from our normal e-commerce provider we don't have a record of the sale we don't know
+[00:35:46.080 --> 00:35:51.040]   how to get in touch with the customer if something is going on like hey here's a new update
+[00:35:51.040 --> 00:35:59.280]   nothing like that and the only way we find out if somebody bought in from the app store is if they
+[00:35:59.280 --> 00:36:08.400]   write to us for technical support and this is actually a sore spot for us because we have
+[00:36:08.400 --> 00:36:15.440]   occasionally customers who have store issues we can't help them there's nothing we can do there's
+[00:36:15.440 --> 00:36:18.960]   we can't look up their purchase to find out if they have an active subscription
+[00:36:18.960 --> 00:36:22.080]   we can't even get that information you don't get anything
+[00:36:22.080 --> 00:36:29.280]   no wow we get nothing we get nothing no and um and while I wouldn't mind you contacting me
+[00:36:29.280 --> 00:36:34.080]   as a user I don't want to give my information over like like I want to buy exactly in I don't
+[00:36:34.080 --> 00:36:39.040]   know you I didn't want to like for 99 percent of the apps I buy I don't want to have any interaction
+[00:36:39.040 --> 00:36:44.560]   I choose not to and I definitely don't want to get an email right I I think that the amount
+[00:36:44.560 --> 00:36:51.520]   of engagement ultimately should be in the customer's hands if if a customer ticked the box that said
+[00:36:51.520 --> 00:36:59.360]   I don't want this developer knowing who I am absolutely no problem you know that could even be
+[00:36:59.360 --> 00:37:06.800]   a default although you know folks don't like to change defaults but for customer service purposes
+[00:37:06.800 --> 00:37:12.880]   there's nothing we can do there's there's not even a contact we can write to and say hey this person
+[00:37:12.880 --> 00:37:20.000]   wrote to us and they're having a story issue um and you get involved in the help that needs to be
+[00:37:20.000 --> 00:37:24.080]   I okay fine you don't want to give up that information but there needs to be a conduit
+[00:37:24.080 --> 00:37:30.400]   you know uh we have something somewhat analog as if people have trouble with a sponsor they
+[00:37:30.400 --> 00:37:36.080]   often write to us because we introduced them to the sponsor uh I can't obviously solve a problem
+[00:37:36.080 --> 00:37:41.680]   that you're having with a third party but we always make sure we have a way to send that complaint
+[00:37:42.240 --> 00:37:47.360]   directly to the sponsor with at a high enough level so that the sponsor's gonna act on it and
+[00:37:47.360 --> 00:37:54.160]   that's worked quite well for a lot of our listeners and a lot of our sponsors it seems that would be
+[00:37:54.160 --> 00:37:58.480]   the minimum apple could do is at least give you a I can't believe they don't give you a contact
+[00:37:58.480 --> 00:38:04.240]   for tech support I guess they don't want to I mean it's such a huge scale maybe they
+[00:38:04.240 --> 00:38:09.280]   you know can't support it yeah and as and as a quick set just as a quick side note another bit
+[00:38:09.280 --> 00:38:13.200]   of praise for for bare-bones software one of the one of the reasons why rich and I are such
+[00:38:13.200 --> 00:38:18.400]   good friends are because this is one of those companies where I'm at it's three 30 in the morning
+[00:38:18.400 --> 00:38:24.400]   there's something about BB edit I don't understand I fire off a very tired and maybe not very
+[00:38:24.400 --> 00:38:29.600]   formed email that uh might might include the phrase this is a piece of crap why the hell would
+[00:38:29.600 --> 00:38:35.200]   anybody do it this way and then like a half hour later I get a very kind and open like gee I'm
+[00:38:35.200 --> 00:38:39.280]   sorry but here's here let me explain why this feature works the way it does why is it but why is
+[00:38:39.280 --> 00:38:43.760]   it not working the way you want to work with it and it's that kind of relationship that you kind
+[00:38:43.760 --> 00:38:49.440]   of want that kind of makes you a repeat customer two decades later and it kind of frustrates me that
+[00:38:49.440 --> 00:38:54.400]   apples just again as a dogmatic thing is simply saying we're not going to make it even possible
+[00:38:54.400 --> 00:39:00.400]   for someone to choose you know even even if even if someone has recommended bare BB edit specifically
+[00:39:00.400 --> 00:39:05.200]   because their tech support and their support is so personal and hand-holding and good no we're not
+[00:39:05.200 --> 00:39:10.400]   gonna let you have that relationship because dogma yeah yeah I mean that that relationship is our
+[00:39:10.400 --> 00:39:15.280]   stock and trade I mean that's that's a super we are there are a few companies like BB edit like
+[00:39:15.280 --> 00:39:20.720]   that but it says important as your product I mean I think that's absolutely absolutely true um
+[00:39:20.720 --> 00:39:24.240]   and I speaking of dogmatic I'm absolutely dogmatic in the other direction I think all
+[00:39:24.240 --> 00:39:29.760]   software should be open I think all you should only use non-proprietary software I don't live I don't
+[00:39:29.760 --> 00:39:34.240]   walk the walk because the iPhone is clearly a superior platform to the pinephone running
+[00:39:34.240 --> 00:39:43.760]   on Gerald Linux unfortunately because I would prefer to use that but well you know Tudo's to
+[00:39:43.760 --> 00:39:48.720]   rich because he does a great product and rich I you know I I think absolutely you know but we
+[00:39:48.720 --> 00:39:53.520]   talked a couple of weeks ago about BB edit and how great it is in the new version 14
+[00:39:54.480 --> 00:39:59.760]   the we love the reg edit and the reg edit playground it's just fantastic I love the
+[00:39:59.760 --> 00:40:05.920]   the command line interface so I can do MPW style terminal so that I have a shell worksheet
+[00:40:05.920 --> 00:40:09.120]   somebody actually asked me about that on twitter they're like what were you and Leo talking about
+[00:40:09.120 --> 00:40:14.480]   them I can shell work if you ever use it you will never go back to a normal terminal it's just the
+[00:40:14.480 --> 00:40:21.040]   best even emacs doesn't do it and now that you support LSP and I can you know do my lisp in there
+[00:40:21.040 --> 00:40:25.120]   I think it's just a really it's it's gotten better and better and better and better
+[00:40:25.120 --> 00:40:29.920]   and there's a lot of credit here I appreciate it yeah a lot of credit to you and I presume your
+[00:40:29.920 --> 00:40:37.600]   team as a developer but also to your customer base who have supported you for congratulations 30 years
+[00:40:37.600 --> 00:40:46.640]   30 years come come May I think it'll be yeah pretty yeah and yeah 100% agreed it's you know the
+[00:40:46.640 --> 00:40:52.080]   customers our customers the ones who are new to us the ones who've been with us this whole time
+[00:40:52.080 --> 00:40:58.080]   I've said I've bought every update every freakin I don't know when the first one was but it's thanks
+[00:40:58.080 --> 00:40:59.680]   to you I can have pizza tonight
+[00:40:59.680 --> 00:41:07.360]   times have changed a little bit it was for a long time you know if you were a web developer you
+[00:41:07.360 --> 00:41:12.160]   were using BB edit to craft your website your pages yep I don't know if that's still the case
+[00:41:12.160 --> 00:41:19.760]   who do you think uses BB edit these days rich so so we've seen to your point we've seen
+[00:41:19.760 --> 00:41:28.160]   some shifting in in who our audience is part of that is the ecosystem right folks don't spend
+[00:41:28.160 --> 00:41:35.520]   much time crafting HTML anymore they sure instead instead they write code that generates it right
+[00:41:35.520 --> 00:41:40.720]   or they use systems that generate it right they they build websites using WordPress and
+[00:41:40.720 --> 00:41:46.160]   and so they'll write their posts in a product like Mars edit another great indie product
+[00:41:46.160 --> 00:41:51.760]   but they'll use BB edit as a front end for Mars edit to write their content
+[00:41:51.760 --> 00:42:03.760]   oh no he just described me ah yeah right authors journalists technical writers data scientists
+[00:42:05.360 --> 00:42:11.120]   yes still developers who who want that lighter weight environment than say
+[00:42:11.120 --> 00:42:17.040]   ex-code folks actually want their website to work yeah but if you're using VS code you really
+[00:42:17.040 --> 00:42:23.120]   should look at BB edit because now with LSP support BB edit is a is a peer to VS code but it's
+[00:42:23.120 --> 00:42:28.880]   native it's not a electron app and it really is great I mean yeah I there may be a whole new
+[00:42:28.880 --> 00:42:33.680]   generation of people starting to use you which would be it's kind of a intriguing thought
+[00:42:34.320 --> 00:42:38.960]   cheese on top of everything else I'm glad you know this we praise barebone software and BB edit so
+[00:42:38.960 --> 00:42:42.880]   often it's wherever we get the opportunity to praise it with the man himself like in the chat
+[00:42:42.880 --> 00:42:51.120]   and it's part of what I love about BB edit is that you can see all of the dovetails and all of
+[00:42:51.120 --> 00:42:56.720]   the dowel jointing and all that like intricate intricate work that went in so that you have the
+[00:42:56.720 --> 00:43:01.840]   structure that has been going on for 30 years now and there's no there's no mystery as to why
+[00:43:01.840 --> 00:43:06.880]   it is still going on 30 years later because the craftsmanship and the intention to detail of every
+[00:43:06.880 --> 00:43:13.680]   last little nut and bolt is absolutely there and it's such a satisfying thing to be using an app that
+[00:43:13.680 --> 00:43:19.680]   was built directly for the platform for which it is running it's not just somebody's project that
+[00:43:19.680 --> 00:43:25.200]   started off on Linux and then they decided to do a Mac port and then three generations later they
+[00:43:25.200 --> 00:43:31.200]   decided to unify the code base to make it for x y and z it is for a purpose for a platform
+[00:43:31.200 --> 00:43:37.760]   it fits in there so nice and perfectly that it is it is a joy to to really use that and that's a
+[00:43:37.760 --> 00:43:42.640]   hell of a thing to say about a text editor but with BB edit it's absolutely true yeah thank you I
+[00:43:42.640 --> 00:43:48.800]   appreciate that and it feels great to hear that because it means we did it right yeah you know
+[00:43:48.800 --> 00:43:54.320]   everything everything that my colleagues and I have have put into it all of the all of the
+[00:43:54.320 --> 00:44:02.000]   slings and arrows all the platform transitions all the all the API churned the recent 14-6 update
+[00:44:02.000 --> 00:44:11.840]   had I can't even begin to go into the amount of effort that went into just what looks like a
+[00:44:11.840 --> 00:44:20.560]   tiny feature update was that because of Ventura or it was it was motivated by Ventura
+[00:44:20.560 --> 00:44:30.560]   the the internal text rendering that we that we were using was an API ironically an API that we
+[00:44:30.560 --> 00:44:36.000]   were using because 20 years ago Apple said stop using this old API and start using this new one
+[00:44:37.600 --> 00:44:42.400]   10 years ago they said stop using this new one we told you to use 20 years ago and start using
+[00:44:42.400 --> 00:44:49.360]   this new new one oh dear and we said well wait a minute this doesn't do what we need
+[00:44:49.360 --> 00:44:54.320]   and how do we make it fast and they said well just do it
+[00:44:54.320 --> 00:45:03.200]   you're welcome you're brave because you are so you aren't working in an open environment so
+[00:45:03.200 --> 00:45:08.000]   you really do have to it is apples where the highway for anybody developing for Apple
+[00:45:08.000 --> 00:45:15.440]   it kind of is and then what started happening was the API that we were using started having
+[00:45:15.440 --> 00:45:22.320]   performance and reliability problems oh one of the most frequently encountered symptoms was
+[00:45:22.320 --> 00:45:29.520]   folks would upgrade their OS and suddenly BBA would hang on startup because it was waiting for
+[00:45:30.240 --> 00:45:37.600]   the OS font service which was hanging thanks thank you yeah just stalling it started
+[00:45:37.600 --> 00:45:44.080]   oh not everybody had it happen but enough had it happen it's like okay and they let us know that
+[00:45:44.080 --> 00:45:52.240]   they were going to be officially deprecating the font API that we were using
+[00:45:52.240 --> 00:45:58.880]   and we said okay well it's time let's let's get into this let's figure out what it takes
+[00:45:59.440 --> 00:46:05.440]   um we put some big brains on it had a couple breakthroughs and were able to get it done
+[00:46:05.440 --> 00:46:13.920]   in advance of of the OS upgrade but it was a lot of work and a lot of stress and and you know
+[00:46:13.920 --> 00:46:23.040]   the the the tough thing about it with a product of this old is how do you keep it fresh
+[00:46:24.160 --> 00:46:30.480]   and keep and maintain this character of the product that draws right customers to you right
+[00:46:30.480 --> 00:46:38.080]   right um you know how do you how do you make BBA that it still be BBA that and that goes to okay
+[00:46:38.080 --> 00:46:44.640]   well what are the fundamental characteristics characteristics of product it's fast right it's
+[00:46:44.640 --> 00:46:51.840]   as Andy said dove tailed into the platform and so there's a lot of work involved in keeping up
+[00:46:51.840 --> 00:46:59.120]   with with what Apple's doing who let me ask you a couple of things is it uh do you use Xcode or
+[00:46:59.120 --> 00:47:05.920]   it's Objective C I would imagine since the code base is pretty old so there's there's uh we do
+[00:47:05.920 --> 00:47:16.320]   use Xcode because um uh it's there's no choice in fact right it's free but there's no choice so
+[00:47:16.320 --> 00:47:21.360]   there you go well well this is the I could probably go on for an hour about the state of the
+[00:47:21.360 --> 00:47:28.240]   developers full market but I won't um uh Xcode is the only option if you're if you are going to be
+[00:47:28.240 --> 00:47:36.720]   deploying code that runs on any Apple platform whether it's a watch or a macro uh you you you
+[00:47:36.720 --> 00:47:43.200]   need to use Apple's tool chain if you are going to build and and and deploy a product is that
+[00:47:43.200 --> 00:47:48.000]   because of notarization is that something new is that always I mean I've written executables in
+[00:47:48.800 --> 00:47:53.760]   you know scheme that I can turn into Mac executables just for me I wouldn't want to distribute it
+[00:47:53.760 --> 00:48:00.480]   but right you you you can you can build and run executable code using a command line tool chain
+[00:48:00.480 --> 00:48:08.080]   right you can use homebrew and you can install uh LLVM and the C tools the C tools yeah clang um
+[00:48:08.080 --> 00:48:16.720]   but uh you're still doing a lot of work by hand Xcode is is a build system it's
+[00:48:17.360 --> 00:48:22.960]   code signing notarization deployment to the app store all of that and that does make it easy
+[00:48:22.960 --> 00:48:30.640]   unless you don't like Xcode right and it doesn't matter as you know it's it's free but there's no
+[00:48:30.640 --> 00:48:36.640]   choice uh well it actually is 99 bucks a year but it's relatively expensive let's put it that
+[00:48:36.640 --> 00:48:42.320]   one yeah and I and I miss the days when when developer tools were expensive and there was real
+[00:48:42.320 --> 00:48:47.440]   competition in the marketplace yeah no kidding um you used to work for think didn't you I did I
+[00:48:47.440 --> 00:48:54.480]   used to work for think oh think C was so amazing what an amazing tool that was oh they they were
+[00:48:54.480 --> 00:48:59.040]   they were groundbreaking when they came out I still remember the old ads for for light speed C
+[00:48:59.040 --> 00:49:05.280]   as it was called before it was think C um and the tagline was make mistakes faster yeah
+[00:49:06.240 --> 00:49:14.320]   which is I love that and it really stuck with me right it's your null pointer execute faster
+[00:49:14.320 --> 00:49:21.360]   than ever compile faster than ever yeah I mean in apple keeps coming out with faster and faster
+[00:49:21.360 --> 00:49:25.520]   hardware and you can run an infinite loop in three seconds would you be would you
+[00:49:25.520 --> 00:49:33.120]   would you that's a programmers joke would you uh would you be interested in moving to swift or
+[00:49:33.120 --> 00:49:38.400]   have you moved some code parts of the code is to swift so there is a small amount of swift code
+[00:49:38.400 --> 00:49:44.000]   in in bb edit uh it was in existing library and I don't remember what it what it does right now
+[00:49:44.000 --> 00:49:55.520]   as long as it keeps doing it that's not a problem um we are institutionally uh at barebounds
+[00:49:55.520 --> 00:50:00.800]   we're not institutionally first movers we're not yeah uh we're not bleeding edge types because
+[00:50:01.520 --> 00:50:08.480]   um reliability is is what we're all about right that's our brand and and that really
+[00:50:08.480 --> 00:50:15.520]   militates against anything uh early adoption of any new technology except for something which we
+[00:50:15.520 --> 00:50:23.600]   know is going to directly benefit our customers so when we get to a point where um adopting more
+[00:50:23.600 --> 00:50:30.000]   and more swift code is going to bring some benefit to the product uh then yeah of course we're there
+[00:50:31.120 --> 00:50:36.160]   um swift is an interesting development it is clearly the direction that that apple's moving in
+[00:50:36.160 --> 00:50:43.520]   and it's sort of it's sort of foolish to say well i'm not going to program in swift ever
+[00:50:43.520 --> 00:50:49.520]   until i retire it's like you know you you don't you don't deny new things you know bb edit was
+[00:50:49.520 --> 00:50:55.520]   written in pascal originally wow with with little pieces of c code and some of the original c is
+[00:50:55.520 --> 00:51:01.840]   there the pascal is long gone now there's objective c and a whole pile of c plus plus code and a little
+[00:51:01.840 --> 00:51:07.360]   bit of swift and it's like we use the tools that we need to use to get the job done.
+[00:51:07.360 --> 00:51:13.440]   Makes sense yeah in the early days uh all apple development was pascal um that's where the
+[00:51:13.440 --> 00:51:18.000]   early back programmer workshop was was so great and that's that's where those sheets this
+[00:51:19.600 --> 00:51:26.320]   command band sheets come from um how who how tell you how big is your team who who is your team
+[00:51:26.320 --> 00:51:33.680]   let's give them some credit so so we have we have a small team and and uh they're in the all
+[00:51:33.680 --> 00:51:38.160]   all of the names are in the about box and there's there's a lot of them um oh well well they'll let
+[00:51:38.160 --> 00:51:43.680]   people go to the about box yeah yeah it's an excuse to download the app and open the about box you know
+[00:51:43.680 --> 00:51:48.720]   there might be a you know you might recognize a name in there in fact that's right you you you
+[00:51:48.720 --> 00:51:55.600]   there there are so many names in there wow as Jason says that's cool you you might recognize
+[00:51:55.600 --> 00:52:01.280]   the name um and and yeah over the history of the product there have been way too many people to
+[00:52:01.280 --> 00:52:10.240]   nice to name yeah uh g g do you have a staff these days yes uh we we have a small staff we we
+[00:52:10.240 --> 00:52:15.840]   keep the office running because we we do customer service and support i had up engineering and i
+[00:52:15.840 --> 00:52:21.200]   supervise a couple of people um but you know these days we're we're keeping it
+[00:52:21.200 --> 00:52:28.720]   small and lean and flexible yeah and you know as much as i love open source the next best thing is
+[00:52:28.720 --> 00:52:37.600]   exactly that is a small shop with a committed developer committed team that really listens the
+[00:52:37.600 --> 00:52:41.840]   customer and has been making a product for a long time there really is nothing better than that
+[00:52:41.840 --> 00:52:46.720]   in any sphere because that's what that's what you really want is this deeply committed
+[00:52:46.720 --> 00:52:50.480]   developer do you want to rich just do this to to the day you
+[00:52:50.480 --> 00:53:02.240]   kick the bucket uh i i you know what i i see my customer base getting older um and i realized
+[00:53:02.240 --> 00:53:08.160]   that i'm aging along with them i would all things being equal prefer not to die at my desk
+[00:53:10.960 --> 00:53:17.200]   yeah i will how old are you i'm in my middle 50s oh you got plenty of time you got plenty of time
+[00:53:17.200 --> 00:53:22.000]   yeah and and and i i still like what i'm doing even though there are frequently
+[00:53:22.000 --> 00:53:30.160]   frustrations and stresses um i've been doing this for such a long time though i can't imagine
+[00:53:30.160 --> 00:53:35.280]   myself doing anything else and as long as it's fun i mean one of the great things about working on a
+[00:53:35.280 --> 00:53:42.800]   tech senator is there is no shortage of of new ideas oh it's no shortage of of new technologies
+[00:53:42.800 --> 00:53:50.720]   no shortage of of things you know the the other day it's like wow what if it could do and i
+[00:53:50.720 --> 00:53:57.520]   started enumerating i'm like mind blown okay let me sit down and start sketching this out
+[00:53:57.520 --> 00:54:04.720]   just out of nowhere um and that's the great thing about text right it's it's everywhere yeah
+[00:54:04.720 --> 00:54:09.440]   it's a universal format although as you know format it's a universal expression of
+[00:54:09.440 --> 00:54:15.760]   everything in the world of of of unix computing no program is ever done until it can send and
+[00:54:15.760 --> 00:54:20.880]   receive email so you might want to yes you might want to get to work on that it's it well you know
+[00:54:20.880 --> 00:54:31.520]   we did already what uh yeah no is uh uh uh mail smith oh i loved mail smiths we were sad about
+[00:54:31.520 --> 00:54:36.400]   mail smith going away yeah mail mail smith mail smith well you can you can thank gmail for that
+[00:54:36.400 --> 00:54:44.160]   mail mail smith of of yore was an expression of zuinski's law which as you said is no piece of
+[00:54:44.160 --> 00:54:54.560]   software is done until it it can send and read email um it uh mail smith um was built from the
+[00:54:54.560 --> 00:55:00.240]   bb edit foundation in fact it's two products the two products share a significant amount of code
+[00:55:01.040 --> 00:55:06.560]   uh and that makes sense really what it was it was you know mail smith was bb edit that could send
+[00:55:06.560 --> 00:55:10.400]   and receive and store email hysterical so yeah been there
+[00:55:10.400 --> 00:55:16.080]   hey rich rich i'm curious about what you think of chat gpt
+[00:55:16.080 --> 00:55:23.040]   and when you're gonna let chat be gpt write your write your code for you so we there's some
+[00:55:23.040 --> 00:55:28.080]   develop some folks that i was you know that in the cg area and they started playing with it
+[00:55:28.080 --> 00:55:34.160]   getting into like write exporters for them out of mia and it sure worked yeah and and we're seeing
+[00:55:34.160 --> 00:55:38.800]   you know folks writing whole games you know in it simple you know stuff so just copilot i'm just
+[00:55:38.800 --> 00:55:44.880]   curious copilot i'm just i'm just curious like what your opinion is of where ai's going just
+[00:55:44.880 --> 00:55:50.640]   what we have here just curious to get your two cents interesting question so uh let me preface
+[00:55:50.640 --> 00:56:01.360]   this by saying that i have uh not uh spent any time with chat gpt i have spent a little time with uh
+[00:56:01.360 --> 00:56:09.440]   mid-journey and dali for for our generation right my my sense of it is uh is that these systems
+[00:56:09.440 --> 00:56:15.280]   are only as good as their data corpus and they're i think there's a real possibility of of sort of
+[00:56:16.640 --> 00:56:24.080]   regenerating bad code if you will um i mean i think that i i'm just curious like because like i
+[00:56:24.080 --> 00:56:28.000]   know a lot of well not a lot i know a couple developers right now and teams that are using
+[00:56:28.000 --> 00:56:32.880]   the brainstorm so they just sit there and just go write me this they don't actually use the code
+[00:56:32.880 --> 00:56:38.880]   but they go oh that's an interesting way of doing that because a chat gtp will come up with some
+[00:56:38.880 --> 00:56:43.360]   gpt will often come up with something new like something different than what they expected
+[00:56:43.360 --> 00:56:50.960]   in the same way i've been playing with mid-journey probably more than sure and um and uh um and
+[00:56:50.960 --> 00:56:56.800]   other than you know actually you know building chubaka uh as a robot um in the style of rembrand
+[00:56:56.800 --> 00:57:04.720]   um the uh the uh i uh uh practical applications very practical applications of but but the um
+[00:57:04.720 --> 00:57:10.640]   uh i you know i find that thinking like if i think about a logo i i describe the logo and i get
+[00:57:10.640 --> 00:57:16.560]   you know thousands of them do i use any of them no do i take four or five of them and use them as a
+[00:57:16.560 --> 00:57:21.440]   thought thought idea absolutely and i think that but i'm just curious what you think about the
+[00:57:21.440 --> 00:57:29.040]   integration or or where you think that's going it's a valid notion to to use something like that to
+[00:57:29.040 --> 00:57:36.080]   explore concepts i think we're a long way from something being able to replicate the creativity
+[00:57:36.080 --> 00:57:44.160]   that goes into writing a uh an actual product uh so i you know i i do a little
+[00:57:44.160 --> 00:57:50.480]   i mean that's what co-pilot does very well by by cribbing from open source projects on on gihub
+[00:57:50.480 --> 00:57:55.200]   yeah and there there's there's been some controversy about that yes yeah but it we
+[00:57:55.200 --> 00:58:00.960]   would never do a whole you couldn't do be be evident if you were saying i need a login routine for
+[00:58:00.960 --> 00:58:11.440]   my website maybe but you know uh maybe on the other hand um you know is is there a uh
+[00:58:11.440 --> 00:58:19.920]   is there a day coming where you could you could say to chat gpt why don't they come up with a better
+[00:58:19.920 --> 00:58:26.320]   name uh they will it's three million dollars a day to run it they're they're that won't it's not
+[00:58:26.880 --> 00:58:33.360]   we're a little way off from it being a user user product right but you know it's and i think we're
+[00:58:33.360 --> 00:58:40.400]   way off from saying you know write me a text editor or write me a spreadsheet it's more like a routine
+[00:58:40.400 --> 00:58:44.000]   though like write me this yeah something i'll do this uh and i could see i was just thinking about
+[00:58:44.000 --> 00:58:48.560]   it with bb edit i could see it being something like it was a window a chat gpt window open and you
+[00:58:48.560 --> 00:58:53.280]   say just ask it like write this and it would just give me some text i may not use it or make
+[00:58:53.280 --> 00:58:57.520]   cut in pieces parts of it i mean you know yeah come on that's exactly that you would be typing a
+[00:58:57.520 --> 00:59:03.200]   long well my funny my one my favorite things with bb edit is just simply i've got this big text
+[00:59:03.200 --> 00:59:08.160]   file that is mongued up i need to i need to sort it out so i can use it as input for something like
+[00:59:08.160 --> 00:59:14.800]   if there were chat gpt as bb edit has wonderful helpers uh for regular expressions it'd be great if
+[00:59:14.800 --> 00:59:19.280]   there was the the way that i would love to see chat gpt or something like that would be i simply
+[00:59:19.280 --> 00:59:25.280]   say yeah take this file and every time you see the word banana with two semicolons and then a hyphen
+[00:59:25.280 --> 00:59:32.400]   after it uh change it to mango but not if it's at the start of a line and that's what grip is for
+[00:59:32.400 --> 00:59:40.160]   thanks to bb edit i know exactly how to do that and the next thing you know right you you ask chat
+[00:59:40.160 --> 00:59:46.400]   gpts that says you know write me a regular expression that that does this and the next thing you know
+[00:59:46.400 --> 00:59:51.600]   you're getting a phone call from some angry cis men over there because you actually brought the
+[00:59:51.600 --> 00:59:57.200]   whole thing down one of the best uses for both co-pilot and chat gpt is giving it really obscure
+[00:59:57.200 --> 01:00:02.800]   arcane regexes and it will tell you what it does which is you know that's nice i mean you can do
+[01:00:02.800 --> 01:00:08.640]   that on a website too but that's nice um rich we're i want to take a break uh you're more than welcome
+[01:00:08.640 --> 01:00:14.480]   to stick around i think there's an african blue that needs feeding i guess i don't know uh no we can
+[01:00:14.480 --> 01:00:21.200]   blue no we can do african gray african gray whatever i don't know african gray is a parrot and it's a
+[01:00:21.200 --> 01:00:26.400]   parrot i don't know parrots i do notice though the chat room has noticed that you have a lovely bottle
+[01:00:26.400 --> 01:00:34.480]   of poop remover over your right shoulder i try never to get it on myself and a number of people
+[01:00:34.480 --> 01:00:45.600]   are told we're amazed to know such a thing exists so oh well there it is uh poop off bird
+[01:00:45.600 --> 01:00:51.520]   see now if i knew that it exists i might actually consider a bird oh yeah it's it's great for for
+[01:00:51.520 --> 01:00:58.400]   cleaning up bird cages and so forth yeah um so sorry about that sun in my face no that's fine we're
+[01:00:58.400 --> 01:01:03.840]   i'm gonna let you go because i i don't want to slow down the progress for uh for a BB ed at 15 we
+[01:01:03.840 --> 01:01:09.280]   got it we got to keep working on that i'm gonna go write a chat gpt bot now thank you so much
+[01:01:09.280 --> 01:01:16.640]   very good hey a real pleasure rich seagull everybody who uses a mac i don't know why you wouldn't
+[01:01:16.640 --> 01:01:22.960]   have a copy of bare bones on it uh BB ed it's free it's free it's free you get almost you get
+[01:01:22.960 --> 01:01:28.800]   basically the the text Wrangler version of BB ed for free and then of course uh you will soon
+[01:01:28.800 --> 01:01:33.120]   pay for it and pretty soon you'll be paying rich every couple of years for an update because it's
+[01:01:33.120 --> 01:01:37.760]   worth it you know it's worth it and rich we want to keep you right and that's really the truth of it yeah
+[01:01:37.760 --> 01:01:43.440]   BB ed it BB ed it on your on your mac is like having Italian dressing someone you're covered
+[01:01:43.440 --> 01:01:52.160]   buy it at some point you will definitely use it you'll be glad you're out of it okay you can use
+[01:01:52.160 --> 01:01:58.480]   it's it's not as good as it it sucks less but it's you know it still doesn't suck but uh that's
+[01:01:58.480 --> 01:02:04.400]   pretty good you could use that for a slogan it's uh it's a nice idea nice Italian dressing for
+[01:02:04.400 --> 01:02:10.720]   your computer very very Christmas so yeah merely paying a fraction of it forward rich and to and
+[01:02:10.720 --> 01:02:16.000]   to all of you have a great holiday great holiday rich really appreciate it thanks rich uh it's
+[01:02:16.000 --> 01:02:21.040]   always a pleasure to talk to you you are our local expert and uh we're very grateful for what you do
+[01:02:21.040 --> 01:02:28.080]   and i hope you have a wonderful holiday thank you put the sock back on the microphone no no
+[01:02:28.080 --> 01:02:35.120]   mating occurred i'm happy to say thanks rich you know i i think they can't hear me which is part of
+[01:02:35.120 --> 01:02:40.160]   they can't hear you which is part of why they're not not over ah yeah they'd be like you know what
+[01:02:40.160 --> 01:02:44.640]   it's somebody if you want a cameo i can arrange it yeah let's see yeah look where it is the very
+[01:02:44.640 --> 01:02:50.320]   white of the bird community let's see the Norwegian blue or the african gray or whatever it is
+[01:02:50.320 --> 01:02:54.560]   is there such a thing as an Norwegian bluer is that just a muddy bite that's not our dragon
+[01:02:54.560 --> 01:03:02.000]   sketch yeah yeah oh isn't isn't she oh she's this is a little bit this is Bruno and he uh
+[01:03:02.000 --> 01:03:08.240]   he he picks it as feathers a bit so he always looks a little bit a little bit racquet is Bruno a rescue
+[01:03:08.240 --> 01:03:16.800]   a rescue okay um no he he has just always been kind of an anxious bird and very young he developed
+[01:03:16.800 --> 01:03:21.760]   this habit of of barbering his feathers and i know i got a lot of parrots when they
+[01:03:22.480 --> 01:03:26.400]   when they pull their feathers a lot is because of the stress not the right environment and so
+[01:03:26.400 --> 01:03:30.240]   like a lot of times they can associate as rescue birds that voice i should explain shot actually
+[01:03:30.240 --> 01:03:34.640]   the boy running the board but apparently has a fascination with parrots i grew up with seven
+[01:03:34.640 --> 01:03:40.960]   birds oh there you go i was like i was like gosh yeah that's that's a that's a lot of that's a
+[01:03:40.960 --> 01:03:51.680]   lot of birds how old yeah old is Bruno Bruno is uh 15 15 but they live along they get out live you right
+[01:03:52.400 --> 01:03:58.080]   they will probably outlive with outlive me why and he's uh he's wondering who i'm talking to
+[01:03:58.080 --> 01:04:03.280]   right now he has he's because he can't they're smart he said why why is daddy talking to himself
+[01:04:03.280 --> 01:04:09.600]   yeah they he they're they're crazy smart yeah yeah you're a good boy aren't you oh and then and then
+[01:04:09.600 --> 01:04:15.680]   he's got they really looked like baby dinosaurs they really do when you see when you see him that way
+[01:04:16.400 --> 01:04:22.240]   teacup dinosaurs yeah you can have percize dinosaurs yeah you can we have we have turkey
+[01:04:22.240 --> 01:04:26.400]   wild turkeys go by our house and i'm like wow that looks a lot like a monster after yeah and this
+[01:04:26.400 --> 01:04:32.560]   and this and this is and this is tater hi tater um and she's a year older than Bruno and she's beautiful
+[01:04:32.560 --> 01:04:43.280]   uh she she's she's a little princess yeah and and she's got a very different disposition yeah she
+[01:04:43.280 --> 01:04:48.960]   doesn't she doesn't talk but she makes a lot of a lot of noises and yeah if you ever needed to
+[01:04:48.960 --> 01:04:55.200]   if you ever wondered about that relationship between birds and dinosaurs look at those
+[01:04:55.200 --> 01:05:00.960]   guys oh you got is oh you got to do is look at her feet yeah yeah and it's like oh yeah oh yeah
+[01:05:00.960 --> 01:05:06.720]   clever girl oh here you come all right all right gotta get the whole family on i'm camera
+[01:05:07.840 --> 01:05:11.760]   oh they they've developed uh they've learned the trick of climbing down off the
+[01:05:11.760 --> 01:05:16.560]   occasion coming over to my chair oh there you go all right they preach this rich i i'm sorry it's
+[01:05:16.560 --> 01:05:22.960]   four column birds four column birds where's the future it's cauli birds not calling
+[01:05:22.960 --> 01:05:30.160]   is it really enough andy is it really it is actually then of basically dark colored birds is
+[01:05:30.160 --> 01:05:36.080]   the original oh say it's the same reason why you call a certain dogs a cauli see i believe
+[01:05:36.080 --> 01:05:41.120]   him because he's wearing Vincent van Gogh's hat right now so exactly you see i wear it for respect
+[01:05:41.120 --> 01:05:47.040]   and it's working ritz segal happy holidays thank you thank you everybody thank you always a pleasure
+[01:05:47.040 --> 01:05:54.080]   having you on barebones.com you must go there now and get a copy for free happy Hanukkah
+[01:05:54.080 --> 01:05:58.800]   our show today we will come back with more there are some stories this week not many
+[01:05:58.800 --> 01:06:04.800]   that's why i'm glad we could we could consume an hour of the show with talking to rich always a
+[01:06:04.800 --> 01:06:09.520]   pleasure our show today brought to you by ada g now let me tell you something if you work
+[01:06:09.520 --> 01:06:18.480]   in a uh a shop of any kind that has apple gear you need ada g adi y it helps you do more than just
+[01:06:18.480 --> 01:06:26.960]   manage your apple devices it's the only fully cloud based multi-tenant apple mdm platform designed
+[01:06:26.960 --> 01:06:32.000]   for scalability you get all that you get the features the functionality the flexibility you need
+[01:06:32.000 --> 01:06:38.080]   to customize and manage your apple devices the way you want you can ensure your apple infrastructure
+[01:06:38.080 --> 01:06:43.040]   is optimized to best support your environment and help your team be as productive as possible
+[01:06:43.040 --> 01:06:48.800]   every day with ada g ada g help simplify apple it management by creating a solution that's so
+[01:06:48.800 --> 01:06:56.560]   flexible so customizable any it team can use it to easily maintain and secure the apple devices
+[01:06:56.560 --> 01:07:00.880]   in their managed networks ada g helps you ensure every apple device max i-phones ipads
+[01:07:01.440 --> 01:07:09.280]   secure supported ready to scale what makes ada g different zero touch deployment you can get new
+[01:07:09.280 --> 01:07:15.360]   members on boarded securely in under five minutes you'll love by the way you'll love the uh the concierge
+[01:07:15.360 --> 01:07:22.400]   platform with live agent capabilities that is that's good offload a lot of work for you secure
+[01:07:22.400 --> 01:07:28.000]   authentication with trusted providers means you eliminate security gaps with tested authenticated
+[01:07:28.000 --> 01:07:31.760]   features that your users can rely on you get real time device monitoring
+[01:07:31.760 --> 01:07:39.600]   and you can resolve issues automatically automated remediation before there's downtime
+[01:07:39.600 --> 01:07:47.040]   instantly of course completely custom compliance features because everybody has different needs
+[01:07:47.040 --> 01:07:53.440]   but you will love knowing your apple infrastructure is compliant and up to date always i love the
+[01:07:53.440 --> 01:07:58.720]   self-service capabilities that means your it team is you know save from endless reset requests
+[01:07:58.720 --> 01:08:06.400]   with 24/7 user access to resources and applications you get patch management uh without you know zero
+[01:08:06.400 --> 01:08:12.000]   touch patch management which is wonderful you can prevent delays fix bugs early minimize downtime
+[01:08:12.000 --> 01:08:18.080]   roll out new updates and patches asap it's easy to customize easy to scale to me any need
+[01:08:18.720 --> 01:08:25.120]   adapt to any environment with fast free catered migration it's an mdm tool that works as hard as
+[01:08:25.120 --> 01:08:32.880]   you do at the speed of now if you've got apple in your estate you need ada g go to ada g dot com
+[01:08:32.880 --> 01:08:39.520]   slash twit to start your free 14 day trial ada g dot com slash twit one user says we're able to tap
+[01:08:39.520 --> 01:08:44.720]   into economies of scale and optimize common tasks for all client environments we estimate this
+[01:08:44.720 --> 01:08:50.480]   reduces our time the time the team dedicates to mdm management but at least 30 percent every week
+[01:08:50.480 --> 01:08:56.480]   that means happy your team members happier users it allows us to more effectively secure our
+[01:08:56.480 --> 01:09:01.840]   managed endpoints get started today with ada g's award-winning support when you partner with ada g
+[01:09:01.840 --> 01:09:08.400]   you get white glove support from a team of experts who live eat and breathe apple they care about
+[01:09:08.400 --> 01:09:14.720]   your success as much as you do it's a better way to do your mdm on your apple devices guarantee apple
+[01:09:14.720 --> 01:09:23.440]   success with ada g start your 14 day free trial at addigy.com/twit and by the way if you buy before the
+[01:09:23.440 --> 01:09:29.040]   end of the year before December 31st 10 percent off your first year that's their holiday gift to
+[01:09:29.040 --> 01:09:37.680]   you so don't wait visit ada g dot com slash twit today little programming note this is our last
+[01:09:37.680 --> 01:09:45.600]   show of 2022 next week next Tuesday is the best of Mac break weekly and then we will be back here
+[01:09:45.600 --> 01:09:53.280]   doing the show live and in person in the new year on what is that January let me look at my calendar
+[01:09:53.280 --> 01:10:00.080]   I have to make sure January 4th 3rd January 3rd will be here it'll be the first show of the new
+[01:10:00.080 --> 01:10:07.840]   year actually for me looking forward to it we have our best of start on Monday for the whole week
+[01:10:07.840 --> 01:10:15.040]   for all of the shows so actually rich might have had something to say about this I'm gonna there
+[01:10:15.040 --> 01:10:26.800]   is a new report of a jailbreak or a I guess a a gateway manager break gatekeeper break
+[01:10:26.800 --> 01:10:34.960]   reported by Microsoft recircu-security researcher Jonathan Barr or the security flaw and you got
+[01:10:34.960 --> 01:10:38.480]   to have a good name these days if you're gonna have a security flaw is Achilles
+[01:10:40.160 --> 01:10:48.960]   CVE 2022 42821 now don't worry it's been fixed this is a responsible disclosure from Microsoft
+[01:10:48.960 --> 01:10:56.000]   they told apple apple fixed the vulnerability it allowed attackers to deploy malware on vulnerable
+[01:10:56.000 --> 01:11:03.840]   Mac OS devices bypassing gatekeeper so gatekeeper normally checks downloaded software from the
+[01:11:03.840 --> 01:11:09.760]   internet the way it does it I didn't this is actually kind of interesting apple when something is
+[01:11:09.760 --> 01:11:16.400]   downloaded from the internet sets the calm dot apple dot quarantine attribute Microsoft does
+[01:11:16.400 --> 01:11:20.240]   something similar we've talked about on Windows weekly called the mark of the web actually Steve
+[01:11:20.240 --> 01:11:27.280]   is also talked about security now so that quarantine app attribute for downloads tells apple okay
+[01:11:27.280 --> 01:11:31.200]   you know you got to let people know you got a that's where you see that pop up you got it from the
+[01:11:31.200 --> 01:11:36.800]   internet you sure you want to open this it checks it will block a gatekeeper will block it if it's
+[01:11:36.800 --> 01:11:43.520]   not appropriately signed etc etc etc the Achilles flaw involves specially crafted payloads
+[01:11:43.520 --> 01:11:49.280]   that abuse a logic issue to set restrictive ACL permissions
+[01:11:49.280 --> 01:11:54.960]   that block web browsers and internet downloaders from setting the quarantine attribute
+[01:11:56.640 --> 01:12:02.160]   these would be archived as zip files the payload to be archived as a zip file the malicious app
+[01:12:02.160 --> 01:12:07.600]   within the archive and launches on the target system will not get blocked by gatekeeper so it's
+[01:12:07.600 --> 01:12:12.320]   an easy way to download and deploy malware if this means you don't you know they don't have to have
+[01:12:12.320 --> 01:12:16.960]   access to your machine if you download something malicious so you want to make sure you have
+[01:12:16.960 --> 01:12:26.400]   Mac OS Ventura updated I guess 13 what is it 13 1 13 2 12 6 2 for Monterey 1 7 2 for big
+[01:12:26.400 --> 01:12:33.120]   sir those all came out last week that was part of that big download update 11 is nice they go
+[01:12:33.120 --> 01:12:36.960]   two versions back so you're even if you're running a picture I love that there's a security update
+[01:12:36.960 --> 01:12:42.000]   for that yeah so if you want yeah this is I mean this is actually a reinforcement too of what we
+[01:12:42.000 --> 01:12:46.160]   were talking about earlier which is apple has built over the last few years on the Mac this whole
+[01:12:46.160 --> 01:12:53.680]   system for checking software outside the app store and this is trying to get around it but
+[01:12:53.680 --> 01:12:57.760]   they do have this whole system where they're looking at your on first launch they're looking at the
+[01:12:57.760 --> 01:13:02.080]   software and they're checking it against you know is it signed which means it hasn't been modified
+[01:13:02.080 --> 01:13:07.360]   and it's a known signature from apple and they know who the developer is and like there are all
+[01:13:07.360 --> 01:13:11.680]   these structures that apples put in place that are not in the app store but that they're still
+[01:13:11.680 --> 01:13:16.160]   trying to keep Mac users safe yeah that's that's why even though I absolutely insist that I should
+[01:13:16.160 --> 01:13:21.680]   be able to sideload any app I want on a Mac because that's what makes it a desktop the fact that
+[01:13:21.680 --> 01:13:26.000]   there's also there's a middle ground where look we'll let you install any app you want we will let
+[01:13:26.000 --> 01:13:31.200]   developers sign an app so that we can pull that we can pull that certification at any time if it
+[01:13:31.200 --> 01:13:36.240]   turns out that there's malware associated with it which is the best of both worlds where I
+[01:13:36.240 --> 01:13:40.160]   a developer I can I can download software from a developer who doesn't necessarily have to play
+[01:13:40.160 --> 01:13:44.560]   by app store rules nonetheless if it turns out that their code got hijacked or if they were
+[01:13:44.560 --> 01:13:49.680]   malicious actors to begin with apple themselves can basically pull the plug or or I can be an idiot
+[01:13:49.680 --> 01:13:53.920]   and simply say no no no well here's an ice cream cone that I found in the middle of the sidewalk
+[01:13:53.920 --> 01:13:57.840]   I'm just gonna pick it up and lick it myself that that's bad but there's a good this is I like
+[01:13:57.840 --> 01:14:03.120]   there's a middle ground article by larryn selaren saberams at bleepingcomputer.com if you want to
+[01:14:03.120 --> 01:14:10.480]   see the video of the exploit he also points out that bar or has a good track record of naming
+[01:14:10.480 --> 01:14:16.800]   exploits he was the guy who discovered the system integrity protection bypass last year called
+[01:14:16.800 --> 01:14:24.960]   shrewtless power der a bug that allows attackers to bypass transparency consent control he's actually
+[01:14:24.960 --> 01:14:31.360]   obviously he's a microsoft researcher but he's working hard to find these flaws and i'm sure apple's
+[01:14:31.360 --> 01:14:38.320]   very appreciative of it he also uh uh i don't know if he discovered it but apple did fix a zero
+[01:14:38.320 --> 01:14:41.760]   day macos vulnerability last year called schlayer
+[01:14:41.760 --> 01:14:51.120]   uh and unfortunately these bypasses are pretty quickly exploited schlayer was actually
+[01:14:51.120 --> 01:14:58.080]   exploited so um it's important this is why you we tell you get the updates as soon as they're
+[01:14:58.080 --> 01:15:05.440]   available and at least you know in recent memory apple's updates have all been uh safe and reliable
+[01:15:05.440 --> 01:15:10.720]   yes i don't i can't do it at an issue they they do a good job of beta testing it which is not
+[01:15:10.720 --> 01:15:15.680]   i can't quite say that for microsoft and their security updates too are actually they've got a
+[01:15:15.680 --> 01:15:20.800]   even a new rapid security update system that they're using now so they know that the importance of
+[01:15:20.800 --> 01:15:26.400]   if there's a a big bug out there of being able to push a uh a fix out as soon as possible especially
+[01:15:26.400 --> 01:15:32.960]   if it's a zero day yeah Alex is having fun with mid-journey i don't i would love to get your uh what was
+[01:15:32.960 --> 01:15:39.760]   it the the wookiee if robot from the future well i have your i have your minions from roman times
+[01:15:39.760 --> 01:15:48.000]   i have yeah i have the the one before that was the the uh yeah it it is um you know the uh
+[01:15:48.000 --> 01:15:54.880]   it's gotten a little there is there is chubaka the uh the futuristic robot wookiee we found that it
+[01:15:54.880 --> 01:15:58.400]   was well and what was funny was is that we you know we started playing with it there's there's the
+[01:15:58.400 --> 01:16:04.560]   chubaka there and the style of rembrand by the way but we did but i also did in the style of uh
+[01:16:04.560 --> 01:16:11.040]   hr beager oh wow which was a little little darker too creepy than the first one and then and then
+[01:16:11.040 --> 01:16:16.720]   someone on twitter oh that is said what about what about picasso and i was like okay robot robot
+[01:16:16.720 --> 01:16:21.440]   in in and picasso and then what happened was is a bunch of us were sitting around there was a
+[01:16:21.440 --> 01:16:25.840]   christmas party last week um between a bunch of folks that were on islam and um the building that
+[01:16:25.840 --> 01:16:29.360]   that's the building that i'm in and so they we started throwing stuff out and so that's why we
+[01:16:29.360 --> 01:16:36.080]   heard a bunch of star wars things but we had um we did princess leah as a robot in the style of
+[01:16:36.080 --> 01:16:43.920]   rembrand and we got oh my god that looks like stacey higginbotham on a uh oh no good day and then
+[01:16:43.920 --> 01:16:48.480]   and then and then we all i typed in for this one was it doesn't do text very well but all i typed in
+[01:16:48.480 --> 01:16:52.480]   if you're familiar with the meme of this is fine uh you know this is fine with the whole
+[01:16:52.480 --> 01:16:57.600]   places on fire so i just typed in this is imagine this is fine and it just gives this is fine
+[01:16:57.600 --> 01:17:02.400]   oh this is fine little little card little this is fine card and then of course you saw the the
+[01:17:02.400 --> 01:17:07.440]   the i've for some reason i've i have found that mid-journey plus um
+[01:17:07.440 --> 01:17:15.440]   minions is hilarious i have i'm building i may build a whole book that of course i can't copyright
+[01:17:15.440 --> 01:17:21.200]   um and that is uh that is just just the whole book of minions through through time you know so i
+[01:17:21.200 --> 01:17:27.760]   have minions climbing uh thing minions uh is crossing the Delaware minions in world war two on d-day
+[01:17:27.760 --> 01:17:33.200]   minions like i just keep on putting them in and um and then this one one world leo just for
+[01:17:33.200 --> 01:17:39.520]   colling henry and i were hanging out um okay for my love by the way i will i will our first
+[01:17:39.520 --> 01:17:46.480]   studio manager and engineer and she designed all of the stuff that we use in one form or another
+[01:17:46.480 --> 01:17:52.720]   still to this day i i was at collings and we were we're doing she says i want a tactical snorlax
+[01:17:52.720 --> 01:17:59.360]   colliness you know love snorlax is so here's your your tactical snorlax all righty snorlax is
+[01:17:59.360 --> 01:18:04.320]   her so anyway mon type is she still at facebook or was she uh was she still there she's still there
+[01:18:04.320 --> 01:18:08.880]   okay because i know the uh she worked on the portal and the portal was discontinued i was wondering if
+[01:18:08.880 --> 01:18:14.480]   she works on a lot of she works on other things too yeah yes she works on a lot of things there she's
+[01:18:14.480 --> 01:18:20.720]   her uh yeah she's tied into a lot of things she's the queen of streaming yeah uh wow cool are you
+[01:18:20.720 --> 01:18:24.880]   using mid-journey locally or are you using their discord how are you i have it on discord discord
+[01:18:24.880 --> 01:18:29.760]   discord it is it's just awesome yeah you know like you just fast you know and it's i pay 50 bucks a
+[01:18:29.760 --> 01:18:36.240]   month so i pay 30 to have the whatever standard and i pay 20 to be private yeah yeah that's good yeah
+[01:18:36.240 --> 01:18:41.760]   but i probably produce a couple hundred images a day it's good just it just kind of pumps out um
+[01:18:41.760 --> 01:18:46.160]   the bird and jump between version three you could run stable diffusion locally i'm sure you have a
+[01:18:46.160 --> 01:18:52.240]   machine that would be very good at it i've i have stable diffusion okay um in i find that i like mid-journey
+[01:18:52.240 --> 01:18:55.360]   so stable diffusion is better if you want to train it to do something or you want it to you want to
+[01:18:55.360 --> 01:19:00.960]   point it at something um the but mid-journey i think produces more pleasing images and i don't do it
+[01:19:00.960 --> 01:19:06.320]   for any reason other than i entertain myself someone will say something funny and alco i wonder what
+[01:19:06.320 --> 01:19:10.960]   that will look like if i like or if i think of something i just throw it i have it open almost
+[01:19:10.960 --> 01:19:16.640]   all the chat gpt and mid-journey room uh open on two windows on my computer all the time and i just
+[01:19:16.640 --> 01:19:22.240]   i am musing i just finished literally before the show i finished the osh soup that i made the afghanney
+[01:19:22.240 --> 01:19:30.320]   osh soup that was generated by chat gpt i literally uh just said i need a good osh soup and uh recipe
+[01:19:30.320 --> 01:19:34.240]   and it gave it to me and i made it on sunday and the family devoured it very quickly it was supposed
+[01:19:34.240 --> 01:19:39.920]   to last all week but it was too popular we uh we used uh Anthony nelson used stable diffusion to
+[01:19:39.920 --> 01:19:43.520]   create our holiday card which you should get if you haven't already gotten it you should get it
+[01:19:43.520 --> 01:19:49.120]   pretty soon here's a picture of it uh he we took a picture out in front of the studio
+[01:19:49.120 --> 01:19:55.440]   and then uh he used stable diffusion to turn the studio sent to a gingerbread house
+[01:19:55.440 --> 01:20:02.400]   with candy cane to it and icing uh and and it's hard to do that without mongy us uh but he managed
+[01:20:02.400 --> 01:20:09.040]   to somehow preserve our faces most of us look about right i think in this picture yes that's
+[01:20:09.040 --> 01:20:15.360]   great that's great no birk really does look like that uh and and i think he added a sweater to uh
+[01:20:15.360 --> 01:20:22.400]   lily his berg's dog our studio uh security guard was was lily wearing that i don't think she was no
+[01:20:22.400 --> 01:20:28.720]   good job Anthony if you are on the uh christmas card mailing list you will get your copies soon
+[01:20:28.720 --> 01:20:38.000]   that is the team as constituted in 2020 to more security uh news it just never stops does it
+[01:20:38.720 --> 01:20:46.560]   uh let's see apples continues to test its new rapid security response updates uh this time
+[01:20:46.560 --> 01:20:52.640]   yeah see what what do you mean see that's what i said they're they've got a whole new system now
+[01:20:52.640 --> 01:21:00.080]   for emergency updates yeah does it go goo-ooga well not yet i mean maybe wouldn't that be great if
+[01:21:00.080 --> 01:21:06.000]   it did oh man let's get on that let's file a radar on that one so if you have 16 too you will see
+[01:21:06.000 --> 01:21:13.200]   uh is this in the system preference sorry what do they call it now control panel settings settings
+[01:21:13.200 --> 01:21:20.320]   is this in settings it looks like it it is under software update under automatic updates you will
+[01:21:20.320 --> 01:21:30.240]   see if there is one a security response is available respond apply now and uh so this is i don't know
+[01:21:30.240 --> 01:21:36.640]   if this is out 13 to a is that real or is that just an example of it well they've been doing
+[01:21:36.640 --> 01:21:42.480]   some testing right like in fact during the 13 one beta process there was a period where there were
+[01:21:42.480 --> 01:21:48.800]   and and the ios uh 16.2 uh process there was a uh like test where you get a thing that says this
+[01:21:48.800 --> 01:21:53.280]   is an emergency test right the test of the emergency broadcasting system where you would
+[01:21:53.280 --> 01:21:57.200]   basically say okay and it wouldn't do anything but they have been working on this because they want
+[01:21:57.200 --> 01:22:03.680]   to be able to push out a rapid os update of you know just for security stuff so if you're using the
+[01:22:03.680 --> 01:22:09.040]   public beta which i take it you are uh Jason you will have you might see this update it is not yet
+[01:22:09.040 --> 01:22:16.800]   out it will come out uh in uh 16 it's in it's in ios 16 too but it's now going to be rolled out in
+[01:22:16.800 --> 01:22:25.040]   the next mac os 13 too so it's in beta for mac os but already out on ios uh in the latest update oh good
+[01:22:25.040 --> 01:22:30.800]   ios iPhones will get the rapid update now but the mac will get as will watch os and tv os
+[01:22:30.800 --> 01:22:36.480]   that'll be a little alarming if you're watching you know uh mr robot and all of a sudden
+[01:22:36.480 --> 01:22:44.320]   pops up jeez you want a robot i'm in the show now oh no no this guy right i mean apple's gotten so
+[01:22:44.320 --> 01:22:48.320]   much and i know you've you've covered it on all your shows like apple has definitely gotten a lot
+[01:22:48.320 --> 01:22:53.120]   of pushback about some of their the conflict between apples development cycle and their way of
+[01:22:53.120 --> 01:22:58.400]   disclosing things or you know lack of disclosure um versus what the security community feels like
+[01:22:58.400 --> 01:23:02.240]   they should be doing and this feels like one of those examples of apple saying yeah you're right
+[01:23:02.240 --> 01:23:08.080]   we need to be better at this than we've been and trying to create a whole new uh streamline system
+[01:23:08.080 --> 01:23:14.960]   for emergencies scooter x is now confirming that the dog was naked during the live streamed photo
+[01:23:14.960 --> 01:23:22.720]   shoot so i think you were looking a little too closely scooter x he remembers that let's take
+[01:23:22.720 --> 01:23:31.120]   the picture near the end of the holiday party sad really uh it's over or well at least uh it looks
+[01:23:31.120 --> 01:23:37.840]   like it might be over i you know i hate reporting rumors unless they come from well sourced experts
+[01:23:37.840 --> 01:23:43.920]   in the area i think that mark german it's not even a rumor what is these are reports reports you know
+[01:23:43.920 --> 01:23:48.800]   yeah was was jet this is from dylan byers who is absolutely well connected in the media world
+[01:23:49.360 --> 01:23:58.960]   uh in his uh our newsletter in puck uh dot news he says apple and the nfl have parted ways
+[01:23:58.960 --> 01:24:05.360]   that it's over in the negotiations for the nfl sunday ticket it was taking a long time
+[01:24:05.360 --> 01:24:12.320]   yeah and they google and amazon are more of uh are more likely to be still talking to the nfl
+[01:24:12.320 --> 01:24:17.840]   i think it was a hard match for apple because as we have talked about here in previous weeks apple
+[01:24:17.840 --> 01:24:22.880]   kind of wanted this to be a product that the nfl didn't want it to be it kind of is a legacy product
+[01:24:22.880 --> 01:24:29.120]   that they created 15 years ago for direct tv that doesn't entirely make set right it's like
+[01:24:29.120 --> 01:24:35.360]   us only and it doesn't include local games it's only the ones that are not local and like it's not
+[01:24:35.360 --> 01:24:41.600]   a great fit for apple strategy but it is being in business with the nfl which is is it show me
+[01:24:41.600 --> 01:24:45.920]   that you're serious about sports right is being in business and eat with the nfl in the united
+[01:24:45.920 --> 01:24:50.720]   state so i think that that's why they kept talking but all the reports about the behind the scenes
+[01:24:50.720 --> 01:24:55.360]   negotiations suggest apple really wanted this to be a product that it's not and the nfl didn't really
+[01:24:55.360 --> 01:24:59.760]   want to change it because they know that somebody will buy it as is for a couple of billion dollars
+[01:24:59.760 --> 01:25:07.120]   and you know it it may make more sense for amazon or or for youtube tv actually is an interesting
+[01:25:07.120 --> 01:25:13.120]   connection because they already will have your locals on offer plus they can roll in sunday ticket
+[01:25:13.120 --> 01:25:18.160]   and that's an interesting idea too so somebody somebody's gonna pay the nfl a few billion to take
+[01:25:18.160 --> 01:25:23.680]   this off their hands for a few years it's expensive direct tv pays a billion and a half a year so yeah
+[01:25:23.680 --> 01:25:29.680]   and it is the customer revenue will never match it the reason you do it is because you want to get
+[01:25:29.680 --> 01:25:35.920]   those customers in your door to do something else to sign up for youtube tv or to sign up for amazon
+[01:25:35.920 --> 01:25:40.640]   prime video right or for prime here's what those are the reasons you pay otherwise they do it
+[01:25:40.640 --> 01:25:44.080]   otherwise they'd roll this into their nfl plus service and they just take the money
+[01:25:44.080 --> 01:25:50.000]   directly but they know somebody will overpay for it in order to fuel some other uh some other
+[01:25:50.000 --> 01:25:55.040]   service that they're selling here's what dylan uh writes and i think this is again he's very expert
+[01:25:55.040 --> 01:25:59.440]   in this is one of the reasons i subscribe to puk news live sports rights really are the great
+[01:25:59.440 --> 01:26:06.160]   x factor in this whole equation the declining linear business that's that's cable tv uh and
+[01:26:06.160 --> 01:26:11.120]   and broadcast networks is being kept aloft by sports mainly the nfl and college football
+[01:26:11.120 --> 01:26:15.920]   which account for the most watched programs every single week in the fall but it's a terrible
+[01:26:15.920 --> 01:26:21.200]   deal for broadcasters because leagues have all the leverage that's what apple has learned right
+[01:26:21.200 --> 01:26:28.080]   so they have to spend increasingly astronomical sums to rent rent content that that they almost
+[01:26:28.080 --> 01:26:32.800]   never recoup football's always been a lost leader media companies pay for the rights on sunday so
+[01:26:32.800 --> 01:26:36.800]   they can market a week's worth of programming and pick up the revenue there but these economics
+[01:26:36.800 --> 01:26:42.400]   are becoming less favorable for legacy broadcasters as the audience for prime time sitcoms and morning
+[01:26:42.400 --> 01:26:47.680]   tv shrinks what can they do they've never needed sports more more but the companies that can't afford
+[01:26:47.680 --> 01:26:54.000]   to pay those sky high prices are of course the big tech firms so with each new round of rights
+[01:26:54.000 --> 01:26:59.600]   negotiations we're gonna see apple amazon and google take a greater slice of the pie while legacy
+[01:26:59.600 --> 01:27:05.840]   media companies get boxed out uh this is where he this is where he said i'm now told that apple
+[01:27:05.840 --> 01:27:10.160]   once seen as a front runner for the rights is also backed out of these negotiations not because
+[01:27:10.160 --> 01:27:15.360]   they can't afford it but because they don't see the logic i had heard that one of these
+[01:27:15.360 --> 01:27:20.160]   sticking points was apple wanted to give it away free to apple tv plus subscribers and that the
+[01:27:20.160 --> 01:27:24.160]   nfl don't believe that don't believe that for a minute yeah nfl wouldn't know because they're
+[01:27:24.160 --> 01:27:27.920]   not even doing that for mls they're not even giving away the mls stuff just parts of it right
+[01:27:27.920 --> 01:27:32.160]   gonna make you pay for it i don't i don't believe that part of it but i do i do believe the the
+[01:27:32.160 --> 01:27:36.960]   dillens report here that it doesn't make sense for apple i think i think that's probably true i
+[01:27:36.960 --> 01:27:42.160]   think apple really kind of thought the value of being in business with the nfl but they could never
+[01:27:42.160 --> 01:27:46.720]   kind of figure out how that would actually you know the money they would spend would come back
+[01:27:46.720 --> 01:27:52.400]   to them in goodness and i i i can see that and it's it's a bit of a technological quagmire you know
+[01:27:52.400 --> 01:27:57.680]   the nfl i mean general and so you know amazon really got the best deal because thursday
+[01:27:57.680 --> 01:28:03.200]   night football is something it's one show they can have more impact on it they can have more
+[01:28:03.200 --> 01:28:07.920]   control they can do a lot of other things so amazon's able to start you know they're going to be able
+[01:28:07.920 --> 01:28:14.800]   to continue to evolve that that that one product dealing with all of the locations and all of the
+[01:28:14.800 --> 01:28:21.280]   stuff and the requirement to go back to tenety p and uh uh or tenety i back to tenety i for
+[01:28:21.280 --> 01:28:26.560]   for broadcasters all of those things really bogged down the whole the whole thing and and so i think
+[01:28:26.560 --> 01:28:30.960]   it's going to be really um uh it's going to be really interesting i think actually you know it's
+[01:28:30.960 --> 01:28:34.800]   it's uh unfortunately they're probably not going to be able to rest away monday night football
+[01:28:34.800 --> 01:28:40.240]   monday night football is it's funny it it it i watched it a little bit of it last night and mostly
+[01:28:40.240 --> 01:28:44.000]   because i was crossing over something else and i realized the manning brothers were sitting there
+[01:28:44.000 --> 01:28:47.600]   just talking about the show where i really found the interesting thing about that
+[01:28:47.600 --> 01:28:50.800]   wrong stream no you watch the right stream really?
+[01:28:50.800 --> 01:28:58.080]   That's the best. Is it? I love it. I love it. Okay. I feel like I hadn't seen the man so when
+[01:28:58.080 --> 01:29:02.640]   they came on at first it was horrible like it was it was just watching one long train right?
+[01:29:02.640 --> 01:29:06.720]   That's crazy as hell yeah and and what they're doing is they're reducing the number of third
+[01:29:06.720 --> 01:29:10.640]   party people coming in and they're reducing all the goofy things the producers added and they're
+[01:29:10.640 --> 01:29:15.760]   just letting two pro level like Tony Romo style but the thing is is they're not talking like
+[01:29:15.760 --> 01:29:19.360]   broadcasters they literally are two brothers who have been playing quarterback and wow
+[01:29:19.360 --> 01:29:24.960]   trash talking yeah no no they were talking but what i caught trash stuck each other a lot
+[01:29:24.960 --> 01:29:31.280]   they do but the moment there was there was like a solid half an hour where you listen to
+[01:29:31.280 --> 01:29:36.240]   quarterbacks who played in the national football league for 20 years talking about well it was
+[01:29:36.240 --> 01:29:39.680]   funny because they're sitting there going oh you just want to do it you like was just like you just
+[01:29:39.680 --> 01:29:44.560]   want to do a long curl there it'll just you know they'll pull it out and the next play
+[01:29:44.560 --> 01:29:48.720]   long curl like and yeah and he goes well and he's what he did is he started talking about the
+[01:29:48.720 --> 01:29:51.840]   defense he watched what happens with the defense they're doing and he's reading it like he would
+[01:29:51.840 --> 01:29:56.400]   a quarterback like Tony Romo but I love Tony Romo for that reason without without all the
+[01:29:56.400 --> 01:30:01.920]   pomp and circumstance of just two people talking two people who really know what they're doing
+[01:30:01.920 --> 01:30:05.360]   talking back and forth and I was like I don't ever want to go back to I don't even know if I can
+[01:30:05.360 --> 01:30:09.280]   watch a football broadcast after that like it was and then of course they brought two other people
+[01:30:09.280 --> 01:30:13.120]   in and it became super cringy and then it becomes a podcast and it's no good yeah you're like oh my
+[01:30:13.120 --> 01:30:18.000]   gosh just let these two guys geek out for the whole show and you don't need the thing is you're
+[01:30:18.000 --> 01:30:21.360]   spending way too much money on the production because I was like all I have to do is watch that
+[01:30:21.360 --> 01:30:26.640]   and you know and so I think that we're going to start seeing more innovation you know in that
+[01:30:26.640 --> 01:30:33.680]   area because with MLS Apple could give you one stream that is the broadcast announcer version
+[01:30:33.680 --> 01:30:37.280]   and another screen where there's a bunch of soccer players talking about what's actually
+[01:30:37.280 --> 01:30:40.320]   happening and you know it's they're gonna have a lot more flexibility.
+[01:30:40.320 --> 01:30:44.080]   Amazon's doing the same thing they have I think feels like they have a dozen
+[01:30:44.080 --> 01:30:49.440]   separate multiple layers yeah layers I haven't actually seen on their Thursday
+[01:30:49.440 --> 01:30:54.560]   night comedy layer and then yeah there's dazes and there's oh it's crazy and then there's like
+[01:30:54.560 --> 01:31:00.400]   the Susie Culber and there's two women yeah yeah um I didn't know that they had so many streams
+[01:31:00.400 --> 01:31:05.200]   I have I have a really good layer so I didn't I didn't know they're working on it yeah
+[01:31:06.000 --> 01:31:09.920]   so Apple's really committed to sports but I think this NFL thing didn't line up for them and they'll
+[01:31:09.920 --> 01:31:14.960]   they'll find somebody like the NFL I mean people outside the US may not understand this but like
+[01:31:14.960 --> 01:31:21.040]   that thing that you read Leo like it's just this is the biggest thing on TV is for the only thing
+[01:31:21.040 --> 01:31:26.640]   keeping TV alive in America yeah now and I don't think it is going to end up being linear versus
+[01:31:26.640 --> 01:31:31.200]   streaming because what we found with a lot of these and I think this is smart is the idea is that
+[01:31:31.200 --> 01:31:35.920]   even when the streaming gets it they often will then license some of the shows like Apple
+[01:31:35.920 --> 01:31:41.680]   got all the MLS games but there will be some MLS games going back to broadcast in fact that
+[01:31:41.680 --> 01:31:45.600]   deal just got signed and they'll be just they'll essentially be rebroadcasting the stuff that
+[01:31:45.600 --> 01:31:49.680]   Apple is streaming but they'll be doing on a on a linear channel and I think we're going to start
+[01:31:49.680 --> 01:31:53.920]   to see that there's a rumor that there's a college football conference the Pac-12 that is
+[01:31:53.920 --> 01:31:58.800]   negotiating with Amazon one rumor is that they might sell their whole package to Amazon people like
+[01:31:58.800 --> 01:32:04.080]   wow they're they're not going to be on linear TV it's like no because probably what will happen
+[01:32:04.080 --> 01:32:09.760]   is that Amazon is they will take a little carve out of games and sell it to like CBS or something
+[01:32:09.760 --> 01:32:14.000]   well but but because there are there are audiences on both on streaming and linear and you can make
+[01:32:14.000 --> 01:32:19.440]   more money by selling it twice or sub licensing it to linear from streaming well the other thing is
+[01:32:19.440 --> 01:32:22.960]   Pac-12 has so they have all the football games that you would that were used to see and that still
+[01:32:22.960 --> 01:32:28.400]   has broadcast trucks and that's still going out to broad you know to to linear TV but Pac-12 does
+[01:32:28.400 --> 01:32:35.040]   something like 2200 or 2500 other games yeah the Olympic sports and other and other stuff yeah and
+[01:32:35.040 --> 01:32:39.200]   all that other stuff from all those in all in all the title nine stuff is all all runs through and
+[01:32:39.200 --> 01:32:44.240]   what they do is and they they are the perfect partner for because the Pac-12 is in in San
+[01:32:44.240 --> 01:32:50.000]   Francisco downtown San Francisco and they use internet to and fiber to bring all of the show all
+[01:32:50.000 --> 01:32:56.400]   the shows back so they they Remy what we call Remy it's remote remote broadcast they bring all of
+[01:32:56.400 --> 01:33:01.360]   those cameras back to to their facility and they have all their replays they sometimes the
+[01:33:01.360 --> 01:33:05.760]   announcers all the playbacks everything else are all happening in one place so if you're gonna
+[01:33:05.760 --> 01:33:10.720]   stream something it is the perfect because you don't have to deal with all the it they've already
+[01:33:10.720 --> 01:33:16.320]   figured out how to deal with all of those venues right in the street and most of these streamers
+[01:33:16.320 --> 01:33:20.160]   don't have their own production facilities so they'll make a deal and use their production
+[01:33:20.160 --> 01:33:24.480]   facility to one so this is it's going to be really interesting to watch right like this idea of
+[01:33:25.120 --> 01:33:31.040]   is it pure streaming or is it streaming with some broadcast because there's probably more
+[01:33:31.040 --> 01:33:35.840]   money and more audience to be found with like streaming plus broadcast in sports because
+[01:33:35.840 --> 01:33:40.160]   because Dylan buyers the story is exactly right it's like one of the networks do if the only thing
+[01:33:40.160 --> 01:33:44.960]   people watch the sports but the price has gotten to be so high that they can't make any money on sports
+[01:33:44.960 --> 01:33:52.720]   yeah there's also we've talked about this before maybe this is why you get the the manning brothers
+[01:33:52.720 --> 01:33:58.400]   and and there's the one with LeBron James called the shop on Thursday night football maybe that's
+[01:33:58.400 --> 01:34:02.560]   why they're doing it because there's a there is a dearth of good play by play announcing
+[01:34:02.560 --> 01:34:09.040]   out there we saw that with Friday night baseball super fast so Saturday the NFL had three games
+[01:34:09.040 --> 01:34:13.520]   with some of the worst play by play announcing I've ever heard in my life and if you had NFL
+[01:34:13.520 --> 01:34:17.200]   Sunday ticket you'd know about all those announcers because you'd see them on their games but instead
+[01:34:17.200 --> 01:34:21.680]   they hide them in the small market they should hide them yeah this is when I was a kid I don't
+[01:34:21.680 --> 01:34:26.480]   know about you guys but like one of the the in the future was in the future you'll watch sports and
+[01:34:26.480 --> 01:34:31.120]   you'll be able to choose one announcer or camera you could you right now is like wow that'll be
+[01:34:31.120 --> 01:34:35.920]   amazing it's like they're almost there right they're almost there because once you're streaming
+[01:34:35.920 --> 01:34:40.640]   other than the cost of hiring announcers right the idea that you could you could pick up more
+[01:34:40.640 --> 01:34:45.760]   viewers by giving them different takes on that broadcast and that's why like I watch the manning
+[01:34:45.760 --> 01:34:49.440]   cast only when it's the two brothers and then I flip over when when they get their guests in
+[01:34:49.440 --> 01:34:54.560]   there because it's terrible but I think it's really fun and then ESPN has done their
+[01:34:54.560 --> 01:34:59.360]   stat cast thing they do occasionally where they've got like Amazon does the mains in the main yeah
+[01:34:59.360 --> 01:35:04.480]   the dummies in the main booth and then ESPN had like smart people in a second booth where they're
+[01:35:04.480 --> 01:35:10.880]   like okay okay nerds you want to listen to smart people talk okay we'll do that for you and I love
+[01:35:10.880 --> 01:35:15.680]   that broadcast a lot what is it all as you're calling this idea like if you're here you're
+[01:35:15.680 --> 01:35:20.160]   ready to the right chance of making that pass they for the college football championship they
+[01:35:20.160 --> 01:35:24.160]   always do the mega cast for that too and the idea is like ESPN and Disney they already bought
+[01:35:24.160 --> 01:35:30.640]   the rights they buy it one time they've got four channels why not do four versions of the same show
+[01:35:30.640 --> 01:35:34.240]   because nobody else is going to be watching you know what are they what are you putting bowling
+[01:35:34.240 --> 01:35:39.440]   on ESPN too no you're not going to do that so I like I like this idea and I think streaming is
+[01:35:39.440 --> 01:35:44.400]   the perfect place for it when I think that the the problem for for linear broadcast is that they
+[01:35:44.400 --> 01:35:48.800]   that the when you experience something a lot of times it poisons your mind towards whatever was
+[01:35:48.800 --> 01:35:53.600]   there before if it was great so like the manning thing for the time that I saw the manning's just
+[01:35:53.600 --> 01:35:57.520]   talk without any guests because they're not hosts they're just the key quarterbacks it's like you
+[01:35:57.520 --> 01:36:02.400]   sit on the couch with two really smart oh my gosh like you're it's a different football game it's a
+[01:36:02.400 --> 01:36:06.160]   different football game to listen to them talk about the defenses and what look at what it's true
+[01:36:06.160 --> 01:36:09.200]   they're noticing like what the cornerbacks doing see how that cornerback he's giving him a lot of
+[01:36:09.200 --> 01:36:13.520]   space you can throw seven or eight this is like there's like you can throw seven or eight yard passes
+[01:36:13.520 --> 01:36:17.680]   all day they just don't think you'll be patient enough to just keep doing it you know and and and
+[01:36:17.680 --> 01:36:21.600]   and just the this this wide knowledge and they'll tell you like when they go over to the side
+[01:36:21.600 --> 01:36:25.520]   you they're saying here's the conversation they're having they're talking about what hashmark to be
+[01:36:25.520 --> 01:36:30.320]   at what to you know like in there and there and I will have to rest the playback oh my gosh and
+[01:36:30.320 --> 01:36:34.720]   it's I will I apologize I advance every time they bring guests on or they do anything other than
+[01:36:34.720 --> 01:36:39.120]   talk about football yeah it's horrible that that's why I stopped watching it was the shtick
+[01:36:39.120 --> 01:36:44.080]   and you know but you get the idea that like the producers who say nobody likes football let's do
+[01:36:44.080 --> 01:36:48.800]   some shtick that's not right and they do that with Sunday night baseball too but like yeah the
+[01:36:48.800 --> 01:36:53.920]   idea of people who are experts in their field watching somebody like it was Aaron Rodgers last
+[01:36:53.920 --> 01:36:58.240]   night right so it's like two two Super Bowl winning quarterbacks watching another Super Bowl winning
+[01:36:58.240 --> 01:37:02.080]   quarterback and talking about what makes him great wish I'd read oh man that's I love I love
+[01:37:02.080 --> 01:37:06.880]   that stuff that's the best right we've been in chess we've always done that they never have
+[01:37:06.880 --> 01:37:11.760]   commentators who aren't grandmasters when you're commentating a chess match I know it's not that
+[01:37:11.760 --> 01:37:17.920]   exciting but but we did I did a bunch of streams of of basketball as a test and we did 26 events and
+[01:37:17.920 --> 01:37:22.800]   we had pro a pro basketball player commentating on it and talking about and we gave him a
+[01:37:22.800 --> 01:37:26.240]   teller strater and stuff like that's the color guy though right you have a play by play he was
+[01:37:26.240 --> 01:37:30.160]   a professional in that but there was no play by play we weren't being interrupted probably basketball
+[01:37:30.160 --> 01:37:33.920]   is there's too much talking because everything's happening constantly right so he was just talking
+[01:37:33.920 --> 01:37:36.960]   in general you're watching the game much better what's happening in the game much but he's just
+[01:37:36.960 --> 01:37:39.920]   talking about the things that you have to do and here's what they're gonna have to make this is what
+[01:37:39.920 --> 01:37:43.600]   they're doing with me clock management and this is what what they were doing with the offense and
+[01:37:43.600 --> 01:37:48.080]   here look at what they're doing here and suddenly I went from I don't understand basketball to like
+[01:37:48.080 --> 01:37:52.240]   oh this is really I mean now you can see all the things happening you know that are that are there
+[01:37:52.240 --> 01:37:57.440]   and I think that it's pretty uh I think that this is the future and I think that I think that you're
+[01:37:57.440 --> 01:38:00.560]   definitely going to start seeing more and more of these likes and the problem is you won't be able
+[01:38:00.560 --> 01:38:06.800]   to go back to linear can I tell you this is this is uh this is why this is happening is because linear
+[01:38:06.800 --> 01:38:14.400]   I know having worked for tech tv for years doesn't trust the audience they've been taught so long
+[01:38:14.400 --> 01:38:19.600]   that you should dumb it down dumb it down dumb it down so they make content for people who aren't
+[01:38:19.600 --> 01:38:27.200]   interested in the content and and I kept trying to tell tech tv go the other way ESPN does go the
+[01:38:27.200 --> 01:38:32.560]   other way make content for people who really love whatever it is they're watching right and put
+[01:38:32.560 --> 01:38:37.600]   experts in there you know football for people who don't like football it seems like a mistake
+[01:38:37.600 --> 01:38:42.880]   right we missed up there but that's what we were doing on tech tv and and uh and it's what linear
+[01:38:42.880 --> 01:38:47.600]   does because they've been taught for so long not to trust the audiences until well they only have
+[01:38:47.600 --> 01:38:51.760]   one pipe but for a long time linear bill was built up I only have one pipe and I'm trying to
+[01:38:51.760 --> 01:38:56.720]   make as many people into that pipe as possible and with streaming I can say I can have 80 pipes and
+[01:38:56.720 --> 01:39:00.880]   they're all still coming back to me and I still benefit from all of those but I can have you know
+[01:39:00.880 --> 01:39:05.120]   lots and lots of that I can serve to every market individually and that's what that's why you know
+[01:39:05.120 --> 01:39:08.560]   we're not gonna see it's exactly what we're talking about with our seagulls which is a program that
+[01:39:08.560 --> 01:39:13.280]   is designed for enthusiasts is always going to beat the the thing that's designed for the largest
+[01:39:13.280 --> 01:39:21.040]   possible audience you know and uh and and I I'm a fan so good it's why sure locking isn't really a
+[01:39:21.040 --> 01:39:25.600]   thing right because most of the time when apple does something for a massive they do it for the masses
+[01:39:25.600 --> 01:39:29.680]   and it's going to have 80 percent of the features and anybody who really cares about it is going to
+[01:39:29.680 --> 01:39:34.480]   want to use something that's better that's a good point yeah unfortunately those of us who really
+[01:39:34.480 --> 01:39:42.400]   care about it are probably not going to get an m2 ultra at least according to mark german again
+[01:39:42.400 --> 01:39:50.880]   the uh apple scales back high end mac pro plans and it looks like they are also contracting to
+[01:39:50.880 --> 01:39:59.040]   build it in vietnam uh so first of all uh you know apple's already we must acknowledge uh
+[01:39:59.040 --> 01:40:02.400]   missed its deadline they said by the end of this year that they would have a new
+[01:40:02.400 --> 01:40:12.640]   mac pro they also uh have not notably done an m2 pro based mac mini uh i guess the studios are
+[01:40:12.640 --> 01:40:16.720]   pretty good for a lot of people maybe that's all you all you need but they haven't put an m2 in
+[01:40:16.720 --> 01:40:24.640]   those either so uh what happened uh apparently apple was worried it was going to be too
+[01:40:24.640 --> 01:40:34.400]   expensive the company wanted to do an m2 ultra which is uh what is that that's two chips stacked
+[01:40:34.400 --> 01:40:43.520]   and then do a double m2 ultra which mark says i call the m2 extreme up to 24 cores in the ultra
+[01:40:43.520 --> 01:40:50.640]   76 graphics cores 192 gigs of memory but the extreme would have been twice that 48 cores
+[01:40:50.640 --> 01:40:56.080]   152 graphics cores here's the bad news they're hurting us they could have just called a pure
+[01:40:56.080 --> 01:41:01.520]   happiness pure happiness when he said pure happiness you know i i can't even i gave lisa the the
+[01:41:01.520 --> 01:41:06.720]   ultra version of the mac studio and i took the pro version i can't tell the difference honestly
+[01:41:06.720 --> 01:41:11.920]   it's fine i i have to admit i bring my macs i bought the macs because i was like i thought that the pro
+[01:41:11.920 --> 01:41:14.640]   would be coming out if i had known the pro was gonna be delayed i probably would have just bought
+[01:41:14.640 --> 01:41:19.600]   the ultra but i bought the macs and i bring it to its knees every day do you all right yeah i am not
+[01:41:19.600 --> 01:41:25.040]   doing the elementary so maybe that's it is it is mostly photogrammetry but i wait for you know a
+[01:41:25.040 --> 01:41:33.200]   solid i i my last model it took like two hours wow i think so wow an m2 extreme chip according to
+[01:41:33.200 --> 01:41:39.520]   mark german probably not gonna happen the company has likely scrapped that higher end configuration
+[01:41:39.520 --> 01:41:44.560]   which may disappoint apple's most demanding users the photographers editors programmers
+[01:41:44.560 --> 01:41:51.360]   Alex lindsey uh the company made the decision because of the complexity and cost says german
+[01:41:51.360 --> 01:41:58.000]   of producing a processor that is essentially for m2 max is fused together well and i think
+[01:41:58.000 --> 01:42:02.240]   that part of the problem is it may have affected the pipeline it may have affected the productivity
+[01:42:02.240 --> 01:42:06.960]   for the other computers that's exactly the next sentence yep oh did it okay yeah it will also help
+[01:42:06.960 --> 01:42:12.800]   apple and partner tsmc save chip production resources for higher volume machines you know that's
+[01:42:12.800 --> 01:42:17.760]   where they make their bread and butter right right they also was concerned about cost the cost would
+[01:42:17.760 --> 01:42:23.760]   have been significant i mean the max version i mean the ultra version would have started at 10 grand
+[01:42:23.760 --> 01:42:28.240]   probably and then you talk about that extreme version and you're talking about and what percentage
+[01:42:28.240 --> 01:42:32.000]   of the buyers are going to be in that category i think that that's the challenge here right is
+[01:42:32.000 --> 01:42:37.600]   they're already doing a mac pro it's a niche product i know it's important for the very high end but
+[01:42:37.600 --> 01:42:41.120]   it not they don't sell that many of them and then you talk about like well what about the highest
+[01:42:41.120 --> 01:42:46.000]   end of the high end product and then it's like a fraction of a fraction and i can see them saying
+[01:42:46.000 --> 01:42:51.440]   like and looking at max studio sales perhaps even and saying look at the percentage of the sales that
+[01:42:51.440 --> 01:42:57.920]   are of the the lower end chip versus the higher end chip and knowing that also an m2 ultra is gonna
+[01:42:57.920 --> 01:43:03.600]   have that amazing performance it will be the fastest mac ever when it comes out and saying maybe
+[01:43:03.600 --> 01:43:09.200]   you know maybe that's enough maybe we don't need the the 4x for 20 grand that nobody's gonna buy
+[01:43:09.200 --> 01:43:12.400]   and it could be a pacing thing too like we know it doesn't make sense to do it right now it might
+[01:43:12.400 --> 01:43:18.160]   make sense to do it in 2024 yeah for m3 or m4 or something like that yeah also also maybe they're
+[01:43:18.160 --> 01:43:22.720]   looking at what they've gotten up and in the more conventional pipeline for cpu's next year
+[01:43:22.720 --> 01:43:29.040]   and they're trying to figure out what argument do we make for making a 10,000 mac that is not
+[01:43:29.040 --> 01:43:37.520]   $5,000 faster than the $4,800 mac we can build with the with simpler components but i do think
+[01:43:37.520 --> 01:43:43.520]   it's mostly about the got do you do you sell one $10,000 mac with four basically four four dyes on
+[01:43:43.520 --> 01:43:48.720]   it or do you sell four max each with one die on it that you can that can probably each be
+[01:43:48.720 --> 01:43:54.960]   configured up to a four or $5,000 mac every time i look at you Andy i want to start singing
+[01:43:54.960 --> 01:44:11.520]   this man he seems to know my crime sorry it's quite a quite a hat i'm a little jealous i'm a
+[01:44:11.520 --> 01:44:15.440]   little jealous again you cute you i don't i don't i don't know if they i don't know if they still sell
+[01:44:15.440 --> 01:44:19.040]   them at their shows anymore whatever the current iteration of the flying car mods our brothers
+[01:44:19.040 --> 01:44:25.360]   are i would buy that this this was gifted to me it is velvet it is it's not complicated i'm
+[01:44:25.360 --> 01:44:29.840]   sure like rent fairs sell something like that but this this was given to me from by smirajakov
+[01:44:29.840 --> 01:44:36.880]   car and moths of sam leams so this is a a purse a personal item but also it's like all right good
+[01:44:36.880 --> 01:44:41.520]   i i'm not saying i look good on this i'm saying that i enjoy wearing this which is two different
+[01:44:41.520 --> 01:44:48.320]   separate things but both very valuable i uh i want and there's if you search for it you will see
+[01:44:48.320 --> 01:44:53.280]   you will see that they actually are selling it on their on their store with a picture
+[01:44:53.280 --> 01:45:01.120]   oh this item is sold out oh man but that's it right Andy right there this is this is the classic
+[01:45:01.120 --> 01:45:10.560]   kiss okay okay it was on posh mark a and i think appropriate name flying caromots of brothers dumb
+[01:45:10.560 --> 01:45:16.000]   hat uh anyway they actually they actually call it the stupid hat i don't know if they call it the
+[01:45:16.000 --> 01:45:21.680]   dumb head oh maybe that's maybe that's a knockoff okay it must be a knockoff i just the rest of us
+[01:45:21.680 --> 01:45:28.400]   did not get the memo that it was had day every day is oh nice you've got the uh the official
+[01:45:28.400 --> 01:45:33.200]   twit this is the twit fez i got the twit fez still right here very nice anytime i need it it's right
+[01:45:33.200 --> 01:45:39.680]   close by yeah three come my fez still you never know in the field it's like a fire extinguisher
+[01:45:39.680 --> 01:45:43.760]   every every every time you change the clock back the chains the clocks back make sure you change
+[01:45:43.760 --> 01:45:49.680]   the batteries in your fez uh still for sale i will give them a plug bedroom at fezorama that is the
+[01:45:49.680 --> 01:45:57.520]   official twit brick house shapo made to order you could choose your tassel color that's it any color
+[01:45:57.520 --> 01:46:05.840]   you want as long as it's a russet um gold for command red for security blue for science you can't
+[01:46:05.840 --> 01:46:10.560]   you can't don't get the red tassel no red tassel you know what happens continuing on
+[01:46:10.560 --> 01:46:18.080]   with mark german's report uh this is this is what he thinks the mac pro will be and you tell me
+[01:46:18.080 --> 01:46:23.760]   alex if this is a disappointment it's expected to rely on a new generation m2 ultra chip
+[01:46:24.640 --> 01:46:29.040]   uh but we'll retain the mac pro hallmark features of easy expandability for
+[01:46:29.040 --> 01:46:34.320]   additional memory storage and other components that's enough yeah i have to admit that i would
+[01:46:34.320 --> 01:46:38.160]   still probably be pretty tempted to buy it even with the low you know i'd be like what would be
+[01:46:38.160 --> 01:46:44.080]   really great to have that bigger chip but at the same time what the mac pro really brings that we
+[01:46:44.080 --> 01:46:49.680]   don't have with the studio is the ability to add more memory add a bigger hard drive
+[01:46:49.680 --> 01:46:54.640]   ability is important in and and cards in putting in like like right now every time i want to add a
+[01:46:54.640 --> 01:47:00.000]   video card like a quad card from black magic or something like that i now have to buy a
+[01:47:00.000 --> 01:47:04.960]   sonic box that sits on the outside of it which is super weird um and uh it may actually just have
+[01:47:04.960 --> 01:47:09.200]   it be able to put it into the computer like our old cheesegrakers so um so i think that those
+[01:47:09.200 --> 01:47:14.160]   there's still a lot of opportunity the pro could could be the pro could literally have the same
+[01:47:14.160 --> 01:47:20.400]   base specs as the studio and just have the external you know the ability to upgrade and
+[01:47:20.400 --> 01:47:25.760]   a lot of people would buy it so so i i i would love to see something bigger but i i would be fine
+[01:47:25.760 --> 01:47:32.240]   i'd probably buy it anyway i think you'll be happy about the new mac mini pro which will come in
+[01:47:32.240 --> 01:47:40.640]   regular according to german m2 and m2 pro variants um early next year maybe i would hope i'm hanging
+[01:47:40.640 --> 01:47:45.680]   on i'm hanging on i need i need to buy four more and i'm just hanging on for dirt yeah like i've
+[01:47:45.680 --> 01:47:49.440]   already bought i think i've now bought how would it be different than the studio though i mean
+[01:47:49.440 --> 01:47:56.800]   the studio seems is it too tall for it's it's a long less expensive just m2 and maybe m2 pro
+[01:47:56.800 --> 01:48:02.960]   right whereas the studio has max and all right so they're they're more expensive and more powerful
+[01:48:02.960 --> 01:48:06.640]   and the and the mini though is is i just don't want to buy enough i don't know what i would need
+[01:48:06.640 --> 01:48:12.480]   for m2 like the most of the mac minis that i've bought already are 8 gig you know base ones that
+[01:48:12.480 --> 01:48:21.280]   that are still able by the way to put out 8 8 uh 10 ADP streams from from zoom myself so with
+[01:48:21.280 --> 01:48:26.400]   this little mini and so so the thing is is that they're very very capable by themselves i still
+[01:48:26.400 --> 01:48:31.680]   work off of a studio like my my main and i wouldn't like one place that would probably make a
+[01:48:31.680 --> 01:48:36.400]   difference is one of the things i do with my studios i'm using memo live and then i'm having
+[01:48:36.400 --> 01:48:41.920]   isogomic coming out of siphon into memo live and able to cut it i think that a mini that would
+[01:48:41.920 --> 01:48:47.280]   probably be the current mini that'd probably be a little too much for it to do all of those things
+[01:48:47.280 --> 01:48:53.520]   whereas an ultra you know or an m2 would probably be enough to do the entire production in a much
+[01:48:53.520 --> 01:48:58.800]   smaller package so i still i think that there'd be a lot of advantages to it the old the old mac
+[01:48:58.800 --> 01:49:05.680]   pro was assembled in austin at the flex plant although assembled is you know the the only thing that
+[01:49:05.680 --> 01:49:10.800]   happened right that was under pressure from uh donald trump it's expected apple will build a new
+[01:49:10.800 --> 01:49:19.280]   plant in vietnam and move production back to asia uh the mini let's see oh 16 inch macbook
+[01:49:19.280 --> 01:49:26.000]   pros also early next year with m2 pro and then two max options the rumor i like the best and i don't
+[01:49:26.000 --> 01:49:33.840]   this is not a mark german rumor this is i think from nike uh is that there will be a 15 inch macbook
+[01:49:33.840 --> 01:49:42.800]   air in the spring of 2023 that's intriguing what do you think depends on how small the bezel is
+[01:49:42.800 --> 01:49:49.200]   they it seems like you really have to keep within that uh lots you have to keep within that tiny
+[01:49:49.200 --> 01:49:56.560]   laptop bag format to make them air make sense because if you have a large screen large sized
+[01:49:56.560 --> 01:50:03.520]   air once again you're making it even more complicated to try to decide between an air and a macbook
+[01:50:03.520 --> 01:50:09.840]   pro so yeah this is a poorly sourced i mean mink qo says at the end of this year
+[01:50:09.840 --> 01:50:18.480]   uh ross young supply chain analyst says it'll be early this next year i this is a little weaker
+[01:50:18.480 --> 01:50:26.240]   than uh that i think marx uh marx story yeah but i i think i actually think it makes sense because
+[01:50:26.240 --> 01:50:31.360]   macbook air is apple's most popular mac and they only make one of it and one and with no variation
+[01:50:31.360 --> 01:50:36.480]   right and if you want to get a bigger screen and that's all you care about you have to go up to the
+[01:50:36.480 --> 01:50:42.240]   2000 plus laptop that's got the multiple ports and the super fancy screen and like
+[01:50:42.240 --> 01:50:47.360]   surely there's a place for something that's a little bit bigger than the 12 inch yeah and it is
+[01:50:47.360 --> 01:50:51.760]   their most popular product i think for a reason that uh you know people could buy a
+[01:50:51.760 --> 01:50:57.120]   two thousand dollar macbook pro but they don't want to and and i imagine this will look like the m2
+[01:50:57.120 --> 01:51:03.520]   air right like it'll literally be just a look just pull out the margins of the of the m2 air and
+[01:51:03.520 --> 01:51:07.120]   and you know for people who want a little more screen real estate or want to change the uh the
+[01:51:07.120 --> 01:51:11.440]   scaling so that everything is a little bit larger because their eyes are aging i think there's a lot
+[01:51:11.440 --> 01:51:16.000]   of reason especially that that laptop looks great it's thin and light so even a 15 inch version of
+[01:51:16.000 --> 01:51:21.200]   it would be pretty spelt i think i think it's smart i think it's really smart now i i don't think
+[01:51:21.200 --> 01:51:26.560]   it adds complexity i think the the macbook pro line is weirdly complex with that 13 inch model but i
+[01:51:26.560 --> 01:51:32.240]   think saying that they have two heirs that are the same in all specs except the size of the screen
+[01:51:32.240 --> 01:51:38.160]   right is fine and and it gives people more options for apples most popular product to
+[01:51:38.160 --> 01:51:44.320]   or mac product new i know this i know this kind of sound like semantics but does it sound as though
+[01:51:44.320 --> 01:51:50.560]   it's time for apple to just come up with something called the macbook again i they tried it right i
+[01:51:50.560 --> 01:51:53.600]   think i think the problem that was that was there like we have the macbook air now we're
+[01:51:53.600 --> 01:51:58.800]   gonna come up with something even i'm sorry your logic your logic is strong right your logic is
+[01:51:58.800 --> 01:52:03.520]   strong except that the name macbook air is already out there and it's their most popular product and
+[01:52:03.520 --> 01:52:08.160]   it's not killing anybody so i feel i feel like they're gonna keep it i could make the same argument
+[01:52:08.160 --> 01:52:12.320]   about the iphone right like why don't we call that apple phone why is it still i like an ipod and
+[01:52:12.320 --> 01:52:16.960]   the answer is it's doing great let's not change the name right and i think that's the truth of it because
+[01:52:16.960 --> 01:52:23.440]   i agree with you it should be macbook and macbook pro but and it's same on the ipad
+[01:52:23.520 --> 01:52:27.840]   right there's an ipad air too that doesn't really make sense but there it is in the middle of the
+[01:52:27.840 --> 01:52:32.480]   product lineup and here we are so i agree with you on the logic completely i just think from a
+[01:52:32.480 --> 01:52:38.240]   marketing perspective they're not gonna do it i mean overall i think that apple has a real problem
+[01:52:38.240 --> 01:52:44.880]   with skews just i think it's getting i really feel like we're in the early like the early to mid 90s
+[01:52:44.880 --> 01:52:50.880]   when as a person who loved apple i couldn't figure out which computer to buy you know and i think
+[01:52:50.880 --> 01:52:56.000]   that we keep the subdivision right now it's not there yet it's i'm not saying it's there yet but i
+[01:52:56.000 --> 01:53:00.400]   feel like if they don't pull these lines back together it's going to start getting too well i
+[01:53:00.400 --> 01:53:04.880]   don't know if i need this and that starts to create like a delay it's that 13 inch macbook pro that i
+[01:53:04.880 --> 01:53:09.760]   would argue is the problem i don't think two macbook heirs and two macbook pros would be confusing at
+[01:53:09.760 --> 01:53:14.640]   all i think the problem is also that 13 inch pro that doesn't have the features that the other models
+[01:53:14.640 --> 01:53:20.640]   have uh because right if you have two models pro and air and technically they're exactly the same
+[01:53:20.640 --> 01:53:25.360]   and they all like with each other and the only difference is screen size i feel like that actually
+[01:53:25.360 --> 01:53:30.480]   makes sense the problem is we also have this 13 inch pro that isn't really pro it's kind of like
+[01:53:30.480 --> 01:53:36.560]   an air but kind of not an air and that's where it starts to get so confusing i think that the 14 and
+[01:53:36.560 --> 01:53:43.680]   16 inch pro and a 13 and potentially 15 inch air i think that those could be pretty clear as long as
+[01:53:43.680 --> 01:53:47.360]   you don't have that weird product in the middle that doesn't make any sense in the ear fears with
+[01:53:47.360 --> 01:53:52.480]   your i've seen people you know articles to say don't whatever you do don't buy the 13 inch macbook
+[01:53:52.480 --> 01:53:57.680]   pro it's a terrible compromise i agree it's a weird it's a weird compromise yeah i mean unless
+[01:53:57.680 --> 01:54:01.840]   you really it's not a pro it's not a pro laptop i mean it's not it's they could dump that from the
+[01:54:01.840 --> 01:54:06.880]   line and add a 15 inch air that would be great it's there because there are companies that will only
+[01:54:06.880 --> 01:54:11.360]   buy macbook pros they won't buy macbook heirs because they perceive them to be non-professional computers
+[01:54:11.360 --> 01:54:15.840]   oh man they also won't spend two thousand dollars on a laptop and so apple is like making a thing
+[01:54:15.840 --> 01:54:20.640]   and calling it a pro so that the companies will buy it that's less than two thousand like it that's
+[01:54:20.640 --> 01:54:25.600]   why it exists it's not it doesn't make sense unless you're thinking about like corporate buy i had to
+[01:54:25.600 --> 01:54:32.880]   say that the m2 air uh with i put 24 gigs of ram in it it's as fast as my mac studio it's a it's a
+[01:54:32.880 --> 01:54:39.120]   fantastic machine and the battery life it's such a great machine i think most people own it think
+[01:54:39.120 --> 01:54:42.400]   it's the best computer they've ever had i hear that again again you said that Jason right
+[01:54:42.400 --> 01:54:50.240]   yeah yeah big fan uh don't get too excited about the m3 german says that's at the end of next year
+[01:54:50.240 --> 01:54:58.320]   nothing else to say about that uh all right there's the oh have any of you turned on advanced
+[01:54:58.320 --> 01:55:06.480]   data protection not yet no i just i just updated everything like over the weekend yeah i haven't
+[01:55:06.480 --> 01:55:10.720]   updated last week i was going to turn it on until i saw that i had to update 17 things
+[01:55:10.720 --> 01:55:16.080]   yeah it's hard especially if you're like one of us reviewer-y types it's like oh my god
+[01:55:16.080 --> 01:55:21.280]   like i have to find them all and yeah what where are they and do i log them out and it's it's a lot
+[01:55:21.280 --> 01:55:27.840]   where is it again the advanced data protection they hide it i can't find it and that you can't by
+[01:55:27.840 --> 01:55:33.440]   the way you can't search for it either if you search for advanced data protection it doesn't show
+[01:55:33.440 --> 01:55:40.000]   up yeah yeah it's like they don't want you to do it i wonder maybe is it i think they don't want
+[01:55:40.000 --> 01:55:44.720]   you do by accident they're just trying to reduce this attack surface profile is it under iCloud
+[01:55:44.720 --> 01:55:50.160]   uh should be right there it is advanced data protection all right let's try again
+[01:55:50.160 --> 01:55:57.680]   let me just want to curious how what turn turn on advanced data protection it's spinning it's spinning
+[01:55:58.400 --> 01:56:06.480]   oh crap i've got an apple tv a home pod mini uh home pod full-sized
+[01:56:06.480 --> 01:56:14.640]   whose iPhone is that one oh man my apple wow there's still oh look oh yeah oh man
+[01:56:14.640 --> 01:56:21.680]   that's still too much stuff i'm gonna bet nobody turns this on if you guys haven't
+[01:56:21.680 --> 01:56:24.400]   i mean who's gonna turn this on
+[01:56:27.120 --> 01:56:32.080]   yeah it's funny there was a there was a piece in a major newspaper this week that basically said
+[01:56:32.080 --> 01:56:38.640]   you should turn this on and my wife saw this and asked me about it i'm like oh boy like yeah it's
+[01:56:38.640 --> 01:56:46.000]   nice it's real complicated um just not don't worry about it i'll let you know later because i'm like
+[01:56:46.000 --> 01:56:51.040]   oh you know like upgrading everything and then having to get the setup you're like as a contact
+[01:56:51.040 --> 01:56:57.440]   and like i think it's not a bad aspirational thing to do but like i'm not rushing enough to do it today
+[01:56:57.440 --> 01:57:02.720]   i gotta get off it's heavey he's up i'm also not feeling like i'm potentially under assault right now
+[01:57:02.720 --> 01:57:07.200]   and i need to interrupt everything right like right it seems like this is more like good hygiene
+[01:57:07.200 --> 01:57:13.280]   and not like do it immediately because the attack is coming today yeah it's not probably not no
+[01:57:13.280 --> 01:57:16.960]   all right let's take a little break picks of the week coming up we're gonna wrap this up
+[01:57:18.000 --> 01:57:23.760]   but first a word from our sponsor worldwide technology wwt you've heard me talk about them
+[01:57:23.760 --> 01:57:28.560]   for the last few years Lisa and i went out there just before uh covid before the pandemic to see
+[01:57:28.560 --> 01:57:34.080]   their advanced technology center oh that is incredible wwt is a forefront of innovation
+[01:57:34.080 --> 01:57:38.480]   working with clients all over the world to transform their businesses with the best enterprise
+[01:57:38.480 --> 01:57:44.160]   technology and it all comes down to this atc this advanced technology center a researching and
+[01:57:44.160 --> 01:57:50.240]   testing lab that brings together technologies from the leading oem's more than half a billion
+[01:57:50.240 --> 01:57:55.280]   dollars worth of equipment when they started at 10 years ago is in one building a few racks now
+[01:57:55.280 --> 01:58:01.200]   it's good spreads over multiple buildings it feels like miles of racks it was so impressive
+[01:58:01.200 --> 01:58:06.160]   so impressive the advanced technology center offers hundreds of on-demand and
+[01:58:06.160 --> 01:58:11.360]   schedulable labs featuring solutions that include technologies representing the newest advances in
+[01:58:11.360 --> 01:58:17.920]   cloud and security and networking primary and secondary storage data analytics and ai dev ops
+[01:58:17.920 --> 01:58:23.600]   all the stuff that you and enterprise would want to know about right and of course initially they
+[01:58:23.600 --> 01:58:30.080]   built that for the wwt engineers and partners to spin up proof of concept to do pilots to see how
+[01:58:30.080 --> 01:58:35.600]   things work to learn about them this way they can help their customers confidently select the best
+[01:58:35.600 --> 01:58:41.040]   solutions and it cuts the evaluation time down to weeks i mean it really can make a big difference
+[01:58:41.040 --> 01:58:48.560]   but here's the cool thing wwt has virtualized the atc members of the atc platform can access
+[01:58:48.560 --> 01:58:55.280]   these amazing resources anywhere in the world 365 days a year and it's free
+[01:58:55.280 --> 01:59:00.560]   with the atc you can test out products and solutions before you go to market you can access
+[01:59:00.560 --> 01:59:06.720]   it's more than just schedulable hands-on labs you can access technical articles expert insights
+[01:59:06.720 --> 01:59:13.360]   demonstration videos white papers they also wwt is is famous for their events in their communities
+[01:59:13.360 --> 01:59:19.360]   it's where people go to learn about enterprise technology trends to hear about the latest research
+[01:59:19.360 --> 01:59:24.480]   and insights from their experts and to try stuff before they buy you're going to love
+[01:59:24.480 --> 01:59:31.440]   wwt they are the partner every enterprise should have when it comes to technology because
+[01:59:32.320 --> 01:59:38.400]   they care about your business as much as they do about technology they believe that technology
+[01:59:38.400 --> 01:59:43.280]   only makes sense in the business if it if it enhances your business strategy they're business
+[01:59:43.280 --> 01:59:50.000]   people and they understand that whatever your business needs wwt worldwide technology can deliver
+[01:59:50.000 --> 01:59:56.320]   scalable tried and tested solutions that are tailored to fit you like a glove perfectly
+[01:59:56.960 --> 02:00:03.920]   wwt they bring strategy and execution together to make a new world happen learn more about wwt
+[02:00:03.920 --> 02:00:08.160]   learn about the atc and most importantly gain access to all those free resources
+[02:00:08.160 --> 02:00:16.400]   just go to wwt.com/twit to create a free account on the atc platform i can't believe that they make
+[02:00:16.400 --> 02:00:26.400]   it free it's it's such a boon everybody in enterprise should be doing this wwt.com/twit we love worldwide
+[02:00:26.400 --> 02:00:32.320]   technology we're we love partnering with them and uh i think you should check it out if you if you're
+[02:00:32.320 --> 02:00:38.400]   an enterprise this is such a good solution wwt.com/twit please use that address so they know
+[02:00:38.400 --> 02:00:44.800]   that you didn't just want to run through the door that you saw it here wwt.com/twit
+[02:00:44.800 --> 02:00:51.760]   pick of the week time let's start with Jason Snell all right well you know it's Christmas
+[02:00:51.760 --> 02:00:56.240]   week and i was thinking is there anything i could recommend that's christmassy and if you are the
+[02:00:56.240 --> 02:01:03.440]   user of a macbook with a notch in the screen so i am pro or an m2 macbook air yes how about hanging
+[02:01:03.440 --> 02:01:10.720]   some christmas lights oh oh the notch oh cray hockey berries and i look about that cray hockey
+[02:01:10.720 --> 02:01:16.320]   berry from the icon factory that guy he is he is can't be stopped he can't be stopped it's called
+[02:01:16.320 --> 02:01:24.320]   notch mister notch mister three it puts weird things under or hanging from or around your notch
+[02:01:25.200 --> 02:01:31.680]   and so it's like an ugly christmas sweater for your macbook come on it's free have a good time with it
+[02:01:31.680 --> 02:01:37.040]   hang some christmas lights on your macbook's notch and uh it's not just christmas lights so
+[02:01:37.040 --> 02:01:42.240]   after the holidays you could do other things right there's glowing things and there's you know i
+[02:01:42.240 --> 02:01:46.720]   suggested to him the idea that like also if you lose your cursor under the notch have like the notch
+[02:01:46.720 --> 02:01:52.240]   glow and it does that so that you're like oh that that's where it is it's like the olden days of like
+[02:01:52.240 --> 02:01:58.080]   uh after dark and underwear and things like that a talking moose where it's just like a silly thing
+[02:01:58.080 --> 02:02:02.720]   that can run on your mac kids ask your parents what those were by the way or your grandparents
+[02:02:02.720 --> 02:02:08.080]   uh but it's like that it's like it's like tangy buda yeah it's it's a it's software entertainment
+[02:02:08.080 --> 02:02:15.120]   right it's not it's not solving world problems it's just goofy and fun and it's free and what better
+[02:02:15.120 --> 02:02:21.200]   time to hang christmas lights on your notch so no better time to get her done better time to decorate
+[02:02:21.200 --> 02:02:25.600]   your notch than during the holidays i agree it is the best time it's the most wonderful time of the
+[02:02:25.600 --> 02:02:32.160]   year for you you're not and you uh oh this is the best pick ever i can't wait to go home and try it
+[02:02:32.160 --> 02:02:40.000]   notch maestah it's in the mac app store from the wonderful icon factory andy and i co pick of the
+[02:02:40.000 --> 02:02:47.120]   week uh two holiday themed uh thing picks uh number one you're going to be at a lot of family events
+[02:02:47.120 --> 02:02:53.200]   over the next week or two and that's a good time to renew the old resentments when you once again
+[02:02:53.200 --> 02:02:59.360]   find out that gee how come uh my grandparents wedding portrait wound up at my cousin shai's house
+[02:02:59.360 --> 02:03:04.320]   wouldn't i thought we were going to discuss like when we close down the house who gets what uh and
+[02:03:04.320 --> 02:03:09.040]   it seems as though that she won't even like let me borrow it for just one weekend so i can scan it
+[02:03:09.040 --> 02:03:14.640]   uh and so although i'm all for like ruining the holidays by confronting relatives uh you get
+[02:03:14.640 --> 02:03:19.920]   downloaded install an app uh by google for exactly this kind of problem it's called photo scan
+[02:03:19.920 --> 02:03:25.440]   it is especially for just taking an existing photo no matter where it is uh whether it's a
+[02:03:25.440 --> 02:03:31.040]   print photo you've got uh in a drawer you've put on your desk or whether it's behind glass hanging
+[02:03:31.040 --> 02:03:36.960]   on a wall it's a very very streamlined app specifically for taking that photo and turning it into a
+[02:03:36.960 --> 02:03:42.560]   very very good jpeg so for instance if you've got just uh during one of the breaks uh i've i've a
+[02:03:42.560 --> 02:03:50.160]   david bowie uh mac world expo uh concert poster on my wall and if i wanted to steal it because i was
+[02:03:50.160 --> 02:03:54.320]   visiting my cousin and i thought gee i've really would like to have that on my wall it will it will
+[02:03:54.320 --> 02:04:02.160]   it will use uh it will it will uh it will it will guide you towards kind of taking almost a panorama
+[02:04:02.160 --> 02:04:07.840]   like a four shot panoramas you get it high resolution so that the so that the glare from the glass is
+[02:04:07.840 --> 02:04:12.880]   not going to be a problem it'll correct for uh the uh for the distortion if you're right way up or
+[02:04:12.880 --> 02:04:18.240]   way down uh and then it actually takes a very very good copy of that it's not as good as borrowing
+[02:04:18.240 --> 02:04:23.680]   it and then actually slapping it inside a scanner but in terms of people who do not want that one
+[02:04:23.680 --> 02:04:29.760]   actually legitimately we have exactly one copy of this 108 year old photo which is the only photo
+[02:04:29.760 --> 02:04:34.880]   of our young immigrant grandparent uh on l s island we don't want that to ever leave the house
+[02:04:34.880 --> 02:04:39.600]   for any reason there's no excuse for saying well can i lay it flat on the kitchen table and take a
+[02:04:39.600 --> 02:04:44.400]   picture of it with my phone uh if they say no then you know that you have deep deep deep familiar
+[02:04:44.400 --> 02:04:48.960]   problems that probably go far beyond a single photo good it's good to have on your phone ready
+[02:04:48.960 --> 02:04:53.040]   for when you do see something on a wall that you want to actually grab a copy of i use it in museums
+[02:04:53.040 --> 02:04:58.160]   a lot too uh when there's something i just want a good copy of uh and the the pictures that takes
+[02:04:58.160 --> 02:05:02.240]   you can edit it later on if you want but it usually is high resolution enough and good enough you can
+[02:05:02.240 --> 02:05:07.520]   actually make a print from right from there uh the other one is something that uh Jason
+[02:05:07.520 --> 02:05:12.880]   i don't know whether Jason introduced me to it or whether we both found out about it from mark
+[02:05:12.880 --> 02:05:19.360]   while mark while it is uh uh blog yeah the comic credit here thank you the the comic craft new
+[02:05:19.360 --> 02:05:25.840]   year's day font sale comic craft is amazing every year for like 15 years and you mean Jason told
+[02:05:25.840 --> 02:05:30.800]   you about this first no no and he told me about it yeah because i thought yeah 15 years the price
+[02:05:30.800 --> 02:05:35.920]   it yeah the price has gone up by like 15 cents in those exactly it's not it's not even keep over
+[02:05:35.920 --> 02:05:42.160]   the place yet so this is an amazing company that if you if you read digital comics you have probably
+[02:05:42.160 --> 02:05:48.480]   seen their typefaces in like marvel dc and independent comics uh they also have all kinds of like
+[02:05:48.480 --> 02:05:53.040]   display and lettering fonts that you've probably as soon as you see and you say oh wait a minute i
+[02:05:53.040 --> 02:05:58.800]   have i have a container of all spice that i bought at the supermarket that has that font on it uh
+[02:05:58.800 --> 02:06:04.000]   they're professional level fonts they're not like trash free france fonts they go from anywhere from
+[02:06:04.000 --> 02:06:09.920]   like 30 30 or 40 dollars all the way up to like 200 300 400 dollars for a whole package and every
+[02:06:09.920 --> 02:06:14.160]   year for the past like decade and a half maybe even two decades they've had a new year's day sale
+[02:06:14.160 --> 02:06:21.600]   where the price of every single font is whatever the year is in pennies so it's oh my god they haven't
+[02:06:21.600 --> 02:06:26.480]   updated the website to announce the the the sale yet but i don't think they've canceled this year so
+[02:06:26.480 --> 02:06:31.200]   every font that you see there no matter how expensive it is will be 20 dollars and 23 cents
+[02:06:31.200 --> 02:06:35.920]   even the ones that cost less than 20 dollars or will be the price will be raised to 20 dollars
+[02:06:35.920 --> 02:06:42.800]   and 23 cents for that day and also another another pro tip is that if you miss out on it and it's
+[02:06:42.800 --> 02:06:48.720]   like january second try anyway because oftentimes they have a very loose definition of the word by
+[02:06:48.720 --> 02:06:55.120]   midnight january first because you might find that they the that the prices still up every single
+[02:06:55.120 --> 02:07:00.080]   year like i buy at least two or three fonts i've bought like all the real huge expensive really
+[02:07:00.080 --> 02:07:06.000]   wonderful ones that i have a lot of fun with it for really they the sign outside my window right
+[02:07:06.000 --> 02:07:11.360]   now that says do not bother me i am podcasting come in with a fire extinguisher and a fire
+[02:07:11.360 --> 02:07:16.880]   and an emergency crew or don't come in at all has this wonderful beautiful like hand-lettered font
+[02:07:16.880 --> 02:07:22.800]   and this beautiful like you know like 1950s sort of like scrawls like a like a
+[02:07:22.800 --> 02:07:29.360]   scrawls sort of like a headline brushstroke font it's again i'll use that salad dressing analogy
+[02:07:29.360 --> 02:07:34.720]   if you buy if you go there and you find a font that's really good for doing like a hand-lettered
+[02:07:34.720 --> 02:07:40.160]   sign buy it keep it on your keep it on your your computers keep it on your devices at some point
+[02:07:40.160 --> 02:07:44.960]   you will have to like create a sign for like here's where the party is here's where the here's where
+[02:07:44.960 --> 02:07:50.320]   the the art sale is or again keep out of the bathroom it's broken it will not do the the
+[02:07:50.320 --> 02:07:55.120]   fixture will not do the things you want it to do put and put it on put it on the the door
+[02:07:55.120 --> 02:07:59.280]   much better than whatever fonts came free and much better with than whatever you can get free
+[02:07:59.280 --> 02:08:03.600]   hand again i'm Jason and i are both devoted fans we both probably now have hundreds of
+[02:08:03.600 --> 02:08:08.240]   comic-craft fonts that we've bought two or three at a time over the past 50 or 20 years this is i
+[02:08:08.240 --> 02:08:13.200]   love this i've bought several uh every year you mentioned this and yeah i like to start to collect
+[02:08:13.200 --> 02:08:17.840]   them i there's one that's four hundred dollars you telling me that'll be twenty dollars and every
+[02:08:17.840 --> 02:08:21.440]   three every single thing will be twenty dollars twenty three cents the other nice thing create an
+[02:08:21.440 --> 02:08:26.320]   account because i can actually log back in and redown load every font i've bought over the past
+[02:08:26.320 --> 02:08:31.600]   ten years it's really good i mean i i'll stop giving tips about this but there's so many there's
+[02:08:31.600 --> 02:08:36.000]   too many to count like there's uh like there's a really good like i think there's actually
+[02:08:36.000 --> 02:08:41.200]   the font called you hohohoh or might be called the yule tide which is you'll you'll recognize
+[02:08:41.200 --> 02:08:46.640]   when you see it it's the basic like christmas card like lettering sort of font that's really only
+[02:08:46.640 --> 02:08:51.120]   good for christmas cards and holiday cards and you would never maybe you don't you know you're not
+[02:08:51.120 --> 02:08:57.120]   gonna spend 70 dollars for it especially like the week after the holidays but for 20 dollars yes you
+[02:08:57.120 --> 02:09:01.600]   will buy it and you'll put it in your font file and then and when october and of ever comes around
+[02:09:01.600 --> 02:09:06.880]   next year rather than saying gee how can i sort of like turkey up helvetica so it looks festive you
+[02:09:06.880 --> 02:09:12.160]   say oh no no i'll use that beautiful like caligraphic holiday gift card font that i got for just 20
+[02:09:12.160 --> 02:09:19.360]   bucks last year i just want to buy this monol monologous which looks like this basic comic book font
+[02:09:19.360 --> 02:09:23.600]   i have that yeah it seems like that would be a really good one to have so many of these are
+[02:09:23.600 --> 02:09:29.360]   there are also there are also really sophisticated fonts like monologous is only uppercase is uppercase
+[02:09:29.360 --> 02:09:35.920]   only but it has a special trick built into it so that like uh if you have like uh if you have two
+[02:09:35.920 --> 02:09:40.640]   ends in a row two o's or whatever obviously the fact that they look identical will give away the
+[02:09:40.640 --> 02:09:45.440]   fact it's not hand-ledered but they use the uppercase for one version of it the lowercase for a different
+[02:09:45.440 --> 02:09:50.560]   version of it they have other tricks where sometimes it will uh it will do the the the
+[02:09:50.560 --> 02:09:56.240]   kerning for you automatically it'll stack things free automatically uh i can't say enough about them
+[02:09:56.240 --> 02:10:00.480]   the they and they update the fonts occasionally where you'll say oh by the way we've updated
+[02:10:00.480 --> 02:10:05.040]   uh comma crazy so if you want a new version of it that has this new extra font technology go and
+[02:10:05.040 --> 02:10:11.200]   get it it really is uh quite good and if you buy monologous and soliloquis together then you get
+[02:10:11.200 --> 02:10:17.280]   the upper and the lower and you're set it's it's it's a lot it's a lot of fun like when i'm bored
+[02:10:17.280 --> 02:10:22.160]   but i don't i need to keep my butt in the chair for another 45 minutes to like you know grab a panel
+[02:10:22.160 --> 02:10:28.080]   from like a 1960s like marvel comic and just totally re-letter it and it will and will look
+[02:10:28.080 --> 02:10:35.760]   absolutely perfect too uh and just it will represent your your gen x sarcastic rock and funk
+[02:10:35.760 --> 02:10:40.960]   sensibility early days of ios that was really popular there are three or four apps that would
+[02:10:40.960 --> 02:10:46.160]   let you do take pictures and term into comic book panels and that kind of thing those are i guess
+[02:10:46.160 --> 02:10:51.600]   those are mark signs i think had a comic book uh yeah after f/e debut chatter on macpaint yeah we went
+[02:10:51.600 --> 02:10:59.280]   yes yeah remember that that was awesome yeah uh alex lindsey pick of the week so a couple weeks
+[02:10:59.280 --> 02:11:04.800]   ago maybe a month or two ago i talked about that we were seeing the fr7 coming out with from from
+[02:11:04.800 --> 02:11:11.680]   sony and we were uh wondering about it we were excited about it we were excited about our paper
+[02:11:11.680 --> 02:11:16.080]   a bunch of folks in office hours have actually bought them and received them and this is sony's
+[02:11:16.080 --> 02:11:23.360]   full-frame pantilt zoom it'll change the lens camera so good it is it looks so pretty it
+[02:11:23.360 --> 02:11:30.400]   um so uh the there's a great uh web app that will control it there is a ipad um controller there is
+[02:11:30.400 --> 02:11:35.520]   i have all the lenses it seems like i should probably have this oh it's it's just i don't know what i
+[02:11:35.520 --> 02:11:41.360]   do with it well i i think they're gonna make they're gonna make about them as many of these as they can
+[02:11:41.360 --> 02:11:46.880]   they're gonna sell as many as they can make you know they they this is you know it's still pricey
+[02:11:46.880 --> 02:11:52.320]   for a camera it's this is a ten thousand dollar camera you know it's not like a thanks but but it
+[02:11:52.320 --> 02:11:58.320]   looks like a film camera but it's a ptz that you can use in your podcast studio or you know they
+[02:11:58.320 --> 02:12:02.400]   i think that sony i think they're trying to position it by showing and doing all these film things that
+[02:12:02.400 --> 02:12:08.960]   i would never use it for um but but as a um you may if suddenly my background gets even softer and
+[02:12:08.960 --> 02:12:15.520]   it suddenly you know looks different that i got one um but but we we tested it um a bunch of people
+[02:12:15.520 --> 02:12:20.560]   have tested it they've already used it in productions and it just it just looks really really good and
+[02:12:20.560 --> 02:12:24.160]   we did a whole hour which is one of our better second hours let me just turned out really good
+[02:12:24.160 --> 02:12:28.400]   because you have people who have already gotten to use it they've already used it in production
+[02:12:28.400 --> 02:12:33.600]   they're answering people's questions and so last thursday's um office hours we we went through it
+[02:12:33.600 --> 02:12:37.360]   and uh so there's like a second hour there that's all if you're interested in it i would definitely
+[02:12:37.360 --> 02:12:42.560]   check it out because it's it is um an incredible uh it looks like an incredible camera it's like
+[02:12:42.560 --> 02:12:47.520]   game changer camera i don't say that you put on a uh on a jib or you could put it on the jib but
+[02:12:47.520 --> 02:12:52.240]   you put it just on a tripod and then it'll just you know you can i mean they're very aggressive about
+[02:12:52.240 --> 02:12:56.480]   showing it all you're gonna use it in filmmaking and you might use it in filmmaking but um there's
+[02:12:56.480 --> 02:13:02.560]   broad if you're a broadcast studio that wants to stop looking like t-re-old tv um if you are you
+[02:13:02.560 --> 02:13:06.320]   know um like i mean i'm talking about like you know news organization can you shake your cam with it
+[02:13:06.320 --> 02:13:11.680]   and all of it makes it look like it's handy probably could have something if you work hard
+[02:13:11.680 --> 02:13:16.560]   at that if you're entering jiggling the tripod leg yeah but it's uh it's pretty slick so
+[02:13:16.560 --> 02:13:24.480]   hey everybody it's leo loport the founder and host of many of the uh twit podcasts i don't normally
+[02:13:24.480 --> 02:13:30.640]   talk to you about advertising but i want to take a moment to do that right now um our mission
+[02:13:30.640 --> 02:13:36.160]   statement at twit we're dedicated to building a highly engaged community of tech enthusiasts
+[02:13:36.160 --> 02:13:42.080]   that's our audience and you i guess since you're listening by offering them the knowledge they
+[02:13:42.080 --> 02:13:48.880]   need to understand and use technology in today's world to do that we also create partnerships with
+[02:13:48.880 --> 02:13:54.080]   trusted brands and make important introductions between them and our audience that's how we
+[02:13:54.080 --> 02:13:59.840]   finance our podcasts but it's also and our audience tells us this all the time a part of the service
+[02:13:59.840 --> 02:14:05.600]   we offer it's a valued bit of information for our audience members they want to know about
+[02:14:05.600 --> 02:14:14.160]   great brands like yours so can we help you by introducing you to our highly qualified
+[02:14:14.160 --> 02:14:20.240]   audience and boy do you get a lot with advertising on the twit podcasts partnering with twit means
+[02:14:20.240 --> 02:14:25.120]   you're going to get if i may say so humbly the gold standard and podcast advertising
+[02:14:25.120 --> 02:14:29.440]   and we throw in a lot of valuable services you get a full service continuity team
+[02:14:29.440 --> 02:14:34.240]   supporting everything from copyright into graphic design i don't think anybody else
+[02:14:34.240 --> 02:14:39.760]   does this or does this as well as that we do you get ads that are embedded in our content that are
+[02:14:39.760 --> 02:14:45.920]   unique every time i read them our hosts read them we always over deliver on impressions and frankly
+[02:14:45.920 --> 02:14:53.360]   we're here to talk about your product so we really give our listeners a great introduction to what
+[02:14:53.360 --> 02:14:59.840]   you offer we've got on boarding services ad tech with pod sites that's free for direct clients
+[02:14:59.840 --> 02:15:04.800]   we give you a lot of reporting so you know who saw your advertisement you'll even know how many
+[02:15:04.800 --> 02:15:10.080]   responded by going to your website we'll also give you courtesy commercials that you can share
+[02:15:10.080 --> 02:15:15.680]   across social media and landing pages we think these are really valuable people like me and our
+[02:15:15.680 --> 02:15:22.160]   other hosts talking about your products sincerely uh and informationally those are incredibly valuable
+[02:15:22.160 --> 02:15:26.320]   you also get other free goodies mentions in our weekly newsletter that's sent out to thousands of
+[02:15:26.320 --> 02:15:32.320]   fans we give bonus ads uh to people who buy a significant amount of advertising you'll get
+[02:15:32.320 --> 02:15:37.840]   social media promotion too but let me tell you we are looking for an advertising partner that's
+[02:15:37.840 --> 02:15:43.600]   going to be with us long term visit twit.tv/advertise check out our partner testimonials
+[02:15:43.600 --> 02:15:51.680]   tim broome founder of it pro tv they started it pro tv in 2013 immediately started advertising with us
+[02:15:51.680 --> 02:16:00.000]   and grew that company to a really amazing success hundreds of thousands of ongoing customers
+[02:16:00.000 --> 02:16:05.600]   they've been on our network for more than 10 years and they say and i'll quote tim we would not be
+[02:16:05.600 --> 02:16:09.760]   where we are today without the twit network that's just one example mark mccurry who's the
+[02:16:09.760 --> 02:16:15.840]   ceo of authentic uh he was actually uh one of the first people to buy ads on our network he's been
+[02:16:15.840 --> 02:16:22.480]   with us for 16 years he said and i'm quoting the feedback from many advertisers over those 16
+[02:16:22.480 --> 02:16:28.480]   years across a range of product categories is that if ads and podcasts are going to work for a brand
+[02:16:28.480 --> 02:16:35.120]   they're going to work on twit shows i'm proud to say that the ads we do over deliver they work
+[02:16:35.120 --> 02:16:40.960]   really well because they're honest they have integrity our audience trusts us and we say this
+[02:16:40.960 --> 02:16:46.960]   is a great product they believe it they listen our listeners are highly intelligent they're heavily
+[02:16:46.960 --> 02:16:52.480]   engaged they're tech savvy they're dedicated to our network and that's partly because we only work
+[02:16:52.480 --> 02:16:59.680]   with high integrity partners that we have thoroughly and personally vetted i approve every single
+[02:16:59.680 --> 02:17:05.520]   advertiser on the network if you're ready to elevate your brand and you've got a great product i want
+[02:17:05.520 --> 02:17:13.360]   you to reach out to us advertise at twit.tv so i want you to break out of the advertising norm grow
+[02:17:13.360 --> 02:17:22.560]   your brand with host red authentic ads on twit.tv visit twit.tv/ advertise for more details or email
+[02:17:22.560 --> 02:17:29.120]   us advertise at twit.tv if you're ready to launch your campaign now office hours dot global you could
+[02:17:29.120 --> 02:17:37.680]   see how the pros and office hours have used it as well as so many other things including cooking
+[02:17:37.680 --> 02:17:43.920]   and there's some there's a little mid-journey chubaka that will keep you definitely want to let
+[02:17:43.920 --> 02:17:49.040]   win i i'm not exactly you still want smarter than you are yeah definitely want that one to win
+[02:17:49.040 --> 02:17:56.480]   a thousandth show congratulations that was yesterday little party there a whole lot of great stuff
+[02:17:56.480 --> 02:17:59.840]   office hours dot global there's a zoom you can join and be part of it
+[02:17:59.840 --> 02:18:05.920]   of course there are videos after the fact and all of the information is there at office hours
+[02:18:05.920 --> 02:18:12.560]   dot global so if you want to join click the join us button and the week is going to be a good week
+[02:18:12.560 --> 02:18:18.000]   it looks like yeah you did a q and a this morning mix minus john we should go to that one whole
+[02:18:18.000 --> 02:18:21.920]   hour and mix minus we should go to that one that's on wednesday that's that's going to be a good one
+[02:18:22.880 --> 02:18:29.600]   lydar education specifically lydar as it relates to like the phone and stuff like that so we'll be
+[02:18:29.600 --> 02:18:33.280]   nick just shin from dr. cali and dulbee and talking about it should be nice
+[02:18:33.280 --> 02:18:39.680]   that's office hours dot global if you want to hire alex you know and play with the big boys
+[02:18:39.680 --> 02:18:48.640]   run with the big dogs at 090 dot media thank you alex and the naka when are you going to be on gb h
+[02:18:48.640 --> 02:18:57.280]   next uh i am on this thursday at uh 12 30 eastern time go to w g p h news dot org to stream it live
+[02:18:57.280 --> 02:19:04.000]   or later via audio uh or go to the w g b h news channel on youtube to watch it stream not sure
+[02:19:04.000 --> 02:19:08.160]   if i'll wear the stupid hat i might see if i can get away with that because i don't like to have to
+[02:19:08.160 --> 02:19:12.400]   comb and brush my hair i think you should definitely wear that i think they would enjoy that
+[02:19:14.800 --> 02:19:19.600]   and i'm doing it remotely so i can at least mute the mute the audio so i don't hear them laughing so
+[02:19:19.600 --> 02:19:25.360]   there's that thank you andrew uh jason's thank you yeah well i'm gonna wish y'all happy christmas
+[02:19:25.360 --> 02:19:30.800]   in a second i just want to get all the plugs in here jason snell uh six colors dot com the
+[02:19:30.800 --> 02:19:37.600]   incomparable all the great podcasts six colors dot com slash jason leo i made a new page just for you
+[02:19:37.600 --> 02:19:44.000]   oh so it's just your podcast now it's just me and my podcast so you can check that out at six colors
+[02:19:44.000 --> 02:19:48.880]   i'm not even i don't mind you plug in other people's podcast but yeah anyway that's good
+[02:19:48.880 --> 02:19:54.080]   this is all of the shows you do good lord yeah i mean most of them are seasonal they come and go
+[02:19:54.080 --> 02:19:58.560]   and then some of them are not seasonal but you know you should talk you should talk i shot to
+[02:19:58.560 --> 02:20:03.520]   watch podcast yourself i got a few colors dot com the incomparable dot com check them out couple
+[02:20:03.520 --> 02:20:09.280]   at relay dot fm and uh this one mac break weekly too and thank you for bringing me into your family
+[02:20:09.280 --> 02:20:15.200]   we love having you here i am a newcomer here yeah no you're not really a newcomer we we've had you
+[02:20:15.200 --> 02:20:21.120]   i've known you since call for help on tech tove days for crying out loud that's right uh that's more
+[02:20:21.120 --> 02:20:28.160]   than uh 20 years that's like 25 years or something like that um thank you all three of you we will
+[02:20:28.160 --> 02:20:34.080]   not be here next week it's a best of mac break we'll be back january third which means we will be
+[02:20:34.080 --> 02:20:41.440]   back before orthodox christmas but not until after the regular thing and new years
+[02:20:41.440 --> 02:20:49.120]   andy and jason and alex i hope you have a wonderful holiday i hope you do great things you suv
+[02:20:49.120 --> 02:20:56.560]   that burrito you do whatever it is you do on the holidays i know jason you're gonna go spend time
+[02:20:56.560 --> 02:21:01.760]   with family which is great uh alex your family comes along with you everywhere you go so you don't
+[02:21:01.760 --> 02:21:07.040]   live to you know me and laws are visiting so we're gonna have a good time and andy uh are you
+[02:21:07.040 --> 02:21:12.560]   are you got anything planned for the holidays this year uh i got plans uh probably my car will
+[02:21:12.560 --> 02:21:17.840]   break down just outside of town my really fancy expensive car that i've the status car that i've
+[02:21:17.840 --> 02:21:23.840]   been saving for all my life it will cost me to wonder really why am i so hung up on material things and
+[02:21:23.840 --> 02:21:29.200]   during that long long walk back it will be that simple broken down pickup truck that jason is
+[02:21:29.200 --> 02:21:35.120]   garage uh that i that i mocked so much that will pick me up and remind me of what christmas is all
+[02:21:35.120 --> 02:21:42.640]   about real meaning airing four times a day on lifetime between now and boxing day happy
+[02:21:42.640 --> 02:21:48.720]   by pro concentrate happy hanaka happy quanza happy festivists when is the festivists have we missed
+[02:21:48.720 --> 02:21:54.240]   festivists already is it today we better get the poll out we gotta get we gotta get hustlin here
+[02:21:54.240 --> 02:22:00.240]   where's we have an aluminum pole 23rd right oh we got a couple of days okay okay friday it's both
+[02:22:00.240 --> 02:22:07.280]   the airing of grievances still to come thank you all of you too i i really appreciate the fact that
+[02:22:07.280 --> 02:22:11.840]   you show up for mac break weekly you listen to it uh i hope you listen to it every week you know what
+[02:22:11.840 --> 02:22:17.520]   a great holiday gift for yourself or the geek in your life would be a membership in our club
+[02:22:17.520 --> 02:22:23.840]   twits less it's a buck less than a blue check and you get so much more uh you get of course ad-free
+[02:22:23.840 --> 02:22:28.960]   versions of all of our shows including shows we don't put out in public like hands-on macotage
+[02:22:28.960 --> 02:22:34.960]   with mica and uh paul tharats hands-on windows and the untitled linux show you also get access
+[02:22:34.960 --> 02:22:41.360]   those are all in the twit plus feed to the discord which is a wonderful party uh going on around the
+[02:22:41.360 --> 02:22:47.520]   clock we're talking about not just the shows but but everything uh you know anything that geeks
+[02:22:47.520 --> 02:22:52.160]   would like i spent a lot of time in the coding section over there asking begging for help
+[02:22:52.160 --> 02:22:58.080]   with our advent of code puzzles seven bucks a month it's a club you want to be in twit.tv/club
+[02:22:58.080 --> 02:23:04.480]   twit it's a club we want you to be in and it really does help us uh keep the lights on keep the staff
+[02:23:04.480 --> 02:23:10.640]   employed um so we really thank you for it it also supports the mastodon instance the discourse
+[02:23:10.640 --> 02:23:16.320]   forums that irc all of that twit.tv/club twit there is a yearly subscription which would be an
+[02:23:16.320 --> 02:23:22.400]   excellent last minute of holiday gift for the geek in your life i'm just i'm just saying happy
+[02:23:22.400 --> 02:23:29.520]   holidays everybody have a great new years eve and new years stay safe stay well and we will see
+[02:23:29.520 --> 02:23:35.920]   you next year but now i'm sorry to say it's time to get back to work because break time is over
+[02:23:35.920 --> 02:23:42.800]   see you next year hey there i'm mica sergeant look as a geek myself i feel it's only fair if i
+[02:23:42.800 --> 02:23:49.600]   admit something we can be kind of hard to shop for so what do you get for that geek in your life who
+[02:23:49.600 --> 02:23:55.200]   has everything already well a club twit gift subscription of course twit podcasts keep them
+[02:23:55.200 --> 02:23:59.840]   informed and entertained with the most relevant tech news podcasts available with a club twit
+[02:23:59.840 --> 02:24:06.320]   subscription they're gonna get access to all of our podcasts ad-free exclusive outtakes behind the
+[02:24:06.320 --> 02:24:13.600]   scenes and special content and i love this exclusive shows like my own hands-on mac and hands-on
+[02:24:13.600 --> 02:24:20.320]   windows from hall the rot as well as the untitled linux show so purchase your geek's gift at twit
+[02:24:20.320 --> 02:24:35.200]   dot tv slash club twit and they will thank you every day
+

@@ -1,0 +1,1484 @@
+;FFMETADATA1
+title=The War on Buttons
+artist=Alex Lindsay, Andy Ihnatko, Jason Snell, Dan Moren
+album_artist=TWiT
+publisher=TWiT
+album=MacBreak Weekly
+TRDA=2023-04-04
+track=864
+language=English
+genre=Podcast
+comment=WWDC23, watchOS 10, GM & Apple CarPlay
+encoded_by=Uniblab 5.3
+date=2023
+encoder=Lavf59.27.100
+
+[00:00:00.000 --> 00:00:04.320]   It's time for Mac Break Weekly, I'm Jason Snell sitting in for Leo Laporte who is bobbing
+[00:00:04.320 --> 00:00:10.400]   somewhere in a river, and in Europe probably. I have Alex Lindsey, Andy Enayko is always
+[00:00:10.400 --> 00:00:17.040]   and special guest star, author Rock Untour, tech reporter Dan Morin. We got lots to talk about
+[00:00:17.040 --> 00:00:22.640]   Apple's Developer Conference, future of WatchOS, so much more coming at you now.
+[00:00:22.640 --> 00:00:34.400]   [MUSIC]
+[00:00:34.400 --> 00:00:41.520]   Mac Break Weekly Episode 864 for April the 4th, 2023, The War on Buttons.
+[00:00:41.520 --> 00:00:47.520]   This episode of Mac Break Weekly is brought to you by Cisco Moraki with employees working
+[00:00:47.520 --> 00:00:53.440]   in different locations, providing a unified work experience seems as easy as hurting cats.
+[00:00:53.440 --> 00:00:58.960]   How do you rein in so many moving parts? The Moraki Cloud Managed Network, that's how.
+[00:00:58.960 --> 00:01:05.680]   Learn how your organization can make hybrid work, visit moraki.sisco.com/twits.
+[00:01:05.680 --> 00:01:14.080]   And by ACI Learning, ACI Learning amplifies expertise across industries that command higher pay.
+[00:01:14.080 --> 00:01:19.280]   ACI Learning, transforming how companies train and technology professionals learn
+[00:01:19.280 --> 00:01:25.520]   to fuel the modern workforce. For premium training at audit, IT, and cybersecurity readiness,
+[00:01:25.520 --> 00:01:28.880]   visit go.acilearning.com/twits.
+[00:01:28.880 --> 00:01:34.800]   Listeners of this program get an ad-free version if they're members of club
+[00:01:34.800 --> 00:01:41.200]   Twitch, $7 a month gives you ad-free versions of all of our shows. Plus, membership in the club
+[00:01:41.200 --> 00:01:46.560]   Twitch discord, a great clubhouse for Twitch listeners. And finally, the Twitch Plus feed
+[00:01:46.560 --> 00:01:53.680]   with shows like Stacey's Book Club, The Untitled Linux Show, The Giz Fizz, and more. Go to twit.tv/club
+[00:01:53.680 --> 00:02:00.640]   Twitch, and thanks for your support. It's time for Mac Break Weekly. I am Jason Snell sitting in for
+[00:02:00.640 --> 00:02:05.680]   Leo Laport. Normally I'm in one of these boxes next to me, and Leo is in this chair, but Leo
+[00:02:05.680 --> 00:02:10.640]   is traveling the world. He's doing wonderful things. He's making memories that will last a lifetime.
+[00:02:10.640 --> 00:02:17.040]   He's leaving only footprints behind. But we're here to talk about Apple with two of our usual
+[00:02:17.040 --> 00:02:23.280]   panelists and a fill-in for me, because I'm again sitting in this chair today. Of course, as always,
+[00:02:23.280 --> 00:02:29.760]   my good pal for murmur, murmur years in the tech industry, Andy and not go is here. Hi, Andy.
+[00:02:29.760 --> 00:02:35.840]   Hello, is it look out your window? Are there piers of burning things on the horizon?
+[00:02:36.480 --> 00:02:41.920]   Does it look like the things have turned for the better or for the worse? I have a feeling that
+[00:02:41.920 --> 00:02:46.320]   things are going to change this afternoon during our very podcast recording. Not that that puts
+[00:02:46.320 --> 00:02:50.320]   any more obligations or responsibilities on your shoulders. I'm sure you can handle it, Jason.
+[00:02:50.320 --> 00:02:54.400]   Well, it's a funny story on the way here. On the drive here, I happened to go past a groundhog
+[00:02:54.400 --> 00:02:59.520]   who was looking at his shadow. I don't know what that means, but I'm sure Audrey's some time out
+[00:02:59.520 --> 00:03:06.160]   for himself. Usually people are asking of him, asking of him, asking of him. When
+[00:03:06.160 --> 00:03:10.720]   does the groundhog get to sniff and then eat the rosy? I feel really bad for the groundhog's
+[00:03:10.720 --> 00:03:15.920]   child, because the groundhog's child spends their whole childhood living in the shadow of their
+[00:03:15.920 --> 00:03:24.800]   parent. Neap-o babies. Yeah. Also here is Alex Lindsey from many things, office hours.
+[00:03:24.800 --> 00:03:33.440]   Dot global included 090 dot media. Hi, Alex. Hey, good to be here. You beamed in from wherever you
+[00:03:33.440 --> 00:03:39.760]   were before the show. I like to just transport in and out. No, I don't like it when you're 50%
+[00:03:39.760 --> 00:03:44.160]   opacity. It's very disturbing. It's like you're a jellyfish. It scares me. See, this is this is
+[00:03:44.160 --> 00:03:48.560]   kind of like I'm kind of here. It's a ghost of Alex Lindsey joins us. Yes. He's making his
+[00:03:48.560 --> 00:03:54.000]   transparency statement. They say that ethics and tech journalism is dead. What have you did a whole
+[00:03:54.000 --> 00:04:00.240]   quarterly? 50% transparent. I don't think people would... You'd say, we're being transparent. We're
+[00:04:00.240 --> 00:04:05.280]   really trying to tell you everything there is to go. We don't even line up. We can't even look.
+[00:04:05.280 --> 00:04:12.400]   Right. Also, the show can't go off the rails if it never starts on the rails.
+[00:04:12.400 --> 00:04:19.440]   Filling in for me as a panelist this week, it is my co-conspirator from sixcolors.com.
+[00:04:19.440 --> 00:04:25.280]   He's slowly fading into the video right now. It's Dan Morin. Hi, Dan. Hi, Jason. It's nice to be
+[00:04:25.280 --> 00:04:29.520]   here on this auspicious day with a big news is that Finland is joining NATO. I'm just going to take
+[00:04:29.520 --> 00:04:38.080]   a sip of water right now and oh my god. Let's talk about WWDC. Shall we be?
+[00:04:38.080 --> 00:04:44.400]   Maybe I know the wrong people, but Apple's developer conference, everybody, all the people are like,
+[00:04:44.400 --> 00:04:48.560]   when's it going to be? When's it going to be? Maybe it's because yeah, they're in far off places and
+[00:04:48.560 --> 00:04:54.480]   they want to be in California and they have to make plain reservations. But surely we all knew
+[00:04:54.480 --> 00:04:58.960]   that June 5th was going to be the date. Surely we all knew that already.
+[00:04:58.960 --> 00:05:03.440]   When has it ever been any other day? It's the first Monday of every June.
+[00:05:03.440 --> 00:05:07.680]   And you think there's this mystery, but I don't remember anytime when it wasn't the first one,
+[00:05:07.680 --> 00:05:12.080]   even when it was the first. When you have to buy non-refundable plain tickets.
+[00:05:12.080 --> 00:05:17.360]   You just don't. You're like, I'm 90% sure, but am I $600, 90% sure?
+[00:05:17.360 --> 00:05:24.640]   But it's also fairly different now because five years ago, WWDC meant you're going to be going
+[00:05:24.640 --> 00:05:30.000]   to a Shriners convention of 2000 other Mac developer Mac and iOS developer nerds.
+[00:05:30.000 --> 00:05:34.960]   And so yeah, you kind of had to be there. And also Apple had a lot more at stake because
+[00:05:34.960 --> 00:05:40.240]   you have to prepare for the arrival of 2000 nerds and make sure that they're all scheduled,
+[00:05:40.240 --> 00:05:45.200]   make sure that they're all accommodated for. And now that Apple really does, as Alex
+[00:05:45.200 --> 00:05:50.080]   been predicting for maybe hoping for for the past couple of years, Apple really does seem to be
+[00:05:50.080 --> 00:05:55.600]   committed now to, no, we really don't want to have 2000 nerds in our house tracking through our
+[00:05:55.600 --> 00:06:00.400]   hallways. We're just going to do all virtual stuff. And now they're probably going to have a very,
+[00:06:00.400 --> 00:06:07.040]   very limited live keynote, which they can easily reschedule for excuse me, they can easily backfill
+[00:06:07.040 --> 00:06:12.000]   for whenever they want. Now it's almost as if they can really announce it two months in advance.
+[00:06:12.000 --> 00:06:17.360]   And whatever they're ready for on on June 5th, they'll be ready for whatever they're not ready for.
+[00:06:17.360 --> 00:06:22.160]   They it's not as though they had to make this huge investment of of scheduling and planning in order
+[00:06:22.160 --> 00:06:27.200]   to move things in and out of the schedule. So yeah, I think that we may as well just make it like a
+[00:06:27.200 --> 00:06:32.720]   holiday of obligation where just like you just know what day it is on the calendar, you can basically
+[00:06:32.720 --> 00:06:38.160]   book it in advance. If again, assuming that you're there to basically try to lean on people who might
+[00:06:38.160 --> 00:06:45.360]   be loose lip because they're excited that something finally shipped. But yeah, I think that it is
+[00:06:45.360 --> 00:06:50.960]   the trend. I mean, NVIDIA had their conference a couple weeks ago and it was the last time they
+[00:06:50.960 --> 00:06:56.160]   did physically, it was 8,000 people. And the last one they did that was completely digital was 200
+[00:06:56.160 --> 00:07:02.960]   to be 1000. And so the scale is much different as you start to go virtual, Apple, E3 got canceled,
+[00:07:02.960 --> 00:07:08.800]   which is typically a week after the trend is not towards bigger physical events. That's not
+[00:07:08.800 --> 00:07:12.800]   where we're going. And you know, a lot of people want to think about that. But I think that this
+[00:07:12.800 --> 00:07:17.040]   makes a lot more sense. One thing that I think has been a huge service to all Apple users
+[00:07:17.040 --> 00:07:21.360]   is the fact that we're recording all those sessions now ahead of time and not forcing
+[00:07:21.360 --> 00:07:24.960]   developers to stand on stage in front of 300 people and try to recite something that they
+[00:07:24.960 --> 00:07:29.200]   memorized anyway. And so the thing is, is they memorized it, they rehearsed it, and then they
+[00:07:29.200 --> 00:07:33.680]   have to perform it. And it's just not it's not fair to them. It's not fair to us because we have to
+[00:07:33.680 --> 00:07:40.080]   watch it. And so I think that the fact that we are now those are all prerecorded so much nicer.
+[00:07:40.800 --> 00:07:44.720]   I just wish they'd record that they'd release them all on Monday. There's this weird thing that
+[00:07:44.720 --> 00:07:48.640]   Apple has done in the last couple years, which is that we're gonna release someone Monday and
+[00:07:48.640 --> 00:07:53.120]   then on someone Tuesday and someone Wednesday. And I'm like, just how about all of them on Monday?
+[00:07:53.120 --> 00:07:57.280]   And then we pick the ones we want to watch, you know, and that I'm yeah, we'll see what happens.
+[00:07:57.280 --> 00:07:59.680]   But I'm hoping that they'll they'll give that part up.
+[00:07:59.680 --> 00:08:04.080]   And manageable throughout the week though. I mean, I also like going in with like 200 sessions
+[00:08:04.080 --> 00:08:07.440]   being like, I got to find the things I want to look for. So I kind of like that they, you know,
+[00:08:07.440 --> 00:08:11.680]   they're trying to build a community aspect around like a shared, oh, okay, this is what's happening
+[00:08:11.680 --> 00:08:17.440]   on Monday, but Tuesday, Wednesday, etc. But it is it is a little strange to have it like when it is
+[00:08:17.440 --> 00:08:20.000]   in theory. Yeah, they could just hit that button and it could all be there.
+[00:08:20.000 --> 00:08:26.640]   And to and to and the and the other point is that I don't think that it was appreciated exactly
+[00:08:26.640 --> 00:08:31.760]   how disruptive it was to Apple to have so many of their engineers and so many of their key people
+[00:08:31.760 --> 00:08:37.120]   tied up or at least they're having their schedules really, really messed up for an entire week.
+[00:08:37.120 --> 00:08:43.520]   And now that basically you can if you have even if the person who is who's in charge of explaining
+[00:08:43.520 --> 00:08:49.920]   everything that there is about reality kit for for a new unannounced wearable, you can pre tape
+[00:08:49.920 --> 00:08:54.560]   all of that. And then at a time that that's absolutely at the convenience of their schedule.
+[00:08:54.560 --> 00:08:59.200]   And it won't disrupt anything anywhere. Yeah, the way the way they're handling it is interesting.
+[00:08:59.200 --> 00:09:03.360]   So yes, the video production is going on in advance that will disrupt them to a certain degree.
+[00:09:03.360 --> 00:09:08.720]   But I think that there's more of a security blanket, right? There's less of the what if I say something
+[00:09:08.720 --> 00:09:12.400]   wrong if you're doing it and you just say something wrong, you just rerecord the video and there are
+[00:09:12.400 --> 00:09:18.000]   professionals there to do all of that. There is a little bit of work for some people at Apple that
+[00:09:18.000 --> 00:09:23.440]   week. They are doing again, presumably what they did last year where they have basically little slack
+[00:09:23.440 --> 00:09:29.440]   instances where you can go and chat with people who are Apple engineers. So they have to be sort of
+[00:09:29.440 --> 00:09:35.280]   available for that, some of them. But that but and that's one of the nice things they've done now
+[00:09:35.280 --> 00:09:40.480]   of making an online event because the point that I think we all need to recognize is that
+[00:09:40.480 --> 00:09:48.880]   WWDC has been an online event for 99. something percent of Apple developers for years and years
+[00:09:48.880 --> 00:09:54.160]   because the event got so big so quickly that it sold out and people who wanted to come couldn't come.
+[00:09:54.160 --> 00:09:59.600]   So their experience was the videos anyway, right? And so embracing that and saying no,
+[00:09:59.600 --> 00:10:04.960]   that is the experience is the videos. And then separately, there's this Monday event which I
+[00:10:04.960 --> 00:10:09.280]   think we're all assuming will be very similar to what we saw last year where some developers are
+[00:10:09.280 --> 00:10:12.800]   going to want to lottery and they're going to get to come to Apple campus and sit somewhere,
+[00:10:12.800 --> 00:10:19.200]   maybe Cafe Max, maybe the Steve Jobs Theater, and that the press will probably similarly be invited
+[00:10:19.840 --> 00:10:24.160]   and they have like a one day kind of dog and pony show where you can watch the keynote and you
+[00:10:24.160 --> 00:10:29.840]   can go visit the developer center and it's a fun in-person event but if you're not there, it's okay,
+[00:10:29.840 --> 00:10:36.400]   you're getting the same presentations as everyone else. It's just streaming like it was and that's okay.
+[00:10:36.400 --> 00:10:40.480]   I do wonder about the keynote, you know, as soon as we move to this whole pre-recorded thing and
+[00:10:40.480 --> 00:10:44.400]   obviously the virtues are huge, right? You can run it at whatever demos you want, it's all pre-recorded,
+[00:10:44.400 --> 00:10:48.640]   there's no chance that anything goes wrong because they said you can just fix it. But I do wonder
+[00:10:48.640 --> 00:10:53.040]   if the pendulum will swing back at some point because of surely the spectacle nature of it,
+[00:10:53.040 --> 00:10:57.360]   like you don't want to go to the circus and watch a pre-recorded like acrobats flying around.
+[00:10:57.360 --> 00:11:02.400]   There's no interest in that. Like everybody and it helps prove something to a certain degree,
+[00:11:02.400 --> 00:11:06.480]   right? Like when it's like watching game footage, you know, when they show off the new games and
+[00:11:06.480 --> 00:11:10.560]   everyone's like, well, but is that a pre-rendered cutscene or is that actual gameplay, right? Like
+[00:11:10.560 --> 00:11:14.480]   what they're showing us on screen is obviously exactly what they want us to see and of course,
+[00:11:14.480 --> 00:11:18.480]   our questions are going to be. But what happens with all that stuff that like when you push the
+[00:11:18.480 --> 00:11:21.760]   envelope, when you do the things that are sort of in those weird corners and not just to break it,
+[00:11:21.760 --> 00:11:27.600]   but to like experience like what are like the limits of this thing. So I do think you lose a
+[00:11:27.600 --> 00:11:32.640]   little bit of something by having it pre-recorded in that you miss that chance or a little bit of
+[00:11:32.640 --> 00:11:36.160]   danger and a little bit of excitement. But I'm sure Apple doesn't quite see it that way.
+[00:11:36.160 --> 00:11:40.160]   Yeah, I think the problem is they're not really acrobats. They're they're, you know,
+[00:11:40.160 --> 00:11:44.080]   if we, you know, when we talk about the circus, the problem is they're not very good at this.
+[00:11:44.080 --> 00:11:47.120]   Like, you know, most people who go on stage, we have to remember that most people do corporate
+[00:11:47.120 --> 00:11:50.640]   presentations. They don't do these all day. They're not actors. They're not performers.
+[00:11:50.640 --> 00:11:56.640]   They're really not very interesting to watch on stage. And so the hard part is is that the pre-recorded,
+[00:11:56.640 --> 00:12:01.360]   you know, gives them their best option to look as good as they possibly can. And I don't think
+[00:12:01.360 --> 00:12:05.600]   they're going back. You know, again, you're seeing more and more of these conferences. And what
+[00:12:05.600 --> 00:12:11.120]   happened was Apple, I think, instigated this in the sense that we started seeing Apple do this.
+[00:12:11.120 --> 00:12:15.600]   We started seeing Nvidia and other people doing this. And then people said, well, how's Google lost
+[00:12:15.600 --> 00:12:20.880]   so much energy? And why does Microsoft's event feel so boring? It's because they were still doing
+[00:12:20.880 --> 00:12:26.160]   them live. So the thing is we're used to watching this much more produced, higher velocity,
+[00:12:26.160 --> 00:12:32.960]   much more visually interesting video. And then we go back when we go back to the stage,
+[00:12:32.960 --> 00:12:37.200]   it just feels like you fell off a cliff. And it's just from an energy perspective,
+[00:12:37.200 --> 00:12:41.440]   I don't think they can go back. And I don't think we're going to see any of that. I do think that
+[00:12:41.440 --> 00:12:45.200]   being able to bring press in and having them be able to play with it, to do all things you're
+[00:12:45.200 --> 00:12:49.920]   talking about, which is to push the envelope and bang on it and do things with your, you know,
+[00:12:49.920 --> 00:12:54.400]   and see what it'll do. I think that's super important. Bringing the press in to see the equipment
+[00:12:56.000 --> 00:13:03.360]   is important. But the actual stage, staged piece and the realities I've worked on,
+[00:13:03.360 --> 00:13:07.840]   keynotes, many keynotes for many companies for a decade. Nothing about that's real anyway.
+[00:13:07.840 --> 00:13:13.840]   Like we have backups for we have, I don't know what Apple does, but we have backups to the,
+[00:13:13.840 --> 00:13:17.360]   you know, to the presentation, the presentation even looks like it's going to hiccup. You'll see
+[00:13:17.360 --> 00:13:21.920]   this little slight little glitch in the pixels. And now we're just playing it out for you so that
+[00:13:21.920 --> 00:13:26.960]   we don't, we don't have to show you a blue screen. So, so it's, it's not a, you know,
+[00:13:26.960 --> 00:13:31.360]   it's not that real as it is. It's just a lot faster. And what we don't have to do is watch
+[00:13:31.360 --> 00:13:34.960]   people who are not professional speakers, try to speak, which is, you know, the only time they
+[00:13:34.960 --> 00:13:39.520]   do it every year, it's really hard to watch. It bonuses. Nobody gets hit by a thrown Steve Jobs
+[00:13:39.520 --> 00:13:44.480]   camera. So that's, it is, I mean, we lose, we lose, that's the acrobat falling off of the
+[00:13:44.480 --> 00:13:49.680]   whatever type of your wife is exactly is that moment. And it's very entertaining, but obviously
+[00:13:49.680 --> 00:13:54.240]   something that Apple would never want you to do. I think, to remind everybody, if you, if you don't
+[00:13:54.240 --> 00:14:00.560]   remember last, last June, Apple held this event and press and developers were at the Cafe Max
+[00:14:00.560 --> 00:14:05.680]   in the ring at Apple Park and they had a big screen at like a Jumbo Tron set up. And they played
+[00:14:05.680 --> 00:14:11.920]   the video on their simultaneous with streaming it to everybody else. So it was a live event,
+[00:14:11.920 --> 00:14:15.280]   but live really only in the sense that a bunch of people were there, but they were watching the
+[00:14:15.280 --> 00:14:21.280]   same video. Last September, Apple introduced the iPhone at an event at the Steve Jobs Theater.
+[00:14:21.280 --> 00:14:26.000]   It was otherwise very much like WWDC in that there was an audience in the Steve Jobs Theater,
+[00:14:26.000 --> 00:14:31.280]   but all we did, because I was there for that one, is watch the screen and watch the same video that
+[00:14:31.280 --> 00:14:35.520]   was being streamed out to everyone else. The difference being that the press then went
+[00:14:35.520 --> 00:14:39.680]   outside the theater to where all those new products were set up in a hands-on demo area.
+[00:14:39.680 --> 00:14:47.600]   So the question I have for WWDC for 23 is, is it like last June? Is it a little more like last
+[00:14:47.600 --> 00:14:53.680]   September? Is it a hybrid? Do they put the developers at Cafe Max in the ring and have the press go to
+[00:14:53.680 --> 00:15:00.240]   the Steve Jobs Theater and have two totally separate events that are happening simultaneously? I don't
+[00:15:00.240 --> 00:15:06.800]   know. For WWDC, they led us over to the Steve Jobs Theater for our briefings and hands-on. After the
+[00:15:06.800 --> 00:15:13.760]   event, they swept us away from where the developers were so that the press could
+[00:15:13.760 --> 00:15:18.640]   tempt them. We could turn them to our evil ways, and they don't want that. They want to keep the
+[00:15:18.640 --> 00:15:23.280]   developers nice and pure. I guess that's a stagecraft question, is if they might do that.
+[00:15:23.280 --> 00:15:28.160]   Well, it really is. It's less about stagecraft. I think it's more about control.
+[00:15:28.160 --> 00:15:35.040]   Apple has always been a company that loves to maintain control of every situation,
+[00:15:35.040 --> 00:15:40.640]   but I really think they've kicked it up in the post-jobs era in the past five or six or seven years,
+[00:15:40.640 --> 00:15:48.240]   where most of the people in this conversation have been at Apple events for more than 10 years.
+[00:15:48.240 --> 00:15:54.720]   And we remember one of the reasons that justified for me spending more than $1,000 to fly from the
+[00:15:54.720 --> 00:16:00.400]   east coast to the west coast for a presentation where technically speaking, I suppose all I'm getting,
+[00:16:00.400 --> 00:16:04.640]   you think that all I'm getting is a small amount of hands-on in a demo area. If I don't have a
+[00:16:04.640 --> 00:16:09.520]   meeting with the executives or whatever, but a lot of it was, "Hey, I recognize that person.
+[00:16:09.520 --> 00:16:13.600]   That person is one of the head engineers on a project I'm very much interested in. I think I'll
+[00:16:13.600 --> 00:16:18.960]   have an informal chat with him and see if he's his tongue is a little bit loose," or just overhearing
+[00:16:18.960 --> 00:16:26.320]   conversations between people. And now Apple will never want to have that happen. And so
+[00:16:26.320 --> 00:16:30.880]   this is the situation where they're going to make sure that if press are invited,
+[00:16:31.760 --> 00:16:37.760]   when press are invited, they are in their own corral and they are going to be steered through
+[00:16:37.760 --> 00:16:42.880]   hallways where they cannot interact with anybody else to the place where they're supposed to be,
+[00:16:42.880 --> 00:16:49.120]   because God forbid you have a conversation that is not being observed, controlled, corrected,
+[00:16:49.120 --> 00:16:55.680]   or it's tamped down by Apple marketing. That's one of the signs of the newer version of Apple.
+[00:16:55.680 --> 00:17:00.160]   So I agree about the control. Never forget about Apple One in control. And when Alex talks about
+[00:17:01.200 --> 00:17:05.200]   completely rightly that you've got people who are not experts as speaking, but they get them to do
+[00:17:05.200 --> 00:17:09.680]   the videos and but they're not in front of a packed house, that's true. But the other part of it is
+[00:17:09.680 --> 00:17:15.440]   just control. It's always there. Apple wants complete control of the message. And if you
+[00:17:15.440 --> 00:17:20.640]   pre-tape everything, then it goes through a whole approval process. And nothing, not a pixel, is
+[00:17:20.640 --> 00:17:26.640]   not intended exactly where it is intended to be. So that's a key part of it. I will say though that
+[00:17:26.640 --> 00:17:31.200]   you know, I talked to some random Apple people at the iPhone event last September,
+[00:17:31.200 --> 00:17:37.440]   outside the Steve Jobs Theater. There are still people around you can talk to who are from Apple,
+[00:17:37.440 --> 00:17:41.280]   but you're right. It's not quite the same as literally everybody who works at Apple is at a
+[00:17:41.280 --> 00:17:45.840]   convention center somewhere off campus. It's a different kind of vibe completely.
+[00:17:45.840 --> 00:17:49.840]   And what I will say is, I mean, I'm sure there's a chance that something could go wrong. But if we
+[00:17:49.840 --> 00:17:58.400]   look at the last live events that happened before, the going to pre-tape, I mean, every word is
+[00:17:58.400 --> 00:18:02.640]   memorized. And as a reading up, I wish it was memorized because they're reading them off a
+[00:18:02.640 --> 00:18:07.120]   teleprompter. They, you know, where they're putting their hands, how they're standing, you can tell
+[00:18:07.120 --> 00:18:11.600]   and that's what makes it so uncomfortable to watch, is that somebody told them not to do the
+[00:18:11.600 --> 00:18:15.440]   thing with their hands. They do every time they talk and they're you keep on rocking back and forth.
+[00:18:15.440 --> 00:18:19.120]   Don't do that anymore. And don't, you know, like you have this thing that you say right before you
+[00:18:19.120 --> 00:18:24.800]   say the things stop doing that. And so and so and the robots, right. And Apple does that more
+[00:18:24.800 --> 00:18:29.680]   than anyone else. And they tighten them. The only the only company that really got good at this,
+[00:18:29.680 --> 00:18:34.960]   in my opinion, is Salesforce, you know, they're, you know, and but they there's their public-facing
+[00:18:34.960 --> 00:18:39.360]   speakers spend hours a week working on it. Like you're a corollary to that too,
+[00:18:39.360 --> 00:18:45.120]   is the fact that it is pre-taped does allow them to draw on a deeper pool of talent.
+[00:18:45.120 --> 00:18:49.760]   Yes, wouldn't do as much in a live state, right? Like it lets them go to people who are maybe
+[00:18:49.760 --> 00:18:53.920]   VPs or product managers or stuff like that, who aren't going to get up because whether they
+[00:18:53.920 --> 00:18:59.040]   don't want to or they don't have all that training like Tim Cook or Eddie Q or somebody like that.
+[00:18:59.040 --> 00:19:03.360]   And that is great because it lets them include, you know, improve the diversity of the people
+[00:19:03.360 --> 00:19:07.680]   presenting and get people who are actually closer to those projects, right? Like there are people
+[00:19:07.680 --> 00:19:12.640]   who are directly involved with those things rather than be like, Hey, Tim or Craig, talk about this,
+[00:19:12.640 --> 00:19:16.080]   these hundred things, right? Craig could probably use a break, frankly.
+[00:19:16.080 --> 00:19:19.920]   And it's much more contextual. We can go to a mountain, we can go into a living room, we can go
+[00:19:19.920 --> 00:19:24.160]   into it, you know, like, so the thing is, is just from a pure perspective of standing on a black
+[00:19:24.160 --> 00:19:28.640]   box stage that has a wall behind it to we can actually take you places where I'm watching,
+[00:19:28.640 --> 00:19:33.040]   sitting or doing it. It's much more dynamic. It's just a much more interesting show. It's so,
+[00:19:33.040 --> 00:19:39.600]   you do have control, but as a viewer, it's far easier to watch, I think, and I think that that's
+[00:19:39.600 --> 00:19:44.800]   the then the stage events. I find myself almost unable to watch any stage events.
+[00:19:44.800 --> 00:19:50.400]   Now, after I started watching keynotes that came out prerecorded, the stage events feel like they're
+[00:19:50.400 --> 00:19:55.920]   going so slow that I just, I'm like, I got to wait until this is VOD so I can watch it at 2X
+[00:19:55.920 --> 00:20:00.480]   because I just can't, I can't watch this at regular speed. It's just too, this is not moving fast enough.
+[00:20:00.480 --> 00:20:05.680]   Although it does bring up the the eternal question about here's the difference between
+[00:20:06.880 --> 00:20:15.360]   a live performance versus a prerecorded performance. Like even when like, the Metropolitan Opera does
+[00:20:15.360 --> 00:20:19.840]   a lot of like live simulcast events, we can't make it out for Idio Mano. You can go to a local
+[00:20:19.840 --> 00:20:25.040]   theater like once during the month and they'll have a live stream of it. And there is a different
+[00:20:25.040 --> 00:20:32.080]   different energy and a different vibe. And when you think about the really great keynotes of Apple's
+[00:20:32.080 --> 00:20:38.640]   past, you think about like the first iPhone keynote, introducing the first iPhone, introducing the
+[00:20:38.640 --> 00:20:45.200]   first Apple watch where it really was about there was an electricity in the room that made everything
+[00:20:45.200 --> 00:20:50.880]   seem two or three times as interesting as you might have thought it was otherwise. And on,
+[00:20:50.880 --> 00:20:58.160]   I'm of two minds about it where on the one hand, I like as a journalist, I'm like, thank goodness,
+[00:20:58.160 --> 00:21:02.560]   it's no longer like the circus type of atmosphere where why are people cheering for the development
+[00:21:02.560 --> 00:21:07.920]   of a hardware product for the billion dollar, the nearly a trillion dollar company. This is just
+[00:21:07.920 --> 00:21:12.720]   tell us, let us know what it's about. Let us know what it does. On the other hand, if the purpose,
+[00:21:12.720 --> 00:21:18.640]   there's a reason why companies have these events, whether pre taped or live, instead of just simply
+[00:21:18.640 --> 00:21:23.200]   issuing a press release and electronic media kit, they really want that kind of excitement around
+[00:21:23.200 --> 00:21:27.120]   people. They really want people to think that, no, this isn't just another phone. No, this isn't just
+[00:21:27.120 --> 00:21:35.200]   Apple trying to have a quixotic assault on Nokia and Blackberry to titans that are never ever going
+[00:21:35.200 --> 00:21:41.280]   to be put out of business. If it does it suit Apple's purposes to have the kind of live energy,
+[00:21:41.280 --> 00:21:45.840]   where things are a little bit off, but a little bit exciting because you feel as though you're
+[00:21:45.840 --> 00:21:51.040]   witnessing something that is happening at this moment, as opposed to witnessing something that was
+[00:21:51.040 --> 00:21:58.320]   scripted out, planned out, well, lit. Do you want a Marvel movie or do you want a play? Do you want
+[00:21:58.320 --> 00:22:04.480]   a Marvel movie where every single, there's a chaotic battle scene where you know that the shot
+[00:22:04.480 --> 00:22:09.200]   was delayed for three weeks saying, I want to see a little bit more light in Captain America's eyes.
+[00:22:09.200 --> 00:22:15.200]   And can you have the Black Widow while she's falling off the cliff, make eye contact with Hawkeye and
+[00:22:15.200 --> 00:22:20.960]   to sort of wink a little bit? And it's, I wish I'm wondering how much we're going to lose the energy
+[00:22:20.960 --> 00:22:26.400]   of these sort of events. Spoilers for Avengers Endgame, by the way. Yeah, I think you're right. I have
+[00:22:26.400 --> 00:22:30.240]   thought for a while now that one possibility was that they would create a hybrid event where they
+[00:22:30.240 --> 00:22:35.440]   would, and they didn't do this for the iPhone, which now makes me think they never will, which is,
+[00:22:35.440 --> 00:22:41.120]   they do a stage event, but with a lot more videos, right, where Tim Cook comes out live on stage
+[00:22:41.120 --> 00:22:46.320]   and says, Hi, everybody, this is Tim. It's the morning. Good morning. And then let's watch a
+[00:22:46.320 --> 00:22:50.160]   video of this iPhone. And then he comes back and says, Look at it, isn't it amazing. And he's like,
+[00:22:50.160 --> 00:22:54.320]   we've got another product. Let's watch the video and basically be the MC rolling videos,
+[00:22:54.320 --> 00:22:59.040]   but you still get the video stuff. But I think the truth is, not only is it technically easier,
+[00:22:59.040 --> 00:23:03.440]   right, Alex, to preload things in your CDN and not have to do a live stream, but you have complete
+[00:23:03.440 --> 00:23:07.280]   control and it's good enough. And it is you're getting people to watch a commercial for 90 minutes.
+[00:23:07.280 --> 00:23:12.480]   And the big problem is, is that when you go back to the stage, the energy drops really power.
+[00:23:12.480 --> 00:23:17.200]   You know, so you think that we can keep that energy up, but you can't. And so when we, we've
+[00:23:17.200 --> 00:23:21.120]   worked on events where they, where they basically went from one movie to the other. And the problem
+[00:23:21.120 --> 00:23:24.880]   is it jumps to the stage. You're now queuing, you're coming out of a live and you're counting
+[00:23:24.880 --> 00:23:28.960]   somebody in. So you're going, you know, you're on in 10, nine, eight, you know, like, you know,
+[00:23:28.960 --> 00:23:31.600]   and they're going to call them in. There's a person that's moving their hand and they're going to
+[00:23:31.600 --> 00:23:35.360]   point at you, write it right when you're going live, you know, coming out of the video and then
+[00:23:35.360 --> 00:23:38.720]   they say their thing and then they go right back into it. But there's something about it. They're
+[00:23:38.720 --> 00:23:43.680]   uncomfortable. They're on stage. It doesn't and it just always feels like you fell off into this
+[00:23:43.680 --> 00:23:47.760]   little trough right back into the video. And so every time we've done that, we've thought,
+[00:23:47.760 --> 00:23:51.920]   oh, it's never do that again. Yeah. And so I did, I did think that they might do what you're
+[00:23:51.920 --> 00:23:55.680]   talking about, but I've, I felt like they'll do it once and then they'll realize this is a horrible
+[00:23:55.680 --> 00:24:01.120]   idea. What kept me thinking they might do it was they, not only do they have the Steve Jobs
+[00:24:01.120 --> 00:24:05.520]   theater, they built that thing, but they've packed it, they pack it with VIPs and Apple employees
+[00:24:05.520 --> 00:24:10.000]   down in the first 20 rows or 10 rows. And those are the ones who cheer like mad. And I thought,
+[00:24:10.000 --> 00:24:14.800]   well, there might be a stagecraft advantage to having the videos, like a Saturday Night Live
+[00:24:14.800 --> 00:24:18.320]   thing. I mean, I keep likening it to Saturday Night Live, especially back in the 80s where they
+[00:24:18.320 --> 00:24:22.640]   went to, there was a, there was a producer shift and they went to mostly, I'm showing my age here,
+[00:24:22.640 --> 00:24:26.880]   but you know, hey, what happened when Dick Hapersell took over from Lauren Michaels in that brief period
+[00:24:26.880 --> 00:24:31.680]   before Lauren Michaels came back, they went to pre tape bits. They did a lot of film, comedy films
+[00:24:31.680 --> 00:24:35.600]   that they shot during the week with Christopher Guest and Billy Crystal and all of that. And
+[00:24:35.600 --> 00:24:40.640]   they would play those through with the SNL audience there cheering and laughing a long way. They were
+[00:24:40.640 --> 00:24:46.160]   a live, a live version of a laugh track, basically. And I thought maybe they could do something like
+[00:24:46.160 --> 00:24:50.880]   that and take advantage of all that applause because that is the one thing you lose in watching
+[00:24:50.880 --> 00:24:55.040]   these Apple films as they call them is you lose that kind of hyped up applause that, you know,
+[00:24:55.040 --> 00:25:00.000]   as a journalist, I wasn't there applauding, but the, the all the VIPs were and, and I don't, I don't
+[00:25:00.000 --> 00:25:04.080]   think it's worth trade off. I don't think it's worth the trade off. The 300 employees that have been
+[00:25:04.080 --> 00:25:11.360]   rehearsing for three days. So that now, but now, yeah, but the, you know, and for me, you know,
+[00:25:11.360 --> 00:25:14.720]   I think that there's the state, the reason the stream though is that we do have a unified
+[00:25:14.720 --> 00:25:18.640]   experience. We're all watching this at the same time. Yeah, we're tweeting it for office hours.
+[00:25:18.640 --> 00:25:24.560]   150 of us watch these keynotes together over zoom. So and now we don't play it into zoom. We
+[00:25:24.560 --> 00:25:28.560]   all just, we all watch it on our own device. And then there's just open mic and we all sit there
+[00:25:28.560 --> 00:25:32.160]   and talk about everything. Now we talk about everything like all the way down to the camera moves and
+[00:25:32.800 --> 00:25:37.360]   whether that was CG and whether this was whatever. We also talk about all the releases. And it's
+[00:25:37.360 --> 00:25:43.040]   really fun to the point where, you know, if I had the opportunity to go to the Steve Jobs Theater,
+[00:25:43.040 --> 00:25:47.920]   I was like, no, yeah, I just do it with my friends. But I rather watch it with my friends over zoom
+[00:25:47.920 --> 00:25:53.280]   and, and talk about it than, than, then watch it. So I think that there is still a power of the
+[00:25:53.280 --> 00:25:57.440]   fact that because you get to a point when you do VOD, like, is it, should we even stream it? Should
+[00:25:57.440 --> 00:26:02.080]   we just release the video? And, and I think that there is a real power to releasing the video to
+[00:26:02.080 --> 00:26:06.400]   streaming the video out in real time so that we're all hearing about it at the same time. The
+[00:26:06.400 --> 00:26:10.560]   press is hearing about it at the same time because that also creates an intensity for the press because
+[00:26:10.560 --> 00:26:15.520]   if it all comes out at the same time, we all have that as well as they, you know, for a long time,
+[00:26:15.520 --> 00:26:20.800]   Apple didn't want to stream anything. So they, they kept it all closed because they wanted to make
+[00:26:20.800 --> 00:26:25.440]   sure the press showed up, right? Right. That's a rumor. So they, so by not, by not making it available
+[00:26:25.440 --> 00:26:29.040]   anywhere else, the press, I would have to come to, to what they, to see what they were doing.
+[00:26:29.760 --> 00:26:34.480]   And, and so there was a, you know, there was a little bit of time that you had as a, as a press
+[00:26:34.480 --> 00:26:39.760]   person to get stuff out, you know, be, you know, to, to, and now it's available to everyone. So you,
+[00:26:39.760 --> 00:26:44.640]   now it's really short as far as the window goes to say whatever you're going to say about it.
+[00:26:44.640 --> 00:26:48.640]   It's the binge versus the weekly drop model of streaming, basically, right? Like the week the
+[00:26:48.640 --> 00:26:52.080]   drop gets everybody talking, everyone on the world, water cooler, the binge is like, that
+[00:26:52.080 --> 00:26:56.240]   show's already gone and you're on to the next thing. That's why they've got events through the week,
+[00:26:56.240 --> 00:27:00.000]   is that you don't want to drop it all on a binge on Monday. You want people saying, I can't wait
+[00:27:00.000 --> 00:27:05.760]   for that session that'll drop on Wednesday, that, that car play session on Thursday is going to be
+[00:27:05.760 --> 00:27:09.120]   hot. We got to wait. It's just Thursday. I can't wait for that drop.
+[00:27:09.120 --> 00:27:13.840]   And I have to admit, as someone who is not, I mean, I, I, I were in the press, but I'm not covering
+[00:27:13.840 --> 00:27:19.440]   everything. I'm interested in very specific things in WWE. Sure. Interested in AR and HLS and,
+[00:27:19.440 --> 00:27:22.960]   and a couple other things. And, and like, I don't need to see maps.
+[00:27:22.960 --> 00:27:26.720]   Like, so, so I'm kind of like, I just want everything at the very beginning because there's
+[00:27:26.720 --> 00:27:30.480]   only about eight or 10 of those. I don't, it's not like I watch all of WWC. There's like eight or
+[00:27:30.480 --> 00:27:36.080]   10 sessions that I have. Yeah. And, and, and, and the big one is so, you mentioned, yeah,
+[00:27:36.080 --> 00:27:40.080]   the Friday ones are actually, they've kept that tradition from back when it was a real conference,
+[00:27:40.080 --> 00:27:45.280]   which is the videos on Friday are very interesting. All right. We should talk about the VR headset
+[00:27:45.280 --> 00:27:52.480]   a little bit. A couple of conflicting reports this week. So Mingchi Kuo said that the production is
+[00:27:52.480 --> 00:27:57.040]   going to be slower. They've had some production delays and they're not going to get as many produced
+[00:27:57.040 --> 00:28:02.400]   in this calendar year. And that made him think they might push back the announcement date,
+[00:28:02.400 --> 00:28:06.720]   whereas Mark Gurman at Bloomberg has reported that he's very confident that they're going to
+[00:28:06.720 --> 00:28:10.880]   announce it. And I think that makes sense because like, if you think back to the Apple Watch,
+[00:28:10.880 --> 00:28:14.000]   which was, which was a while ago, it's coming up 10 years, in fact, for the Apple Watch,
+[00:28:14.000 --> 00:28:21.360]   when the Apple Watch was announced, it was announced in the fall in September and released in April,
+[00:28:21.360 --> 00:28:25.760]   right? It was, it was released a lot later. You can do that the first time you release a product
+[00:28:25.760 --> 00:28:29.680]   when you're not cannibalizing your sales. They, they have done this repeatedly. They did this
+[00:28:29.680 --> 00:28:35.440]   with the iPhone, which was announced in January and shipped in very late June. So I think the most
+[00:28:35.440 --> 00:28:40.160]   likely scenario is still probably, especially given that this is an entirely new platform
+[00:28:40.160 --> 00:28:44.080]   that's going to require it's a, so it's a new OS developers are going to need to learn about it.
+[00:28:44.080 --> 00:28:49.600]   The developer conference is the perfect place to roll it out. And if they don't ship it until
+[00:28:49.600 --> 00:28:54.160]   the fall sometime, it actually benefits them because they're going to have a big iPhone event in the
+[00:28:54.160 --> 00:28:58.560]   fall and they can remind everybody about how amazing this product is, whatever it is,
+[00:28:58.560 --> 00:29:02.640]   well, as they're putting it on sale. So there are a lot of advantages to doing it this way.
+[00:29:02.640 --> 00:29:06.640]   Seems to me like this is the, the most straightforward approach for them is still to,
+[00:29:06.640 --> 00:29:12.160]   even if it's not ready to ship in, in June, especially on a first product, Apple's never afraid to
+[00:29:12.160 --> 00:29:19.440]   delay things like, like, there was a, there was a WC where there was a ton of POP everywhere,
+[00:29:19.440 --> 00:29:24.560]   I mean, a ton of these posters that all looked a lot like an Apple TV and there was no Apple.
+[00:29:24.560 --> 00:29:29.840]   No, seven months, six, seven months between the Apple Watch being announced and shipping,
+[00:29:29.840 --> 00:29:33.520]   right? Like you could, they can afford to take it. They didn't even talk about the
+[00:29:33.520 --> 00:29:35.840]   summer. They didn't even talk about the Apple TV and there was graphics all over.
+[00:29:35.840 --> 00:29:41.840]   Nobody. This is the first rule of WWDC is nobody ever talk about the Apple TV. Unfortunately,
+[00:29:41.840 --> 00:29:46.560]   that's still the rule. And so nobody does. Dan, I wanted to, I wanted to run this by you because
+[00:29:46.560 --> 00:29:52.240]   you're a veteran of a lot of these Apple events too, which is the demo. How, how do you do a demo?
+[00:29:52.240 --> 00:29:55.760]   And of course, Alex and Andy, I want to hear from you too, but I thought I'd go to Dan first.
+[00:29:55.760 --> 00:30:01.200]   How do you do a demo of a VR headset? If, if we come out of the Steve Jobs Theater into that lobby
+[00:30:01.200 --> 00:30:07.040]   area behind, like, surely they can't have a bunch of headsets and have a line of people waiting to
+[00:30:07.040 --> 00:30:11.440]   put them on and flail around for five minutes. I, I, I just, I keep coming back to that as a
+[00:30:11.440 --> 00:30:18.240]   challenge for a product like this is, how do you give members of the press any amount of time to
+[00:30:18.240 --> 00:30:23.920]   give, to get an impression of what this product is like? It seems like a, it's a lot easier to
+[00:30:23.920 --> 00:30:28.800]   put an iPhone in someone's hand. Yeah, sure. I think this is a challenge of the, the event itself
+[00:30:28.800 --> 00:30:33.040]   too. How do you convince consumers who are watching this thing? And there will be consumers watching,
+[00:30:33.040 --> 00:30:38.560]   even if it is a developer focus conference, the amazingness of what this, this other, you know,
+[00:30:38.560 --> 00:30:43.840]   metaverse style VR, AR, you know, environment you're creating. It's like trying to demo 3D
+[00:30:43.840 --> 00:30:48.000]   technology on a 2D screen, right? You're like, Oh, trust me, it's amazing. But like,
+[00:30:48.000 --> 00:30:52.720]   fundamentally, it comes down to this idea of like, you really have to see it and use it in order to
+[00:30:52.720 --> 00:30:56.960]   kind of get what's happening, I think. And I think all the companies, meta and Microsoft,
+[00:30:56.960 --> 00:31:00.880]   have all struggled a little bit with how do you demo this? Because you can do that highly produced
+[00:31:00.880 --> 00:31:06.320]   video, but then you're watching somebody else use a thing and it's somewhat strange. It looks very
+[00:31:06.320 --> 00:31:10.560]   post-processed. You've got this idea like, well, it's all sort of put together and carefully edited.
+[00:31:10.560 --> 00:31:15.600]   I think when it comes to the press, I have to imagine they may do it a little more structured
+[00:31:15.600 --> 00:31:19.200]   than it's been the past. If you go to these events in the past, you end up in a giant room where
+[00:31:19.200 --> 00:31:23.840]   people are milling around and there's maybe 20 or 30 of these new devices, whatever they are.
+[00:31:23.840 --> 00:31:27.760]   And you're sort of jockeying for position. There's people with, you know, cameras who want to like
+[00:31:27.760 --> 00:31:32.800]   get in there with their broadcast cameras and shoot in terminal demo for b-roll for five minutes.
+[00:31:32.800 --> 00:31:37.200]   And you're trying to like, I just want to see how this thing works. Can I just touch this thing?
+[00:31:37.200 --> 00:31:43.120]   I think I wonder if they're going to, especially with still, you know, the pandemic stuff is eased
+[00:31:43.120 --> 00:31:49.760]   a bit, try to, you know, cordon off areas or create little experiences for people to come in and
+[00:31:49.760 --> 00:31:54.320]   actually try these things in a more structured fashion. So you have a certain amount of time allotted
+[00:31:54.320 --> 00:31:59.040]   to your use of it, say, come in for 10 minutes and we'll let you run through these demos and
+[00:31:59.040 --> 00:32:03.840]   stuff that we available. And then there's a question as to sort of, you know, how far along is this
+[00:32:03.840 --> 00:32:08.480]   product? If it is been pushed back a little bit, not everything's probably going to be working
+[00:32:08.480 --> 00:32:12.720]   perfectly. So they're going to want to make sure it's very controlled in terms of what is the
+[00:32:12.720 --> 00:32:16.720]   experience you're seeing here. We want to show you the best stuff, the stuff that works really
+[00:32:16.720 --> 00:32:21.360]   well and the stuff that feels really compelling. And so part of me wonders then, too, is it going
+[00:32:21.360 --> 00:32:26.000]   to be something more like a demo loop when you put it on. It's like, all right, here, you can do
+[00:32:26.000 --> 00:32:29.840]   these four things. Let's walk you through this experience. And I think that's another part of
+[00:32:29.840 --> 00:32:33.440]   it. They're going to want to make sure it's not just people walking around putting a headset on
+[00:32:33.440 --> 00:32:36.560]   and trying a thing and it immediately breaks. And then they're going to go write a story about
+[00:32:36.560 --> 00:32:42.320]   how this headset is garbage and et cetera. The Apple Watch, I've reminded when we got our first
+[00:32:42.320 --> 00:32:46.560]   look at the Apple Watch, it was literally on a demo loop, you could put it on your hand on your
+[00:32:46.560 --> 00:32:52.000]   arm. But it just animated through like a bunch of scenes. It was literally playing a demo. And
+[00:32:52.000 --> 00:32:57.760]   that was how they controlled it. I would be surprised if they do have a lot of people putting those
+[00:32:57.760 --> 00:33:05.280]   headsets on during the copy WDC. I think that they don't want to be COVID super spreader because
+[00:33:05.280 --> 00:33:08.800]   like we think that COVID's gone, but I have three friends right now that have COVID again.
+[00:33:08.800 --> 00:33:13.520]   Like they just, it seems to be like suddenly ramping up again or whatever it is, not bad,
+[00:33:13.520 --> 00:33:18.320]   but just like the flu. But I don't think that I think they don't want to be part of that.
+[00:33:18.320 --> 00:33:24.480]   It really is headsets have been really problematic even before COVID. It was like you had to put
+[00:33:24.480 --> 00:33:28.320]   little covers on them and you pull them off and then you hand to the next person. And it was,
+[00:33:28.320 --> 00:33:32.560]   it was a little gross. And so I think that that's going to be really hard. I think it's much better
+[00:33:32.560 --> 00:33:37.200]   off. They're much better off talking about AR, talking about about it, having iPads and
+[00:33:37.200 --> 00:33:42.160]   iPhones showing interactive stuff and then doing kind of more of the Apple quiet demos that they do
+[00:33:42.160 --> 00:33:46.960]   in these cities where they've got a couple of these kind of secret rooms in different cities
+[00:33:46.960 --> 00:33:52.960]   that you can go in and secret little apartments that you can go into and experience stuff.
+[00:33:52.960 --> 00:33:56.640]   And they bring people in in very small numbers at different times where they can control it.
+[00:33:56.640 --> 00:34:01.600]   And it might even be over a week and there's only a couple press people at a time and they've got
+[00:34:01.600 --> 00:34:05.920]   their protocol and they've they can spend more time because I think that Apple really wants to
+[00:34:05.920 --> 00:34:11.680]   hand like handcraft the story with the press and having people just go through the demoing.
+[00:34:12.720 --> 00:34:18.320]   I've worked on a lot of these from glass to Oculus to this for these promos and
+[00:34:18.320 --> 00:34:23.840]   demoing it is the hardest because when you put it on you suddenly have no control and
+[00:34:23.840 --> 00:34:28.000]   they tap the wrong button and there's all these buttons and there's all this stuff,
+[00:34:28.000 --> 00:34:31.920]   these states that you have to get into. And so I think that it is definitely a,
+[00:34:31.920 --> 00:34:37.760]   I think that they're going to be very careful about it. I would be really surprised if I see
+[00:34:38.400 --> 00:34:44.080]   people putting lots of goggles on at WWC. Yeah, it seems to me that the most likely scenario is
+[00:34:44.080 --> 00:34:49.520]   that you'll get, yeah, either it'll be that day there'll be some appointments and maybe into the
+[00:34:49.520 --> 00:34:55.760]   next day for press where they'll say essentially present yourself at the Steve Jobs Theater at 115
+[00:34:55.760 --> 00:35:02.320]   and you'll be ushered back and at 130 you'll be given 10 minutes in a room where you'll be
+[00:35:02.320 --> 00:35:06.800]   instructed about what you're going to do and then you're out of there after 10 minutes and the next
+[00:35:06.800 --> 00:35:12.640]   person comes in or especially guests based on the timing and reading this report from Mingchi
+[00:35:12.640 --> 00:35:16.560]   Kuo, it's also possible that it will be, we'll call you, we'll call you, we'll set something up
+[00:35:16.560 --> 00:35:20.480]   later and that's when it's people on the east coast will be told to go to their apartment and
+[00:35:20.480 --> 00:35:24.960]   they're flat and Chelsea and somebody on the west coast will be told to go to Cupertino and
+[00:35:24.960 --> 00:35:29.920]   you know there'll be other places like that and it'll still be a please present yourself and we'll
+[00:35:29.920 --> 00:35:36.560]   give you 15 minutes in a room for a guided tour and then that's it. But yeah, it's, they may have
+[00:35:36.560 --> 00:35:42.560]   hardware for us to look at or even to hold but it won't work because that doesn't make sense.
+[00:35:42.560 --> 00:35:47.760]   I don't, I mean this is, I don't think that, I don't think that we should be thinking about this
+[00:35:47.760 --> 00:35:55.120]   as anything akin to any other product launch demo that Apple's ever done when it's, there's
+[00:35:55.120 --> 00:35:59.600]   ample precedent for all the way back to the iPhone where we're announcing it and showing it off in
+[00:35:59.600 --> 00:36:04.320]   January, we're not shipping for several months and even remember with the launch of the iPhone,
+[00:36:05.200 --> 00:36:12.800]   most people got to see it on the show floor at Macworld and behind this protected column.
+[00:36:12.800 --> 00:36:20.640]   Yeah, exactly. And rotating slowly inside like a rotisserie chicken. But as, as Alex said,
+[00:36:20.640 --> 00:36:27.440]   some of us got, we're given appointments like after the keynote to get 45 minutes of hands on,
+[00:36:27.440 --> 00:36:34.240]   guided hands on. Also very, very much told that, yeah, I know as you're trying to use the notepad app,
+[00:36:34.240 --> 00:36:38.720]   that's just a J. It's a screenshot. Yeah. That's not that's not an actual that's not actual thing.
+[00:36:38.720 --> 00:36:44.080]   But it's it's and it's one of the reasons why I think this has to happen is that there is a point
+[00:36:44.080 --> 00:36:49.360]   where Apple has to get FCC certification in which case a lot of the stuff becomes public record.
+[00:36:49.360 --> 00:36:54.960]   Also, there comes a point in which either you run up to the limits of what you can do by testing out
+[00:36:54.960 --> 00:37:00.640]   of super, super top secret double top secret project inside Apple campus and inside certain very,
+[00:37:00.640 --> 00:37:05.840]   very secure rooms and certain very, very trusted partner companies. There's a point which you have
+[00:37:05.840 --> 00:37:13.040]   to allow people to have these outside of campus and see how well they work and work with other
+[00:37:13.040 --> 00:37:16.480]   people they trust. You have to you have to increase the amount of people that you're letting in on
+[00:37:16.480 --> 00:37:21.920]   this. But the difference between this and almost everything else is that I don't think anybody,
+[00:37:21.920 --> 00:37:27.440]   myself included, thinks that they this first launch is going to be a yes, we've got this brand new
+[00:37:27.440 --> 00:37:33.040]   product everybody rush out and buy it. It's we have this $3,000 thing that is way more expensive than
+[00:37:33.040 --> 00:37:38.080]   it will ever intend to be probably is not going to have anywhere near the feature set that we intend
+[00:37:38.080 --> 00:37:45.280]   the real thing to be. This is advanced hardware for a developers who want to get in very, very early
+[00:37:45.280 --> 00:37:51.200]   on a new app platform and be people in the design field, people in the medical field,
+[00:37:51.200 --> 00:37:57.200]   people in the military field, people in the in the maintenance and training fields who are willing
+[00:37:57.200 --> 00:38:02.800]   to spend top dollar for something because they're going to be writing their own BiscuPIS spoke apps
+[00:38:02.800 --> 00:38:08.000]   for it for their own purpose. So it's perfectly okay for them to announce something knowing that
+[00:38:08.000 --> 00:38:13.760]   almost nobody that they're is watching this is going to have a need to actually own this at any
+[00:38:13.760 --> 00:38:19.120]   specific given time. They can show it off. I think that a lot of what they're going to be showing
+[00:38:19.120 --> 00:38:23.920]   off is not necessarily hands on demos. Again, I really think it's just going to be a very, very
+[00:38:23.920 --> 00:38:31.920]   tight I justine, Marquez. They're going to have some time again, even with the most trusted people,
+[00:38:31.920 --> 00:38:37.520]   really very much a demo on rails with some with a lot of things science saying, here's what you
+[00:38:37.520 --> 00:38:43.440]   can talk about the experience or things you cannot talk about the experience. But it's always going
+[00:38:43.440 --> 00:38:50.080]   it's it's it's not it's not a real release as yet. I think that it really is just going to be
+[00:38:50.800 --> 00:38:55.520]   something where they can actually I'm sorry from blathering, but the Adderall shortage is a very
+[00:38:55.520 --> 00:39:00.560]   real. It's it's well, no, you're right. It is it is a tactical mode. Okay, but what I but what I
+[00:39:00.560 --> 00:39:05.040]   wanted is what I wanted to really say is that I really think that what they maybe the most valuable
+[00:39:05.040 --> 00:39:10.960]   part of the presentation is not necessarily getting 100 or 1000 people to give a demonstrate to
+[00:39:10.960 --> 00:39:17.200]   demonstrate and talk about the experience, but basically on video they've trusted maybe a couple
+[00:39:17.200 --> 00:39:21.840]   of outsiders. There's always a couple of development outside developers they give that advanced access
+[00:39:21.840 --> 00:39:27.120]   to that sort of not looking at the camera but looking just to the right of the camera saying,
+[00:39:27.120 --> 00:39:34.880]   when you put it on, I felt as though I saw the future and not just the future of everything,
+[00:39:34.880 --> 00:39:40.560]   but my future. And that's the sort of stuff that is suitable for a device that is going to be a
+[00:39:40.560 --> 00:39:44.560]   thousand dollars and two years from now. But right now it's just gonna be a 3000 developer here.
+[00:39:44.560 --> 00:39:47.920]   Right. I think it's definitely going to be a case where you're going to be told put this on.
+[00:39:47.920 --> 00:39:53.520]   Now you're in a now you're in an environment. Look around. Now reach out with your hand and do
+[00:39:53.520 --> 00:40:00.000]   this gesture and then like you and it'll be like super like scripted and all of that. And that's
+[00:40:00.000 --> 00:40:05.280]   how it'll have to go. And the reality is they don't need it. I mean, so the they're going to have,
+[00:40:05.280 --> 00:40:11.040]   let's say 300,000 or 500,000 of these units at $3,000 they'll sell everyone that they make because
+[00:40:11.040 --> 00:40:14.320]   there'll be enough developers and enough people that want to be on the front end and enough people
+[00:40:14.320 --> 00:40:20.240]   that want to have the first of everything or whatever it is to buy such a very small lot for Apple.
+[00:40:20.240 --> 00:40:24.480]   And so the reality is that a lot of the news that's going to come out, they're not trying to
+[00:40:24.480 --> 00:40:29.520]   excite people to buy 40 million of these or 20 million of these. They're only going to be able
+[00:40:29.520 --> 00:40:34.240]   to produce enough to support the people who are going to buy them anyway. So I don't think that
+[00:40:34.240 --> 00:40:37.360]   you know, I think that that's going to be there. All of those will be spoken for. I bet you,
+[00:40:37.360 --> 00:40:41.280]   if they put them on sale, which I don't think they will want a WWB. I think they'll talk about
+[00:40:41.280 --> 00:40:46.240]   a WWC. I think they'll put it on sale in the fall. But if they put it on sale, they'll be sold out in,
+[00:40:46.240 --> 00:40:51.200]   you know, within a day. Well, the challenge is going to be and it sounds like they're going to be
+[00:40:51.200 --> 00:40:54.960]   limited, right? Like that's the I think Mingchi Quiz report is very much like they're just they're
+[00:40:54.960 --> 00:40:59.760]   going to be manufacturing them and it's going to take time. But I do think that the goal here is
+[00:40:59.760 --> 00:41:04.080]   more to get people excited about the future and to counteract perceptions of it being a flop.
+[00:41:04.080 --> 00:41:08.080]   Now Leo's not here to do his Leo thing that we could say, which is I think it's going to be a
+[00:41:08.080 --> 00:41:12.800]   disaster and a flop and nobody wants it. But like, and I mentioned this on the show last week,
+[00:41:12.800 --> 00:41:16.640]   I feel like there's a lot of expectations setting going on already where it's sort of like, but
+[00:41:16.640 --> 00:41:20.400]   it's not really for everybody and it's not going to sell that well and it's slow build like the
+[00:41:20.400 --> 00:41:26.240]   Apple Watch and that's okay. And I think that any other kind of messaging they do this summer
+[00:41:26.240 --> 00:41:32.800]   is going to be in that line, which is like, like Andy said, wow, this is a glimpse of the future
+[00:41:32.800 --> 00:41:37.680]   and not the usual sort of like, we got to get everybody out there to buy their iPhone and line
+[00:41:37.680 --> 00:41:41.840]   up and make your orders now because we're going to sell a lot of iPhones. It's not that kind of
+[00:41:41.840 --> 00:41:47.520]   product launch. It is about managing expectations, not letting it be seen as a dud because they really
+[00:41:47.520 --> 00:41:51.440]   do want to build on this year after year after year. And it's a tricky challenge because you don't,
+[00:41:51.440 --> 00:41:56.640]   this doesn't happen to Apple very often if ever in this quite in this way.
+[00:41:56.640 --> 00:42:01.440]   So it's going to be interesting to see 5050 on even if they'll discuss the price. If it's not
+[00:42:01.440 --> 00:42:06.000]   shipping for a couple months, part of me wonders if they'll just kick that hand down the road. But
+[00:42:06.000 --> 00:42:11.440]   the other part of me thinks there's been so much written about that $3,000 figure that if they want
+[00:42:11.440 --> 00:42:16.000]   to like either like, you know, the number of stories they're going to come out like the next day,
+[00:42:16.000 --> 00:42:20.320]   like, but they didn't tell us how much it costs. It's still going to be $3,000. And I don't know,
+[00:42:20.320 --> 00:42:24.560]   I don't know how they want to handle that whether they want to put a stake in the ground and be like,
+[00:42:24.560 --> 00:42:27.440]   hey, this is the price or just be like, we're not going to talk about that.
+[00:42:27.440 --> 00:42:31.680]   They're shipping or they have it's been they've been you you wonder going back to what Jason's
+[00:42:31.680 --> 00:42:35.840]   talking about how much they've ginned up themselves of their three thousand dollars. They come out
+[00:42:35.840 --> 00:42:39.360]   and I think they're going to be 99. It's 2999. Everyone's like, it's almost
+[00:42:39.360 --> 00:42:46.000]   pretty. How do you convince people that a headset that costs $2,500 is a deal? And the answer is,
+[00:42:46.000 --> 00:42:51.440]   make them all think it's going to be 3000 or more. Remember, we have precedent with this for the
+[00:42:51.440 --> 00:42:57.520]   iPad. Everybody in the room is going to be a thousand dollars that oh my god, it's it's a device
+[00:42:57.520 --> 00:43:01.520]   that we don't know what it does. And even Steve Jobs isn't really clear on it. Anybody would
+[00:43:01.520 --> 00:43:06.240]   99. But it's 400 dollars less than we thought it was going to be. Yeah. Yeah, exactly.
+[00:43:06.240 --> 00:43:10.480]   Right. Nothing. I think they've done it again. I think they have definitely inflated that price.
+[00:43:10.480 --> 00:43:14.320]   That number has so consistently been bandied about that I can't help but think they're going to
+[00:43:14.320 --> 00:43:18.320]   beat it. I don't know how low but it's going to come in under three. Yeah, wouldn't wouldn't
+[00:43:18.320 --> 00:43:22.400]   would not surprise me at all. The other the other this is an outlier and I know the answer is
+[00:43:22.400 --> 00:43:28.240]   probably no because Apple never does this. But part of me wonders if part of their messaging is
+[00:43:28.240 --> 00:43:32.160]   actually going to be about the future since this is a future product in order to say
+[00:43:32.160 --> 00:43:38.320]   this is going to be a product line there. You know, this is Apple reality pro. There are going to be
+[00:43:38.320 --> 00:43:42.480]   other products in the future essentially away for them to say, look, they're not all going to cost
+[00:43:42.480 --> 00:43:47.280]   3000 dollars, right? Because the reports are that they are working on a consumer version of this a
+[00:43:47.280 --> 00:43:51.360]   more consumer. I don't even know what to call this label these products but a cheaper version.
+[00:43:51.360 --> 00:43:56.640]   Let's just say it a cheaper version of this that regular people might actually consider buying.
+[00:43:56.640 --> 00:44:02.080]   And I wonder if there's a way for them to spin it to sort of like say, we know that you're not
+[00:44:02.080 --> 00:44:07.040]   going to spend, you know, three grand but it's okay because next year or in the in the near future,
+[00:44:07.040 --> 00:44:11.680]   you'll be able to get one that's much more reasonably priced than this unreasonable. I mean, again,
+[00:44:11.680 --> 00:44:14.480]   they're going to put it. They're going to apple it up. But that's what they're going to try.
+[00:44:14.480 --> 00:44:18.960]   I just got it. I just very quickly. I just got it. They're going to they're going to call this the
+[00:44:18.960 --> 00:44:27.360]   Lisa. Amazing. Apple VR Lisa. So when they when the $10,000 when it becomes the two $2,500 one in
+[00:44:27.360 --> 00:44:32.560]   two years from now, they're saying my God, the geniuses of Apple managed to get this down to.
+[00:44:32.560 --> 00:44:35.920]   Well, if it has pro in the title, which is that rumor that it's Apple reality pro,
+[00:44:35.920 --> 00:44:42.480]   the brilliance of that is it implies there will be a non pro version at some point, right? And that
+[00:44:42.480 --> 00:44:45.760]   is that's pretty good. That's a pretty good move. The home pod mini.
+[00:44:45.760 --> 00:44:50.880]   The home pod. Yeah. How is it that you have a pro variation of a product that doesn't exist?
+[00:44:50.880 --> 00:44:55.200]   That's weird. They're like, yeah, it is strange, isn't it? Weird. We left this whole like empty
+[00:44:55.200 --> 00:45:00.080]   square here with nothing in it. I wonder what that could be. Yeah, that's that maybe they'll
+[00:45:00.080 --> 00:45:04.400]   that's what they'll do. And I think that the big thing is the real challenge for Apple and
+[00:45:04.400 --> 00:45:08.800]   what's been the challenge for all of these devices is not whether the device is cool or
+[00:45:08.800 --> 00:45:13.280]   whether it can do it do what it says it's can do. It's it's the content. You know, so what are they
+[00:45:13.280 --> 00:45:17.440]   going to you know, and so they have to really get the content ginned up now there's a you know,
+[00:45:17.440 --> 00:45:23.040]   they've been by doing AR stuff with the phone and the iPad and everything else. They've been able to
+[00:45:23.040 --> 00:45:29.040]   do a lot of things that are going to help lay the groundwork. People understand AR they understand
+[00:45:29.040 --> 00:45:34.240]   USDZ they understand a lot of these reality bits and pieces. And so people have been playing with
+[00:45:34.240 --> 00:45:39.200]   it for a while they've been getting people used to that. They've probably been talking to a lot
+[00:45:39.200 --> 00:45:44.720]   of vendors. So I think that the way how do you get people to believe it is when they get up there
+[00:45:44.720 --> 00:45:49.520]   and they go here are our partners and there's and there's all these there's you know, Home Depot
+[00:45:49.520 --> 00:45:54.320]   and Amazon and and you know, in addition to like all these other things showing like how because
+[00:45:54.320 --> 00:45:59.840]   like Amazon what what I'm always amazed at in Home Depot and Amazon I think it's Home Depot. One of
+[00:45:59.840 --> 00:46:04.640]   them but Amazon has this thing like when you're on your phone and you go to a piece of furniture,
+[00:46:04.640 --> 00:46:08.000]   it says hey, would you like to look at that look at that in your in your living room and you're like,
+[00:46:08.000 --> 00:46:12.400]   oh yeah, look at it boom it just pops right in and and and I'm like, well, that's going to be really
+[00:46:12.400 --> 00:46:17.920]   much more interesting when we have goggles on and look at it. But yeah, I've always said the biggest
+[00:46:17.920 --> 00:46:22.880]   issue Apple spent in terminal time in previous keynote talking about AR and people holding iPads
+[00:46:22.880 --> 00:46:27.120]   looking at tables and ooh, this is amazing. Look at all these virtual things and it's like
+[00:46:27.120 --> 00:46:32.240]   fundamentally like peeking in through a window and being like, oh, let me look around inside that
+[00:46:32.240 --> 00:46:36.400]   house in that virtual environment over there. But again, it falls that flat because it's got that
+[00:46:36.400 --> 00:46:42.560]   same sort of viewing 3D in a 2D light context sort of situation where it's just like, okay,
+[00:46:42.560 --> 00:46:46.880]   I can see like peeking inside this immersive environment but if the whole point is it's immersive,
+[00:46:46.880 --> 00:46:51.760]   I want to be in that environment and that is. But I think that's what we're coming we're getting
+[00:46:51.760 --> 00:46:57.040]   to, you know, right? Yeah, that's what makes it compelling. Yeah, I mean, we built when we were
+[00:46:57.040 --> 00:47:04.480]   doing a lot of stuff with some of the some of the variety of Oculus stuff and with Samsung's goggles,
+[00:47:05.120 --> 00:47:11.120]   we had a motion capture system. So we built a 30 by 30 space where you could just walk around and
+[00:47:11.120 --> 00:47:14.720]   you could that could be a showroom for all kinds of things. Once you put the once you put your
+[00:47:14.720 --> 00:47:19.760]   headset on, you can just walk around and that was a showroom for cars. That was a that was a we had
+[00:47:19.760 --> 00:47:24.400]   shown artwork from from Zimbabwe and it was they look like huge statues that were you could walk
+[00:47:24.400 --> 00:47:28.240]   around and look at as if you're going through a thing. And the thing is is that we were like,
+[00:47:28.240 --> 00:47:32.080]   well, this will be everywhere. But the problem is is that the technology wasn't there. That was 10
+[00:47:32.080 --> 00:47:37.280]   years ago. And the technology wasn't, you know, the the stuff that Google was putting into the
+[00:47:37.280 --> 00:47:41.040]   phones was home wasn't even available on Google's own phones. I mean, it was eight years ago or
+[00:47:41.040 --> 00:47:46.160]   whatever. The and all of that was really exciting. But but the tools weren't there yet. And I think
+[00:47:46.160 --> 00:47:50.480]   where we're what's different now is we're coming into it where the LiDAR is working,
+[00:47:50.480 --> 00:47:54.720]   the a lot of the other bits and pieces are working. The one thing that we haven't really dealt with
+[00:47:54.720 --> 00:48:00.480]   is the we're barely using ultra wideband. And that's super useful when it comes to being able to do
+[00:48:00.480 --> 00:48:04.400]   all the stuff. And so there's a bunch of technologies that I think Apple is slowly putting into all
+[00:48:04.400 --> 00:48:08.000]   this hardware and all the all the stuff that's already out there as well as what's coming on to
+[00:48:08.000 --> 00:48:12.880]   learn how to make it work. I do think that they have a really good opportunity. And I think that
+[00:48:12.880 --> 00:48:16.400]   whenever they release it, what's different from Apple and Google is that we know for the next 10
+[00:48:16.400 --> 00:48:20.080]   years, Apple's going to work on this. Like they're not going to, you know, this isn't going to be like,
+[00:48:20.080 --> 00:48:24.080]   Oh, you know, two years ago, we released this, we were really excited about it. But we're going to
+[00:48:24.080 --> 00:48:27.840]   go ahead and end of life it, you know, because that's what, you know, and so what whatever happens
+[00:48:27.840 --> 00:48:31.680]   for developers, they know that if they get into it, there's going to be something going on for
+[00:48:31.680 --> 00:48:35.440]   X amount of time. And but I think that the hopefully, and we've talked about this before,
+[00:48:35.440 --> 00:48:39.840]   hopefully Apple learned from my books that you really need a lot of content, like that that proves
+[00:48:39.840 --> 00:48:44.400]   what you can do and not just leave it up to the market to figure it out. Another advantage of the
+[00:48:44.400 --> 00:48:49.840]   announcing it in June, and then not shipping it for a while is the ability to then out in the open.
+[00:48:49.840 --> 00:48:53.360]   And I believe this, I mean, I'm a real big believer. And I know I've said it on the show before that
+[00:48:53.360 --> 00:48:56.560]   you got to ship the product and that you're going to learn a lot because the real world will teach you
+[00:48:56.560 --> 00:49:01.360]   all sorts of things that, that, you know, inside the ring at Apple Park is not going to teach you.
+[00:49:01.360 --> 00:49:05.440]   But the other thing that can happen is once it's out in the open, once you can talk about the
+[00:49:05.440 --> 00:49:09.920]   operating system and you can talk about the features that you've pre announced and you can then
+[00:49:09.920 --> 00:49:15.040]   go to a whole wider circle of people and say, are you going to develop, can you port,
+[00:49:15.040 --> 00:49:21.280]   can we get your 3D content from your movie, all of that stuff starts to happen. And they will,
+[00:49:21.280 --> 00:49:25.200]   once you open the doors, right, and in June, they open the doors. And if they're not shipping
+[00:49:25.200 --> 00:49:29.840]   the product until late in the summer or into the fall, then they get it's just going to give them
+[00:49:29.840 --> 00:49:36.000]   so much more freedom to make those deals to show it off to people and to make the product when it
+[00:49:36.000 --> 00:49:41.040]   does arrive that much richer in terms of the content. So I think it's a real advantage to the
+[00:49:41.040 --> 00:49:43.760]   pre and to pre announcing a new product is take take that time.
+[00:49:43.760 --> 00:49:50.240]   Yeah. And I think that I think that the MLS partnership along with the purchase of next VR
+[00:49:51.040 --> 00:49:55.280]   is going to get really interesting. Yeah, I can't get that because just be standing right on the
+[00:49:55.280 --> 00:50:01.600]   sidelines there. Yeah, I mean, the main thing is, is that it has been, so I've done a lot of that too
+[00:50:01.600 --> 00:50:06.080]   on those things and dealing with the broadcast rules and all the other the broadcasters and what
+[00:50:06.080 --> 00:50:10.480]   we're allowed to post and what we're not allowed to post, the easiest way to be able to put VR into
+[00:50:10.480 --> 00:50:15.920]   a system is to own the entire broadcast so that you don't have to deal with what the NBC rules are,
+[00:50:15.920 --> 00:50:20.080]   how NBA relates to relates to this or how the NFL wants to deal with content.
+[00:50:20.080 --> 00:50:25.040]   Like all of that went away and Apple can do whatever they want and that and they're going to be able
+[00:50:25.040 --> 00:50:29.760]   to show all the other sports networks and all the other, you know, verticals using something
+[00:50:29.760 --> 00:50:33.360]   that they were able to buy out. This is what we could do with VR. I had an amazing experience.
+[00:50:33.360 --> 00:50:38.560]   I got a press release. Sitting at my desk, I got a press release that was about an NBA experience
+[00:50:38.560 --> 00:50:45.840]   in on the meta quest. They're like, we got a fresh new VR experience for the NBA on TNT or whatever.
+[00:50:45.840 --> 00:50:53.600]   And the first premiere of it is today at 8 Eastern. I looked at my clock and it was 450 Pacific.
+[00:50:53.600 --> 00:50:58.320]   I'm like, oh my god, that's right. So I went and I got my meta quest and I put it on, my quest to
+[00:50:58.320 --> 00:51:04.080]   put it on. I had to update software and download things and log in and go to this place. And I finally,
+[00:51:04.080 --> 00:51:12.240]   finally, I enter the NBA portal and you know what it was. It was a virtual bleachers and a big screen
+[00:51:12.240 --> 00:51:19.280]   TV showing the game that was on TNT. I'm like, what? What? And I know they've done some experiments
+[00:51:19.280 --> 00:51:24.080]   where you're like sitting on the bench or sitting right next to the bench. But the press release was
+[00:51:24.080 --> 00:51:28.560]   like, no, no, no, come and come at 8 p.m. Eastern. You're going to get the full VR experience. And
+[00:51:28.560 --> 00:51:36.080]   obviously the experience they were allowed to present was the game on TV in VR. Less interesting
+[00:51:36.080 --> 00:51:41.040]   to me than than maybe. But again, I think that had something to do with the rights and the
+[00:51:41.040 --> 00:51:44.560]   availability. And I mean, Alex, you know, this too. It's the equipment, right? Like you actually
+[00:51:44.560 --> 00:51:49.120]   have to have specialized equipment and and and it's getting the rights to where you put the
+[00:51:49.120 --> 00:51:55.600]   equipment to. So one side of the when you talk about the NBA, one side of the the court is $2,000
+[00:51:55.600 --> 00:52:00.800]   a seat. So whoever's not sitting there, somebody's willing to give up the seat seat. And on the other
+[00:52:00.800 --> 00:52:04.560]   side is the press side. And then the press doesn't want you to have your camera in the way. And then
+[00:52:04.560 --> 00:52:08.720]   you put your camera up there. And the main thing, and we've put them right on the right right at the
+[00:52:08.720 --> 00:52:13.760]   mid mid court. And at that level, the problem is you put them at eye height and not here in front
+[00:52:13.760 --> 00:52:18.240]   of people. And then they complain about it. And but if you get it to where it needs to be,
+[00:52:18.240 --> 00:52:22.400]   it feels I mean, it does feel great. I mean, it's it's a great experience to have when you when
+[00:52:22.400 --> 00:52:26.800]   you see those things. But but it is it's hard to get your camera in the right, you know,
+[00:52:26.800 --> 00:52:31.520]   in the right place where someone's not complaining about it, or that it's going to get hit. I mean,
+[00:52:31.520 --> 00:52:35.520]   the camera that I was using was a $3,000 camera. And I'm putting it there. And I'm like, you know,
+[00:52:35.520 --> 00:52:39.680]   if it gets hit with a basketball, I'm going to be super bummed. Drake is just really mad that
+[00:52:39.680 --> 00:52:43.600]   you're sitting in his seat. Like get out of there. He wants to see the Raptors. I mean,
+[00:52:43.600 --> 00:52:47.200]   the only place you can put it is really where the where the press sits. And that's the problem is
+[00:52:47.200 --> 00:52:52.080]   they it's sitting in front of the people who are trying to be there. And they're trying to cover
+[00:52:52.080 --> 00:52:58.080]   the game and they're and they're not happy. Yeah. One more item about AR and VR before we move on,
+[00:52:58.080 --> 00:53:03.120]   we'll take a break and move on. But before we do that, Tim Cook appears in the Gentleman's
+[00:53:03.120 --> 00:53:11.360]   Quarterly GQ, a Tim Cook interview, mostly things that we've heard from Tim Cook before,
+[00:53:11.360 --> 00:53:17.920]   although full credit to the author of this piece, it's a very well written piece I recommended
+[00:53:17.920 --> 00:53:25.760]   to people. Zach Barron did a great job. He gets it. It's a it's a rare, broad media piece about Apple
+[00:53:25.760 --> 00:53:32.000]   that I think he doesn't go down the rabbit holes that we all go down. But it's clear that he knows
+[00:53:32.000 --> 00:53:36.000]   what's down them, right? Like he will make a side and I'll be like, Oh yeah, that is a perfect way
+[00:53:36.000 --> 00:53:40.080]   to blunt the but you didn't mention. He's like, he knows about it. And then he goes on. It's just
+[00:53:40.080 --> 00:53:47.440]   it's very artfully done. As has been pointed out by several people, he also Zach Barron asked him
+[00:53:47.440 --> 00:53:56.720]   Cook about his statement in the Google Glass era about how AR and VR were, you know, not not so
+[00:53:56.720 --> 00:54:02.560]   great. And he had the best, I mean, the most appily, but also the best response to that, which is,
+[00:54:02.560 --> 00:54:07.520]   you know, Steve Jobs told me that sometimes you need to change your mind. You shouldn't hold on to
+[00:54:07.520 --> 00:54:11.840]   old opinions. You should change your mind. And it's like, on one level, that is the best way,
+[00:54:11.840 --> 00:54:15.920]   whenever confronted with anything that you're now denying to just say, no, I changed my mind.
+[00:54:15.920 --> 00:54:21.200]   At the same time, I'm also reminded that we live in a society where a lot of people, especially
+[00:54:21.200 --> 00:54:26.160]   politicians, but a lot of people in business as well, will never ever ever admit that they
+[00:54:26.160 --> 00:54:30.240]   change their mind about anything. They'll just double down on the thing they already know is wrong,
+[00:54:30.240 --> 00:54:36.320]   because that they will show weakness. And this is a Steve Jobs maximum that I think is really great,
+[00:54:36.320 --> 00:54:41.680]   which is, you know, famously, Steve Jobs once given evidence to show that he was wrong would be like,
+[00:54:41.680 --> 00:54:46.960]   boom, I'm on the other side now. And with Steve, I think it was like, and I really was always here.
+[00:54:46.960 --> 00:54:55.200]   But but still, Steve has learned that particular jujitsu from Steve Jobs and used it in the GQ
+[00:54:55.200 --> 00:55:00.880]   interview. Yeah, that did. One of the things that kind of disappointed me is that, boy, Steve has
+[00:55:00.880 --> 00:55:07.280]   been gone for a long, long time. An interview with the CEO of Apple should not no longer be one-third
+[00:55:07.280 --> 00:55:12.880]   about Steve and what Steve taught him and what Steve's legacy was and how a certain thing makes
+[00:55:12.880 --> 00:55:19.600]   that makes Tim think about what Steve told him a while ago. I'm sure that that I get the impression
+[00:55:19.600 --> 00:55:24.880]   from Tim Cook that this is because of a genuine fondness as opposed to he knows that he's got a
+[00:55:24.880 --> 00:55:29.360]   golden ticket to Perry pretty much anything he wants to Perry off. But that also brings up
+[00:55:29.360 --> 00:55:33.200]   another thing that I really, really liked about this interview and that you're right, it was very
+[00:55:33.200 --> 00:55:43.760]   well written. This this this reporter was not at all dazzled. He was sensitive and savvy enough
+[00:55:43.760 --> 00:55:47.920]   to be able to impart where, okay, here's where Tim is parrying something off here.
+[00:55:47.920 --> 00:55:53.920]   He and here's where he's being a little bit evasive. And also little details like, well, he was
+[00:55:53.920 --> 00:55:58.400]   wearing an Apple watch, but during all the times that we talked, he didn't look at it even once.
+[00:55:58.400 --> 00:56:03.440]   Little details that give you if even when the subject of an interview is well coached enough
+[00:56:03.440 --> 00:56:08.160]   and well practiced enough not to say anything that reveals more than they want to reveal,
+[00:56:08.160 --> 00:56:13.760]   a really good interviewer observes and notes things that are going to that they don't know that
+[00:56:13.760 --> 00:56:19.200]   they're they're revealing about themselves. So yeah, it was a very, very, very good interview. Also,
+[00:56:19.200 --> 00:56:24.800]   I was very pleased. GQ like I didn't I didn't see the usual like captions because I didn't
+[00:56:24.800 --> 00:56:29.440]   I didn't read it in the print version. Of course, I read it online. But when you go to the bottom,
+[00:56:29.440 --> 00:56:35.680]   you do see the fashion credits, his jacket by Tom Ford, his shirt by Breony jeans by Levi's glasses
+[00:56:35.680 --> 00:56:40.880]   throughout his own. A watch is the Apple watch ultra. The shirt is by Kaitan. The shirt also
+[00:56:40.880 --> 00:56:45.600]   by Kaitan shirt by Kaitan. He really likes that brand pants by page belt by Nordstrom,
+[00:56:45.600 --> 00:56:51.760]   Burt's by Burluti. Watch also the Apple series. Amazing how they got that all about Apple watch
+[00:56:51.760 --> 00:56:55.760]   for him to wear like, there you go. Lucky guy. Don't know what what what sent was he wearing?
+[00:56:55.760 --> 00:57:00.320]   I think I was missing out on it. We'll we'll have to follow up. The other thing I wanted to
+[00:57:00.320 --> 00:57:05.120]   mention is there's a hilarious question because again, this writer is is very knowledgeable.
+[00:57:05.120 --> 00:57:10.400]   He's done his homework at the very least. It says, Hey, hey, Tim, how about that story where
+[00:57:11.840 --> 00:57:16.960]   the guy across the table from you in a meeting said, we have a problem in China. And then like
+[00:57:16.960 --> 00:57:20.720]   five minutes later, you look up and at him and say, why are you still here? And he immediately
+[00:57:20.720 --> 00:57:27.600]   goes to the airport and flies to China. Is that a real story? And and Tim Cook's response is amazing.
+[00:57:27.600 --> 00:57:36.160]   He's basically like, uh, I mean, yeah, that happened. Um, sure, he's still here.
+[00:57:36.960 --> 00:57:42.960]   Um, he runs operations. Uh, yeah. And I just love I hear his vacuum cleaner in the home.
+[00:57:42.960 --> 00:57:47.920]   Yeah, I love the dynamic of, Hey, Tim, here's a legendary story about you and Tim responding with
+[00:57:47.920 --> 00:57:55.120]   the the verbal equivalent of the shrug emoji. Just like, yeah, I'm in that that is the thing that
+[00:57:55.120 --> 00:57:59.840]   does make me feel like Tim Cook, you know, it does convey a degree of authenticity and
+[00:57:59.840 --> 00:58:04.800]   and genuine is to Tim Cook is like, he's that guy. Yes, he's a politician. He's gonna say things,
+[00:58:04.800 --> 00:58:09.840]   but at the end of the day, it feels like he's kind of what you see is what you get, right? Like,
+[00:58:09.840 --> 00:58:16.320]   I think there is a large degree of him that is just the attitude. Whatever PR has done to sort of
+[00:58:16.320 --> 00:58:22.400]   corral him is kind of leaning into who he is already. And he doesn't really try to make out
+[00:58:22.400 --> 00:58:27.520]   that he has anything other than that. So yeah, that is that I mean, yeah. Well, that may be an
+[00:58:27.520 --> 00:58:32.720]   legendary story. I think the other thing that kind of communicated was that kind of conversation
+[00:58:32.720 --> 00:58:38.560]   may happen all the time. And the guys, and it's just part of doing business, right? But that's
+[00:58:38.560 --> 00:58:42.800]   what we do. You know, like, that's how we play really hard. And that's what it looks like. Yeah,
+[00:58:42.800 --> 00:58:46.480]   he's still here. I mean, because some people can interpret it as like you yelled at him and he
+[00:58:46.480 --> 00:58:50.320]   you sent him to China and he never came back, right? And he's like, no, he runs operations. I mean,
+[00:58:50.320 --> 00:58:55.440]   he's like, I just I know, I didn't know if that was the first time we had the Sabicon, who is actually
+[00:58:55.440 --> 00:59:00.080]   an SVP, like, you know, and is a name like I'd heard that story before, but never with that name
+[00:59:00.080 --> 00:59:05.200]   attack. It's like, yeah, that is a still a very significant player at Apple. So clearly, that is
+[00:59:05.200 --> 00:59:09.200]   just that's the way you get in Tim's good graces, right? Like he says, go, you're like, I'm my bag's
+[00:59:09.200 --> 00:59:13.520]   packed. I'm gone. Yeah, I mean, that's I think that's the cultural thing all the way through the
+[00:59:13.520 --> 00:59:16.720]   company. I don't think it's just Tim that's like that. I think that there's a lot of people at Apple,
+[00:59:16.720 --> 00:59:20.800]   like, like, you know, we're going to do whatever's necessary to have this whatever that is because
+[00:59:20.800 --> 00:59:27.920]   there's, you know, the specificness of the of the campus and everything is it's not just one person.
+[00:59:27.920 --> 00:59:31.040]   Yeah, it comes from the top, it emanates from the top, but it's been there for a long time.
+[00:59:31.040 --> 00:59:36.400]   That's why I for me, it was so telling. And you can read it that it's a famous story that has
+[00:59:36.400 --> 00:59:41.520]   taken on a life. And yet when you really look at it and examine it from Tim Cook's perspective,
+[00:59:41.520 --> 00:59:46.000]   it's just not a big deal. It's a thing that they do. You could view it that way or you can view it
+[00:59:46.000 --> 00:59:50.720]   as an outsider is being, yeah, I know we all think that this is ridiculous, but this is what they do.
+[00:59:50.720 --> 00:59:55.360]   And either way is a valid reading of that. But it just it was a what a wonderful moment of like,
+[00:59:55.360 --> 00:59:59.680]   Tim, famous story. How do you feel about this? And he's like, yeah, what? I don't even understand
+[00:59:59.680 --> 01:00:04.880]   why you're asking me about it. It's amazing. And it's very different in the sense that, you know,
+[01:00:04.880 --> 01:00:08.880]   I there's a story of a Steve Jobs, you know, firing people very quickly, you know, like, you know,
+[01:00:08.880 --> 01:00:13.120]   like, you know, in elevators, for me, what do you do for me? And you bad answer means you're fired.
+[01:00:13.120 --> 01:00:17.520]   I asked someone who was at Pixar about about that. And they go, Oh, I've been fired three times.
+[01:00:17.520 --> 01:00:20.000]   There's actually there's a person that walks behind Steve.
+[01:00:20.960 --> 01:00:26.640]   It's fun. The unfirer HR person is like, no, no, no, it's not that unfirer person. I think a
+[01:00:26.640 --> 01:00:34.080]   person may work at Twitter now. The the unfirer. All right. A lot of our talk, we're gonna move on
+[01:00:34.080 --> 01:00:37.680]   to some other topics. I'm gonna get mad about car play. We're gonna imagine things about the
+[01:00:37.680 --> 01:00:43.760]   Apple Watch. But first, Leo, I know he's probably spelunking in a cave somewhere in Europe right
+[01:00:43.760 --> 01:00:48.880]   now looking for the Holy Grail or the Ark of the Covenant or something like that. But before he
+[01:00:48.880 --> 01:00:55.600]   left, he, uh, he has some messages for all of us to listen to. Leo, let me interrupt Mac
+[01:00:55.600 --> 01:01:00.720]   break quickly just for a minute to tell you about a brand new sponsor, Cisco, Morocco, the
+[01:01:00.720 --> 01:01:06.400]   experts in cloud based networking for hybrid work, whether your employees are working at home
+[01:01:06.400 --> 01:01:13.280]   at a cabin in the mountains, lucky employees on a lounge chair at the beach or like me on a cruise,
+[01:01:13.280 --> 01:01:19.600]   a cloud managed network provides the same exceptional work experience no matter where they are. You
+[01:01:19.600 --> 01:01:25.760]   may as well roll out the welcome mat because hybrid work is here to stay hybrid work works best
+[01:01:25.760 --> 01:01:32.800]   in the cloud and has its perks for both employees and leaders. Yes, workers can move faster and
+[01:01:32.800 --> 01:01:39.120]   deliver better results with a cloud managed network. Leaders can automate distributed operations,
+[01:01:39.120 --> 01:01:45.120]   build more sustainable workspaces and proactively protect the network. An IDG market pulse research
+[01:01:45.120 --> 01:01:50.800]   report conducted for Maraki highlights top tier opportunities in supporting hybrid work hybrid
+[01:01:50.800 --> 01:01:57.200]   work is a priority we find for 78% of C suite executives. Leaders want to drive collaboration
+[01:01:57.200 --> 01:02:03.520]   forward while staying on top of or even boosting productivity and security hybrid work also has
+[01:02:03.520 --> 01:02:10.480]   its challenges. Absolutely. The IDG report raises the red flag about security noting that 48% of
+[01:02:10.480 --> 01:02:16.960]   leaders report cybersecurity threats as a primary obstacle to improving workforce experiences always
+[01:02:16.960 --> 01:02:22.000]   on security monitoring. That's part of what makes the cloud managed network so awesome.
+[01:02:22.000 --> 01:02:28.560]   CIT can use apps for Maraki's vast ecosystem of partners turn key solutions built to work seamlessly
+[01:02:28.560 --> 01:02:34.720]   with the Maraki cloud platform for asset tracking, location analytics and more to gather insights
+[01:02:34.720 --> 01:02:39.520]   on how people use their workspaces in a smart space, environmental sensors for instance can
+[01:02:39.520 --> 01:02:44.880]   track activity and occupancy levels to stay on top of planning this. You can reserve workspaces
+[01:02:44.880 --> 01:02:50.400]   based on vacancy and employee profiles. That's hot desking right? It allows employees to scout
+[01:02:50.400 --> 01:02:56.000]   out a spot in a snap locations and restricted environments can be booked in advanced and time
+[01:02:56.000 --> 01:03:01.760]   based door access can be included. Mobile device management, integrating devices and systems that
+[01:03:01.760 --> 01:03:07.280]   allows IT to manage update and troubleshoot company owned devices even when the device
+[01:03:07.280 --> 01:03:14.320]   and employee are in a remote location. So turn any space even this lovely cruise ship I'm on
+[01:03:14.320 --> 01:03:19.840]   into a place of productivity and empower your organization with the same exceptional experience
+[01:03:19.840 --> 01:03:25.360]   no matter where they work with Maraki and the Cisco suite of technology. Learn how your
+[01:03:25.360 --> 01:03:35.600]   organization can make hybrid work work visit maraki.cisco.com/twit that's maraki.cisco.com/twit
+[01:03:35.600 --> 01:03:40.960]   we thank them so much for supporting Macbreak weekly and of course your support means you go to that
+[01:03:40.960 --> 01:03:46.960]   address right so they know you saw it here maraki.cisco.com/twit now back to the show.
+[01:03:46.960 --> 01:03:52.640]   Thank you Leo beaming in I'm I've beamed into replace Leo I didn't know that he was on a cruise
+[01:03:52.640 --> 01:03:59.840]   again. That guy is an in-veterate cruiser I've been on cruises with Leo too. Life of the party
+[01:03:59.840 --> 01:04:05.920]   let me tell you. Okay Mark Gurman at Bloomberg who I for my money is the best connected
+[01:04:05.920 --> 01:04:12.560]   regular reporter about Apple he has good sources he had them when he was at 9 to 5 Mac he has them
+[01:04:12.560 --> 01:04:19.360]   now at Bloomberg big surprise Bloomberg like didn't scare off his sources he's got really good sources
+[01:04:19.360 --> 01:04:23.280]   that was a Bloomberg that was a good buy for Bloomberg that was a good investment it really
+[01:04:23.280 --> 01:04:26.960]   was I mean he was literally a college kid he was a university of Michigan and writing at 9 to 5
+[01:04:26.960 --> 01:04:32.080]   Mac and then he went from there to Bloomberg being the lead reporter on Apple the most
+[01:04:32.080 --> 01:04:37.360]   important powerful expensive whatever company in the world pretty good move good job marke
+[01:04:37.360 --> 01:04:42.560]   Gurman I like him he's a good guy gets invited to Apple then sometimes too which is kind of funny
+[01:04:42.560 --> 01:04:48.720]   considering anyway marke garments report this week says watch a s 10 coming out uh or being
+[01:04:48.720 --> 01:04:54.160]   announced at WWC will bring notable changes to the apple watch user interface and on twitter he said
+[01:04:54.160 --> 01:04:59.200]   I believe the new watch away should be a fairly extensive upgrade notable changes to the user
+[01:04:59.200 --> 01:05:06.000]   interface now in his in his report on Bloomberg.com he also says the hardware probably won't be much
+[01:05:06.000 --> 01:05:10.400]   of a refresh this fall it's going to be a fairly light year for the apple watch hardware and as a
+[01:05:10.400 --> 01:05:16.800]   result they're trying to pump it up with big software changes instead and watch OS 10 and
+[01:05:17.680 --> 01:05:26.000]   not to spring it on all of you but I was wondering what would be a notable change to watch OS at this
+[01:05:26.000 --> 01:05:33.040]   point it is right like what can we imagine can any of you imagine what there is that would be
+[01:05:33.040 --> 01:05:40.720]   ripe for a notable watch OS change I'm curious one thing developers can develop their own watch
+[01:05:40.720 --> 01:05:48.320]   faces oh my gosh and he stole it's 100% that was it imagine imagine well the watch face really is
+[01:05:48.320 --> 01:05:53.680]   like having I mean eight years and we're in this the face is the most important thing right
+[01:05:53.680 --> 01:05:58.960]   yeah everything else is gravy I mean they've tried a whole bunch of stuff to try and get
+[01:05:58.960 --> 01:06:02.640]   you to use different parts of the apple s they've got the dock and now in the eltero they've got
+[01:06:02.640 --> 01:06:07.680]   the action button and you know all this stuff complications all these things but I think
+[01:06:07.680 --> 01:06:13.280]   fundamentally what changes is 90% of the time your app watches on the watch face so if you can't do
+[01:06:13.280 --> 01:06:18.320]   anything with that it's a non-starter so I think any major changes start there and there's so much
+[01:06:18.320 --> 01:06:22.960]   customization that you that a lot of us would love to do like it just lay things out that are not
+[01:06:22.960 --> 01:06:27.680]   just changing the complications you know like there's there's a lot more to designing you know
+[01:06:27.680 --> 01:06:31.200]   something that's clean that's something that's you know that that can work and and and things that
+[01:06:31.200 --> 01:06:35.120]   will step outside of some of the rules like for instance atomic clock is something that I use and
+[01:06:35.120 --> 01:06:41.040]   and it's on the phone it's on there's an app on the watch and it will show up on the watch as a watch
+[01:06:41.040 --> 01:06:45.440]   face and it shows all the seconds which is really important when you're in production is I want
+[01:06:45.440 --> 01:06:49.280]   to be able to have my watch and look down at the seconds but it turns off after a very short period
+[01:06:49.280 --> 01:06:52.960]   of time and I actually ping them and they're like yeah it's not us like careful turns the
+[01:06:52.960 --> 01:06:56.800]   turn seconds off and I'm like here's the deal I have a big watch I paid a lot of money for I
+[01:06:56.800 --> 01:07:00.480]   don't care if it lasts for two hours like if in the 10 minutes that I'm getting ready for my
+[01:07:00.480 --> 01:07:06.800]   pre-show I just want to say hey exactly I want to turn it on and leave it on and and I'll burn up
+[01:07:06.800 --> 01:07:10.720]   the battery for it now give me a warning before I tap on it and say yes I don't want to do anything
+[01:07:10.720 --> 01:07:15.120]   else for 30 minutes or whatever it is and so I think that for me that's the number one thing is
+[01:07:15.120 --> 01:07:20.240]   being able to see seconds is a big deal for me and being able to have but more importantly exactly
+[01:07:20.240 --> 01:07:25.120]   what Andy said which is watch faces like it's all I care about now at this point all I care about
+[01:07:25.120 --> 01:07:28.560]   Apple do changing on the watch I mean everything else is like sure like whatever you want to do
+[01:07:28.560 --> 01:07:32.800]   but just give me watch faces yeah one of the very few problems of the Apple watch I think is that
+[01:07:32.800 --> 01:07:41.760]   there really is a sameness about it where it's I know I'm struggling for the way to put it that
+[01:07:41.760 --> 01:07:48.400]   doesn't doesn't make that isn't more that isn't stronger than I mean it to be but it's like you feel
+[01:07:48.400 --> 01:07:54.640]   a watch is a piece of your own style it's a piece of you're an expression of who you are what your
+[01:07:54.640 --> 01:08:00.160]   tastes are what your does what your what your drives are and to an extent if you have a watch
+[01:08:00.160 --> 01:08:05.120]   you're just another person with an Apple watch you can you can change the bands that's great
+[01:08:05.120 --> 01:08:11.120]   that's great some of us have the Disney face that's also great but there's something about I'm
+[01:08:11.120 --> 01:08:16.800]   custom I've decided that thank you for the 80 million complications that allow me to track my
+[01:08:16.800 --> 01:08:24.080]   health and save my life I really just want a kitty and the time and the kitty changes the what the
+[01:08:24.080 --> 01:08:28.160]   kitty looks like changes over the course of the day and at night it's a slump it's a sleeping kitty
+[01:08:28.160 --> 01:08:34.160]   and I don't have to defend that it's like just something where it gives me joy the twice an hour
+[01:08:34.160 --> 01:08:38.560]   in which I take a look at this watch face it's one of the few it's really is one of the few reasons
+[01:08:38.560 --> 01:08:45.920]   why one of the few advantages that android wear has or wear OS has over over watch OS probably the
+[01:08:45.920 --> 01:08:51.440]   only advantage that it has really and there's also the ability there's also the opportunity for
+[01:08:51.440 --> 01:08:57.040]   people who are in certain lines of work where I've I work in construction a lot of one of the most
+[01:08:57.040 --> 01:09:02.160]   surprising markets for for the ultra is that there are people who work in construction they work
+[01:09:02.160 --> 01:09:07.680]   in their their loggers they're very very physical laborers who need a very very durable watch and
+[01:09:07.680 --> 01:09:12.880]   these are basically on the watches on the wrist of a lot of heavy equipment operators imagine if
+[01:09:12.880 --> 01:09:18.240]   someone a developer who is also again a heavy equipment operator created a watch face that is
+[01:09:18.240 --> 01:09:23.440]   not just customizable with with complications but is designed so that when you look at the time
+[01:09:23.440 --> 01:09:28.320]   you are also getting an alert you're also getting alert to things that only you in the cockpit of a
+[01:09:28.320 --> 01:09:34.640]   huge bulldozer would want to know about or only somebody who is working working working in an
+[01:09:34.640 --> 01:09:39.200]   academic environment would always want to know about again it's it's it just seems like such an
+[01:09:39.200 --> 01:09:44.400]   obvious thing I'm surprised that they haven't done it by now the fact that there are so many
+[01:09:44.400 --> 01:09:50.480]   really clever hacks making use of well I can have my I can have a picture as the background so I can
+[01:09:50.480 --> 01:09:56.880]   maybe make it kind of look like it's an old-fashioned casio calculator watch which is what I want or
+[01:09:56.880 --> 01:10:02.320]   I can use the use the animation to basically fake something this that the other when someone is going
+[01:10:02.320 --> 01:10:07.680]   through all that effort to pretend to have a feature that's a good time to look into actually
+[01:10:07.680 --> 01:10:15.040]   adding that feature yeah it's the the developer David Smith has been experimenting very talented
+[01:10:15.040 --> 01:10:22.080]   developer of watch Smith and widget Smith among other things and he in his spare time basically
+[01:10:22.080 --> 01:10:28.640]   writes watch OS apps that are watch faces which you can't be really use his watch faces other than
+[01:10:28.640 --> 01:10:34.400]   while the app is running but it gives him I think pleasure to do this design and it shows that it
+[01:10:34.400 --> 01:10:41.280]   can be done and I agree I think that the watch face is so central to watch OS that the number one
+[01:10:41.280 --> 01:10:48.400]   thing that I thought of was customizable third-party developer watch faces and for people who are
+[01:10:48.400 --> 01:10:52.560]   like well isn't that an intellectual property concern because there are trademarks like everything
+[01:10:52.560 --> 01:10:58.480]   goes through the app store folks like apple could have a rigorous watch face approval process and
+[01:10:58.480 --> 01:11:02.800]   then we get to have all sorts of con you know controversies where we complain about why did this
+[01:11:02.800 --> 01:11:07.280]   get rejected or why did this get accepted and that's all fun too but they can they can exert
+[01:11:07.280 --> 01:11:12.000]   control over it while allowing people to do some brilliant things that perhaps apple has been
+[01:11:12.000 --> 01:11:17.520]   reluctant to do in the past or has just not thought of or not prioritized it is always felt that the
+[01:11:17.520 --> 01:11:23.040]   people working on watch OS well watch faces was a very small group of people who probably didn't
+[01:11:23.040 --> 01:11:29.520]   have enough uh funding quite frankly that it's a very limited supply so saying maybe we could
+[01:11:29.520 --> 01:11:34.080]   outsource this and get some more watch faces in the app store seems like a good thing the thing I
+[01:11:34.080 --> 01:11:39.840]   would throw out that that's watch face related also is complication related I feel like complications
+[01:11:39.840 --> 01:11:44.320]   are the place because I have a lot of watch watch OS apps complications are the place where my apps
+[01:11:44.320 --> 01:11:51.440]   surface where they peek through like I I interact with them more by looking at them in a face as a
+[01:11:51.440 --> 01:11:57.040]   complication than I do actually operating those apps and they don't uh they don't update very
+[01:11:57.040 --> 01:12:00.560]   often and that's a legacy of the early days of the apple watch when it didn't really have any
+[01:12:00.560 --> 01:12:05.040]   processing power but they still don't update as often as they probably could or should they're
+[01:12:05.040 --> 01:12:10.640]   not interactive in any way there's probably at least some ability that would be nice to interact
+[01:12:10.640 --> 01:12:15.840]   with them without having to go launch the app and then use the app a very brief whether it's a
+[01:12:15.840 --> 01:12:21.680]   swipe or a tap to change the view or something like that um and then dynamic complications was the
+[01:12:21.680 --> 01:12:27.600]   other thing that I thought of which is the example I keep giving is you know I want to see my running
+[01:12:27.600 --> 01:12:34.480]   timer when it's running but I don't want to leave a complication up for the timer app all the time
+[01:12:34.480 --> 01:12:41.040]   that's ridiculous and yet right now complications sort of have to either be on or off all the time
+[01:12:41.040 --> 01:12:45.600]   instead of it being you know this time of day do this or in this context do this and I'd love to
+[01:12:45.600 --> 01:12:51.520]   see more of that apple tried to sort of briefly forced all that when it added that syri watch face
+[01:12:51.520 --> 01:12:56.400]   that's supposed to figure stuff out but then they kind of just let it sit there forever and it never
+[01:12:56.400 --> 01:13:01.520]   really changed again so I think they decided maybe maybe that's not the way to handle this problem
+[01:13:01.520 --> 01:13:06.160]   it has to want to change Dan that's the problem with the syri watch face so it has to do not want
+[01:13:06.160 --> 01:13:11.200]   to change it has to want to change you can't change it for you it has to want to change first
+[01:13:11.200 --> 01:13:15.440]   it is an interesting problem though because apple really can't change the hardware at all at this
+[01:13:15.440 --> 01:13:20.080]   point they have they've they've they've got the they've got the scrolly thing they've got the push
+[01:13:20.080 --> 01:13:24.640]   button thing they've got the haptic response and they've got a square screen and they really can't
+[01:13:24.640 --> 01:13:30.720]   change anything else about that for risk of having bifurcating the platform and creating two
+[01:13:30.720 --> 01:13:35.760]   classes of users and there's also the question of what would they add to the to the mechanical
+[01:13:35.760 --> 01:13:41.520]   interface I mean they they really did kind of get it right I don't prefer square dial I really do
+[01:13:41.520 --> 01:13:47.120]   like the round dials of where i was if apple created a round dial I think that would be such class such
+[01:13:47.120 --> 01:13:52.720]   such such a such a cool bit of coolness but yeah they really have to do with do stuff with software
+[01:13:52.720 --> 01:13:57.680]   and they've also been smart enough in the past x years to realize that this isn't a productivity
+[01:13:57.680 --> 01:14:03.360]   device this really is a fashion device and a and a fitness device so I think that whatever
+[01:14:03.360 --> 01:14:07.920]   changes they make to the ui is going to have to reflect that yeah i'm a little surprised mark
+[01:14:07.920 --> 01:14:11.600]   roman saying that there's not going to be major hardware changes I I sort of figured that they
+[01:14:11.600 --> 01:14:16.160]   might follow up the apple watch ultra with a version of the regular apple watch with the action button
+[01:14:16.160 --> 01:14:23.040]   you talk about your one major change to the apple watch hardware since it debuted is this one new
+[01:14:23.040 --> 01:14:28.720]   button on the ultra a hardware button dedicated to a specific function although when I talk to
+[01:14:28.720 --> 01:14:32.880]   people who use the apple watch ultra I send some frustration the fact that it it's got to be
+[01:14:32.880 --> 01:14:39.600]   hardwired to a single thing again no context it can't be used by apps to do something within the app it
+[01:14:39.600 --> 01:14:45.120]   really needs to be one thing wherever you are uh which is kind of a bummer right you've got the
+[01:14:45.120 --> 01:14:49.360]   crown you've got the side button you've got the action button on the ultra but they're all kind
+[01:14:49.360 --> 01:14:55.440]   of like dedicated to be um one thing all the time and it's a little bit frustrating I I uh
+[01:14:55.440 --> 01:15:00.400]   uh still I would love an action button on the regular apple watch yeah as well because it's just
+[01:15:00.400 --> 01:15:05.360]   one hardware buttons are good like I mean this is the debate I know it's come up here before too but
+[01:15:05.360 --> 01:15:10.640]   like touch screens and cars right like you can't make everything a touch screen hardware buttons
+[01:15:10.640 --> 01:15:15.680]   are good hardware dials are good being able to do something by feel the worst okay everybody can
+[01:15:15.680 --> 01:15:22.480]   fight me worst iPod apple ever released was that third generation iPod where they replaced the
+[01:15:22.480 --> 01:15:26.960]   the physical buttons with those four touch sensitive buttons at the top above the scroll wheel
+[01:15:26.960 --> 01:15:32.000]   where if you were trying to navigate by feel well guess what you touched it and it would just fire
+[01:15:32.000 --> 01:15:38.400]   off and like better or worse than the iPod shuffle with no buttons oh well that that is a zen
+[01:15:38.400 --> 01:15:43.360]   damn that is a zen question of whether the the bad buttons or no buttons is worse or better
+[01:15:43.360 --> 01:15:48.880]   uh but yeah anyway so so uh physical buttons are good adding another physical button to the apple
+[01:15:48.880 --> 01:15:54.240]   watch good um you know this goes with the reports that I know we talked about last week that the
+[01:15:54.240 --> 01:16:00.880]   that the ring switch on the iPhone uh in a future version uh perhaps this fall will be replaced with
+[01:16:00.880 --> 01:16:07.600]   a button uh and that the possibility is that that button could be assigned like uh you know to uh
+[01:16:07.600 --> 01:16:14.320]   an accessibility feature or some other feature and not necessarily just uh the silent mode switch
+[01:16:14.320 --> 01:16:19.600]   that currently exists I love that idea like give me physical buttons that I can feel um they have
+[01:16:19.600 --> 01:16:25.760]   a place even though apple has seemingly tried over the last 20 years to remove as many ports and
+[01:16:25.760 --> 01:16:29.840]   buttons from their products as possible the war on buttons continues is what I'm saying
+[01:16:29.840 --> 01:16:35.440]   bring it back the action button is the first crack in the war on buttons we had in a long time I
+[01:16:35.440 --> 01:16:44.560]   think it's good let's let's get in there more buttons um here's a story that uh I found interesting
+[01:16:44.560 --> 01:16:50.080]   and infuriating which is general motors very proudly this week announced that they're going to get
+[01:16:50.080 --> 01:16:56.880]   rid of their support for carplay and android auto but on their EVs by standardizing on an android
+[01:16:56.880 --> 01:17:01.040]   automotive which is not the same as android auto because it's a base operating system that runs on
+[01:17:01.040 --> 01:17:07.760]   the car whether you've got a phone or not uh android automotive based subsystem but as a part of that
+[01:17:07.760 --> 01:17:13.360]   they're saying they're going to take phone projection essentially carplay and android auto out of the
+[01:17:13.360 --> 01:17:20.240]   equation and therefore if you know they yeah what go ahead sorry I think they did this all big favor
+[01:17:20.240 --> 01:17:24.480]   uh because now I don't have to look at GM cars ever again yeah like like I don't I don't even
+[01:17:24.480 --> 01:17:30.000]   have to consider them like the chances of me buying a car without airplay is zero not even
+[01:17:30.640 --> 01:17:36.080]   yeah without carplay I'm sorry without without carplay is zero zero like like not even minus it's
+[01:17:36.080 --> 01:17:40.720]   like me making fun of people whom it it's like in the negatives because I'll make fun of people
+[01:17:40.720 --> 01:17:44.640]   go it doesn't have a airplane doesn't have carplay does it you know like it'll be you know it'll
+[01:17:44.640 --> 01:17:49.360]   just be this like mockingness of like why would you buy a car that can't connect to your phone
+[01:17:49.360 --> 01:17:53.920]   it feels like they really ran over their foot to spite their face or something with their own car
+[01:17:53.920 --> 01:17:59.280]   their own car just backed right over themselves yeah I don't yeah I don't understand this decision
+[01:17:59.280 --> 01:18:05.040]   apple said last year at the WWDC that what 70 some odd percent of people said it was important
+[01:18:05.040 --> 01:18:09.840]   to them that they're next of new car buyers that their next new car purchase have a carplay
+[01:18:09.840 --> 01:18:16.080]   70 some percent now I you know when the rubber meets the road I feel like all the car metaphors
+[01:18:16.080 --> 01:18:21.280]   are going to come out now uh will it be enough not having carplay will it be enough uh to do it
+[01:18:21.280 --> 01:18:26.320]   I don't know but the arrogance that I see that car companies are like yes we're going to take
+[01:18:26.320 --> 01:18:30.240]   this back because what's more important the software that runs on your car or the software that runs
+[01:18:30.240 --> 01:18:35.440]   on the phone that's in your pocket 24/7 and that you use for everything and the apps that are on it
+[01:18:35.440 --> 01:18:40.240]   because I I am I'm talking to somebody who knows a lot about the car industry I found out that
+[01:18:40.240 --> 01:18:44.080]   Android automotive you will be able to install Android apps they have to be in the play store
+[01:18:44.080 --> 01:18:49.760]   and they have to be in the automotive a flag basically has to be set for that app but again if you have
+[01:18:49.760 --> 01:18:56.000]   if you use an app that's not in there or that doesn't have the flag set as your podcast applet's
+[01:18:56.000 --> 01:19:01.840]   say um and and you've got an iPhone like it's too bad and it's essentially GM saying well no you
+[01:19:01.840 --> 01:19:06.320]   need to choose a podcast app that works with your car because your car is the most important thing
+[01:19:06.320 --> 01:19:10.640]   and a music app that works with your car because the car software is the most important thing and
+[01:19:10.640 --> 01:19:15.200]   then when I get a new phone with a new operating system upgrade that does cool new things will
+[01:19:15.200 --> 01:19:22.160]   my car have those new things probably not right the track record of updating car software is is
+[01:19:22.160 --> 01:19:27.520]   pretty low but I guess we'll see for the right reasons if they've got Android you know if you
+[01:19:27.520 --> 01:19:32.400]   can run an Android app you know essentially you're even going further and just sort of taking off
+[01:19:32.400 --> 01:19:36.240]   iPhone users and why would you want to take a iPhone users who are people with generally a
+[01:19:36.240 --> 01:19:40.560]   lot of disposable income who are probably more likely to buy a new car in the first place and
+[01:19:40.560 --> 01:19:47.120]   especially an EV I mean it's a big chunk of your market and it feels like again why why are you
+[01:19:47.120 --> 01:19:53.120]   doing this to yourself why are you running into yourself over and over it's a it's an opportunity
+[01:19:53.120 --> 01:20:00.480]   unfortunately if they if they use carplay and and or android auto again it's important that to
+[01:20:00.480 --> 01:20:06.720]   note that they they 86 every sort of every solution where hey the apps are running on your phone yes
+[01:20:06.720 --> 01:20:12.400]   giving running with a dumb screen they want all that data they don't want to share that data with
+[01:20:12.400 --> 01:20:17.920]   with Android auto maker with a with a carplay maker they want to see all the transactions that
+[01:20:17.920 --> 01:20:22.880]   are being made through your phone they want to collect all that data bundle all that data monetize
+[01:20:22.880 --> 01:20:29.040]   all that data and if they could have licensed iOS they would have as they're in cars in car
+[01:20:29.040 --> 01:20:36.400]   data surveillance subsystem they would make that an option maybe but because they can simply grab
+[01:20:36.400 --> 01:20:44.320]   Android for free or even better basically get a lot a huge payment from from from Google to say
+[01:20:44.320 --> 01:20:49.520]   guess what we're going to put Android so guess what you also get to have the advantage of getting
+[01:20:49.520 --> 01:20:53.520]   a peek into how people are driving their cars and what apps they're using and what things that
+[01:20:53.520 --> 01:20:58.240]   you could sell at them at that point yeah that's it's obvious why they're doing that it's it's yet
+[01:20:58.240 --> 01:21:04.320]   another is up there with the $12 a month for heated seats it's another way of just degrading
+[01:21:04.320 --> 01:21:09.920]   the consumer experience because there's a huge profit huge profit motive that is not going to
+[01:21:09.920 --> 01:21:15.840]   helps them but doesn't help the consumer key data point here from GM statement we do believe
+[01:21:15.840 --> 01:21:23.920]   there are subscription revenue opportunities for us said the the digit chief digital officer at GM
+[01:21:23.920 --> 01:21:29.200]   and announcing this GM of course behind on star which was a previous subscription opportunity where
+[01:21:29.200 --> 01:21:36.560]   they wired sell modems into cars and charged you a monthly fee for things like GPS tracking or
+[01:21:36.560 --> 01:21:41.840]   making phone calls which really got hit by everybody having smartphones you kind of need that anymore
+[01:21:41.840 --> 01:21:47.200]   so this is a new opportunity to lock you in and pay for features using this they say that the
+[01:21:47.200 --> 01:21:51.440]   navigation features will be free for the first eight years you own the car that'll be great for
+[01:21:51.440 --> 01:21:56.880]   resale value people are going to love that part of it too also there I should say I should give
+[01:21:56.880 --> 01:22:01.520]   voice to their excuse which is we have a lot of new driver assistance features coming that are more
+[01:22:01.520 --> 01:22:05.840]   tightly coupled with navigation we don't want to design these features in a way that are dependent
+[01:22:05.840 --> 01:22:09.760]   on a person having a cell phone and I know it seems ridiculous that somebody wouldn't have a
+[01:22:09.760 --> 01:22:14.960]   cell phone but there are lots of scenarios where you lose your phone or you're having somebody park
+[01:22:14.960 --> 01:22:20.160]   your car or you're leaving it at the airport parking and they have to valet it somewhere or
+[01:22:20.160 --> 01:22:25.040]   there there are lots of scenarios where you can't have a car that doesn't work unless a paired smartphone
+[01:22:25.040 --> 01:22:30.640]   is nearby but that's not the same that's not the same as at all at what they're describing here which
+[01:22:30.640 --> 01:22:36.720]   is no no we're also not going to let your smartphone appear in a window in our user interface and as
+[01:22:36.720 --> 01:22:43.440]   for navigation it would be very easy for a car maker to say well we have the nice navigation that has
+[01:22:43.440 --> 01:22:48.160]   all information about all the all the battery status and where the chargers are and we're going to do
+[01:22:48.160 --> 01:22:52.080]   our self-driving features and they're all tied together and if you want to use any of that you
+[01:22:52.080 --> 01:22:57.840]   need to use our navigation and not Google Maps on your phone fair enough but instead they're using
+[01:22:57.840 --> 01:23:04.000]   that as an argument to never be able to use Google Maps because on your phone and the problem is
+[01:23:04.000 --> 01:23:08.480]   because there'd be no uptake I mean if they have if we can do Google Maps or Apple Maps or we can use
+[01:23:08.480 --> 01:23:15.600]   our our Android phone or our iPhone they won't even think I don't even think about the interface in
+[01:23:15.600 --> 01:23:19.360]   a car that I rent cars and I don't even think about those interfaces look I'm just like I'm just
+[01:23:19.360 --> 01:23:24.160]   gonna I'm taking over yeah you know and and so the thing is is that I don't have any and so the
+[01:23:24.160 --> 01:23:29.200]   problem is is that they're in a situation where they can't even roll those features out because no
+[01:23:29.200 --> 01:23:34.640]   one cares like no one cares about their features anymore and the hard part that the automotive
+[01:23:34.640 --> 01:23:39.040]   industry is going to have is that no one really cares about cars anymore so the thing is it's not
+[01:23:39.040 --> 01:23:45.200]   no one but a very a shrinking supply of there's a shrinking supply of consumers who really care
+[01:23:45.200 --> 01:23:48.880]   about the car because the car is a pain in the neck when you're trying to surf all the time
+[01:23:48.880 --> 01:23:53.520]   so when you're on your phone you know like no I have I have kids that aren't interested in
+[01:23:53.520 --> 01:23:57.360]   driving you know that you know like they're like they're like they're like that's a pain in the
+[01:23:57.360 --> 01:24:01.360]   neck because now I can't you know I can't be talking to my friends you know texting with my friends
+[01:24:01.360 --> 01:24:07.440]   or on whatever if I'm in a car you know and and so so I don't think that the future is you know they
+[01:24:07.440 --> 01:24:11.280]   they have to figure out how to make this all work I can see why they're doing it I just think that
+[01:24:11.280 --> 01:24:16.640]   making this announcement you know there's I do think there's a large portion of the population
+[01:24:16.640 --> 01:24:20.400]   that will just go well GM's not one of the options that I have when I go to buy a car
+[01:24:20.400 --> 01:24:24.480]   anymore like it's just off you know and so I think that it's nice for them to tell us that I had
+[01:24:24.480 --> 01:24:28.960]   a time so we don't get surprised they're taking it away but but it's but I think that from people
+[01:24:28.960 --> 01:24:33.440]   like me I just completely I mean I wasn't really planted by a Chevrolet anytime soon anyway so it's
+[01:24:33.440 --> 01:24:40.000]   not not dying you know over the thing but but I but I would definitely and you know Apple and
+[01:24:40.000 --> 01:24:43.040]   Google are making their own cars and I think that part of it is you're giving data to them
+[01:24:43.040 --> 01:24:47.520]   letting them figure a bunch of stuff out that you can't do and you know I think that there might be
+[01:24:47.520 --> 01:24:52.160]   a concern that eventually those those cars will be the ones that everyone wants to use because they
+[01:24:52.160 --> 01:24:55.200]   don't want to drive the car they want to sit in the back and let it take him wherever they're
+[01:24:55.200 --> 01:24:59.360]   going to go and I think that's part of the problem too I think fundamentally the car companies are
+[01:24:59.360 --> 01:25:04.640]   also not good at this they're bad at the software development stuff it's not in their
+[01:25:04.640 --> 01:25:10.480]   wheelhouse so to speak there's a good argument in a good article in the Verge today that was
+[01:25:10.480 --> 01:25:15.120]   talking about some of this as well as talking about the Cadillac's failed Q
+[01:25:15.120 --> 01:25:21.520]   infotainment system maybe 10 years ago or so and it was so bad that it basically tarnished that
+[01:25:21.520 --> 01:25:27.600]   brand you know as a result and yet GM is back here trying to take a second bite at that Apple and
+[01:25:27.600 --> 01:25:32.960]   it's it's really strikes me as as somebody who you know I was talking Jason I were talking about
+[01:25:32.960 --> 01:25:39.520]   this while back and somewhere else but the I wrote a piece maybe a decade ago when I bought my car
+[01:25:39.520 --> 01:25:46.800]   about how bad the the interface was in the car like and it had a system where you could connect
+[01:25:46.800 --> 01:25:53.200]   stuff or put stuff on a you know SD card and put it in mp3s on an SD card or it had bluetooth or
+[01:25:53.200 --> 01:25:59.200]   whatever and it just the interface was broken it didn't work well and like you buy a 20 30 40
+[01:25:59.200 --> 01:26:05.200]   50 thousand dollar car and feel like this system is bad but I am stuck with it like the best thing
+[01:26:05.200 --> 01:26:09.280]   that ever happened to some of these car companies were the invention of android auto and car play
+[01:26:09.280 --> 01:26:13.280]   because all of a sudden it's like well I've got a whole new interface right like I don't have to
+[01:26:13.280 --> 01:26:18.480]   worry about this thing that will never get updated and that will be broken forever because they're
+[01:26:18.480 --> 01:26:22.720]   just not going to bother pushing an update to it instead I can just use my phone that I always
+[01:26:22.720 --> 01:26:29.600]   have with me so I if the biggest use the biggest use for the last car we had which it didn't have
+[01:26:29.600 --> 01:26:34.880]   the ability to do to do car play was that it was really good for the suction cup that we used to
+[01:26:34.880 --> 01:26:39.040]   mount our iPad onto the phone you know like we were just sucking up a two and put the iPad on and
+[01:26:39.040 --> 01:26:43.680]   they go over you know and call today and so and when car play came out we were actually using the
+[01:26:43.680 --> 01:26:48.960]   screen again which was a new thing and I you could now play this and say look it's running a version
+[01:26:48.960 --> 01:26:52.240]   of android and it's going to have a play store and you're going to be able to do it and that
+[01:26:52.240 --> 01:26:55.760]   verge story that Dan's referring to mentions the VW is working on something too and they're going
+[01:26:55.760 --> 01:26:58.960]   to they're very proud they're going to have their own app store but like when you start to think
+[01:26:58.960 --> 01:27:04.480]   about that I think it all unravels because not only does it need to be on the play store in this
+[01:27:04.480 --> 01:27:09.520]   case so you have to have android version number one the if you're an iPhone user is the android
+[01:27:09.520 --> 01:27:16.720]   version from somebody who's not a great android developer apple uh for example or it is it are
+[01:27:16.720 --> 01:27:20.240]   all the flags checked did the developer forget to check the flag for android automotive or are
+[01:27:20.240 --> 01:27:24.400]   they not happy with it they they haven't checked it out they don't know what the the experience is
+[01:27:24.400 --> 01:27:29.440]   going to be like and again what if you're using an app that doesn't have an android version and
+[01:27:29.440 --> 01:27:34.720]   you're an iPhone user or even if you are an android user you're talking about a separate device that
+[01:27:34.720 --> 01:27:40.720]   has to sync all its data your phone has to sync its data with your cloud account I guess if you're
+[01:27:40.720 --> 01:27:44.880]   using a podcast player or something like that and and of course every time you do that there's a
+[01:27:44.880 --> 01:27:49.520]   chance for them to get out of sync whereas if it's on my phone and it's and then it's in a window on
+[01:27:49.520 --> 01:27:55.120]   my car I know it's my phone that I've preloaded you're you're uh taking uh you're listening to music
+[01:27:55.120 --> 01:28:00.880]   or podcasts and you're out of cellular range well guess what your car doesn't have that
+[01:28:00.880 --> 01:28:06.640]   connectivity your phone does your phone preloaded it and you've still got that stuff there to listen
+[01:28:06.640 --> 01:28:14.480]   to and again yeah I mean there are there's bluetooth right but I don't have a car play car actually I
+[01:28:14.480 --> 01:28:19.360]   haven't had a car play car my daughter has one I installed a car play head unit in in her car
+[01:28:19.360 --> 01:28:25.040]   aftermarket but um then she took it with her so selfishly to college and so I don't have access
+[01:28:25.040 --> 01:28:28.720]   to car play anymore and so I use bluetooth everywhere I go and I'll tell you bluetooth
+[01:28:28.720 --> 01:28:33.040]   stinks bluetooth is great okay it's great in the sense that you can get audio off of your phone but
+[01:28:33.040 --> 01:28:38.160]   like the interface is basically non-existent because it's this stack that was built so many years ago
+[01:28:38.160 --> 01:28:43.040]   and is probably implemented inconsistently across all cars that basically you can just kind of go
+[01:28:43.040 --> 01:28:47.840]   forward or backward and volume up and down and forward and backward on a podcast player is like
+[01:28:47.840 --> 01:28:52.720]   a 30 second forward but like what about a chapter skip or what about like what if I need to pick a
+[01:28:52.720 --> 01:28:58.160]   different podcast to listen to in a playlist right now that means I have to pick up my phone while
+[01:28:58.160 --> 01:29:03.200]   I'm driving which you don't want me to do or I could tap a couple of things on a car play interface
+[01:29:03.200 --> 01:29:09.680]   so like even if you get past the app thing and say oh well you can install apps on this thing
+[01:29:09.680 --> 01:29:14.400]   and even if you believe that your car maker is not going to have an app store that has
+[01:29:14.400 --> 01:29:18.480]   lots of missing pieces and even if you believe that your car maker suddenly doesn't get to the
+[01:29:18.480 --> 01:29:25.120]   point where they're like well some apps we really don't want in our cars and they start blacklisting
+[01:29:25.120 --> 01:29:29.280]   apps and you can't install them in their car because they don't want that app on there they
+[01:29:29.280 --> 01:29:33.440]   don't want ways on there because they want them to use your navigation app and you know this thing
+[01:29:33.440 --> 01:29:38.480]   is the MLB app you could theoretically watch video and we don't want to allow that and they're not
+[01:29:38.480 --> 01:29:41.760]   going to do a custom version for our car so we're just going to ban that one and now that one's
+[01:29:41.760 --> 01:29:46.880]   out of the store even though it's in car play or android auto this is it's just I have no trust
+[01:29:46.880 --> 01:29:51.920]   as Dan said it like they're bad at this this is not in their wheelhouse I have no trust that this
+[01:29:51.920 --> 01:29:55.760]   time is going to be different it's going to be a Lucy pulls the football away from Charlie Brown
+[01:29:55.760 --> 01:29:59.680]   kind of thing again where they're going to talk a good game and they're going to roll this out
+[01:29:59.680 --> 01:30:04.400]   and it's going to be limited and frustrating and not get updates and be from a company that doesn't
+[01:30:04.400 --> 01:30:10.080]   understand technology and I think we had this solved which is what if you give me a little window
+[01:30:10.720 --> 01:30:18.160]   and let me project this phone that all my my whole life is on and I'll use that when I'm in the car
+[01:30:18.160 --> 01:30:23.360]   how about that and I know that hurt them that hurt their egos right and they're trying to take it back
+[01:30:23.360 --> 01:30:28.000]   and the only way this will stop is if people literally say I'm not buying that car if it doesn't
+[01:30:28.000 --> 01:30:32.800]   have car play is this is there a backlash here too I just wondered a little bit last year it's last
+[01:30:32.800 --> 01:30:37.600]   year at WWDC Apple showed off its next generation of car play which is this whole idea that will
+[01:30:37.600 --> 01:30:42.480]   work with vendors and you'll be able to sort of take over the entire instrumentation of your car
+[01:30:42.480 --> 01:30:47.440]   and and have it work the way you want and is this a little bit of backlash from GM being like whoa
+[01:30:47.440 --> 01:30:53.040]   whoa whoa that is too far we don't want them taking over our carefully constructed odometer
+[01:30:53.040 --> 01:30:56.960]   experience and saying like we're gonna make a deal so that we you know because Apple's trying
+[01:30:56.960 --> 01:31:01.280]   to encroach on our our ground essentially and we don't even want to let them touch our stuff
+[01:31:01.280 --> 01:31:04.640]   but the part I mean it's a partner deal right so you would just not have it or they would just
+[01:31:04.640 --> 01:31:08.080]   they would just say no we're not doing that we're just keeping it a little bit insulted though it's
+[01:31:08.080 --> 01:31:13.760]   maybe they should weird emotional aspect and they maybe trying to signal signal back to other
+[01:31:13.760 --> 01:31:17.520]   car makers like hey let's not go down this path you know we can't talk about it that would be
+[01:31:17.520 --> 01:31:22.160]   collusion but but we can say we can make an announcement that we're getting rid of this completely
+[01:31:22.160 --> 01:31:27.280]   and that nudge nudge wink wink you probably don't want to keep on you know dealing with this because
+[01:31:27.280 --> 01:31:31.920]   by themselves they're in trouble like I mean I think they'll lose a lot of money but if they all
+[01:31:31.920 --> 01:31:37.920]   decide to drop it then it puts them all in a better negotiating position yeah well it's it's
+[01:31:37.920 --> 01:31:44.080]   a lot of this is going to be in the details like if they if they decide to make the the the entertainment
+[01:31:44.080 --> 01:31:48.880]   center basically an android device with parity with pretty much any other android
+[01:31:48.880 --> 01:31:53.600]   android device you could buy that wouldn't be quite so bad because one of the things I like
+[01:31:53.600 --> 01:32:01.360]   about the google play app store versus the the iOS store is that you can access it by by apps through
+[01:32:01.360 --> 01:32:06.320]   through a website and then when you buy the app it'll say here are the here are all of the android
+[01:32:06.320 --> 01:32:10.080]   devices you have registered under your google account here are the one here's a list of the ones
+[01:32:10.080 --> 01:32:14.080]   that are compatible with this app choose which device you want to install this on so it could be
+[01:32:14.080 --> 01:32:21.200]   as simple as for an iPhone user go to play.google.com buy ways or buy whatever navigation or whatever
+[01:32:21.200 --> 01:32:26.800]   kitty music app that you want and then select hey please put this on my car and it just works but
+[01:32:27.360 --> 01:32:33.360]   the thing is these people are just bastards and so yeah you can't you can't count on them do so
+[01:32:33.360 --> 01:32:38.560]   what if they if they say oh will run google apps but what if they're saying that no we we're
+[01:32:38.560 --> 01:32:42.960]   also going to have our own gm app store and no we're not going to let we're going to have it we're
+[01:32:42.960 --> 01:32:47.680]   doing deals with the most popular navigation apps the most popular entertainment apps so that no
+[01:32:47.680 --> 01:32:53.920]   you can't just simply install this app or buy this for $9.99 you have to buy this as a $120 per month
+[01:32:53.920 --> 01:33:00.880]   package of apps and of course the as the the usual burden that they're trying to put on everybody is
+[01:33:00.880 --> 01:33:07.200]   that it offends them that they're not seeing a single penny from the second third fourth fifth
+[01:33:07.200 --> 01:33:13.840]   owner of this car and by making as many things a service as possible just simply simple navigation
+[01:33:13.840 --> 01:33:19.600]   yeah they're not going to get they're not going to get the the $18,000 that they it was sold on to
+[01:33:19.600 --> 01:33:24.560]   as a secondhand car but they can still stick the second owner for a feature that used to be free
+[01:33:24.560 --> 01:33:28.640]   I mean this is this is basically this is just basically the same reason why I continue to be
+[01:33:28.640 --> 01:33:34.080]   offended that their that phones and other devices are deleting the headphone jack you're taking away
+[01:33:34.080 --> 01:33:38.960]   something that was useful to me that used to be free and now making this into an $18 dongle
+[01:33:38.960 --> 01:33:43.280]   that's not that I'm not the problem that I don't have the $18 again i'm a freelance journalist so
+[01:33:43.280 --> 01:33:48.480]   that's always up for up for debate but it's the it's the question of why are you taking things away
+[01:33:48.480 --> 01:33:52.880]   for me to try to turn me into a revenue stream don't you know it's it's just offensive
+[01:33:52.880 --> 01:33:57.200]   well and I and I do think that we can there's lots of ways we can see how gm might be able to get
+[01:33:57.200 --> 01:34:00.880]   some advantage and make some more money and squeeze this a little harder there's just nowhere to see
+[01:34:00.880 --> 01:34:05.360]   how it's going to improve our our experience of their cars and they and that's a hard that's an
+[01:34:05.360 --> 01:34:10.720]   uphill battle if you can't prove to us why that that you're making it better for us uh you know again
+[01:34:10.720 --> 01:34:14.320]   I think that they may find that they I don't think they're gonna about face I think they're gonna dig
+[01:34:14.320 --> 01:34:20.880]   into this and go down that path but I think it it may be a scene later as a textbook like
+[01:34:20.880 --> 01:34:25.120]   probably shouldn't have done that the reaction I mean it's interesting to say it's an interesting
+[01:34:25.120 --> 01:34:29.840]   like are they testing the waters and trying to signal to their competitors that follow us to
+[01:34:29.840 --> 01:34:34.320]   freedom right or is it that verge article is very interesting because it's basically saying
+[01:34:34.320 --> 01:34:38.320]   lots of people don't like this and I wonder if this is an interesting moment for all the other
+[01:34:38.320 --> 01:34:44.160]   car makers who are looking at the the reaction to this release and seeing people say you know
+[01:34:44.160 --> 01:34:51.040]   let's push it let's well no or say oh see people do like their car play and you know we have a
+[01:34:51.040 --> 01:34:56.720]   competitive advantage in offering car play continuing to offer it when GM isn't or are they
+[01:34:56.720 --> 01:35:01.040]   gonna say we'll just go down that path too and then we can get apple and and google you know they'll
+[01:35:01.040 --> 01:35:06.240]   they'll either be our partner and do what we say or they'll be out of our car entirely but yeah my
+[01:35:06.240 --> 01:35:12.320]   trust in them like Andy said like I my trust in them is low for them to do a good job and again
+[01:35:12.320 --> 01:35:17.680]   there is the fact and it's just sheer corporate arrogance right it's the if you work for a car
+[01:35:17.680 --> 01:35:22.320]   company the car is the most important person in important thing in everybody's life right it's
+[01:35:22.320 --> 01:35:26.240]   like well what do you mean it's a GM car it's like if you work at a record company and you think
+[01:35:26.240 --> 01:35:30.560]   people really care that this record came out on a risk to records and they don't they don't care
+[01:35:30.560 --> 01:35:35.600]   at all they literally don't care they only care about the artist well you know GM they people
+[01:35:35.600 --> 01:35:41.840]   having their phone projected into your car makes your car better you get to have apples
+[01:35:41.840 --> 01:35:47.520]   glow and apples app store and all the apps if they're an iPhone user rub off on your car it's a benefit
+[01:35:47.520 --> 01:35:53.120]   to you but you lose control and and right and you lose it maybe a revenue opportunity where you can
+[01:35:53.120 --> 01:35:57.200]   sell people on other services I do wonder when Andy talks about loading things from the web I
+[01:35:57.200 --> 01:36:01.600]   do wonder if they're like well your free connectivity is really only for our navigation if you'd like
+[01:36:01.600 --> 01:36:06.240]   other com apps to have connectivity of course you have to buy our premium connectivity package
+[01:36:06.240 --> 01:36:11.760]   which is basically another cell phone bill except GM I don't know it just it sounds like it's
+[01:36:11.760 --> 01:36:18.000]   going to go badly yeah what it boils down to really is if you really think your service is better
+[01:36:18.000 --> 01:36:23.360]   then you should compete with it on that ground you should try to build a better thing and say
+[01:36:23.360 --> 01:36:27.920]   well you can use carplay but we've actually made this thing really good but no they're not going
+[01:36:27.920 --> 01:36:32.160]   to do that there's be like no no carplay I mean there's very few things where people like bring
+[01:36:32.160 --> 01:36:35.840]   up a car and they go oh I have I just bought this car and you're always like oh that's great what do
+[01:36:35.840 --> 01:36:40.720]   you think of it and everything else at this point if anyone says like next year I bought a GM you
+[01:36:40.720 --> 01:36:44.160]   know I bought a Chevy or I bought a Cadillac I was like oh right how's your iPhone working like
+[01:36:44.160 --> 01:36:48.080]   like you know it'll just be this kind of like stick that that I you know like how's the iPhone
+[01:36:48.080 --> 01:36:53.120]   working it's really great isn't it and and it'll just be this like pushback because it's like and
+[01:36:53.120 --> 01:36:56.720]   people are gonna feel bad about buying that car and it's not going to just be the people who are
+[01:36:56.720 --> 01:36:59.680]   really mad about it it's going to be everyone around them you know it's going to be everyone
+[01:36:59.680 --> 01:37:05.680]   around me yeah see I don't I don't sleep yeah I think that a lot of people in this most I think
+[01:37:05.680 --> 01:37:09.600]   everybody in this conversation and a lot of people listen this conversation will agree with you I
+[01:37:09.600 --> 01:37:15.440]   don't know if that will pervade into the civilian population only because it'll it'll it'll be one
+[01:37:15.440 --> 01:37:19.600]   of those things that oh well that sucks and then they'll forget they'll get over it in in a couple
+[01:37:19.600 --> 01:37:25.680]   weeks and the reality is well well what I'm saying is that I do think that these companies know they
+[01:37:25.680 --> 01:37:31.360]   made that decision of will this feature if we make this change will it affect how many cars we sell
+[01:37:31.360 --> 01:37:36.800]   and they decided that no it really won't there's if we if they got two cars that are absolutely neck
+[01:37:36.800 --> 01:37:41.600]   and neck ours and competitors one connects to their phone better than the other assuming that that
+[01:37:41.600 --> 01:37:46.560]   even comes to light during the testing that the test drive that they do then we'll we'll eat that
+[01:37:46.560 --> 01:37:51.280]   but we feel as though the revenue stream that we can we can acquire by taking over that center
+[01:37:51.280 --> 01:37:55.600]   concert console it more than outweighs whatever trivial amount of sales that we're gonna lose it
+[01:37:55.600 --> 01:38:00.480]   because I think it's a gamble I think it's a gamble because that that stat was I've looked at up 79
+[01:38:00.480 --> 01:38:08.640]   percent of us new car buyers said they would only consider purchasing a new car that has carplay
+[01:38:08.640 --> 01:38:14.080]   and that was not of apple users that's of all new car buyers so probably the other 20 percent have
+[01:38:14.080 --> 01:38:20.000]   an android phone but this is the thing this is my question and we don't have an answer for it is
+[01:38:20.000 --> 01:38:25.200]   do they mean it like do they how strongly do they really feel about it because the danger the gm
+[01:38:25.200 --> 01:38:29.920]   faces is that car plays a checkbox item now and if you don't have it people are like oh well no
+[01:38:29.920 --> 01:38:35.600]   I I care about carplay the what they're trying hoping to do is you get a test drive and you go in and
+[01:38:35.600 --> 01:38:41.760]   you test drive the new Chevy Bolt that's got the amazing new gm you know infotainment system on it
+[01:38:41.760 --> 01:38:46.240]   and you really like the car and at that point you don't even think to ask if it has carplay and
+[01:38:46.240 --> 01:38:50.160]   you get at home and it doesn't have carplay and you're like yeah I guess I'll use their apps and it
+[01:38:50.160 --> 01:38:56.240]   won't matter and we don't know how strong that 79 percent is and gm is hoping that they're not
+[01:38:56.240 --> 01:39:01.840]   that that their option will blunt any loss of carplay and I don't know if I believe that
+[01:39:01.840 --> 01:39:05.920]   yeah the chances of that happening for an iPhone user will be very very low because
+[01:39:05.920 --> 01:39:09.440]   it'll just be immediately it doesn't matter how good the interface is if it doesn't integrate
+[01:39:09.440 --> 01:39:13.360]   with the rest of your life you're not going to care you know like you're not going to care that
+[01:39:13.360 --> 01:39:17.360]   like I got all these other things that work really well with my phone my car the last car I had
+[01:39:17.360 --> 01:39:21.840]   worked really well with my phone this car doesn't work with my phone done like you know like like
+[01:39:21.840 --> 01:39:28.000]   it's you know and and and it's not going to matter how it they could have an interface that is 10
+[01:39:28.000 --> 01:39:33.680]   times better than the iPhone and most iPhone users would just go eh it doesn't work with my iPhone
+[01:39:33.680 --> 01:39:37.680]   you know and and so I think that they're gonna you know like it's not carplay I can go to I can
+[01:39:37.680 --> 01:39:44.240]   have another car and the reality is I mean the target market for Chevy's or or gm is a demographic
+[01:39:44.240 --> 01:39:49.840]   that is not exactly high school or college students like it like I mean the reality is is there I
+[01:39:49.840 --> 01:39:55.440]   don't even know maybe a big part of their audience even uses well when you take when you talk about
+[01:39:55.440 --> 01:39:59.040]   new car buyers you're specifically talking about people who've got more money so they're probably
+[01:39:59.040 --> 01:40:03.280]   older because they're buying a new car and not a used car and that's why you get that and set
+[01:40:03.280 --> 01:40:09.520]   that up again yeah well I don't I don't know gm you know I I don't think that's true Alex I think
+[01:40:09.520 --> 01:40:15.360]   that in the EV realm which is what we're talking about here the the Chevy bolt and bolty UV are
+[01:40:15.360 --> 01:40:21.120]   actually considered pretty strong EVs and so they've actually you know that that's the perplexing thing
+[01:40:21.120 --> 01:40:25.600]   here is that they actually have pretty good reputation as an EV manufacturer but I want to
+[01:40:25.600 --> 01:40:29.680]   mention since we're talking about this in the context of Apple and carplay I want to mention
+[01:40:29.680 --> 01:40:34.800]   Tesla and Rivian because those are two good examples of of EV companies that have decided to build
+[01:40:34.800 --> 01:40:39.680]   their own tech stack and not support carplay or android auto and you might say well you know
+[01:40:39.680 --> 01:40:44.320]   Tesla and Rivian seem to be doing great in terms of this that doesn't seem to have hurt them at all
+[01:40:44.320 --> 01:40:49.200]   and maybe that's the case maybe that's instructive I will point you to and I don't know if we want
+[01:40:49.200 --> 01:40:54.560]   to call this up here tesla android.com I just want to point out that there's this gentleman in
+[01:40:54.560 --> 01:41:02.000]   Poland I love this who has built on a Raspberry Pi foundation a an android install that goes in
+[01:41:02.000 --> 01:41:10.880]   your tesla that has an air has a carplay receiver built into the android install pretty amazing
+[01:41:10.880 --> 01:41:20.080]   and so you plug it in and you go to the Raspberry Pi via Wi-Fi on your tesla web browser in your car
+[01:41:20.080 --> 01:41:28.960]   and what comes up in the web browser carplay now is this janky I don't know maybe is this clever
+[01:41:28.960 --> 01:41:33.360]   it's super clever I love that this guy did this and it's all downloadable and you can try it out
+[01:41:33.360 --> 01:41:38.080]   yourself and there's some there's some issues with it right where you've got to like what the car has
+[01:41:38.080 --> 01:41:42.960]   to be on the Wi-Fi of the Raspberry Pi so that they could talk to each other or on a shared
+[01:41:42.960 --> 01:41:48.240]   consensual Wi-Fi and that's a challenge for various connectivity issues using Tesla's navigation
+[01:41:48.240 --> 01:41:55.840]   system my point here is not that tesla android.com is a mainstream application my point is that
+[01:41:55.840 --> 01:42:01.920]   despite all the EVs the Tesla is selling I think tesla sold the model Y was the number one car
+[01:42:01.920 --> 01:42:09.120]   sold in California last year like all that success there are still people out there hacking together
+[01:42:09.120 --> 01:42:14.320]   ways to get carplay on their tesla screen what's fascinating about that too is and I think this is
+[01:42:14.320 --> 01:42:19.840]   also something as these EVs get more and more popular there's so much more integration I don't
+[01:42:19.840 --> 01:42:26.080]   know for a fact how true this is but my sense is it is a lot harder to take a third party head unit
+[01:42:26.080 --> 01:42:32.240]   put it in a modern EV potentially than it is in like your 10 year old car right so are the third
+[01:42:32.240 --> 01:42:38.080]   party opportunities even lower too for the whole like hey we're gonna install I that's fine I don't
+[01:42:38.080 --> 01:42:43.440]   like my built-in system I can just get a new unit and pop it in instead and I don't know how
+[01:42:43.440 --> 01:42:47.520]   feasible that is these days and that's a little worrying if it's like well I'm stuck with whatever
+[01:42:47.520 --> 01:42:51.520]   I have in here I'm stuck with it yeah it's so integrated that you can't take it out that that
+[01:42:51.520 --> 01:42:59.920]   was even true of my minivan right which was from from 2010 and it was so integrated that you could
+[01:42:59.920 --> 01:43:06.240]   you could never remove it the my Nissan Leaf that I have from 2012 the screen is so integrated with
+[01:43:06.240 --> 01:43:10.720]   all the controls and the charging timers and things like that's like good luck you basically
+[01:43:10.720 --> 01:43:15.440]   can't take it out and the more advanced these EVs get the more that's true so you can't just swap
+[01:43:15.440 --> 01:43:20.720]   out the double-din head unit you don't know the CD player you don't have the CD player anymore
+[01:43:20.720 --> 01:43:27.600]   you know what my my my wife's car has the car play and everything else and it's great my my
+[01:43:27.600 --> 01:43:34.640]   my have I have one that is older and the best part of the CD player you can insert a thing into the
+[01:43:34.640 --> 01:43:39.120]   CD player that holds a holder that you can put your iPad on so so the thing is is that those are
+[01:43:39.120 --> 01:43:43.840]   all you know those the the CD players turned out to be a great little ledge that you can stick
+[01:43:43.840 --> 01:43:48.720]   things into to make that actually work but I think that again I think that the problem really is is
+[01:43:48.720 --> 01:43:54.480]   that like I would never consider and and again I even looked at Teslas and I you know I thought
+[01:43:54.480 --> 01:43:59.920]   it by a Tesla and said I bought more cameras but um but you know I did it was the most Alex
+[01:43:59.920 --> 01:44:05.440]   Lindsey's statement ever I was like oh maybe I'll get a Tesla I'm like Alex this camera's cost
+[01:44:05.440 --> 01:44:10.720]   what cars cost though so that does that does actually make sense that makes a lot worse worse
+[01:44:10.720 --> 01:44:15.600]   worse luck in the world is to like get an offender bender with Alex because oh my god will that be
+[01:44:15.600 --> 01:44:21.040]   documented and then when he gets the data and puts it together say judge jury please put on your
+[01:44:21.040 --> 01:44:26.800]   AR goggles are my cameras okay did my camera survive the fender bender I don't know it's it's um
+[01:44:26.800 --> 01:44:32.400]   we won't know for a while this is this is a future direction for GM involving this whole
+[01:44:32.400 --> 01:44:36.320]   this whole thing we'll see if they have additional comments this is really kind of a
+[01:44:36.320 --> 01:44:43.120]   an ongoing story I love that the Verge followed up with people like me being cranky and have said
+[01:44:43.120 --> 01:44:46.320]   that a lot of people are negative about this and I do think this is a
+[01:44:46.320 --> 01:44:51.040]   precipitous moment for the auto industry where they could absolutely say you know we
+[01:44:51.040 --> 01:44:57.520]   user experience be damned we've decided to take back power and control over our over our users
+[01:44:57.520 --> 01:45:03.200]   or whether they're too concerned that now that we've all gotten a taste of freedom of bringing our
+[01:45:03.200 --> 01:45:07.440]   own technology and software into our cars and having it be properly integrated that we will
+[01:45:07.440 --> 01:45:12.800]   never go back to the way it was before I don't know wait to hear like a GM presentation where
+[01:45:12.800 --> 01:45:19.920]   someone announced they announced this say one word coverage well and and I think that the only
+[01:45:19.920 --> 01:45:23.920]   the only thing I'll say is that I think that they are worried about the fact that Apple and Google
+[01:45:23.920 --> 01:45:28.480]   are both doing a lot of R&D around cars themselves and while they can say you can never compete with
+[01:45:28.480 --> 01:45:32.400]   us with cars they said that about phones they said that about watches they said that about a lot
+[01:45:32.400 --> 01:45:37.920]   of other things that that Apple dips its toe into and it may you know if Apple you know comes back
+[01:45:37.920 --> 01:45:42.560]   comes all the way out what feature set do they have that make that anyone cares about no one's
+[01:45:42.560 --> 01:45:46.800]   you know like I don't I just don't think the future talking to my kids and talking to other
+[01:45:46.800 --> 01:45:51.280]   folks that are younger than me and looking at my own use case I just don't care I don't want
+[01:45:51.280 --> 01:45:55.680]   to drive anymore like it's it's annoying you know and and it's you know I just want to sit in the
+[01:45:55.680 --> 01:45:59.360]   back and have and take me to the place I need to go and then I'll go and that's feature is public
+[01:45:59.360 --> 01:46:04.960]   transit everybody yes there you go and work in the United States when I'll agree I agree with you in
+[01:46:04.960 --> 01:46:09.680]   in Europe and many other places I don't even think about getting a car like I don't you know
+[01:46:09.680 --> 01:46:14.320]   like it's like it works it's just probably the United States doesn't yeah it's it's this is this
+[01:46:14.320 --> 01:46:19.680]   is such a I won't I won't take this down in down into a full rattle but it's always fascinating to me
+[01:46:19.680 --> 01:46:26.800]   that so many companies putting so many billions of dollars into self-driving technology that may
+[01:46:26.800 --> 01:46:34.800]   will probably make it to level three might make it to level four level five is of science fiction
+[01:46:34.800 --> 01:46:40.480]   at this point but nobody's willing to invest in how about if we work on the infrastructure to make
+[01:46:40.480 --> 01:46:45.440]   the roads work better what if we put a fraction of that money into public transportation to make
+[01:46:45.440 --> 01:46:50.080]   sure that when people need to get from a to b they can do so without putting without putting
+[01:46:50.080 --> 01:46:55.360]   one person per car all this sort of stuff it's like oh they're simpler there's simpler reasons
+[01:46:55.360 --> 01:47:00.080]   there's simpler solutions to this problem but none of them but none of the other ones involve
+[01:47:00.080 --> 01:47:05.520]   like firing lots and lots of people you can always get lots of lots of funding and technology
+[01:47:05.520 --> 01:47:10.640]   to investigate a technology that will allow an industry to fire tens if not hundreds or millions
+[01:47:10.640 --> 01:47:17.520]   of people self-driving buses it's clearly the answer all right it is going to be time for the
+[01:47:17.520 --> 01:47:22.720]   picks of the week and guess what I am going to use the host discretion and not have a pick but my
+[01:47:22.720 --> 01:47:28.560]   three guests will have their picks and that is coming up shortly after this word again from a
+[01:47:28.560 --> 01:47:37.120]   time traveling Leo Laport Leo if I may I'd like to interrupt this lovely episode of Mac Break Weekly
+[01:47:37.120 --> 01:47:43.600]   thank you for a filling in for me by the way with the name of our studio sponsor you've seen it all
+[01:47:43.600 --> 01:47:50.320]   around ACI learning but you've also probably heard the name ITPro for the last decade our partners at
+[01:47:50.320 --> 01:47:56.000]   ITPro have brought you entertaining engaging IT training to level up your career or your
+[01:47:56.000 --> 01:48:03.440]   organization well now ITPro is part of ACI learning yeah and that's a good thing with ITPro
+[01:48:03.440 --> 01:48:09.040]   ACI learning can expand its reach its production capabilities and offer you the learning content
+[01:48:09.040 --> 01:48:15.120]   you need at any stage in your development any way you like it remote hybrid or even in person
+[01:48:16.160 --> 01:48:21.120]   if you're getting into IT you probably have heard that one of the most widely recognized beginner
+[01:48:21.120 --> 01:48:28.560]   certs is the CompTIA A+ certification CompTIA courses with ITPro from ACI learning make it
+[01:48:28.560 --> 01:48:33.360]   easy to go from daydreaming about that career in IT to actually getting it off the ground
+[01:48:33.360 --> 01:48:38.560]   earning certificates is important not only because if it's your first job in IT you got to show them
+[01:48:38.560 --> 01:48:46.080]   you got the knowledge but it also shows them you've got the determination the ambition
+[01:48:46.080 --> 01:48:50.480]   the persistence to learn the skills and to take the test and to get the cert and that's important
+[01:48:50.480 --> 01:48:56.320]   to employers it also helps you if you're already in the field get promotions to get additional certs
+[01:48:56.320 --> 01:49:02.400]   right tech is one industry where opportunities are outpacing growth especially in the cybersecurity
+[01:49:02.400 --> 01:49:09.120]   field the demand for talent is unlimited basically tech continues to be a field that requires a lot
+[01:49:09.120 --> 01:49:15.280]   of expertise and as a result commands higher pay right you get paid more right now about a third
+[01:49:15.280 --> 01:49:23.680]   of information security jobs require a cybersecurity certification 23 percent of all IT jobs require
+[01:49:23.680 --> 01:49:30.240]   a cybersecurity certification organizations are hungry for cybersecurity talent there's a big gap
+[01:49:30.240 --> 01:49:35.680]   you can help fill that gap and by the way get a great paying job the average salary for cybersecurity
+[01:49:35.680 --> 01:49:42.080]   specialists a hundred sixteen thousand dollars a year ACI learning information security analyst
+[01:49:42.080 --> 01:49:47.520]   and cybersecurity specialist programs to great tracks they can help you get certified and get
+[01:49:47.520 --> 01:49:52.960]   that great job ACI learning offers multiple cybersecurity training programs to prepare you to
+[01:49:52.960 --> 01:49:59.120]   enter or advance within this field CISSP certified ethical hacker certified network
+[01:49:59.120 --> 01:50:04.640]   defenders cybersecurity audit school cybersecurity frameworks those are some of the most popular
+[01:50:04.640 --> 01:50:09.840]   but there's lots more and the thing is it's exciting it's great it's fascinating and is preparing you
+[01:50:09.840 --> 01:50:16.400]   for a great job or an even better job now I know for many people learning remotely on-demand
+[01:50:16.400 --> 01:50:21.600]   courses is their preferred way to do it for some people you might want to be in person with an
+[01:50:21.600 --> 01:50:26.880]   instructor and other students well the great thing about ACI learning is they've got both you can
+[01:50:26.880 --> 01:50:32.880]   learn on-demand remotely or in person take your learning beyond the classroom with ACI learning
+[01:50:32.880 --> 01:50:39.360]   ACI learning includes ITPro but there's also now auditPro practice labs those great learning
+[01:50:39.360 --> 01:50:44.240]   hubs for in-person learning and their partnership program if you've got a business with a team
+[01:50:44.240 --> 01:50:50.400]   from two to one thousand volume discounts started five seats ask about a free two-week trial of
+[01:50:50.400 --> 01:50:55.120]   training for your team your team will love it the boss will love it you will love it because you'll
+[01:50:55.120 --> 01:51:00.400]   get some really great up-skilled workers ACI learning transforming our company's train
+[01:51:00.400 --> 01:51:06.080]   and technology professionals learn to fuel the modern workforce for premium training in audit
+[01:51:06.080 --> 01:51:15.920]   IT and cybersecurity readiness visit go.acislearning.com/twit that's go.acislearning.com/twit don't forget
+[01:51:15.920 --> 01:51:22.000]   the offer code TWIT 30 that gives you 30% off a standard or premium individual ITPro membership
+[01:51:22.000 --> 01:51:27.760]   we thank them so much for their support we welcome ACI learning to our studios and invite you to
+[01:51:27.760 --> 01:51:33.920]   check them out but make sure you use that address so they know you saw it here go.acislearning.com/twit
+[01:51:33.920 --> 01:51:42.160]   and don't forget 30% off with the offer code TWIT 30 now back to the show all right my pick
+[01:51:42.160 --> 01:51:47.600]   of the week is these three guys giving their picks because I can do that because I'm the host
+[01:51:47.600 --> 01:51:53.040]   why don't we start with our guest our guest Dan Morin do you have a special Dan Morin Macbreak
+[01:51:53.040 --> 01:52:01.120]   weekly pick for us yes very very special I have I mean I do more and more of these shows now that
+[01:52:01.120 --> 01:52:05.520]   I feel like are on video and of course we all know the key to good videos good lighting I don't
+[01:52:05.520 --> 01:52:10.720]   know how good my lighting is but I will say my room lighting as it was not very good so I picked
+[01:52:10.720 --> 01:52:17.600]   up the Logitech LITRA glow for 60 bucks which is a little light that sits on top of your monitor
+[01:52:17.600 --> 01:52:23.680]   if you have an everyone I've got an Apple studio display here and it plugs in via USB and you can
+[01:52:23.680 --> 01:52:26.960]   turn on it does a bunch of different color temperatures a bunch of different brightnesses
+[01:52:26.960 --> 01:52:33.760]   and it's really convenient I like a lot my one quibble with it is that Logitech software which
+[01:52:33.760 --> 01:52:39.200]   you can use to control it via your computer is kind of garbagey there are some workarounds I
+[01:52:39.200 --> 01:52:42.720]   wrote about one over on six colors about how you can sort of set up shortcuts to do some of the
+[01:52:42.720 --> 01:52:48.160]   control there which is nice but it I do wish Logitech would open that up and have an API available
+[01:52:48.160 --> 01:52:53.280]   but what I would say is you know it's it's cheap which is not a small thing if you're looking to
+[01:52:53.280 --> 01:52:59.040]   set up like a little video set up on the without spending too much money and it's pretty well
+[01:52:59.040 --> 01:53:03.840]   designed for all things it's got nice little tilt and adjustment and it sits pretty well on top of
+[01:53:03.840 --> 01:53:09.040]   my monitor so I give that a thumbs up I'm sure I could do better for lighting but for 60 bucks it's
+[01:53:09.040 --> 01:53:14.880]   hard to argue the case we can see you so that's good visible and all it's and a lot of us have
+[01:53:14.880 --> 01:53:21.680]   uh lots of zoom meetings and things so being in a you know most people not us not us but most
+[01:53:21.680 --> 01:53:27.360]   people uh don't work in a place where they they set it up and they go okay how's my lighting like
+[01:53:27.360 --> 01:53:31.840]   for like a video and then you get on a video call and it looks like you're in a horror movie and you
+[01:53:31.840 --> 01:53:37.520]   think that something has to change so lighting is important for all of us now uh Alex what do you
+[01:53:37.520 --> 01:53:43.760]   have for us yeah yesterday on office hours we had uh D script uh come on and they they kind of walked
+[01:53:43.760 --> 01:53:49.760]   us through it and yeah blew my mind like my mind just kind of wrapped open you know and you know
+[01:53:49.760 --> 01:53:54.000]   people in in office hours have been using D script and talking about it and I had someone working on
+[01:53:54.000 --> 01:54:01.600]   the podcast that I do with with with Michael Krasney the gray matter dot show we do uh we we were
+[01:54:01.600 --> 01:54:05.760]   using it for some of the post stuff not some of the production and because I was all like I'm just
+[01:54:05.760 --> 01:54:09.680]   gonna bring this into logic I don't need D script and you can use that for the little cutouts and
+[01:54:09.680 --> 01:54:16.000]   so on so forth but watching or you know we you know watching D script show what what it was I
+[01:54:16.000 --> 01:54:21.280]   just kind of kind of pop my mind open so basically you can take your podcast you get your records
+[01:54:21.280 --> 01:54:25.440]   you can have multi-track you can put them all in there it'll identify all the words for you
+[01:54:25.440 --> 01:54:28.560]   you can go through and just edit I want to take this out this out oh I want to get rid of all the
+[01:54:28.560 --> 01:54:34.320]   umbs which I still say too many of I want to get rid of the silences that are longer than half a
+[01:54:34.320 --> 01:54:38.160]   second I want to get rid you know I want to do this stuff and you can do all those edits and
+[01:54:38.160 --> 01:54:42.720]   it's doing it all through you're doing it all to that text and then it just pulls it all together
+[01:54:42.720 --> 01:54:48.320]   you know and it will if you oh do you want lower do you want some um uh do you want captions or
+[01:54:48.320 --> 01:54:51.920]   you want the captions to be full-screened you want them just to automatically be generated and go
+[01:54:51.920 --> 01:54:56.880]   along with them do you want all those things are just kind of built into the thing and what we really
+[01:54:56.880 --> 01:55:01.840]   started uncovering talking to them is you can turn it into a full production you can be adding B
+[01:55:01.840 --> 01:55:06.880]   roll and and you can add you know all these other video clips and when you do that like in final
+[01:55:06.880 --> 01:55:11.200]   cut like the magnetic timeline you start you still cut things out and it just pulls everything
+[01:55:11.200 --> 01:55:16.800]   along with it to keep it to allow you to assemble this and from an assembly perspective I think that
+[01:55:16.800 --> 01:55:21.360]   we're about after seeing what I saw yesterday on on office hours I I think that we're gonna start
+[01:55:21.360 --> 01:55:27.280]   our podcast by putting into these into the script you know cut it all down and then export there's
+[01:55:27.280 --> 01:55:32.560]   still some filtering other things that I want to do in logic and I'll still do all those things but
+[01:55:32.560 --> 01:55:38.080]   but as far as getting it to where we want it it's so much faster to do it in D script than it would
+[01:55:38.080 --> 01:55:41.520]   be than it was ever you know every time someone has a bunch of edits like we have an edit on our
+[01:55:41.520 --> 01:55:45.200]   podcast and it's like oh take this little part out and I shouldn't have said this and and then
+[01:55:45.200 --> 01:55:48.560]   that doesn't even count the fact that like if someone says a word a lot of times what happens
+[01:55:48.560 --> 01:55:53.440]   they got garbled somehow or they didn't say the right name and you want to change that name
+[01:55:53.440 --> 01:56:00.160]   you can take take this and just go just type in like you didn't say center you said so you know or
+[01:56:00.160 --> 01:56:05.200]   or something and you can just have that person's voice say that word I don't know if I do the whole
+[01:56:05.200 --> 01:56:12.480]   podcast that way but it will rebuild it you know to to put that voice back in and to be able to
+[01:56:12.480 --> 01:56:18.240]   pull those all those pieces back together is unbelievable it's miraculous I used it for a podcast
+[01:56:18.240 --> 01:56:23.840]   project back in 2020 where I was doing a lot of different interviews and then trying to
+[01:56:23.840 --> 01:56:27.520]   interspers them together and the idea that you could basically it's like you edit a podcast like
+[01:56:27.520 --> 01:56:32.160]   you're just editing a word doc or a google doc and that part is remarkable and then you made an
+[01:56:32.160 --> 01:56:35.360]   important point because I've talked to people who've been really skeptical about this I was really
+[01:56:35.360 --> 01:56:39.920]   skeptical about this for a long time but for certain projects if you're just doing cleanup of
+[01:56:39.920 --> 01:56:44.480]   like you know put in the theme song then don't worry about it but if you're doing substantive
+[01:56:44.480 --> 01:56:50.080]   content edits to a podcast to be able to see the words and move them around or pull them out or
+[01:56:50.080 --> 01:56:54.640]   do whatever is amazing and then if you are very exacting in terms of production you know what I
+[01:56:54.640 --> 01:56:59.840]   exported all of those that series that I did in 2020 to logic and then I put them in logic where I
+[01:56:59.840 --> 01:57:05.600]   had control over the compressor and the output and I could do a little tiny again it's not
+[01:57:06.720 --> 01:57:11.760]   dscript has done an amazing job building a non-linear audio editor and what is essentially web
+[01:57:11.760 --> 01:57:16.480]   technology but there's stuff you could do in logic or audition or something to just fine
+[01:57:16.480 --> 01:57:21.440]   tune everything at the end that's fine like but yeah this huge amount of work at the beginning
+[01:57:21.440 --> 01:57:26.320]   you could just do it in dscript and not worry about it it's really like magic is magical yeah
+[01:57:26.320 --> 01:57:30.080]   and it's you know there's a lot of things like one of the things we do is we do all of our a
+[01:57:30.080 --> 01:57:35.440]   lot of our podcasts over zoom and the problem you get into is at a certain distance there is this
+[01:57:35.440 --> 01:57:41.120]   long gap and long gaps don't make people feel smarter you know like they you know like it feels
+[01:57:41.120 --> 01:57:44.800]   like there's this long you ask them a question and then there's this long gap and the idea of
+[01:57:44.800 --> 01:57:49.520]   being able to tell dscript just shorten all those gaps like anything that they took too long on
+[01:57:49.520 --> 01:57:54.880]   you just shorten those all up really tightens the whole show but might only make it a minute or
+[01:57:54.880 --> 01:58:01.360]   two minutes shorter than than it was overall but it makes it feel much snappier you know and it
+[01:58:01.360 --> 01:58:06.720]   gives it a lot more energy it's it's i was again i people have been trying to pursue i'm i can be
+[01:58:06.720 --> 01:58:10.720]   very slow about things and people can sit there they've been trying to persuade me to use it for
+[01:58:10.720 --> 01:58:15.840]   a year you know and i was just like oh i got i have logic i can just do this thing and now i'm like
+[01:58:15.840 --> 01:58:19.360]   as soon as i went through that hour i was like okay i'm done i'm yeah yeah there's that control
+[01:58:19.360 --> 01:58:23.040]   freaking nature right which is like i know how to do this i'll edit it myself and then i i would
+[01:58:23.040 --> 01:58:28.880]   for me it was oh i need to interspersed uh 15 different interviews sentence by sentence with
+[01:58:28.880 --> 01:58:32.960]   different voices and i thought oh what am i going to do and then i thought well i make transcripts
+[01:58:32.960 --> 01:58:37.360]   and then i'll edit the transcripts and then i'll hand it to an editor and say here's the here's the
+[01:58:37.360 --> 01:58:42.320]   edits with the time code go edit this in logic for me and then i thought or i could literally just
+[01:58:42.320 --> 01:58:46.800]   use dscript where i copy and paste different sentences and the audio goes along with and it's
+[01:58:46.800 --> 01:58:51.840]   amazing so yeah it's amazing and the idea that like a lot of times someone you have to cut something
+[01:58:51.840 --> 01:58:57.120]   and the way that they set it they slurred into that next word and now you can just take that word
+[01:58:57.120 --> 01:59:01.760]   out put it out yeah they've got new voice generation tech that they can do it's also good for my
+[01:59:01.760 --> 01:59:06.480]   understanding is like if you're doing a documentary or an npr something where the host is not available
+[01:59:06.480 --> 01:59:11.760]   and you need a word right like you can just generate the word and yeah you could use that for evil but
+[01:59:11.760 --> 01:59:15.920]   that's not what it's for it's it's being used for good it's it's great thank you that's dscript
+[01:59:15.920 --> 01:59:20.800]   dot com and you can try not for free and then you you pay but uh you try not for free and you'll be
+[01:59:20.800 --> 01:59:27.600]   amazed you will be amazed andy what do you have for us well our conversation about losing car play
+[01:59:27.600 --> 01:59:35.760]   and uh and android auto made me think of one of my evergreen recommendations car mounts for phones
+[01:59:35.760 --> 01:59:40.240]   and tablets they get a really bad rep because most of them are absolutely terrible they're like
+[01:59:40.240 --> 01:59:49.120]   suction cups that don't hold or if by some or just jams into your uh like a car vent or in a
+[01:59:49.120 --> 01:59:54.400]   really really weird way and either way like if unless you're gone unless we're on a pool table
+[01:59:54.400 --> 01:59:59.520]   smooth smooth road like this vibration that makes it hard to like actually take a look at the screen
+[01:59:59.520 --> 02:00:04.400]   and get really quick information uh but forget forget about that though there's a company called
+[02:00:04.400 --> 02:00:10.800]   ram mounts that makes an entire industry out of just mounting technology inside cars and planes
+[02:00:10.800 --> 02:00:17.040]   and boats and they are the real deal for sure uh there all the components are really like heavy
+[02:00:17.040 --> 02:00:24.400]   cast metal when you lock uh when you lock uh a screen in place it absolutely stays there
+[02:00:24.400 --> 02:00:33.520]   it's a modular system so uh I uh I have a a hard mount it was it's worth putting a couple screws
+[02:00:33.520 --> 02:00:38.720]   in my dashboard to have like the mounting post for uh for for my phone uh right there in the
+[02:00:38.720 --> 02:00:43.280]   dashboard exactly where I want it to be but when I travel and I know that I'm gonna be renting a
+[02:00:43.280 --> 02:00:49.760]   car I can take everything off of that post except for leaving the post behind snap that onto onto
+[02:00:49.760 --> 02:00:54.560]   a really industrial suction cup or some other sort of amount uh and now I can use that in the rental
+[02:00:54.560 --> 02:01:01.120]   car just as easily and it's all modular so if you're worried about like gee the arm isn't long
+[02:01:01.120 --> 02:01:07.760]   enough or I can't twist I can't uh put this into landscape mode or hey I just switched from uh to
+[02:01:07.760 --> 02:01:12.320]   to a larger phone or now I've been using a phone for a long time and now I actually want to buy an
+[02:01:12.320 --> 02:01:17.680]   iPad mini specifically for the car you don't have to buy everything all over again you just buy
+[02:01:17.680 --> 02:01:23.840]   the thing that makes the arm longer or you just buy the thing uh that uh connects that holds up your
+[02:01:23.840 --> 02:01:29.920]   phone or your tablet even their systems for like kind of soft mounting of uh your phone and your
+[02:01:29.920 --> 02:01:33.520]   tablet if you're not gonna leave it there permanently if you just really want to just like dock it
+[02:01:33.520 --> 02:01:39.440]   when you come in take it off when you leave their systems they have are so easy to put the two
+[02:01:39.440 --> 02:01:45.680]   click this into place and then so easy to remove it and they're they're not expensive at all like
+[02:01:45.680 --> 02:01:52.640]   if a really bad like amazon.com bargain costs 22 dollars and doesn't really work you could put
+[02:01:52.640 --> 02:01:58.400]   together a system that's specific to your needs for about 35 to 40 dollars and once again I've got
+[02:01:58.400 --> 02:02:02.400]   at this point I've got a every time that I need something to do something new over the past 10 or
+[02:02:02.400 --> 02:02:07.680]   15 years I've bought like another accessory or another component to make that that solution and
+[02:02:07.680 --> 02:02:12.720]   now I have this box of ram-mount components and every time that I'm in a new situation like
+[02:02:12.720 --> 02:02:19.040]   like when I was testing a whole bunch of different like bike software uh a bike phone app so I have
+[02:02:19.040 --> 02:02:24.160]   like I need now I need to have like three phones mounted on the handlebars of my bike plus I want
+[02:02:24.160 --> 02:02:29.920]   a camera mounted on another place it was just simply take all this stuff that I bought with no
+[02:02:29.920 --> 02:02:35.120]   intention of ever putting it on a bike and all I had to do was like buy like a $12 component to
+[02:02:35.120 --> 02:02:42.720]   put this on the handlebars highest recommendation and if it's it's the reason why I don't particularly
+[02:02:42.720 --> 02:02:47.680]   care what the in-dash entertainment system is because I really much prefer having my iPad mini
+[02:02:47.680 --> 02:02:53.440]   or my phone up there on the dash again not I don't get the idea of driving like this then having to
+[02:02:53.440 --> 02:02:58.480]   go like that every time you need to see what the turn is I always have my phone set up so that it's
+[02:02:58.480 --> 02:03:04.160]   at the exact it's always to my left at the exact same height as my rearview mirror on the outside
+[02:03:04.160 --> 02:03:09.200]   so that as I'm scanning the mirrors while I'm driving my my eyes will also naturally track
+[02:03:09.200 --> 02:03:13.680]   across that phone screen so I can see okay I don't have to worry about a turn for the 5.2 miles or
+[02:03:13.680 --> 02:03:17.200]   whatever like that so definitely take a look at it it's it is the real deal you've been you've
+[02:03:17.200 --> 02:03:22.160]   had your heart broken by the stuff before this will mend it for you very very easily again if there's
+[02:03:22.160 --> 02:03:28.080]   any reason if you have you'll not doubt the the value of drilling holes in your dash to permanently
+[02:03:28.080 --> 02:03:32.320]   mount some of this stuff inside your car because you'll know that great I'm gonna be five this car
+[02:03:32.320 --> 02:03:37.760]   for another eight years I'm gonna be using the stuff for eight years rammount.com thank you Andy
+[02:03:37.760 --> 02:03:41.920]   that brings us to the end of back break weekly only time left to thank my guests Dan Morin thanks
+[02:03:41.920 --> 02:03:47.680]   for replacing me who's replacing Leo this week I appreciate it hey uh you have a site where you
+[02:03:47.680 --> 02:03:53.840]   write about technology and stuff oh yeah I do have one of those sites it's called uh tip of my tongue
+[02:03:53.840 --> 02:04:01.120]   ah six colors you can find more sounds great colors dot com it's got all six colors tire rainbow
+[02:04:01.760 --> 02:04:07.520]   it's great it's nice and also uh you write books what's your latest book right books my latest book is
+[02:04:07.520 --> 02:04:12.000]   the nova incident which came out last July I've written a whole bunch of books in the
+[02:04:12.000 --> 02:04:16.080]   collect cold war series you can find out more about those at dmorin.com and they're available
+[02:04:16.080 --> 02:04:20.960]   in fine bookstores everywhere I always recommend you check out your local independent bookstore
+[02:04:20.960 --> 02:04:25.440]   because they're great some of them are available in terrible bookstores but they're all available
+[02:04:25.440 --> 02:04:29.920]   I don't go to those just a fine bookstores the fine bookstores are the best fine Corinthian
+[02:04:29.920 --> 02:04:35.360]   bookstores it's excellent uh Andy and I go if I would be remiss if I didn't ask when you are going to
+[02:04:35.360 --> 02:04:42.080]   be on the airwaves at WGBH Boston which of course I remember fondly from watching zoom when I was
+[02:04:42.080 --> 02:04:48.400]   a kid on PBS the radio side where I've seen you live by the way I love when you talk to Leo about
+[02:04:48.400 --> 02:04:54.960]   being at the at the Boston Public Library where I have seen you perform live as a tech expert on WGBH
+[02:04:56.000 --> 02:05:00.800]   accent on the word perform thank you very much uh yeah I'm off this week but uh I'm actually at
+[02:05:00.800 --> 02:05:07.840]   the BPL uh on uh next Thursday at 1230 you can be there live by yourself cup of coffee and a cookie
+[02:05:07.840 --> 02:05:12.560]   eat a sandwich from the sandwiches eat a sandwich it's quite lovely uh last week last week we had
+[02:05:12.560 --> 02:05:17.360]   a full house which was like and they were like active like applauding things so it was like oh
+[02:05:17.360 --> 02:05:22.160]   say they liked that oh then you're like gee they didn't have a reaction to that that's line that
+[02:05:22.160 --> 02:05:27.120]   I said gee maybe I maybe they maybe I should change my it gets in your head but it's a lot of fun uh but
+[02:05:27.120 --> 02:05:33.280]   if you don't want to be if you don't want to be there at the BPL uh check out go to wgbbh news.org
+[02:05:33.280 --> 02:05:38.400]   you can stream the audio live or later uh the ones that are on video like when we do stream
+[02:05:38.400 --> 02:05:45.040]   from the studios at the BPL they're on youtube so you can go to wgbh news channel on youtube and
+[02:05:45.040 --> 02:05:53.360]   watch that later very nice very nice and Alex Lindsay last but not least office hours dot global 090
+[02:05:53.360 --> 02:05:59.360]   media what do what do you have going on well we I would highly recommend checking out the
+[02:05:59.360 --> 02:06:05.280]   descript uh the descript yeah yesterday it's probably like I didn't the reason I would say that is I
+[02:06:05.280 --> 02:06:11.520]   didn't get it until uh I really watched that hour and the the real advantage of our second hours is
+[02:06:11.520 --> 02:06:15.360]   that it's not based on one person if I had interviewed them by myself I probably wouldn't have gotten
+[02:06:15.360 --> 02:06:20.640]   the same value it's the fact that there's so many people asking questions about it all you know at
+[02:06:20.640 --> 02:06:26.000]   at the same time you get this power of a whole the kind of the hive mind asking questions from a
+[02:06:26.000 --> 02:06:29.360]   lot of different directions people that are using it people aren't using it people are looking at
+[02:06:29.360 --> 02:06:32.800]   it from different angles so I would definitely check that out and you know a lot of our second
+[02:06:32.800 --> 02:06:38.400]   hours are a lot of fun we're getting ready for NAB uh two weeks away from now and uh we've got
+[02:06:38.400 --> 02:06:46.080]   50 people to send in on NAB about 15 to 20 on site and about another 25 to 30 off site and so
+[02:06:46.080 --> 02:06:53.680]   it should be a really busy busy week all right awesome and uh we will be back next week of course
+[02:06:53.680 --> 02:06:57.760]   except for Dan who is just a guest but I will be back in that square where Dan is now and uh
+[02:06:57.760 --> 02:07:02.640]   believe Mike Sargent will be sitting in this chair or an alternate chair depending on how he feels
+[02:07:02.640 --> 02:07:09.760]   about sitting in Leo's chair but regardless uh thank you all for being here and being kind to your
+[02:07:09.760 --> 02:07:16.480]   guest host for filling in for Leo but I have to be a little cranky here and say hey you
+[02:07:16.480 --> 02:07:23.600]   give back to work you break time is over hey we should talk Linux it's the operating system that
+[02:07:23.600 --> 02:07:28.560]   runs the internet but your game consoles cell phones and maybe even the machine on your desk but
+[02:07:28.560 --> 02:07:33.120]   you already knew all that what you may not know is that Twit now is a show dedicated to it the
+[02:07:33.120 --> 02:07:38.480]   untitled Linux show whether you're a Linux pro a burgeoning sisitman or just curious what the
+[02:07:38.480 --> 02:07:44.960]   big deal is you should join us on the club twit discord every saturday afternoon for news analysis
+[02:07:44.960 --> 02:07:51.120]   and tips to sharpen your Linux skills and then make sure you subscribe to the club twit exclusive
+[02:07:51.120 --> 02:07:57.920]   untitled Linux show wait you're not a club twit member yet we'll go to twit.tv/club twit and sign up
+[02:07:58.400 --> 02:08:09.760]   hope to see you there
+
