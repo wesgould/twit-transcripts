@@ -1,0 +1,1092 @@
+;FFMETADATA1
+title=Bikini Rich Content
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=244
+genre=Podcast
+comment=http://www.twit.tv/twig
+copyright=These netcasts are released under a Creative Commons Attribution Non-Commercial Share-Alike license. TWiT and TWiT Logo are registered trademarks of Leo Laporte
+publisher=TWiT
+date=2014
+encoder=Lavf58.76.100
+Failed to align segment (" Yeah."): backtrack failed, resorting to original...
+Failed to align segment (" I was expecting that."): backtrack failed, resorting to original...
+Failed to align segment (" Yeah."): backtrack failed, resorting to original...
+Speaker: SPEAKER_03
+Transcript:  It's time for Twig this week in Google. Gina Tripani is here. Yes, the changelog is back.  Erin Newcomb as well. We'll talk about Heartlead, what you should do about this horrible internet  disaster, and whether you need an antivirus on Android. Turns out the answer is not what you  expect. It's all coming up next on Twig.  This is Twig.  and get in shape with healthy delicious treats like cherry berry bonanza. To get 50% off your  first box go to naturebox.com slash twit. That's naturebox.com slash twit. And by Squarespace,  the all-in-one platform that makes it fast and easy to create your own professional website or  online portfolio. For a free two-week trial and 10% off go to squarespace.com and use the offer code  twig and by LegalZoom. Visit LegalZoom.com to save on your legal needs and gain access to a  network of legal plan attorneys for guidance. LegalZoom is not a law firm but provides self-help  services at your specific direction. Visit LegalZoom.com and use offer code twig to receive $10 off at  checkout. It's time for Twig this week in Google. The show where we cover Google, the cloud, the  Googleverse, the Twitterverse, the Facebookverse, the blankverse. Gina Trapani's back. We missed  you Gina. Oh so great to be back. Hello. Thinkup.com now in her new Brooklyn office. No more paneling.
+
+Speaker: SPEAKER_06
+Transcript:  I'm sad. I graduated from mom's basement. Did you bring the Jets blanket? Or the Hummel figurines?  Jets blankets dated moms unfortunately. Oh. Oh. But I'm like a grown-up now. It's really exciting. My
+
+Speaker: SPEAKER_03
+Transcript:  own four walls. It's amazing. Great to be here. We missed you so much but we're glad you're here.  I'm going to ask you about your phone in a second. Aaron Newcomb is also here. Yeah.  NetApp and also a regular on many of our shows. Right. You did Floss. Floss Weekly this morning.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah we talked to the guys from, what was it? Mifo. It's the guy that do the micro payments.  Oh neat. Mifos. I think it is. M-I-F-O-S. And they did, they do micro payments. Open source  micro payments. Were they using Heartbleed? We get into that a little bit. We kind of just laughed  about it and we didn't actually go into the details because I didn't want to derail the show.
+
+Speaker: SPEAKER_03
+Transcript:  And you can listen to Security now. Yeah that was great. We obviously went into deep, deep,  deep details of that. Heartbleed is, you know, it's ironic because this was the week XP, yesterday  XP came to its end of life and we thought XPpocalypse would happen and all the people,  almost half a billion who are continuing to run XP no longer are getting updates. That means that  hackers who have exploits are, nothing's happened yet but I think we've not heard the end of it.  Right. Nevertheless the big security story of the week has nothing to do with XP. It has to do with  open source. Turns out there's been a highly exploitable flaw in the open SSL library that's  used by two-thirds of all web servers out there right now. Anybody who uses Apache or NGINX  is likely, right, using open SSL. Yes, absolutely. Yeah, in fact we just interviewed the NGINX guys
+
+Speaker: SPEAKER_05
+Transcript:  about a month ago on Floss Weekly. They came in and gave us an overview and I saw that and I was  like, oh I feel so bad for them because they have such a great product. But yeah, it's not their  fault. But it's, you know, pretty much anything that uses open SSL is at risk. And so, and the
+
+Speaker: SPEAKER_03
+Transcript:  thing is what they're at risk for is so significant because basically it allows a leak  of data from the server itself and it leaves no trace. And we know that this  hole has existed for two years. Yeah, yep. So that means for the last two years bad,  any bad guy who knew of this hole could extract data from a server 64 bytes at a time  from directly from memory. From memory. So that means now he can't say I want to get Aaron  Newcomb's credentials. He just gets whatever he gets. He gets whatever he gets. But then you take
+
+Speaker: SPEAKER_05
+Transcript:  all that data and you parse through it and you're like this is after the decryption algorithms have  run on things like your passwords and sensitive information that is going back and forth from the  server. So, you know, after that decryption has gone through then it gets loaded into memory and  you've got all this data just basically sitting there open for someone to come in and pull out
+
+Speaker: SPEAKER_03
+Transcript:  and digest. Now since it's from memory, so we were having a discussion on Windows Weekly and I  will ask Steve but he's not around right now. And by the way Google was bit by this. There is a  Google, Twitter, Google, Yahoo, pretty much everybody who uses the LAMP stack was bit, right?  So, and presumably they've all patched it. Google's patched most, Yahoo's patched most, not all.
+
+Speaker: SPEAKER_05
+Transcript:  It takes time to patch that many servers. Because there is a fix but you have to make sure that
+
+Speaker: SPEAKER_03
+Transcript:  library is being used by your servers everywhere. You said something interesting. So it reads what's  in RAM, not what's in the database. So that's important because it's decrypted but it also  means that, and somebody was asking, well what about two-factor authentication? Has that been  compromised? And if it were reading, so in order for two-factor to work you and Google share a key,  a secret number. And locally on your phone it's hashing that secret number with the time to get  a six-digit code. Google hashes the time with the same secret number, knows what that code should be.  You're both at the same, you know, your times are synchronized. And so that number should match. If  they match then Google says, ah yes, you're you. So that is a secret number that Google knows.  Is that stored in RAM during that handshake? We don't know. Well we don't know and quite possibly
+
+Speaker: SPEAKER_05
+Transcript:  whatever you type into the keyboard and press enter when you type in that number, that's going  to be in memory. But that's only good for 30 seconds. That's only good for exactly. It's the secret number that we  have to know. Is that being leaked? So I would say no but I'm not the expert. I would defer to Steve  Gibson on this but I would say no because they should be taking that key, that hash, and then  using that along with something else. Like you said, time or, you know, your mother's maiden  name or the number of digits in pi up to a certain point and that point is random. But there has to
+
+Speaker: SPEAKER_03
+Transcript:  be, it's symmetric in the sense there has to be a shared number and a shared key. And that shared key,  if that's leaked by heartbleed then you're screwed. Then two factors not going to even protect you.
+
+Speaker: SPEAKER_05
+Transcript:  Well if you know the key and you know what the algorithm is for generating the number. Well everybody
+
+Speaker: SPEAKER_03
+Transcript:  uses Google Authenticator. We know what the algorithm is. We know what it is for Google  anyway and Outlook and Evernote and Twitter doesn't. Twitter has its own. The ones that are  sent to you by text message, that's probably okay. Should be okay. Absolutely. Because that's a
+
+Speaker: SPEAKER_05
+Transcript:  mystery. Right. Right. So it's nasty. Unless you happen to be logging in at the exact same time  from the exact same. Then they'll have that six digit. Right. But that's very unlikely. Or whatever
+
+Speaker: SPEAKER_06
+Transcript:  digit. Yeah. Yes, Schneier's piece on this was really kind of pulled me up on my bootstraps. Of  course we had to patch our servers at ThinkUp. We're a new company and we're actually running a  version of SSL, OpenSSL on our front end servers which was not affected. So not every version of  OpenSSL was affected. But our back end servers were so we had to patch. But Schneier's piece on  this which was that this vulnerability has existed for two years. You know you leave no trace. The
+
+Speaker: SPEAKER_03
+Transcript:  attacker leaves no trace. Just assume that everything has been compromised. He says on a scale of one to  ten this is an eleven. Yeah. Absolutely. I agree. And what Tumblr said on their site is take tomorrow  off work and go through all your sites. You don't have to worry about ones using SSL but go through  all your sites and change the password. But there is an additional piece of information you should  know. There's no point in changing the password until they've fixed the flaw. Right. Because it'll  just be leaked again. Exactly. So what you should do is wait until a site announces, as Google has,  okay we fixed the flaw. And today is the day you should change your Google password.  What unfortunately is not happening, I keep going to Bank of America, they're not saying anything.  No bank wants to talk about this. Right. They'll just raise more concern than they can solve. And  you know people go, what happened? My heart is bleeding. What should I do? And that's a problem  because I don't know if my bank has fixed this. Yeah. Yeah. I haven't logged into my bank since I
+
+Speaker: SPEAKER_05
+Transcript:  heard about this. I said, now it doesn't matter right because it's been going on for the past two  years. If someone's got this they've probably got it now. But what does matter, what was kind of a  big deal about this was that you know people started talking about this before the fix was ready.  So there was generating a lot of anxiety about this. And I know that there was some pushback  against some media outlets and things talking about this saying you know why was this such made  such a big deal before we had the fix put out. Now you can. There are heart bleed tests online
+
+Speaker: SPEAKER_03
+Transcript:  that you can use to test it. The OpenSSL test suite has been updated to  test for that. Chattam, what's the link for that? Because yeah it's like SSL.  LastPass has one. LastPass.com. That's it. I think. Yeah and I would trust LastPass by the way they  fix theirs very quickly. But that doesn't mean, that merely means you can use LastPass to fix  your passwords. Right. But you can't. So the SSL server test does now have, this is from Qualys,  have, so you can say okay well BankofAmerica.com have they fixed it and it will actually have a  heart bleed. So it is not vulnerable according to this to the heart bleed attack. So I used
+
+Speaker: SPEAKER_06
+Transcript:  LastPass to fix it. I assume that these checkers are just examining the headers of the website  request to see whether or not the right, the particular version of OpenSSL is being used.  But you know those headers are very easily you know on the set or re-hidden. Like at ThinkUp you  know we changed our headers so you couldn't detect exactly what versions we were using for security  purposes. Security through obscurity that is. So these checkers, unless they're doing something  different, Aaron correct me if they are, they're you know they'll tell you if they know for sure  this vulnerable version of OpenSSL but they can't tell you for sure for everybody.
+
+Speaker: SPEAKER_03
+Transcript:  Yahoo.com was tested as vulnerable according to this gist. Detected server software of ATS  server software's unknown might, well this is why they call it, they say it's vulnerable.
+
+Speaker: SPEAKER_06
+Transcript:  They don't know. They don't know right. So Yahoo is renamed has said they deliver in their headers  which is totally configurable in Apache and Nginx. You know what software is this web server using?  You can change that name to anything in your config files. You know ours says you know ThinkUp  web server right. And that's like I said security through obscurity but for these kind of checkers  that are just looking at the headers they just don't know. They don't know what version of OpenSSL is.
+
+Speaker: SPEAKER_03
+Transcript:  So this isn't even though Qualys is saying oh yeah Yahoo.com is not vulnerable to heart
+
+Speaker: SPEAKER_06
+Transcript:  bleed. This isn't conclusive right. It's not definitive anyway. It's not definitive yeah.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah. That's not so good. That's not so good because my bank is never ever ever going to say  oh we fixed our servers. So maybe I'll wait till they say you should change your password now.
+
+Speaker: SPEAKER_06
+Transcript:  They're never going to send that out either. Well you know I just tried to log in a tumbler  earlier today and I got the message you know you know you detected unusual activity on your account.  Please change your password and I assumed that this was heart bleed you know related. In fact  we had a tumbler engineer on all about Android last night on the Android team. So I went and  changed my password. So will your banks do that. Yeah I mean I hope so. I mean I expect that anytime  my bank suspects that something has gone wrong with my account they'd ask me to update my  credentials. Today's truth I think the reality is that these bugs are always going to happen. I  think that the real test of an app or a company's metal is how quickly they acknowledge that that  they were affected and that they fix it and they lay out a clear plan for users to sort of recoup
+
+Speaker: SPEAKER_03
+Transcript:  their information. Don't and yeah be honest the banks are not known for being there. There's one  other thing now and we talked about this on security now and I don't know if this is necessary or not  but Steve said do it. So I'm going to show you this too. If you're using Chrome you're going to  go to your settings show advanced settings which is at the very bottom and you'll see SSL certificates  right at the very bottom. One thing that most browsers do not currently do is check for server  certificate revocation. So this is important because part of the fix is to get a new certificate  issued. You can presume Google presumes the certificate has been compromised. We don't know  by the way. Right. We don't know but they're going to presume it's been compromised. Now what you  don't want to do is continue to use the broken certificate because that could allow a man in the  middle. If it has been compromised that could allow a man in the middle. So what you want to do  is check the box that says check for server certificate revocation. That means Chrome will  say it will go to the there's two different databases and say has this serve is this certificate revoked  and if you're getting a bad certificate the browser will say whoa not supposed to do that.  That's a revoked certificate. It's not on by default because Steve says it's a can add it's  there's some overhead right to check these two databases so it can slow it down. So by default  it doesn't do that. Turn it on at least for now. I'm turning it on right now. That's a great tip.  Thank you Steve. You can do it in Firefox. Safari if your Mac user is a little more complicated you  actually have to go into keychain access into the certificate section. I might as well do it since  I think we probably have a few Macintosh users watching. Your Chromebook is sufficient just to  do it in Chrome. You have to go into certificates and keychain access go to in the preferences and  then this is the online these are the two different databases it searches OS, CSP and CRL. These are  certificate revocation servers. The default is best attempt. What you want to do is hold down  your option key and select require for all certificates. It's not you can't you can't even  get to that without holding down the option key because I guess they just don't want you to slow  down I don't know but basically from now on it will go and check those two databases OS, CSP and  CRL for revocation before it accepts a certificate and I don't know you know it should be probably  in this day and age of default behavior but I guess it slows things down. I just got an email
+
+Speaker: SPEAKER_06
+Transcript:  from IFTTT saying there was a major vulnerability. IFTTT is no longer vulnerable. We have no evidence  of malicious behavior but we've logged you out of IFTTT across all the RL apps and we encourage you  to change your password. That's a really good way I think to handle this. Holy cow but that means
+
+Speaker: SPEAKER_03
+Transcript:  everybody watching has got to go through all of their HTTPS site passwords and change them.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah and I've standardized on like I use I think I'm going to switch to LastPass but I use  I use password maker right now because it's free and it works pretty much everywhere  but you know now all those passwords that I felt so safe and secure about because they were all  scrambled and run through an algorithm and mixed up and I didn't have to remember what they all  actually were now I have to figure out a different way to go through and change all those passwords.  It's easy to do but it's just kind of a pain in the butt. Yeah if you're not using a password
+
+Speaker: SPEAKER_03
+Transcript:  keeper, sheesh. Yeah but this is it you know what this is an opportunity to start using LastPass.  We know LastPass is secure. Start using LastPass, set it up and now go through every site exactly  and LastPass will remember it. Ask that it's generated password say I want a new password  generate it. LastPass will remember it. You're now clean. That's exactly what I'm going to do
+
+Speaker: SPEAKER_05
+Transcript:  especially since they now have the integration with Android for Chrome and some other apps.
+
+Speaker: SPEAKER_03
+Transcript:  Isn't that nice? That's awesome. By the way it completely broke  what was it it completely broke something oh the camera on the M8. Oh really? Oh did it? Yeah  so and it was one of those things nobody knew about I'm sure I'm sure LastPass has fixed it  but if you get weird crashes so the camera kept crashing and what I finally I think I was searching  on the web and finally figured out is that the camera that LastPass was pop was trying to pop up  the check this thing so you have to go into the LastPass they have settings for every app and  say don't and then the camera works fine. Wow. It's a weird fix and I'm glad I found it because I  actually thought I had a bad M8. So there was no indication? No because you know this is what  happens it just kept crashing crashing crashing. New phone new software feature so no one had  chance to test it and being one of the that's always the drawback to being the owner of a  new product. The canary in the coal mine. I am and I passed out and fell a long way so you can so it's  a good thing to know I guess I'll pass that along if you if you get weirdness but I do love it  LastPass when it sees a password entry form will pop up and say do you want me to fill that out?  I happen to know that. Awesome. Pretty good stuff. All right we'll take a break come back we've got  lots to talk about in fact I want to ask Gina I hear you got your M8. I did. You pushed by and you  and I have different versions because you have the Google Play Edition. I got the Play Edition yeah  we should talk about it. You guys last night played with the Galaxy S5 as well I'd love to get that
+
+Speaker: SPEAKER_06
+Transcript:  impression although I hear you're kind of negative. You know I yeah I you know I'm a sucker for design  which is why I have the the M8. I completely agree with you and I didn't I didn't love the looks of  the S5. It looks just like the S4. Yeah yeah pretty much. But I gave so I was going to review it this
+
+Speaker: SPEAKER_03
+Transcript:  week but I felt so bad for Jason I said please you have this so he's got it for a week he'll review it.  We have the unboxing. Yeah and you unboxed well I unboxed it first but you had it oh I did but we  had to re-unbox. Yeah but I guess we were embargoed so we couldn't do it till midnight it was very
+
+Speaker: SPEAKER_06
+Transcript:  complicated. Yes it was a little bit complicated. Jason had a late night last night. Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  Our show today brought to you by Nature Box. You want a snack? It'll make you feel better Jason have  a snack. You know look we got another Nature Box. So they have three sizes this is I think this is  the small size. The whole idea is come around this time of day in the early afternoon lunch is long  gone a distant memory and dinner is too far off to be forgotten but maybe you've just got a little  hankering for something wouldn't you love a ooh Nature Box? How about a cherry berry bonanza?  That looks pretty good. These are all nutritionist approved. The thing I love about Nature Box is  these are healthy snacks. Snacks you can eat and not feel guilty about.  This has what does it have in it? It's cranberries, tart cherries, blueberries. That's it.
+
+Speaker: SPEAKER_06
+Transcript:  Oh my god I'm ordering one of these from my office. That sounds good. That's it I have to  hear about it last night and tonight yeah forget it. So here's the cool thing. You should get it for
+
+Speaker: SPEAKER_03
+Transcript:  think up. So there are never any high fructose corn syrup or trans fats in these things.  They are always you know all natural ingredients. They're just delicious. You can if you wish narrow  it down at naturebox.com slash twit and say I want vegan or soy free. I'm gluten conscious or  I don't want any lactose. I'm nut free, non-gium all of that stuff. You can also choose by taste  savory sweet or spicy or you can just say come on hit me with a random selection like barbecue  kernel kettles. Kettle kernels, french toast granola, chili lime pistachios, cherry berry bonanza.  They'll put a box together her smoky barbecue peas. Which one is this suits you Aaron? You  could pick one. I'll take the barbecue peas. See Aaron brought us donuts this morning. Oh no  I would love to have chipotle maple almonds. Come on. Those are good too. Sweet, savory. I can eat either of those actually.  You can have anything you want because you know what there's more where that came from.  I get a nature box every month. You get a three six or 12 month subscription.  And if you go to naturebox.com slash twit 50% off your first box naturebox.com  slash twit. You're opening the you're gonna okay you're gonna just try the cherry. He's  trying the chipotle maple. This is the chipotle maple. So you know you know almonds are good for you.  They're great in antioxidants. No high fructose corn syrup. No partially hydrogenated oils.  Zero trans fats. No artificial sweeteners flavors or colors. This is
+
+Speaker: SPEAKER_05
+Transcript:  right. Little sweet. Little hot. Not too spicy. A little sweet. Little heat.  It's just a little little smidgen of a taste. Oh man. Killing me here. And they sound good too.
+
+Speaker: SPEAKER_06
+Transcript:  Wow is that good. Yeah really good. Healthy crunch.
+
+Speaker: SPEAKER_03
+Transcript:  We give these guys always way too much ad time because we keep eating their stuff while they're  eating.  Yummy. A half hour ad as we eat.  All right moving along. Thank you naturebox. Snack time's over.  Nap time's coming up. That's right. That's what I look forward to.  How do you like it? Emi you had the original HTC One as did I. Yes and my daughter threw it on the
+
+Speaker: SPEAKER_06
+Transcript:  floor a few too many times and it died. It died on me. These things happen. Yeah they happen.  So I ordered the M8 from the Google Play Store. I got it a day before yesterday.  Of course the HTC One has a micro SIM and this has a nano SIM so I had to go down to the T-Mobile  store and get a new SIM where the T-Mobile people nearly passed out. They're like where'd you get  this phone? This doesn't come out till Friday. I was like uh just ordered it on the web. No big  deal. So they transferred my number over and you know I like it a lot. It's big. It's bigger than  the regular HTC One and it's got these kind of curved softer edges with this lip which the  which the regular or the original HTC One didn't have which I don't like as much. The two things I  really do like I like that the buttons are now on screen rather than on the device itself. Yes.  That bugged the heck out of me out of the open. Yeah yeah I like that a lot. That's closer to the  Google Android experience. Now this is the Google Play Edition which means that I'm running kind of  the the Google Android experience but the one thing that this phone has different is these these  dual cameras right. So they actually forked they did ship this Google Play Edition with the HTC  photo edit which can do the yeah the focus the you know the focus magic. That's the most important  part of Sense6 you want. That's good. Yeah yeah exactly and so I played around with that a little  bit. It took a few shots of my daughter who's always moving. I always seem to get the background  focused and her blurred and so I tried changing the focus and it's okay. It's not super good.  It's not super good like I noticed kind of like around her head you could tell that it's  you know not perfectly aligned. You could tell there's a seam and you know it felt like a filter.  I thought that would feel less like a filter. I thought that it would feel less like you know an  Instagram filter and more like a genuine this thing in the front is going out of focus. There's  that 3D where you can tilt and see the three kind of 3D objects. That's just weird. Which also seemed  kind of gimmicky to me. So unfortunately the dual camera stuff did seem more gimmicky than I would
+
+Speaker: SPEAKER_03
+Transcript:  have liked. Let me show you these are pictures I took in our studio of Chad. This is the normal one.  This is with a background decolor desaturated. That's kind of cool. That is nice. And this is another these are  special effects they do in the backgrounds. I won't forget that. Okay now this is the so this is
+
+Speaker: SPEAKER_06
+Transcript:  faded back. All right there you go. So notice kind of around the edges like around his hair.  It's not perfect. It's not quite perfect. It's pretty good. Yeah it's pretty good but it's not as good as if you took that with a real  DSLR and had that reeled at the field. You know it feels. Oh yeah but I mean. But it's good enough for
+
+Speaker: SPEAKER_03
+Transcript:  online. So look here's Greg. Look at Greg's arm on the left there. When I take it out of focus the arms.  But if you think about the depth of field is very shallow right. So his arm would be out of focus.  I don't hate it. I agree with you. Now what is good about this is the macro camera is  excellent. So the close-up pictures are quite good. I mean I don't know. I'm thinking this is a pretty  darn good. It's four megapixels but you know one trick and you could do this I think if you have the  sense camera there's a setting for maximum ISO. One of the things this camera does in low light  is turns the ISO way too high. It gets very grainy. I set it down to 400. It won't go above 400 now  which means you're not going to get as low light. Won't be as good as maybe it used to be. And that
+
+Speaker: SPEAKER_05
+Transcript:  makes sense that the default settings were set that way right because that was supposed to be  one of the sweet spots. It's a selling point. Yeah. They want that aspect of the camera to work  really well because that's the one place since they only have four megapixels they can claim
+
+Speaker: SPEAKER_03
+Transcript:  really good low light pictures right. Well but so these some of these are low this is a low light  picture and I you see there's a lot of grain. This is before I set it down to 400. And so I just find  that a little displeasing with all that grain. So I just I grin and bear it. Yeah so this didn't
+
+Speaker: SPEAKER_06
+Transcript:  actually shift but the Play Edition doesn't ship with the HTC camera but it does have the HTC edit.  I'm sorry my video's getting bad. Yeah. It does have the HTC edit features. So when you tap the  edit button when you're looking through gallery it lets you use HTC edit. And those aren't available  for photos that you take while you're taking video which I do a lot. Like I'll take video of my daughter  and then just tap the screen to grab a still. And so it doesn't seem to be using the dual cameras  there so you can't do the focus and the 3D thing. But there's nothing else though. Yeah. I'm trying
+
+Speaker: SPEAKER_03
+Transcript:  to think what else in sense you would be missing. I don't think there's anything else that you really  this really you got Zoe. In fact there's a Zoe app on here it says coming soon. I think they're going  to offer the Zoe capability to all cameras. Wow. It's going to be in the Play Store. It'll be in the  Play Store. That would be great. So that would be really great. Here's another example. If you look at the  straw hat in the middle and then I defocus the background. Apparently the the brim of the hat is also  that's a little disconcerting. And the guy's shoulder on the far right gets blurred.  So it doesn't work. You're right. It's not perfect. It feels like a filter. It's a filter. Yeah.  Look at his shoulder. There's no reason that should. My impression was that these were two
+
+Speaker: SPEAKER_06
+Transcript:  different images. One with different focuses and that you were switching between them. But it's
+
+Speaker: SPEAKER_05
+Transcript:  actually much more of a software effect. I think it's computational. That's interesting. You can
+
+Speaker: SPEAKER_03
+Transcript:  clearly see the region select there. Yeah it's computational. And then maybe the stripes in the  shirt confused it. I would bet that that's what happened. Combined with the shadow probably. Yeah.
+
+Speaker: SPEAKER_06
+Transcript:  Like did you did they really need to build a whole nother camera in the back of the phone in  order to do this? I don't know. Like these seem like effects that they could have achieved with
+
+Speaker: SPEAKER_03
+Transcript:  just one really good camera. Well in fact the Nokia does. So that there the Nokia camera app which  has a single sensor does it does it in fact arguably does it better. So yeah I would say so.  I do like this phone though. You've got to like the build. It is heavier and bigger than your old  one right? Oh we lost her. She was just slowly degrading. Sorry about that. My video is degrading.
+
+Speaker: SPEAKER_06
+Transcript:  I hope you're fine. You're better. Yeah okay good. As long as my audio is good. I love the phone.  Just to be clear I really do love it. It's beautiful. It does push my personal limit of  size. I wouldn't want a phone bigger than this. It does feel big. But the build is gorgeous. I  have to I'm really restraining myself from buying that really cool case with the dots. No don't buy  that. That's dumb. Yeah. You like the dot case? I like the dot case. I kind of like the dot case.
+
+Speaker: SPEAKER_03
+Transcript:  Get the dot case. By all means be be quick. Go knock yourself out. Why are you trying to restrain
+
+Speaker: SPEAKER_06
+Transcript:  yourself then if you like the dot case? Well because I risked some you know domestic discord  around this particular financial decision. So I don't know if I can. Oh come on the dot case.
+
+Speaker: SPEAKER_03
+Transcript:  How much is the dot case? That's like a hundred bucks. Well that's true. I guess once you sink
+
+Speaker: SPEAKER_06
+Transcript:  700 bucks in you're you have to keep in. Honey you have to have the dot case. It's only been three  days with the battery life so far has been great. I forgot to plug this in last night and I'm at  still I'm at about 50% right now. I'm getting 15 hours pretty consistently. That's great. Yeah  which is another thing I really needed and the HTC One was kind of killing me on. So I'm very
+
+Speaker: SPEAKER_03
+Transcript:  pleased about that. That may not stay that way remember. That's just a brand new phone factor.
+
+Speaker: SPEAKER_05
+Transcript:  And it may be better for Gina than it is for you Leo because she's running Google stock Google.  Yeah that's true. Well it's also very user specific. I mean how you use it. And how you use it absolutely.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah how much do you use the display? Definitely I had gone really far and installed a bunch of  apps particularly for AAA and so I've done a clean sweep and just tried to you know remove as many
+
+Speaker: SPEAKER_05
+Transcript:  background processes as possible. Yeah. Do either of you use a screen protector? No. No no because  that because the curved edges to that phone are going to make screen protectors look a little  goofy because they won't cling to the edges. So you have to get one that's cut down and then  when it's cut down it looks like you're not really protecting the whole screen.  So you mean the bezel? Yeah the bezel on the edges. That was a problem. One of the bevel.  That was one of the problems with the Nexus 4. I got Nexus 4s for my wife and my son for Christmas  and I went to put a screen protector on them because they need them. And I'm like why isn't  this fitting right? And it's like oh yeah I forgot the corners are beveled edges. So  nothing's perfect in this world alas. But it feels good in your hand. So what did you guys
+
+Speaker: SPEAKER_03
+Transcript:  I guess you weren't here you were of course on Skype Gina so you get to actually hold the Galaxy  S5. What was the consensus on that last night on all about Android? You know we were we were really
+
+Speaker: SPEAKER_06
+Transcript:  just kind of checking out the hardware part of it we're checking out the dimpled back and the  and that metallic kind of edge that went around. Yeah that was our consensus. You know we've been  told that we're really hard on the Samsung devices. I don't think any of us are really huge  fans of the Samsung builds and we were talking about how the buttons were reversed as usual  and how that the camera kind of protrudes a little bit. I am now it's so funny to talk about
+
+Speaker: SPEAKER_03
+Transcript:  180 degree turn for me. I used to want a physical home button now I don't. Yeah I have now completely  gone over to the Google idea of having soft buttons at the bottom of the screen. Remember I  hated that idea. Yeah and you admit that there is wasted space there is from here to here wasted  by the buttons and by the HTC logo that maybe could be better used. However I just think that's  so much better than this wonky home button. Just the click and all that stuff. There's the band-aid
+
+Speaker: SPEAKER_06
+Transcript:  back. It's a little cheap right? Yeah. It's supposed to feel more natural. Samsung fans are gonna love it.
+
+Speaker: SPEAKER_03
+Transcript:  Are they? I feel like this is a cultural gulf. Like this is seriously. I agree. I agree. That  this is just uh some people will like it. It just feels cheesy to me. I really don't like touch whiz.  They've improved it in the sense that there is more free space on here. There's a lot of the  Samsung apps are optional which is a big improvement. But AT&T this is an AT&T phone still  you know 10 AT&T apps come on. You know you don't get any of that stuff on Google Play do you?
+
+Speaker: SPEAKER_05
+Transcript:  No. No that's why I put Google Edition on my on my S4. Right. I get rid of all that crap. Right and so
+
+Speaker: SPEAKER_03
+Transcript:  here's all the Samsung apps and the nice thing is I can uninstall them when I don't have to install  them. So they've got more than 10 gigs free on the 16 gig phone which that's a big improvement.  Yep. Camera on this is is is significant improvement 13 megapixels and and it's using  beauty face right now and look how beautiful I look. Look how beautiful.
+
+Speaker: SPEAKER_06
+Transcript:  That is beautiful. We were very happy we had some good Leo pictures on the phone. Oh yeah I left
+
+Speaker: SPEAKER_03
+Transcript:  I left some pictures on there. Yeah that is beauty face. Man that's gorgeous. Oh that's fantastic.
+
+Speaker: SPEAKER_02
+Transcript:  Oh my son. I heard that Chad. What? Beauty face I mean that describes the whole camera.
+
+Speaker: SPEAKER_03
+Transcript:  They got rid of the golf mode. I don't I can't understand why. Oh what are you gonna do? Yeah  isn't that terrible? So they do have auto beauty face shot and more. I don't know what shot and  more is. It's golf mode. Oh it's back but it's just in a one browse the various effects available  for burst shots. I see. So now I can hold the device steady till it takes the picture.  Now I have all these best face best photo stuff.  It doesn't look any better to me. Let's see anyway I I don't know how to get out of this.  There we go. What other modes? You got dual camera. I still think that's silly but the m8 has that as  well. What's download? Why is that a mode? Download mode? Oh I can get more animated photo shot and  sound. Again this is how they save a little space. You don't you know what I think that's a good  response. I think it is too. Yeah not everybody's gonna want golf mode but if they do I guess you  can get it again. Right. It's a fast 13 megapixel camera. I actually think that the  camera on the m8 is more pleasing. I think you made the right choice Gina.  I'm pretty happy with it. Yeah. Now I don't know is there an N6 imminent?
+
+Speaker: SPEAKER_06
+Transcript:  I mean there's always the next thing right? Do we think IO is gonna I think IO is gonna yield  a watch. I don't know that it's gonna be a phone this year but it might be both. Right. And who
+
+Speaker: SPEAKER_03
+Transcript:  knows about a tablet? One other thing and I bet you can do this. The Fitbit app works with this  phone. I don't know if they mentioned with the m8. You know there's a Samsung Health app but the  Fitbit app works with the accelerometer in this phone. So the same thing that the S Health does  on the Galaxy will work on the m8 but you have to download the Fitbit app and you can see your steps  and distance. This is me for today and you know so that's nice. Other apps besides Fitbit  apparently will work. I'm on 5,622 steps today and only 5,000 more to go. So you like it? You're happy.
+
+Speaker: SPEAKER_06
+Transcript:  I am. I'm pretty happy about it. So now there's the Fitbit app. You still have to sync with the  dongle right? You're not syncing directly to your phone.  No. Or the phone is calculating. The phone's calculating. The phone is the dongle. You no
+
+Speaker: SPEAKER_03
+Transcript:  longer need the bracelet. That's the phone's accelerometer. You just have to carry it with
+
+Speaker: SPEAKER_06
+Transcript:  you wherever you go and jiggle. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Because of the syncing. I always  have the dongle plugged in and some other computer and I never do the syncing. Silly.  Silly. Silly. I'm gonna get my video fixed. Yeah. Download Fitbit while you're doing that.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah. I will do that. So interesting. I was listening this morning to TNT. Of course,  Comcast is testifying now in front of Congress why it should be allowed to merge with Time Warner  and considering they pretty much bought and own Congress, I don't think this is going to be a  difficult thing. They seem very confident. Meanwhile, Google is saying, well, we should  get in the mobile phone business. Comcast announced it wants to do a Wi-Fi ISP. Google is  also getting close to competing with wireless carriers. Apparently, they're considering offering  in areas where they offer Google Fiber wireless service. Maybe that Google Play phone then would  really start to sing. Remember, they were in the bidding for the 700 megahertz spectrum released  by the television stations a few years ago. They bid like pie and what else did they bid? They  bid some like mathematical bids. Right. Because they weren't serious. They just were trying to  get the FCC to make rules about the spectrum for whoever bought it that it would be open.  Verizon ended up getting it and Verizon is theoretically hobbled by net neutrality  agreements it made by when it bought that. But at first, they ignored them and the FCC has no  will to enforce it. So it doesn't really matter. It's really a disappointment. I mean, when that
+
+Speaker: SPEAKER_05
+Transcript:  spectrum came up, everyone was like, oh, this is great. It'll go through walls. It'll be really  nice. It's low frequency. You'll be able to do all sorts of stuff with it. And then nothing
+
+Speaker: SPEAKER_03
+Transcript:  has happened with it. People have talked about getting Google in the wireless business since  then, since 2006. And I wish they would do it. So maybe it has to do with the idea of putting  Wi-Fi everywhere. Wi-Fi is in all the 7,000 Starbucks stores. It's from Google. Apparently,  this summer it's going to offer other store owners around the country Wi-Fi. But so is Comcast. See,  they're in now and they're in a race, right? Yeah. But that's their goal is to get everybody  online. Right. Yeah, because they make money when people are online. That's information from the  information, Jessica Lesson's new news site. Oh, Google. I was so surprised. I saw Google stock  went down and then I realized, oh, it went down because they split the stock, which confused the
+
+Speaker: SPEAKER_05
+Transcript:  hell out of people. Yeah, it did me. I was like, what? What happened? What's the news? You know,  I'm frantically getting online. Google stock $500. Oh, they split it. Yeah, it was a split.
+
+Speaker: SPEAKER_03
+Transcript:  It's good. It was good. And I don't know why it confuses investors. So it's $5.64, but because  that's half the price, it's the equivalent of like $1,200 something. Right. Right. The stock has  rebounded. In fact, it's doing quite well. It's up nine bucks today. We don't really cover stock
+
+Speaker: SPEAKER_05
+Transcript:  news, but I just know. It's good for them though, because I mean, when the stock price gets too high,  people shy away from buying it. Right. So I'm surprised they didn't do it sooner. I mean,  the stocks from going up and up and up and they've got to been, they had to have been feeling the  pinch from people just saying, I don't know if I want to buy a stock that high. It seems like it's
+
+Speaker: SPEAKER_03
+Transcript:  hit its peak, right? I wish we had somebody who's, you know, in on all of this stuff, understands this  finance stuff. Cause in addition to splitting the stock, they put 330 million new shares of Google  into play. But these are non-voting C shares. So they're a little less than the A shares. That's  what you're buying on the stock market. A few bucks less. But the reason you want these C shares,  these non-voting shares is so you can give them to employees without diluting the voting stake of the  founders, Paige and Bryn. Larry Page and Sergey own 56% of the vote through those B shares. Those  are not traded publicly and each B share is 10 votes. Eric Schmidt has 8.2% of the B shares.
+
+Speaker: SPEAKER_06
+Transcript:  So, so, so this offers more value to employees, but guaranteeing control by the founders. Right.  This is not a...  Sergey and Larry can, if they agree, if their votes go a particular way override everyone else's.
+
+Speaker: SPEAKER_03
+Transcript:  That's right. Cause they get 10 votes per share.
+
+Speaker: SPEAKER_06
+Transcript:  Right. And they've got 56%.
+
+Speaker: SPEAKER_03
+Transcript:  And then the C class stocks, so complicated. I don't understand all this stuff.  Anyway, if you do, thank you. Good luck to you.  You're a better man than I am.  But that makes sense, right? So they did the split, but they also created this new class  of non-voting shares, put a bunch of them into the market, but also they're going to keep a bunch so  that they can reward employees without diluting their power. Makes sense.  If Jeff were here, he'd probably do 22 as a number. That's how long it took the project  Loon Balloon to circle the earth. Apparently that's a record.  That's incredible.  It's really fast for a balloon.
+
+Speaker: SPEAKER_06
+Transcript:  For a balloon, for a thing that just looks like, you know, I don't know, somebody's  sheets flew off into the sky.  Or jellyfish or something. Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  So I guess the plan was 33 day revolutions, but it must've gotten some good wins.  It enjoyed a few loop-de-loops over the Pacific Ocean before heading east on the winds towards  Chile and Argentina, then made its way back around near Australia and New Zealand.  This is from the Google Plus Project Loon account.  Along the way, it caught a ride on the roaring 40s.  That's the strong west to east winds in the southern hemisphere that act like an autobahn  in the sky, where our balloons can quickly zoom over oceans to get...  Oh, see, that's the problem.  You're sitting up there, you're in the stratosphere or higher, and you're at the mercy of the winds a  little bit. They can move them up and down, but you can't move them in any direction.  And at some point you're going to get over the ocean where they're not doing anybody any good.  So they want to get over the ocean quickly and get back to land.  They're navigating the stratospheric winds 12 miles above the surface of the earth.  That's far higher than planes or anything else.  That's cool.  Yeah, it's really cool. I don't know. I'm looking at the flight path, though. It looks like they...
+
+Speaker: UNKNOWN
+Transcript:  It's not super...
+
+Speaker: SPEAKER_05
+Transcript:  It looks like they circled Antarctica. I don't know if they really circled...  Oh, yeah. It's not equatorial.  It's not equatorial, but maybe they were doing distance. So I don't know.  They went a long way. They started in New Zealand.  At first I was like, wow, that's really cool, but...  Yeah, they went a long way.  They went a long way.  It's actually starting its second lap right now. Ibus 117.
+
+Speaker: SPEAKER_03
+Transcript:  They went in the third less time than they thought it would go.  Right. Yeah, that's pretty cool.  It's a lot.  Yeah, they're moving. I bet 311,000 miles.
+
+Speaker: SPEAKER_06
+Transcript:  Right.
+
+Speaker: SPEAKER_03
+Transcript:  And the wind ranges from 2 knots to 75 knots, which is very fast.  So what they're doing... I mean, all of this is a test to see if any of this is feasible.  I'm guessing that this is good news.  That they're going to be able to get over the ocean in a few days.  I'm guessing that this is good news.  That it's doing well.  And it avoided the polar vortex. You'll be glad to know.  It beat all odds.  A record-setting trip around the Earth.  Or at least around Antarctica.  Do you want to do a changelog, Gina Tripani?  Yeah, let's do it.  All right. Well, before we do, we'll do a little Squarespace ad.  And then the changelog is coming up next.  Gina's back.  Are you going to do two weeks' worth?
+
+Speaker: SPEAKER_06
+Transcript:  No. I'm just going to do this past week.  That's it. We're being very zen. We just let go of the things we miss.  If you weren't there, it didn't matter.  We embraced the stream of just the new.
+
+Speaker: SPEAKER_03
+Transcript:  We love the stream.  Our show today brought to you by simply the best place to start your next website.  Both the best hosting and the best software combined  to give you an experience better than anyone else can offer.  Squarespace.com. Go there, check it out.  In fact, it's very easy to check it out.  All you have to do is press that get started button.  You don't need to give them a credit card.  Just create an account with name and password.  Name your site.  Start designing.  You've got 25 beautiful designer templates to choose from.  Pick a template.  But also look at what people have done with it.  Every Squarespace site looks different.  And that's the beauty of this.  And it's not because you're a master of CSS.  You don't need to know anything.  You merely need to be able to point and click.  And you can customize the heck out.  I got to see what this site is.  This is based on the template front row.  It's called this mess.  Oh, it's a band.  It's a group.  Okay. I love it.  This is really, this is beautiful.  The thing is you don't have to know any special code.  Squarespace gives you all the tools that you need to create a beautiful website.  All sites are mobile responsive.  That means they look great no matter what size screen you're using.  They've got all sites have e-commerce enabled.  And the best part of all is it's as little as $8 a month with the annual plan.  $8 also gets you e-commerce.  So you can sell one product or accept donations perfect for charity or a school fundraiser.  An all cash wedding registry.  If you want to go to the professional plan $16 a month.  You get unlimited bandwidth, unlimited storage, unlimited blogs, unlimited everything.  It's so cool.  And full business is $24 a month.  That is really affordable.  With every annual plan you get a custom domain name free.  The developer platform is great if you do know CSS and you want to do more.  They're also innovating in other ways.  They've got these great mobile apps on iOS that make it easier for you to manage your blog,  to post content, to review metrics.  I just love everything Squarespace is doing.  I invite you to try it right now absolutely free for two weeks.  Visit squarespace.com click the get started button and try it out today.  If you decide to buy you'll get 10% off when you use our offer code TWIG.  Just type in TWIG.  Here's the logo design tool.  I think what happens is they've got these great engineers and they're just doing  cool stuff like crazy just cranking it out.  Wonderful stuff.  Lots of help on their redesigned help site by the way including webinars, 24-7 support.  These are the support people.  They're all there in Manhattan at the Squarespace headquarters.  Squarespace.com.  Use the offer code TWIG when you buy to save 10%.  And now ladies and gentlemen, break out the trumpets.  It's time for the Google change log.  The Google change log.
+
+Speaker: SPEAKER_06
+Transcript:  Google play is getting social.  Google has added a new people section to the Play Store app on Android.  So to get to it you go tap on the hamburger icon and you select people from the menu and there  you'll see activity recommendations from your Google Plus friends within the Play Store like  apps your friends have plus one and reviewed and even recommendations for others to follow on  Google Plus.  This follows the new activity feed on the web which I didn't mention in last week's change log  because I wasn't here which shows you your reviews and your plus ones in the Play Store  and that you can get to at play.google.com slash store my play activity.  So just kind of a nice way to see recommendations of you know what your friends are using the  Play Store.  Personally I would love to see you know what are all the apps that that Leo is running right now  and how often.  So I kind of feel like this is kind of a step step toward that.  Remember Google keep.  I don't know if you remember Google keep.  I didn't use it.  Yeah.  I love Google keep.  Awesome.  See you guys are both.  And I'm an Evernote guy.  But that's every once in a while.
+
+Speaker: SPEAKER_03
+Transcript:  Keep is just a really handy thing.  Always there easy to use.
+
+Speaker: SPEAKER_06
+Transcript:  So how do you so curious how do you decide because I use Evernote too.  How do you decide when to use keep and when to use Evernote.
+
+Speaker: SPEAKER_03
+Transcript:  If I'm going to keep it I use Evernote.  And if I just want to do a grocery list.  I'll do keep.  It's like throw away notes.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah.  Yeah.  Well Google gave the app an upgrade this week.  New features and a fresh design.  The new version lets users search for text that's printed in images.
+
+Speaker: SPEAKER_03
+Transcript:  That's not it scans the text.  Evernote does that too but it's nice.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah.  Yeah it's really nice.  And you can easily copy existing notes and you can restore deleted notes from the trash can.  And the app just got a design refresh to the latest and greatest in their mobile design.  There's also a new action bar that changes colors.  Depending on the color of the note.  We actually had this great discussion with the Tumblr Android developer last night on All About Android.  He was talking about how this is kind of a new trend in mobile design where you have contextual clues like based on the content.  So he was saying in Pocket Casts you know that the scrubber is the color of the album art.  Picks a color from the album art and shows it you know colors the scrubber that way.  So you have these kind of contextual clues around the content.  Content and keep is doing a similar thing that the action bar changes color based on the on the note.  And finally this isn't really a changelog item because this hasn't actually shipped but I wanted to mention it.  Screenshots that are allegedly a new Gmail user interface floating around geek.com published them first and they show a pretty radical redesign.  Some new features new folders added to those you know the social and promotion tags.  They're called travel and finance.  You get the ability to snooze messages kind of say hey mark this as unread and again in a day or two.  Marking messages as done and the new design is kind of flat with round avatars.  It kind of looks like Google's answer to mailbox actually which Dropbox owns and which actually just came out for Android.  So I don't know if we're ever actually going to see this redesign but it's pretty it's pretty different.  And I'm interested to see as someone who makes a to-do list app what this kind of marking has done.  And you know snoozing ability is in Gmail. I'd like to see that come to fruition.
+
+Speaker: SPEAKER_03
+Transcript:  Very cool.
+
+Speaker: SPEAKER_06
+Transcript:  That's all I got.
+
+Speaker: SPEAKER_03
+Transcript:  It's quick. It's easy. It's the Google changelog.  It's over. Thank you.  Sure.  Did you see the US Air Force? We covered this this morning on TNT last night on Tech News Tonight.  The US Air Force is I'm not sure I'm happy about this testing Google Glass  and building apps for battlefield use.  I don't want to see a bunch of glass holes marching into battle.  Doesn't seem military grade. Does it really?
+
+Speaker: SPEAKER_05
+Transcript:  Well it's basically a heads up display right? I mean that's what the what pilots use.
+
+Speaker: SPEAKER_03
+Transcript:  I feel like they could do I don't know something better.  Yeah I don't know.  Okay Glass take a picture of that guy over there.  That's the enemy.
+
+Speaker: SPEAKER_05
+Transcript:  Okay Glass show me my closest target.
+
+Speaker: SPEAKER_03
+Transcript:  I can see a heads up display. This is not a heads up display.  It's a second screen above your eyebrow.  The the Air Force says its positive attributes are low power, low footprint,  sits totally above the eyes, doesn't block images or hinder vision.  So I guess they don't that's what they want.  That's second lieutenant Anthony Easton a behavioral scientist on the Batman team.  That's the name of the team testing the glasses at Wright-Patterson Air Force Base in Ohio.  It's the 711th human performance wing.
+
+Speaker: SPEAKER_02
+Transcript:  Let's hope battles only last six hours.
+
+Speaker: SPEAKER_03
+Transcript:  Well that's one issue and you got to carry an android phone although apparently I hear that  the troops now are are very smartphone enabled. They like those smartphones.  Yeah yeah.  If you get lost in Kandahar you fire up Google Maps.  You say where's the base help me home.  All right navigate.
+
+Speaker: SPEAKER_06
+Transcript:  Is there Starbucks nearby?
+
+Speaker: SPEAKER_03
+Transcript:  Yeah might want to play a little ingress while you're out there guys.  Just suggesting you could just take over some bases.
+
+Speaker: SPEAKER_05
+Transcript:  So far that picture you're looking at too you've got the.  I got three humans and a mannequin.  The humans which are you know a little nerdily I would say  and plus the guy in full battle dress you know it's like.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah but that guy is a plastic dummy.  So the glass is not a silver bullet for many of the Air Force's needs according to the Air Force.  They obtained two pairs of glass through the glass explorer program.  They tweeted if I had glass I would kill the enemy.  They did not.  No they didn't.  I was going to say what.  No they didn't.  The New York City Police Department is evaluating glass their intelligence and analytics unit.  Well should I should I frisk that guy over there come on.  But what do you say glass?  Virgin Atlantic is testing glass.  We don't know how.  Not for pilots I pray.  The US Navy is testing smart glasses but not Google smart glasses.  They're doing goggles.
+
+Speaker: SPEAKER_06
+Transcript:  I mean the truth is that glass is interesting and could be potentially useful in any job  that involves being out in the field in some capacity right.
+
+Speaker: SPEAKER_03
+Transcript:  And we don't know I don't know if they're saying combat they might be saying you know  the quarter master is going to use it to take inventory.  We don't know what they're going to do.  Glass Explorer program.  This is Google's statement.  First of all I want to say we are you know we're not in any way working with the Air  Force here.  The Glass Explorer program includes people from all walks of life including doctors firefighters  and parents.  Anyone can apply to become a Glass Explorer if he or she is a US resident and over the age of 18.  In other words I think Google wants to distance themselves a little bit saying we know this.  We're not doing Defense Department research here.  They borrowed them.  They bought some.  We're just the tools.  We're just the tools.  So I think maybe that story is a little overblown.  Of course they're testing them.  In fact if they weren't it'd be like well why not.  Google did try to trademark the word glass.  USPTO in uncharacteristically uncooperative said wait a minute.  Hold on there.  The trademark examiner responded to Google with two main objections.  One that the trademarks kind of similar to other existing or pending computer software  trademarks containing the word glass.  I think doesn't smart glass isn't that a Microsoft trademark creating a risk of consumer confusion.  They also say glass you know it's just descriptive.  They're just a little bit of a different word.  They're just a description.  I mean this is not you know like a slap in the face to Google but you're going to apply for it.  They're disputing it and they're going back and forth.  In fact they say by the way there's no glass in Google Glass so it isn't descriptive at all.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah but think of all I mean the glass companies out there somebody else has tried this probably.
+
+Speaker: SPEAKER_03
+Transcript:  Glass seems very generic.  It's really generic.
+
+Speaker: SPEAKER_05
+Transcript:  If you're going to pick a really generic brand name like this don't expect to get a trademark.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah and they trademark Google Glass.
+
+Speaker: SPEAKER_03
+Transcript:  Oh so it's not that they don't have Google Glass.
+
+Speaker: SPEAKER_06
+Transcript:  They have Google Glass.  They just couldn't get glass and I gotta say the patent office is in the right here I think.  Not that I'm a lawyer but this is just common sense.  Right.
+
+Speaker: SPEAKER_03
+Transcript:  I saw this and I thought this was kind of interesting.  I'd love to get your take.  You were talking about the Play Store and I saw this article that said the top paid app on the  Google Play Store was uncovered as a fake.  Not exactly.  It's a program called Virus Shield.  Three dollars ninety nine cents.  I guess it's a fake because it's an antivirus program but it doesn't do anything.
+
+Speaker: SPEAKER_06
+Transcript:  It merely changes the shield to a checkmark.
+
+Speaker: SPEAKER_03
+Transcript:  You're protected.  Chris Tabona I love it posted on his Google Plus.  We know Chris very well was former host of Floss Weekly.  He's the head of director of open source at Google.  He wrote and I think it's still somewhat true.  No major cell phone is a virus problem in the traditional sense that Windows and some  Mac machines have seen.  There have been some little things but they haven't gotten very far because of the user  sandboxing models and the nature of the underlying kernels.  No Linux desktop is a real virus problem either.  He says virus companies are playing on your fears to try to sell you BS protection software.  For any mobile operating system including Blackberry and iOS.  They are charlatans says Tabona and scammers if you work for a company selling virus protection  for Android, Rim or iOS you should be ashamed of yourself.
+
+Speaker: SPEAKER_05
+Transcript:  He doesn't hold back.
+
+Speaker: SPEAKER_06
+Transcript:  I love that about him.
+
+Speaker: SPEAKER_05
+Transcript:  He says what he thinks.
+
+Speaker: SPEAKER_03
+Transcript:  Wow.  This is to be fair to Chris this is from November 2011.  But I don't think things have changed significantly.
+
+Speaker: SPEAKER_05
+Transcript:  Not as far as viruses are concerned certainly there's vulnerabilities.  We're seeing those currently today but it's not necessarily a virus problem.  There are malware issues certainly because you can download an app especially if you  don't download it from the Google Play Store or reputable Play Store or if you just find  it online and side load it onto your phone.  Yeah guess what?  You're putting yourself at risk so don't do that.
+
+Speaker: SPEAKER_03
+Transcript:  Side loading is very dangerous don't uncheck that box or check it I guess.  But not viruses is my point.  Yeah I guess that's and I kept thinking boy viruses are going to be an issue on these  platforms they're always connected.  They're everything as a bad guy that you would want.  They're always connected.  They're you know they're always on.  Now I don't see virus shield in the top paid Android apps.  Maybe is it still around?  They removed it I believe.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah they must have removed it.
+
+Speaker: SPEAKER_03
+Transcript:  Because it doesn't do anything.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah but if you do a search for virus.  There's probably still I know ESET offers an antivirus.  There's tons of them out there and you know and people load them because they think well  it's a platform I need a virus scanner I need a virus protection on there.
+
+Speaker: SPEAKER_03
+Transcript:  And we've recommended Lookout.  Lookout.  Mostly what these at best what these do they don't do the same thing an antivirus does on  a desktop machine.  At best what they do is they go through a database of known malware and see if you've got it.  And when you download a new app they check it against that database to make sure it's  not known malware.  But you know even by it by that by itself it's fairly useful.  Google has built in that capability right.  Yep.  And the first time you download an app on a new Android phone it says would you like  us to check for malware for in future.  And of course I'm sure you all said yes.  Is what Google does sufficient.  I think it's not much different from what any of these other ones do.  Look at all these Norton McAfee ESET.  They all offer Lookout.  Yeah.  They're all these are all antivirus programs for Android.  And Sophos and I mean these are good companies they're not scammers.
+
+Speaker: SPEAKER_05
+Transcript:  They're not scammers but I think they are playing on a fear that we have.  Right.
+
+Speaker: SPEAKER_03
+Transcript:  I should also point out that almost all of these are free.  Yeah.  Mac is free.  Look out for the average user.  I wonder if they know the difference between malware.
+
+Speaker: SPEAKER_05
+Transcript:  You know we talk about malware and things like that.  I want they don't know they say they don't know it's a virus.  It's the first thing that I'm asked is do frequently when somebody gets a smartphone
+
+Speaker: SPEAKER_03
+Transcript:  is should I have an antivirus because we know they know it's a computer.  They know it's a computer.  Most of these like here's Norton it's free but for 30 bucks a year  you can get the premium version which you know offers more protection it says.  And this is often the case remote lock and erase.  But that's built into Android now too.
+
+Speaker: SPEAKER_05
+Transcript:  If you're running Google Edition yeah you can just.
+
+Speaker: SPEAKER_03
+Transcript:  Even on Miami I could download the you have to download it.  But what is it called the device man Android device manager device manager.  Then it works.  I would I would guess it works on any Android phone right.  I immediately downloaded installed it and it looks just like find my iPhone does on iOS.  It knows where your phones are pinpoints them.  It allows you to ring them lock them or erase them.  Yep.
+
+Speaker: SPEAKER_06
+Transcript:  Really helps.  It's kind of alarming though that the top one of the top paid apps.  That was a virus.  Did nothing.  Wasn't caught you know I mean like that is it makes me worried.  It makes me think well there's probably a lot of malicious software out there.  That's not one of the top paid apps.  That you know malicious not not just not doing anything which is what this thing did.
+
+Speaker: SPEAKER_03
+Transcript:  Well I guess what I would say and certainly it's what I tell everybody is.  You probably don't need an antivirus.  You should turn on the Google scanner.  You should not say I can download from anywhere but the Play Store.  And with all that having been said Google does not vet every app on the Play Store.  Not like Apple does but it's a false sense of security I think on the I.O.I.  on the iTunes Store if you say oh well see Apple that checks every app.  They literally have to look at tens of thousands of apps a day.  Stuff gets by all the time.  Sure.  Same thing happens on iOS.
+
+Speaker: SPEAKER_06
+Transcript:  No doubt.
+
+Speaker: SPEAKER_03
+Transcript:  So it's a it's a foolish thing to assume.  Well because it's in the store it's safe on either platform.  Takes software from known good sources.  At least this wasn't malicious.  It wasn't like this software.  Right.  Did something bad right.  Just took your money.  Yeah it took your money.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah that's pretty expensive.  I mean for a four dollar app being in the top 10.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah that makes me think a lot of people bought it.  Have you heard the rumor about Android Silver.  This doesn't sound this sounds bogus.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah these are apparently slides that were leaked internal slides that were leaked.  One of them is dated over a year ago.  So this might be really old information.  But yeah Android Silver is it's a rumor purportedly.  It's a new program that Google basically blesses four or five handsets  which run over a pure version of Android or Google experience with very few  customizations and they're set up in kind of a special area in stores.  And employees are trained by Google to sell these devices to customers to normals.  And to help them set up their Google account transfer their data.  It's supposed to be kind of like the premium easy Android experience.  We're talking about this on all about Android last night and it seems like  if this is true which it may not be again this is kind of dated information and these are leaked  slides it's just a rumor.  But if this is true it seems like this would be Google's way of you know exposing the pure  Google experience to regular consumers the way that they do in the Nexus line for power users  in the Play Store.
+
+Speaker: SPEAKER_05
+Transcript:  Maybe I was looking at it as more of a I know it doesn't.  It really does reference the consumer I think in the slides and things but I was looking at  it more like okay this is how they're going to pitch this to business users or businesses.  So it's not just that you know you get the phone but you get the phone plus support which is what  a lot of businesses need.  They want to be able to have their users.  I think one of the things that it had in there was like replacement options.  So and maybe they would charge for this right.  So they charge a company an extra five bucks a user kind of like a license thing and they  get all of these these additional benefits like support and replacement devices when  they're lost.  So to me I looked at this and said oh this is a business enterprise play clearly but it  doesn't really say that in the slides.  So and plus it's a year you know a year ago they Android was still suffering and you can  you can make an argument that they're getting over it now but they were really suffering  from the fragmentation issue because of you know all the different platforms out there.  And you know now you know people are fairly standardized at least on jelly beanish type  or getting close to jelly bean standardization out there.  So I mean this may have been a way for them to try to address the fragmentation problem  a year ago and now it's like we're kind of over that.  You know we don't we're not too worried about it.  So I don't know.
+
+Speaker: SPEAKER_03
+Transcript:  These things change.  But I could tell you I'm reading Fred Vogelstein's book.  I've mentioned this a few times before.  Stop me if you've heard it.  I've read it.  I've read it.  He's a Wired writer who wrote the book Dogfight about Apple and Google.  It is great.  And what you learn from it is well first of all it's got a lot of behind the scenes stuff  I didn't know as we're covering all these this you know this whole thing starting from  the release of the iPhone in 2007.  Google's response to that.  And there's I mean there's fun stuff like the fact that Andy Rubin when they first bought  Android to create either a Google operating system or Google phone nobody really knew.  Andy Rubin drove a Ferrari because he'd made some money and he wasn't allowed to park it  in the Google parking lot because at that time Google did not allow fancy cars in their  parking lot even Larry and Sergey drove a Prius.  Wow.  But you also learn that Google was very ambivalent about the whole thing that Larry and Sergey  wanted to build a phone.  Eric didn't.  Eric said no.  Why should we should have our which Google should be everywhere.  Of course they were doing very well on the iPhone at the time.  And so Andy Rubin so as not to make waves kept the Android project basically secret.  They even had their own cafe built in that area of the Googleplex so that people working  on Android wouldn't eat with other people and other people wouldn't eat with them.  But then when the time came to release a phone and they went to the went to at the time was  Vic Gundotra running the the apps for mobile and they went to Vic's team and said OK hey we  would really like Gmail and Calendar and Maps for our new Android phone.  And they said you're not on the road map.  We didn't know anything about this is two years before you get anything.  So there is a lot of ambivalence at Google about what to do.  And so if you project from this book to now it wouldn't be at all surprising to me that a  year ago Google might have thought this was a good idea.  But now they don't.  There was a lot of back and forth.  This is a great book called Dogfight.  Dogfight.  I'm listening to it on Audible but you can get it in the book.  Oh good.
+
+Speaker: SPEAKER_05
+Transcript:  I was just looking for an audible so you.  Yes.  On Audible.
+
+Speaker: SPEAKER_03
+Transcript:  Fred Vogelstein he writes it.  Well you read I know you guys read the excerpt that was published in Wired which was the story of  the Apple engineer going to the iPhone announcement that Steve Jobs was doing and how he was taking a  drink every time a demo worked because there was it was supposed to be a 90 minute demo of all the  features in the iPhone.  And this was a very early prototype.  It barely worked.  They had what they called the golden path that you couldn't do email and then surf.  You could surf and then do email.  Steve had to walk this very fine line in the demo to do it exactly right because at any point it  would crash.  There were only 10 I think iPhones at the time they had four of them on the stage.  So if one failed he could immediately go to number two.  They programmatically painted five bars on every one of the phones for reception not because they  worried about reception because AT&T had put a cell site on backstage but because the radios  crashed periodically and what they didn't want you to be doing is looking at the phone and see the  radio go.  They didn't want you to see the reboot so they just everything was painted five bars.  That's all in this book.  It's really good.  Wow that sounds amazing.  It is.  It is.  Now Chad started and got bored.
+
+Speaker: SPEAKER_02
+Transcript:  It's so funny because part of me thought that it was because all of these stories have been told.  No they haven't.  In other books because he kept he quoted the Isaacson book and he quoted and I was like you  know I should really go get this from the source.  I'm tired of him stealing from and now hearing you talk about how all of this is fresh.  I really want to go back.  There's a lot of stuff we didn't know.
+
+Speaker: SPEAKER_03
+Transcript:  We didn't know.  We had no idea for instance about the ambivalence within Google about making a phone.  And I have that first Google phone the G1.  They actually had to pay when they created open handset.
+
+Speaker: SPEAKER_06
+Transcript:  The G1 reeked of ambivalence.  Yeah it did didn't it.
+
+Speaker: SPEAKER_03
+Transcript:  I had a slide out keyboard.  They were so unsure about the idea of typing on the screen.  They said now we better put a keyboard in this.  But oh it's just no I thought that I thought it was full of really interesting stuff and  I covered this Chad.  I was here at the time.
+
+Speaker: SPEAKER_06
+Transcript:  So interesting that they were ambivalent about it.  Wow because you know looking at it now of course hindsight is always 20 20.  It's like this of course you know their biggest business their biggest businesses.  But man wow.
+
+Speaker: SPEAKER_02
+Transcript:  Between this book and the Twitter book I really like all any sort of romanticism that I had  around the tech industry is completely gone.  It's no one knows what to do it seems like everyone and everyone's like this is really  difficult like where everyone's head is hitting the ceiling.  It's yes really messy.
+
+Speaker: SPEAKER_03
+Transcript:  It's kind of making the iPhone was a very difficult task.  Nobody had ever done any of the things that Steve insisted on.  A lot of credit to Steve Jobs because he basically forced this thing to happen.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah you really see that you need a visionary to truly say I don't care if you don't want  to spend six weeks of your life working on something that you think is a detail.  It's a feature for me.  Forceful visionary.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah.  It's very interesting anyway so it could very well be Android silver was somebody's good idea.  It doesn't mean anything right.  It could have been slides made doesn't mean anything.  Remember Microsoft did something called signature because Windows computers were so crapped up.  They tried to get manufacturers to do the Windows signature edition  without any crap where with better services.  A lot of what this Android silver was and nobody bit.  Nobody Vizio made some.  Nobody made any.  It was a flop.  Android TV in the news and of course Amazon is kind of pushing this along by the release of their  Fire TV.  I reviewed it yesterday before you buy it.  I've been playing with it.  It's pretty cool.  I like it.  It's another set top box.  You know I don't know how many you need.  800 ways to get Netflix.  But I like it.  It has one feature that I really like which is as a microphone on the remote.  You don't say you don't do OK Siri OK Google.  You don't say anything you just say a couple of words the title you're looking for.  Now unfortunately and some have slammed Amazon for this.  The search only searches Amazon's own properties.  It doesn't search Netflix but I think that's probably because Netflix doesn't give them  a way to search.  I don't know if there's an API.  I know there's not an API.  A public API for searching Netflix data.  So I'm not sure I blame Amazon for that one.  But it does a very good job.  It's understood me every time.
+
+Speaker: SPEAKER_06
+Transcript:  Do you is the microphone always on or do you know click a button.
+
+Speaker: SPEAKER_03
+Transcript:  Well that's an interesting point by the way you click the button.  It's very much like Siri you click and hold it while you're talking and then you let go  when you say search.  But according to ours Technica.  Amazon keeps the voice recordings.  To learn your voice and how you speak to improve the accuracy of results.  And then deleting voice recordings may degrade your experience.  I don't know where they keep them.  They must keep them on their servers.  Yeah.  But there is an entry that will allow you to delete it.  I guess it's in the settings.  In the voice control options.  It works pretty well.  They say they keep all users.  I'm sorry that's Apple keeps all users Siri related voice data for up to two years.  Google now and connect probably do the same but there are no deletion options.  So it's delete my current voice recordings.
+
+Speaker: SPEAKER_06
+Transcript:  It's not don't ever don't know them.  So you have to keep going back and saying OK.  Yeah.  Delete OK.  So if you searched for Debbie does Dallas and you don't want anybody to know you search for that
+
+Speaker: SPEAKER_03
+Transcript:  you could delete that right there.  So kind of like your history.  It is history.
+
+Speaker: SPEAKER_05
+Transcript:  Your voice history as opposed to Brock's.  Your voice history as opposed to browsing history or something.
+
+Speaker: SPEAKER_03
+Transcript:  And so that's an interesting question Mark.  So what do we know about Android TV.  Well it's going to be kind of similar like the Amazon Fire TV is going to have games  because you know Amazon is the Amazon product is an Android device.  It's a quad core Qualcomm 600 processor.  We know that from the I fix it tear down with a dedicated GPU.  It's got two gigs of RAM which is a lot for an Android device.  That helps with the speed and performance.  So I imagine Android TV from Google will be very similar.  But what do we know.  This is the verge has leaked screenshots I guess.
+
+Speaker: SPEAKER_06
+Transcript:  Still unclear how this is different from Google TV.
+
+Speaker: SPEAKER_05
+Transcript:  Well I don't think there's any pass through right.  The Google TV was a lot of that was about cable pass through.  Which I loved.  Which I hated.  OK.  I don't use it.  That's OK.
+
+Speaker: SPEAKER_03
+Transcript:  But my Xbox One works the same way.  And that means I can be watching something and overlay on top of it.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah.  I mean I don't like it because I'm a cord cutter right.  So I don't it doesn't do me any good.  You got nothing to pass through it.  It's not that I don't like it.  It's a cool feature but I don't.
+
+Speaker: SPEAKER_03
+Transcript:  I got my Tivo hooked to the cable passing through the Xbox One.  It all goes into my TV.  That means I can without changing anything just kind of route all sorts of stuff.
+
+Speaker: SPEAKER_05
+Transcript:  Right.  Right.  Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  But so Android TV won't do that.  That makes sense.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah that's what I read.
+
+Speaker: SPEAKER_03
+Transcript:  And you know Fire TV is not a pass through.
+
+Speaker: SPEAKER_05
+Transcript:  And also I think the interface even though it's going to be Android I think the interface  is going to be quite different from what I've read on GigaOM and other places.  Simplified.  You know what I was kind of hoping was that they would just morph Google TV into like Jelly Bean.  Right.  So like instead of having a platform that you have to design specifically for.  You just design have a lean back experience in Jelly Bean available.
+
+Speaker: SPEAKER_03
+Transcript:  Exactly.  Exactly.
+
+Speaker: SPEAKER_05
+Transcript:  And that's what I was hoping for.  But we'll see.  It doesn't look like this is it.  They want to keep it really simple and allow people to you know like you said to kind of  type something in or speak something in possibly and just have it have it kind of.
+
+Speaker: SPEAKER_03
+Transcript:  That's what's interesting in this slide from the verge if this is accurate there is a there's  a microphone and a Google Now style search bar.  So I would expect that in there.  Yeah.
+
+Speaker: SPEAKER_05
+Transcript:  The real question is how does this how does this affect Cast and what they want to do.  Oh Chromecast.  Well Chromecast which is one product but I was talking to that one of the product managers  down at Google about this the other day and it seems like everything's going to be cast.  So Chromecast is one product.  Right.  And then cast though is like the overarching brand.  So there'll be Chromecast TV cast something else cast cast.  And.  But this won't be cast.  Right.  It doesn't appear like it's cast.  So how does that how do I understand it seems to be very competitive with everything that  they've got going on right now.  So now there's going to be Google TV.  There's going to be Chromecast or the cast family of products and Android TV.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah I don't I mean I don't think Google TV is too long for this world.  With Android TV but it's true we're talking about that a little bit last night.  How does this fit with Chromecast.  It seems like we know they're still setting up for that Chrome versus Android dichotomy there.  But one of the good points that Jason made last night was that you know that they announced  that a feature at Google I.O. last year that allows that gives API's for developers to  search API's into content into apps.  So that gives something like Android TV the ability to do for streaming content what it  does for web pages and that you could do a search on Android TV and it could search  within apps in one interface.  You know the Netflix and the HBO go and whatever all the different the different kinds of apps.  So so that's what I really would like to see in that.  And in that way it would be different than what you know the fire TV is doing right now  which is just searching or at least with voice search anyway just searching.  The Amazon library.
+
+Speaker: SPEAKER_03
+Transcript:  You know I the one interesting thing.  Coach has made his all cast work with Amazon's TV fire TV which he can cast to fire TV from all
+
+Speaker: SPEAKER_06
+Transcript:  cast.  Yeah right because the cast capabilities are built it's dial.
+
+Speaker: SPEAKER_03
+Transcript:  So Amazon fire TV supports dial which is the standard not the open standard that  Google Chromecast sort of work uses.  It's like dial plus.
+
+Speaker: SPEAKER_05
+Transcript:  So that's why I can I can do things like from YouTube I can stream directly to my  Vizio costar which is a cool Google TV device but it's not really cast compliant so to speak.  So that's confusing.  It is confusing and I can also stream from Chromecast from any I think almost any Chromecast  compatible device I can stream to my LG TV which is really interesting.
+
+Speaker: SPEAKER_03
+Transcript:  That's dial.  I'm sure that's dial or DLNA.  Yeah because they didn't have it back then when I brought my TV.  Yeah DLNA.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah yeah yeah.
+
+Speaker: SPEAKER_03
+Transcript:  Dial and DLNA are different things but they're related.
+
+Speaker: SPEAKER_05
+Transcript:  I think dial is more closely related to what Chromecast does.  Yes.  DLNA is more of like a searchable network thing right.
+
+Speaker: SPEAKER_03
+Transcript:  It's like AirPlay.  Yeah exactly.  Then what about UPnP.  All right never mind forget it forget I mentioned it bonjour.  Privacy chain okay I'm curious about what you guys think of this because Quartz got all hot and  bothered because of Google's sneaky new privacy change on iOS.  I think this is just great and a convenience.  If you're logged in Gmail on iOS then you're also logged into everything else YouTube,  Chrome, Drive, Maps just automatically you sign into one you sign into them all.  I think that's nice but according to Leo Morani writing in Quartz it's a sneaky new privacy change  that just allows Google to gather more information about you because now you're instantly logged into  YouTube that means you can't really use YouTube anonymously you can't use Maps anonymously.  Google's going to be collecting information on all of those tools and this comes from their  unified privacy policy which they did a couple of years ago.
+
+Speaker: SPEAKER_06
+Transcript:  Right this is the software manifestation of the unified privacy policy.
+
+Speaker: SPEAKER_03
+Transcript:  They don't do it on Android or I guess they do all you have to do is log in to Android  with your Google account and everything works right.
+
+Speaker: SPEAKER_06
+Transcript:  Yep you just say I want to access if you have multiple accounts I want to access with this  Google account.  Right.
+
+Speaker: SPEAKER_03
+Transcript:  Occasionally I'll launch a new program and I'll say which Google account do you want to use even  though I only have one and I select that account and goes on so it's you do have the first time  but now everything on my Android phone all the Google services share with each other.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah that sync tab when you go into your account settings is getting long  and longer all the things what do you want to say do you want to sync everything.
+
+Speaker: SPEAKER_03
+Transcript:  No yes yes so I do notice when I went to Google.com today that it said privacy and terms were updated  so I guess I should.
+
+Speaker: SPEAKER_06
+Transcript:  And those are always so fun to read.  I guess I have and that's the reading to do.
+
+Speaker: SPEAKER_03
+Transcript:  I wish they'd put just a little new next to whatever's new.  Yeah here's one modified March 31st.  I can't read I can't do it I'll fall asleep on you.
+
+Speaker: SPEAKER_06
+Transcript:  You say you do like a diff.  Oh Jesus.
+
+Speaker: SPEAKER_03
+Transcript:  There you go I need a Python script stat.  Let's do a diff on these terms of services.  That's a one-liner.  Just give me the plain English version of what changed.  Yeah just put that's what they do it's very nice on the permissions on Android play.  It's very nice is this is new this is new this is new.  Yep.  Please tell me what's new.
+
+Speaker: SPEAKER_06
+Transcript:  We'll take your secondborn children as well.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah right it could be buried in there.  As well as your right arm.  The below terms okay this is what changed the Google terms of service.  The below terms are effective April 14th 2014.  To review to view previous versions click here so you could do a diff if you want.  Okay fire up the diff.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah there's the comparison okay.
+
+Speaker: SPEAKER_03
+Transcript:  Is there on the page.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah so when you when you say under April 14th there's there's a link comparison and it's a  just pretty straightforward diff.  Okay.  With the new stuff in green and the old stuff crossed out in red.  Cool.  There's very little very few.  All right.  Changes here.
+
+Speaker: SPEAKER_03
+Transcript:  Won't worry about it.  Google I trust you.  You're fine.
+
+Speaker: SPEAKER_06
+Transcript:  Okay here's here's this is green or automated systems analyze your content including emails  to provide you personally relevant product features.  Such as customized search results tailored advertising and spam and malware detection.  Yeah.  This analysis occurs as the content is sent received and when it is stored.  We knew that right.  Please do more of that Google that's good I like it.  That's that's Google now all right that's like the definition of Google now.  Yeah.
+
+Speaker: SPEAKER_05
+Transcript:  I don't mind.  I mean that was almost what was in my I know you guys probably talked about the  birthday of Gmail.  We did.  Yeah.  And I went back to my original Gmail email that I got when I signed up.  Oh that's neat and that's it.  It said that in the in 2006 or whenever I signed up it said almost those exact same words so.
+
+Speaker: SPEAKER_03
+Transcript:  They've never hidden the fact that we are scanning the email looking for advertising.  No.  No links or you know looking for what to send you advertising for.  They've never they've never done otherwise.  All right.  I'm Google paid one point one five billion for ways according to the CEO.  That's that's official and but this is the interesting kind of between the lines thing here.  It sounds like he didn't want to sell.  Noam Bardeen who's CEO and co-founder of ways in a LinkedIn post confirmed the actual deal.  One of ways is mistakes he writes was the valuation of its a round which significantly  diluted the founders.  Hey sometimes that happens.  Perhaps we had we held control of the company as the founders of Facebook Google Oracle or  Microsoft had ways might still be an independent company today.  He was forced to sell by the VCs it sounds like.
+
+Speaker: SPEAKER_05
+Transcript:  Looks like they should have introduced some of those B and C shares.  Yeah.  When they started.
+
+Speaker: SPEAKER_03
+Transcript:  They started when Google came out with free turn by turn navigation stealing our thunder.  The response of our Israeli investors was that we should focus on Singapore or Romania instead  of the US to avoid the inevitable confrontation.  We had a moment of fear and took our eyes off the ball costing us valuable time.  John Malloy one of the investors having lived through PayPal competing with eBay gave us  invaluable experience something only a unicorn grower would know and help us.
+
+Speaker: SPEAKER_02
+Transcript:  That's what it says.
+
+Speaker: SPEAKER_03
+Transcript:  Just reading.  I don't know what it means.
+
+Speaker: SPEAKER_06
+Transcript:  This is a very honest or appears to be a very honest post after a sale.  You don't hear this kind of thing.
+
+Speaker: SPEAKER_05
+Transcript:  Normally aren't you restricted from talking about the sale.
+
+Speaker: SPEAKER_06
+Transcript:  This does this does seem like information they wouldn't be able to talk about.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah at least not this soon.  Right.  Usually it's like at least a year there's a year moratorium on talking about the details.
+
+Speaker: SPEAKER_03
+Transcript:  So here's here's where that unicorn stuff comes from.  If you read the whole post the title of the post is a unicorn in Israel.  The shock displayed by the British officers at the thought of finding a tiger in Africa  in Monty Python's The Meaning of Life is similar to the shock displayed by most members  of the venture capital community at the ways 1.1 billion dollar exit.  Israel had been written off as only being capable of producing small exits.  Security or chip companies not global internet brands a unicorn in Israel.  So I don't know unicorn growers I guess would be a venture capitalist who invested  in Israeli startups trying to grow unicorns.  The U.S. market is usually considered to be 50 times that of Israel.  So if we normalize markets one would have expected 0.8  unicorns to have been founded as Israeli to the U.S. 39.  That's 50x.  So our one unicorn exit makes it makes sense.  This is a unicorn rich post.
+
+Speaker: SPEAKER_05
+Transcript:  Some people really like them.
+
+Speaker: SPEAKER_03
+Transcript:  Reminds me of when we first started somebody some came up to us  and said I've got some words of advice for you.  Yes sir.  Bikini rich content.
+
+Speaker: UNKNOWN
+Transcript:  Okay.  Didn't do that.
+
+Speaker: SPEAKER_03
+Transcript:  Maybe I'd be a unicorn today.
+
+Speaker: SPEAKER_05
+Transcript:  The article kind of comes away.  I mean it sounds like a little bit like they're complaining because they could  have got more money but it's 1.15 billion dollars.
+
+Speaker: SPEAKER_03
+Transcript:  Well you got it though but he's then he's looks at WhatsApp.  Yeah.  And he goes crap.  Maybe we could.  You know even if you've got a billion dollars it seems.  Maybe that's just a little greedy but it seems like.  A billion dollars isn't what it used to be.  A billion should be enough.  It doesn't go as far as it used to go.  Come on people.  15 billion.
+
+Speaker: SPEAKER_05
+Transcript:  I mean just look at McDonald's look how many billions of users or customers they have.
+
+Speaker: SPEAKER_06
+Transcript:  Or maybe they just wish they were running an independent company.
+
+Speaker: SPEAKER_03
+Transcript:  That's that I understand right.  I think so.  That I understand.
+
+Speaker: SPEAKER_06
+Transcript:  It's not always about the exit or the biggest exit.  It often is but have you guys been watching Silicon Valley on on HBA?
+
+Speaker: SPEAKER_03
+Transcript:  Ah yes.  What do you think?  I won't say yet.
+
+Speaker: SPEAKER_05
+Transcript:  Not yet.  I haven't seen it so.  But it's okay you can.  I don't think you.  There's no spoilers.
+
+Speaker: SPEAKER_03
+Transcript:  There's no spoilers in a comedy.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah I'm gonna watch the second episode.  It was okay.  It was okay.  I thought some of the jokes were pretty good.  There were a couple moments that made me crack a smile.  A couple of things made me a little uncomfortable.  A couple of things I thought were just dumb.  Not too cheesy.  I like Mike Judge mostly.  So I'll watch another one.
+
+Speaker: SPEAKER_03
+Transcript:  It wasn't a Beavis and Butt-Head fan but I loved Office Space.  I loved Office Space.  This was Office Space worthy.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah yeah yes.  It definitely had shades of Office Space.  I love that movie.  Yeah me too.  And I think that our community frankly deserves some poking fun at.  Yeah.  And you know makes me.  I actually loved it.
+
+Speaker: SPEAKER_03
+Transcript:  I thought it was hysterical.
+
+Speaker: SPEAKER_06
+Transcript:  You did.  You loved it.  Oh okay okay.
+
+Speaker: SPEAKER_03
+Transcript:  There were moments.  First of all there's a company that looks just like Google.  But it's because you know it's not Google because it's headed by a kind of a Mark Benioff  style or Larry Ellison style CEO.
+
+Speaker: SPEAKER_06
+Transcript:  Yeah you could recognize the character.  You could.  Oh that's a Paul Graham slash Peter Thiel.  It was Peter Thiel.  The guy who says.
+
+Speaker: SPEAKER_03
+Transcript:  So their venture capitalist guy or angel really he's an angel investor guy  is on the spectrum of autism right.  He's like he won't look you in the eyes kind of.  He drives a very narrow car.  And he's paying a hundred thousand dollars to anybody who doesn't drops out of college  to form a company that's Peter Thiel.  And one of the guys says he must really had a bad experience in college.  He was really a college.  In fact they then he comes up to his he says maybe we should  go back to college so we can drop out.  I thought it was very funny.  I thought it was very fun.
+
+Speaker: SPEAKER_06
+Transcript:  A couple of moments when the guy's like I better put on a better shirt and then he puts on his old  his other t-shirt.  Yeah his company shirt.  There's a scene where there's just a crazy you know concert going on in the backyard  of some you know big company.  Kid Rocks man.  And like I've been in that kind of like I have.  It was awesome.  I've been in that scenario.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah I don't know how accurate is it.  I mean it's television.  It's probably as close to Silicon Valley as Entourage is to Hollywood right.  It's it's a.  Well of course.  But it's close enough.  I mean you feel like there's some some humor in it.  Look he's clearly.  He clearly comes from a good back.  It's not made.  There's no it's not phony like you know made up stuff.  It's all real at that concert.  The founder comes up.  Kid Rock.  And then he goes and I got six words for you.  What was it?  It was very funny.  It was.
+
+Speaker: SPEAKER_06
+Transcript:  I love who is multi-group multi-integrated platform.  Yeah it was hysterical.  They've got their lanyards.  It was terrible.  Yeah it was funny.  It was funny.  I was like okay.  Yeah.  I'll check it out then it sounds good.
+
+Speaker: SPEAKER_03
+Transcript:  To me I loved it and I can't wait to the next one.
+
+Speaker: SPEAKER_05
+Transcript:  And they've got a ton of material.  I mean every every day you could take something out of the news and just  plug it into the show in a funny way.
+
+Speaker: SPEAKER_03
+Transcript:  So and the good news is they've put the first episode up for free on YouTube.  So you can decide whether you want to tour it the rest of them.  Yeah.
+
+Speaker: SPEAKER_05
+Transcript:  Oh you're not supposed to do that.  I thought you were saying oh sorry.  I mean I don't do that.
+
+Speaker: SPEAKER_03
+Transcript:  Wait.  I guess we could play a little bit of it.  It's on YouTube.  There's that bit.  There's that bit right there.  Here let's play that part.  Can you get my audio?  Why can't you?
+
+Speaker: SPEAKER_02
+Transcript:  It's turned up.  One second.
+
+Speaker: SPEAKER_06
+Transcript:  I mean even even the wardrobe is so perfect.  You know these guys.
+
+Speaker: SPEAKER_03
+Transcript:  Totally.  Let me check.  Are you sending me?  My sound.  Ah I'm not.  That's odd that I wouldn't have been.  Come on send it out through the HDMI port.  Why won't it?  It just won't Chad.  Time to reboot.
+
+Speaker: SPEAKER_02
+Transcript:  Do I have to reboot?  I mean just unplug and replug.  I think that'll fix it.
+
+Speaker: SPEAKER_05
+Transcript:  Just make it renegotiate.
+
+Speaker: SPEAKER_03
+Transcript:  Handshake.  Should work.  Handshake.  Heartbeats.  Anybody who watches.  Yeah then.  Heartbleed.  Oh no.  Here we go.
+
+Speaker: SPEAKER_01
+Transcript:  ...integrated multi-platform functionality.  Yeah.
+
+Speaker: SPEAKER_05
+Transcript:  You gotta love that.  I've been there.  You've been at that party.  Absolutely.
+
+Speaker: SPEAKER_03
+Transcript:  And the people raise their beer kind of tepidly.  Yeah.  That's funny.  The one of my favorite parts is Hoolie which is basically  there's this here's the Peter Thiel character.
+
+Speaker: SPEAKER_01
+Transcript:  ...that benefits only the perpetrators of it.  The bloated administrators.  You are a dangerous man.  I don't think so.
+
+Speaker: SPEAKER_02
+Transcript:  It's a dead talk.
+
+Speaker: SPEAKER_03
+Transcript:  It's got the same pretension.  Here's pitches.  So this guy has a this guy apparently made a little money.  He sold his company to Frontier Airlines.  And what is it Aviado?  And he's taking pitches from other people who want to move  into his incubator which is basically his house.  There's a little profanity there.  Okay here we go.  Here we go.  He's taking pitches.
+
+Speaker: SPEAKER_00
+Transcript:  And that's how I got to where I am.  So I love the beard.  What do you got?
+
+Speaker: SPEAKER_03
+Transcript:  Okay here it is.
+
+Speaker: SPEAKER_02
+Transcript:  Bit.  Soup.
+
+Speaker: SPEAKER_05
+Transcript:  It's like alphabet soup but it's ones and zeros.  I would buy it.
+
+Speaker: SPEAKER_04
+Transcript:  Because it's binary you know binary is just ones and zeros.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah I know what binary is.  Jesus Christ I memorized the hexadecimal time tables  when I was 14 writing machine code.  Okay ask me what nine times F is.  It's FLEV-85.  I do not need you telling me what binary is.  Just like I don't need you thinking about soup  or taking pictures of it.  I need you thinking about apps, software, websites.  This is Silicon Valley all right.
+
+Speaker: SPEAKER_01
+Transcript:  He's Googling it.
+
+Speaker: SPEAKER_00
+Transcript:  There is Texas.  Okay I'm sold.
+
+Speaker: SPEAKER_05
+Transcript:  Don't you love it?  I'm gonna watch it.  I'm gonna watch it.  I might be the only one laughing in the room.  The rest of the family is watching.
+
+Speaker: SPEAKER_03
+Transcript:  It's kind of programmer humor.  And you know he's at the ice cream machine  getting his yogurt in the company cafeteria  and then he goes uh oh here come the programmers.  And the programmers haze him mercilessly.  It's very you know.  It's office space though it's the same idea  which is the downtrodden programmers.  Right.  You know.  Yep.  I don't know.  I like it.  I like it.  Just me maybe.  I don't I think did we talk to I think I talked to Jeff yesterday.  I think he didn't he didn't hate it but he didn't love it.  But remember he's a TV critic it's his job.  Yeah yeah.
+
+Speaker: SPEAKER_06
+Transcript:  And he liked Big Bang Theory so you know.  He did.  Yeah remember we talked about Big Bang Theory.  And where did you stand on that?
+
+Speaker: SPEAKER_03
+Transcript:  Okay how about you?  Do you like Big Bang Theory?
+
+Speaker: SPEAKER_05
+Transcript:  I don't watch it.  Yeah I don't either.
+
+Speaker: SPEAKER_03
+Transcript:  This is good because there's no laugh track.  You have to decide whether jokes funny on your own.  I like that.  Agreed.  I really like that.  Yep.  Agreed.  Yeah emotional manipulation and it's always.  It's like Upworthy and you won't believe how funny this is.
+
+Speaker: SPEAKER_06
+Transcript:  What happens next?
+
+Speaker: SPEAKER_03
+Transcript:  I'll tell you what happens next to that for LegalZoom and then  ladies and gentlemen the tool the tip and the number of the week.  But first a word from LegalZoom.  LegalZoom is not a law firm.  No no no much better.  They provide you with self-help services at your specific direction  so you can get the legal work you need done at a very low cost  and they can give you legal help through independent attorneys and self-help services.  Not a law firm.  Much much better and much much more affordable.  For instance if you're starting up a business you can get an LLC for 99 bucks plus filing fees.  Now your white shoe attorney with the eight different names on the front door  is not going to give you a fee like that.  That's how I did the LLC for Twitter.  It's the work it's the papers we're still using.  You can do a chapter S or chapter C Corp too.  Got to get that trademark chat if you finished trademarking OMG Chad.  No you haven't.  It's 169 bucks Chad.
+
+Speaker: SPEAKER_02
+Transcript:  Trademark it.  It's like I already spent the money like I just need to go through the next step.  Step by step thing and all of that.  It's the trademark office.  They're like we need we need a specimen.  You need a specimen.  Send them a specimen.  Sorry it's not LegalZoom it's a trademark.
+
+Speaker: SPEAKER_03
+Transcript:  No but you got to give them an example so that they can file it.  That's what they put on file.  Yeah exactly.  So I gave them the twit name and then I gave them the twit logo  and that's just a drawing it doesn't have to be super fancy  but that's what that's on file so somebody can look at that and say oh yeah we don't want to  infringe.  Right.  It's worth it.  Let's face it the legal system is complicated.  It's expensive.  There are better things you can do with your time and money but LegalZoom is there for you.  Making so much easier and so much more affordable.  Trademark will living trust all the personal stuff too.  You get the personal attention you need and they'll help you care take care of all the details.  LegalZoom they've been helping families and small business owners for 14 years including me.  A plus from the Better Business Bureau.  They're great people and it is a great service that is really empowering people.  And I'm all for that LegalZoom.com use the offer code TWIG to save on your legal needs  and get access to the network of legal plan attorneys for guidance.  LegalZoom.com offer code twig you get 10 bucks off check out and we get  a little thank you from LegalZoom.  I say thank you.  That guy Joey came over and he did an LLC thanks twig.  LegalZoom.com use the offer code twig.  Gina Trapani why don't we start things off with you a tip of the week.
+
+Speaker: SPEAKER_06
+Transcript:  All right cool a cute little new thing in Google's interface that new to me anyway  that Google operating system pointed out.  Google's app launcher on the web that little box you know that the the squares in the box  it looks a lot like Android's app launcher actually but it's in the upper right hand corner.  You can now customize that.  You can move around the icons that you want to you know to put the apps that you use the most  up top and you can relocate apps maybe that you don't that you don't use into a different page  and you can add new shortcuts like to Google keep for example if you're if you're a big keep user.  So you just kind of customize that little launcher make it a little more  a little more useful.  I gotta be honest I don't use the launcher.  I generally just navigate to the app that I want.  I'm just used to doing the control L and typing into my my you know browser address bar  but that button is everywhere.  It's in every app.  So if you just want to quickly quickly navigate to another Google app you can do that and now  you can sort of arrange those those icons very much like you would do on your Android home screen.  So you're seeing a little bit of the web Android unification going on there.
+
+Speaker: SPEAKER_05
+Transcript:  Now is this the is this the extension the Chrome extension.
+
+Speaker: SPEAKER_06
+Transcript:  No this is like if you go to Google.com or if you go to Gmail.  There's a there's a little grid of boxes on the top right.  That's like their their web app launcher.  You click on that it's actually on the web page.  It's not it's not a Chrome extension at all.
+
+Speaker: SPEAKER_05
+Transcript:  It's just a little bit because I've been using a Chrome extension to do just this for the past  couple of months and I use it all the time.  No it's this little grid right here.  Yeah but I have a look see I'm mine.  I guess they can't see mine but when I go to mine I have that customized or configured at the bottom.  So I downloaded a Chrome extension to do exactly this.  You don't have to but I don't have to anymore.
+
+Speaker: SPEAKER_03
+Transcript:  It says new drag and drop.  Oh yeah.  To arrange your apps right there and I can just.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah that makes it much more useful.
+
+Speaker: SPEAKER_03
+Transcript:  Yes because see I have a second page.  Right.  And I would like to get photos up here for instance.  Yeah exactly.  Get Google news down here things like that.
+
+Speaker: SPEAKER_05
+Transcript:  I've put keep up there we talked about keep earlier.  I put keep up in there because I use that a lot.  So now I wherever I'm at I can just click the little grid and choose keep.  So yeah cool.
+
+Speaker: SPEAKER_06
+Transcript:  Actually photos I go to all the time and I always forget what the URL is and I wind up  clicking through Google plus so this would be way better.  For that it's great.
+
+Speaker: SPEAKER_03
+Transcript:  I wish it was not it doesn't seem to be on Google drive is it.  They have drive.  Oh yeah there it is.  Okay yeah only on the top page once you're in a document it goes away.  Okay because I use this all the time.  Mm hmm yeah.  And there's all these pages of stuff I can move the stuff down that I don't want.  Cool.  Good tip.  Yeah thanks.  Erin you don't have to do a number what would you like to add to the pot.  So I've got a project is that okay.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  I love your project.
+
+Speaker: SPEAKER_05
+Transcript:  Oh good good.  So this is something really cool that I saw actually make posted this the make folks over  at make magazine posted this there's been a project for a long time called paper dweeno  which is basically taking a piece of paper instead of using a breadboard you make your own  arduino compatible board but using paper.  Well now they've done they've gone one step further.  Is there electronics in it.  There is electronics in it.  Yep absolutely.  So I don't know if you've got.
+
+Speaker: SPEAKER_03
+Transcript:  I see so instead of the breadboard you use a piece of paper.
+
+Speaker: SPEAKER_05
+Transcript:  And so now they've gone one step further and they've created paper dweeno tiny  which is even smaller.  So my next project is taking this right now this is about four inches by five inches of paper.  Is it stiff paper.  You could use stiff paper it's up to you what kind of paper you use.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah yeah you just print it on to it.  Yeah exactly.  I get it.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah so what I'm going to do is I'm going to take this and re jigger it to make it into business  card size that's going to be my new business card.
+
+Speaker: SPEAKER_03
+Transcript:  Oh hand out a business card with a little circuit.  What are you going to put on it.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah I don't know I mean we'll see I think I'm going to put like a speaker and make some  LEDs blink and that way you can push a button and it'll kind of get you.
+
+Speaker: SPEAKER_03
+Transcript:  You actually put the components on it.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah you put the components right on it.  Yep now that'll be for what I can do is I can print out small ones like the ones that I give  out to you know people that I just meet on the street or whatever but then I can print I can  actually do the components on the ones that I want to give to those A class people that I
+
+Speaker: SPEAKER_03
+Transcript:  really want to remember people on the street happen to have resistors and diodes in their  pockets they can do it themselves.
+
+Speaker: SPEAKER_05
+Transcript:  And the great thing is on the back of this you can put the instructions on where to download  all this stuff it's about four dollars worth of components.
+
+Speaker: SPEAKER_03
+Transcript:  Now how do you solder it doesn't it set the paper on fire.
+
+Speaker: SPEAKER_05
+Transcript:  Very carefully.  Good question.  Very carefully.  No it doesn't if you're.
+
+Speaker: SPEAKER_03
+Transcript:  I burned up my paper do we know.
+
+Speaker: SPEAKER_05
+Transcript:  Yeah it doesn't if you look on the back of it actually there's another image.  Let's go back.  It'll show you the back of the there was.  It shows you where the wire is going to go.  Look on the first one again.  Okay can I flip the first one over.  I think so I thought there was a back a picture of the back.
+
+Speaker: SPEAKER_03
+Transcript:  I don't think they want to show you the back.
+
+Speaker: SPEAKER_05
+Transcript:  Let's see there's a.
+
+Speaker: SPEAKER_03
+Transcript:  There it is that.
+
+Speaker: SPEAKER_05
+Transcript:  No that's not it I thought there was a.  Is there do you.  Because I'm yeah I'm just.  See I don't have it on here's what it looks like so you can see basically what they did was they  connected everything with with wires kind of like you would do with the standard.  These are so you're still using solder you see if you look real closely on mine you can see  where they burnt the paper.
+
+Speaker: SPEAKER_03
+Transcript:  It's like a wire wrap you just have to be very careful.
+
+Speaker: SPEAKER_05
+Transcript:  To be very careful set your temperature on your on your solder gun appropriately so you don't  you know have a problem but I thought that was really really cool the fact that you know  four dollars of components and a piece of paper you have yourself an Arduino compatible.
+
+Speaker: SPEAKER_03
+Transcript:  Device that you can use yeah so yeah so this is a basically kind of like a bread board or a project  board yeah and yeah I can see you can solder it if you just you know what you don't touch the  tip of the soldering iron to the paper right you just melt the solder right because the solder is
+
+Speaker: SPEAKER_05
+Transcript:  going to cool very very quick yeah it's not going to burn the solder itself probably won't  burn the paper oh good I'm glad you found those images so yep so that's it and I thought that was  so cool so so this is going to be my next project and I think for anybody that wants to do a little  soldering learn a little soldering I might do this I'm thinking we could probably use this in a
+
+Speaker: SPEAKER_03
+Transcript:  makerspace for a project for kids yeah you know do they have what kinds of boards do they have.  For I mean what kind of projects are they all well this is basically oh it's an Arduino it
+
+Speaker: SPEAKER_05
+Transcript:  doesn't do anything particular right you so you program it the same way you would an Arduino  so if I was doing this for kids I'd probably do it with blinky lights and I would say okay now  we're going to make you know the the green light blink and now we're going to make the red light  blink and here's how you change your sketch and upload that oh you know what I'm going to do this
+
+Speaker: SPEAKER_03
+Transcript:  would be really fun yeah to do where do you get your stuff do you get it at adafruit or where do
+
+Speaker: SPEAKER_05
+Transcript:  you like getting your um so if I'm getting it depends right so if like I'm getting a bunch of  resistors I'd probably just get them off of ebay right from China and just have them ship ship a
+
+Speaker: SPEAKER_03
+Transcript:  ton of them over for like five bucks or something like an assortment oh yeah like every kind of
+
+Speaker: SPEAKER_05
+Transcript:  resistor assortments absolutely that's the way to go actually because you never know what you're
+
+Speaker: SPEAKER_03
+Transcript:  going to need right so yeah and then you have to learn the ring code you know it by heart I looked  at yeah I don't know by heart oh my goodness you look at so you have to search through red green
+
+Speaker: SPEAKER_05
+Transcript:  that could have been there's actually a couple of android apps for looking up resistor codes  it's pretty pretty cool good thing to have on your android phone like it if you're a maker so yeah  take that and if you ever see me you know if you next time you see me in person ask me if I've got
+
+Speaker: SPEAKER_03
+Transcript:  a card for you maybe I'll have a fully baked and how much is it if you put an arduino on it how
+
+Speaker: SPEAKER_05
+Transcript:  much is the total cost of it well this is arduino compatible so I mean this whole thing is is four  dollars worth of components that's all that's it per card yeah and the paper and the printer ink
+
+Speaker: SPEAKER_03
+Transcript:  the printer ink probably costs five pieces oh here I'm buying this right now somehow oh no you don't
+
+Speaker: SPEAKER_05
+Transcript:  I think you're buying a paper do we know tiny card double-sided printed hard paper
+
+Speaker: SPEAKER_03
+Transcript:  three dollars usd for five pieces but that doesn't include components then you have to buy the  components yeah yeah and you use a a thumbtack a pushpin right to make the holes exactly  exactly do you have to have see I have sausage fingers do you have to have really fine grilly  fingers no I have pretty big fingers yeah okay yeah they're probably about the same size I don't  have to have like I don't have to look like adrian brody and the pianist no what you do need
+
+Speaker: SPEAKER_05
+Transcript:  to get is a pair of helping hands you know those little has a little magnifying glass and a little  alligator clips those are your components yeah definitely need that and for people my age you  do need the the magnifying glass oh yeah that's essential at this point so let me quickly look
+
+Speaker: SPEAKER_03
+Transcript:  on my gmail because this was a suggestion from somebody I was talking last week about how the  only negative on using the m8 was that I didn't have the moto x assist feature and he said you  know what there is something that is does everything the assist does on any android phone  and he and I and he's right and I downloaded it's called agent and it allows you to set up any android  phone use the accelerometers to do you have you talked about this and all about android or
+
+Speaker: SPEAKER_06
+Transcript:  somewhere else I've heard about this I don't remember exactly when we did talk about this
+
+Speaker: SPEAKER_03
+Transcript:  yeah I'm looking for the email so I can give the guy credit but what a what this was really a nice  tip and I can't find your email I'm sorry sir so this is agent I've launched it and I have  five sections battery sleep parking meeting and drive now some of this stuff actually  is better than the moto x but let's look at the drive so it knows if I have a bluetooth connection  it can also use it's in beta but it can also use motion detection to see whether I'm driving  and then once I'm driving it can do a variety of things silence the phone or and this is what I  have it do read text messages out loud I can respond with speech only and then it will prompt  me for a voice response transcribe it and send it as a text message reply that is what motorola  assist does in the moto x that's awesome if I'm sleeping and you can have sleeping activation times  I say who can wake me but I can also say send a text that says hey I'm asleep but if this is  urgent text me the word urgent and then my phone will actually play an alarm clock sound wow wake  me up and then the phone call will go through so I can say to then you can control whether who gets  this message most people get nothing but if you know my kids call me in the middle of the night  they'll get a text message saying hey I'm sleeping if you text urgent my phone will ring loudly and  wake me up or whatever you want you can change that so right now we're in a meeting so it's on  do not disturb and I can say which calendars this is actually better than moto assist which calendars  it looks for meetings with if the meeting says busy it will not ring my phone or it will send  out a text message saying I'm a busy this is one the moto assist does not do it will automatically  record parking spots without me pressing a button because it knows I've stopped moving at that speed  I must have parked so I will always know where I've parked without doing anything
+
+Speaker: SPEAKER_05
+Transcript:  it's a really nice what an awesome app what's what's it called I'm downloading it right now
+
+Speaker: SPEAKER_02
+Transcript:  agent yeah I don't need to search it's agent do not disturb and more ah thank you and how much is it
+
+Speaker: SPEAKER_03
+Transcript:  it's free even better I just now my first question was does agent use up a lot of battery life and he  said no it doesn't you know that was one of the things that I thought made the moto x so special  is it had that special secondary low power processor to watch for things like that without  actually waking up the phone but he's right I haven't noticed a huge drop there are some gps  functions that conceivably would leave the gps on longer than it would normally be on that might  affect your battery life but I haven't I haven't noticed it at all and boy I really that was one  of the things really that was holding me back from switching from the moto x to the  hdc one I love moto assist so this does that and more and it works fine on the ma yes ferret akh  in our chat rooms asking me is it work wow yeah awesome yeah that's great it's like a it's like a
+
+Speaker: SPEAKER_05
+Transcript:  because I used to use tasker for a lot of those things yeah but tasker you have to do manually
+
+Speaker: SPEAKER_03
+Transcript:  you have to set it all up and it's complicated this is basically tasker with preset right  things yeah the five things you most likely want to do yeah exactly I think that's great  and now if anybody wants to wake me up you know how urgent
+
+Speaker: SPEAKER_05
+Transcript:  lisa will love that she is on the list but what if you what if you text you say don't worry about
+
+Speaker: SPEAKER_03
+Transcript:  this leo it's not urgent then I will wake up still you're gonna wake up yeah I'll be pissed  as we like text me shazam yeah that's something really specific I should maybe change that word  huh now it's called agent but look for agent do not disturb in the play store if you want to  search and find hey that's it for this week in google for this week Gina Trapani it's so great  to have you back think up.com now open to the public yes indeed you want to get it was great  to be back insights did you get any signups from last week when when we talked about it we I we
+
+Speaker: SPEAKER_06
+Transcript:  did we did signups been going really really well you know we obviously had a big spike when we first  opened and then it kind of it kind of you know leveled out a little bit but yeah I mean I really  appreciate all the support from the twitter network everyone has been has been so great you've all been  you and Jason and Ron were all early backers and I really appreciate it it looks like we might  actually have a shot at a business model who would have thought we have a small shot here's my think
+
+Speaker: SPEAKER_03
+Transcript:  up so it takes my facebook and twitter and gives me analysis and then it does it in a nice personal  way for instance three interesting people who followed me and then I have this button that says  actually please hide them I don't I don't want to see them here's the deal with Leo Laporte status  updates did you and Anil both write the copy on this or we did we did yeah yeah he we collaborated
+
+Speaker: SPEAKER_06
+Transcript:  on it we tried to make it uh it's it's you know it's analytics for humans right so it's supposed  to be kind of conversational and cool not robotic not charged to the sake of charts but just kind of  little stories that come out of those charts so we're trying to tell those stories it's not easy  because everyone uses these networks different ways but um but we're getting there we're getting
+
+Speaker: SPEAKER_03
+Transcript:  there see this is a good feeling 460,519 more people saw Miguel de Acasa's tweet thanks to me  yeah yeah you're using your network really well yeah and find the right people yeah nice job you  can thank me later Miguel uh here's what you tweeted what I favorited on the last year uh my  most popular tweet two years ago oh wow game on wow last episode wow it's been two years  do social tech and tech sound like the descriptions Donna Dubinsky the founder of Palm can thank me  for 502,000 more people seeing her tweet there you go see I retweet the best people you do wow  Chelsea Corka followed me don't know who that is some but this is fun so that's thinkup.com if you  want to sign up for that yeah it's really you know I don't I don't I don't know what I'm going to do
+
+Speaker: SPEAKER_06
+Transcript:  with it I just like it well it's fun yeah we want to get to a place where it sort of helps you decide
+
+Speaker: SPEAKER_03
+Transcript:  what to do different or better but if you're trying to like have used social media for a purpose
+
+Speaker: SPEAKER_05
+Transcript:  this would be useful yeah like if you're a business right I mean that this is kind of
+
+Speaker: SPEAKER_06
+Transcript:  crucial data very valuable stuff yeah I mean really anybody with an audience like can really  can make a difference I think and get messages out and uh and I think these we hope our hope is  that these kinds of insights help so thank you for checking it out Leo thinkup.com thank you Gina  uh we'll see you next week yeah absolutely I'm gonna try to get some more better lighting in here  some stuff on the walls it's gonna be it's gonna be good and tell that person next door to stop
+
+Speaker: SPEAKER_03
+Transcript:  torrenting game of thrones or whatever was going on earlier yeah it's a co-working space she can't  be held responsible right right we thank Aaron Newcomb for being here always he brought donuts
+
+Speaker: SPEAKER_05
+Transcript:  this morning instead of bagels by popular demand yeah Tony sought me out to thank me he's like  looking for me I was like what did I do and he's like ring donuts ring donuts anytime uh Aaron is
+
+Speaker: SPEAKER_03
+Transcript:  at uh app net app net app what do you what does that little company do uh storage systems mostly
+
+Speaker: SPEAKER_05
+Transcript:  so we do a lot of stuff really but uh we're known for our our uh enterprise class storage systems  that we a lot of integration with business apps like oracle and sap and stuff like that so it's  storage plus storage plus a bunch more I just came up with that so I'll take my paycheck now thank you  now it's a great company in fact they're one of the top companies to work for just about everywhere  all of our offices that's nice yeah they always have hey where do you go into an office a little  both yeah a little both it's a it's a track it's uh two hours yeah I used to go two and a half hours  down to sunnyvale no fun yeah one way and uh uh yeah so that makes it tough but they're very  flexible very good they treat their employees very well so like yeah work from home when you  when you you know want to and then come in when you need to that's why you're an audible subscriber
+
+Speaker: SPEAKER_03
+Transcript:  yep absolutely it's so that's how I first found audibles when I was community cooperatina oh it's
+
+Speaker: SPEAKER_05
+Transcript:  great for commutes great for commutes yep yep and so is twit what's great for commutes too oh yeah
+
+Speaker: SPEAKER_03
+Transcript:  that yeah we do this show in fact twit would be a good one every uh Wednesday afternoon 1 p.m pacific  4 p.m eastern time 2000 utc on twit tv if you can watch live we like it if you do but it's not a  requirement by any means that's why we make on look we just want you to watch it we don't care how  on demand you don't have to torrent it I don't think you can just go get it it's free at twit  tv slash twig or wherever finer podcasts or netcasts are stored audio and video available  what else should I say thank you chad johnson our producer for doing such a great job  no problem and thank you for being here yeah thanks to our audience yeah and our studio  audience hi way far away they didn't want to sit too close
+

@@ -1,0 +1,606 @@
+;FFMETADATA1
+title=Patent Crows
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=201
+genre=Podcast
+comment=http://www.twit.tv/twig
+copyright=These netcasts are released under a Creative Commons Attribution Non-Commercial Share-Alike license. TWiT and TWiT Logo are registered trademarks of Leo Laporte
+publisher=TWiT
+date=2013
+encoder=Lavf58.76.100
+Speaker: SPEAKER_02
+Transcript:  It's time for Twig this week in Google. Jeff Jarvis has the day off, but Kevin  Marks is here along with Gina Tripani. We'll talk about the issue of  complete-ism and how to avoid it. Infinite music loops generated  automatically and the latest for the HTC One. It's all coming up next on Twig.  Netcasts you love. From people you trust.  This is Twig. Bandwidth for this week in Google is provided by Cashfly.  C-A-C-H-E-F-L-Y dot com.  This is Twig this week in Google episode 201 recorded June 5th 2013.  Patent crows. This week in Google is brought to you by Ting.com. Ting is a new  mobile phone service that makes sense. Save money with Ting. Pay for what you  use. Ting doesn't require a contract and they offer unlimited devices on a  single pool plan. To save $25 on your first Ting device visit twig.ting.com  and by legalzoom.com. Legal Zoom is not a law firm but provides  self-help services at your direction like affordable business and personal  documents you can trust. Visit legalzoom.com and use the offer code twig to  get $10 off at checkout. And by 99designs the world's largest online  graphic design marketplace. 99designs connects businesses seeking quality  affordable designs with a community of over 200,000 graphic designers. Visit  99designs.com slash twig to receive a free design consultation.  It's time for this week in Google. Twig is on the air. Gina Trapani is here from  smarterwear.org. She is also the programmer of Think Up, the fabulous Think Up app, and  the To Do Text app and the mother of Etta. Yes, hello. All of which are important. Oh and
+
+Speaker: SPEAKER_00
+Transcript:  host of All About Android. It's nice to see you. Yeah, we had a fun show last night. It's great to be here.
+
+Speaker: SPEAKER_02
+Transcript:  Favorite hour of the week. Because you had the guy who does SwiftKey on and that's awesome.
+
+Speaker: SPEAKER_00
+Transcript:  Somebody from SwiftKey. Yeah, I love SwiftKey. I can no longer say this is my favorite hour of the week.  It's my second. I have two favorite hours of the week. There's one I do all about Android and then
+
+Speaker: SPEAKER_02
+Transcript:  Twig the next day. I'm loving Android more and more all the time and now my biggest  problem is whether I should use the GS4 or the HTC One. I go back and forth. They're both great  phones. Yeah, they really are. Neither is perfect and both have its pros and cons on both. So it's  difficult choice currently carrying the HTC One. And I'm going to talk about that actually a little  bit later on. Also with us, Jeff Jarvis is on his way to Thailand as he mentioned last week. So with  us very graciously filling in from his bird cage, Kevin Marks. Hi there. It's good to see you.  Tumblevision.tv and salesforce.com and former Googler, former Appler, former BT-er. Great to have you,  Kevin. Nice to see you. I just can't keep a job. You're just in demand. You're trying to serve  everyone. There we go. I'll take it that way. I didn't realize this but I was just looking at
+
+Speaker: SPEAKER_03
+Transcript:  your title at Salesforce. Is what? Vice President of Open Cloud Standards. I like that. Open
+
+Speaker: SPEAKER_02
+Transcript:  Standards. Yeah. And that's kind of what you've really promoted all along, hasn't it? That's what
+
+Speaker: SPEAKER_03
+Transcript:  I've been involved with certainly for the last 10 years. Yeah. And it's just something, I mean,  it depends how you define QuickTime. I suppose 10 years before that I was spending a lot of time on  QuickTime which was, it was from one company and I wouldn't fully define it as open but the file  format was a de facto standard at the time and Apple kind of dropped the ball on that. Didn't you
+
+Speaker: SPEAKER_02
+Transcript:  tell us that you lobbied within Apple to keep it open? I tried to get more open source codecs and
+
+Speaker: SPEAKER_03
+Transcript:  things and I was trying to get Vorbis and things like that built into it and there were two  frightened of patents at the time to do that. And also Apple made a fatal mistake of patenting some  piece of the file format and therefore it was then tainted and people wouldn't use it. So we've lost  a lot of the value that QuickTime had. I was having this conversation at SF Music Tech last week  where we're now trying to come up again with multi, just for audio, multi-track standards for audio  and the problem is that every standardization that's been done in the last 10 years has been  for playback only not really for mastering and so we've, we're, you know, we're able to use AIFF but  there isn't a good way to interchange the raw multi-track between different programs.
+
+Speaker: SPEAKER_02
+Transcript:  Oh that's interesting. So it's not about compression, it's just about the format.  But isn't AIFF, the Apple standard, just pretty much close to here's the bits?
+
+Speaker: SPEAKER_03
+Transcript:  Yes but the problem is that even though AIFF can train an arbitrary number of tracks, most of the  programs will only take two and so if you're trying to take an entire mix back and forth it's  a lot more fiddly. So one of the guys from Beatport, they're trying to distribute the raw  stems for the people creating music so they can be remixed and he was saying that they've got a big  problem with this because they can, you know, they can distribute them as a giant AIFF with all the  tracks in and that works but when you try and import it to the other programs they only take the  first two. So they have to do some jiggery-pokery to make them, you know, to separate their own  individual files and then line them up again which is, you know, a bit backwards.
+
+Speaker: SPEAKER_02
+Transcript:  It doesn't take much to understand the value of this. A few bands have, I think Nine Inch Nails,  distributed the garage band of the tracks, the raw tracks, and it's so amazing to hear the individual  tracks. There is a bootleg which I've heard of tracks from the Beatles' original four-track  recordings at Abbey Road where you can hear the vocal, you can hear each individual instrument,
+
+Speaker: SPEAKER_03
+Transcript:  and it's mind-boggling. Right, now this is the thing. So what's happening with, especially with  the electronic dance music scene, is that there's a lot of value in remixes and DJs remaking stuff.  So what the Beatports guys are trying to do is make it possible to distribute these and so they're  sending out raw audio files but, you know, the way they have to do it is if you have a sample  that's only used in the fourth minute you have to pad it with silence up to the fourth minute,  put the sample in and then pad it out and distribute the track like that, which is a little  crazy. I mean it's not, you know, it's not the end of the world but it means that you're throwing  gigantic files around for no real reason. Whereas what we had with QuickTime was the ability to edit  arbitrary files together in time sequence, you know, from any source. So you could say just take  this bit and put it at this time and have it sample accurately drop in and mix. And that was  the piece that we've kind of lost. We haven't got a good format for that element. Boy, it'd be amazing.
+
+Speaker: SPEAKER_02
+Transcript:  Imagine buying an album. You buy the regular album or you could buy the unmixed album or the  unmixed-it-yourself version. I found on studio multitracks.com here is come together  in individual tracks. There's guitar, there's bass, there's vocals, there's drums. Let me just play  the vocals. I don't know if you're getting audio from my... Oh, EMA, I blocked it.  I heard one.  That's nice. Wait a minute. No, wait a minute. Here it is. Here it is. It is on YouTube. They  just blocked it on the remote site. I don't know. Maybe Chad, you can't hear me. I don't know. We're
+
+Speaker: SPEAKER_03
+Transcript:  having trouble with getting this laptop's... I saw one yesterday that was the ISO voice track for
+
+Speaker: SPEAKER_02
+Transcript:  under pressure. Oh, I love that. I just love that when you can do that.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah. So that's the thing. If you're DJing, this is what you need. You need these individual pieces.  And there's lots of clever software now that will sit there and try and extract them through  frequency filtering and stuff. But obviously it's much better if you can distribute them raw and in  pieces. And we have no format. That's very interesting. Yeah. And we haven't got a good  format for it. Yeah. The problem is that each app has their own. Right. Yeah. I mean, you kind of
+
+Speaker: SPEAKER_02
+Transcript:  have the de facto GarageBand or Logic, which so many people use that you could use it. But of  course it's not an open standard. Yeah. You've got GarageBand, Logic, you've got Ableton. There's
+
+Speaker: SPEAKER_03
+Transcript:  different ones that are used by different people. Yeah. Well, enough of that. Although that's
+
+Speaker: SPEAKER_02
+Transcript:  frankly very interesting. And maybe Chad can find it. It's on YouTube. Come together and  come together vocals on YouTube, Chad. Maybe you can play it for us because it's come together  isolated vocals. I don't know where these came from. Pretty interesting. And I'm sure that  we'll get pulled down immediately for slaying them. Yeah. That's the click track. There we go.  That's a vocal, which I never knew. Wow.
+
+Speaker: SPEAKER_01
+Transcript:  Isn't it great to hear that? Wow. You just feel more intimate.
+
+Speaker: SPEAKER_02
+Transcript:  All right, we can stop. But that's John Lennon, obviously, the raw vocal from Come Together.  Unbelievable. I tell you, the music industry should solve this because wouldn't you buy
+
+Speaker: SPEAKER_03
+Transcript:  albums this way? Right. Well, this was in the other conversation we had was  there's the Neil Young thing, which is, oh, we should create high quality recordings.  Pono? But the argument we were having there was it's solving the wrong problem. I mean,  there's nothing wrong with distributing a high quality mix. But actually 44 kilohertz stereo  is plenty good enough for that. And you can send that uncompressed or you can send that with 320  MP3s and it's still for sound transparent. The difficulty is that everyone's been mixing for  headphones, for in-ear earbuds instead of for proper equipment. So the right answer might be  to distribute a track with four different studio engineered mixes. So you've got one for I'm wearing  headphones and one for I'm in the car and one for I'm using my fancy hi-fi equipment and one that's  the surround or something like that. And set it up so that you bundle those together and sell that  and then you play back the one that makes sense at the time. So you get the very highly compressed  one that's really loud if you're in that situation where you need the extra bass. But if you've  actually got the big over the ear can transparent headphones, then you use the good mix instead.  So cool. The other fascinating thing for me is that gigantic headphones are back.  Yeah, they are, aren't they? Yeah. The Monster guys were sponsoring SF Music Tech and were  pitching theirs. But the fact that my son's gone off on holiday with his girlfriend and they've  taken two gigantic over the ear cans and a headphone spitter. I fear it's more for style  than it is for audio fidelity, however. But at least the point is that the availability is there.  You can actually tell the difference between these things and proper headphones if you're  trying to. And there's more bass in the big ones, which is obviously true because physics. But  also there's more dynamic range and that gets really important. So the fact that you  can have good acoustic isolation and then listen to dynamic range means we may get better mixes  back. That's my hope. So that was my music geekery last week. Fun. Kind of a completely different
+
+Speaker: SPEAKER_02
+Transcript:  topic from what we were going to talk about. But you know, the truth is there's not any major  breaking news anyway after Google I.O. We're kind of in the lull now. Well, the tying it back to the
+
+Speaker: SPEAKER_03
+Transcript:  web is the web audio stuff. So I don't know how much of that you've seen, but the HTML5 web audio  is actually really impressive now. They've built an expression language that lets you do multi-channel  mixers and synthesizers and voice recognition, all kinds of stuff. So Chris Wilson from Google  was showing that off at NSF Music Tech. Have you had Chris on? You should get Chris on sometimes.  No, sounds wonderful. He used to work for Microsoft.ie and he now works for Google on  Chrome Evangelism. And you should get him on sometimes to talk about web audio. That would be
+
+Speaker: SPEAKER_02
+Transcript:  a fun. So give me a scenario. I'm using Chrome. I'm browsing around and suddenly I get to a site  that supports this. What would it look like? What would happen? Well, it can do anything you can do
+
+Speaker: SPEAKER_03
+Transcript:  with audio. So it could be a synthesizer. It could let you remix things. There's the infinite songs  have you seen that? I probably shouldn't get you to play them on air because then you would get the  show taken down. But if you search for infinite jukebox, basically you can put a song in. It  analyzes the song for beats. It looks to see which beats are similar and then it will play the song  and randomly cut between ones that are similar so the song lasts forever. I love it. Infinite jukebox  is called? Infinite jukebox. It's great fun. And you can upload all three songs to it. But it's,  I think everyone hits it, it'll probably fall over. But it's fascinating to see that you can  actually do that on the web using web software. And that's the sort of the stage that the web  already has gotten. So far it's only Chrome and Firefox I think. I'm not sure if it works fully  in Safari yet. I think some of it's in Safari because it was in WebKit. So I just gave it
+
+Speaker: SPEAKER_02
+Transcript:  Call Me Maybe, which I don't think anybody would argue is not long enough. But it analyzed it.  So it's going to just play this song forever. Yeah. So if you hit the top and hit play.  Well, I'm not going to do that. But there's a visual of what's happening. Are these the,  oh you don't see it? Oh it's generating it. You're doing yours, Chad. Do you not see mine at all?  I see yours fine. But just the audio. Yeah, I just wanted to see it. So what happens after it
+
+Speaker: SPEAKER_03
+Transcript:  generates it? These are the loop packs, right? Yeah. So these long curves in the middle are where  it connects one piece to the other piece. Saying these are similar enough we could do the jump.  And if you hit the top and hit play, it'll play around and sometimes it'll jump across.
+
+Speaker: SPEAKER_02
+Transcript:  Oh go ahead, Chad. What the hell? Okay, here we go. But then we have to listen to this.  Just skip ahead and do where there's a loop. Oh my god. I'm listening to it. It's incredible.  You're like, skip to another part of the song. So does it jump back here or will it jump forward
+
+Speaker: SPEAKER_03
+Transcript:  here? It will jump forward or back. It'll do either. So basically it decides that two bars  are similar enough that it can do the transition that you're noticing. And then it starts doing it.  Okay, here comes one. Listen. Wait, may or may not. It just shows you that it could if it wanted to.  Then it takes it and then it will take it back again. I love it. So those are the loops. Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  You can't force it to take that. I guess it'll do it at some random... There it goes. Oh no.  And they're back again. Yeah. And we're back again.
+
+Speaker: SPEAKER_03
+Transcript:  So with this one, those two choruses probably are the same. Yeah, see we're playing out another part.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. We jumped ahead with no evidence. Well, you know, as somebody who spent a lot of years  cutting music with razor blades... Doing that by hand is quite fun. That's pretty... I mean,  I know exactly what they're doing, but that's impressive. But you know, obviously with a
+
+Speaker: SPEAKER_03
+Transcript:  song like that is really easy because everything was edited with type bar boundaries and it's a  drum machine. But I've done it with Pink Floyd's time and that actually works. That would be hard
+
+Speaker: SPEAKER_02
+Transcript:  to do. Or a Mozart symphony. Okay, good. Well, that's impressive. But that's an example of the
+
+Speaker: SPEAKER_03
+Transcript:  kind of thing you can do with this. You can actually play audio samples with enough precision to do  sample accurate edits like that. And there's synthesizers, there's CRISPR, a vocoder, so you  can actually give yourself a Daft Punk thing in the browser as you stick into a mic and things  like that. So basically it's all the power of stuff you can do with digital audio, but now  moved to the web layer. So that's one of these fun standards for me. It's like, oh, we can do
+
+Speaker: SPEAKER_00
+Transcript:  great things with this. So the HTML5 support in that example is the player... In the markup,  you're saying play this audio from this point on. What's happening in the browser there?
+
+Speaker: SPEAKER_03
+Transcript:  So you've got an API to play audio in different sequences and you've got to set up a filter chain  that you can set up. So you can write JavaScript, you can say play this and play this next,  or you can write JavaScript that triggers and changes it. But you can also set up a whole filter  chain that is just managed for you. So you can filter samples in JavaScript by hand. There is an  API that lets you get the buffers and do that. What song is that, Chad? Nyan Cat. All right,
+
+Speaker: SPEAKER_02
+Transcript:  let's see that. Apparently it's quite a few jump points. Actually, whoever made Nyan Cat figured  out how to do that. Now it's back to the front. You can see how little progress you're making.  Oh yeah, this won't ever end. Oh, now we're in the middle.
+
+Speaker: SPEAKER_03
+Transcript:  But also you can notice they're all the same color because they were pretty much the same sound.
+
+Speaker: SPEAKER_01
+Transcript:  Right. So it's a visualizer and it's a sequencer.
+
+Speaker: SPEAKER_02
+Transcript:  So here's the thing. When I look at stuff like this, I go, gosh, technologies really swell.  We live in wonderful times. Then I think in some ways this is tougher for a creator because  we're rapidly converging on infinite choice. And almost in a way, don't people really want  to limit themselves? Why else would they make up sonnets or haiku? They want the rules and then  create within the rules. And as almost anything as possible, I almost feel like that's bad.  I mean, I'm not advocating that we should get rid of all this stuff.  I feel bad for kids today, though. There are limitless choices in front of them.
+
+Speaker: SPEAKER_00
+Transcript:  I've been having this old person like, I just can't keep up. There's so much new to learn.  I got to take some time, like 20% time where I just learn new things because it just feels
+
+Speaker: SPEAKER_02
+Transcript:  like there's so much new stuff to play with. There is a skill that I think people are learning.  I learned it myself and I think people are learning where you can say, I don't have to do it all.  It started with me with reading it all. Dave Winder has talked a little bit about this. I  don't have to read every article in my RSS feed. I can now dip into the river and dip out and not  feel like they're used to it. For those of us, Kevin and my vintage, maybe not you, Gina, but  first, yeah. When we first encountered the internet, your first reaction is, oh, great.  I'm going to read it all. Yeah, I blame Catholic school.  And then you realize, okay, A, it's impossible and B, this nervousness that comes out of it.  Like, completionism. Is that the word that describes it? That makes sense.
+
+Speaker: SPEAKER_03
+Transcript:  Yes, completionism. But there's also the other weird thing is that you assume everyone's seen  the same things that you have, which often isn't true. And the assumption that there is a  shared context can be quite hard. And that's valuable shared culture.
+
+Speaker: SPEAKER_02
+Transcript:  We were just talking about Game of Thrones and the fact that the three of us knew what we were  talking about was very much a part of the conversation and important. And so that cultural
+
+Speaker: SPEAKER_03
+Transcript:  common ground is really important. But the other half of that is you can now at least get it.  So you were talking about kids and music. I've got teenagers who are 18 and  for my son's birthday, I got him Ableton and a launch pad so he can do all this mix.
+
+Speaker: SPEAKER_02
+Transcript:  Awesome. That's what I got for my son too.
+
+Speaker: SPEAKER_03
+Transcript:  But I'm looking back, when I was their age, I wanted to do synthetic music. I had to build  my own synthesizer out of components because I couldn't afford to buy one because they were too  expensive. Isn't that good in some way? And I never got to the point where I had  the mastery to actually be good at it. So I was sitting there trying to play with this thing going,  okay, I understand what I want to do, but I don't actually have the musical mastery of rhythm to
+
+Speaker: SPEAKER_02
+Transcript:  get this in the right place. Yeah, but Kevin, the skill that you learn now has informed your career  for the remaining 30 years. So maybe... I found a little bit of a glitch and I wanted to point out.  Why? Okay, the final countdown by Europe. It's in an infinite loop.  I can't believe you even tried the final countdown. You can poke it and it'll move.
+
+Speaker: SPEAKER_03
+Transcript:  If you click somewhere else, it'll start again.
+
+Speaker: SPEAKER_00
+Transcript:  Arrested Development, you know. Yeah. See, another cultural...
+
+Speaker: SPEAKER_02
+Transcript:  And what's funny is I had never watched Arrested Development. And so in order to keep up with the  cultural thing, I have been mass consuming the earlier seasons so that I could be in this
+
+Speaker: SPEAKER_03
+Transcript:  conversation. Well, I hadn't either. I only saw that through Netflix because my son said,  this is funny. You should watch this. I watched it last year. So now I haven't watched the new ones  yet. It's marvelous. But that's the other point. The other point is all this stuff is available.  If I mention any musician, my son can go away and listen to their entire oeuvre and then decide  which bits they like. Whereas before we were stuck with it's on the radio or it's in the record shop.  So this is the anti-Yaron Lanier. Yaron Lanier says you can no longer hear a decade in music  because the music is now touching the whole of history. And I think that's a wonderful thing.  The fact that I'm not stuck with whatever happens to be fashionable at the moment is great. I don't  have to listen to what this stuff is. I can dig into other things. Yeah, I've done that. I mean,
+
+Speaker: SPEAKER_02
+Transcript:  I started an audio lecture on the history of music and I was able to go back and listen to  Just Gain de Pre and discover that and go from that. And then I put it into Pandora and then  Pandora discovered more. So you're right. I mean, it can inform you as well and it can lead you  if you have that point of view. I guess that's the skill that people have to learn is to choose  because otherwise it's like, yeah. It is that infinite choice. Yeah,
+
+Speaker: SPEAKER_00
+Transcript:  no, it is that infinite choice. Like where to go, where to go next. Like just give me the next
+
+Speaker: SPEAKER_02
+Transcript:  thing. But yeah, so forget completeism, no more anxiety over that. And then you choose. And I  look at my daughter who has not yet learned to choose and the amount of anxiety she has from all  the options available to her is debilitating. It stops her. The trickiness and the place where
+
+Speaker: SPEAKER_03
+Transcript:  there is a potential problem here is that, and I've heard this from people who teach literature,  is that it used to be the library was the place you went and everything in the library was vetted  in a sense both by the publisher and by the librarian. And so even though you couldn't possibly  That was the canon.  be in the library of books, there was a canon there and there was a sense that everything  was there. Whereas now, if you just dip into the net and follow threads on the net, you are reading,  you can very easily go into a spiral of like Chad just had of like following links from people who  reinforce each other and find that you are trapped in a corner where you think that  Wi-Fi will kill your children and things like that.
+
+Speaker: SPEAKER_02
+Transcript:  You never get anywhere or you go down a rabbit hole.  I don't know. I mean, I can't, you know, first of all, it doesn't matter.  Jaren Lanier can argue against it all he wants. It's happening.  Yes.  So probably the best thing would be to learn how to deal with it because you can't stop it.
+
+Speaker: SPEAKER_03
+Transcript:  No, that's it. And that's the point. And then what you need to do now is teach, you know,  critical reading and this and all the things that you had to teach anyway, you couldn't actually  trust everything that was in the library.  But you just thought you could.  But you had a false set or everything's in the newspaper, everything's on TV, obviously not.  But you had this false sense of, oh, well, that's right. Because that's that's that  context.  It's the canon.  And then there's this assumption that people believe everything they read. People now do  believe, generally do bring a more critical sense of what they read to the internet,  especially if they've grown up there. And it can be that the older people who haven't  had this as their formative reading experience, who therefore think anything in print must be true,  that can get led astray by this sometimes.
+
+Speaker: SPEAKER_02
+Transcript:  Right. What a world. It's very interesting. And those of us you haven't experienced this yet,  Jan, but those of us with kids who are grown up as internet, you know, digital natives,  are watching with great interest to see what the hell's going to happen.  And I can't imagine any more indigenally native than your kids and my kids, Kevin Marks.
+
+Speaker: SPEAKER_03
+Transcript:  Wow.  Something's done. Yeah. I mean, that's true. I mean, Andrew was doing software testing when he was two.  OK, I rest my case.  The funniest thing was that when they were sort of seven or eight,  they assumed that I knew everyone who made every program because they did.  They, you know, they, they'd intuitive from the fact that I gave them a bunch of things where I  did know the people who'd made them. And then they was like, there's a bug in this. You need to go  and tell the guy. It's like, well, OK.
+
+Speaker: SPEAKER_02
+Transcript:  We're going to take a break. Our change log coming up. Kevin Marks is here. Gina Trapani.  We'll talk about the news. Yeah, sure. There's some news. Sure.  Frankly, that's what the thing I love most about this show is it doesn't have to be about anything.  It's a show about whatever we feel like talking about before we go on, though, to our change log  and some good news. If you are looking for a Google experience phone, another one in the mix.  But first, a word from our friends at Ting, which is another example of a way the internet is  changing everything. And if there is anything that needed to be changed more than the cell phone  industry, I don't know what it is. If you go to twig.ting.com, you can take a look at this new  company that is designed from the ground up to improve the experience of buying and using a cell  phone. They are an MVNO. That's a mobile virtual network operator. They sit on top of Sprint. So if  you have good Sprint coverage where you are, Ting is a very, very good choice. There you're  month to month. There's no contract. There's no early termination fee. And best of all,  there's no hidden bills, no strange expenses, no mysterious line items. You pay for what you use,  no more, no less. Go to the Ting plans section and you can actually design your plan. You start with  how many devices you want. One of the things Ting is great for is shared plans, whether it's for  your family or business. Let's say a family of four, Chad, that $6 a month for the phone. So  that's the base. And then we choose how many minutes. Now I think a family of four, nowadays  people don't talk on the phone much. Let's make it a thousand minutes. Here's why it doesn't matter  if you get it exactly right. 2000 text messages though. Make it four, make it 4,000. We're going  to talk a lot. And absolutely three gigabytes of data. That's just the starting point. Now look,  if you look at the pricing, that's a hundred, what is it? $113. What does that say, Chad? $113.  Not each, for the family of four. That's the entire cost. But better yet, let's say you got  the minutes wrong, they use more. It just goes up to the next tier. There's no penalty. Let's say  you use fewer messages. They refund you the difference. More data, less data. You pay for  what you use. No more, no less without any penalties. No big ding, no big bill. Just cell  phone service the way it ought to be. If you go to twig.ting.com, we'll give you a $25 credit to  get started. Choose your device. Actually, you can apply it to the monthly service too. And Ting does  have a bring your own plan. So if you already have a Sprint phone, you should investigate that on the  Ting website. They have nice illustrations. It says shop around for a Sprint device or grab one  from a desk drawer. So pick your device. An Android device, they have Blackberry. They have a variety.  Galaxy S4 would be a good starting point. But you can get inexpensive devices. They also have  MiFi devices. They have used devices. So there's a lot of price points. Oh, there's the HTC One.  That's kind of my favorite. $25 off gives you a great starting point. Now, these are not subsidized  prices. So understand that you may want to shop around a little bit to get a better price or bring  your own phone. But then you get the phone and then you go on to the website and you activate it.  They've got a great dashboard so you always know exactly what's happening. A no-hold customer  support policy. This means when you call during business hours, 8 a.m. to 8 p.m. Eastern,  a person will pick up who is empowered to help you to solve your problem. They're not going to  put you on hold or say, let me transfer you. They're going to take care of it. They have great  help online at help.ting.com, including active customer forums, video tutorials, startup guides,  that kind of thing. This is how cell phone service should be. I want you to try it. twig.ting.com.  $25 off your first device or your first bill as a thank you for mentioning that you heard it on  twig. twig.ting.com. Ting is changing the way we buy and use cell phones. I love that. You love  your netcast. How about your phone company? That's great. They're really great guys and  gals at ting.com. So let's play the trumpets, break out the horns because it's time for the
+
+Speaker: SPEAKER_01
+Transcript:  Google changelog. The Google changelog.
+
+Speaker: SPEAKER_02
+Transcript:  Gina Trapani with what's new at the Google.
+
+Speaker: SPEAKER_00
+Transcript:  Google announced that it's adding nutrition information for over a thousand foods to search  results. It looks like this is going to be work for voice search only. And it's rolling out over  the next few weeks. A couple of examples. You could say to voice search either on your mobile  device or in Chrome voice search in your desktop, how many calories are in an apple? And Google  read the answer back to you. Or you can ask a question about what about ingredients, what  nutrients are in breadfruit? I didn't even know what breadfruit was until I read this blog post.  Oh, you obviously never read mutiny on the bounty. Yeah, I know I did. It's all about breadfruit,  baby. It's all about breadfruit. Okay. You can ask how many carbs are in corn. So yeah, this feature  is only going to launch for English users and we rolling out to the US over the next 10 days. And  over time, they'll be adding more features and foods. So you tap the microphone and say, you know,  how many calories in a banana? And I'll let you know. Yeah, very cool. They said it was a, it was  a tough challenge. I haven't actually gotten this yet. So it's rolling out of the next 10,  10 days. So I didn't get a chance to test it yet, but it looks, looks like a really nice way to say,  you know, Hey, what am I about to stuff in my mouth? Which I need to ask more often.
+
+Speaker: SPEAKER_02
+Transcript:  I actually asked Google that what am I about to stuff into my mouth?
+
+Speaker: SPEAKER_00
+Transcript:  Gmail for iOS and Android are both getting the update that Google announced. I think it was last  week during this show. This is the update that reorganizes your inbox into categories. It's five  categories, primary, your primary inbox or primary category, social promotions, updates and forums.  So the mobile apps are getting this right now. So you can, you can opt into this. You can turn  it off if you don't, if you don't want it. Gmail for iOS is available in the app store now. And  actually, I believe the verge just reported is the verge or I'm sorry, and gadget just reported  that it's rolling out for it's showing up in the play store for Android as well. So the iOS version  also gets a new notification options. You can get notified, notified for all messages, only important  messages or none at all on a per account basis. And you can do configure those in the in-app settings.  And the Android version is also is getting a sliding drawer with labels and an account  switcher for phones and tablets and also getting swiped down to refresh. What do you think of the  new Gmail? So I was talking about this and all that Android last night. I gave the old college try.  I turned it on last week during the show and I tried to use it. I used it all week. I used it for  about six days, but I'll tell you the truth. I didn't, I missed stuff. I had, I had mail land  and other tabs other than primary. I found that I just got lazy and only was looking at primary  because that was kind of became my habit with, because I had priority inbox turned on. So it  became my habit that I sort of focused on priority inbox and then occasionally kind of prune the rest.  I only looked at primary and I missed stuff. Like I'm on a lot of mailing lists for my open  source projects and I was missing those and forums and updates. I was missing like Twitter DMs and  notifications of Facebook messages and social because I just stopped looking at those other tabs. So  it just didn't, it didn't work for me. I can see how it would work for a lot of people. Just didn't  quite work for me. And I was just so used to my priority inbox workflow that I went back to it.  And I was like, Oh, thank goodness. Back to a familiar place. So that's just me.
+
+Speaker: SPEAKER_02
+Transcript:  You can turn it off. You can turn it off. Yeah. Can you turn it off in the, I'm looking at the app.  I don't, I think the app has to be this way. You can turn it off in the app. I'm not sure about that.
+
+Speaker: SPEAKER_00
+Transcript:  I mean, this is, this is, I think that if it's turned off on the web, it's gotta be turned off  in the app, right? Because these are, these are categories. They're not labels, which is a different,
+
+Speaker: SPEAKER_02
+Transcript:  different thing. Yeah. I mean, and they're doing a lot of sorting, right? Yeah. Yeah. Manage labels.
+
+Speaker: SPEAKER_00
+Transcript:  I don't know. I don't know. Is that the, that's the, you got the update there? Do you have it enabled?
+
+Speaker: SPEAKER_02
+Transcript:  It seems like it's just there. I would have to, where do I go? Settings, settings,  email account, and then inbox type settings, email account. And then you should get default  inbox, prior to the inbox. I see. It could be priority or default. Well, wait a minute. No,  that's what we had before. That's what we had. That doesn't change the tab thing.  Uh, didn't on mine. I still get the primary social promotions. I have it now switched. All  right. So Jason has a Nexus four. So maybe, Oh, so you're not getting, you're not getting the,  I just turned it to that. I normally do this. So show me, show me. Okay. Let's, let's do it here.  Menu settings, the specific account. Yeah. Ah, okay. Inbox type default inbox or priority inbox.  You want priority inbox. Okay. So priority is the new, is the old way.  Got it. I still get all these tabs. Are you in the right email? Well, you still, you selected
+
+Speaker: SPEAKER_03
+Transcript:  before. You still get a choice of, of labels, I think. So they've made now social promotions,
+
+Speaker: SPEAKER_02
+Transcript:  updates and forms, but it's still not filtering. Is that the idea? And I have that new funny touch  the picture. Jason's baffled, baffled. I think it depends. Yeah. Inbox categories. What? Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  That's the, they're basically, they are still labels. They just create labels for you and auto  filter certain types of things into those labels. So they're basically setting up a bunch of filters  for you and labeling things. So I think we're doing archive first. So the kind of filters you've  already built, they're, they're automatically more likely to be built for normal people.
+
+Speaker: SPEAKER_02
+Transcript:  I think we've tracked it down. Jason says he did not activate the new feature on his debt on his  Gmail desktop. So, right. So because it's not activated on the email, he had the choice still  on the mobile app. But as soon as you, I think, cause I've activated on my desktop, as soon as I
+
+Speaker: SPEAKER_00
+Transcript:  activate on the desktop, then I'm done. Yeah. I, I deactivated it in the desktop and I do not have it  on my mobile app. Okay. So that's the way to do it. I didn't get the update or,  or because it turns it off. But yeah, I think it probably matches one or the other. I'm with you.
+
+Speaker: SPEAKER_02
+Transcript:  It's a little draconian. I mean, at least you can turn it off. I hope they keep that feature. Yeah.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. It's, I'm a little worried about Gmail. I'll be honest. Gmail is one of my favorite Google,  Google products, and it just feels like it's getting a lot of stuff. It's just a lot of  features. And now there's a lot of different ways to look your inbox, right? There's the regular  way there's priority inbox. Now there's categories. You got categories and labels.  We've got some plus integration. We've got the hangouts integration. Like it just feels like it's,  you know, getting maybe just a little too heavy and complicated and config and maybe a little  too many settings. I'm a little, I'm a little worried about it. I hope that I helped that Gmail.  I mean, I don't want this forced upon everyone because I don't want it. I like having the choice  of priority inbox, but it also makes me concerned that, you know, so many people are having such  different Gmail experiences because it's so configurable. I think that's, I mean,
+
+Speaker: SPEAKER_03
+Transcript:  we just changed at work from exchange to Gmail by default, though not everyone's switched over yet.  And there's a huge amount of sort of confusion by people because they've built a workflow that they  understand. And suddenly they're trying to reconstruct that workflow in Gmail and understand  different philosophy. And so it's suddenly like, I thought I deleted all those emails. Why are they  still here? It's like, well, you don't delete them in Gmail, you archive them. It's, it's,  and then you can search them again and don't worry about them. And there's, there's, and there's,  that, that sort of mental model of, no, no, I want them gone. That's quaint changes when you  get into Gmail. And that's, you know, and if you're used to exchange or used to, oh no,  I'm always being nagged about my mailbox being full. So you, you feel like you have to.
+
+Speaker: SPEAKER_02
+Transcript:  I would think you'd have a corporate policy that mail cannot be deleted anyway. Right. I mean,
+
+Speaker: SPEAKER_03
+Transcript:  for legal reasons, you have a corporate policy that mail has to be deleted.  It has to be deleted. Oh, okay.  Yeah. There's a, there's like a rolling deletion, but there's, there's, yeah, there's logging as  well, depending on what you're talking about. Sure. I mean, I've always admired about Gmail,
+
+Speaker: SPEAKER_00
+Transcript:  that it's really required people to make mental leaps. Like conversations was a mental leap.  Labels was a mental leap. Right. Archiving was a mental leap. Like you had to truly change the  kind of the way that you think about email. It's just that, you know, now, I mean, that was whatever,  2005. Right. That was seven years ago.
+
+Speaker: SPEAKER_03
+Transcript:  The thing that Gmail did originally was very good automatic spam filtering. So the first thing that  the value you got was there's no more, I don't spend half my day deleting rubbish.  And that's still true. Right. And I think that's what categories is doing.  Yeah. They're trying to say, okay, you've got a bunch of things and you don't have to read them  all at the same time. Let's try and give you a bit of relief from that. I suspect a lot of people  will find that comforting, but it's people like us who've already spent five years building mail  photos to do that for us and have 35 tabs down the left-hand side for all our things going like,  you just made some new tabs and things are where, but the ordinary users may find this easier.  I'm assuming they've done, you know, Google is fairly good at using testing this stuff.  I imagine, you know, they've actually sat down with people and watched them use it and trying  to understand them better now. But yeah, it is, if email is a big part of your workflow,  it is very hard to have that transition forced on you. And it's very hard to, you know,  or make the mental transition to maybe email shouldn't be the center of my workflow. Maybe  that should just be the archive that documents everything. And I can use the other tools that  feed stuff into emails to be my workflow. And that's often a trickier thing to explain to  people. Once they get it, it's like, oh, great. And Gmail is particularly good for that because  Gmail acts as a good archive. So for me, I'll have conversations in various places,  but I'll feed everything to Gmail into through a folder that goes archive first. But then when  I search, I've got somewhere I can search for things. Yeah, that is the biggest leap is not
+
+Speaker: SPEAKER_00
+Transcript:  depending on email, but just knowing that you have this archive, you know, this living archive  running all the time, for sure. Finally, Eric Schmidt doesn't use Gmail, you know,
+
+Speaker: SPEAKER_03
+Transcript:  you know that what he's also uses a BlackBerry. This is this dates back to Microsoft Antitrust  and the reaction to that. So he deletes everything. Because he doesn't want to be subpoenaed later.  So he refuses to use Gmail, he only uses and doesn't read his inbox. So when he gets subpoenaed,  he's like, I don't have that I can't recall. There's something about telling about that.  And you know, there's bits of that in his new book is like, oh, we should be able to delete  things. So he's, you know, despite, yeah, he said there should be a right, right to be forgotten.
+
+Speaker: SPEAKER_02
+Transcript:  This whole controversial, uh, Neely Cruz thing. He said, no, that's a good idea.  Wait a minute. Now I'm confused. I guess he doesn't really work there anymore. So he could  say whatever he wants. Finally, yeah, change to calendars. Finally. Yes, we've got to change the
+
+Speaker: SPEAKER_00
+Transcript:  calendars. This is, this is kind of nerdy. I just, I love this because I think about calendar UI,  maybe more than that. And you need to, but there's a Google, the Google calendar app for Android has  two new things, a new date picker. Oh, they need a new date picker desperately. Date pickers are  the worst, right? They're just the hardest. They're so fiddly. It always takes forever. Yes. Rolling  the wheels. It's so annoying. So this is a really nice upgrade. It's, it's, it's designed very  nicely and it's visual. So when you're choosing a date, you get a scrolling calendar that you can  roll, roll, you know, roll through and, and click on the date that you want. When you choose a time,  you actually get a clock face, like an old school clock with hands and you get to choose the time
+
+Speaker: SPEAKER_02
+Transcript:  on the clock. That's not going to work for anybody under 18 because they never learned how clock faces
+
+Speaker: SPEAKER_00
+Transcript:  and, um, you can also set, uh, in the Google calendar app for Android, you can also set, uh,  assign colors. Uh, oh yeah. Chad is sorry. Chad is, uh, as you choosing, sorry to go back to the  date pick again, to, to, to set, uh, an event to repeat. This is so much better. Uh, yeah, you can
+
+Speaker: SPEAKER_02
+Transcript:  repeat every week. Look, look, you get Chad, look, look, look, you get a calendar. Look, look, look,  you could choose a date from an actual calendar. How novel is that? It's so much nicer looking
+
+Speaker: SPEAKER_03
+Transcript:  and easier. So these, these, the OS switches, are they Gmail? No, you have to download. There's a
+
+Speaker: SPEAKER_02
+Transcript:  generic Google calendar app, which most, like sense doesn't have. You know, these would be
+
+Speaker: SPEAKER_03
+Transcript:  obviously lovely widgets for the HTML5 UI. Yes. That's for example, for Android, like it would be nice to use the date picker for,
+
+Speaker: SPEAKER_00
+Transcript:  for, you know, core Android as well. Uh, you can also assign colors to events on a per event basis.  So if you want to turn, make an event tangerine or teal to make it stand out on your calendar,  you can do that. There's a little, oh yeah, there's a, there's a palette. Yeah. Yeah. Top, top right there.  Yeah. Yeah. So yeah, things make me happy. Was the example screenshot there that say Marissa  Meyer's birthday? That's so funny. Uh, well, you know, that's so funny. She wants everybody to know.
+
+Speaker: SPEAKER_02
+Transcript:  Don't want to miss that. October 17th, everybody. It doesn't work there anymore. Uh, but yeah, that's,  that's fun. Is it really, it does. It says Marissa Meyer's birthday. That's hysterical. What color is it?  Gray. Green. Green. It should be blue. That's hysterical. That's Google operating system. So
+
+Speaker: SPEAKER_00
+Transcript:  it's not an official Google blog, but it's very fun. So it's them. They're making fun. Okay. Yeah.  Oh, it's not official. Oh, cause that would be great. It should be purple. That's what it should be.
+
+Speaker: SPEAKER_01
+Transcript:  Yeah. That would really be funny. Maybe you make it purple. Yeah. Yeah. Yeah. That's all I got.
+
+Speaker: SPEAKER_02
+Transcript:  And that's the Google change. Come on guys.
+
+Speaker: SPEAKER_01
+Transcript:  Come on. I just channeled job there. Oh, come on.
+
+Speaker: SPEAKER_02
+Transcript:  Fun stuff as always. I like that change. Like, I'm glad we do that. Uh, that's always good to see.  I'll talk a little bit about the new HTC one coming soon to a Google store near you. But first,  a word from our friends at LegalZoom.com. LegalZoom is not a law firm. LegalZoom is a way for you to  get legal documents done without the expense of a high priced white shoe attorney. In fact,  this is the greatest way. If you're just starting out, maybe you've got a new business idea,  protect yourself with an LLC for $99 or incorporate S-Corp or C-Corp, $99.  You get a trademark done for $169 plus filing fees. If you've got kids, you really ought to have a  last will and testament. Otherwise the government decides what happens to your kids. The courts  dispose of your assets. $69. You're protected. The thing is you don't really need an attorney for  these kinds of simple, uh, really it's almost just paperwork. You walk through step by step  at LegalZoom.com. They have a questionnaire that will ask you what you need to, what it needs to  know, and it'll generate the documents for you. Now I did, I did the LLC and I have to say we're  still using that same LLC, but sometimes as you're going through the questionnaire, for instance,  I was trying to decide what state to create the LLC in. I decided Delaware, but kind of randomly.  You can use the LegalZoom legal plan and get advice from an actual experienced attorney at a set  low fee. So that's really nice. That's peace of mind. You're getting some advice. You could  choose your attorney by the profiles on the webpage, but also unedited reviews from  customers. So you can really see the right attorney for you. I just, I love this all around.  LegalZoom.com to give you a little incentive to use our offer code. We'll get you 10 bucks off  at checkout when you type in T W I G. And you know, I given the low fees that LegalZoom is  charging, that could, that could be more than 10% off. That's pretty good. LegalZoom.com. Start  your business right. Protect your family. Get the stuff done you need to do without having to  spend a lot of money on an attorney. That's why over the last 12 years, 2 million Americans,  including me, have used LegalZoom.com. LegalZoom.com use the offer code TWIG. And we thank them so much  for their support of this week in Google. HTC One will join the Galaxy S4. Googleized at the  Play Store. The HTC One comes out June 26th with stock Android 4.2.2. 599 instead of 649. That's  what the Galaxy S4 price will be. Now I go back and forth and I really can't decide which I like
+
+Speaker: SPEAKER_03
+Transcript:  better. I have both. I hope you will decide this for me because I haven't bought either one yet.
+
+Speaker: SPEAKER_02
+Transcript:  It's tough. I want to get one of them. Neither is perfect. Battery life has been a problem on the one  for me. Although I, and I talked about this last week, I found a XTA developers forum and post that  gave some really good tips. I would recommend rooting it and I did. And one of the reasons is...
+
+Speaker: SPEAKER_03
+Transcript:  Well, I was going to get the Nexus variant of either of them.  So the problem with that is...  Because I want an unlocked one. That's the main reason.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. Well, you can unlock it easily. In fact, HTC on their dev site gives you a boot  unlocker and then it's easy to root it. Unlocked. That's another matter. Actually, can you unlock it
+
+Speaker: SPEAKER_03
+Transcript:  easily? I wouldn't unlock so that I can take it to the UK and stick a stick in it.
+
+Speaker: SPEAKER_02
+Transcript:  AT&T unlocks it for anybody with an account in good standing, I think.
+
+Speaker: SPEAKER_03
+Transcript:  And also I'm on T-Mobile. I want to reuse the same one I've got. So I'm not going to be buying  one without the thingy. So the developer one seems like a good choice.
+
+Speaker: SPEAKER_02
+Transcript:  But you're going to miss out on the camera, which is one of the real reasons I like the HTC one.  It has that four megapixel camera, but also it has some nice features in the camera app like the Zoe  capability and the ability to make instant highlight films is kind of cool too. That's  in the gallery app. And so that you won't get if you buy a Nexus. So I don't know what the answer
+
+Speaker: SPEAKER_01
+Transcript:  is to that one. I'm not sure I can help you with that. The Galaxy S4, I don't think I'd miss the
+
+Speaker: SPEAKER_02
+Transcript:  Samsung crufts too much. Less so anyway, but get the 32 gigabyte. Will Google offer that?  I'll check. Yeah, because the 16, there's nothing left.  Oh really? Okay. Yeah. Yeah. There's about eight gigs free  and you can put an SD card in unlike the HTC one. Anyway, I put they're starting to push out 422  roms in Europe internationally. And I think that they will be coming to the US at 422 on here.  And they fixed some of the sense annoyances that people don't like. There's a battery meter that  shows your percent left now, instead of having to adjust that they've got switches, the 422  style toggle switches, which I think you got to have on an Android phone. So in many ways,  I think it is a better, this is rooted but I'm running a Nova launcher, but still with HTC sense  on it. That's a tough choice. The Galaxy S4 has a lot to recommend it. Removable battery
+
+Speaker: SPEAKER_03
+Transcript:  is an SD card. That's big. I never used a removable battery. I've got that in this one.  That's right. You have a Nexus four, right? You don't care. I've got the last Nexus.
+
+Speaker: SPEAKER_02
+Transcript:  Galaxy Nexus. Yeah. I mean, the issue with poor battery life is that you can it's ameliorated if  you have more than one battery. Yeah. On the one you know, you got to get through the day.
+
+Speaker: SPEAKER_03
+Transcript:  I carry around external batteries. So I'm kind of used to that.
+
+Speaker: SPEAKER_02
+Transcript:  Well, that's what I'm saying. Yeah, I carry around external batteries. That's nice.  Let me just, I'll just show you the highlight film. I've showed these before. This is my day  today so far. So does this all automatically? I don't have to do anything and I just tap it.  And then they have different choices of how to do it. This is doing the French version.  So black and whites it and gives it a little kind of accordion music.  But then I can choose other ones. They have they have more jazzy if you want something  a little more jazzy. It just remixes it with new music. This is all automatic. I mean,  you won't get that in the generic one, right? Well, I could write that. But yes.  Now I wonder if somebody, HCC says they won't, but if somebody at some point will extract
+
+Speaker: SPEAKER_03
+Transcript:  the relevant code and make it available. Well, they should be doing what they did with the  extracting them Facebook thingy so that I can write it on here. Right. I'm now having crows
+
+Speaker: SPEAKER_02
+Transcript:  come out of my phone. I don't know. I must have accidentally recorded some of Kevin's audio.
+
+Speaker: SPEAKER_03
+Transcript:  What the hell is that? That's excellent. I actually need to do that because I've got  the Twitter app that uses bird chirps to let me see how much time I'm going to tweet here.  But I need different sounds for at replies and direct messages. I need some crow noises for that.
+
+Speaker: SPEAKER_00
+Transcript:  I don't know what this is. That would be a good text message sound. I'm going to just reboot. I
+
+Speaker: SPEAKER_02
+Transcript:  can't. I have no idea why my phone is making that sound. I can't stop it. Now. I mean,
+
+Speaker: SPEAKER_00
+Transcript:  you kind of change my mind. I don't know. I still I like having the kind of the vanilla  Android experience. It's fine. That's what it was. It was fine. Yeah, that makes sense. Yeah.
+
+Speaker: SPEAKER_01
+Transcript:  That's why I was looping. Oh, well, one way to kill fine. Reboot your phone.
+
+Speaker: SPEAKER_02
+Transcript:  I think you're right. You know, the good news is both the Galaxy S4 and the HTC One are excellent.  They're neither perfect, but both are excellent. And we're seeing and we're going to see more.  We're not done. Yeah. I can't wait to see this Motorola X phone. This has the potential of
+
+Speaker: SPEAKER_03
+Transcript:  really being something, I think. No, I think that's I mean, that is the transition that's  fascinating is that Android is now the world's dominant operating system. And that's a strange  thing, but it is true. And that's the thing that is going to drive a lot of thinking in development
+
+Speaker: SPEAKER_02
+Transcript:  over the next couple of years. Although a little depressing that according to the platform version's  web page at Google, 33% of Android users are using Jelly Bean. 36% are still on gingerbread.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. That is a significant difference. But those numbers are moving in the right direction.  Yeah. Yes. Yeah. Yeah. I mean, they're bigger than ever. Yeah. 4.0 and up.
+
+Speaker: SPEAKER_02
+Transcript:  That's relevant to you as a developer. I mean, you have to pay attention to that because...
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, absolutely. And look at Vine. It just came out for Android. It's 4.0 and up.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. It has to be. I think that's only fair. I've actually tried Android Vine yet.  Are you pouring yourself a cup of tea? I'm pouring myself a cup of tea.  Let me make a vine out of that. That would be fabulous.  I have mixed feelings about Vine. This is much like when Instagram came to Android, right?  And all the Instagram people said, oh no. Oh. And the Vine people are doing kind of the same thing.
+
+Speaker: SPEAKER_03
+Transcript:  The nice thing about Instagram on Android is at least you can see the photos. If you try and run  it on an iPad, you get this little tiny thing in the middle that looks like that. So, yeah.  $750 million and they still can't make an iPad version of the app. It's pretty weak.
+
+Speaker: SPEAKER_02
+Transcript:  I don't buy into the fragmentation issues with Android, but it is fragmented.  I mean, it is really all over the map. It's fragmented, but the layout engine is better.
+
+Speaker: SPEAKER_03
+Transcript:  iOS is fragmented now. iOS has six different screen sizes. It has two you can't tell apart  at all because you can't tell the mini from the two. But when you download an iPhone app on an iPad,  it just feels wrong. It feels like you're doing it wrong because they give you the black borders of  death or they give you everything zoomed up looking ugly. But also, the mental model of the  two is very different. So, with iOS, you've got a little tiny thing in your hand that is really  small when you operate with your thumb, or you've got this gigantic thing that you sit down to use  because it's too heavy to hold up for more than 15 minutes. And they've only just now come up with  the intermediate, this sized one that is actually the good form factor. And they haven't made that  fluid yet. So, you're still running apps that were designed for something that's twice the size,  and the buttons are all a little bit small on that. Or you're running the iPhone ones and  the buttons are too big. They haven't got the fluidity. Whereas with Android, because they were  all multiple different sizes to begin with, the app developers had to deal with it and the layout  engine was designed to deal with it. Whereas in iOS, everyone said, oh, there's only one size,  oh, there's only two sizes. And now there's six sizes and 12 if you count them rotated to portrait  and landscape. And the app developers are banging their heads against the wall and the tooling isn't  there. But also, the more pernicious thing was the design sense that you build a mobile version,  in fact, to the web as well. You build a mobile version of the app or you build a desktop version  of the app. And the iPad gets the desktop version and the phone gets the mobile version,  which makes sense on iOS, but didn't make sense on Android. And we had to suffer for a long time with  using a decent size Android. But you go to the Guardian and you get this narrow column of type  in the middle, because they assume if you're on a mobile, you must be on an iPhone. And therefore,  you can't read more than eight words a line and things. So there's been this weird dichotomy  that because everyone who does design uses Apple stuff, their worldview of mobile was through that  filter of there are little tiny things, there are gigantic, great big things, and nothing in between.  And it's taken a long time for the actual reality of Android to work its way through to the design  community and the way they're used. And that's happening now. We're starting to see it now,  but there's still this sort of weirdness of the presumption is you've either got something really,  or something that's got a really big screen and not this fluidity between the two.
+
+Speaker: SPEAKER_02
+Transcript:  And really, the way it's becoming in the Android world is there's every half inch, there's this  device that, you know, from the G4 Mini to, you know, all the way up to tablets.
+
+Speaker: SPEAKER_03
+Transcript:  But the thing is, you know, if you've got something this big, the difference between holding it here  and holding it here is quite significant in design terms, in visual design terms.  Closer versus farther.  And that depends a lot on what your eyesight's like. If you've got Presbyopia, you cannot focus  closer than here, and you have to hold it that far away. So using an iPhone 5, if your near point  is the length of your arm, it's actually quite hard. Whereas with Android, you've been able to  buy something with a bigger screen to hold further away. So they've missed a big chunk of
+
+Speaker: SPEAKER_02
+Transcript:  affordance there for a lot of people. I'm very interested in what Apple's going to try to do with  We'll find out presumably next week.
+
+Speaker: SPEAKER_03
+Transcript:  I'm assuming next week that we'll get some, you know, they're not stupid. They'll have been  working on this. They'll be thinking about this. They'll have some new way of doing layouts and  apps. But it's definitely needed. Because certainly on the web, you know, we've got responsive design  methodologies that work for this now. On Android, we've had the app layout stuff and, you know,  the ability to add extra layouts so that you can do tablet-y things if you've got a tablet. But  at least the thing will scale up. But on iOS, it has been fixed layouts for each type. And that's  the development. What a lot of developers have done, have written their own layout code  rather than using the built-in interface builder springy things because  getting them to behave well was quite hard.
+
+Speaker: SPEAKER_02
+Transcript:  That's always bad. By the way, Sundar Pichai, when he did announce the HTC One Nexus version  at All Things D, he also said, but we're still going to make hardware. So, and I presume that's  under the Motorola brand. And everybody does seem to agree that there is a Motorola X. I think  Motorola said there is one, right? Vine came out, as we mentioned, for Android. And that means now  there are 13 million Vine users on the two platforms. This is very similar to what happened  with Instagram where they built it and built it and built it on iOS. And then as soon as it got,  you know, as big as it could get, then they released an Android version and then it took  it to the next level. Android's become the booster rocket. A million new users in 12 hours.  Actually, that was Instagram. A million new users in 12 hours. I imagine Vine, we'll get the numbers,  you know, this is only a few days ago. But I imagine Vine had something similar. I know,  I downloaded it. Did you install it immediately? You did, right? I did. I did install it. Although,
+
+Speaker: SPEAKER_00
+Transcript:  I have to say, I lost a little bit of my, you know, when it first got released, there was a  novelty to it. I was seeing other people's Vines. I was really kind of jazzed and excited and bummed  that I didn't have it on Android. And now it's been so long and I was kind of like, oh yeah, this,
+
+Speaker: SPEAKER_02
+Transcript:  whatever. We are fickle, aren't we? We are so fickle. OMG Pop came out with Dress Something too and  then Zynga, by the way, Zynga closed the office. They're done. Paid $180 million a year ago for  Dress Something and OMG Pop. Out of business. Unbelievable. And it's weird because they're
+
+Speaker: SPEAKER_03
+Transcript:  saying they're focusing on mobile and that was, what was that group supposed to do for them?
+
+Speaker: SPEAKER_02
+Transcript:  That was a mobile hit. Yeah. That was very strange. Very, very strange. iOS will be getting  Google Play Music and all access streaming soon. Next couple of months or next few weeks,  I should say. That's interesting. It is interesting. There was no Google Music.
+
+Speaker: SPEAKER_03
+Transcript:  No longer blocking them from doing that kind of thing is encouraging. That's good news.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, this is the kind of thing. Well, I wonder, I think that Apple probably would like to,  but, you know, they've been slapped around. What was it they blocked?
+
+Speaker: SPEAKER_03
+Transcript:  It was Latitude originally that they blocked FTC Judgment and then and possibly Voice as well.
+
+Speaker: SPEAKER_00
+Transcript:  Right. And now there's a third party client, G Music. Yeah, it's okay. It doesn't work very
+
+Speaker: SPEAKER_02
+Transcript:  well. It's not great. I want Google's, I want, I want Google Music. Google now has a fairly solid
+
+Speaker: SPEAKER_03
+Transcript:  iOS team who I'm sure deliver something nice. So that's good. Yeah, the iOS apps are the best apps
+
+Speaker: SPEAKER_02
+Transcript:  on the market for both iOS and in some cases much better than the Android versions of the same apps.  They obviously like their iPhones. Google put the kibosh. You nailed it, so to speak,  Gina. The first person point of view sex sites. Shortly after Gina announced that this would happen,
+
+Speaker: SPEAKER_00
+Transcript:  I read a story from a third party. She wasn't shipping an app. I wasn't participating in any of
+
+Speaker: SPEAKER_02
+Transcript:  this. My Candy created a mobile app store for adult content on Monday in which they encouraged  people to upload. So few people have glass. I don't know if this is really going to work.  Upload their first person sex videos and pictures while wearing glass.  And Google wastes no time in banning it. They announced that Glass's terms of service do not
+
+Speaker: SPEAKER_00
+Transcript:  allow erotica. No sexually explicit content. Although any device that connects to the internet  and also does live streaming and takes photos and video. Like there's plenty of sexually  explicit content that's being communicated over glass. They're just saying no to apps  which are geared toward that. And violence, bullying, hate speech, deceptive behavior,
+
+Speaker: SPEAKER_02
+Transcript:  gambling and outright illegal activities. And facial recognition. And they said we will never  do facial, I'm sorry, until protections are in place we will not do facial recognition.  We're not doing facial recognition.
+
+Speaker: SPEAKER_03
+Transcript:  Facebook does facial recognition. The cast does facial recognition. Google Plus does facial  recognition. The camera apps on our androids do facial recognition. That's how they can decide  whether you're smiling or not. Vic just gave us an hour on how wonderful it was last week before  last. So to say oh we're not doing facial recognition, it's got to be a snow job in some  sense. I really don't get this. So what have they actually banned? Also you can't write a  facial recognition app with what they've released at the moment because you have to send things  offline anyway. So they can't police what you've done once I send a photograph off to something
+
+Speaker: SPEAKER_02
+Transcript:  else. Facebook will just do it for me. That's a very good point. I think that they just want to  dodge the bullet. At least for as long as they can. Well back in 2010 when they first did goggles.
+
+Speaker: SPEAKER_03
+Transcript:  Same thing. They said we won't do face recognition. Tim O'Reilly had got a version that had face  recognition built in. He was running an alpha of it for them and talked about this and then  that disappeared after he mentioned it. I think they're terrified of...  I remember Eric explicitly saying that crosses the creepy line but that is the useful thing.
+
+Speaker: SPEAKER_02
+Transcript:  Maybe you and I are just the most forgetful people in the world but that's to me that's  the number one reason I want class. We're old. That's Kevin Marks. Ah thank you. Ah hey Kevin
+
+Speaker: SPEAKER_03
+Transcript:  how are you? This is why we wear name tags at conferences. That's great. Well Scoble wrote an
+
+Speaker: SPEAKER_02
+Transcript:  article saying it doesn't matter because the issue isn't so much the recognition. The issue is  I'll figure out who it is whether it's from a name tag or some other way. The real thing is looking  that person up and getting the facts about that person. So I would think it'd be nice to eliminate  that initial step of how do I get that person's name but I can understand why from a privacy point  of view. They're worried about and Gina you should speak to this about stalkers and creeps.
+
+Speaker: SPEAKER_03
+Transcript:  So you know there's facial recognition. It needs a pool of faces to look at. So the way the facial  recognition works well at the moment is explicitly with Picasso and with Facebook which is like this  is that person you already know. Picasso works well because you take lots of photographs of the  same person and it will go oh that's Kevin. Okay those are all Kevin. And you go yeah they're  mostly me except that was Andrew and we look too similar. It still does that. That one is a
+
+Speaker: SPEAKER_02
+Transcript:  donkey and I don't know why it's in the list. Okay I got that from G Plus last week where it was
+
+Speaker: SPEAKER_03
+Transcript:  saying this is you. It's like no that's my son but well done. That's good. Yeah that's good. Is the
+
+Speaker: SPEAKER_00
+Transcript:  issue a liability thing? Like I remember when Twitter launched location attached to tweets. I  went I was at the Chirp conference I feel like this back in like 2010. Ryan Sarver was on stage  and he said that they basically they would fuzz the location after a certain amount of time. They  stopped doing that at some point but the issue was like if Twitter knows that someone is in  a particular place at a certain time that they could potentially get subpoenaed or get a warrant  for that. So like so if you know so if I'm out and about in public and I'm not I'm not broadcasting  that information but someone else has glass and recognizes me. Now Google has knowledge that I'm  in a location right without me sharing that knowledge right. It's like me as someone else.  I mean I guess that works with you know surveillance cameras right. But maybe we're in private.  Maybe I'm in a bathroom. Maybe we're in my home. That would be an issue right. So that's already a
+
+Speaker: SPEAKER_03
+Transcript:  problem. That's how Paris Hilton and Gorka you know make their living is by people taking
+
+Speaker: SPEAKER_02
+Transcript:  photographs of things people in public. Dr Mom in our chat room says well it raises issues. What if
+
+Speaker: SPEAKER_00
+Transcript:  you walk into a doctor's office. Well right or a therapist waiting room or I mean the glasses  are not just in public places right. I mean we're in sort of semi-private or places where  there's some sort of expectation of privacy like bathrooms or a doctor's waiting room or a few.
+
+Speaker: SPEAKER_02
+Transcript:  Right now if you walk down the street there's no legal prohibition in place for me saying oh  there's Gina. I just saw Gina. She's right outside. That I mean they can't stop that. It's not illegal.  And then and I don't maybe now I have assumed you raise an interesting question because maybe  there is an assumption of liability for me tweeting that and if something bad happens to you  am I liable. And maybe that's what Google wants to avoid. I think you might have been.
+
+Speaker: SPEAKER_00
+Transcript:  I wonder if that's part of it. You know I mean when you know they're tracking down criminals they get  easy path information credit card information public surveillance cameras information. But if  does Google knows that someone was in a certain place or like that had facial recognition in a  certain place you know is that information. Somebody on Twitter. Well Bruce Schneier just
+
+Speaker: SPEAKER_03
+Transcript:  wrote a good article on this and what the FBI is asking for. I don't know if you saw that.
+
+Speaker: SPEAKER_02
+Transcript:  I love Bruce Schneier. Whatever he says I agree with. But he was he was saying the FBI are trying
+
+Speaker: SPEAKER_03
+Transcript:  very hard to put in back doors into everything so that they can potentially run you know audio  recognition image recognition text recognition over all the stuff we're sending. Which is you know  it's clipper all over again. If you're old enough to remember what that is now it's a card I use on  the train. But in the 90s that was what got the EFF in the first place. And that you know the  notion is back that oh the internet is taking away our ability to intercept things therefore we need  to build in back doors. And the answer is no you don't. You need to we need to have some friction  that stops you getting back doors. But guess what if you get a subpoena you can probably get access  to a lot of the stuff we have and then run facial recognition over it. But you need that ability to  get a warrant. You don't you don't want to feed everything that anyone ever does into a giant
+
+Speaker: SPEAKER_02
+Transcript:  database the NSA that can then be compromised. Well and that's the issue that Bruce raises is  that any any compromised security system is vulnerable. Yes. Just because you put you know  the FBI can't have it both ways. You can't open it up to them and then say but it's secure for  everything else. Right. He's writing enough. It's on his blog but he wrote it originally for the
+
+Speaker: SPEAKER_00
+Transcript:  foreign policy. Yeah. Yeah. When it comes to for glass though I mean I think when it comes down  to it is glass is a serious PR problem. Yeah. Right. People think it's creepy. People misunderstand  how it works. Thanks to Robert Scoble. Right. Partially thanks to Robert Scoble. Larry Page  really wanted to blame him. You could tell. You know was the first to say like look like I you  know they're not on all the time. He's been trying to sort of debunk all the myths although  yeah that shower photo didn't didn't help. This is but Google banning sexually explicit content  and saying that they're not right on facial recognition and even really not wanting to talk  about the wink gesture. This is them just being extremely protective of a very new early platform  and just trying to shield themselves from any you know saying you don't wear it while you're  drive like the laws don't exist yet. So just don't do it. And you know until the laws catch up  they're just being extremely protective and they don't want to they don't want glass to take any  more things than it's already taken in the in the creepy zone. Yep. Yeah. Yeah. And I think
+
+Speaker: SPEAKER_02
+Transcript:  they're probably right to be prudent although I would love to see them loaded up. Let's get it all.
+
+Speaker: SPEAKER_00
+Transcript:  I would love that. Yeah. Just just turn on just do the whole thing. Yeah. Unfortunately you know
+
+Speaker: SPEAKER_02
+Transcript:  this is we live in a real world where you have to compromise and there's and there's you know it's  politics. It's that's the way it is. It's the way it is. Hey let's take a break and come back. We  can do our tip of the week if you have a tip or anything you'd like to share with us Kevin. Jeff  usually does a number so if you want to find a an interesting number go right ahead. As we continue  with this week in Google our show brought to you today by our friends at 99 Designs. Somebody just  wore our new t-shirt in here on Sunday and I loved it. It was so beautiful. We got it done on 99  Designs which is really cool. It's a marketplace that brings these great designers together  worldwide over 200,000 designers together with people who need design help and that's a lot of  us face it. You know you may be a great programmer or web you know content creator videographer but  you know you may not have a great eye for design. Get together with a great designer and everything  falls into place. 99 Designs connects you with those great designers. You tell them what you need  dozens of designers from the 99 Designs community will submit their designs for you. You give them  feedback you iterate you pick the design you want and then you pay for your favorite. 24 7 customer  support over phone email and chat complimentary design consultations with their San Francisco  design team for all your branding needs. Look at these are all the twit designs we got. The one we  the winning design is that one right there although I have to say we may use others of them. They're  really beautiful. 100% money back guarantee and the prices are right too. Logo design starts at  299 bucks web design at 599 bucks. Digital marketing collateral like landing pages or Facebook  covers banner ads infographics 199 dollars and up. Print marketing collateral like flyers menus  brochures labels greeting cards 199 dollars and up. T-shirts like the one we did 199 dollars.  Even mobile app design we're working with them on a mobile app idea we have. It starts at 599.  99designs.com start right now to get your own custom graphic design. If you visit 99designs.com  slash twig you'll get a 99 dollar power pack of services for free. A power pack gives you more  designer time and attention. 99 Designs will bold highlight and feature your design project  in the 99 Designs marketplace and you'll get nearly twice as many designs.  99designs.com slash twig or we have a special number for you 800-513-1678  800-513-1678 99designs.com slash twig. I got 99 designs and a t-shirt ain't one.  Or something. T-shirt is one. The t-shirt one. T-shirt one. Gina Tripani you got a
+
+Speaker: SPEAKER_00
+Transcript:  tool for us? I got a tip. A tip brother yes. Yeah yeah I've been suffering from a little bit of  twitter overload. I'm following almost a thousand people and I know I know I still have that  completest thing. I don't try to read all my tweets but I find that I just sort of look at my all the  tweets flying by and I go I go slack-jawed and I don't get work done. But luckily twitter just  announced that they're supporting other expanding their list support. It used to be limited to I  think only 20 people per list and only I have 500 lists per person. They've expanded that now.  You can you can make up to a thousand lists and you can have up to 5,000 users on each list. So  lists are a really good way to like keep to dip into a stream of people tweeting about a certain  topic or related in a certain way without necessarily following them and have them  them clutter up your home timeline all the time. So I know lists is kind of an under underrated  feature that people don't really talk about very much but I really like lists. I have several  private lists. I have a couple of public lists and I think I'm going to break out some of my  my friends into into lists or the people I don't really maybe know personally or just kind of want  to dip into a list separately. I think I'm going to do that. So go ahead and go crazy make some lists.  Prune your follower your follower list if you want like I am and you'll be able to do that now.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah I think lists are really of a greater benefit to other people than they are to you.  You're giving a contribution. I for instance also if I want to get tech news instead of looking at  my stream I'll go to Robert Scoble. He has a list of tech great you know big thinkers. He has  startup a bunch of lists. He really made a lot of lists. You just click that button and now you're  only seeing the people in that list and it's a great way to really customize Twitter as you said  temporarily. So make lists because it's useful to your friends and family and followers.  Yeah keep them public at least right because yeah if you have groups of people like we could
+
+Speaker: SPEAKER_00
+Transcript:  make Googlers lists or yeah we could make you know hosting guest lists. But yeah lists are really  great. It's true because there's a public signal it's a public way of kind of categorizing other  people but then it also helps people kind of check out who you're curation. You're doing some
+
+Speaker: SPEAKER_02
+Transcript:  really valuable curation for everybody else. Yeah. Yeah. Mr. Kevin Marks our number of the week.
+
+Speaker: SPEAKER_03
+Transcript:  Well my number of the week is 62 percent which is the percentage of patent cases that were patent  trolls in 2012. What? 62 percent. 62 percent. Now this is tied into this week's patent fascinating  patent news. So there's been a bunch of patent stuff going on this week. There were both  Planet Money and This American Life did patent shows this weekend. They've done a great one on
+
+Speaker: SPEAKER_02
+Transcript:  patent trolls a couple of years ago. That was just wonderful. Yeah so This American Life was a follow
+
+Speaker: SPEAKER_03
+Transcript:  up to that. They did a follow up to that and they talked more about the case and about intellectual  features and then because the case had actually settled and someone had defeated the patent  and therefore not signed an NDA they were to disclose the details of this thing they talked  in the first one. So the Planet Money one indeed This American Life one if you haven't heard that  before let's do that again. But the Planet Money one was particularly fascinating for people  listening to watching this which was about the podcast patent which Leo tweeted out about the  EFF hoping to try and take this down last week and people were donating money to it and they've now got  a huge amount of money. I'm so glad they did that. Julie said they had 65,000 this morning  they're gonna hang out about this which is good. That's Julie Samuels who is the Mark Cuban Chair
+
+Speaker: SPEAKER_02
+Transcript:  for ending stupid patents. Thank you Mark Cuban for endowing that share. $67,000 donated from  $1,165. They were looking for $30,000. They made their goal in 10 hours. By the way when I saw it  and that was just a few hours in I immediately gave them $2,500 because this is going to this  potentially could save us a lot of money in litigation. Well but if you haven't listened to
+
+Speaker: SPEAKER_03
+Transcript:  the Planet Money one you should listen to that because they actually found the guys who filed  the patent and interviewed them and you know talked through what they were doing and it was
+
+Speaker: SPEAKER_02
+Transcript:  it was clear. Were they justified in their mind? In their mind they were but they were the weird
+
+Speaker: SPEAKER_03
+Transcript:  part so the thing is that you know the test for a patent is this obvious to someone who understands  the field and what was completely clear with this interview was they didn't understand the field at  all. They were making cassette tapes that they were mailing out to people that recordings of things  and they thought oh we should do this on a computer somehow and they wrote this like  rambling spec that doesn't make any sense and then turned into a patent rather than a product  and that and then didn't touch you know the idea of audio remote audio for 15 years and then said  oh we have a patent on this let's go and take everyone down. So the patent you know the patent  is is laughably defeatable I think you know. Well so what EFF has decided to do at least with this
+
+Speaker: SPEAKER_02
+Transcript:  particular podcast patent there's a number of ways you can you can defend it of course you can go to  court and that's a little risky and very expensive millions of dollars or you can do something called  an inter partes appeal where you go to the patent office and you say hey look here's all this prior  art or here's why it's obvious or trivial and then the patent office has the will re-examine  and if you're if you're proven to be accurate in your assessment we'll throw out the patent  and that throws out all of the cases immediately. So if you go to EFF.org and and look at this they  have a link to the stack exchange ask patents where they're showing you what the patent in this
+
+Speaker: SPEAKER_03
+Transcript:  particular patent we were talking about and the particular claim that they're trying to claim 31  which is the key claim. Yeah it is basically you know go for invalidate sit FTP invalidate  sit it's you know there is a list of things on the internet and you can download some of them  and the list may change over time. So this is kind of neat because they've got 65 people and I would
+
+Speaker: SPEAKER_02
+Transcript:  encourage you if you have expertise in this area you know have some history it needs to be something  that was done before 96 1996 add to the comments here and people lots of people showed up with  with prior art so now it's up to EFF to spend that 65 000 to organize a challenge and bring it to the
+
+Speaker: SPEAKER_03
+Transcript:  USPTO. But the other part of this that is also fascinating is that the cultural  storytelling is really important this is why Planet Mali and Life are valuable. Yeah.  Because you know we've had this classic pattern narrative for you know 100 years which is there's  a lone inventor in his shed who comes up with this brilliant idea and needs protection from  malicious corporations who would try and steal it from him and this is you know that that is the  cultural narrative of invention that's what the patent system is designed to defend and we have  movies and all kinds of things that show that worldview and that stopped being true sort of 40  years ago because and it became massively obviously untrue in the last 10 years because  if you invent something now what you do is you build it and you take it out there and show it  to people and the the corporations don't have the ability to stop you from showing to people anymore  because we have the internet but also you can you can share the the primary purpose of the patent  office was to get people to disclose inventions rather than keeping them secret so that other  people could build on them right and it no longer serves that primary purpose. So what about what  the white house software would think of looking in the patent database for an algorithm because  we have github we have google we have stack exchange we have you know the universe of the  internet which was built for information sharing by you know by physicists to share their data and  is now used to you know share how we do things we've built the culture of open standards which  the web is built on where you explicitly have to say there is no pattern on this or you get thrown  out of the doi3c or you have to say i will license this reasonably we get thrown out of the itf  and we have the open source world where you're explicitly saying i am giving this code and you  can reuse it and that's so we've now built this disclosure model where every that voluntary  disclosure model that actually builds the infrastructure that everything that we use runs on  and you know with android being the dominant operating system that now means that we have a  operating system that is built on this culture chrome is a dominant browser and the second  place one is firefox so we have a plurality there where and yeah and the other one that's ranking  there's ie which is still closed and then there's um safari which is bottom-up which is all over  second source so you know the we now have the priority one pleading with people to  make sure they support the standards so that they work too so we've we've won in the in the web world  completely and the computer world and all the stuff we use and talk about on this show  is built on this shared culture of of disclosure and competing with each other on what you're  building not on how you build it or how you know what your infrastructure is and the patent office  is stuck in the in the 18th century 19th century with this presumption that you take to the  government office and file it and that gives you a monopoly and that's the value and so what what's  happened is the people who are doing this patent trolling tend to be the people who weren't very  good inventors they didn't make something very smart or they didn't tap into this culture  and instead they wrote down a patent um and you know filed it and then didn't make a company and  disappeared off and did something else and so both the examples in the planet money show and in the  this american life show are inventors who fit that model they they came up with an idea it wasn't  particularly well thought through they clearly didn't investigate what else was going on but  they wrote a patent up and then you know 15 18 years later they start no somebody else encouraged  them to start a lawsuit because someone has had a similar idea and they think that that their  particular bad implementation of something is is is the same thing which it clearly isn't so that's  and the the problem is that that previous cultural narrative of the lone inventor whose idea was  stolen is still there but we we now have a nice counter narrative of the rapacious patent troll  who is now trying to steal innovation and take it over and the irony is that that that metaphor  was invented by one of the guys who's now a vp at intellectual ventures though really that's in this  american life i'll have to listen but but the one that got me was that the white house doing a um  yeah gene sperling having an animated gif of a giant troll attacking people the way it's really
+
+Speaker: SPEAKER_02
+Transcript:  taking this on and actually i'll give a little credit to a lady aida lemoore freed of aida fruit  industries because in a hangout with the president a few months ago she asked him about this yes and  he talked a little bit about it i guess it was in february and now just a couple of days ago the  white house issued um well posted this article on whitehouse.gov released a study that documents the  toll that patent trolls take on innovation some executive actions i don't know how effective they  are i'm not an expert on this stuff and they're asking congress to take some legislative action  as well to protect innovation i think it's really good at least the leadership coming out of the  white house i hope i hope it's more than just words that it can make a difference in all this  because according to this post by gene sperling sperling on the white house.gov site 62 billion  dollars that would have otherwise been invested i'm sorry 29 billion dollars that would have  otherwise been invested in innovation was paid to patent trolls in 2011 and that's a 400 percent  increase from 2005 so that's a big cost and look at the number of patent troll cases yeah you know  the patent trolls will will dispute it they'll say we're not trolls what are you talking about
+
+Speaker: SPEAKER_03
+Transcript:  we're just defending the little guy now this is partly in effect of the american vince act which  made it harder to do a giant class action so you used to be able to say i'm going to do a suit  against everyone who infringed this now you have to file the bill so that's creating more cases and  that's that's revealing this and it's starting to come up the court system and so the judges  are now getting crossed with these this abusive process which is good it's making that abusive
+
+Speaker: SPEAKER_02
+Transcript:  process visible well let's hope let's hope because it it does clearly take its toll on  startups on innovation and invention so much is done i was talking i was talking to the swift key  guy yesterday and samsung uses a swift key keyboard on their samsung but it doesn't have all the  features of the downloadable swift key because samsung's afraid of getting sued and you see this  over and over again yeah where companies just don't do the best they can because they're so afraid
+
+Speaker: SPEAKER_00
+Transcript:  of these suits that's a bummer isn't that sad yeah yeah yeah yeah users get yeah that's thanks
+
+Speaker: SPEAKER_02
+Transcript:  thank you kevin marks you're the greatest i really appreciate your being here jeff jarvis will be  back i think next week and if not will you come back i'll come back i love having you on thanks  yeah with you and your crows your black crows bring them back uh thanks also to jeanot rapani  who was of course a regular on the show at smarterware.org that's her blog think up.com  that's her software uh to do text.com that's our other software new update this week go get android  ad play store yay new widget i'll download i'll download excellent thank you for joining us we do  this week in google every wednesday afternoon 1 pm pacific 4 pm eastern time 2100 utc on twit.tv  watch live please please we love it when you watch live but then you should also download the show  so you can listen again and again again we uh we're available on demand at twit.tv slash twig  and wherever podcasts are aggregated like itunes that's always a good place to get this thanks for  joining us this week and we'll see you next time on this week
+
