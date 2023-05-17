@@ -1,0 +1,1009 @@
+;FFMETADATA1
+title=Building My Beaver Dam
+artist=Leo Laporte, Alex Lindsay, Andy Ihnatko, Jason Snell
+album_artist=TWiT
+publisher=TWiT
+album=MacBreak Weekly
+TRDA=2023-05-16
+track=870
+language=English
+genre=Podcast
+comment=<p>App Store Fraud, M3 Pro Macs, Apple Leakers</p>\
+
+encoded_by=Uniblab 5.3
+date=2023
+encoder=Lavf58.76.100
+
+Speaker: Leo Laporte
+Transcript:  It's time for MacBreak Weekly, Jason Snell's back, Andy Anakos here, Alex Lindsey too.  Apple says we stopped billions of dollars of fraud in the App Store.  Maybe there's a little subtext there, we'll examine that.  TSMC is now completely bought up by Apple, 90% of their capacity for the year.  We'll talk about that and what that portends for June 5th and WWDC.  That and a lot more coming up next on MacBreak Weekly.  Podcasts you love.  From people you trust.  This is TWiT.  This is MacBreak Weekly, episode 870, recorded Tuesday, May 16th, 2023.  Building my Beaver Dam.  This episode of MacBreak Weekly is brought to you by HelloFresh, America's number one meal kit.  Get farm fresh, pre-portioned ingredients and seasonal recipes delivered right to your doorstep.  Skip the grocery store and count on HelloFresh to make home cooking easy, fun and affordable.  Go to hellofresh.com slash macbreak16, use the code macbreak16 for 16 free meals plus free shipping.  And by Miro.  Miro is your team's online workspace to connect, collaborate and create together.  Tap into a way to map processes, systems and plans with the whole team.  Get your first three boards for free to start creating your best work yet at Miro.com slash podcast.  It's time for MacBreak Weekly, the show we cover the latest news from Apple as we get prepared for  WWDC, just a few weeks off.  All we've got is rumors, cavills and tremors.  Mr. Jason Snell visiting from his home in beautiful Marin.  Did you have a nice time with mom on Mother's Day?
+
+Speaker: Jason Snell
+Transcript:  I did. I did. It was well for her birthday.  She is the unlucky type who has her birthday right around Mother's Day.  So she always gets the two-fer, but it's nice.  And yeah, we had a nice time.  Of course, Apple announced, you know, final cut, as you know, final cut and logic for the iPad  on her birthday. Happy birthday, mom.  I had to explain her what those were.
+
+Speaker: Leo Laporte
+Transcript:  Did you have to write a whole bunch of stuff that day?
+
+Speaker: Jason Snell
+Transcript:  I wrote about 2000 words that day, but it was while she was doing something else.  So it was, it worked out, but it is, I feel like Leah, the log jam is breaking a little bit.  We're getting the, this week was a clear the next week for Apple where I was like,  okay, let's get some stuff out there that we're not going to spend any time on in June.  So that's nice to have a little bit of news at least.
+
+Speaker: Leo Laporte
+Transcript:  Yeah. Well, we'll get to that in a moment.  Welcome back, Jason. We missed you.  Thank you.  And we did, you don't have to talk about the iPad version in fact, final cut. We did.  Thank you. Extra thank you.  Andy and I go here from WGBH in Boston from his home in New England. Hello there, New England.
+
+Speaker: Andy Inhatko
+Transcript:  Hey there. Hi there. Hello there. Yeah. You got to see as soon as I saw like the,  the news that dropped this morning, I was like, oh, some product manager probably like  bought like a new shirt or something or new shoes because they were in the keynote up until like  three days ago. And then, yeah, you know what? You got cut. We're going to do you as a press  release on Tuesday. Hey, but if you stay in your office, we'll let you do like a  day's worth of briefings with the media. Oh, oh, oh.
+
+Speaker: Leo Laporte
+Transcript:  Also here from the beautiful office hours dot global and 090 dot media.  Alex Lindsay. Hello, Alex. Good to see you. Good to see you.  So I'm sorry. Did Apple drop some news this morning? You scared me, Andy.  A little bit.
+
+Speaker: Andy Inhatko
+Transcript:  Yeah, it was, it was, it was more, it was more of a flex. They, they, they, they dropped a press  release. Okay. Actually the two things, uh, the one, the, the, the one that I'll mention is that  they, a press release mentioning it. Hey, we save, we prevented over $2 billion worth of fraud on the  app store. Gosh, I wonder, I wonder if the fact that you can't sideload apps has anything to do  with the fact that we're able to prevent people from being victims of fraud in the, well, I don't,
+
+Speaker: Leo Laporte
+Transcript:  that's not for me to say, I'm sure, but hey, it would be a shame if you would have to let that  fraud go through. They also terminated 428,000 developer accounts for potentially fraudulent  activity. 105 million fraudulent developer account creations blocked. 282 million fraudulent customer  accounts deactivated and 1.7 million app submissions turned down. Uh, some of them is probably  fraudulent, but yeah, exactly. You know, we don't like about it, you know, so, uh, 400,000 app  submissions rejected for privacy violations. Okay. 150,000 app submissions rejected for spam.  Copycats are misleading users. Copycat can include a copying software that Apple provides  and nearly 29,000 app submissions rejected for containing hidden or undocumented features. That's,  you know, for the most part, I'm sure that's good. Sure. That by the way, does not add up to 1.7  million. There's still more than a million apps that we don't know why they were rejected.  And that's kind of the state of the app store. Um, all right, good for you, Apple. You're right. It  is a little bit of a, Hey, you know, they are going to have to, though, this summer, they're  going to have to do what the EU wants them to do. And the EU at least, they'll have to offer  sideloading, right? I mean, that's not, that's not, it's the end of the year, isn't it? Or is
+
+Speaker: Alex Lindsay
+Transcript:  it the summer? Yeah, it's the end of the year. Okay. But it's not stories that they're, they're
+
+Speaker: Jason Snell
+Transcript:  building it into the O S but it won't be anything they announce yet. They're just working on it
+
+Speaker: Andy Inhatko
+Transcript:  behind the scenes. Yeah, I'm sure. I'm sure they've got crews of, of engineers working  around the clock to make sure they've got exactly compliance without creating a feature that  anybody would ever want to bother to actually use that takes finesse. And I'm sure they're
+
+Speaker: Leo Laporte
+Transcript:  investing all the manpower they want. I'll be honest, they should just go ahead and do it because  no matter what they do, people at 99% are just going to keep using the app store.  Most people are not going to sit, you know, and so what are they worried about Epic or somebody
+
+Speaker: Alex Lindsay
+Transcript:  saying, Hey, come here. Well, I mean, as the, as again, as the advocate for the user,  I would say that the thing that I'm concerned about is that you have a Facebook or you have  somebody else or someone says we're only going to release stuff on this new one, which means that  as a user, I, you know, I now have to jump out if I want to use it's large companies going down the
+
+Speaker: Jason Snell
+Transcript:  path for almost anybody but the most committed user to something like face. Do we really think  that Facebook, cause keep in mind, Apple's going to make everybody jump through a bunch of hoops  and have that dialogue box that comes up that says, if you do this, you may die. And then you say,  yes, just to get Facebook. I don't, I can see it for maybe for something like steam or the Epic  store or something like that, that they might be able to talk people through it. But most people  are going to get to that wall and they're going to be like, no, I'm not going to do that. I'd love
+
+Speaker: Leo Laporte
+Transcript:  to put steam on my iOS devices. That's a good, that's a good example. And I think steam users  would probably do that, right? Cause they want steam regardless of what hoops Apple provides.  Is that a huge detriment to Apple? I mean, is that like, Oh my God, this is the end of the world for
+
+Speaker: Alex Lindsay
+Transcript:  Apple. If the steam stores on Apple, I guess the biggest hope will be whether they fork it or not.  If they just fork it and say, if you're in the EU, you can only, that's that'll devastate the store.  You'll never get a much on the side loading. If, if Apple says, well, the EU said we had to do this.  And so we'll only do it on EU phones. I don't agree because once they engineer it and it's known
+
+Speaker: Jason Snell
+Transcript:  to exist, you've provided a template. I keep thinking about this. And I think the way it works  is if they do something, cause that's the story that we've, I think talked about before that they  may be readying this with some very specific system features that basically detect where you're  from and only enable it in certain circumstances. But I will say once it happens there, every other  regulator can look at that and say, Oh, you've got this thing that you built for the EU. Now you need  to turn it on for us. And then the question is if you buy another, another two years. Yeah, you do.
+
+Speaker: Alex Lindsay
+Transcript:  You know, that's, I mean, you buy another two years in the United States, you have a problem  because you have a court system, you know, so, so that, you know, that barely, yeah, but I'm just  saying that a court system that right now would probably not support doing the regulation that  they're trying to do. So, so the, so the, so the, I think it would be probably a pretty uphill battle,  you know, in the United States to get it done. And without the United States market, the side  loading is kind of dead in the water. I guess I'm still asking the why bother doing this? Just let
+
+Speaker: Andy Inhatko
+Transcript:  it happen because nobody's going to use it. Because Apple does not like to be told what to do  when it's something that they don't want to do. That's petulance. That's a 10 year old. That's  Apple. That's, that's the magic of Apple. You know, that's, I, I, and I'm not, I'm not joking  about that. So they're doing it out of petulance. No other reason. I just don't, I don't think so.
+
+Speaker: Alex Lindsay
+Transcript:  I think that they're really doing it out of the concerns that I'm putting out, you know, like
+
+Speaker: Leo Laporte
+Transcript:  that nobody's going to use it. Alex, if you have that as an option, you're not going to use it.  Nobody's going to use it. People, it's the tyranny of the default. We know this already.  People use Microsoft's Edge browser. A great majority of Windows users, people are not going  to side load. End of story. The only people will be, you know, gamers maybe for Steam. Even then,  that's only because you can't get it otherwise. Right? If Apple would just let everybody, you  know, put their stuff on the main store, then nobody would use it. A side loading thing.  I, I, you know, I'd love to see the stats from Google because Google does allow that on Android  and I suspect that's a very tiny minority of people use it. Right. To Alex's point too,
+
+Speaker: Jason Snell
+Transcript:  I mean, one thing, the EU thing, if it does happen, might show is like Apple has said,  it's a Pandora's box. Well, we'll see. Right. And, and that could be very interesting because it may  be that Alex has proven right and that it is a Pandora's box and that nobody else is going to  open it. It could also be that Leo has proven right. And it turns out to not be that big a deal  and Apple is like, Oh, I guess we shouldn't be that worried about it. Or maybe, you know,  maybe it'll be a data point though. We'll find out. We have a data point. We knew we know from
+
+Speaker: Alex Lindsay
+Transcript:  Android. We know from Google. Yeah. Maybe. I mean, you know, it's, it's a different, different,  different platform. I mean, and so the, the, it's an even more likely to use side loading platform,
+
+Speaker: Leo Laporte
+Transcript:  if you ask me, than Apple users. Apple users love their warm, you know, gated community and are,  I think even less likely to side load. So I think if, if there's no sites, I wonder if we could get  some stats on sideloading on Android. I think that the thing just, just, just quick, quick sidebar
+
+Speaker: Andy Inhatko
+Transcript:  here that the, remember that China does not have access to the Google play store. So it is a, it  is a market that has huge Android penetration where almost everything is sideloaded from like  China only app stores. So it's, it's, I just don't think it'll be that big of a deal. I think,  I think that Apple is going to, is going to limit it to just the countries where they absolutely  have to do it. Remember that there was a rumor was just a few weeks ago about Apple reshuffling  some fundamental architecture about the, about bank OS to be able to turn features on and off  via where based on where the phone is registered or where the phone is actually located or where  the, where the, the phone number is registered to. So that, that does seem like they're trying to  make this into a turnkey system where if a law gets passed on Tuesday, they can comply on Wednesday  as opposed to trying to figure out all this holistic stuff and seeing what's going to break.
+
+Speaker: Alex Lindsay
+Transcript:  And the thing is, and what they'll, I still think they're just going to fork the EU and then any  problem that occurs, anybody that gets defrauded, anything that goes wrong will be, you know,  press release. Yeah, you'll be more of these, there'll be more of these self-serving press
+
+Speaker: Andy Inhatko
+Transcript:  releases in the app store, but including the fraud that, including the fraud that already happens on  the app store. Yeah. Yeah. So I think that's my fundamental thing. Yes, this happened two years  ago, but this is, but this, this one, now it's really a problem. Now it's because of, now it's
+
+Speaker: Alex Lindsay
+Transcript:  because of sideloading. I think my argument fundamentally though is that they are not a  majority holder in the market and that the EU probably shouldn't be doing this at all. Like,  you know, it's not, it's not their business. You can make a philosophical argument. I agree.
+
+Speaker: Leo Laporte
+Transcript:  It's 90, it's 90% of the market. From a purely practical point of view, it's meaningless  in the long run and Apple should just stop being petulant and say, fine, whatever you want.
+
+Speaker: Alex Lindsay
+Transcript:  I don't think it's not going to change things. I don't think the EU has the right to do what it's  doing unless it says it does. And I don't think Apple has the requirement to do any more than  they have to because it's a dumb idea. You know, like it's a dumb, it's dumb to, it's wrong. That's  where we disagree. I think it's meaningless. It's wrong. It's not, it's not dumb. It's wrong.
+
+Speaker: Leo Laporte
+Transcript:  You know, that's Apple's, that's the 10 year old point of view. Like, oh, I'm not going to do this  wrong philosophically, whether it's meaningful practically is to me more important. Well,
+
+Speaker: Alex Lindsay
+Transcript:  someone tells me to do something that I think is wrong. I do with a minimum requirement,  minimum effort. It's MVP. Like is, if you tell me that I, that I should do something that I  think is wrong. There's another phrase for that. It's called malicious compliance. Yeah. That's,  I've done that since I was, you know, younger than 10. Yeah. That's what teenagers do. But you don't,  you know, that's what everybody does. That's what almost everybody does when they're forced to do  something they don't think is a good idea. You'll, you'll meet everybody does that like all the time  is minimum, minimum requirement when you're forced to do something that is, that is something you
+
+Speaker: Andy Inhatko
+Transcript:  don't want to do. But, but sometimes you are wrong. It's I'm not you, but not you specifically. I'm  saying that there are people who like, you know what, the small claims court said that you  definitely owe me $680 to repair this dent that you put in my car with my kids, my security camera  saw you do as my next door neighbor. So guess what? You're going to come by and you're going to give  me 68,000 pennies like in bags dumped on my driveway. Like that doesn't mean you're right.  That means that you're being a jerk about it. That means that it's what you have to accept this  reality and say that, okay, this is the world that I live in. I fought the good fight and now we have  to now we have to make the best of what we have. And the EU has standing. I mean, let's face it.
+
+Speaker: Alex Lindsay
+Transcript:  Right. So they have standing. They can say this. Apple can say that. I mean, the EU can say that  and Apple can be philosophically saying, we don't think you should be able to do that.  And we're not going to give you any more than you asked for. And I think that's what Apple's  going to do. I don't doubt that in the, in the least. And it's what I would do. But we'll see  what it makes any difference. I would absolutely give you the one, not one millimeter more than what you asked for.
+
+Speaker: Leo Laporte
+Transcript:  Apple also launched new concert discovery features on Apple, Apple music and Apple maps. So now you  can look at the map and see a concert near you. Yeah, this is, they already had this in the Photos
+
+Speaker: Jason Snell
+Transcript:  app. If you look at your historic photos, if you've been to any concerts, they actually have this  built in where they know the location and they know the time and they actually have a database  of live events and they will say, this is the so-and-so concert at this event. It's pretty,  the first time you see it, you're like, Whoa, like how did it, how does it know? And they're trying to,  trying to extend that, which is smart, extend that to other places. This is a very small thing  to announce. I wonder what, like, I guess this was part of their, this is keynote cycle and then  current OS cycle and they need to make good on it before the next cycle begins. Yeah.
+
+Speaker: Leo Laporte
+Transcript:  This is an old thing though. I mean, I remember many social networks, probably Apple's own ping  network doing this kind of thing. Spotify and other music playing things will say,  Oh, I see you like Sam Brown. He's going to be performing down the road. I've,  so I guess it's good to incorporate into Apple music and Apple maps.
+
+Speaker: Alex Lindsay
+Transcript:  I mean, I've used bands in town to do the same thing. Yeah. Bands in town. That's it. Yeah.  That's been around for decades. But, and, and, but it's hard to figure out. Here's the thing  that this solves is that bands in town doesn't give you a map, at least that I knew of. And so  it's really, I actually thought saw it and I was like, this is going to be something I'll use all  the time. Like, like literally when I travel, I'm going to be like, I wonder, I wonder if  toad the wets bracket is playing somewhere nearby, you know, or, or something like that and be able
+
+Speaker: Leo Laporte
+Transcript:  to see that and that'd be awesome. Bands in town has been doing it since 2007. So it's, you know,  anyway, it's good. Yeah. It's built into the iPhone. That's fine. Yeah. Woo. Do you think  this is, these are all things that Apple was going to announce at WWDC or? I don't know if
+
+Speaker: Alex Lindsay
+Transcript:  that one was, would, would have raised high enough to end up in W. Here's one that's a,
+
+Speaker: Leo Laporte
+Transcript:  that's actually timely, which it was accessibility day. When is accessibility day today? Happy  accessibility day. Apple in, in celebration or commemoration introduces new features for  cognitive assess accessibility, along with live speech, personal voice, and point and speak in  magnifier. What's the cognitive one? That's interesting. Yeah. So there's like, so every,
+
+Speaker: Jason Snell
+Transcript:  they've done this for the last, they definitely did last year. I think they've done it for the  last few. And essentially what's interesting about it is they are pulling forward features  from the next OS cycle that they're going to announce in June, but they're pulling these  forward to highlight and they're not going to be the only accessibility features, but they like to  pull some highlights forward because Apple has talked a lot about being committed to accessibility  features. So for this day, they decided to do this again. And you have a cognitive one. It sounds  like there are a lot of things that are like being able to react with a basic emoji set. If you can't  use the typing system, right? So they, they've tried to do, there's a lot of stuff here is like  a simplified launcher where you can set a certain limited number of apps with big buttons,  to basically make it so that there aren't multiple layers of interface that everything's sort of on  a simple single layer of interface. And the argument there is that may be for very young  or very old people who cannot grasp the interface. Yeah. Samsung has long offered on its Android
+
+Speaker: Leo Laporte
+Transcript:  devices an easy mode that is big, simple. And of course there's been phones for seniors for years  like the jitterbug that have big buttons and things like this. This is what Apple says,  assistive access uses innovations in design to distill apps and experiences to their essential  features in order to lighten cognitive load. The feature reflects feedback from people  with cognitive disabilities and their trusted supporters focusing on activities they enjoy  and that are foundational to iPhone and iPad, connecting with loved ones, capturing, enjoying  photos and listening to music. My mom who's 90 and is, you know, cognitively slowing down,  her memory's really gone. That's the first thing to go is short-term memory. I put, I had already  digitized all the family slides and I made a slide show on her Amazon Echo. She loves it. That's  exactly the kind of thing, you know, she wants to see slides from the good old days. And that's the  kind of thing Apple's doing. Here's some pictures of this simplified interface, the photos interface,  very simple. I actually like that interface. Yeah. I mean, not all of us, we were all suffering from  cognitive overload to be honest. I got really relaxed just looking at it. Isn't that pretty?  The pictures they chose. I don't know. Yeah. And then here's the camera. It's got a big button  says take photo. Yeah. That's good. Yeah. Don't, don't see any problem with that. Here's an
+
+Speaker: Alex Lindsay
+Transcript:  accessibility feature that says never side swipe, never let any app side swipe. Well,
+
+Speaker: Leo Laporte
+Transcript:  so I'm looking at that and I'm wondering what, what the, what the UI is for this photo is. I  guess you just scroll up and down, right? Or what? I think that's it. They said specifically,
+
+Speaker: Jason Snell
+Transcript:  they're trying to get rid of lots of hierarchy because apparently big surprise hierarchy is a  little bit confusing for all of us. Not just people with cognitive disabilities. So, and if  you live long enough, you're going to need accessibility features, right? That's the bottom  line. And you don't, you don't, I mean, accessibility features are some of the best features. Yeah.  Absolutely. So this is great. We all will. Here's, this is fun. I love the, this is to dispel the
+
+Speaker: Leo Laporte
+Transcript:  notion that people with cognitive issues are somehow, you know, boring slugs dance party,  dance party, dance party, baby. And it's very simple. It's got a play button and a pause button  and it just puts dance music on. And you know what? That actually, my mom would love that.  Yep. Here's a, here's a simplified emoji list with big, big, big, big ones. So mom can just,  you know, I, I will do this for my mom for sure. I think this is great. I like this idea. Yeah.  Go ahead.
+
+Speaker: Jason Snell
+Transcript:  No, I was going to say that they also have this feature that they actually specifically said was  of use for ALS, although I'm sure there are other uses for it, but it's such a cool idea,  which is that they're, they will let you build a voice. It's a, it's a computer text to speech  voice, but it builds on device using an algorithm on device. They interview you. You basically  have to say a bunch of words. So you can't use a canned voice of somebody else because it's asking  for very specific words. And that's their way to sort of like make sure that you've got approval  for using the voice. But the idea here is that people with some conditions, they lose the ability  to speak. I was actually thinking about Andy, Andy's old friend, Roger Ebert, where this happened  to him and they tried to build him a voice. Technology has gone to the point now where if  you know that you're in a situation where you may lose your voice, you can go through this step.  And then after you lose your voice, you can, you can use the speech text feature on your iPhone to  communicate and it comes out in your voice. I think it's really, I think it's just a cool,  amazing feature for people who are potentially, you know, in that terrible condition of not
+
+Speaker: Leo Laporte
+Transcript:  being able to speak. I actually did this. There's a company already doing this called acapella.  And you can, it's exactly as you said, Jason, you record a bunch of, it was two for me, it was 215  phrases, things like, I'm typing this, so please be patient. And then you give it, you read all of  those and then I have to find the email from them. Let me see, cause they sent me my voice,  cause I did, I spent quite a while doing this. Let's see, MOV, here it is. I'm going to go to
+
+Speaker: Jason Snell
+Transcript:  the website. Yeah. No, one way to prevent abuse is it actually requires a lot of time.
+
+Speaker: Leo Laporte
+Transcript:  Yeah. And you can add, what's nice, you can add custom messages. I could say,  Jason, I need to go to the toilet now. And, and then you would have to respond. Let me just log  in real quickly to my voice and it's not perfect, but you know what it is in it's observably your  voice, which will, for caretakers, this would make a huge difference here. Let me, let me play  a little bit of my, what would you like me to say? Let's try this one. Jason, can you open a window  please? And here's my voice. Oh, I had it, it generates it and then I have to play it.  You don't have my sound on, would you like to turn on my sound and we'll try it again?  Jason, can you open a window please? That's pretty good. Jason, can you open a window please?
+
+Speaker: Jason Snell
+Transcript:  Okay, Leo, I usually do Mac and not Windows, but I'll do it for you.
+
+Speaker: Leo Laporte
+Transcript:  So this actually, they have apps on iOS and Android. They have a variety of ways. So what  you would do is you'd record your voice. You get three months free access, the Acapella MOV app on  iOS and Android or the TD talk app on iOS. So, so that's basically what Apple's doing. I wonder if
+
+Speaker: Jason Snell
+Transcript:  Apple's voices will sound better. Yeah, I wonder what tech they're using for it. And when I saw
+
+Speaker: Alex Lindsay
+Transcript:  15 minutes, I was like, well, where's the 20 hour version? Like, like I would love to map it  completely and have me just read lots and lots and lots of things to, to give it what it needs to  really map it as opposed to, I mean, I feel like 15 minutes is great, but what, for those of us who
+
+Speaker: Andy Inhatko
+Transcript:  want to turn it up to 11. Let me, and also, also just being able to preserve that part of yourself  and keep that part of your identity. And it's, it's, it's no small thing.
+
+Speaker: Leo Laporte
+Transcript:  Let me play it one more. Just as, just as this is longer. Welcome to McRae weekly and the show that  is full of rumors, Cavals and tremors. That's pretty close. I mean, you could tell it's me,  right? Did Roger use something like this? No, no, he has Stephen Hawking's voice. It sounded very  mechanical, right? And American, but also, but also it's, it's, but this, but this is, this really
+
+Speaker: Andy Inhatko
+Transcript:  gets into like what we're talking about here. Stephen Hawking had the ability to have a much,  much better voice model than the one that he was using on his chair. It is a very, very old basic  voice model, but number one, the voice that had trained it was one of his friends eons ago. And  secondly, he did regard that as his voice. He did come to think of it as, well, why would I change  my voice? Just like you wouldn't change your voice. Roger actually, I can't remember which one it was,  but he, he, he picked up the standard Macintosh voices. He picked the one that had the,  that he, he said, that made me see, it made me sound like Lawrence, Sir Lawrence Olivier.  And that was like, that, that was one of the ones he, he always stuck to, but he had that there was  a company, and I think in Ireland that was because he was Roger Ebert and because he had resources  and because also he had, he was a professional broadcaster and he had thousands of hours of  recordings of his voice. They were able to create a synthetic version of his voice that  even 15 years ago was absolutely recognizable as him. There was something off about it, of course,  but it was definitely recognizably him. And now, I mean, Google just, Google research just showed  off a paper three months ago about a model that requires minimal training. Like Alex said, there's  a, if you have five seconds of voice, it can get something that is, okay, I recognize the identity  of this person. If you can give the model two to five minutes of voice, you can give something  that's good enough for phone. And if you give them 10 to 15 minutes, then it's probably good enough  for ongoing conversation. And then the more data you give it. But the thing is you even starting  with just five, five seconds to a couple of minutes is enough. So how many people have voicemails  that they've sort of kept on their device? We're getting, this is something that, that I really  enjoy the thought of about what technology can do that think about when you lose a loved one  unexpectedly and our morning, everyone has a different kind of morning process. And a lot  of our traditions are objectively weird. Okay. And so if, if I decided that, you know what,  I really, I'm missing my mom, something terrible. I, but I have a whole bunch of her voicemails to  me. I'm going to build like a two minute voice model of her so that whenever I ask about the  weather for my smart speaker, I know it's not her, but I will be, I'll be hearing her voice like  every single day. And that'll sort of help me get through this process. And a year later, I'll  switch to something else probably, but this is the, this is the sort of, these are the sort of  problems that technology could never have predicted they could solve. But now we have the opportunity  to see where, where does that fit in our rehabilitation when we lose our voice? Where does this fit?  When again, we're grieving for a loved one and these things are not questions that we can actively
+
+Speaker: Leo Laporte
+Transcript:  ask ourselves because we have solutions. Yeah. I, they've been using 11 labs to do the virtual  Leo, Dr. Do in our IRC is mentioning that he had posted something in our Macedon, which I missed  Dr. Dwayne. I apologize about this, but the one that we use from 11 labs isn't,  isn't perfect. I think they're getting better. I really do. Roger used, according to
+
+Speaker: Andy Inhatko
+Transcript:  ScooterX, Syraproc.com back, but that was in 2009. Yeah. I actually, I actually wrote him like for  the, for his first few months, a piece of software that every time there's something that he wanted  it to do, he'd like email me like at 1 AM and then I try to, I try, I try to give, get him a rev by  like three or four in the morning. And that's, and that's another thing. I mean, these tools that are  designed to be one, one size fits all, but you have peculiar, peculiar uses and peculiar needs,  some things that you really, really want to be able to say immediately and quickly.  I mean, again, hanging out with Roger after he lost his voice, part of the adjustment that people  around him had to make was that I think everybody who listens to the show understands the idea of  we're waiting for each other to finish their thought and then, but we have something we really  want to say. And unfortunately it was really hard to get those cues from Roger. And I'm not  going to keep talking until I'm really tuned into his expressions to see, is there something that  he wants the, he wants the focus because he wants to actually type something and say something or  write something out and hand the note for someone else to say, these are the things that technology  should be working on. We shouldn't be gadget watches are nice. And like fake photos of,  squirrels running for Congress also fun, but this is, it's not that these things are wastes of time,  but there are opportunities for technology to fundamentally improve lives and collectively as  society, we should never just stand by and let the pitch go by. Yeah. Dr. Adoo says that his
+
+Speaker: Leo Laporte
+Transcript:  partner lost her mom last summer. So he took old videos, synthesize them at 11 labs and have her,  had her mom's voice read a favorite poem for her. Yeah. And apparently it was quite moving. Here's  the 11 labs Leo voice, which I am not moved by Jason. I need to go to the toilet now.
+
+Speaker: Jason Snell
+Transcript:  Actually that's pretty good. It's got, well, it's got better. It's got better intonation,  but does, but sounds less like you personally. Jason, I need to go to the toilet now. No,
+
+Speaker: Andy Inhatko
+Transcript:  that's me. Okay. Just go in the chair. That's why it's a bucket seat. Next week we'll get you
+
+Speaker: Leo Laporte
+Transcript:  astronaut diapers. So this is what Apple is saying about, they call it live speech and personal voice  advanced speech accessibility with live speech and iPhone, iPad and Mac users can type what they  want to say to have it be spoken out loud during phone and FaceTime calls, as well as in-person  conversations. So I guess some people have, it's easier for them to type than it is to, yeah,  I guess that makes sense to speak like Stephen Hawking. Users can also save commonly used phrases  to chime in quickly during lively conversation with family, friends and colleagues. Here's the  example. You weren't kidding about the view or Jason, I need to go to the toilet. Live speech  has been designed to support millions of people globally who are unable to speak or have lost  their speech over time. This is fantastic. I mean, God bless Apple. I mean, this is great.
+
+Speaker: Alex Lindsay
+Transcript:  I think that where I see this going, if enough people sign up for it, is that you get the texts  and when it plays out the text, it's in the person's voice. Like, this is how it starts.  A lot of Apple stuff starts as accessibility and then becomes a general feature. So you started  off with, okay, we're going to do this because this is a great place to test it. This is the  first people that will need it. But I could definitely see any text that comes in. Just  if there's a voice connected to that text, I get to hear it.
+
+Speaker: Andy Inhatko
+Transcript:  Just think that this is exactly, this is so fascinating because this is part of what  Google was showing off last year, the year before with their one-to-one conferencing system,  where it's not just, you feel as though there's a pane of glass between yourself and the person  you're speaking with across the country. And it's not just because it's high definition. It's not  just because the frame rate is very high. It's because the system is literally creating a 3D  model of the person you're speaking to and putting that in the screen next to you so that  it works. If you change your viewing angle, the 3D model changes as well as though it's a 3D object  you're now seeing the other side of. One of the longest questions about increased resolution,  increased frame rate, increased virtual reality stuff has been, yes, but how are we going to get  4K 60, 120 frames per second video with surround sound getting pumped through like an average home  broadband? And the answer is you don't. You just send the actual data. There's a 30-second delay  in setting up the call in which an avatar and a voice model are sent to your screen so that  it can just simply get the text that someone is saying and get the movement data from that simple  HD camera and then tell the puppet at the other end, here is how Andy should look when he's doing  exactly this at this moment. It's really quite interesting. And that's one of the things that  makes VR augmented reality more interesting than just hovering directional arrows and a cartoon  fox that waves at you to tell you that you have a call coming in. Here's the poem Dr. Dew posted
+
+Speaker: Leo Laporte
+Transcript:  it in our Discord that he got synthesized for his wife, his partner.  That's pretty good. That's 11 Labs. I mean, I don't know what her mom sounds like in real.  And it's a little robotic, but still probably good enough. The other thing that he points out,  which is really cool, you can also do it in foreign languages in your voice. So suddenly I could  speak French or Spanish or German. It's not perfect, they say. So this is what the interface will be.  It does look a lot like acapella. It even reminds me of acapella. I wonder if Apple's licensing it.  So you'll be reading 150 phrases like, grabbing a cup of coffee this afternoon sounds great.  That doesn't mean that's the only thing you could say, but they have a bunch of them like that  in acapella that you might want, but that they can also synthesize your voice from.  This is great. Now, when is this available? Did they say?
+
+Speaker: Jason Snell
+Transcript:  NextOS revision.  This is 16 or is this 15 point whatever?  I think it's going to be 16 later this year. Later this year is what they say,  but yeah, probably September.
+
+Speaker: Leo Laporte
+Transcript:  It's the next iOS in other words.
+
+Speaker: Jason Snell
+Transcript:  My friend, Shelly Brisbane, who has low vision, wrote about this story on Six Colors. She pointed  out something that's a very cool idea. They've got this door detection, any device with lidar.  There's like door detection and person detection, and they've added this new feature as a part of  this wave that's called point and speak. The way she described it is if you're a low vision or  blind person standing at a vending machine, it won't just tell you that it's a vending machine.  If you hold the phone up and put your finger on a button, it'll say that's the Coke.  And the next one it will say that's Pepsi. So that it'll actually read or a microwave.  It'll be like, that's the power button. That's the one.  So it'll actually tell you what button your finger is hovering over so that you can control  a button interface in the real world if you're blind or low vision. They're just building  more of this stuff on top. You can imagine how it unlocks possibilities that weren't there before.
+
+Speaker: Leo Laporte
+Transcript:  Shelly also mentions in that article at SixColors.com that made for iPhone hearing aids are  coming later this year. This is something Apple, I expected Apple to jump on with the advent of  over the counter hearing aids. I was at the audiologist the other day. He said,  well, this is the latest. He showed me a pair from Starkey and he said, try this for a week.  And I did. And it was improved. $6,000 please. And so I said, you know, I'm going to wait and see  what else comes along. Because this would probably be a bad time to buy traditional  hearing aids, I would think. There's something about to happen.
+
+Speaker: Andy Inhatko
+Transcript:  Feels like an innovation inflection point.
+
+Speaker: Jason Snell
+Transcript:  There was some MFI hearing aids before, but the Mac didn't support it. So now it's going to be on
+
+Speaker: Leo Laporte
+Transcript:  the Mac. Oh, I get it. Okay. Yeah. I have resounds, which are MFI. And so there's a list on the Apple  website. I get it. So it's not that it's always worked with my iPhone. For instance, it's a little  weird. I can answer calls and just kind of talk like this. And people say, well, how are you  hearing this? Well, it's coming through my ears, my hearing aid. So there are quite a few manufacturers  that are making those for the iOS platform. But yeah, Mac, that'll be nice. Sure. I listen to
+
+Speaker: Jason Snell
+Transcript:  audio on my Mac. Yeah. And it does feel like we are on the precipice of some revolutions in terms  of over the counter. Yeah. Computer hearing aid slash headphones slash whatever. Right? Like for,  for not just people who need hearing aids, but for everybody to hear, hear better and different
+
+Speaker: Alex Lindsay
+Transcript:  in different situations. Right. I think augmented hearing at, you know, at a persistent augmented  hearing, I think is just on its way. You know, they're going to figure this stuff out. For everybody.  Not just us hard of hearing types. You decide when you want to hear, when you don't want to hear,  what you're listening to in the background, what, you know, I think that there's going to be a point  where we just put things, a lot of people just put things on their ears and they filter the world as
+
+Speaker: Leo Laporte
+Transcript:  they, you know, as they want to. Well, the fact that everybody's wearing AirPods these days makes  it more socially acceptable too. There's a real resistance. You know, I get a lot of stuff from  my audiologist when I visited, he said only one in five people who need hearing aids wear them  because of the stigma. Right. Yeah. And, and the problem if you don't wear them is cognitive  decline. You start to, the universe starts to get dialed out and you don't, you don't, you kind of,  there is a direct correlation between not wearing hearing aids and cognitive decline,  which explains a lot for me personally.
+
+Speaker: Andy Inhatko
+Transcript:  And speaking of, and speaking of stigma, like some of these technologies actually are enhanced by the  use of a camera. Like a lot of the technologies that Google is putting out with it will fake,  it can focus in on individual speakers because it's matching sounds to lip movements that it sees.  So we could find ourselves in a bit of a pickle soon where here is an adaptive technology that  a segment of the population almost absolutely needs in order to have, in order to, in order to  be able to hold a conversation in the general world. But you have to be okay with the fact that  you have to not freak out by the fact that there is a camera that's pointed at you.  Right. While this person is using this technology.  Right. And if it's a company like Google that's doing it, oh boy, do they have to  contortionize themselves to say, here are all the reasons why there's no possible way we can get  access to what's the camera, it's all being done on a device. We turn it all into German  so that even we can understand it. All this sort of stuff. I mean, it's, there's so much adaptation  that society has to make with every piece of technology. And a lot of it is just getting,  deciding what abstract fear is now important enough that it's worth.
+
+Speaker: Leo Laporte
+Transcript:  We're going to be cyborgs. Let's face it. Remember the MIT guy, his name that walked around and he  had like Dr. Man. He had all this stuff around him and everybody thought, yeah, that's cute.  But I think that that, I mean, it won't look so clumsy, but that's coming. And I think  just the fact that so many people wear AirPods, you don't know if they're just listening to music
+
+Speaker: Alex Lindsay
+Transcript:  or they're using it for augmented hearing. I mean, the one, the thing that I wear the most  is the open com, you know, the open, I love that open. I bought that because of bone conduction.  And I have them on a lot. Yeah, at least it is too. She's got her aftershocks on all the time.  Because I can hear everything and I'm just doing my thing and I put my little head, my little  headset back and it turns off. And so then I, you know, but if someone calls, I just swing it down  and start talking. And it's, but I can listen to stuff. I listen to a lot of audio books on it.  And it's, and it's just great to have, but it doesn't, what's interesting about it is it doesn't  feel like I'm cutting the whole world out. It's just like, it's just this other thing that's going  on while I'm doing my thing. Well, enjoy accessibility day. It's a, it's probably something
+
+Speaker: Leo Laporte
+Transcript:  we should all be looking into since, as you said, Jason, we're all headed that way one way or the
+
+Speaker: Alex Lindsay
+Transcript:  other. Just because of the timing. I just, we're going to do, we're, you know, we're,  office hours is going to do accessibility for seven weeks over the summer. Oh, good. So every  Saturday we're going to take in our education day, the educators take the summer off. And so  we're going to turn that into accessibility day or six accessibility Saturdays for starting in
+
+Speaker: Leo Laporte
+Transcript:  mid-June. It's actually may 18th is global accessibility awareness day or GAD. And if you
+
+Speaker: Jason Snell
+Transcript:  go to accessibility.day, you can see. So today is just global. Apple press releases come out on
+
+Speaker: Alex Lindsay
+Transcript:  Tuesday's day. That's right. It is the best day though. Tuesday is the best day. Like it is from  my point of view, it gives us a show. Because someone asked me like, why does everyone put out  things on Tuesday? I'm like, it gives you a day to prep it on. So you don't have to work the weekend  on Monday. And then it is otherwise it's maximum distribution across a week. The set of weekdays  before you go to the weekend and everyone forgets what you were talking about. But that's why it's
+
+Speaker: Leo Laporte
+Transcript:  all on Tuesday. And I do, this is one press release I would read. It's apple.com slash newsroom,  especially this detection mode that Shelley was talking about at six colors,  because it's really an interesting use of all the technologies, not just the camera,  but the camera, the lidar, as you said, Jason, the lidar scanner on device machine learning  to announce the text on each button as users move their fingers across it. What it really,  it gives you basically a voice interface to any device. You know, blind users are used to having  screen readers, but this is like having a screen reader for anything you point your camera at.
+
+Speaker: Alex Lindsay
+Transcript:  For reality, yeah. Reality. How about that? I wonder if a headset, like an inside out headset  would be, could actually be useful for someone who's low sight, not using it as the headset,  but they have it on their head and they're just looking around pointing at things. Because it's
+
+Speaker: Leo Laporte
+Transcript:  got cameras, it's got lidar, it's got all those things. What are the odds Apple mentions this  when they release the VR headset? Which has cameras pointing out by the way. Solid 50-50.
+
+Speaker: Andy Inhatko
+Transcript:  They're going to be throwing a lot of darts in the vague direction of wherever they are.
+
+Speaker: Leo Laporte
+Transcript:  That's right. And it'll do this, you know, and this and this. Glenn Fleischman and I have a  little bit of a bet going on on the mass of that on twit.social because Glenn says,  this isn't going to be for sale. They're going to talk about it, but they're going to maybe do a  lending program, but this isn't going to be for sale. And he says, if it is, it won't be  until later this year, which is probably accurate. But I think Apple, but his contention essentially  is they would never release anything this clunky. And my contention is, yeah, maybe the design team  didn't want them to, but they were overruled. That's what seems to be the worst. We're getting
+
+Speaker: Andy Inhatko
+Transcript:  reports from the parts chain, basically saying that an immense number of components that would  support millions of these headsets is being basically moved to Apple. So yeah, I think they're  making them. Yeah, I think so. I don't think they're hoping for, they think an iPhone-like  success is possible, but I do think it's more than, hey, we're going to make a hundred thousand  basically at cost to make sure that we put them in the hands of the developers and the forward  thinkers who absolutely need to have a head start. It's like, no, there are a lot of people who'll  give us two to $3,000 for one of these, and we're going to make a couple of million for those people
+
+Speaker: Jason Snell
+Transcript:  who will give us two to $3,000 for them. There was a Wall Street Journal report, which I don't know,  my sort of Apple plant bell rang there where I'm like, where it feels like, because I think Apple  sometimes go to the journal and has historically, but whether it's an Apple-initiated thing or not,  it felt very much like doing the work that Apple wants people to do right now, which is set the bar  where it is, right? Don't get excited. It's going to be very expensive. There aren't going to be  very many units just trying to manage expectations because what they don't want is to have that day  arrive in June and have them unveil this thing and have everybody in the world be like super  disappointed because it's not what they expected. And when you put a story in the Wall Street  Journal that details low sales expectations for the first round and a high price and all of that,  it feels very much like that's exactly the story Apple wants everybody to know going in.  So they don't think because they're already going to think it's the next iPhone, right? They're like,  no, no, no, no, no, no, calm it down. This is the first step in a much longer journey. Because yeah,  this is anybody because I disagree with Leo's pessimism about the long term here, I think,  but the truth is that this product by all accounts, there's no way that it's going to  be the hit that blows people away. It really, at most it's going to be step one on a much longer  journey. I think they're best to hope for, in fact, is for everybody to be totally blown away  with the technology and say, well, this is great, but it needs to cost a third as much for us to use
+
+Speaker: Alex Lindsay
+Transcript:  it. And you know, the watch was a pretty expensive watch when it came out and it was a pretty niche  market that was that was, you know, starting it. And then it was now the, you know, that's what you
+
+Speaker: Jason Snell
+Transcript:  see everywhere. Yeah, this is going to be like that, that more extreme, right? They're not going  to sell as many of these as they sold watches in year one, right? And so Palmer Lucky, the guy who
+
+Speaker: Leo Laporte
+Transcript:  created Oculus Rift sold its Facebook and then went off the deep end. But that's another story.  Tweeted a couple of days ago, the Apple headset is so good.
+
+Speaker: Alex Lindsay
+Transcript:  I'm a little into like, why would they show it to Palmer Lucky?  Like, I don't know.
+
+Speaker: Leo Laporte
+Transcript:  Last guy you would show it to, right? But maybe, and then Jason Calacanis goes on Twitter saying,  if anybody has one, I will gladly give you something. I can't remember.  Oh boy.  I'll gladly pay you Tuesday for an Apple headset today. Well, yeah, how would Palmer  Lucky know? You think this is just him trying to pretend he's such? If you've seen
+
+Speaker: Andy Inhatko
+Transcript:  a headset, there is no way in hell you're talking about it. All I'm saying is that I think most of  the people's conversation have had hardware early and even on simple things that are just, hey,  here's the next version of something we've been making for five years. The amount of the amount  of arm twisting they put you under to make sure you understand exactly when you're allowed to say  anything about this and what the definition of anything is. If anybody has seen something that  is that Apple's not shipped yet and they're saying, talking anything about it, there's an  easier way to make sure that Apple never talks to you ever again. You can just simply not answer
+
+Speaker: Leo Laporte
+Transcript:  the phone. Here's Glenn Fleischman's toot. Apple rarely ships in elegant products. Everything leaked  makes it sound ridiculous. So if all the rumors are wrong, the actual thing has to be legendary.  I think it defies some of the laws of physics, hence my disbelief. My personal disbelief, which  obviously, Jason, you have your right to your wrong opinion, but my personal disbelief is this  category is already dead. Meta has already moved on. The whole thing is dead. It's certainly possible.  Apple is late to the party and it turns out everybody left already.
+
+Speaker: Alex Lindsay
+Transcript:  It's certainly possible.  I can just say from having headsets that aren't publicly available, that when it works,  it really works. The thing is that once you crest over about 96 frames a second and about  6k per eye, you get into a different world that is pretty slick.
+
+Speaker: Leo Laporte
+Transcript:  I will bet you a HelloFresh box that you are wrong.
+
+Speaker: Alex Lindsay
+Transcript:  I won't be able to get it for five years because that's how long it'll take for this to occur.
+
+Speaker: Andy Inhatko
+Transcript:  What a pro! Everybody sit back and let it roll over you. You're watching Magic Happening.
+
+Speaker: Leo Laporte
+Transcript:  I'll send you a HelloFresh box just because you deserve to eat some delicious food. Flavor is in  full bloom at our sponsor, HelloFresh. Enjoy the tastes of this is so good chef crafted recipes  featuring ripe seasonal ingredients delivered right to your door. This is not your grandfather's  food box. This is the best. I just made, which one? Well, this looks good. I have this in the  fridge. Creamy lemon herb pork chops. This is from our most recent box. Tuscan pork tenderloin,  but this is the one I just made, which was pork sausage and bell pepper risotto. Made from scratch.  It was so much fun. They give you the whole, every ingredient, no more, no less than you need.  Plus this nice recipe card. And you're learning, I think it's great because you're learning these  great skills and man, some great recipes. This May, HelloFresh is celebrating Asian American and  Pacific Islander Heritage Month. For a limited time, authentic recipes created in partnership  with Chef Sir Bisani of New York's Tagmo restaurant. Culture, I, this will be our next  box. We already ordered this. Enjoy a cultural taste tour right in your own kitchen. I just love that.  It's expanding your horizons. You know, we got in a bad habit. I think we all did during the pandemic  of takeout, right? Not good for you fattening and not as good as it could be. HelloFresh is,  I think the new takeout, right? Don't call for takeout. HelloFresh is quick and easy meals,  make feeding the family a cinch without that high price tag. Cause you really do pay. I mean,  how often do you look at the takeout? The food costs less than delivery. Their new fast and  fresh options are ready in just 15 minutes or less. And the quality is spectacular.  The red bell peppers in our HelloFresh kit that I made this delicious risotto recipe with,  I've never seen them so perfect, so beautiful, so sweet. They travel from, and it's because they  travel from their farm to the home in less than seven days. They are super fresh. They do more  now than just delicious dinners. You could take your pick from 40 weekly recipes, but you can  also choose from more than a hundred items to round out your order, including snacks, easy lunches,  desserts, pantry necessities. Every family needs this. It all comes in one box on the delivery day  you choose. So you don't have to scour the grocery store for that one ingredient to complete the  recipe. Everything you need is there, fresh, pre-proportioned. It cuts down on food waste  and makes it really a snap. They're like your sous chef in the kitchen. They're there handing  you one by one the ingredients so you could put this together. Oh, and if you're hosting a get  together, HelloFresh and HelloFresh Market makes dinnertime a snap with deliciously easy options  that will please everyone at your table from fit and wholesome to pescatarian to veggie. You know,  it's always a problem. You're having a dinner party and one person says, oh, I'm a pescatarian  and you got to, oh, I've got to, well, HelloFresh makes that easy. They've got a meal plan for you  and whatever your lifestyle. Plus you can easily swap out proteins and sides to your liking.  Check, save money off your growing to-do list with the help of HelloFresh. HelloFresh is cheaper  than grocery shopping, 25% less than takeout. And it's so much better. Plus the satisfaction  of making it. The house smells amazing. Everybody sits at the table and you made it. It's just a  great feeling. HelloFresh America's number one meal kit. Go to hellofresh.com slash Mac break 16.  We've got a great deal for you. Offer code Mac break 16 for 16 free meals, 16 free meals and free  shipping. Hellofresh.com slash Mac break 16. Please use that URL so you can take advantage of this.  Hellofresh.com slash Mac break 16. And then the offer code is Mac break 16 for 16 free meals plus  free shipping. It's delicious. You just owe it to yourself. Just at least just try this because  it's, it's, it's wonderful. HelloFresh. Anyway, I'll send you a box if I'm wrong.  I, you know, I haven't been as committal in this as I, I feel like I ought to be. So  before WWDC, I'm going to go out on a limb and say VR as, as demonstrated by Facebook's Oculus,  um, demonstrated by the HTC Vive, which I think was better than the Oculus, is a dead,  dead as a doornail product category. Apple is not only late to the party. Everybody's already left.  I'm going to say that I'm saying it, it's a recording, make a mark, take it, put it somewhere.  And then in six months, you all can laugh at me, but I really feel strongly. This is having,  I haven't used that special thing you've used, but I've used a magic leap. Alex, I've used a lot  of this stuff and it's not, I'm, I'm hollow lens, very underwhelmed. Leo, there would be a much
+
+Speaker: Andy Inhatko
+Transcript:  bolder statement had you not demonstrated that you have access to voice synthesis technology and
+
+Speaker: Leo Laporte
+Transcript:  that you can basically edit whatever it is. Anthony, make sure you have a variety statements. Here,  I'll give you another one. This is going to be the hottest product category since the iPhone.  More? You need more? Apple had a good idea, but they fumbled in delivery.
+
+Speaker: Andy Inhatko
+Transcript:  I can't believe our state Senator is a cockatoo.
+
+Speaker: Leo Laporte
+Transcript:  That's a good one. Who knew that all this time Atari was developing the killer headset.  There, there you have a few choices you can work with. I just got my Intellivision Amico  and it's awesome. Uh, Apple has snuffed up 90% of TSMC's three nanometer capacity for the year  2023. 90%. This is a according to digit times. So sorry, everybody else. Holy cow. This is of  course the process that I guess M3 is like, who got that 10? Yeah, right. Exactly.
+
+Speaker: Andy Inhatko
+Transcript:  Who got fired at Apple because they left anything on the table. Yeah, I love, I mean, the thing that
+
+Speaker: Jason Snell
+Transcript:  we don't talk about, I think enough just in general, not us in particular, but in general is Apple  scale. Like this is a game they've been playing for more than a decade now. Remember when they bought  all the Ram, uh, at, at a set price for the next like three years and they bought all the capacity  and then everybody else was like, we need memory. And they're like, sorry, we sold it all to Apple  for a price that's way lower than your, you would pay now anyway, because they ordered it in advance.  This is Apple, like the scale of the iPhone, especially the, uh, money that Apple has to spend,  uh, the money they've gotten the bank so that they can spend billions of dollars now for you to build  that factory for the chip that they're designing that you're going to need to fab in four years.  Right. Like all of this is the, I don't want to say it's the Tim Cook secret sauce, but it kind of  is right. Like they have so much market power and so much money that they can define what's available  and then take most of it for themselves. And it's one of the reasons that the Apple silicon story  is so powerful is that they have that scale. And another reason, it's another reason why
+
+Speaker: Andy Inhatko
+Transcript:  Apple is so valuable in their culture that they make plans. They can make long distance plans and  they know what they're going to go after. And then they can execute on those plans. It's not a, well,  maybe we'll try this or maybe we'll do this as an experiment. It's like, no, they, if they're,  the fact that they're doing a VR goggles means that they know where it's going to be in five  years and what they intend to ship in five years. The fact that they need to book all this, they can  commit all of this money towards three nanometer manufacturing means that they know exactly what  the roadmap is, not just for this Apple silicon, but the device is going to go into for the next  several years. And that's not something that it's not unfair at all that they booked this,  the book this all out. They've got the money and they're making the commitment. Other companies,  they just, for a lot of reasons, they don't have enough control over their market to be able to say,  this is what we're going to be doing in three years. They can say, this is what we hope we're  going to be able to be doing in three years. It depends on how the market responds to the next  two years of stuff that we planned three years ago. Yeah. There's a, there's a, this is one of my
+
+Speaker: Alex Lindsay
+Transcript:  favorite sayings is from Omar, general Omar Bradley, that, you know, amateurs talk about strategy and  professionals talk about logistics and Apple is a master of logistics. Yep. That, that, that, and
+
+Speaker: Jason Snell
+Transcript:  that's the, you know, that's what we see here. And Andy, Andy makes the point too. This has shifted  into a higher gear now with Apple Silicon because Apple designs their chips. So they know exactly,  it used to be they took stuff off the shelf, right? Like they took an Intel part from here and  whatever Intel made it, they could choose what Intel part they wanted, but they were choosing  based on Intel's choices about what goes into chip A and chip B and chip C. And now not only,  and they were privy to some of Intel's roadmap, right? But now it's like, they make the roadmap  and not only do they know what the chip is going to be, but as Andy said, they know exactly what  computers it's going to be in, right? Like they know that going in three years in advance. And
+
+Speaker: Alex Lindsay
+Transcript:  as you see all those chips slowly unify, you know, where there's, you know, we're, we're coming  together where they're making the same type of chip or this, and eventually maybe even the same  chip, you know, in some cases, the same chip across all of the platforms, it, it gives it just an  entirely different scale than it had in the past.
+
+Speaker: Leo Laporte
+Transcript:  So the iPhone, what is this? The numbers are all confusing. 14 Pro Max has the A15 chip. Is that  right? I'm so confused. I'm glad it's not just me. I thought I was having cognitive difficulties.  Okay. The numbers are confusing, but the next generation-
+
+Speaker: Jason Snell
+Transcript:  The 14 Pro has the A16.
+
+Speaker: Leo Laporte
+Transcript:  16. The 15 is in the 14, nothing. And so the next one, the 15 will have the 17,
+
+Speaker: SPEAKER_01
+Transcript:  which is the 17. Is the 17 a three nanometer? I know the 16 is not, right?
+
+Speaker: Jason Snell
+Transcript:  No, they're, they're, they're not, it's their enhanced five nanometer. It's not the real three  nanometer process. This new wave is going to be the three nanometer process.
+
+Speaker: Leo Laporte
+Transcript:  And that will be iPhone 15 this fall.
+
+Speaker: Jason Snell
+Transcript:  Running an A17 and iOS 18. Yeah, I know. I know.
+
+Speaker: Leo Laporte
+Transcript:  And then, but also, so Mark Gurman says, and I was all, I was really hoping because there were  rumors floating around and I hate rumors, but there were rumors floating around that maybe this  15 inch MacBook Air that Apple is supposedly going to announce in a couple of weeks at the  WWDC would have an M3. Now Gurman's saying, no, no, the first M3s may launch by the end of the year.
+
+Speaker: Jason Snell
+Transcript:  Yeah, he says that, although that story, his story is peculiar because he's really just talking about  notes about the configurations in an M3 Pro chip and then extrapolating. And I don't know if the  M3 Pro can really be attached to the M3, right? Presumably the M3 will come earlier. So when he  talks about the M3s at the end of the year in a story where it's all about the M3 Pro being  spotted by some third party app developers, I'm not sure he actually means the M3 as a whole product  line by the end of the year, or if he means the M3 Pro itself that he's writing about by the end  of the year. And he leaves it kind of unclear himself, which Mark's a Pro, I suspect that means  that he's not sure and he's not going to say anything, claim anything that he doesn't know  for sure. So it may be the M3 could come sooner. Remember the M2 MacBook Air came last summer. So  an M3 MacBook Air in the fall or 18 months later is not unreasonable, but his detail here is about  spotting an M3 Pro in the wild essentially. The company has begun, this is a quote from his
+
+Speaker: Leo Laporte
+Transcript:  Power On newsletter, the company has begun putting next generation Macs with the M3 chips  through their paces, testing them with third party apps to ensure compatibility with its software  ecosystem. That's pretty close to a release, I would imagine. Maybe not. He does double down  on the fact that the 15 inch will have an M2 chip in it. Yeah, I do think it's interesting. The only
+
+Speaker: Alex Lindsay
+Transcript:  news from the street that I've seen is that Costco is selling an enormous number of studios  and Mac minis for very discounted prices. Yeah, the discounts and also M1s. The M1 Mac was selling  for like $299 or something, $299 or $399 at Costco and the studio was selling, the base studio or  whatever was selling for $1499 less than the Mac mini Pro at Costco. And it just feels like the  timing is odd, you know, given we're before WWDC, because it's not the kind of machine we're  expecting, but it just does seem like they're dumping a lot of hardware out. Yeah, it's not
+
+Speaker: Jason Snell
+Transcript:  the same message, right? I would not be surprised if they announced that MacBook Air next Tuesday.  I would not be surprised if they announced it in late June, right? Like, really? It could be anything  you want. Because it's a nice idea, I think it would sell really well, but is it part of the  message of WWDC? It is not, right? Like, it's not that same message. So you could give it its own  little stage some other time. So maybe they will. I mean, do we expect they'll have announcements
+
+Speaker: Leo Laporte
+Transcript:  every Tuesday from now till WWDC? We're going to hear some little tidbits. This is all the stuff.  Yeah. So there's three weeks. They're probably in rehearsal, they're probably in rehearsal going,
+
+Speaker: Alex Lindsay
+Transcript:  yeah, let's cut that out. And then it comes to a Tuesday refining it now. Let's make that a Tuesday.
+
+Speaker: Leo Laporte
+Transcript:  So the 22nd and the 29th, some stuff will leak out. And then June 5th, of course, is WWDC. That's a  Monday, which is unusual, isn't it? Normally they do. No, not for WWDC. That's normally Monday  through Friday. Okay. So Monday, June 5th, we will of course cover the keynote because there'll be a  lot of interest in what Apple does announce. Whatever it is. Do you guys want to do predictions  or do you care? It's kind of silly to do predictions, I guess. But I'm saving up my pennies for something.  I have an M2, 13 inch M2 MacBook Air. I'm very happy with 14 inch, I guess. But I wouldn't mind
+
+Speaker: Jason Snell
+Transcript:  a 15. What is it? Is it 12, 13, 14? I can't. I'll make a prediction, which is that they won't  announce any hardware that's shipping anytime soon. Oh, okay. And that the only hardware there  that I would expect to see would be maybe a Mac Pro announcement that it's coming  like later, much later, and the headset. And I think otherwise they're going to be talking  because traditionally it's an OS event, right? It's all about resetting the OS platform. Plus,
+
+Speaker: Leo Laporte
+Transcript:  we expect them to be really pushing the VR headset. They want to have a lot of space for that,  I presume. Yeah. And what is it? XROS? What is the OS? Well, RealiOS or XROS. Yeah. But
+
+Speaker: Jason Snell
+Transcript:  since it is an operating system showcase, it will be interesting to see how detailed they get about  the hardware if they unveil it because they may be a little bit vaguer than they might be if it was  shipping because they're going to be talking about it in a context of also getting developers excited  about developing for it as a platform. So it's almost like it's hardware inside a software  platform as an announcement. And then whenever they get closer to shipping, like they did with  the Apple watch, they will reiterate maybe at the iPhone event, what the hardware details are. And  they might not even give a price out in June, right? Because it's not time yet. It's not going
+
+Speaker: Alex Lindsay
+Transcript:  to ship anytime soon. Yeah. I think that I'd be surprised if they show any hardware other than  the headset. And I'd also be surprised if they show much of anything other than AR and VR.  Like I think that the whole keynote is this is their big coming out party. They're going to be  showing this at scale and they've been working on this for probably five or six or eight years.  So I think that this is going to be a... I don't think they're going to have... They  want anything to be a distraction. So I wouldn't be surprised if we see a couple more releases  coming out before then just dumping things into the system that they can mention.  But I also think that we may see the office tools start to support USDZ. I think people  noticed in the screen captures in Final Cut that there was another tab that said models  like that were in the tab. So those are the kind of things.  As in 3D models, not in... Yeah. 3D models. Yeah. So I think that  I think I would be... We'll see, but I'd be surprised if we see if it's not at least,  if not half, 75 to 80% AR in the keynote. Yeah. I agree with that. I think that the other big
+
+Speaker: Andy Inhatko
+Transcript:  thing they're going to be talking about is going to be more refinements to the iPad to bring it up  to the level of a thousand dollar computer, which is pretty much what they're selling these things  for these days. I'd love to see them also talk about refinements to stage manager,  which if we hear nothing about stage manager, I would then be concerned for the future of  future development of that feature. I would not be suspicious at all if at the very beginning they  thought, okay, we got stage manager. We love it here inside the spaceship. Now we got to cross our  fingers and see how the people react to it. And we will pay close attention to what they say,  positive and negatively. And that will help us actually get this where it needs to be within  the next two or three years. So if they say, Hey, our customers love stage manager and now we're  happy to announce we're making it even better. I hope that if we don't see refinements to stage  manager, that would augur poorly for the future. I think there have been some reports that that's
+
+Speaker: Jason Snell
+Transcript:  in the works. And I've also heard sort of through the grapevine that the stage, it seems like the  stage manager team sort of never stopped working on stage manager. If you've noticed every iOS  revision that comes out has stage manager updates in it. Like they keep tweaking it. Sometimes it's  frustrating. You're like, okay, now I know how stage manager works. And they're like, no, no,  it looks, it works different now. But I think they are. So I think they've just kept on the  treadmill there. And I'm with you, Andy. So much of what Apple does, you just want them to not  ship it and walk away. Because that's a bad habit that Apple got into. And they need to get out of,  which is, you know, shipping is the start of the story and not the end of it. And Apple, a lot of  times was like, look, we gave you a thing. Goodbye. And it's like, but it doesn't work. And there's a  bug. And then they're like, see you later. So I hope stage manager just keeps improving because  it needs it. Right. And they need to not walk away from it. That would be delusional. I'll be really
+
+Speaker: Alex Lindsay
+Transcript:  interested to see also with the, with the law. I think we talked about this last week, but the logic  in Final Cut as to whether they use the, they use the iPad as a development tool. So the iPad's  great because you can pick it up. They are potentially VR. You can move it around and simulate  what you'd have in the headset. You know, so if you were developing something in Final Cut or logic  and being surround sound, you can simulate a lot of that stuff inside of your iPad. And it feels  like the timing of when you re when they released the Final Cut and logic could be kind of like,  you already know that it's out shipping starting next week. But here's how you, here's how you use  it with as a development tool for, for the AR experience. Speaking of that, it's an interesting
+
+Speaker: Andy Inhatko
+Transcript:  question about, remember that when the iPad was released, they allow Xcode could, could,  could simulate an iPad so you can target it as a developer without ever having been seated with one.  You think that there's going to be some sort of simulator so that people, developers can at least  try to start to get a handle on what it would be like to target apps and code for that device.  I don't know how they, I don't know how necessarily it would work, but it was,  it seems like too easy a thing, too easy an opportunity. You can make it out of cardboard.
+
+Speaker: Alex Lindsay
+Transcript:  Yeah, that was great. I thought I thought I loved that one. Yeah, I know, but it was so good.
+
+Speaker: Leo Laporte
+Transcript:  I feel like stage manager is akin to Microsoft's release of Windows 8, where they attempted,  not Clippy. No, Windows 8 was an attempt to add touch to Windows. It was widely reviled  by users. They hated it. And in the long run, what Microsoft did is just kind of,  kind of like Homer Simpson fading into the Ivy. They just faded it back into the,  Pucci went back to his home planet. But it's still all there. It's just kind of,  it's kind of recessed into the operating system. I bet you that's what Apple does with stage manager.  It was too forefront. It's, it's too different. I'm surprised. Do you still use it, Jason? You,
+
+Speaker: Jason Snell
+Transcript:  I guess you feel like you have to, to cover it. I mean, I, I know I turn it off on the Mac as soon  as I was done with my review on the iPad. I do use it sometimes because there's some contexts in which  the iPad is better with it on. But the truth is I don't use stage manager on, on my iPad as the
+
+Speaker: Leo Laporte
+Transcript:  default. It's off by default. I'll be like, now I'll turn it on. I guess what I'm saying is there's  good ideas there. And I understand what they're trying to do. And it's kind of what Andy's talking  about, which is to make the iPad more useful as a computing platform. But it, but it's failed,  I think in terms of its affordances and its usability. So I think what they're going to do  is what Microsoft did, which is fade into the Ivy, but keep the afford, keep the, you know,  get rid of some of those affordances, but keep some of the underlying functionality.
+
+Speaker: Andy Inhatko
+Transcript:  I think, I just think it was kind of too big of a swing. Because if there was ever a type  of computer that justified and kind of celebrates a tiled window interface, it really is the iPad.  I don't, I don't have to worry about moving something out of the way because I've just  created a new workspace or created a new project and now something's covering up an essential part  of another window. I really do like the fact that I can just pick up a window, pick up a,  a, pick up an app, app window, slide it in. And suddenly I've got two equal panes or I've got a  two thirds, one third sort of layout. I really wouldn't mind if Apple decided to go another step  further from there and basically let me split vertical panes to have a top and a bottom,  or to have three in three in one screen. Obviously you can go nuts with that. And there's a, there's  a hard limit, but the fact of the matter is I'm like Jason. I'm the only times I use a stage  manager are when I really am, this really is the only, the only alternative I have available to me  to get a certain project done. Like again, I'm in, I'm in Boston for the entire day. The only  machine I brought with me was my iPad pro and the keyboard cover. And it turns out that there's  something a little bit more complicated than I anticipated. And then I will reactivate stage  manager just so I can have more or windows of more things, exactly. From more disparate apps  at the same time. I just wish that it was so nice that just like slide over and those other basic  features they added a couple of years ago, it became part of how I use my iPad and just isn't
+
+Speaker: Jason Snell
+Transcript:  unfortunately. I don't think they're done with it. I don't think they've given up on it yet. And I  do think we'll know like with the touch bar, I think we'll know when they've given up on it,  but I don't think they have yet. Also there are some rumblings that stage manager, the reason we  look at stage manager on the Mac and the iPad and I'm like, well, that's kind of weird, but okay.  Is that stage manager is also the metaphor they're using on the headset. So I don't know,  like they may be really motivated. Boy, that's just going to make Leo like the stage manager  stuff even worse if it's, if it's all about the VR headset too. But like, I think they, I think  like Andy said, I think it's worth another crack because I don't, I think they took a big swing  and they didn't quite get it, but they've put in a lot of work and they haven't even during this  cycle, they haven't given up. And I, I think there's some advantages to it. Also, I don't know what  you guys talked about last week, but I looked at the final cut pro running on the, on the iPad and  my immediate thought was, Oh, you need a bigger iPad now. And if you have a bigger iPad or you  have an iPad on an external display and there were some rumors out there that it might even,  you might be able to even do that and run it lid closed, which would be really nice and attach it  to a big display. Once you get in situations like that, you gotta have stage manager and it  needs to work better. But like they just need, they need to take some more shots at it because  this ain't it. Right. Like it's not quite there.
+
+Speaker: Andy Inhatko
+Transcript:  Time for the lunch pet lunch tray iPad. I think Jason has some spare
+
+Speaker: Leo Laporte
+Transcript:  CPU cycles because while he's having this conversation here, there's also an excellent  conversation going on in the club to a discord. You know, members get more Leo. Members get more  and it's, and I don't want it to slide by the wayside because it's actually a very good  conversation. Your position on the Mac book pro or sorry, the Mac, well, Knox Harrington started  off by saying, I find myself wondering how the Mac pro works with the all in one nature of silicon,  Apple silicon. It's not expandable. And then you reply, it's a real head scratcher. Mac pro needs  are kind of antithetical to the entire premise of Apple silicon to which a dragon slayer throws in,  they're going to have to drop Apple silicon. That closed architecture will be a limitation,  which I disagree with, but it is a conundrum. It is a head scratcher. How do, where does Apple
+
+Speaker: Jason Snell
+Transcript:  go with the Mac pro? I think part of the premise there too is that like, when you really think  about it, what, what devices does Apple sell? Almost every device Apple sells is a mobile device.  It's an iPhone, it's an iPad, or it's a Mac book. Three quarters of the Macs that are sold are  Mac books, right? Like at least if not more last time they reported that they were in the three  quarters range. So almost every like, so the Apple silicon strategy makes sense for Apple's product  line as a whole. When you start talking about high end pro hardware, that's where you're like, oh,  all of the, everything that works for the bulk of Apple's doesn't quite do it. So the question,  and the truth is you're like, well, they can just make a variation. It's like,  do you take your chip team? Do you take your entire philosophy that the chip team excels at  and then say for this little tiny product that is very important to certain users, but sells  nothing in the grand scheme of things, let's fork our chip strategy or change our strip chip  strategy. Maybe they do, right? Like maybe they do, but it's, that's a hard, I'm glad I'm not  making that decision because I think that there's a real strong argument that, that above a certain  point Apple just won't go. And that if you can't take the, you know, M whatever ultra,  that level of performance, if you need more than that, Apple doesn't have a platform for you  because the alternative is they will have to build this parallel universe chip platform  for Apple silicon on them on just the Mac pro. Yeah, right. You weren't here last week. Let me,
+
+Speaker: Leo Laporte
+Transcript:  you weren't here last week, but we had this almost identical conversation when we were talking about  final cut pro for the iPad. And Alex, you made, I think what was the absolute definitive point,  which is that Apple is going to, well, I don't want to put words in your mouth, but my sense of  it or my feeling is Apple will abandon that pro market in favor of the creator market. And that's  what they've done with final cut. Am I misstating your point? No, a hundred percent. I think that,
+
+Speaker: Alex Lindsay
+Transcript:  I think that Apple has lost, you know, they've lost Hollywood. Like they're not going to get that  back. I mean, it's, it's mostly locked up in avid and there's some premiere in between that.  And the only thing that's really taking ground is resolve. And they're not people, you know,  traditional editors are not going towards final cut, but in the creator market and the educator  market, you know, final cut a big deal because they're not getting paid by app by the hour.  And they wouldn't get things done quickly. And they, you know, they don't have to go through  a colorist and have, you know, have 10 editors working on it and all the other things that,  that happen there. And so, so it just makes a lot of, you know, it makes a lot of sense for  Apple to really focus on the market that makes sense because editors are going to ask for a bunch  of quirky little things that then they're not going to change. Anyway, they're going to, I tell you,  this is what I need to switch from avid and then they're not going to change from avid. And, and  so there, you know, there's no, there's no ROI for Apple there, but what I will say is that there is,  the one thing I would distinguish is that there, I think that there's still a market for the Mac Pro  because right now we have nothing that lets us put cards in our computer other than the Intel one.  So I think that just, you know, they don't even have to make the Pro some kind of crazy,  beefy machine. It's just having an enclosure that I can put cards in would be really useful.  Because right now it's a really good business for Sonnet and OWC because we're buying all their,  all these enclosures for all the cards that we need. So it just feels like, you know, they, they,  you know, having something that, that lets you put three, four, five, six cards in it along with,  you know, you put a bunch of couple of ultras in there at the same time. You, you know,  do a bunch of other things there. And I think that you end up with it. And I do think that there's an  aspirational benefit to Apple of people having a really beefed up machine. It's a, you know, there's  a, you know, there's a reason to have an F1 machine that is pushing the outer envelope of what's  possible. And I think that that, I think that that is still, I think it's still important to Apple,  you know, for people to have that, that scale. Because there was a point where I was, you know,  very clear, you know, before the M1 came out, I was pretty sure that my time using Mac as a professional  platform was almost over. Like it was just like, you know, I'm buying, I'm buying more and more  PCs and more and more Linux boxes and I'm putting four GPUs in them and I'm doing all this other  stuff. And I was, and before the M1 came out, I figured, ah, I got another two or three years.  And then after that, my home computer and I'll be answering email on a Mac, but everything else  will be a PC or a Linux box. And, you know, the M1 changed that, but I do think that there's a,  you don't want people to think that I'm going to get to the end of this, the yellow brick road,  just, just, just, it's just going to end. There has to, I think that that, the existence of that  high end machine that will do all the things that I may scale to, I think it's pretty important to  have, because I think it affects the intake on the other end as well. When you're buying into the  machines, knowing that you can get there, I think is important. I think the question is how does
+
+Speaker: Jason Snell
+Transcript:  Apple define that top end? Cause I think, I think you're right, Alex, but I think that I suspect  what we'll see is what are the limits that you can do within the Apple Silicon paradigm instead of it  being, okay, we broke out the RAM and we broke like, cause that breaks sort of what Apple's trying
+
+Speaker: Alex Lindsay
+Transcript:  to do. Yeah. I think, but I think that cards would be helpful. Yeah. Yeah. Yeah. Yeah. And maybe even
+
+Speaker: Jason Snell
+Transcript:  like RAM, you know, a cash and lots of storage with fast lanes and like, but without, because I  think some people really expect that it's going to look like a traditional computer, like the Intel  Mac pro. And I think you're, you're, you're right on, which is it will have capacity and all of that,  but it will otherwise look a lot like that high end Mac studio. It's going to be as much performance  as you could possibly get out of an Apple Silicon paradigm, plus all the stuff around it, not, we  broke Apple Silicon just for you Mac pro. No, no, I don't think they should do that. And I think
+
+Speaker: Alex Lindsay
+Transcript:  they're going to do it. Yeah. We're going to add some extensibility. We're going to have a ton of  IO. We're going to have a ton of, you know, you know, we're going to have, uh, you know, I don't  know, six or four or six or eight lanes of Thunderbolt, you know, that, that are, that are going  through it. We're going to have no expense, right? Yeah. And so, and I don't think it has to be a  $60,000 machine. I think it can be a, you know, 20,000 machine or a $15,000 machine. Um, but I,  but I do think a lot of lanes that you can do stuff with, I think that it's,  and I think that it helps show off the chips as well. I don't think, but I definitely agree with  you that I don't think that they need to break anything. I don't think there's no reason to break  that stuff out. I think that they, if anything, I would take two ultra, I don't know what pancakes  that have all those things and stick them in there or have up to four of them. You could put a four  of them in the run them all parallel and let them do a bunch of things. I mean, that, that would be
+
+Speaker: Andy Inhatko
+Transcript:  interesting. Yeah. For me, the thing that kind of pushed me, pushed my belief system about  Apple's attitudes towards the pro market was during the earnings call, the Q and A, when I  think it was the first time I'd heard, heard Tim Cook say explicitly the phrase that we're primarily  a consumer consumer company, not a pro not a career, not a pro company. And so that kind of,  Jason might've might have some other thoughts about this, but again, I can't remember a time when  those words specific, Hey, we are, we are a consumer oriented company. And then the  implication being that, yeah. And of course we have enough, we build enough powerful stuff that  we can make a top end creator or research level Mac. But essentially we, when, when you come to,  when you come to the classic form factor of a Mac, essentially the hot plate form factor is where  the most powerful Macs we intend to make. And we're not intending to make big boxes with slots
+
+Speaker: Jason Snell
+Transcript:  of them that cost upwards of $12,000 as a base. And what, I mean, what a pro is has changed over  time. What pro markets, like Alex said, some pro markets are gone and that's, and that's okay,  because there are other markets like Apple now talks, Apple's number one pro market is people  making iPhone apps, right? That's their number one pro market. It's developers. And then there are  other, there are lots of other professional level people and the power of the, of the Apple silicon  platform for, for Mac users at the high end is actually very impressive, but like your, the  markets change and your targets change. And I, over the years, I have written a lot of stories  about very angry people who are understandably angry that Apple has decided, or the market has  decided for Apple, that their personal area is not going to be a place where Apple is particularly  strong. And they get really irate about it. And it's like, I understand why they're irate,  but that does happen. Sometimes markets change and Apple will be like, you know,  if that's what's required to hold onto that market, we're just not going to do it. And nobody wants  to hear that they're abandoning your market. But sometimes that happens.
+
+Speaker: Leo Laporte
+Transcript:  When they dropped computer from the company name, they kind of acknowledged that what we really are  is a consumer electronics company. And I think that if you think of it that way, that's a good,  that's a really good niche. They're almost a $3 trillion company.
+
+Speaker: Andy Inhatko
+Transcript:  And $2 billion in cash and, and social security is on hand.
+
+Speaker: Leo Laporte
+Transcript:  And they, you know, they don't have to do everything. In fact, that I think is a very  important thing that Steve Jobs taught them is you don't, you should say no to most things.  And I don't, I don't have a problem with that. I understand how, if you're a Mac lover, you want to,  you want to do that, but there's PCs, you can do anything you want with PCs and you can put  Linux on them if you want. And you know, the sky's the limit. So it's still down there.
+
+Speaker: Alex Lindsay
+Transcript:  My only regret was that I didn't buy as big a studio as I would have bought, you know, like,  I don't really need the Mac pro, but I was going to get one. I was like, oh, I'm going to save money  and get one. So I held back and then it didn't, nothing happened. I would have bought a bigger,
+
+Speaker: Leo Laporte
+Transcript:  bigger machine. Even with your photogrammetry, probably the Mac studio you got is probably
+
+Speaker: Alex Lindsay
+Transcript:  pretty sufficient. Yes. Oh, I can dump it. I could use more. I mean, the ultra with some more RAM  would have done better, you know, like it's definitely, it's probably somewhere in my future.  If Apple definitively says we're not going to get a Mac, we're not going to do a Mac pro,  I'd probably be in the market for the M3. Yeah, wait and see the M3, the M3 ultra,
+
+Speaker: Leo Laporte
+Transcript:  because the M3, three nanometers, there's a lot. I think it's credible to believe that the M1 and  M2 were not so different, but the M1, M2 jump to M3 is going to be significant. And that is really
+
+Speaker: Alex Lindsay
+Transcript:  going to be the one you want anyway. Yeah, quite possibly. And so I, and I do think that Apple's  going down the right path. I mean, the creator market, the education market, the corporate market,  all of those markets are far bigger. In fact, I think their biggest problem is not so much,  and they do a pretty good job of it, but it's not so much the hardware or the software,  it's just the wetware. I think Apple could, could lean a lot harder into training to make sure that  people are taking full advantage of it. Cause I think that, you know, they do some, they do  some training there, but I think that they could spend a lot more money there to make sure that  people are actually using their products at the full capacity. Do they have to, clearly what
+
+Speaker: Leo Laporte
+Transcript:  Apple is doing now is looking for the next tent pole. Do they have to look at cars? Do they have  to look at VR? Do they have to look at health? Do they have to look for a new tent pole or could  they just say, Hey, we're doing, we're doing great. I think it's risky. You know, you can,
+
+Speaker: Alex Lindsay
+Transcript:  you know, like, you know, Nokia and, and Blackberry and there's a whole, that whole movie. I watched,  what's the trailer for that movie? It's really good. You know, you can get into a vertical,  you know, or a couple of verticals and think that you own the world. And then suddenly it's gone,  you know, and that's clearly what they're worried about. Yeah. I think Apple worries about,  I think Apple worries about 1997 every day. Like they think about it all the time, you know, it's,  and I think that the, so I, so I, I think that they, and they could do a lot of things. I mean,  I think of, I look at lots of products in my house going, I really wish Apple would just build one of  these so that I, I didn't have to, because I'm just not happy with it. You do want to also  not spread yourself too thin. You do want exactly. You don't want to, but when you're that big,  you're like, can't you just hire a hundred engineers to build it? You've said this before.  It's not that easy. Is it? They're not, it isn't easy, but I'm, but, but as, as Andy has said  before, but you have the money, you have the money, but it's harder now because they're trying to get  everybody to come back. They're trying to get everybody to show up and they keep on losing  people because they, they have to, they have to come to this, they have to come to work. So
+
+Speaker: Leo Laporte
+Transcript:  one other thing German talks about, I think it's very interesting is the pending war  between Apple and Metta. He uses as his sole data point, the fact that Metta is pulling the messenger  app from the Apple watch and then launches WhatsApp for where OS. And does not say whether WhatsApp  will come to Apple watch. But he, you know, he is pointing out one thing that is perhaps reasonable,  which is Metta wants to own the mixed reality headset market and Apple's coming on strong,
+
+Speaker: Jason Snell
+Transcript:  presumably in that market. Yeah. But even there, isn't it? If Apple comes in and succeeds,  isn't that a validation of their focus on that market? I don't like, well, and there's also,
+
+Speaker: Leo Laporte
+Transcript:  add one more data point Metta hates ATT, the app tracking and they claim it costs some billions.
+
+Speaker: Jason Snell
+Transcript:  This, this feels like one of the flimsier marker. I mean, this is low down in his newsletter,  right? Like it's not, I like it though. He does great work, but this one I'm like,  you know, can we connect those data points and be like, oh no, they took this watch app away and  they're adding this watch app on where OS and therefore this means war. And I'm like, yeah,
+
+Speaker: Leo Laporte
+Transcript:  except if there are places where Metta never put Instagram on the iPad. I mean,
+
+Speaker: Jason Snell
+Transcript:  it's true. It's true. And I do think, I mean, it's a little like talking about Sherlocking is like  Sherlocking is not Apple comes in and your product is dead. It's actually, it can be an opportunity  because Apple very rarely does everything that's in those apps. This is a little like that too,  which is like, you know, I know it's scary. I mean, I know I'm basically saying welcome Apple  seriously. Right. But that it kind of like Mark Zuckerberg has spent so much money trying to  validate this. If Apple comes in and has a product that people are like, whoa, maybe this is the  future. That's good for Metta in the sense that it will show that they did not throw all that money  away. Now, if Apple throws its money away, then maybe Metta says, see, it wasn't just us. And then
+
+Speaker: Alex Lindsay
+Transcript:  they run away. I don't know. The thing that will hurt is if Apple comes in at $3,000 and sells more  units than Metta sold, you know, at 1500 or 300, like that'll be brutal because, because you know,  it's so much work to get these headsets down into the, down into a consumer level cost. There is so  much going on in the headsets that I think $3,000 is completely reasonable if you have a high  performance headset. And it's kind of, to be honest with you, miraculous. $3,000 is a miraculous  number for a headset, you know, to do what is, you know, if it's high performance. And we haven't  seen high performance yet because everyone's trying to fit into $300 or $600 or $1,500. And that's not  miraculous. That's impossible. You know, and so, so I think that, I think that it's going to be  really, it's going to be really hard for Metta if, if Apple pushes really big numbers of, you know,  and when I say really big numbers, just more than Metta, you know, in the same, in the same category  at twice or in some cases, six times the cost. What I should, just a little bit of history in case
+
+Speaker: Leo Laporte
+Transcript:  you were wondering what Jason was talking about in 1981, when IBM entered the PC industry, Apple,  famously Steve Jobs famously bought a full page ad in the Wall Street Journal saying, welcome IBM,  seriously, welcome to the most exciting and important marketplace since the computer revolution  began 35 years ago. And of course, the PC and PC compatibles almost immediately ate Apple's lunch.  So it's something like mission accomplished. It's just one of those,  one of those things you never, you never forget. All I'm saying is that I hope, I hope that Metta
+
+Speaker: Andy Inhatko
+Transcript:  doesn't decide to like make a cardboard Apple headset and roll it out on a coffin
+
+Speaker: Leo Laporte
+Transcript:  work out for Microsoft. Microsoft did that for the iPhone, right? They had a funeral,  mock funeral for the iPhone. Was it the iPhone? Yeah. Foolish.
+
+Speaker: Alex Lindsay
+Transcript:  You know, I still have a zoom around somewhere. There's a zoom around somewhere in my,
+
+Speaker: Leo Laporte
+Transcript:  in my, no hubris, the Greeks knew and, and it's been true ever since. Let's take a little break  and then we will talk about Apple TV plus and a big executive departure. But first I want to tell  you about a tool we've been using Miro. It's hard for me to describe what Miro is because it can be  anything you want it to be. So here's the problem that almost every team, every,  every group that's working on a project, whether it's your, you know, high school  science project or you're developing the next great consumer product, you and your team are  going from tab to tab from tool to tool. And in that process, the context switches. This is  natural ideas just go, they disappear. They disappear. Information goes with Miro, M I R O.  That doesn't have to happen because now you have a collaborative visual platform that everything  goes into. All your great work goes in no matter where you are, no matter what time zone team  members are in, no matter what tools they use. In fact, we use, for instance, in our Miro board,  we use Zapier and Google Docs, but the information gets put into one spot. I don't know how to  describe this because it could be anything you want. It's completely plastic. It's completely,  whether you're working from home in a hybrid workspace, it's something that everyone can use  to collaborate, to brainstorm. Miro's infinite shared boards give product teams a perpetual  space, a single source of truth. They just drag and drop insights and data imported from any tool.  Nothing is lost. Nothing is forgotten. It's not a notebook. It's not a whiteboard. It's  everything. It's more than both. It's a synergy. It covers a breadth of use cases. So you can build,  it's very visual. So you build visual assets. Text works great in Miro. You can present findings.  You can run brainstorms with cross-functional teams. You can zoom in to get the detail. You  could zoom out to get the overview. You can build out your product vision on a Miro board by  brainstorming with sticky notes, with comments, with live reactions. There's a voting tool.  I love the timer. So if you're in a meeting or in a Zoom call, you can come to consensus quickly.  You can express yourself, of course, in creative ways and bring the whole group together around  one idea. Whether it's a wire frame, you could draw with a pen tool. Forget napkins. You've got Miro.  Putting images and mockups on the Miro board, kind of a dream board, a vision board. Miro users  report saving up to 80 hours per user per year. That's like two weeks of vacation a year, just by  streamlining conversations and cutting down meetings. And don't we all want to do that?  My strongest recommendation is you go to the Miroverse. When you go to Miro.com slash podcast,  you don't even have to log in. Although I'm going to tell you right now, you can create your first  three boards free. So I would suggest you do that. Miro.com slash podcast, create the account,  get the three boards. Then go to the Miroverse because this is an amazing collection of things  people have created with Miro. And it'll give you a much better idea of what you can do with Miro.  A mind map, a retro, a SWOT analysis. What? A Harry Potter retrospective. That's from the UK  government. Anything, right? It takes over from if you've been using Vizio, other visual tools like  that, it can do all of that. You can sketch with a pen. So I can't really describe what Miro could  be to you because I don't know. But you can find out if you go to Miro.com slash podcast. Your first  three boards are free. Here's something WebEx posted, a post meeting summary after your WebEx  meeting. Just some great stuff. Pitch decks, brainstorming. Miro.com slash podcast. Your  first three boards are free. Your team will always stay connected with real-time information. It  gives project managers and product leads a bird's eye view of the whole project. Nothing slips  through the cracks. It's so successful. They have more than a million monthly active users. That  gives you some idea. It's a tool you will want to use. Get your first three boards for free. Start  working better. Miro, M-I-R-O.com slash podcast. Miro.com slash podcast. We thank them so much for
+
+Speaker: Alex Lindsay
+Transcript:  their support of Mac Break Weekly. I can give a little testimonial for that. Do you use it?  Amazing. I built an app with WWT. World Wide Tech, another sponsor of ours. Wow.  We built an app together and they built everything inside of Miro. I spent days worth of time in  Miro with them, thinking through the whole process and methodically laying out everything we're  going to do and the timelines and all the bits and pieces and all the ideas and all the things it has  to do and all the bits and pieces and it came out great. But the testimony for both of them,  but I was like, oh, I don't even know how we would have done it without Miro.
+
+Speaker: Leo Laporte
+Transcript:  That's the challenge, right? When you have working on an app together, like your ideas and then the  developers have to implement it. That's the challenge. They're asking questions and then
+
+Speaker: Alex Lindsay
+Transcript:  we're color coding things and we're tying things together and we're grouping them over. Okay, this  is the stuff that's good to have. This is the stuff that we have to have. This is the, you know,  and but when you have a lot of times you say, oh, this is the stuff that good to have and then it  just disappears and rolls off the end. And so it's somewhere on the board that you kind of keep a  corral of that information. It was super, super powerful. You were not here when the six color
+
+Speaker: Leo Laporte
+Transcript:  charts came out last week with the Apple results. We used them though, Jason. Thank you very much.  Appreciate that. One of the things that stood out was growth in services, right? This has been very  profitable for Apple, much of it's the app store, but I wonder if Apple TV plus is part of this.  They're losing an executive in charge of TV plus and sports. Not the creatives though. It's the
+
+Speaker: Jason Snell
+Transcript:  business guy at the top who runs it. It's actually, and it's interesting because they say that he's  being basically he's got people who report to them. There's a guy who's in charge of sports  and then there's an open position that they've created. So it sort of almost sounds like he was  in charge of, he was like a roll-up guy and now they're just going to have a person in charge of  sports and a person in charge of the business side of TV. Cause he came from Hulu 10 years ago.  So he kind of helped build this, I guess. Is there a lot of departures as noted in that report in  the services area? I do wonder if there's like a succession style intrigue going on around Eddie  Q. Is Eddie Q planning on retiring and they're going to the mattresses and they're settling all  debts or is it really just the natural thing that happens at Apple, which is you work at  Apple for a while, you make a lot of money and then you go somewhere else. I don't know.
+
+Speaker: Andy Inhatko
+Transcript:  You collect your stock and then you go back to GM.
+
+Speaker: Leo Laporte
+Transcript:  I think things are changing.  At Apple, maybe a little succession happening. Who else left? This is the third major exit from Apple's  services organization, vice president, Peter Stern and Michael Abbott. Stern ran services  businesses and was Distad's boss. This does lend itself to that succession theory. Abbott,  meanwhile, oversaw Apple's cloud services group. Abbott's the guy who's going to GM to help them  design their, good luck GM, their Apple CarPlay replacement. Good luck GM.  You think Eddie is retiring? What's the theory here you got?
+
+Speaker: Jason Snell
+Transcript:  I don't know. When you see all that movement, you wonder, is something else going on there?  I really don't want to start a rumor that Eddie Q is retiring or something. But I see this as  something's going on and I don't know whether it's because it seems unlikely that all of these  things are random. It could be, but I'd say it's unlikely. There's a transition going on there.  Yeah. It may not involve somebody like Eddie leaving. It may be more like our services business  now is not what it looked like eight years ago. The sports and TV thing is a great example where  they had the one guy in charge of sports and TV and now they're going to have two people, the guy  who's in charge of sports and somebody they're going to hire in charge of TV. It may be that  which is just like, we're going to do a reorg. We're going to give people new responsibilities.  Some people are going to take that as an opportunity to step off and cash out and other people  get to step up. It may simply be that because that business really has changed enormously in
+
+Speaker: Leo Laporte
+Transcript:  the last decade. Services now, as you point out, 20% of Apple's revenue, one fifth of Apple's  revenue. It's a big deal. Again, it's not TV necessarily, but TV's a part of it. Apple has  big ambitions with TV between major baseball and soccer. It is getting better. We were talking on  Sunday. Amy Webb said, repeated the thing I've said before, which is something's missing  from Apple's shows. It's just a little too overproduced. They have too many notes.
+
+Speaker: Alex Lindsay
+Transcript:  Now I'm starting to enjoy. I'm starting to sever something. There's some great shows.  Slow Horses was amazing. I'm really enjoying Silo. For me, the jury's out on that.
+
+Speaker: Leo Laporte
+Transcript:  We've only seen three episodes. I'm getting hooked. I got hooked. Did you read the books?
+
+Speaker: Alex Lindsay
+Transcript:  No, I don't read fiction because then it would ruin the show. I don't want to know what I'm  missing. I just want to enjoy the show as it is. That's why books exist. My trick is to read books
+
+Speaker: Jason Snell
+Transcript:  that are unadaptable and then you're fine. You can read those books. They'll never make a movie
+
+Speaker: Leo Laporte
+Transcript:  out of Watchmen. Surely. They don't have a Game of Thrones yet, do they? But then nobody does.
+
+Speaker: Alex Lindsay
+Transcript:  Everybody's struggling to find that Game of Thrones. I think Ted Lasso is the closest big hit that
+
+Speaker: Andy Inhatko
+Transcript:  they've had so far. To be fair, I have to say that my preconception of Apple TV was always that  it's about their exclusive content and they haven't been really doing much to build a catalog.  Now they've got a couple TV shows that they've been meaning to catch up on. They got Marooned,  which Gene Hackman, Gregory Peck, NASA astronauts being stranded in space being rescued by the  Ruskies in 1970. MrSign33000 did a little... Are they remaking it or they have the actual Marooned?  No, no, no. They have it. That's such an esoteric, but cool movie that would get my  attention on any service. Oh, look, another true crime podcast turned into a five episode streaming.
+
+Speaker: Leo Laporte
+Transcript:  We are hearing that Severance has been hampered by the writers' strike. They were working on it  and they've had to stop. Well, some stuff's done, right? Some stuff is done, but the problem is
+
+Speaker: Alex Lindsay
+Transcript:  then some stuff says, oh, we're just going to go shoot. Well, the writers are part of that.  They're sitting there, they're rewriting it every day while they're on set.
+
+Speaker: Leo Laporte
+Transcript:  I feel Apple stuff lacks edge a little bit. I don't know how to describe it.
+
+Speaker: Alex Lindsay
+Transcript:  It goes through one too many rounds of polish. To me, that's the problem with... Even with Silo,  which I'm enjoying, it just feels like it went through the polisher. There's just a couple sharp  edges that are missing somewhere there, but it just goes through it. It's beautiful. As a  production person, I look at it and go, wow, that was really expensive. That was a really nice car.  I still feel like everything I watch there just feels like they could afford one more round.  Because we always say in production, you don't finish any project, you just run out of time.  You submit what you had and there's a certain edge to it and it just feels like they did finish.
+
+Speaker: Jason Snell
+Transcript:  When it works, I'd say it works. I do agree with you. There's a look and a feel to them.  I think when it works is when it's either fantastical or dreamlike intentionally.  Severance works because it's so polished, it's uncanny. That's what they're going for and it's  a good fit of material to style. I think for all mankind, sometimes when it really works well,  it's the same kind of thing where it is meant to be this fantastical thing. Maybe even Ted Lasso  arguably is a golden glow of happy. It's not really realistic.
+
+Speaker: Leo Laporte
+Transcript:  But then there's Shmiga Dune. You can go too far in that direction as well.
+
+Speaker: Jason Snell
+Transcript:  I don't know. I kind of like Shmiga Dune. I thought it was funny.
+
+Speaker: Leo Laporte
+Transcript:  I like the kind of offhand references to musicals, but Ghosted was god awful.
+
+Speaker: Jason Snell
+Transcript:  Slow Horses is interesting because it's actually out of there. They have a UK production executive  and so it's out of a different part with a different sensibility in a lot of ways.
+
+Speaker: Leo Laporte
+Transcript:  Slow Horses was a very not Apple TV+. In fact, at first I looked at it and said,  oh, they bought this. They didn't make this, but they did.
+
+Speaker: Jason Snell
+Transcript:  They hired a BBC executive to head off their year of production staff.
+
+Speaker: Alex Lindsay
+Transcript:  Tetris was pretty good. Did you like Tetris? Tetris was really good. I really enjoyed Tetris.
+
+Speaker: Jason Snell
+Transcript:  I really enjoyed it. I don't think it's a very good movie, but I didn't care because I really
+
+Speaker: Leo Laporte
+Transcript:  enjoyed it. Maybe that's why I liked it. You're right. There were some structural issues with it.  Luck, which should have been a huge success, fell on its face even though they had Pixar's  disgraced John Lasseter helming it. Lasseter had the magic touch at Pixar, but  maybe something happened at Apple. It got fired because he is...  Well, I know John pretty well. He was a hugger. He hugged me. Might have squeezed my buttocks.  I don't remember, but I don't think it was personal. He was a hugger. That was his thing.
+
+Speaker: Andy Inhatko
+Transcript:  I don't know what happened. I don't know him, but...
+
+Speaker: Leo Laporte
+Transcript:  Yeah. I like John a lot. He's very talented, but he couldn't make Luck a success,
+
+Speaker: Andy Inhatko
+Transcript:  which is interesting. Even Pixar is going through a slump, I think.
+
+Speaker: Jason Snell
+Transcript:  Yeah. Luck was a success in the sense... There's an argument to be made because somebody I do a  podcast with, another podcast in a different place, Julie Alexander from Parrot Research,  she says that Luck actually did okay for Apple, based on Apple's size of its audience and the  fact that they want more children's and family-friendly programming, that Luck kind  of did what it was intended to do. Luck on Apple TV is never going to do the same kind of number  that Luck on Amazon or on Netflix is going to do, but that it sort of did its job. It did not  break through and become a thing that everybody's signing up for Apple TV for, but that in the  context of Apple's service, it did its job of providing that content. I think the challenge  here is, what's the biggest that an Apple TV plus show can be? Is it Ted Lasso? Is that as big as
+
+Speaker: Leo Laporte
+Transcript:  it will ever get? I think so. Yeah. The morning show was a flop, right? They put all their eggs  in that basket, big cast, big money and flop. I noticed that the Will Smith vehicle, Emancipation,  is no longer on their front page on their website. I'm thinking that was bad timing.
+
+Speaker: Alex Lindsay
+Transcript:  And the hard is, you play really hard like Foundation. I didn't even make through.
+
+Speaker: Leo Laporte
+Transcript:  And they brought it back by, they renewed it. So you cannot watch a second season now.
+
+Speaker: Alex Lindsay
+Transcript:  Exactly. But even like, there's huge risk. I think that HBO got into a mode where they figured this  out, even though I don't know if they'll continue to figure that out. But they had a lot of things  that did well. But like with the One Ring from Amazon is-  Floppable.  Okay. They spent so much money on that.  Yeah. Just acquiring the rights has spent like a quarter billion dollars for the rights.  But they spent all the money on that. And so I think that trying to knock something out of the  park, I think Apple needs to continue to do. I do think that I'm seeing, I guess I'm finding myself  watching it more often than I did before. Like that was the-  Yeah.  Because I kind of have a, if I see that there's a pile of shoulds somewhere in a,  oh, this is going to be a big pile of shoulds. I won't watch it. Like if I see any should-  Well, you know, they spent a lot of money on extrapolations, right? This is a very preachy
+
+Speaker: Leo Laporte
+Transcript:  climate change show with big budget stars, including Meryl Streep and big budget writing and  not so hot.
+
+Speaker: Alex Lindsay
+Transcript:  I just think I don't-  So preachy.  My problem is I want to sit down and I want to relax, which is the only time I want to watch TV.  You don't want to see the end of the world. Yeah.  I don't want, I just don't want any shoulds. Like I just want to watch,  I just want to watch a show and just have it be a show.  They should all over you.  Yeah.  Yeah. They just, and so the thing is like 90% of Apple's stuff has been, you know,  should written.  Do not watch ghosted.  It looks like it's going to be a great popcorn.  I did watch ghosted.
+
+Speaker: Leo Laporte
+Transcript:  What'd you think?  It was horrible.  It was horrible. I didn't even finish it. It's like the perfect popcorn movie. Great cast.
+
+Speaker: Alex Lindsay
+Transcript:  Here's the funny thing is my family enjoyed it and of all people, my daughter enjoyed it.  And she's not like a, like that kind of, like she just thought it was fun. And, but, but I,  I was like, I, I, it gets into that whole thing I was talking about where it felt like it,  every sharp edge had been worn off.  There was no,  you know, and, and it was just like this, it was like the perfectly produced action film  that had no soul, like just not soul that you cared about that you, you know, and it was,  you know, it had, it was like, we put all the ingredients in, but there's just,  I don't know. There's no carbon to it.
+
+Speaker: Leo Laporte
+Transcript:  And you kind of said this, this is true across the board. Streaming networks are all  fumbling. It's just described in Netflix movie too. Yeah.  Right. This should have been a Netflix movie actually.
+
+Speaker: Alex Lindsay
+Transcript:  At least, at least it's properly compressed. I mean,
+
+Speaker: Leo Laporte
+Transcript:  it looks good on your 4k OLED. That's for sure.
+
+Speaker: Alex Lindsay
+Transcript:  I watched it. What did I, I just watched the, the, the, um, oh, the JLo vehicle. I just can't think  of the name of it right now. Mother, the mother, we watched that. I mean, you know, it was a Saturday  night. We figured we'd watch it. It's mother's day. It's got JLo. What could be kind of not kind of  soulless, um, you know, and, but, but the, it was okay. I mean, it was, it was okay.  I'll tell you, here's the hazard, but it was horribly compressed. Like it was like,
+
+Speaker: Leo Laporte
+Transcript:  Oh, that's funny.
+
+Speaker: Alex Lindsay
+Transcript:  It looks so bad. And it was like, only you noticed that by the way, Alex,  Netflix compression falls apart on the Apple TV. It seems to be only, it literally seems to be  what they're doing. There's something about the manifest that they're using inside the Apple TV,  but on the Apple TV, I got a wired connection, a one gig connection. I got, you know, like,  there's no reason for this to be low quality and it falls apart in the dark scenes. So if you see  a movie like gray man or like, uh, the mother, which are perhaps, you know, a lot of dark scenes,  you're just looking at like my, when my kids ask what is happening to the image, then I know that,  you know, we're, we're now getting into the land of it's not working. So it's
+
+Speaker: Leo Laporte
+Transcript:  the hazard of having a movie like ghosted, which has so much promise and then falls on its face is  so much, I feel less likely to try it, to sample.  An Apple TV show now I'm going to, you know, by the way, because I'm an Apple one subscriber,  I'm going to be getting every, you know, this is, you know, this comes along with the package, but  I'm much more, much less likely to sample. I'll look at something. I'll go boy that,  you know, invasion now that looks interesting. And then it breaks my heart and I don't want to  take another chance again. You know, there's too much other stuff that you can watch out there.
+
+Speaker: Andy Inhatko
+Transcript:  Yeah. I just don't know of any streaming service that I've been exposed to where  it really justifies a month to month. Yeah, that's a good point. I mean, I've got,  I've got Netflix because that's my baseline. I don't, I don't know what I want to watch.  Let's see what's available on X, but Hulu is mostly there so I can watch Bob's burgers and  Archer like basically, basically Fox network, like animation, uh, without having necessarily  recorded on my plix server and everything else is like Disney plus it's fine, but I'm going to,  I'm going to subscribe to it for a month. I'm going to have like almost marked on the calendar.  I'm here. The theory, the five, six, seven things I want to watch in this month. And as soon as I'm  done, boom, cancel Apple TV plus once Ted Lasso is off after the third season, again, it's I'm like  you, I'm going to continue to subscribe to it because it's part of this package that kind of  makes financial sense, but it's, it's disappointing as a lifelong Apple fan to think that the only  reason why I have this Apple product is because it's like keeping a fluorescent light fixture on,  it costs less money to just have it or, or, or my, or my, my landline with my cable package is like,  it's I don't need it. I don't use it. I have nothing connected to it, but my package is cheaper.
+
+Speaker: Alex Lindsay
+Transcript:  If I have this, I don't have this thing. Yeah. Well, and I think that one of the big scary things  for a lot of the streaming companies is that Apple and Amazon don't have to make money at it. Like  they don't, they're playing a different, it's kind of, we've talked about that. That's right.  And so that's the thing that as, as this gets more competitive, cause I know that for me, like,  now we need like, maybe I want to watch Paramount because the Picard thing looked really good,  but I haven't, but like Paramount and Peacock came out too late and I was like, I've already  subscribed to too much content. I don't want anymore. And so, and so, but I, but if I buy  another one, I'm going to get rid of one. And I think that now that people are starting to shift  and figure out that I don't know if I need to keep on paying for all of these Apple and Amazon are  the ones that are most likely to just keep those subscribers because it's part of a larger package.  It's kind of a Kaiser, so as a model, you know, they're, they're always paying more than the job.
+
+Speaker: Leo Laporte
+Transcript:  I don't care how much Max costs. I'm going to buy it for succession,  but I admit succession only has two more episodes. And then, and then I don't know,
+
+Speaker: Andy Inhatko
+Transcript:  then I don't know what happens. It's still just makes financial sense for me to, if they,  if they make the mistake of making these series like available for purchase on iTunes or available  for purchase on the Google play store or anywhere else, rather than subscribe, I'll, once I find  myself getting hooked on something, I will just buy an entire season. And then I've got it.  I don't worry about it. Yeah. And you have to be patient. That's the forever ish. Yeah.
+
+Speaker: Leo Laporte
+Transcript:  Yeah. That's why I guess one of the reasons these networks are looking at sports, right? Because
+
+Speaker: Alex Lindsay
+Transcript:  that's the kind of thing that builds loyalty. Yeah. Sports is the big one. It's the, it's the  only thing that you might, you know, and not only do you sit there, you'll sit there through the ads  because you're, you know, you're in a live experience. You have to. Yeah. But it's like,
+
+Speaker: Jason Snell
+Transcript:  this was a big week for that because Peacock got an NFL playoff game exclusive to Peacock.  Oh my God. One of the NFL playoff games will be available except in the home markets,  a playoff game for the first time will be available only on streaming. Really interesting. Right?
+
+Speaker: Leo Laporte
+Transcript:  Yeah. That's so dystopian. That and cocaine, Barry, you got me. You had me. Yeah. That seems
+
+Speaker: Andy Inhatko
+Transcript:  like a way to educate the populace on how to pirate your content. Exactly. Honestly.  Wow. I figured out how to get the, I was using, I was using my VPN to watch Eurovision  because I did, I was not going to subscribe to Paramount Plus just to watch Eurovision for  as totally worth it as it would have been. It's like, if I, if I could just flip,  select this pop-up menu in my VPN and pretend to be Irish on Saturday and get to see the, see the  final versus sign up for this channel that has only this one thing that I'm interested in.  You know what? I'm going to do the paralegal thing. I'm going to hold my nose and pretend  that God is looking the other way. God's always watching you, Andy. I'm sorry. God, God, God  created Eurovision. Okay. That's the kind of God that I believe in the God that created Eurovision.  I think that he, she, or whatever would have been my, what are you, are you happy with the,  the outcome of this year's Eurovision? It was that seeding insane and I loved every moment of it.  Okay. To me, to me, it's the pre-sign, my final ones. It's the no spoilers, but the,  the, there's only like my second year really paying attention to it. I never watched it before.
+
+Speaker: Leo Laporte
+Transcript:  I knew about it because of ABBA and whatever 76, but I watched it this time and it was like,
+
+Speaker: Andy Inhatko
+Transcript:  Oh, it's, it's, it's, it's, there's a, there's a video, there's a video that I'll, that I'll  share to you like later on, because it just, it's this beautiful explanation of why people,  why Europeans love Eurovision explained by a French, French lady. Cause yes, it is extra.  Yes, it is over the top. It is just explosion of joy and happiness that gets us through,
+
+Speaker: Leo Laporte
+Transcript:  you know, another summer. Joy? Really? Well, okay. I actually, I thought France was robbed
+
+Speaker: Andy Inhatko
+Transcript:  personally, but that's, it was, it's, it's, it's hell of a lot of entertainment and there's no,  and, and because it's not American, they didn't try to make us care about anybody in this  competition. That's probably why it was so much. You've been, you, you, you sacrificed a lot to be  here. Eurovision. Yes. My, my grandmother, she, she swolled the horse. Is that uniquely American?
+
+Speaker: Leo Laporte
+Transcript:  Is that the story there? Cause Lisa watches both idol and the voice, right? The two big American  singing competitions and she will, she skips all of that, you know, teardrop and drama between
+
+Speaker: Alex Lindsay
+Transcript:  the Olympics. Not in the Olympics is like, I don't need to, you know, I should be in
+
+Speaker: Andy Inhatko
+Transcript:  chemotherapy right now, but I think the spirit of music is going to kill my, kill my pancreatic  cancer. You go Gloria, you speak for all of us. Like, Oh, for God's sake, she's not even a good
+
+Speaker: Alex Lindsay
+Transcript:  singer. By the way, you were mentioning the Leo, have you seen the, for the ABBA thing, have you  seen the Stockholm syndrome on this is music on Netflix? No, is it about ABBA? So this is,  this is music is one of the best series on Netflix in my opinion. And it's all about like,  it has one whole episode on auto tune and one whole episode. And, and, but one of them is  they call the Stockholm syndrome and it shows how ABBA. Oh, that's that factory. Yeah. But ABBA  first got, made it pop, you know, suddenly made that's how Britney Spears was created. She went
+
+Speaker: Leo Laporte
+Transcript:  to Stockholm and they produced the hell out of it. But it showed all the, out of them came all of
+
+Speaker: Alex Lindsay
+Transcript:  these Swedish producers and then out of that and you know, is this the, the story of fire saga
+
+Speaker: Leo Laporte
+Transcript:  on Netflix? Is this the one you're, is this the one you're talking about? The, the back backstory  of the Will Ferrell movie, the Will Ferrell, Will Ferrell at Eurovision. Is this what you're talking  about? I'm not, but this is to me, this is exactly what Eurovision looked like. I thought so. Yeah.
+
+Speaker: Andy Inhatko
+Transcript:  Especially, especially before like the semifinals, the countries that are like, look,  if we win this, we have to host it next year and we don't want to do that. We are just going to be  absolutely crazy and it'd be fun and create, create such a wonderful show that nobody will think we're  taking it seriously. And we will know we will not be on the book for this Eurovision. The whole thing
+
+Speaker: Alex Lindsay
+Transcript:  is all so pre-produced that the edit is automatic. Like the edit is pre-pre-programmed, you know, for  the live show. So it's literally, there's a software that I saw at IBC that just does the,  does the Eurovision edit for each one of these performances. Because they know exactly when it  begins and ends. They rehearse it. All the, all the camera operators know exactly where they need to  be. The artists, you know, rehearse it. They get it all, they figure it all out so that the edit,  that's why the edit looks so clean and pre-edited. It's live, but it's basically pre, like pre-edited.  It's an amazing thing. It's an amazing use of technology. The only thing that's live is the
+
+Speaker: Andy Inhatko
+Transcript:  vocals. All the instruments have to be, everything has to be less than three minutes and all of the  performances can only be vocal. This is what I didn't like about it. It's like, where's the band?  It's a recording? The vocals are live for a lot of reasons. They're like, no, you can't have like an  80 piece orchestra that's playing for, I don't know. Again, there's a, I just put it in the discord,  YouTube or Talsa. How to Eurovision. Yeah. Yeah. And it will, it will make, it will make you into a fan,  just like it made me into a fan last year. From Hazariel Costumus.  How to Eurovision. And she is French and she has a wonderful French accent and she is very, very
+
+Speaker: Leo Laporte
+Transcript:  excited about Eurovision. All right. I'm willing to get into it. I am. I am. So apparently I didn't  know this. There've been significant outages. Yeah. App Store, Apple Music, Apple podcasts,  um, not showing on the system status page even. This was yesterday.  Uh, I hadn't, I hadn't experienced this and this is not the first time this has happened. What's
+
+Speaker: Andy Inhatko
+Transcript:  going on? It's been, it's been happening kind of, uh, kind of a routinely like weather was down for,  for, for a long time. Services are spotty. Even the, the Apple card stuff is occasionally down  and the, there's an article nine to five map. There's still an issue on weather, by the way,
+
+Speaker: Leo Laporte
+Transcript:  on the Apple. So I'm looking at the Apple status page. There's still an issue on weather.
+
+Speaker: Andy Inhatko
+Transcript:  And so they, they have a rundown January 19th, February 20th, 23rd, April 1st, 4th, 5th, 6th, 10th,  15th, 24th, May 2nd, 5th, 9th, 11th, May, May 11th, Apple ID services currently down for many users,  unable to log in or make payments. Uh, Apple weather not working for some users, third time  in this month, Apple music down for some users, plus Apple card and Apple support. Uh, yeah,  I mean, that's just, I agree with the headline in nine to five Mac. It's just like that's,  these outages are at an unacceptable level. That's it basically shows that I'm glad it's,  Apple has put a lot of investment in their future into expanding their services business. But  if they don't have it right, if they don't have some, if they've been running for years now are  not rock solid, Oh boy, they've got a lot of explaining to do all cloud services have, uh,
+
+Speaker: Leo Laporte
+Transcript:  outages once in a while, but this seems like an abnormal number. Alex, do you have any insight?  I mean, you're, you know about how this works. I think they're probably making a bunch of changes
+
+Speaker: Alex Lindsay
+Transcript:  for WWDC. Yeah. I think that's my guess is that they're updating a bunch of things and they are,  uh, um, and they're, yeah, I think that's not an excuse though. That's not an excuse. I'm just  saying that I think that there's just, they're, they're probably making some significant changes
+
+Speaker: Leo Laporte
+Transcript:  for WWDC. And that's when these happen on every cloud service, you know, oh, we, we, uh,  pushed a new configuration and it broke everything. Um, Hey, Hey, I'm sorry that you couldn't pay for
+
+Speaker: Andy Inhatko
+Transcript:  dinner, uh, on your, on mother's day because we had some server problems and you, we couldn't  process your apple card. That sort of stuff is like, no, I don't, I don't, I, you're not my best  friend and I'm not, I'm not encouraging you to pivot from a job you don't like into this wonderful  new dream of running a cloud service. You are a $2 trillion company that is I've paid for services  from, they should be reliable, a random outage for every now and then that's just the luck of the  draw. But again, when you have two or three months in which I've, I'm almost every time, every time  that this comes up in one of my newsfeeds or someone talks, tells me about it, I have to figure  out, was it, was this something new today? Are they talking about the thing from two days ago?  Are they talking about the thing from last week? That's bad, man. That is bad. Isn't it? Here's the
+
+Speaker: Leo Laporte
+Transcript:  down detector snapshot from May 12th, a couple of days ago. And that, that really, those, those  flat lines, that's flatlined. Not good. Not good. Yeah. I wonder what they're up to.  It does feel like they're, they're doing something. Maybe this is a prelude to being much more
+
+Speaker: Andy Inhatko
+Transcript:  reliable. Let's cross our fingers anyway. Maybe they're moving from, from Amazon to,
+
+Speaker: Leo Laporte
+Transcript:  to Google cloud servers. Maybe that's what they're doing. There was a leak. This is from a nine to  five Mac that claims Apple uses a multi-step sting operation to identify and fire leakers ahead of  WWDC. And, you know, they leave out commas, they put in commas on Wednesday. This is, this story  was from May 10th. So on last Wednesday morning, the leaker account that was on Twitter claiming  to know a broad range of details of Apple's upcoming software releases went silent. The source  posted an update in which they claimed Apple identified their source and fired her through a  multi-step sting operation. The leaker analyst nine for one, I guess, had a single source inside of
+
+Speaker: Andy Inhatko
+Transcript:  Apple. Yeah. And he was, and he broke, he was leaking information about the release of final  cut pro for, for iPad. And of course the day this, this, this story about his source being fired from  Apple and being the, being targeted by a sting operation came the day over the day after that  was released. Cause that was the, the canary that Apple was using. They gave, they, they released  release information for new versions of final cut Mac and, and the final cut for, for iPad,  different release dates for each person who was suspected of being the source of the leak.  And so when the leaker basically said, Hey, we're not seeing this until 2020,  24. We're not going to see a final cut for, for iPad until later this year.  Essentially that was, yep, that was the cubicle eight. Can you come to the office and bring
+
+Speaker: Leo Laporte
+Transcript:  everything in your office with you? Yeah. Also analyst nine 41 kind of blew it by saying,  it's my sister and she's working in with Craig Federighi. That was, that's pretty much going to
+
+Speaker: Andy Inhatko
+Transcript:  narrow it down there. Yeah. Nine to five Mac decided to follow that up by talking about, well,  yeah, this is, this is why when we get information, like we don't just simply cut and paste because  there can be this, these are techniques that we've been hearing about, not just from Apple,  from other companies elsewhere. There's like, you can have, you can have ANSI codes that are  19 spaces, but they only actually display one of them. There can be like certain language that  could be the placement of a comma in press materials. Something is a certain shade of blue.  Again, all of these combined together that if someone is foolish enough to simply copy,  copy paste or quote directly, it allows a company that's suspicious of eight people to figure out  which of the eight was doing it. And this, this, this person, oh boy, I don't, I don't know what  they do for a living, but it's not, it's not reporting or, and if it is reporting, it's not  something that they were counting on doing for more than, for more than like eight mortgage  payments because that's not, you're not going to last that way. Chance Miller writing in nine to
+
+Speaker: Leo Laporte
+Transcript:  five Mac says the entire story leaks of lot reeks of lies and saving face. But you know, I can  remember back to Steve jobs where they would have differing story. You know a little bit about this,
+
+Speaker: Alex Lindsay
+Transcript:  Alex, don't you? Cause it used to be, I mean, Apple, you didn't even have to beer, beer board them.  Beer boarding is, you know, you take everybody out to drinks and just keep telling people,  break down. And, and you didn't even, Apple employees back in the nineties, you could just  get all kinds, you didn't know what the next year or two is going to have, is going to be.  And then suddenly, I mean, it felt like a week. It was just like, nope, nobody's talking. And  I asked somebody about that, that might know. And they were like, well, Steve, Steve gave out a code.  He gave out a product name to three executives, just saying, this is what's coming up and da, da,  da, da. And he said, you know, don't, if this leaks out, you know, no one's going to, you know,  all three of you're getting fired. And it leaked out and it wasn't even the right product name. It  was a different product name, but all three of them got fired. Like he didn't care. Then they  were pretty relatively high up and they all got fired that week and no one, everyone stopped talking.
+
+Speaker: Andy Inhatko
+Transcript:  Yeah. A lot of apricot orchards in the Apple campus. A lot of secrets get buried in those
+
+Speaker: Jason Snell
+Transcript:  apricot orchards. But that was it. That was, that was the, that was the story. The story was
+
+Speaker: Alex Lindsay
+Transcript:  it's three, three people who took, took the hit. And some people had said that they weren't even  sure if it wasn't Steve that leaked it himself. So they just make the point. I learned that from
+
+Speaker: Leo Laporte
+Transcript:  game of Thrones. It's always a good idea to put the heads of your enemies on spikes on your outer
+
+Speaker: Alex Lindsay
+Transcript:  walls just to let them know. Yeah, exactly. So that was a little spike thing, but it was like,  it felt like, and again, it felt like it was just night and day. I don't know if Jason remembered  changing the weather, changing so quickly, but we weren't, and you and Andy, we weren't using
+
+Speaker: Jason Snell
+Transcript:  it because, you know, secret sources back then, because that was the, it was actually Mac week,  which was there. That was their whole thing. And yeah, the Apple, yeah. And the nineties leak,  but the fact is the Apple leaks today, mostly it's from the supply chain, but it still does happen.  It's these, you know, yeah. I mean, 95 max point is good. And Mark Gurman makes the same kind of  argument that they, you know, they're, they're trying to give the information that they feel  good about, but not play the game where they're so precise that their sources can be identified. And  we have this now phenomenon of random leakers appearing on Twitter or in forums, and they could  be liars or they could be true. You could actually set up like five different accounts, each of which  makes a guess. And the one that's right, you say, see, this person's reliable. And then you can play  that game. But at the same time, they're playing a professional game and they're amateurs and  they can get burned. So it's possible that this really happened. Who knows, but like,  this is also why the professionals sound like Apple doesn't leak, but they keep it, you know,
+
+Speaker: Leo Laporte
+Transcript:  watch slow horses for the details of dead drops and, and, and other sec ops, because you really
+
+Speaker: Andy Inhatko
+Transcript:  got to study that stuff. Yeah. I mean, this is, this is, this is why like some people have access  and some for years and years and years, and some people don't because the people who they, they,  they have sources that they know that I'm not going to, the information I'm going to give is going to  be used in this context. This person is not a bozo. They have never burned me or the other people that  I know who've spoken to this person before. I mean, that, that means that you're not going to be the  first person to say, Hey, here's the official, it's an orange, but it's sort of a tangerine orange,  but they're not calling it tangerine. They're calling it mofo golo, Joe low. And like, so you're  not, you're not going to be the person who breaks the story, but it does mean that you are the person  who, when they speculate about if there might be new colors, they happen to take a lot of guesses
+
+Speaker: Leo Laporte
+Transcript:  that happen to turn out to be correct. I will defend the presses, you know, constant desire to  know and the, and the rights to know. I will defend that. But on the other hand, having watched  now a really dull Google event and a really dull Samsung event, all the air was let out of the  balloon by prior leaks. I kind of understand Apple's design. I mean, we're still talking about,  what are they going to say at WWDC? We will right up to June 4th. It does add to the excitement.
+
+Speaker: Alex Lindsay
+Transcript:  And I will say like, as an example of all these leaks and all the other talks,  if Apple doesn't come out with a headset in June, like all of us are going to be kind of like,
+
+Speaker: Leo Laporte
+Transcript:  what? Well, that's the other thing they've reserved the right not to, right? But by not announcing,  by not teasing, they can always stop at any point. There's lots of stories that of Apple killing
+
+Speaker: Alex Lindsay
+Transcript:  products days before, like just taking it, taking that section out of the, you know, out of the,  out of the keynote, like we're not ready to talk about that or the presentation wasn't as good as  it could be or whatever. And so, you know, they have all that freedom without managing, without  having to manage expectations in that area. But what's interesting is in a lot of companies like  Apple, a lot of people are willfully not interested. Like they are, they do not want to know what the  other silo is doing because them having that in their head can get them in trouble. You know,  like, and so you can always tell when people have been there for a long time, been at places like  that for a long time is because someone starts talking around them about something new and they  just go somewhere else, change the subject. Like, I don't want to, I don't want to be, I don't want
+
+Speaker: Andy Inhatko
+Transcript:  to know, even know what's happening. It is, it is a Darwinian career track where the people who  cannot survive in that environment emotionally don't, don't stay there very long. I mean,  it's really, really difficult. You can be a really important researcher in audio technology  and you were competitive, they were, companies were competitive about hiring you and you got a  glorious offer from Apple. And now you find yourself, we want you to develop an algorithm  for this. Like, okay, but it'll help for now, is it for phones? You don't need to know that,  just an algorithm for shaping this with this sort of resources. And it can really get you down that  I, I, it's, it's one thing if I'm creating a transistor that could be used for anything.  It's another thing if you tell me that, by the way, we got the contract to do a lot of the circuit  logic for the lunar lander. So we, you are building something that will hopefully put  Americans on the moon by the end of 19, by the end of 1969. That's the sort of thing that gets  you up early in the morning and gives, it gives you your, your greatest job satisfaction. And I  think that this compartmentalization of Apple, it helps the secrecy ball rolling and that's  valuable, but sometimes they're, they're not, it's not every worker who wants to work on those
+
+Speaker: Leo Laporte
+Transcript:  circumstances. What else should we talk about? I think, oh, one more thing. This happened to me  this week. It was kind of sad. My iPhone said, I'm not going to tell you about any more COVID-19  exposures. So just forget about it. April, you may remember back to April, 2020 in the throws,  the first throws of the pandemic, Google and Apple got together and proposed an exposure  notification system that would require cooperation from the States. California was one,  Washington state was another, and I had them turned on both. Never got any, I think I got  one from Washington state like three weeks after I got COVID. But it wasn't a system that was  destined to work for a variety of reasons, but they have now turned it off. It's over. States  have turned off the COVID-19 exposure notifications now that the public emergency is over.
+
+Speaker: Andy Inhatko
+Transcript:  It was pretty exciting though, how quickly that system got put together. And with two  companies like Apple and Google, did anybody else have, not a shiver of excitement, but  oh my God, I'm seeing a combined Google and Apple logo. It's like I'm in an alternate universe where  Apple fell on hard times or Google fell on hard times and a check was written.
+
+Speaker: Leo Laporte
+Transcript:  Now they're both the same company. Yeah. Apparently 26 of the 52 states released apps.  Wait a minute, 52, that's the number of cards in a deck. 50 states, a little more than half of the  states released apps to make full use of notifications. 36 million Americans, that's all,  installed an app or enabled exposure notifications. Remember, exposure notifications  first had to be an app from the state and then Apple and Google allowed you to turn it on in  the settings, which I did because I wanted to be a good person. Only 36 million other people did.  There is some evidence that the tech, according to Engadget, the tech prevented cases. Washington  state's app may have prevented 5,500 cases in its first four months, even though most of the  population wasn't using it. California's department of public health says it's still  studying the benefits of the state's apps. Certainly that would be an appropriate thing  to look into. This isn't the last time we're going to have a pandemic. It might be a good thing to  know, you know, is this the way to do it or are there other ways to do it? Engadget says,  don't be surprised if health agencies and tech companies are better prepared going forward.  Oh no, I will be surprised. I will be very surprised. I expect nothing but incompetence.
+
+Speaker: Andy Inhatko
+Transcript:  Depends on what's at stake for the next major federal election.  If it's in people's good best interest to actually save lives, great. Otherwise, yeah.
+
+Speaker: Leo Laporte
+Transcript:  Yeah. Let me take a little break and then if you would, my friends, prepare your picks of the week.  Just a moment of first though, a little plug for my dear friends, the people who are  Club Twit members. Patrick, how many Club Twit members do we have now? Yes, he can do a little.  Elroy will tell you, I think. Do we know? 7,500? 7,050. That's very nice. Thank you to you.  Those people are paying seven bucks a month or more to get ad free versions of all of our shows,  to get access to the Club Twit Discord, which is a blast. 7,337, says Patrick. That's kind of leet.  Isn't it? It's leet. Is that accurate? It's actually teet, but that's, you know, close enough.  Thank you to all of you who are members. Access to the Club Twit Discord, I think, is part of the fun.  You also get the shows that we put out in the club, but don't put out in public.  We do a lot of events thanks to our community manager, Ant Pruitt. He does a great job. In fact,  we've got five events upcoming. A fireside chat with Sean Powers, the host of Floss Weekly,  the Home Theater Geeks. We do every Thursday. Do we once a month, something like that? Yeah,  once a month on Thursday, June 15th, the next one. That's an example of a show that we did for a  while. Couldn't generate enough ad support or listener support to continue, so we canceled it,  but we brought it back in the club. Club members are paying for it. And you know, if it grows and  generates an audience and advertising, we'll put it out in public. Stacey's book club's coming up  in the next month, The Terraformers, Annalee Newitz's newest book. John Jamerby's a little  nervous about this on July 14th. It'll be an after hours inside tweet with whiskey and fun  for all. And then a fireside chat with Rod Pyle, another success story out of the club. This week  in space launched, if you will, in the club and now is public. We also do the Hands on Mac show,  Hands on Windows, Untitled Lennox show, the Giz Fizz. And as I said, Scott Wilkinson's Home  Theater Geeks in the club. And if you're a club member, you get to hear all of those shows,  plus ad free versions of everything. You wouldn't even hear this promo. So really there's no point  me thanking club members because they're not hearing this. Nevertheless, we are very grateful.  It is a huge portion of our budget to this point. And with 7,000 plus members, that's wonderful.  And we're hoping to make it even more. I'd love to see 7,000 is about 1% of our total audience,  our monthly active listeners, monthly listeners. I'd love to see it get to 5%.  That would really help us kind of solidify our future. You want to join? Please.  twit.tv slash club twit. There's family plans, there's corporate plans and individual plans as  well. twit.tv slash club twit. Thank you. Thank you. Alex Lindsay, I don't usually start with you  on the pick of the week because I'm always scared that I'm going to be spending a lot of money
+
+Speaker: Alex Lindsay
+Transcript:  Not too expensive this time. I'm going to try to save everybody a little time. So I'm trying to  build like a little camera system with these little cameras. I've already talked about these.  These are the Insta360 links. These are little PTC cameras and I'm trying to build, I want to be able  to send a kit out so that someone can like just plug them all into the Mac mini and I use a Zoom  room to just pull all the individual feeds back to me so that they can show how they're using a  product or do a cooking. We've been talking about doing cooking stuff. The hard part is how do you  get long cables to these that actually work? They're a 4K camera, they require some power  and man have I gone through a lot of cables. Like I think I've bought six USB-C cables right now and  I finally found one that worked. I tell everyone so you don't, if you ever decide you need long  USB cables. The longest I've been able to get to work is 10 feet and otherwise they just turn on  and turn off. But in those cables, I don't even know how to say it. Anope? Anope?
+
+Speaker: Leo Laporte
+Transcript:  It's a neologism from a Chinese company that doesn't speak English. So you pronounce it any
+
+Speaker: Alex Lindsay
+Transcript:  way you want to. But I will tell you that I cannot find other ones that work reliably.  So if you're looking for trying to put cameras in a couple places, 10 feet is as far as I've  gotten so far. I've gotten ones, the key is that they have to be minimum version 3.2 Gen 2.  Gen 2. So these are 10 gig, 100 watt. But there's other ones that I've listed that they say that  they do that and they don't. The other thing that's important about these is that they have  a right turn on it and that becomes important because... You plug that into the camera end?  When you put it in the camera end, you want it to go to the side. Otherwise it just spins out.  It'll pull the camera. Yeah. Yeah. Yeah. Yeah.  So anyway, I'll show more when we get it closer because I think it'll be a fun little kit.  But it has been a lot of... I've got a lot of cables. Is that the best webcam?  There's two that we're looking at. So the webcam, OBSBOT makes a 4K version. We haven't gotten it  yet because it's in pre-release. The only reason that we potentially want to use it more than the  Insta360 is because it supports OSC, Open Sound Control, which means that we can control all the  aspects of the camera through programs like Isadora and other things like that. So we're  interested in the OBSBOT, but we haven't used it. As far as what I've used, this is the best  webcam I've used. So this is the Insta360 link. It's about 300 bucks. It is definitely the best  webcam we've used. Is it as good as using your iPhone with camo or  with the Mac OS? It's different. So I will tell you that the color looks better on the iPhone camera,  but you can get out of the gate. But this has full-on color control and it's a PTZ. So you can hang  it upside down also and have it be a product camera. It's got a built into it a quarter 20 on  the bottom. It also will open up to go onto a monitor. So it's really small. And it's easy to  say that you want to use a phone, but constantly connecting your phone to your computer, not so  fun. In a pinch, fine, but it's not what you build around. And so it's also not a replacement for  the camera that I'm using, which is a Sony FX30, but as a travel camera. And also again,  what we're looking at is how do you have a digital event where someone's showing you a product or  showing you something on a desk and these PTZs become super powerful. If you, you know, any kind  of PTZ, but right now the OBSBOT is one we're looking at. If Insta360 added OSC, we'd stop.
+
+Speaker: Leo Laporte
+Transcript:  Is the OBSBOT the new Tiny 2? Is that what you want to check out?
+
+Speaker: Alex Lindsay
+Transcript:  I think it's the new Tiny 4K. It's the Tiny 2. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah.  And it has OSC support. It's got a great, it looks like it has a really nice chip on it.  But we haven't tested yet because it was in pre-order. I have as of last week,  maybe it's shipping now. No, it's still pre-order. Yeah. Yeah. And so it's in pre-order. And so we  haven't, and I haven't gotten an early release or anything else. And so I have like four of these  guys and I've been really happy with them. We use them for a lot of stuff. I mean, you can,  you know, one of the, what we're, you know, what we're doing is using a Mac mini pro and putting  all four cameras into that Mac mini and then not trying to cut on the Mac mini, just sending all  feeds back into zoom and then using zoom ISO on the other end to grab all those feeds and put them  back into our back end STI, you know, sending them back to us. So. Well, and the point is of
+
+Speaker: Leo Laporte
+Transcript:  course that the pick is not the camera. The pick is the cable, the cable, which turns out to be
+
+Speaker: Alex Lindsay
+Transcript:  harder to find than the camera. The camera was pretty easy. I was like, Oh, I ordered one of them,  but it has been like a week and a half of me ordering cables, you know, and, and, and downloaded  them and then going, Oh, sorry. Hello. But my screensaver turned on on my other computer  and it's keyed over and it's on a draw. So anyway, we forgot to turn that off. Anyway.  A-I-N-O-P-E, ain't nope. Which is a terrible name. It's a terrible name, but it's the only
+
+Speaker: Leo Laporte
+Transcript:  or AI. Nope. Maybe it's AI. No, maybe they're making a statement about AI. Huh? Yeah, exactly.
+
+Speaker: Andy Inhatko
+Transcript:  I think they're making a statement about me. It's about you. I feel very, very single. No,
+
+Speaker: Leo Laporte
+Transcript:  no. No, no. Andy and I don't ever operate proper.  Elocution. Elephants, elephants, egg yolks.  Well, if you forget the name now, you're really not trying too hard. It's on Amazon about 18 bucks,  19 bucks, 1899 the ain't nope USB. So they actually have a six foot as well, but
+
+Speaker: Alex Lindsay
+Transcript:  all the six foot work. So if you're looking for a long one, like the six foot's all work,  that's not a problem. It's the long ones that the 10 feet and above. And, and it, and again,  the only reason I made it a pick was because I've put so much work into it. And it was just like,  well, I don't want everybody to have to put so much work into it. This is a, this is an  infrastructure pick. It's very important. I'm giving everyone a break. I promise next week
+
+Speaker: Leo Laporte
+Transcript:  will be scary again. Oh, thank you. This is why I started with you this week. Andy and I go pick
+
+Speaker: Andy Inhatko
+Transcript:  of the week. This is something really, really handy. That's been around for five years that I  only discovered three days ago. That's how some sometimes these things happen. Google registry,  they control a whole bunch of really bananas, top level domains. And they're doing something  really interesting with the dot new TLD dot N E W they're using it as a bunch of shortcuts  that like, if you have a web app, uh, like, like eBay or Google docs or Microsoft, or Microsoft  office suite, uh, you can register a very simple, I can type, if I want to create a new, uh, uh,  Google doc, I can cut, I can go docs.google.com click, click a button to say, create a new  document. Or I can just type docs.new in the address of my web browser. And immediately  it just opens Google docs, creates a brand new document. This is cool. Yeah. If I type  Excel.new, I get a brand new Excel sell sheet. If I type a post.new, I get a brand new, uh, uh,  post to my WordPress WordPress blog. There are like dozens and dozens of these. A lot of these are  borderline useless, not totally useless, but you could see you would put it in the useless category.  blockchain.new.  Create a new, uh, there are some of these are like, uh, sell us, create a, uh, I don't even  want to say what it is, but like all these, these productivity apps where it's like this thing that  you would probably take three days planning and you don't mind clicking three buttons to make this
+
+Speaker: Leo Laporte
+Transcript:  happen. Yeah. But, but business loan.new with bank West. Yeah. That's useful. Your business
+
+Speaker: Andy Inhatko
+Transcript:  might be in trouble if you need a shortcut for getting new loans. That's you've got supply chain
+
+Speaker: Leo Laporte
+Transcript:  issues. You've got cash issues. Adobe's using it though. Create.new, spark.new and stories.new.
+
+Speaker: Andy Inhatko
+Transcript:  That's cool. And the thing is, if you find one thing that you do all the time, for me, the number  of times where I create a brand new Google doc, whether it is for a project, like for a show notes  for something that I'm, uh, for my Google podcast or whatever, or it's just, I need a blank document  that I can then dump notes into and be able to access everywhere. The number of times that I've  done that, like five step process to create a new Google doc and just be able to type docs.new  or, or even just create a, create a bookmark in my bookmarks bar and just be able to click this one  button to make that happen. That's pretty darn cool. It's again, this is around for five years
+
+Speaker: Leo Laporte
+Transcript:  and that's good. So many people use it. In fact, our sponsor Miro uses it so you could do Miro.new  to create a new, a new collaborative whiteboard. So that's cool. And it's free of course. And
+
+Speaker: Andy Inhatko
+Transcript:  because it's Google, they might kill it at any moment. But for now, for now we have something
+
+Speaker: Leo Laporte
+Transcript:  cool. There is a little controversy because Google, you know, they have a lot of crazy TLDs is, uh,
+
+Speaker: Andy Inhatko
+Transcript:  is now planning on dot zip and, and dot MP4 and like a lot of like file name extensions that  would make it really, really easy for a bad actor to exactly to create like a malicious website that  people think are just here is an actual file that you'll be downloading. Or let's unzip a file. Yeah.
+
+Speaker: Leo Laporte
+Transcript:  Uh, yeah, I hope Google recants on that because that is, uh, security researchers are freaked out  about dot zip. In fact, there is, um, if you, if you're curious about it, there's a, somebody's put  together a demo where you go to, let me see where you can find it, where you go to a, uh, you type  in your browser dot something dot zip and it will download a file and open it from, from a, you know,  it's not a malicious website. It's a proof of concept, but scary. But who could have foreseen
+
+Speaker: Andy Inhatko
+Transcript:  such an abuse of such a simple thing? Certainly not a quaint little fudge company like Google.  They make fudge, caramel popcorn. They have pies that are seasonal. Really. Oh, they're already
+
+Speaker: Leo Laporte
+Transcript:  doing it. We're seeing that. Get up to speed with that zip starting at $15 a year. So if you are a,  you know, malefactor, here's your opportunity. Uh, Mr. Jason Snell pick of the week. Um, last year,
+
+Speaker: Jason Snell
+Transcript:  sometime I talked about one of my favorite all time iOS games, which is Altos adventure,  which is the, the beautiful soundtrack, beautiful art style left to right. It's essentially an  endless runner where you're snowboarding or sand surfing peaceful, calm kind of Zen, but also  challenging if you want it to be. Well, I love that game so much. And yet if you would come to me and  said, well, what if you did Altos adventure, but instead of flying around or surfing around a 2d  space, essentially from left to right, you are in a giant 3d open world. And that game is called
+
+Speaker: Leo Laporte
+Transcript:  Laya's horizon. It exists. Say Zelda tears of the kingdom. Well, you could do that, but if you don't
+
+Speaker: Jason Snell
+Transcript:  want it to go there, you can, you can fly around the island in Laya's horizon from snowman, the  same people who brought us Altos adventure. It is available. What's the price you say free  for Netflix members? It's a Netflix game. So you got to log in with your Netflix account. It's  available on the app store in the play store. I've been playing it for the last week. It's so good.  It is so good. It is the same art style, the same kind of vibe, the same kind of chill background  music, but in, and there are a lot of little references that are in there, but instead of  being in this 2d, 2d left to right, you are a character with these little flying capes and  you have different missions that you get to do that involve flying around and discovering this  enormous volcanic island with it's full of villages and people. And you can do races with
+
+Speaker: Leo Laporte
+Transcript:  other flyers and it's kind of uncanny how much this looks like Zelda. It is. Yeah. It is like
+
+Speaker: Jason Snell
+Transcript:  a super chill iPad, a Zelda. So if you want to do that, like there's no fighting or anything. It's  all about like fly here or do this or fly over there. But it is, it is, I could, I honestly  cannot believe that this game exists because I loved Alto so much, but the idea of it being  this three-dimensional flying version, but that's what it is. So if you're a Netflix subscriber,  you just get this on your device. Try it out. The tutorial is really well done because you got,  it's basically just two thumbs on your touch screen to do all the flying behaviors. So they  have a really nice tutorial that walks you through the various gestures in order to fly.  And then you just start getting little simple missions and you learn to fly and you get to  fly better and you get more missions. It's really a beautiful thing. Well done. So well done by
+
+Speaker: Leo Laporte
+Transcript:  Snowman. Why is it, why is Horizon? You know, we mocked it when Netflix said we're going to
+
+Speaker: Jason Snell
+Transcript:  get into gaming. They got some good games. There are a few good Netflix games out there already.
+
+Speaker: Leo Laporte
+Transcript:  Very, very interesting. I mean, this is not a pick, but I have to give some credit to  Micah Sargent. We were talking about gaming and he recommended a game on Steam called Timberborn  in which you play a beaver and you build a little beaver community. It's kind of like one of these  top-down real-time strategy games like Age of Empires without any combat. So now this will be  a whole theme, combat-free versions of games. Oh, they look so cute. It's really cute. You get to  be a beaver and you build dams. You get pretty angry. You might have angry beavers, but there's
+
+Speaker: Jason Snell
+Transcript:  no foes except biting nature. Snowman's previous game, which does not look like Altos, but it's  actually also a very entertaining game. It's called Lucky Luna and it is also a Netflix game.
+
+Speaker: Leo Laporte
+Transcript:  So nice. There are some good Netflix games. I'm going to really have to check these out.  That's fascinating. Yeah. Meanwhile, I'll be building my beaver dam in Timberborn,  available for the Mac on Steam. Busy, busy, busy.  That concludes this thrilling gripping edition of MacBreak Weekly. Thank you, Jason Snow. We  missed you last week. So glad to have you back. Good to be back. Go to sixcolors.com.com.  Jason and you will see a remarkable assortment of things Jason does. You can remark on it if
+
+Speaker: Jason Snell
+Transcript:  you like. I got nine jobs. I think they're great. I work in my garage. I don't know.
+
+Speaker: Leo Laporte
+Transcript:  Honestly, you deserve credit because every podcast you're on is great. So, and that's,  I can't, I can't even say that. There's the incomparable, there's a six colors podcast,  but then you do Total Party Kill. Did you see there's going to be a D&D cable channel coming?  You might want to get on. Makes sense. Yeah. I know. Wizards of the Coast call me.  Yeah. Yeah. We'll get on there. So many great shows. The Doctor Who Flashcast. Sure. There's  some Doctor Who news coming up. The Power of the Doctor. You haven't done anything on that in a
+
+Speaker: Jason Snell
+Transcript:  while. Might want to bring that one back. It's a recap show. Like the Vulcan Hello is our Star  Trek recap show. It's just after the episode is on, then we give our review of it. So Doctor Who is  in a little gap right now, but they're coming back for their 60th anniversary of that show.  So I won't shut up about it, but not until November. Go to DoctorWho.new to find out more. No, no.
+
+Speaker: Leo Laporte
+Transcript:  And then this is, we were talking about streaming earlier and you mentioned Julia, this is the show  you do with Julia Alexander. No relation to Jason Alexander. Downstream, breaking down the business
+
+Speaker: Jason Snell
+Transcript:  of binge watching. Yeah. That's a good one. Coming back later this week. And I love Tim Goodman.  I have to listen to this. Yeah. He was my little guest. He used to do a podcast together and then  he sort of moved on and left the business and is now doing a sub stack. But Julia was traveling,  so we got Tim on as a guest and that was a lot of fun too. I always would read his reviews. He was
+
+Speaker: Leo Laporte
+Transcript:  really good. Go off to listen to us. I read his sub stack. That's cool. Yeah. Six colors.com slash  Jason. Thank you. Andy Anaco. WGBH is calling. When will you pick up? I am off this week, but I'm going
+
+Speaker: Andy Inhatko
+Transcript:  to be on next Wednesday at one 10 in the afternoon. I can go to wgbhnews.org to listen to it live or  later. Actually, I was also up at the crack of 8 AM this morning to be, to talk to Bob Sraud on WGN  Radio in Chicago. So if you want to listen to what I said there, again, I was not, 8 AM is,  oh my God, that's farmer's hours for me. But still, I did get through the summary. Go to  wgnradio.com slash Bob Sraud or just go from the top. You'll find it. And my segment is just broken  out right there. You can listen to it right there. Thank you. Great to see you. Always. Thank you.
+
+Speaker: Leo Laporte
+Transcript:  Mr. Wonderful Alex Lindsay, host of Office Hours. Do you call yourself the host of Office Hours?
+
+Speaker: Alex Lindsay
+Transcript:  I don't really call myself anything. He's the creator of and a participant in a fantastic
+
+Speaker: Andy Inhatko
+Transcript:  He's the creator of and a participant in a fantastic series. The shadowy, the shadowy, Svengali like figure working in the background. Today, live
+
+Speaker: Leo Laporte
+Transcript:  camera and lens tracking for virtual production. Wow. Well, yesterday was the business of theater.
+
+Speaker: Alex Lindsay
+Transcript:  We had these incredible folks that work in theater talking about what it takes to actually make  theater work, you know, and the business of those processes and what you have to think about.  Today, we had live tracking with Nick Justeshin from Drexel University. So we're coming in from  studio at Drexel, walking through different technologies that they use to track cameras.  Tomorrow, we have Kilo Hearts, which is a, they make a program called Phase Plant,  which just kind of amazed me. It's a synthesizer that they. It's a great name.  It is. It is crazy. It is a, it's a synthesizer. What I saw, someone demoed a helicopter taking  off and flying away with a synthesizer. And, and it was, and it just sounded real. And I was like,  okay, I have to have these, I have to figure out how this thing actually works. And then we've got  guys, I don't think we can say exactly where they're from, but they're very, very, very high end  HDR guys coming on Thursday. You know, my, Michael Drazen and Drazen and Jim Toten, and they work on  big HDR projects. And so they're going to be talking about glass to glass, what it takes to  have HDR get to your screen. And Saturday, we've got the pedagogy wheel with us. So as we're doing  some education before we move to again, this, this the summer, we're going to, to all accessibility  for a couple of weeks. So we're excited. Can't wait for that. Office hours dot global. Doug
+
+Speaker: Leo Laporte
+Transcript:  Wood says the second hour is really good today, by the way. Now here's the deal. Not all hours  go on YouTube. You can watch the YouTube videos, but if you want to participate, you should go to  office hours dot global and join so that you can go into the zoom and, and listen to all the hours  as it were. If you want to hire Alex and I bet you there's a few people who could use your  assistance. I was watching a stream the other day saying they didn't hire Alex. It was Google I O  actually. They didn't hire Alex. I was thinking the exact same thing. They should have hired Alex.  090.media. That's his day job. Thank you, Alex. Thank you, Andy. Thank you, Jason. Thanks to all  of you who joined us, both live and on demand, the live version of the show we recorded at 11am  pacific on Tuesdays. You can go to watch the stream at live dot twit dot tv or listen there's  streaming audio and video there. If you're watching or listening live chat live at IRC dot twit dot  tv. That's our chat room open to all web browser works IRC dot twit dot tv. Of course club twit  members get special velvet rope access in the club twit discord. Be a member, join the fun.  After the show is over, there's on demand versions on the website, twit dot tv slash mbw.  You can also when you're there, click a link to go to the YouTube channel that's dedicated to Mac  break weekly another way to watch or get the RSS feed and add it to your favorite podcast. Oh, look,  what am I doing there? Am I am I I'm holding something. Oh, a logo, a lights, a lights gently  on your hand like a Disney princess. That's the new daddy care plus I'm offering to all my children.  Yes. Only children may apply and DNA test required. Thank you everybody. Oh, look. Oh, look,  Galia is hanging out with the doctor who that's Dr. Who pictures. You poke the bear Leo. You poke  the bear. You're getting the pictures. Big mistake in the discord. Thanks everybody. Have a great  week. But now I'm sad to say it's time to get back to work because break time is over. Bye bye.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, hey, that's a really nice iPhone you have there. You totally picked the right color. Hey,  since you do use an iPhone and maybe use an iPad or an Apple watch or an Apple TV. Well,  you should check out iOS today. It's a show that I, Micah Sargent and my co host Rosemary Orchard  host every Tuesday right here on the Twitter network. It covers all things iOS, TV OS, HomePod  OS, watch OS, iPad OS. It's all the OS is that Apple has on offer. And we love to give you tips  and tricks about making the most of those devices, checking out great apps and services  and answering your tech questions. I hope you check it out.
+
