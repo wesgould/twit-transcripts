@@ -1,0 +1,936 @@
+;FFMETADATA1
+title=Get Off Stacey's Lawn!
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=503
+genre=Podcast
+comment=http://twit.tv/twig
+copyright=These netcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2019
+encoder=Lavf58.76.100
+Speaker: SPEAKER_02
+Transcript:  Coming up on This Week in Google, I'm Jason Howell filling in for Leo Laporte.  Also, Stacey Higginbotham and Jeff Jarvis are here.  We're going to talk about Google Cloud next.  Stacey's going to break it down for us.  Also, Larry and Sergey, MIA at the weekly Friday meetings at Google.  Does this mean something bigger?  G Suite and Google Home getting some updates.  Google's Pixel 3A phone.  Bunch of leaks there.  And then we spent some time talking about how the Australian  and UK governments are really tamping down on free speech on social media.  There's a lot of change happening.  We'll discuss it next on This Week in Google.
+
+Speaker: SPEAKER_01
+Transcript:  Netcasts you love.
+
+Speaker: SPEAKER_00
+Transcript:  From people you trust.
+
+Speaker: SPEAKER_02
+Transcript:  This is Twig.  This is Twig.  This Week in Google, episode 503 recorded on Wednesday, April 10th, 2019.  Get off Stacey's lawn.  This episode of This Week in Google is brought to you by Capterra.  Find the right tools to make an informed software decision for your business.  Visit Capterra's free website at capterra.com slash twig.  And by ExpressVPN, protect your online privacy with one click.  Yes, it's that easy.  For three extra months free with a one year package, go to expressvpn.com slash twig.  And by ThousandEyes, companies that run in the cloud rely on ThousandEyes.  It's the place they go first to see, understand and improve the digital  experience of their cloud based applications and services.  Do the cloud right and improve services for your customers and employees today.  Visit thousandeyes.com slash twit.  It's time for Twig This Week in Google.  And my oh my, there's a lot of Google this week.  I'm Jason Howell.  I'm filling in for Leo, who I believe is in Hawaii, maybe sipping cocktails on the beach.  I hope he's on the beach anyways.  If he's in Hawaii and he's not on the beach, he's Hawaiian wrong.  Joining us today is Jeff Jarvis.  And I was given a sheet of paper, so I must read it.  The Leonard Toe Professor for Journalistic Innovation at the Craig  Newmark Graduate School of Journalism at the City University of New York  and the director of the Toe Knight Center for Entrepreneurial Journalism  at the Craig Newmark Graduate School of Journalism at the City University of New York.  I feel like I should be better at reading faster.  No, you did a good job. You did a very good job.
+
+Speaker: SPEAKER_01
+Transcript:  All right. So I'm here with Stacey.  I want to tell you where I am. Go ahead and introduce Stacey.
+
+Speaker: SPEAKER_02
+Transcript:  OK, also joining us, of course, Stacey Higginbotham, creator of the IOT podcast  and awesome person of This Week in Google.
+
+Speaker: SPEAKER_00
+Transcript:  How are you, Stacey? I am well, thank you.
+
+Speaker: SPEAKER_02
+Transcript:  Great to have you here.  So I hear we have a special special guest.
+
+Speaker: SPEAKER_01
+Transcript:  So I'm in Rochester.  I land this morning. It's frigging snowing.  Of course, it's Rochester.  And so I'm in the hotel.  And of course, the Wi-Fi is awful because it's a hotel.  So I go walking down the street.  And what do I see with this lovely co-working space  called Metro Cowork right here in downtown Rochester?  And then I'm in a conference room doing very long calls.  And I come out for a brief and I see someone who says, are you Jeff?  So here's a fan.  Hello.  We're going to hand off the headset.
+
+Speaker: SPEAKER_02
+Transcript:  Hello. Welcome to This Week in Google.  How are you? What's your name?  My name is Divya. Divya Mistry.  I'm just a software engineer out here in Rochester.  Don't sell yourself short.  Just a software engineer.  You're you're our kind of people.  That's great. It's great to meet you.  And nice.  I'm sure you made Jeff made his day by recognizing him.  He lives for moments like that.
+
+Speaker: SPEAKER_01
+Transcript:  Yes, I'm seeing my people.
+
+Speaker: SPEAKER_02
+Transcript:  Celebrities out in the open.  So it's been great.  It's really nice to meet you.  And I'm sure he'll download.  He can download and keep that for in his safekeeping.  That's awesome.
+
+Speaker: SPEAKER_01
+Transcript:  It really is. It's kind of great.  I've done it in Munich, in Sydney, in all kinds of places.  I'm walking down the street.  I don't know if this is you, Stacey, or you, Jason.  But people say, are you?  Oh, twig.  And then we do the Leo handshake.  And it's pretty wonderful.  So I just hear Rochester open the door and they say, twig.  So it's pretty cool.
+
+Speaker: SPEAKER_02
+Transcript:  Does it ever take you by surprise, though, when that happens?  Because you're like not in that mindset.  And you're like, oh, I got to get into that mindset.
+
+Speaker: SPEAKER_01
+Transcript:  You know, walking down the street in London and some guy.  I think, oh, my God, what did I do?  I pay somebody. What did I do?  It's nice.
+
+Speaker: SPEAKER_02
+Transcript:  I can say it doesn't happen to me very often to answer your comment  from a few minutes.  I travel a lot. That's why.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. So it happened to me once.  And I was at a Google event and the person in line turned around  was like, Stacey Stacey Higginbotham from Twig.  And I was like, hello.
+
+Speaker: SPEAKER_02
+Transcript:  Do I know you? No, but I know everything about you through the show.  That's the weird thing is when people do talk to you,  they've heard you talk for hours on hours on hours.  And so they know all of these weird, you know, they know things  that you said three years ago that was just like a throw away comment  that you made.  Meanwhile, in their minds, that's become, you know, part of their construct  of who you are outside of the show.  And, you know, I've had that instance where they bring up some sort of topic.  It's like, I have no idea what you're talking about. But yes.  But they know.
+
+Speaker: SPEAKER_01
+Transcript:  So we have a paper about three years ago, maybe 10 years ago  or now called ambient intimacy  that because you follow someone in social, you follow them online,  you feel like you know them.  Next time you see them, you know it all.
+
+Speaker: SPEAKER_02
+Transcript:  Yep. That sounds about right.  Sounds about right. That's awesome.  Cool. Well, should we talk Google, talk about some Google stuff?  Because I think there's a lot going on.  Let's start with this top story, only because it was one of those things  that happened that just just felt very Google to me.  One one week there was Google announcing its new AI ethics board.  The next it was flat out canceled.  Google decided to end it and go back to the drawing board, as they said.  And I'm sure this was talked about last week on the show  before it was canceled, when it was still a new thing.
+
+Speaker: SPEAKER_00
+Transcript:  None of us were here last week, so none of us know. Right.
+
+Speaker: SPEAKER_02
+Transcript:  So basically, it was one one kind of controversy  or questionable character after another.  First, Alessandro Acquisti, I hope I'm pronouncing his last name properly.  He bowed out initially saying that this wasn't the right way for him  to be involved in tackling the ethical issues of AI.  But that was just the beginning.  K. Cole James came under fire, significant scrutiny.  There were employees at Google, as well as a whole bunch of other people  over comments about trans.  The trans community, also the Heritage Foundation's climate change stance,  of which Kay is a member of the Heritage Foundation.  Is it Deon or Diane?  Govins came under fire for his ties to to drones.  And of course, Google has a storied history in the recent year  of a lot of backlash around drones and government involvement  and all that kind of stuff.  It's just one thing after another.  And we actually interviewed the author of this Vox article,  Kelsey Piper, on Tech News Weekly last week.  And Kelsey, you know, basically her position on this is that  ethics boards for AI totally, you know, it's great that companies  feel the need to do this.  It needs to be done.  We need to be looking at the ethical aspects of AI at these early stages.  But from what she sees in their efforts and companies like Google doing this,  they're not necessarily doing it through the guise of let's improve AI.  It really feels more like a publicity stunt.  Feels more like, you know, cover our rear ends, try and avoid regulation.  And so maybe do it for the right reasons instead of the wrong reasons.  Then you won't cancel your effort a week later.  What do you what do you guys think?
+
+Speaker: SPEAKER_01
+Transcript:  Well, I you know, you wonder about social Facebook is going to set up  its its its Supreme Court.  And what I hear now is they're going to groups, trying to understand  how to go to groups, how to go to groups, how to nominate people, how to create.  It's never going to be safe.  You're just not going to do something and you're going to have somebody on there  and somebody's going to disagree with them.  And that's the world now.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. And if you have a real AI ethics board that's trying to actually  hash out media issues, there's going to be people with varying disagreements.  And it won't matter as long as their contributions are valuable,  much like you might hire engineers that kind of have  differing opinions on things.  But if you're just creating this like board just for optical purposes,  then sure, it makes sense that you would be like, oh, not everyone's perfect.  And I would say.  We don't companies can do this, it's fine.  I feel like, yes, they should probably have people asking the hard questions.  You should probably just have a culture of that.  But we really do need to have an independent body.  Maybe it's like an NAB, maybe it's a governmental body.  But we really do need to have and companies need to put their representatives on it.  And we need to have representatives from academia.  So having these ethics boards captive to a commercial  interest is kind of like, you know, letting your cat watch your chickens.  Cats kill chickens, right? Yeah, I think so.
+
+Speaker: SPEAKER_02
+Transcript:  So, yeah, I've never seen it firsthand, but I assume.
+
+Speaker: SPEAKER_00
+Transcript:  OK, letting a fox guard your head.
+
+Speaker: SPEAKER_02
+Transcript:  I've also never seen a fox.
+
+Speaker: SPEAKER_00
+Transcript:  Well, I was going to go with a cat doing something else.  And then I was like, ah, screw it.
+
+Speaker: SPEAKER_02
+Transcript:  Chickens, cat, mouse doesn't matter.  We know where we know where you're coming from.  It's not a good idea.  Yeah, it's a bad idea.  But it is good to take a take a close solid look at this  because we keep seeing time and time again, you know, the projecting into the future  as far as the direction of AI and how much influence at such an early stage.  It feels like it has in everything in the world of technology right now.  It just feels as infused by the potential of AI and and the capabilities of it.  So who knows where that leads? Ten years from now, we should be looking at it now  for sure to really understand kind of how there can be, you know,  how it can be abused both from an intentional standpoint  and an unintentional standpoint.  So the efforts are good.  I feel like I support that.  But and at this time and place in, you know, technology companies  totally under the gun, under the microscope being severely scrutinized right now.  It's just a weird time to have this sort of this sort of flip flop.  You know, I mean, it doesn't it doesn't it doesn't look very good for Google  to have this happen at this point.
+
+Speaker: SPEAKER_00
+Transcript:  I think it just exposes how  how much window dressing these are.  So how not silly, but just.  Privilege, privilege.
+
+Speaker: SPEAKER_02
+Transcript:  So does Google come back out again down the line with another ethics board  and say, we're going to get it right this time, I mean, or do they go  a completely different approach?
+
+Speaker: SPEAKER_00
+Transcript:  Why don't we get like a true industry body?  I mean, I would love to see Google fund.  I mean, Montreal, a lot of the fabulous AI researchers  come out of that university or Carnegie Mellon, they could create  and help fund an institute.  Big tech companies could participate or could help fund it.  But ultimately, it should be chaired by and held by somebody who  and have people on the board who are not beholden to these companies. Right.
+
+Speaker: SPEAKER_01
+Transcript:  Which I believe, Stacey, I think there's one started in my tea  that was funded by the Knight Foundation and a whole bunch of others that,  you know, they've already funded something, whether it's the right vehicle or not.  I don't know.
+
+Speaker: SPEAKER_00
+Transcript:  OK. Yeah.  There was the open AI group that Sam Altman did.  And I think it was Elon Musk.  And that that is turned into a couple.  But and maybe I don't I'm not familiar with MIT one.  But and we should have several.  And it may just be.  And another thought is because AI creeps into every single industry,  you may actually want to have not the tech companies talking about this,  but actually have industry experts.  So have the banking industry come up with their own AI ethics committee  and talk about things like redlining.  And that may actually make more sense because AI itself isn't interesting.  It's the applications and how you tend to use it that cause the problems. Sure.  And the data sources.  And the data sources.  Yes. Or they could just call me and I'll issue an opinion. OK.
+
+Speaker: SPEAKER_02
+Transcript:  Well, that's that's easier.  It's easier for everyone else.  Maybe not easier for you, but we can make it a weekly feature of the show.
+
+Speaker: SPEAKER_01
+Transcript:  Google asks, should we or shouldn't we?
+
+Speaker: SPEAKER_00
+Transcript:  Yes. I think it is a regular feature.  It's basically Stacey gives her opinion.
+
+Speaker: SPEAKER_02
+Transcript:  Whether you ask for it or not.  Should we be concerned?  Should we be worried about the fact that Larry Page and Sergey Brin  are not attending the TGIF monthly meeting or weekly town hall meetings  at Google anymore?
+
+Speaker: SPEAKER_01
+Transcript:  Will they forget?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, because that would be where they would talk about something like this.  But they're not there.  They're not giving anyone an opportunity to ask them about things like this.
+
+Speaker: SPEAKER_00
+Transcript:  I thought they were trying to get.  I guess I looked at this and I was like, I thought they tried to step back a while back.  I, you know, what are they doing?  Like, never mind.  I was going to say something horribly inappropriate,  but they're building space cars and, I don't know, going to Burning Man.
+
+Speaker: SPEAKER_02
+Transcript:  They're they're enjoying.  They're also trying to empower Sundar.  Well, that's true.
+
+Speaker: SPEAKER_01
+Transcript:  They're not the boss at Google anymore.  Sundar is right.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. So they said when did that happen?  This was this was the shift to alphabet already 2015.  I can't believe it's almost been four years.  But it's crazy.  And I still can't help but call it Google.  Four years later, and I'm still calling it Google.  But they took that was their goal with that as part of that was to kind of restructure,  to step out of it, even though after that they still one of them continued to make it to these TGIF  meetings for like the next three years.  And it's just been this year that both of them are MIA.  Meanwhile, this has been possibly one of Google's most most, you know, controversy filled years.  So many so many things happening from from drones, China search, sexual harassment,  all these things happening that I'm sure employees would love to talk to them about.  So so it's easy to see this in combination with that and think, oh, well, isn't it convenient  that they don't have to have to have to face their own employees and actually talk about this stuff?  But maybe it really is just them stepping out of the limelight even further.
+
+Speaker: SPEAKER_00
+Transcript:  This would be a good time, personally.  I'd be like, yeah.
+
+Speaker: SPEAKER_02
+Transcript:  You know, the thing we said three years ago, yeah, we're doing that now because, yeah,  we want to be on the beach somewhere.
+
+Speaker: SPEAKER_01
+Transcript:  On Google Island.  Maybe they are in there on Google Island.  They're building a nation and we don't know it.
+
+Speaker: SPEAKER_02
+Transcript:  There's they're they're building Google Island further.  And the best way to do it is to live there.
+
+Speaker: SPEAKER_01
+Transcript:  I want to move there.
+
+Speaker: SPEAKER_00
+Transcript:  I want to go to there.
+
+Speaker: SPEAKER_02
+Transcript:  There's Google Island and then there's Google Island underground.  And that's what they're really working on is their bunkers.  Make sure that better.
+
+Speaker: SPEAKER_00
+Transcript:  It better be careful.  They might get bored through.  That's true.
+
+Speaker: SPEAKER_02
+Transcript:  Elon Musk has a plan.  Let's see here.
+
+Speaker: SPEAKER_01
+Transcript:  So the drones, the Google drone is that's not April Fool's, is it?
+
+Speaker: SPEAKER_00
+Transcript:  What's that? No, no, they've been testing.  So the you skipped a story.
+
+Speaker: SPEAKER_02
+Transcript:  No, it's OK. We don't have to go in order.  There's no order here.
+
+Speaker: SPEAKER_01
+Transcript:  Here before AM and Carson's wife will be throwing her fingers on the table at home.
+
+Speaker: SPEAKER_02
+Transcript:  So there is no order.  I think drones is great.  We were talking.  Yeah. Project Wing.  Basically, the news here is that it's now operating officially in Canberra, Australia.  They've been testing this in a suburb near Canberra for a year.  And now they're kind of rolling it out to like four suburbs.  It's kind of an official thing.  It does in local businesses.  Is this the first area that is officially being served by Project  Wings? I think it is.  I think so.
+
+Speaker: SPEAKER_00
+Transcript:  And I think the April Fool's joke you're talking about kind of relates to this, actually, was on April Fool's, they did a Amazon drone delivery blimp thing.  However, however, Amazon actually has a patent that was granted.  I think it was like April 2nd for a delivery drone that was attached to basically a hot air balloon.  So that was an April Fool's joke.  Like, that's real. It's not.  It's called the Amazon mothership was the April Fool's joke.  But the patent exists in Amazon, I guess, was or is looking at using some kind of quieter drone.  And this is a big issue.  So what Google found in their Canberra testing was that dogs went nuts.  People hated it.  It was just because drones, they are they're really irritating.
+
+Speaker: SPEAKER_01
+Transcript:  Yeah. Along with drone pilots.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, those those people can be irritating, too.  So this says that wing is they have quieter delivery models.  So they responded to that.  But, you know, I don't think they're blimps or hot air balloons.  So I don't know.  They're still going to make noise.  I mean, this is really like drone sound convenient.  But I'm like, this is really a convenience issue.  Same thing with things like you think we're complaining about our sidewalks being  like cluttered with micro mobility, with scooters and bikes and everything.  Imagine when we have last mile delivery robots just like roaming around.  And again, and I hate to say this because I used to not be so pro regulation,  but I am just kind of like, God, tech firms just stop throwing crap out there and annoying people.  You know, and I don't know, think about the consequences.  Maybe we don't all have to, I don't know, to everything all at once.
+
+Speaker: SPEAKER_02
+Transcript:  Get off my lawn. Slow down. Quit innovating.  Quit your innovation addiction or just give it give.
+
+Speaker: SPEAKER_00
+Transcript:  Give the infrastructure some time to adapt.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. Oh, but that's never going to happen.
+
+Speaker: SPEAKER_00
+Transcript:  It will happen. We can't say that it's never going to happen.  Otherwise, we're giving them the keys to our future.
+
+Speaker: SPEAKER_02
+Transcript:  You're right. That is that is a really good point.
+
+Speaker: SPEAKER_01
+Transcript:  Stacey, they already have the keys and the lock and the door.
+
+Speaker: SPEAKER_00
+Transcript:  No, they don't. We can.  I'm in Austin. We voted to kick Uber out for a while.  It actually happened.
+
+Speaker: SPEAKER_01
+Transcript:  Like Austin is normal in any possible definition.
+
+Speaker: SPEAKER_00
+Transcript:  Well, no, but we did bring in scooters.  We actually allowed for limited trials.  We put in we put in some regulations,  we tested them out around South by and put in more regulations there.  They were basically trying to work out with companies  that not falling victim to their blackmail tactics.  And I think that's what we need to do later on in the show.
+
+Speaker: SPEAKER_01
+Transcript:  Believe it or not, I can talk about a regulatory regime that I like,  which I don't think I've talked about before.  All right. Fake.
+
+Speaker: SPEAKER_03
+Transcript:  All right. First person.
+
+Speaker: SPEAKER_02
+Transcript:  Could be new content, could be old content.
+
+Speaker: SPEAKER_01
+Transcript:  I have this problem with students all the time.  I've been told me that if I repeat myself, don't just sit there and say,  oh, Jarvis is doing it again.  You got to tell me that I said this before.
+
+Speaker: SPEAKER_02
+Transcript:  They do. It turns out you've said a lot of things.  It's hard to keep track of it all.
+
+Speaker: SPEAKER_01
+Transcript:  I only have so many things to say.  Yeah. Right.
+
+Speaker: SPEAKER_02
+Transcript:  Before you start repeating yourself.  That's the story of my life, too.
+
+Speaker: SPEAKER_01
+Transcript:  Have I talked about the life social threat?
+
+Speaker: SPEAKER_02
+Transcript:  Oh, yes. No, no, you've never mentioned this.  No, no, of course not. Never.  See, Karsten would know.  Thank you, Karsten, for speaking the truth.  Karsten would know.  Should we talk about Google Cloud?  Because I know this is today news.  This is yesterday and today, Google Cloud Next 2019 happening.  And I sat down to do my homework.  I'm like, all right, well, this is big news.  I better understand this.  And then like eight paragraphs in and I had birds swirling over my head.  Because while I understand the consumer implications of why it's  why it's important for all these things to be taking place  from the in the weeds perspective, I'm completely lost.  So tell me, Stacey.  Higginbotham here.  Join me in the weeds.  Take us into the weeds.  What were you excited to hear about?
+
+Speaker: SPEAKER_00
+Transcript:  OK, so we talked about this on today's show because.  OK, let me organize my thinking.  All right. The big news is Google Anthos.  And the other big news item that I thought was exciting was Google Cloud Run.  And they're sort of related.  So Anthos is a new cloud infrastructure platform for Google.  And basically what Google's done here is made this really awesome jujitsu move  where it has turned its weakness into a strength.  So other cloud providers like Amazon and Microsoft are actually  far and away bigger than Google when it comes to having customers adopt them.  So Google's like, all right.  And Google has great tech.  I don't understand the disconnect there, but it's there.  Google said, all right, we're not going to be number one or number two.  Let's open everything up and make it so people can run wherever they want,  which is awesome.  So what do you mean?  Well, you can run on Microsoft's cloud.  You can run on Amazon's cloud.  You can run on Google's cloud and you can tie all those applications together.  So that is what Anthos is doing.
+
+Speaker: SPEAKER_01
+Transcript:  Don't the others have to cooperate in that?  No, they cooperate.
+
+Speaker: SPEAKER_00
+Transcript:  No, it becomes this dashboard where you can pull in all of your data  from all of your applications running in various different clouds and on premise.  And the reason why I was excited about this is because I am an IoT buff.  And we've got so many companies who are like,  I'm going to do this calculation and stuff on prem.  This I'm going to do in the cloud.  So this is a way to tie it all together using Kubernetes.  And so, yay!  And Kubernetes is a framework for managing applications across the cloud  and in containers.  And it's awesome.  And Google invented it a while back.  And it's open source.  And yay. OK, so that's Anthos.  Questions, comments?
+
+Speaker: SPEAKER_02
+Transcript:  I'm excited because you're excited, Stacey.
+
+Speaker: SPEAKER_00
+Transcript:  It is it is a really big deal.
+
+Speaker: SPEAKER_02
+Transcript:  I mean, a interoperability, but that that sounds like a great thing.  You know, that sounds like a lot of flexibility.
+
+Speaker: SPEAKER_00
+Transcript:  It's a hard technical challenge.  So there's a lot of questions here, like how do you handle security  for your applications running in between clouds?  How is Google going to track price changes?  Like, there's going to be a lot to dig into here.  But at its face, which is all I've got right now are their blog posts.  You know, it's actually really cool.  So Cloud Run.  Cloud Run gets us into serverless.  Do we remember what serverless is, y'all?
+
+Speaker: SPEAKER_02
+Transcript:  I mean, I can imagine it.  It means there's no server.
+
+Speaker: SPEAKER_00
+Transcript:  Yes. OK, good.  What's what's cool about serverless computing?  And you've got this with Google has this.  Amazon has it. Amazon's is Lambda.  So what happens with serverless is you're using you're using a container  and that container is going to contain your application  and all the libraries you need to run that application,  which means now you've got this cool little container  that you can just shove onto a server in the cloud.  You can shove it down into, you know, a server at the edge.  You can run it anywhere. You can actually run them on.  I have someone who's running containers on light bulbs, you guys.  So the idea. What?  Yeah, you package up your application, you run it on a light bulb,  a connected light.  And so it's very cool.  That's why containers are cool.  They're tidy. They run anywhere.  Yay. OK, nice. So.
+
+Speaker: SPEAKER_01
+Transcript:  Sounds like it's tailor made for viruses.  Malware.  Bad stuff spread around and not be trackable.
+
+Speaker: SPEAKER_00
+Transcript:  Like pack some malware into a container and run it.  There's a lot of security features.  So Kubernetes helps you manage those kind of security features.  And we're about to get way out of my depth here.  But I can tell you, this is something that people have thought of.  And there are ways to deal with that.  But I can't tell you a whole lot more about that.  OK, so with Cloud Run,  I kind of went off on a little Kubernetes tangent.  So with Cloud Run, what you could or with serverless,  what you can do is you throw those up and you run them for only when you need it.  And this is really cool because you don't have to provision  an entire server for what you're trying to do.  You just are like, oh, I need to run it running.  And then it shuts down. And so you don't pay as much.  This is awesome for IOT.  This is awesome for any functional things like I'm going to turn on  an application when someone logs into my website  or when someone signs up for something or clicks through on a ticket,  you know, a mobile ticket, it's going to spin up  quick serverless infrastructure, serverless, a lambda or, I guess, Cloud Run.  And then it'll be like, oh, I'm running the application.  Then I run down and I shut down.  So that's what serverless is. It's awesome. It's cheaper.  Yeah. And Cloud Run is a way to do that.  And you can do it across multiple clouds as well.  So this is really awesome. It's HTTP driven container.  So your container is going to get an HTTP URL  and you basically run that wherever you want  in a really easy way for developers to run it.
+
+Speaker: SPEAKER_01
+Transcript:  Oh, so it's so so so whole. Yeah.  OK, so you're right.  So you're not just pulling a media type, a photo from here or there.  You're pulling code from here or there.
+
+Speaker: SPEAKER_00
+Transcript:  Yes, yes. A container is your application and all the code you need to run it.  So then you just like fling that around wherever you want to run it  in a really easy way. It's pretty awesome.  And so that's the super duper cloud stuff for all the super duper nerdies out there.  And I would love to hear more from you all if you're a developer  about how easy this is going to be to use or what you're worried about,  just because I want to know.  OK, and now we can talk about G Suite G Suite on my.  OK. So G Suite.
+
+Speaker: SPEAKER_02
+Transcript:  Yes. And we will let's see here.  Let's scroll down because I think they ended up in the change.  But the change log is like huge.  So any of this stuff? No, no, no, it's OK.  Because there was a bunch of G Suite.  And this is the stuff that I could connect to a little bit more.  In my mind, I could I could attach myself to G Suite a little bit more.  But yes, so G Suite Google Home, right?  Because now there's more assistant.  Yeah, you can put it on.
+
+Speaker: SPEAKER_00
+Transcript:  So and I haven't tried this yet because I'm constantly sad by my  my Google Home experience. But.  Yes, theoretically, because it works on assistant.  Oh, yeah, we should do a whole show on that.
+
+Speaker: SPEAKER_02
+Transcript:  OK, we can talk about that in a second.
+
+Speaker: SPEAKER_00
+Transcript:  OK, yes, but yes, theoretically, I could now access my G Suite  calendar and data on my Google Assistant and presumably my Google Home.
+
+Speaker: SPEAKER_02
+Transcript:  So is this when I read this, I immediately thought of you, Jeff,  because you have historically been  the one to complain about the fact that  you have a G Suite account, that's your main account, right?  You're your Google Apps account, let's say.  And so a lot of these features never hit you or they hit you much, much later.  Was this news that made you happy?  Like, does this feel like a a temporary, very strange?
+
+Speaker: SPEAKER_01
+Transcript:  I think I think it gets better.  And that's why I discovered a new problem this week.  So I finally found out my Chromebook, how I can have.  I didn't realize that for one click, I could go from one account  to another account, right? Hallelujah.  So my college account now is on Google. Hallelujah.  Nope. That administrator says this must be the first account you sign into.  And then my G Suite says mine must be the first you sign into.  It's just a keep on making. I just got a headache.  I know I didn't answer your question, but I just want to whine again.
+
+Speaker: SPEAKER_00
+Transcript:  No. So I I have Jeff's problem and I was excited by this news.  But I will say that I have yet to try it because it's been a busy day.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, yeah.  But you also are very disappointed with Google Home.  I want to circle back around to that because I've been incredibly disappointed  with Google Home lately. I feel like what's what's disappointed you folks?  Well, you go first because you brought it up.  Tell me what's disappointing you, Stacey.
+
+Speaker: SPEAKER_00
+Transcript:  So mine is both mine is currently unplugged because my family hates it.  It's well, there's there's news right there.  And I think I've talked about this. The voice match is terrible.  And the so I turned that off,  but then I have no control over who accesses things in my house.  So that makes me sad. And then I also can't access again.  Maybe now I'll be able to access my calendars,  but I will only be able to access my calendars.  And I just. Yeah.  I mean, and oh, and a lot of the functionality that is native,  I guess, for lack of a better word, to Amazon is still like a skill on the Google Home.  So I have to still ask various apps to do things  like ask Harmony to turn on the television. Right.  And then this random voice comes on is like turning on television.  You're like, who's that? What are you?  Yeah. Why are you inside my Google Home?  So that that's a disappointment.  And so I'm like, Google, fix this stuff. Right.  And they're like, here, have John Legend for a temporary amount of time  to be your Google voice. And I'm like, I do not care about John Legend.  So that is my frustration.
+
+Speaker: SPEAKER_02
+Transcript:  They just they hoisted John Legend on to you.  I did not have that happen for me.
+
+Speaker: SPEAKER_00
+Transcript:  They foisted him. I don't think you hoist him on to. Oh, sorry.
+
+Speaker: SPEAKER_02
+Transcript:  Thank you for the correct.  Carson is very appreciative of that, too.  That is not the only time I will put my foot in my mouth.  My problems have been just that there was a time  way back when wavy lines on the screen to, you know,  denote that we're going into a flashback period here  where Google Home worked without much effort  to do pretty much everything I asked it to do.  I knew there were limitations. I worked within those limitations.  If I asked it to play the song and play that song, no big deal.  Then I trained.  I educated my children on how to use it to play songs as well.  And it always worked.  And it was magical because I had like a five year old kid  being able to play whatever song she wanted to,  given that there were parental controls.  So it was nothing inappropriate.  But like she could control it and say, hey, I want to listen to Katy Perry,  blah, blah, blah, or whatever. And it worked.  And now we're in a stage.  I feel like there's been some sort of shift in the past.  However, many recent months, two, three, four, five months,  somewhere in there where I feel like we are constantly fighting it.  Like we're we're doing the same thing we ever did.  But now we get these weird error messages that come back like, OK,  I'll play that song and then it'll wait for a second.  I'll say, sorry, that playlist is empty.  And you're like, I didn't ask for a playlist.  I asked for that song that I know is in the library.  And you played it a million times when I say this thing,  but you're not doing it now.  And you're not really telling me why you're not doing it.  You're just making up this thing about a playlist  that I don't even know what you're talking about.  And that's just one example.  And so the more that happens, the more now I'm not the only one  swearing at the Google Home when it doesn't work.  Now my kids are because they're like Google Home is stupid.  I'm like, don't call it stupid.  It can hear you.  Let's call it something nicer, because maybe that's why it's not being nice.  But it's just it's really frustrating.  And it used to be amazing.  And now, like, we're just fighting it all the time.
+
+Speaker: SPEAKER_00
+Transcript:  That's yeah. And we've had issues.  They've improved it and then it went away again with the song choices.  So it would constantly instead of playing the most popular version of a song,  it would play the karaoke version, which,  you know, when my daughter asked for a version of a song,  she doesn't want the karaoke version.  That's not that should never be your default.  Right. Unless you're unless you're a karaoke bar. Right.
+
+Speaker: SPEAKER_02
+Transcript:  So yeah, and maybe that has something to do with like parental controls.  Like if you're blocking, you know, if they're if they're asking for a song that has.
+
+Speaker: SPEAKER_00
+Transcript:  So I don't have parental controls, but I will.  I'll bring this up because this is something that has been on my mind.  And I'm very curious for resources on this.  In August, my daughter turns 13, which on the Internet makes her an adult.  Yes. Right.  So all of all of our accounts that she is tied into will suddenly become.  Oh, totally opaque to me.  And all the parental controls I've set up go instantly away.  And that's on Amazon and that's on Google, because 13 is when.
+
+Speaker: SPEAKER_01
+Transcript:  You have the option to just say, I don't care about the parent.  It's 18 to be.
+
+Speaker: SPEAKER_02
+Transcript:  No forced parental controls. You don't because.
+
+Speaker: SPEAKER_00
+Transcript:  There's no I mean, if once you're above 13.  So now I'm like, I mean,  I have a good enough relationship with my daughter.  I'm I'm, you know, I don't we talk about these things, but  and I don't want to like.  I don't I need some some transition time or periods where, you know, like  it's all moving too fast.  Well, it is. I mean, like  basically that day in August, she told it she becomes a legal  adult on the Internet, basically, like, right. Right.  So she's yeah, she's not dating.  I'm not worried about that.  But but yeah, and there's a lot of stuff on the Internet that you  you really shouldn't have access to.  Yeah. So yeah, this is my this is my.
+
+Speaker: SPEAKER_01
+Transcript:  You trust her.
+
+Speaker: SPEAKER_00
+Transcript:  I do. So we have you trust her.
+
+Speaker: SPEAKER_01
+Transcript:  And she's going to see some stuff in life anyway.  It has to do with it.  And the more and the way she sees it now, I could argue maybe.  Oh, no.  For her close relation.  No, no, no, no. I don't mean to see all bad stuff.  But when she does come across now and knows to say, Mom, what's that?  Hold on to that relationship while you can. Right.  You know, that's all I'm saying.
+
+Speaker: SPEAKER_00
+Transcript:  Yes. But there are things on the Internet that developmentally  no 13 year old is really appropriate for.  And I'm not. And so that's I'm like, yeah, she can talk to me.  But I mean, there are things on the Internet that traumatize me.  And I'm a full blown adult who knows that people suck.  So I don't anyway.
+
+Speaker: SPEAKER_01
+Transcript:  My kids are older, obviously.  But I know parents who said that their kids kind of said,  Oh, I know what I don't want to look at.  Mm hmm. I went away.  No, I don't want that.  And and I think you're you know, you've risen.  You've you've risen. Jesus.  You've raised a great daughter and you trust her.  And I'm going to bet she's going to be OK.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, yeah, I'm sure she'll be.  Yeah, I have confidence in her being OK.  I just want to have a little bit of control over.  I still want to have control over parts of her Internet life.  And that is not crazy.
+
+Speaker: SPEAKER_02
+Transcript:  So not all parents are going to agree that 13 is the age  that suddenly you give them the keys to the Internet car.
+
+Speaker: SPEAKER_00
+Transcript:  And yeah. And, you know, we all my parenting philosophy on the Internet is,  you know, I tell her there are things you can never unsee.  And so choose widely when you click on links.  And that's so far working.  Hey, Jeff, everyone in the chat room is yelling at you  because they say you're not on your headset, Mike.
+
+Speaker: SPEAKER_03
+Transcript:  Yes, I know. They're not.
+
+Speaker: SPEAKER_00
+Transcript:  They're not really yelling at you.  It's the room.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, I think it's kind of a boxy room.
+
+Speaker: SPEAKER_01
+Transcript:  Yeah. If I move this closer, we'll stick it.
+
+Speaker: SPEAKER_00
+Transcript:  We'll stick a pillow over your head.  Well, there you go.  Now everyone in the chat room can be like, OK, we've addressed it.
+
+Speaker: SPEAKER_02
+Transcript:  Yes. All right.  Well, let's. It's OK.  We'd rather have you like this than not have you at all.
+
+Speaker: SPEAKER_00
+Transcript:  So can we talk about the Google Maps moneymaker?  Because I didn't see it on our rundown, but I saw the story and I was like,  I saw it added.
+
+Speaker: SPEAKER_02
+Transcript:  I didn't I didn't see when it was added.  So it's in there.  Let's talk about that after we take this break, because we got to thank the sponsor.  And then we'll come back and we'll talk about maps and making money  and other words that start with them.  This episode of This Week in Google is brought to you by Captera.  We've all read some surprising online reviews,  whether you're trying to get a sweet deal on on something you've been saving for.  If you're trying to find the best happy hour in town, whatever you happen  to be looking for, it's generally a good idea to read the reviews first.  At this point, I feel like as Internet citizens, we are trained  to know that there are reviews of the things that we might  be interested in looking into.  And that is probably a good idea to look into those.  So why should finding the right software for your business be any different?  I read thousands of real software reviews  and find the right software for your business at captera.com slash twig.  Captera is the leading free online resource to help you find  the best software solution for your business.  They have more than 800000 reviews of products from real software users.  So you can discover everything that you need to make an informed decision.  I can search more than 700 specific categories of software,  everything crossing crossing all over the place from project management,  email marketing, yoga studio management software.  I'm sure there's plenty of other very specific categories of apps that you can look at.  And yes, there are 700 is quite a few.  So it could be kind of fun to just see like, hey, I didn't realize  there were so many yoga studio management software out there.  No matter what kind of software your business needs, captera makes it easy  to discover the right solution fast.  Join the millions of people who use captera.  Every month to find the right tools for their business.  And if you have a business, you know, like spending a little bit of time  now to find the right solution is going to save you a lot of time later.  Because if you you pick the wrong solution and then you you take the time  to get to know it, to integrate it and everything and finding out later  that it was the poor decision for whatever reason.  At some points, that could be too late, but you definitely waste a lot of time  and money in the process.  So check out capteras free website.  Visit captera.com slash twig  and you can find the right tools to make an informed software  decision for your business.  That's captera.com slash twig, captera.com  dot com slash twig captera software selection simplified.  And we thank captera for their support.  So maps, let's see here.  So I didn't get a chance to read this story, but I did see that it was added  at the top in the top block here, the Bloomberg story.  This has got Google's big moneymaker could be maps on your phone.  I feel like it's been a big moneymaker for Google for a long time already.  Maps is one of the apps that I use  possibly more than almost any other app on my phone.  I use it daily.  So what can you tell us about it?
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, there's two parts to this story that are interesting.  One is as a consumer, we'll start seeing  more personalized options for us around me.  So based on our maps and location.  So that was interesting more than what we already see.  So it pointed out that restaurants and places can already buy ads  to get the little pin.  I don't know what those are called.  The little pin drop.  Pin drop thing.  Yeah. I don't know.  Pin. Yeah. The thing on the map.  And then so Google's basically pushing forward and monetizing that more.  And so we're going to see things like personalized results,  suggestions for us based on where we've been and what we like.  So here's a vegan restaurant near you.  So we're going to I'm like, I don't know if I want that.  But who knew if I wanted Google search.
+
+Speaker: SPEAKER_01
+Transcript:  I use that all the time.  Just today, I'm in Rochester.  Well, yes, no, I use I use it constantly.  And yeah, advertising could actually be somewhat beneficial there  where you see who's going to spend the money to get me.  Who knows what I like? It's targeted.  You know, could that be beneficial? I don't know.
+
+Speaker: SPEAKER_00
+Transcript:  So they're going to do more there.  And then the second part of this is for developers who use the map.  So Google has made their maps available to developers.  They've changed the pricing on that.  So and it's much, much, much more expensive.  So there is a person in here who's got an app that they use Google Maps  to show people where they can find drugs at pharmacies near them.  And basically, before Google changed their pricing plan,  this guy's this guy's startup got 750,000 free map views a month.  It was charged 50 cents for every 1000 views on top of that.  But now Google is starting to charge after 30000 views.  And the cost is seven dollars now per 1000 views.  So his costs were basically nothing.  And now they're five thousand dollars a month. Wow. So.  Google is offering people a credit.  So small developers get a credit for use of their map.  So a two hundred dollar credit.  But this was kind of an interesting side note, which means, are we going to see  fewer apps that can take advantage of location?  Yeah. Will they switch to other maps? I don't know.
+
+Speaker: SPEAKER_02
+Transcript:  That's that's the question that kind of comes to mind for me, because maps integration.  Like I think I take it for granted because it's so easy for developers to tap into it.  Developers know that if they bring in like a Google map,  they're adding instant value to their app and people will recognize it  and respect the quality of it.  But that could that could potentially rule out kind of the,  you know, the kind of lower, lower install base, third party developers  or or at least discourage them and maybe point them in a different direction  for a map solution. But I guess we'd have to see how that how that pans out.  It is kind of interesting that we haven't seen as much monetization around  maps now that I think about it.  I guess I'm just always kind of.  You know, it's something that I use and it's highly valuable information, right.  Our location. Well, put it another way.
+
+Speaker: SPEAKER_01
+Transcript:  Waze has tried a lot to monetize over the years.  You know, Dunkin Donuts ads.  Do you want to change where you're going right now and go to the nearest Dunkin Donuts?  No, thanks. Yeah.  So it never made a lot of sense in Waze,  whereas maps use differently ways you only use in your driving somewhere.  That's it. Right. And maps I do when I get to a new city, I say, what's around me?  Where's the nearest used bookstore?  I think there's a lot of geographic uses that haven't been.  Plumed yet. Mm hmm.
+
+Speaker: SPEAKER_00
+Transcript:  Agree. I mean, yeah, I was in Helsinki last week or Stockholm last week.  I don't remember. And is it Waze owned by Google? Yep.  OK, yeah. And the first thing I did was, yeah, restaurant near me.  Then the second thing I did was, dear God, it's so cold.  How can I find more gloves?
+
+Speaker: SPEAKER_01
+Transcript:  Do you recommend it to you, Sacy?  Did you go to my restaurant I recommended in Stockholm?
+
+Speaker: SPEAKER_00
+Transcript:  It was like a Monday or something, and it was closed.  Oh, no. Was that the time?  The time I had it was closed.  I was sad.
+
+Speaker: SPEAKER_02
+Transcript:  Was that OK, Jarvis command that pulled up the restaurant recommendation?  That's what we need.  That's what we need.
+
+Speaker: SPEAKER_00
+Transcript:  OK, Jarvis, I'm traveling to Europe, the following cities.  Tell me where I should eat.
+
+Speaker: SPEAKER_02
+Transcript:  OK, Jarvis, how do you pronounce like you go to Stora Hof
+
+Speaker: SPEAKER_01
+Transcript:  and in Copenhagen, you go to Fiskibaren.
+
+Speaker: SPEAKER_02
+Transcript:  See? OK, Jarvis, we all needed OK, Jarvis in our life.  Yeah. Well, speaking of money making off of services,  it seems like Google's on a little bit of a tear.  I mean, obviously, Google is an ad company.  At its core, that's that's why it's been as successful as it is.  So bringing ads or some sort of ad integration into maps makes sense.  Now, if you now apparently on Android TV, if you have an Android TV device  and this isn't just like a standalone device like a shield TV,  if you happen to have like a Sony TV with Android TV built in as it's like  core OS, you might start seeing sponsored rows in the interface,  sponsored ads embedded into Android TV.  I also saw news that with the assistant updates that we're seeing now,  it's going to start pulling back results that have sponsored ad results,  which that kind of makes a little bit more sense to me because like when I do  a Google search, I get these sponsored links and I don't really think  think badly about that because a lot of times they are still relevant.  So that makes, I guess, a little bit of sense with assistant.  But clogging up your Android TV space, that might make a lot of people upset.
+
+Speaker: SPEAKER_00
+Transcript:  And Google Assistant is as long as it's not delivered via voice.  I hate ads delivered via voice.  That's going to be a real tough.  That's going to be is it a Rubicon?  We'll call it a Rubicon or burning the ships kind of moment.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, I do.  A paradigm shift.  I don't believe that in the case of assistant, that's what's happening.  I think it's I think what it is, is you do a query and it doesn't  necessarily know how to answer by voice.  So it says here, I found some results for you.  And if you've ever done those queries and then it gives you like a search result  or whatever, now it's going to start including sponsored items in that list as well.  So you might see an ad for Expedia, you know, just one example.  And I don't know how much that bugs me.  I don't know how much any of this bugs me.  I guess even with the sponsored role on Android TV, I'd probably get used to just  not seeing it anymore, even though it's there.
+
+Speaker: SPEAKER_00
+Transcript:  You know, I mean, I had a Kindle where, you know, I paid extra for the Kindle  without ads and then I got a Kindle with ads.  And yeah, I just I'm actually I find them amusing because I'm like, oh, wow, look at  this scurrilous, exciting romance novel that you think I want.  Are they targeted ads?  No, apparently not, because my husband gets the same ones.  Well, he may have a secret romance thing.  I don't know.
+
+Speaker: SPEAKER_02
+Transcript:  Whose dog is that? I got to know.
+
+Speaker: SPEAKER_00
+Transcript:  It's my dog. I'm sorry.  My family is home and my dog is excited.
+
+Speaker: SPEAKER_02
+Transcript:  It's OK. Your dog is forgiven.
+
+Speaker: SPEAKER_01
+Transcript:  Mom's been ignoring me.  And finally, you've come.
+
+Speaker: SPEAKER_02
+Transcript:  Mom went in this room and shut the door on me so I couldn't be there.  So she talks to herself.
+
+Speaker: SPEAKER_01
+Transcript:  This is all I hear. I don't hear it.  It's really strange. I'm worried about mom.
+
+Speaker: SPEAKER_02
+Transcript:  Right. She's not talking to me.  Are you guys excited about the the lower cost pixels?  Apparently the Pixel 3A is going to happen sometime soon.  There's like all these things that keep happening.
+
+Speaker: SPEAKER_01
+Transcript:  I want to hear from you, Dr.  Android. I still have my Pixel 2 and I'm quite happy with it.
+
+Speaker: SPEAKER_02
+Transcript:  OK. Well, I mean, this is still definitely in the kind of rumory category, but things
+
+Speaker: SPEAKER_03
+Transcript:  keep happening. They're a long time.
+
+Speaker: SPEAKER_02
+Transcript:  It has and supposedly it's going to happen sometime, you know, possibly before I.O.  But Google very recently last week updated its Google Play Developer Console and in  doing so listed two new devices, Codename Bonito and Sargo, which have been the code  names that we've been hearing for the Pixel 3A and the Pixel 3AXL.  These are mid-range devices as far as we know.  And then they also ended up adding a navigation option on the Play Store to Pixel 3A  and the 3AXL and the Nest Hub Max.  All three of those devices have not been officially announced yet.  Only to then remove them, of course, once news actually broke.  So these were accidentally leaked once again by Google.  So we know that they are something they are something that exists.  And then Hiroshi Lockheimer from the Android team has also hinted on Twitter that he has  an unreleased phone that he's taken pictures of, but that he can't share those pictures  because he doesn't want to out the phone.  So definitely going to happen.  It's mid-range Pixel device.  So I think it lacks the glass back in lieu of probably more of like a plastic casing,  if I'm not mistaken.  Less RAM, four gigs of RAM, a 1080p display.
+
+Speaker: SPEAKER_00
+Transcript:  Four gigs of RAM?  That is nothing.
+
+Speaker: SPEAKER_02
+Transcript:  Remember when that was something?  And now it's competing with like 12 gigs, which is probably overboard.  But but still Snapdragon 670.  So it's a lower, you know, lower classification processor.  Yeah, I don't know.  Mid-range Pixels, basically.  And I think I don't know if the the strategy with the mid-range Pixel, like what that's  going to be, is it is it just to bring more people into the Pixel family or is it to target  kind of?
+
+Speaker: SPEAKER_01
+Transcript:  Well, I saw a story just now.  I don't think it's on the rundown that that the people Pixel buyers are mainly switching  from Samsung.
+
+Speaker: SPEAKER_02
+Transcript:  Yes, that is in the rundown, actually.  And that's that's a good that's a that's a good thing to throw in there.
+
+Speaker: SPEAKER_01
+Transcript:  That explains what the strategy is.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  Where did I put that?  Yeah, the majority of gosh, I'm trying to find that.  I know it's in here somewhere.  Basically, basically, from what I can remember, the report essentially said that those users  coming over to the Pixel and to the OnePlus 6T aren't necessarily coming from Apple, Apple  side.  They aren't coming from iPhones, but they're coming from Samsung devices, by and large.  And of course, you know, you've got Pixels.  Apparently for the last quarter of last year, the Pixel 3 was performed really strongly  in Verizon stores.  The OnePlus 6T is this is the first time that a OnePlus phone has been in a carrier store.  It was in T-Mobile and it did really well in Q4.  And that's all great.  But it's just not doing what I think, at least in the terms of the Pixel, what Google  wanted, which was to pull people over from the iPhone back into Android land.
+
+Speaker: SPEAKER_01
+Transcript:  Here's the numbers. So this is a virgin story.  Counterpoint research.  Fifty one percent of Pixel 3 buyers were formerly Samsung Galaxy owners, only 18 percent  migrating from iPhones and 14 percent from Motorola devices.
+
+Speaker: SPEAKER_02
+Transcript:  There you go. So who still has Motorola devices?  Well, actually, the Moto G series is a pretty popular series, and that's like a mid-ranger.  It's a mid-ranger, but it's by and large, it's seen as a really good quality, low to  mid-range device for the cost, because I think they cost somewhere around like 300, 400 ish  dollars. And they're still, you know, they still do a really good job in that price range.  So that might be part of it.  But you're right. You don't hear as much about Motorola as you used to.
+
+Speaker: SPEAKER_01
+Transcript:  The more I think about it, the more I think Google getting more range in the Pixels is  good news for us Pixel fans.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, I would agree.
+
+Speaker: SPEAKER_00
+Transcript:  Because I want a Pixel, but I don't want to pay a thousand dollars for my new phone.
+
+Speaker: SPEAKER_01
+Transcript:  Or even if I if I want my thousand dollar phone, I want Google to keep investing in it  so I don't invest in something that's going to go away.  Yeah. As Google has seen to do.
+
+Speaker: SPEAKER_02
+Transcript:  There is there. There's a lot of value there in knowing that if you're going to spend X  amount of dollars on on your smartphone, you want to know that it's going to get that  ongoing support. And to me, that's one of the biggest one of the bigger, you know, kind  of key benefits of buying the Pixel.  It might have its shortcomings, you know, in different places, but you know, Google's  going to be dedicated to it for possibly longer and definitely quicker on a release, you  know, to release basis.  They're going to put those updates out to this phone before most other phones even get  them. So there's a lot of value there.  But a lot of people don't understand that value either.  Like a lot of mainstream users probably don't really even pay attention to that.  Like, yeah, well, it's a Google phone.  That's why I got it. They don't know why.  You know what I mean? Like, they're not as clued into the idea of the update schedule  and why that's why that really matters.
+
+Speaker: SPEAKER_00
+Transcript:  And, you know, to be fair, they shouldn't have to be.
+
+Speaker: SPEAKER_02
+Transcript:  No, they shouldn't. You're right.
+
+Speaker: SPEAKER_00
+Transcript:  That's that's why Google made a branded phone.  So you could be like, you will get the best and we will control and make sure it works.  Yeah. And that's that's what people want.  They don't actually want to think about update schedules.
+
+Speaker: SPEAKER_02
+Transcript:  No. Yeah, you're absolutely right.  They shouldn't have to have to do that.  Let us nerds do that for them.
+
+Speaker: SPEAKER_00
+Transcript:  Exactly. Although if they want to watch the show and ask questions, we're happy to take  them. Absolutely.
+
+Speaker: SPEAKER_02
+Transcript:  Also, let's see here.  I saw this before. I just thought it was kind of interesting.  Apparently, Google has created a a I don't know how to describe this.  It's an art exhibit in Milano.  It's a temporary art exhibit where they're showing three different rooms with different  aesthetics. One aesthetic is essential.  One is vital and one is transformative.  And these rooms are all like high design rooms with like the pixel palette, color palette,  kind of the pastel color palettes.  And they they outfit anyone going through the space with a wearable that Google designed  that has embedded in the bands.  It's especially made wristband that measures biological response.  So stuff like heart activity, breathing rate, skin temperature, skin conductivity and motion  and tracks how you respond to each of the rooms as you're walking through them.  So afterwards, when you're done, you can take a look at the data and see how relaxed you  were. Maybe it's a real job.  Yeah, I couldn't quite understand.  I was like, I was trying to find some clues here.
+
+Speaker: SPEAKER_00
+Transcript:  This is perfect. So Google takes this data when I am walking through.  I don't know which different room is called.  But when I'm walking with through the vital room, yes, and I am I am super relaxed and  happy, then that data could be used like, hey, Pottery Barn, Stacey is this type of  consumer for you. Oh, yeah, that's the future.  And it's creepy as all get out.
+
+Speaker: SPEAKER_02
+Transcript:  Who knows? Maybe they're going to take this this technology and put it into their pixel watch  whenever that happens, if it ever happens.
+
+Speaker: SPEAKER_00
+Transcript:  Well, like Pfizer and other companies are doing research with lighting and sound.  Along with wearables to measure stress response in people, and they're using it for smoking  cessation programs.  So there is a legitimate need to not need a rationale behind understanding how I might  feel about something that is not just because you want to sell me stuff.  Sure, sure.  And I bet it's to sell me stuff at the end of the day.
+
+Speaker: SPEAKER_02
+Transcript:  Probably so. And it's a temporary art exhibit.  Most of us, if not all of us, will never see this.  Let's see here.  I'm trying to like get through the Google stuff before we go out of that.  A YouTube TV price hike coming to YouTube TV.  You remember when it was thirty five dollars and it was such a deal.  Now it's going to jump up to fifty dollars, fifty dollars a month for Google TV or sorry,  for YouTube TV.  And that's because they actually just secured a deal with Discovery.  So they're going to add the Discovery Channel, HDTV, Food Network, TLC, ID, Animal Planet,  Travel Channel and Motor Trend.  They probably paid a lot for Motor Trend.
+
+Speaker: SPEAKER_00
+Transcript:  So basically they're recreating the cable bundle.  Exactly. They've allowed new people.
+
+Speaker: SPEAKER_02
+Transcript:  Yes. You know, at one point, the over the top idea seemed like a way to save money  because you're cutting the you're cutting the cord.  You're getting out of the cable thing and you're just going on the Internet and picking  out and choosing whatever.  And yeah, we're definitely drifting away from that now because all of these services,  all of the services are raising their rates, adding more, you know, obviously, because  users probably want more.  If you're a subscriber, you probably want access to more channels, of course.  Well, you got to pay for those.  So now you're paying.  I don't know if you're paying exactly what you were paying before, but it's not much of a  savings if there is any savings there anymore.  I don't know. Do either of you guys have satellite or do you do these services?  No, we do.  I still have.
+
+Speaker: SPEAKER_01
+Transcript:  Yeah. Oh, we do.  What are you going to have in Seattle?
+
+Speaker: SPEAKER_00
+Transcript:  We cut the cord along like 2008.  So we have right now we have a Netflix subscription.  I guess we're Amazon Prime.  So we have that at this moment in time.  We have HBO, but we go we just subscribe when we want and like then stop.  And then we do the same with sling TV for sports, for like the playoffs.  If we add it all up, especially because my husband gets the hockey and the baseball  packages, it's probably like cable.
+
+Speaker: SPEAKER_02
+Transcript:  But it's not on it.  It's not ongoing the entire year.  You jump in when you need it.  You jump out when you don't.  Right. Right.  Your river is about.  Yeah. Yeah.  I mean, that's that's usually how I how we use these services.
+
+Speaker: SPEAKER_00
+Transcript:  We put our left foot in, we put our left foot out.  We get the HBO and then we take it out.  OK, I'm sorry. I'm sorry.  So much shopping.
+
+Speaker: SPEAKER_02
+Transcript:  It's OK. You've given some some crafty individual the ammo they need to do a nice  This Week in Google remix.  And I put the challenge out there.  Somebody's got to take us up on it.  Yeah, that's the only time that we end up doing these services when something like  the Olympics, the Olympics is a prime example.  The Olympics are happening.  We'll jump in. We'll do a month and inevitably we'll forget to cancel it.  And so then we'll do another month and then we'll actually cancel it.  That's usually how it goes.  Did either of you watch Netflix's Black Mirror Bandersnatch or did you hear about  this? I hate choose your own adventure.  See now, I have not watched this and I'm kind of leery to because I kind of want  just want to sit down and watch have them choose the story for me.  I don't want to have to make decisions.  But I'm a huge Black Mirror fan, so I'm kind of surprised that I haven't just  broken down and watched Bandersnatch because apparently it's apparently it's  really good from what people seem to say.  But it is a choose your own adventure or interactive storytelling because Netflix  is being sued by choose your own adventure.  Right now, so we should maybe rename it something else.  But apparently YouTube is getting in on this as well.  They're going to start creating some some of their own choose your own adventure  programs. They're restructuring their programming staff to make room for this  new approach at the same time that they're cutting some of the cutting costs  on some of their content.  So they're focusing more on live events and reality shows.  This seems really expensive, though, to do choose your own adventure.  So I don't know.  I guess I'm not surprised that YouTube would would jump into it if it's a if  it's a trend and they want to be at the forefront of the trend.
+
+Speaker: SPEAKER_00
+Transcript:  It feels so weird because TV is such a lean back experience.  So I'm like.  I agree.  I mean, and granted, we're as I have already illustrated, I'm old and want  people to get off my lawn.  So maybe this just isn't appealing to me, but it would be appealing to others.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  I know people Netflix does have another choose your own adventure.  They might have a few others, but one of them that they do have is Minecraft.  It's a Minecraft story that, you know, obviously for kids and you basically  navigate your way through the story with the remote.  And I have watched my kids play that and or watch that play that.  I don't know what you call it when you're watching and playing at the same time.  And they really enjoyed it.  They they totally got into it.  They're not even Minecraft fans and they enjoy the process.  Nine and almost six.  OK, that they're much more into Roblox.  There's their jam is Roblox, not Minecraft.  It's similar.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, OK. I was like, I'm like, what are Roblox like?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, Roblox, which, yeah, it's same, same, but different kind of got it.  So, yeah, maybe maybe we're just outside of the demographic for  choose your own adventure movies.
+
+Speaker: SPEAKER_00
+Transcript:  Or we're just lazy. It's possible we're lazy.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. I mean, I don't watch much TV anyways, like I hardly watch TV nowadays.  So that when I do, I really just want to put something on and  and and not not be part of the process.
+
+Speaker: SPEAKER_01
+Transcript:  Well, we still you still want to tour.  You still want somebody to do the work and have vision.  And you're trying to part of what you're doing is you're kind of sussing out  their brain of where they're going to go and where is this going to end?  And I'm smart. I figured it out.  And then it takes away half of that fun.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. Like ultimately, what I want is the best story.  So great. Have a have a mode where where I can walk through it if I want to.  Also have a mode where you give me the best out the best story,  the best kind of curated walkthrough or something.  I don't know how you do it.
+
+Speaker: SPEAKER_00
+Transcript:  But maybe the best story for you is some other story is the idea here.  And I don't like them because I want to see all the stories.  Yeah. And then I get frustrated.  So that's that's why like choose your own adventure books.  I hate it as a kid because I had to read them all and because I'm a little OCD.  And it was just like very distressing to me.
+
+Speaker: SPEAKER_02
+Transcript:  So would you put a mark on the page next to the thing you would?
+
+Speaker: SPEAKER_00
+Transcript:  I had I had little little I've been here before.  Yeah. OK, this one.  And then I'd mark off every one that I've chosen.  And yeah, it was and sometimes I would just read them cover to cover  and just like reassemble them in my brain.
+
+Speaker: SPEAKER_02
+Transcript:  Well, so that's interesting.
+
+Speaker: SPEAKER_00
+Transcript:  Well, if you had to be if you wanted to read them all, you just had to do that.
+
+Speaker: SPEAKER_02
+Transcript:  If you wanted to be a completist. Yeah. You've wanted everything.  I'm a completist.  I think the thing that like I actually liked to choose your own adventure,  but the thing that I did not like about them and my kids have have read a few of them.  And I and I encounter this with them is that when you go through  and you don't make it to the end, like you said, Stacey, you have to start over.  And so then, you know, you do that two or three times  and you're reading the same beginning stuff. Right.  Until until your your path goes separate ways,  you know, versus where you've been before.  So just it feels very repetitive and not, you know, the the enjoyment dwindles.
+
+Speaker: SPEAKER_00
+Transcript:  That's why you have to read it all the way all the way through and then.  Once. Yes.
+
+Speaker: SPEAKER_02
+Transcript:  I had thought of it like that. Good, good idea.  I'm highly efficient.  Yes. No kidding.  Let's take a break.  And then when we come back, we can talk a little bit about.  Well, we of course, we've got the change log.  We can also talk a little bit about this government stuff.  Yeah, the government stuff.  I feel like we need to do.  We need to touch on some of that stuff, because there's a lot of stuff  coming to a head. And I know you wrote something, Jeff, that we can talk about as well.  So let's take a break and then we'll jump into some of that.  This episode of This Week in Google is brought to you by Express VPN.  Admit it. You think you think that cybercrime happens to everyone else.  It never happens to you. Right.  We all think that all these things happen to other people.  Couldn't possibly happen to us. It never has, after all.  So what do we have to worry about?  No one's going to target my passwords or my credit card details.  You're probably wrong, though, stealing data from unsuspecting people  on public Wi-Fi happens to be one of the simplest and cheapest ways  for hackers to make money.  When you leave your Internet connection unencrypted,  you might as well be writing your passwords and your credit card numbers  on a huge billboard for everyone to see, or at least the hackers  that know how to get to it and see that billboard.  That's why I use Express VPN, and I recommend that you do, too,  to protect yourself from cybercriminals.  Express VPN secures and anonymizes your Internet browsing  by encrypting your data and hiding your public IP address.  Express VPN has easy to use apps. They're super simple to use.  They run seamlessly in the background on your computer, your phone, your tablet.  And turning it on is literally a single click.  It's really nicely integrated into Android.  You see a little VPN  icon up in your notification pane.  It's all kind of integrated into the OS, so it's it's super simple to activate.  Using Express VPN, you can safely surf on public Wi-Fi  and know that you are not being snooped on or having your personal data stolen.  It's all encrypted and protected.  And for less than seven dollars a month, you can get the same Express VPN  protection that I use on my phone and my laptop.  Express VPN is rated the number one VPN service by TechRadar.  Comes with a 30 day money back guarantee.  You can protect your online activity today  and find out how you can get three extra months free  with a one year package at Express VPN dot com slash twig.  That's E X P R E S S VPN dot com slash T W I G.  You'll get three extra months free when you do that with a one year package.  Visit Express VPN dot com slash twig to learn more.  OK, so government stuff, first of all, House voted,  voted, of course, as expected  to, well, voted for the Save the Internet Act.  So now it faces the challenge.  This is, of course, going to face a lot of pushback  from Republicans who lead the Senate.  Mitch McConnell calls it dead on arrival.  Also, Trump has basically said that he plans to veto this, from what I understand.  What do you what do you think?  I mean, this so then does that make this more or less just symbolic than anything else?  I mean, yes, I mean, if Republicans don't plan on doing anything in the Senate  and the president's going to veto it, even if they do.  I mean, that's not reason not to do it.  But what we're we're next.
+
+Speaker: SPEAKER_00
+Transcript:  So this is a good what's it litmus test or something for the midterms?  OK, not midterms.  The opposite of the opposite of midterms.  Yeah, the term.  So, yeah, the term.  So as that is that start, it'll give people a talking point.
+
+Speaker: SPEAKER_01
+Transcript:  Yeah, you put it in a spot where we voted for, you voted against.  They're against neutrality.
+
+Speaker: SPEAKER_02
+Transcript:  Now we can have an all of our attack ads.  So he voted for or against or whatever.  Yeah. Yeah.
+
+Speaker: SPEAKER_01
+Transcript:  How much that is, but everything else going on.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, yeah, that's true. Yeah.  Yeah. So that happened.  But then there's this kind of larger trend that's happening right now.  In one case, Australia passed a social media law on the heels of, you know,  the Christchurch massacre that happened a few weeks prior to this.  They speed, they sped through a law that would require social media  companies to remove violent content, things like kidnapping, murders,  rape, terror attacks, that sort of stuff.  It doesn't really address hate speech, which was pivotal to what happened  to Christchurch, but Australia nonetheless pushed this through very rapidly,  I think in like five days from inception to passing it through.  The UK released their online harms white paper.  This was published on Monday.
+
+Speaker: SPEAKER_01
+Transcript:  I have right here.  I've read almost the entire thing.  Oh, good.  I've had to be pulled back from suicide a few times.  Oh, boy.  They're cleaning the net.  Oh, it's awful. It's awful.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, I wish I had read it so I could act as a nice counterpoint.
+
+Speaker: SPEAKER_01
+Transcript:  Well, so so I don't think you would stay.  See, I actually don't think you would.  So this is what they're doing is they're  going to tell the platforms you're responsible for taking down illegal content  and illegal behavior. OK.  And then they're going to tell them, well, you also have to take down  legal but harmful behavior. Right.
+
+Speaker: SPEAKER_02
+Transcript:  What is that? What is the line there?
+
+Speaker: SPEAKER_01
+Transcript:  That is a nightmare for speech.  So so so for example, they want to outlaw trolling.  OK, define it.  No, you define it.  And if you don't do it right, if you don't define it,  we're going to take away a huge amount of money and we're going to we're going to  find not only you big company, we're going to find your executives.  Meanwhile, the other report that was out recently says we're also going to find  the programmers.  Disinformation, that's a fun one.  How do you how do you how do you get rid of legal disinformation?  The things your uncle Joe says to you that were legal.  So what's going to happen, obviously, is that the platforms are going to play  safe and pull down anything that has to with conversation.  So this is this applies to anyone.  Oh, let's see if I can find it real quickly.  You can't I can't believe I spent my time reading this junk.
+
+Speaker: SPEAKER_02
+Transcript:  You got to read something.
+
+Speaker: SPEAKER_01
+Transcript:  That's true. I can find better things.  It's called a duty of care that you should just be right in advance and do this  stuff and figure it out.  It here it is.  The regulatory framework should apply, quote, to companies that allow users to  share or discover user generated content or interact with each other online.  Period. That's that's the entirety of the of the net.  It's conversation.  And any conversation is now going to be regulated.  Now, meanwhile, they they're not sure what to do about private channels.  They're trying to figure that out, which means that the bad guys will just go down  into them. And it's it's terrible, terrible, terrible law in the making.  It's really, really frightening.  Meanwhile, though, Stacey, I'm going to surprise you here.  Unless it's harsh. Did I get in court before?
+
+Speaker: SPEAKER_02
+Transcript:  Talk about it again and then we'll we'll I'll cut you off.  You'll find out.  Carson's memory is not 100 percent all the time.  It's like 90. I kind of tune out when Jeff's talking.  Hey, hey, hey, hey, I thought we were goombas.
+
+Speaker: SPEAKER_01
+Transcript:  I thought we were friends.  He's cackling maniacally right now.
+
+Speaker: SPEAKER_02
+Transcript:  No, he's these Ivy.  So I think I mentioned this part of it.
+
+Speaker: SPEAKER_01
+Transcript:  I joined a high level working group, a high level, a transatlantic high level  working group on content moderation and freedom of expression.  And out of this came as Chatham House rules.  So I can't say who said what I want to in some cases, but I think they said  they don't want to be quoted.  But they're a very smart person proposed.  Interrogation is a very smart person.  They're very smart.  They're very smart.  But they're a very smart person proposed Internet courts.  And the argument here is that the platforms are being put in a position.  This is in Germany. It's true with this.  It's true in Australia. It's true where they're being told.  You go find the legal stuff.  You decide if it's illegal and you get rid of it.  Never mind the legal but harmful, but just even illegal stuff.  Right. Well, it's illegal in Germany.  That's the game.  They've got to decide what is manifestly illegal on their own within 24 hours  or they get sued huge amounts of money.  So it even got to the point that the German authorities said they were taking down  too much. Well, of course they were because they were playing safe.  The problem with this is obviously that the companies don't know how to do this.  So they're making up as they go.  It's all a secret. There's no due process.  So this very smart person proposed a Internet court,  nation to nation, that would be trained judges.  And that the the Internet company, when it came to any dispute,  they weren't sure if it was illegal.  The person who did it said, no, you're wrong.  Company is not illegal or whatever.  It goes to the court.  And the point of this smart person was that then due process comes back in.  Number one. Number two.  This is doing things in the bright light of public.  And number three, that's where we're supposed to negotiate our legal norms.  In this world is in court, in the public with due process.  And so I found that actually appealing  because then the government is doing what the government's supposed to do.  It should be right.  Very clear laws and have very clear enforcement of them in the courts with due process.  Now, then in terms of the legal but harmful,  that should be a matter of the company's own terms of service with their users.  Where, for example, Facebook says naked breasts.  No, I think it's dumb, but they can do that. Right.  That's their that's their definition of harmful. That helps.  And the way it works in the US under the Federal Trade Commission structure  is that any company can have guarantees they make to their customers.  The Federal Trade Commission doesn't care what those guarantees are,  except if you violate that, if you don't stand up to the covenant  you make with your customers, then they come after you.  In essence, for consumer fraud, you said you do it, you didn't.  So you split that world up where you have variable standards set by platform.  And you can decide, I like this platform.  I like this platform.  I don't like this platform because of their rules, whatever.  But those are their rules.  And the company is monitored based on whether or not it meets its own rules.  That's an illegal framework.  And in the illegal framework, the company still has to play police  because the scale is too huge.  They still have to find the stuff.  They're only liable once they've been notified something's bad,  once they don't act.  And if they have any doubts, now they have a court to go to.  So that's a regulatory regime. It starts to make sense to me.  But I wrote it up on medium.
+
+Speaker: SPEAKER_00
+Transcript:  Yes, I was with you until the time.  And now I'm like, no, just teasing Jeff.  No, I like it. I should read your kind of person.
+
+Speaker: SPEAKER_01
+Transcript:  You to what kind of person to kind of person.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, totally. Yes.
+
+Speaker: SPEAKER_01
+Transcript:  So you're jealous. I did.  Turf. You have the turf.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, Jeff, Jeff beat you to the to the kidney.
+
+Speaker: SPEAKER_00
+Transcript:  No, I think I think it really drove his point home in a very, very clear way.
+
+Speaker: SPEAKER_01
+Transcript:  Internet. So so.  But meanwhile, meanwhile, the governments are going berserko.  You also have the fake news law.  You have Singapore. They have a fake news law where you're things  that things that are wrong or illegal.  That's a fast track to authoritarianism.  And and these governments don't know what the F to do.  They already have laws in almost every case.  They're not enforcing them.  They're forcing the companies to enforce them with no clear guidelines.  Companies don't know what to do. They're messing up.  This is a mess. I completely agree.  But the way that the way if you read this online harms report, it's just amazing.  They're just flailing over themselves saying, if we don't like it,  you shouldn't have it.  You bad companies. We're going to blame me for it.  And by the way, one more thing.  Only once so far, I haven't finished every word,  but only once did I see a reference of taking the actual illegal actor  to the authorities. Right.  So constantly the platforms are being blamed for everything that's being done  on them. And if someone is harassing someone, if someone is spewing  terrorist or racist, it's betrayal.  And if the country wants to say that's illegal,  then one of the person who spews it, forget where it was spewed,  go to the spewer. Sorry.
+
+Speaker: SPEAKER_02
+Transcript:  Well, it really seems to me when you when you put.  OK, wait a minute. The more I think about that.  Yeah, that is a little weird.  The the way you were.  Who who is the spewer in this case?  The the way that you're man, I totally lost my train of thought.  Spewer just derailed me.  I need someone to jump in because now I can't.
+
+Speaker: SPEAKER_00
+Transcript:  So so the spewer is probably protected  by free speech or it can be also.  Well, I mean, so you're if we see a lot of
+
+Speaker: SPEAKER_01
+Transcript:  behavior, what I'm saying is then go after the person who does  the illegal behavior rather than the one who accidentally carries it.
+
+Speaker: SPEAKER_00
+Transcript:  So if you're saying someone in sight, like inciting violence or inciting harm,  I mean, they're they're very and are those actual laws  or the interpretations of laws brought forth by the Constitution?
+
+Speaker: SPEAKER_01
+Transcript:  It's like depends on the country in a place like Germany, right?  It is illegal to deny the Holocaust.  Oh, OK. So so platform is being told you must take that down.  OK, that's the law. OK.  But then hardly ever do we hear of a process  that goes to the person who actually does that.  The platform is being blamed for the behaviors of the public upon it  and is expected to clean up the public.  I was on MSNBC this week about about all this.  And so so the anchor says, come on, Jeff, come on, Jeff.  White nationalism, because there was going to be the hearing  about this, which we'll talk about more in a second.  White nationalism and I said and pardon me, Leo, we get nervous right now.  I'm going to say something political, but pardon me.  I'm going to say it and just don't at me.  There are white nationalists, white nationalists in Congress.  There's a few in the White House.  You get rid of all the white nationalists online.  You haven't solved our problem in society.  We have a problem with racism in society.  And I think there's this belief that if we could just clean up the Internet,  everything is going to be OK again.  No, because that was my surely temptation.  There'll be OK again.  So, no, that's not not the case.  But what's happening is we're it's more panic. Pardon me.  See, I said it.  We're blaming the technology for all these human behaviors  and we're stopping to the technology.  And we're not going to the root cause or to the root players.  And so so there was a hearing this week  Facebook and Google, white nationalism.  And you have a story in the rundown about what happened  to the live feed comments.
+
+Speaker: SPEAKER_02
+Transcript:  Well, they got they got overtaken by by comments  along those lines, along those very lines.  They proved.
+
+Speaker: SPEAKER_01
+Transcript:  They came in and said, you don't like us. Here we are.  Right. That's going on in society right now.  We've got bigger problems.  I'm not saying the platforms are blameless.  I'm not saying that they are without responsibility.  I'm not saying that they shouldn't.  Yes. Should they set their own rules to get rid of white nationalism?  Yeah, I actually think so.  That's their choice to do.  But but when government tells them they must, that's de facto illegal.  And that has a problem with our First Amendment.
+
+Speaker: SPEAKER_00
+Transcript:  Well, so if the government.  No, and you're right.  And so if you think about the government trying to go after people  through the platforms, though.  So you're right about this being it is an effective mirror.  I would say it's both a mirror of the worst of our society,  but it also does magnify it, which is kind of the problem.  Yeah. Now I'm like, why don't we go after?  Is it because Google won't give away identity for people who are?  I mean, can do we need rules that make it acceptable  or consent when you sign up for platforms that in the case of?  But then you get into this issue that.  In the case of hate speech or something actually illegal,  that you would pass that over to authorities, but then authorities may use  that and overstep their bounds.  I'm just thinking out loud here. Sure.
+
+Speaker: SPEAKER_02
+Transcript:  And would users use a service that had the  had the ability to analyze their use and determine  whether a user's approach to using that service  falls into the good category or the bad category?  Would I as a user, even if my intention is not bad,  would I as a user trust the service to be able to make that determination  and to hand my information out to the authorities?
+
+Speaker: SPEAKER_01
+Transcript:  So Lindsey Graham, I'm sorry, I'm back in that courtroom  because I was too loud out there.  Lindsey Graham, you know, accused the platforms this week  of a left wing bias and what they choose to kill.  The platforms are, you know, they may be the richest beasts on Earth.  They control the world, but give a little sympathy here.  They're they're stuck in a no win position here.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, they're like parents with their kids fighting in the backseat.  He's got this. You're taking his side.  Oh, my God. Yes.
+
+Speaker: SPEAKER_01
+Transcript:  Yes. So we need a more nuanced discussion of this.  We need we need to we need to go after the bad behaviorists.  The spewers.  We need to go after the core cause and roots of this.  We need to do a lot.  And that's what I what I what I what I spew about moral panic.  What I'm saying is, it's a simplistic blame game  that says the technology is causing all this.  It's much more complex than that.  And a bunch of laws, a bunch of regulations, a bunch of fines  against technology companies aren't going to do it.  And where are we?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. From the perspective of, you know, the people who wrote  wrote the white paper as as one example, from their perspective,  they're thinking you you you choke this off at the source, right?  Like it's like you stop the flow of water through the hose  at the at the beginning of that hose by by clinching it off.  Not thinking about the unintended consequences, of course,  just thinking about how can we make the most effect  to this problem right now instead of, you know,  instead of dragging this out further.  And I can understand the desire to to to pay attention to this  and make it important to do something now.  But yeah, it really feels like kind of that unintended consequence  aspect of it is blown out.
+
+Speaker: SPEAKER_01
+Transcript:  Some things are illegal.  They should be. They should be enforced.  Child porn is the one we all agree to immediately inciting terrorism.  Yeah, I think probably we'd pretty much agree.  But what I guess the thing is like in the German law, insult  in this this regulation, proposed regulation, disinformation.  They're just not thinking this through.  And they're creating things that cannot be enforceable.  And so you cannot win.  Yes. Meanwhile, Zuckerberg is going for worldwide regulation.  That's what he wrote in his op-ed, which I'm sure was discussed  when we were here, so I don't want to go into depth on it.  But but but but understandably, he's saying this is a pain  dealing with all these countries.  Can't you go with just one?  Well, then we're going to end up.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, that's never going to work because every culture has  different standards and norms.
+
+Speaker: SPEAKER_01
+Transcript:  And if the platforms say we're going to go with the lowest  common denominator of freedom and the highest water mark of regulation,  then we're all living in China.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah. And sometimes I feel like
+
+Speaker: SPEAKER_00
+Transcript:  I feel like Mark was being a bit disingenuous there in in many ways,  because that is never going to happen.  A. And by calling for it, you know, it.  Right. It's like calling for.
+
+Speaker: SPEAKER_01
+Transcript:  Because I think I actually would he would love it if it happened.
+
+Speaker: SPEAKER_00
+Transcript:  Well, yes, yes, it would be very convenient for him.  But the idea that that's him. Yeah. Yeah.  And and I think that if we.  Oh, this is this is so hard.  I mean, people are hard social mores and we see this.  And this is something that changes over time, which is both good and bad.  You could call it, you know, if you look at King's arc of moral justice,  you know, we've we've changed a lot as a country.  In the last, you know, 60 years, but actually, I guess it's now 70 years.  But we we do have further to go in other countries are far behind  and some are like way ahead and on some issues, we're very progressive on others.  We're incredibly conservative.  So this is just hard.
+
+Speaker: SPEAKER_02
+Transcript:  You mean we're not going to solve it right now on this episode of This Week in Google?
+
+Speaker: SPEAKER_01
+Transcript:  I know it's on medium. It's on medium. It's there.  That's the courts.
+
+Speaker: SPEAKER_00
+Transcript:  That's that's a good idea.  I like that. Yeah.  Although courts are subject to politics, politics, politics,  because they should.  What it says is I'm not I'm not going to be able to say that word.  But yeah, people will use politics and how they.
+
+Speaker: SPEAKER_01
+Transcript:  But wait, what, Jeff?  Get that woman another shot of tequila.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, just you wait till my special thing.
+
+Speaker: SPEAKER_02
+Transcript:  We're all drinking shots today.  Should we do the change log?
+
+Speaker: SPEAKER_01
+Transcript:  The Google change log.
+
+Speaker: SPEAKER_02
+Transcript:  We got a lot of things on the change log, so I'll rattle them off here.  Dropbox showed off a new feature at Google Cloud Next that apparently  they had teased this in March, but integrated  Google Docs, Sheets and Slides editing within Dropbox itself.  And apparently this is something that we're going to see a little bit more of this  kind of cross  cross collaboration between services.  So you don't like the clouds.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, I was going to say, are they going to use containers?
+
+Speaker: SPEAKER_02
+Transcript:  Probably. Maybe this is the prime example.  Also, third party add on support coming to G Suite in coming months as a beta  idea here is to lessen the need to again, jump between apps when doing things.  So integrating Evernote into the sidebar of Gmail is one example that they showed off  so that you don't need to leave your Gmail in order to go and Evernote where your notes are  that sort of stuff. So they've got Partners Box, Evernote, Azana,  DocuSign, QuickBooks, 15 of them at launch and more over time.  We already talked about Google Assistant, the new security tools for G Suite.  So they have a new security sandbox that will actually execute  attachments before letting you open them.  So they execute those in the sandbox so that it can affect you once you open it on your end.  It can detect what's going on there before it hits your side of things.  Also, a new security and alert center for admins, for single security services, best  practices, tools and addressing threats.  But and also along the security tip, this is kind of cool.  Google announced that Android devices running Android 7 or higher can act as a physical  security key for two factor authentication.  So you don't need an extra dongle like the Titan security key that they rolled out last year.
+
+Speaker: SPEAKER_01
+Transcript:  Oh, so explain how that how that works versus versus the late two factor, which I do now.  And then heavy was the dongle.  So how does this?
+
+Speaker: SPEAKER_02
+Transcript:  So if you have a computer, let's say you have a Chromebook, I'm assuming this will work with a  Chromebook that supports Bluetooth, you would connect your phone via Bluetooth to the  Chrome browser to verify your logins.  So it would your phone is connecting wirelessly.  That is your hardwire, your hardware connection, essentially.
+
+Speaker: SPEAKER_00
+Transcript:  And there's been a lot of Bluetooth exploits.  Granted, you do have to be really close within Bluetooth range.  But. Yeah, another option.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, you just said the magic word.  You're sure you said that?  Yeah, I'm so sorry.  My notes were covered with an assistant bubble.  So, yes, this is going to work in Gmail, G Suite, Google Cloud, any Google account service  essentially using Fido authentication standard.  Let's see here.  Google Plus for Enterprise is is while Google Plus is dead and they needed to do something with  Google Plus for Enterprise, so it got a new name and unusual Google fashion.  It's kind of confusing.  Google Currents is its name, and that's confusing because Google Currents was something  that Google did back in 2011.  It was a magazine app that they released.  So I thought it powered waves.  Yeah, right. See, that's what it should have.  Two years later, they renamed it Google News.  So I guess the name was available again.  And, you know, it was long ago enough that you probably aren't still holding on to that.  So that's available today in beta form.  Assistant, we talked a little bit about the ads coming into assistant, but there are also  some new features. Cards are getting more information dense.  So and more interactive.  So they showed off a number of different examples of this.  Like if you did a search for alphabet stock before, you would get just the really basic  like four or five pieces of information about where it's at right now.  And after you get like a full chart where you can select like the performance over a  year or the last month or the last week, a lot more information making their way into  the cards. Also new tools in assistant like bubble level tip calculator, mortgage  calculator, color picker and some other things.  So making assistant smarter.  And then finally, Google Smart Compose.  Gmail may not have inbox bundles yet.  And yes, I will say this every time there's a new feature added to Gmail until it happens.  But it did bring smart replies into subject lines.  So, for example, if you wrote an email and the body said, hey, happy birthday, Craig,  it's really great that you were born.  Then the subjects might give you the option of saying happy birthday.
+
+Speaker: SPEAKER_00
+Transcript:  So we change it after you've written it?
+
+Speaker: SPEAKER_02
+Transcript:  No, no, no, no. You write the email first.  Right. If you went in and type.
+
+Speaker: SPEAKER_00
+Transcript:  Who writes their emails without having the subject?  Do you guys write your emails first and not your subject?
+
+Speaker: SPEAKER_01
+Transcript:  No, I don't. But I know some people who hate doing subject lines.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, yeah. I don't always.  But every once in a while I do because I've got like the idea for the email in my head.  I'm just like fired off.  And then I go and do the subject line at the end.  Sure. But not every time.
+
+Speaker: SPEAKER_01
+Transcript:  OK. You do too.  Find out what the open rate is on different subject lines.
+
+Speaker: SPEAKER_03
+Transcript:  Able testing for your memories.
+
+Speaker: SPEAKER_02
+Transcript:  We know for sure that if you put this in your subject line,  put the word free, people are guaranteed to open it.
+
+Speaker: SPEAKER_00
+Transcript:  Oh, my God. The pitches that I might get after that.  Yes. Oh.
+
+Speaker: SPEAKER_02
+Transcript:  And that's all I have in the Google change.  There's probably more, but there's so much more.  But Carson's wife's birthday  is coming up.  And we're already five minutes past the time that I told him we were definitely  going to be done.  So let's thank the final sponsor and then we will do our tips and tricks  and we'll get Carson to his celebration.
+
+Speaker: SPEAKER_01
+Transcript:  One thing, one thing first.  Yeah. Let us pay tribute to the black hole and to the young woman.  Oh, yes. We cannot leave before we do that.
+
+Speaker: SPEAKER_02
+Transcript:  No, you're right. You're absolutely right.  Today's a really big day, right, for the celebrating women and STEM,  because computer scientist Katie Bowman, who got her bachelor's in 2011,  she was the lead of the development of the first algorithm to actually show  a black hole for the very first time.  Three years ago, she began the development of this algorithm,  approximately a thousand disks, five petabytes of data.  And today the image is released.  The first time a black hole has been photographed using the Event Horizon  Telescope. There it is.  That is that is amazing.  That is so cool.
+
+Speaker: SPEAKER_01
+Transcript:  This great picture of her, which we're showing on the air.  So so wonderful.
+
+Speaker: SPEAKER_02
+Transcript:  I love that.  I love this story and I love that she's being celebrated for this  because that's a huge that's it.  That's a breakthrough right there.  Yep. Thank you.  His thank you for bringing it up, because I really did want to get that in there  and I completely spaced it.  OK, sorry, that's a horrible pun.  This episode of This Week in Google is brought to you by Thousand Eyes.  Get an immediate and unmatched view of all the networks  and dependencies that impact your users digital experience.  So let's talk a little bit about cloud adoption.  We've talked about cloud in this episode.  Let's talk about adoption and doing it right, because cloud is obviously  it's great for business.  But there is, of course, a trade off when you gain agility,  you increase risk and you lose control.  When your cloud app or service goes down,  how do you know what went wrong that led to that?  As you scramble to find the root cause of the problem, you are losing revenue.  You're impacting employee productivity.  You're damaging your brand.  You need instant visibility into the entire service delivery path  from the cloud to your end user, including the portions that you don't own or control.  And that's where Thousand Eyes comes in.  It's unlike anything you've seen before.  Thousand Eyes is cloud based software built to help organizations do the cloud right.  A massive array of vantage points span the global Internet,  cloud providers and even the Wi-Fi in your local coffee shop.  Old school IT monitoring is passive.  It operates in silos and can only see inside the data center.  No use in the cloud.  Thousand Eyes unique path visualization technology extends beyond any boundaries,  allowing you to see, to understand and improve the experience for all of your apps,  your services and your websites.  Regain control and ensure the best possible digital experience for your customers and employees.  You can make sure you're in the right cloud, connected to the right SaaS instance  and see issues before they impact your customers and employees with Thousand Eyes.  Join the top banks, enterprises, SaaS companies and the world's largest  and fastest growing brands that rely on Thousand Eyes software to do the cloud and to do it right.  Visit thousandeyes.com slash twit.  You can see what you've been missing.  You'll get the exclusive ebook on the five cloud migration challenges you shouldn't ignore.  If the cloud is important to you, either today or in your future,  you'll want to visit thousandeyes.com slash twit.  That's thousandeyes.com slash twit.  Thousand Eyes thrive in a connected world and we thank them for their support of this week in Google.  All right. So let's start.  Let's start off with a cocktail, Stacey.  What you got?
+
+Speaker: SPEAKER_00
+Transcript:  It's spring and thoughts of people.  People's thoughts turn to alcohol or not.  This is this is a cooling cocktail.  I really was checked out.  And I'll be honest, you guys, it could be bad because I am moving in the next few weeks.  But this cocktail is called the Verdant Lady.  I have never had or heard about it before, but I made it and it is awesome.  It is a gin, chartreuse and mint cocktail.  That sounds delightful.  It is. It's herby, but it's not super sweet.  If you want something super sweet, you could add more simple, but it's really well balanced.  I would use a gin that is more of a neutral gin, maybe a little sweeter gin.  So the default here would be like Hendrix.  If you wanted to go straight neutral, you could go with like a Tanqueray.  But more of you would probably go more for a Bombay or Hendrix is my bet  because people tend to like sweeter stuff.  But it's really good and it's really easy to make.  This person also has lovely photographs.  But I just thought I'd share that with you.  And once you have chartreuse in your bar, you can make all sorts of awesome drinks,  such as the Last Word, which is another one of my favorites.
+
+Speaker: SPEAKER_02
+Transcript:  Last Word is so good.
+
+Speaker: SPEAKER_00
+Transcript:  Yep. So good.  So much alcohol, though.  Got to really watch those.
+
+Speaker: SPEAKER_02
+Transcript:  That's why it's called the Last Word.
+
+Speaker: SPEAKER_00
+Transcript:  I'm like, if you make a last word with whiskey instead of gin, it's called the final say.
+
+Speaker: SPEAKER_02
+Transcript:  So there you go.  Thank you. This is like perfect timing.  I am throwing a I hope my wife does not listen to this.  We can Google I'm throwing a surprise birthday party cocktail party for her  for her birthday next week.  And I need to come up with a couple of cocktails to make sure we have the right stuff for.  So this is going on the list.
+
+Speaker: SPEAKER_03
+Transcript:  There you go. Thank you.
+
+Speaker: SPEAKER_02
+Transcript:  Perfect timing. It's like you knew it's like my birthday.  It's as if your birthday was this was this month, too.  Cool. Thank you, Stacey. Jeff, what you got for your number.
+
+Speaker: SPEAKER_01
+Transcript:  More is the number more.  So there is now appears to be fairly confirmed reports  that the Pixelbook group has new laptops and tablets inbound, says the Verge.  Oh, really?  Because when they when they lost some people and so on, there was there was  there was presumption it was going to be killed.  But Google confirmed to the Verge that, no, it has more coming this way.  Interesting. Very, very happy indeed.  It's time for I think how old is the latest Pixelbook?  I think I've had this for two years now.
+
+Speaker: SPEAKER_02
+Transcript:  Well, yes. So the Pixel Slate, which is what I'm using, is last year's last October.  And so the Pixelbook is the October before.
+
+Speaker: SPEAKER_01
+Transcript:  So I'm hoping I know they might announce a few things.  That'd be nice.
+
+Speaker: SPEAKER_02
+Transcript:  Man, I, you know, I wouldn't be surprised.  It would be it would be an interesting reversal if they had some hardware  announcements of some of some sort.
+
+Speaker: SPEAKER_01
+Transcript:  I know that used to do it, but they haven't done well.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. And I mean, we've got the Pixel 3A kind of on the horizon.  There's rumors about a galaxy or a Pixel watch.  Who knows? I know.  I think a part of me would be pretty surprised if they had a hardware  announcement at I.O., but maybe around that time, you know,  maybe they spread it out a little bit, maybe sometime soon.  So interesting.  OK, I hadn't heard that news.  That was news to me.  My pick is an app that I discovered  probably about three weeks ago.  I mean, I'd heard of it.  I'd heard of all trails before, but I wanted to find a trail.  I wanted to.  My wife and I had like a date day and I was like, why don't we go for a hike  and make it a photo hike or we'll take pictures and, you know, just hike along,  whatever. But I don't know where to take us.  Where are we going to go?  So all trails is a really cool app that I've been going to give you that.
+
+Speaker: SPEAKER_00
+Transcript:  It is awesome. Yes.
+
+Speaker: SPEAKER_02
+Transcript:  This is really cool. Yes.  It is a great app.  Now, so there is a free version or twenty nine ninety nine a year,  which twenty nine ninety nine a year.  If you plan on using this regularly is probably a good thing.  It allows you to do offline maps and a number of other a number of other  elevations gives you elevation.
+
+Speaker: SPEAKER_00
+Transcript:  Like I get very excited when I'm hiking a mountain.  It's like you've hiked this high and you're like, oh, yeah, yeah.  But offline maps are super important.  Yes, absolutely.
+
+Speaker: SPEAKER_02
+Transcript:  So it'll it'll GPS give you GPS directions to the trailhead,  because sometimes trails don't begin, you know, where a road is, whatever.  You can track your route with GPS, view your day, download for offline, of course,  follow other people's new routes or alterations to routes.  So like this is Helen Putnam Outer Loop here in Petaluma.  You get a little description, gives you these tags as far as like  what you could expect if it's wildflower flower season.  You know, you can isolate to those tags and then it gives you a view on a map  of the actual trail.  And you can see other people who have taken these trails and modified them.  So you can choose to follow their modified kind of direction on those trails  if they maybe extended it by a couple of miles or whatever.  You get your elevation.  Of course, I could download it, but I just thought it was really cool.  Oh, and of course, like, you know, people will give their reviews  and you can do the same.  So I found this really helpful because here in the Bay Area, it's been very wet.  And so when you go hiking, you run the risk of running into very muddy areas.  And you can see in here, for example, one week ago, four stars hiking,  you know, they might mention, you know, be on alert for poison oak and ticks.  But a month ago, it was really muddy.  And I remember that because that's about the time that we went hiking.  It was super muddy.  So you can kind of get check in on it and be like, well, what are the conditions  of this particular trail right now?  And like I'll go into my history and show this was set the 17th.  We went to on a hike in Nevada.  And it, you know, it tracked my whole hike.  It also I took a couple of photos along the way.  So it drops a pinpoint where you take a photo  and associates it with that point on the map.  And it's just a cool app for if you want to go hiking  or maybe you want to go mountain biking or running.  You can filter for like dog friendly, kid friendly, wheelchair accessible,  all that stuff.  And it's just really useful.  So it's called all trails.  And I'm sure there's an iOS version of this, probably one of those,  you know, cross platform apps.  But I really like the Android app a lot.  And, you know, get out in the wilderness a little bit.  Why don't you?  But that is it.  I think we've reached the end.  And yeah, there's a lot of fun as usual.  I love doing a show with you, too.  Thank you so much for letting me crash a party.  Appreciate it. Likewise.
+
+Speaker: SPEAKER_00
+Transcript:  And I like how you took my my cocktail.  That's bad for you.  And you countered with something that's great.
+
+Speaker: SPEAKER_02
+Transcript:  This is what you do.  Do you do the trail the day before the day after?  What's the proper order?
+
+Speaker: SPEAKER_00
+Transcript:  I would do it before and then have your verdant lady.  That's just me. All right.
+
+Speaker: SPEAKER_02
+Transcript:  That makes a lot of sense.  Stacey, of course, IOT podcast dot com Stacey on IOT dot com  at Gigastacy on Twitter.  Am I missing anything, Stacey?
+
+Speaker: SPEAKER_00
+Transcript:  Uh, no.
+
+Speaker: SPEAKER_01
+Transcript:  Regal wave. She is there a little bit.
+
+Speaker: SPEAKER_00
+Transcript:  No, it was open.  It was it was not the real problem.
+
+Speaker: UNKNOWN
+Transcript:  Oh, OK.
+
+Speaker: SPEAKER_02
+Transcript:  Well, Stacey, thank you so much.  Appreciate it. And you're moving in two weeks, right?
+
+Speaker: SPEAKER_00
+Transcript:  Um, well, we hopefully close on my birthday.  It's two weeks late on the close.  And so next week, if I'm gone, it's because I am packing  and I will move on the following Monday.  Can't wait to see you.  So you're moving in two weeks?  No, I'm moving to Austin and then I'm moving to Seattle  a month after that. It's a two-step.  I see.  Texas two-step move.  A lot of verdant ladies in my future.
+
+Speaker: SPEAKER_02
+Transcript:  You got a lot of change happening in your life right now.
+
+Speaker: SPEAKER_00
+Transcript:  Stacey, change laws.
+
+Speaker: SPEAKER_02
+Transcript:  OK. Oh, Karsten, go, go.  OK, thank you, Stacey. All right.  And Jeff, always so always so much fun to get the chance  to chat with you. I'm sure I'm going to see you at Google  I.O. here next month, right?
+
+Speaker: SPEAKER_01
+Transcript:  Yes, exactly. And I want to thank you again,  Metro Cowork here in Rochester, who were kind enough to let me
+
+Speaker: SPEAKER_02
+Transcript:  broadcast for the facilities.  Yes, in about every room that exists there, because I think
+
+Speaker: SPEAKER_01
+Transcript:  you were actually asked me to come back in here.  So, yeah, I got excited.
+
+Speaker: SPEAKER_02
+Transcript:  Jeff, thank you so much.  Buzz Machine dot com to follow everything that Jeff is doing  as he gallivants around the world.
+
+Speaker: SPEAKER_01
+Transcript:  And a farewell again to Divya Mystery, who was here,  who said hello as a fan, happened to be just in the room.  So I think it's so cool. I love it.
+
+Speaker: SPEAKER_02
+Transcript:  Thank you so much.  We do the show every Wednesday, 4 p.m.  Eastern, 1 p.m. Pacific 20,  100, 20, 100 UTC.  You can go to Twitter TV slash T.W.I.G.  That's the show page for this week in Google.  There you'll find all of the previous episodes, links to subscribe to audio,  to video, pretty much everything that you need to know is listed there.  Show notes, all that stuff for this week in Google.  I'm just now filling in for Leo.  Leo will be back next week.  So you will see him sitting in his his bigger chair,  his more impressive chair at this set.  But I look forward to the next time that I can hop on.  Thanks again for welcoming me to the show and allowing me to be a part of it,  because I really do have a great time doing the show with these two.  It's just a lot of fun.  That is it for this week.  The dog saying it's time to go.  So we'll see you next week and have a wonderful week.  And I hope you get to your party, Karsten.  Is it a party? I don't know if it's a party, but farewell.  Bye.
+

@@ -1,0 +1,1415 @@
+;FFMETADATA1
+title=Bacon Explosion
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=354
+genre=Podcast
+comment=http://twit.tv/twig
+copyright=These netcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2016
+encoder=Lavf58.76.100
+Failed to align segment (" $199."): no characters in this segment found in model dictionary, resorting to original...
+Failed to align segment (" $20."): no characters in this segment found in model dictionary, resorting to original...
+Speaker: SPEAKER_02
+Transcript:  It's time for Twig. This week in Google, our newest host joins us, Stacy Higginbotham,  along with Matthew Ingram from Fortune Magazine. Aaron Newcomb, he's got a cool new chip for us.  We'll talk about the latest IoT device from Google and some big changes at Twitter.  It's all ahead on Twig.  This is Twig. Bandwidth for This Week in Google is provided by Cashfly, C-A-C-H-E-F-L-Y dot com.  This is Twig. This Week in Google, episode 354, recorded Wednesday, May 25th, 2016. Bacon explosion.  This Week in Google is brought to you by ZipRecruiter. Are you hiring? With  ZipRecruiter.com, you can post to more than 100 plus job sites, including social networks,  all with a single click. Screen, rate, and hire the right candidates fast. Try ZipRecruiter with  a free four-day trial now at ZipRecruiter.com slash Twig. And by Blue Apron. Blue Apron will send you  fresh, high-quality ingredients to cook delicious meals with simple step-by-step instructions  right to your door. See what's on the menu this week and get your first two meals free  with free shipping by going to BlueApron.com slash Twit. That's BlueApron.com slash Twit.  And by the Ring Video Doorbell with Ring, you can see and talk to anyone at your door from anywhere  in the world using your smartphone. It's like caller ID for your home. Right now,  get free expedited FedEx shipping when you go to Ring.com slash Twig. It's time for Twig This Week  in Google, the show where we cover the latest news from the Googleverse and the Facebook cloud  and the Dropbox and the Twitter and all that jazz. Jeff Jarvis has the week off. He's traveling,  but you know what? We've brought in a pretty good team today. Sitting next to me, Aaron Newcomb.  Yes. From the Benicia Makerspace. That's right. NetApp. A regular on Floss Weekly and all about  Android and on this show too. It's nice to see you again, Aaron. Yeah, glad to be here. Always glad  to be on Twig. Oh, you're on the news. I keep forgetting you've been on the news screensavers  like three or four times. I have a couple times. Yes. Yep. So you're a regular around here. We love  having you. Also a regular on this show, Matthew Ingram. Really thrilled to have him from Fortune.com.  Matthew with one T. All the way up from visiting us from Ottumwa. No. Ottawa. No. Toronto. That's it.  Right. I knew it was one of those vowel heavy names. Nice to see you. He's using Linux and Skype  on Linux today, which will be an adventure. Ubuntu? Yeah. Ubuntu. Mint. Linux Mint. Yay. Oh,  use Mint. I decided I reverted to Debian. I went all the way back. Yeah. That works. Yeah,  Debian's cool. Although there's a standing joke in the Reddit forums for Linux that if you're  an Arch user, how long does it take before people find out like two minutes before everybody you  have to ask, hey, look who's here now. I'm really excited about this. Stacey Higginbotham is here  from stacey on iot.com. Your longtime colleague of Matthew, right? You said you work together in two  jobs. Yes, at Fortune and at GigaOM. Wow. Were you managing editor at GigaOM at the end?
+
+Speaker: SPEAKER_03
+Transcript:  I was managing editor for like six months at GigaOM and then I gave it over to Tom Krauset.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. Yeah, no fun. It is terrible. Yeah. And then Fortune and then you decided,  what's all this work stuff about? I'm going to become a podcaster.
+
+Speaker: SPEAKER_03
+Transcript:  I'm going to test gadgets full time and be a podcaster. What are you nuts? I'm actually
+
+Speaker: SPEAKER_02
+Transcript:  still writing. Thrilled to say that Stacey's agreed to make us a regular stop on her weekly  schedule because we've been ever since Gina Trippani left, we've been looking for a suitable  replacement and it's not been easy. And of course these guys come a lot, but they have actual jobs.  So we needed somebody who it's an unusual combination. Somebody unemployed.  I'm just teasing you. I'm really glad. So glad to have you. I have a job.  You have a job. She's busy. She's as most self-employed folks are probably busier than
+
+Speaker: SPEAKER_03
+Transcript:  an employed person really. Yeah, I wouldn't go that far.
+
+Speaker: SPEAKER_02
+Transcript:  Anyway, welcome. We're really thrilled to have you.  And yeah, it's really great. So none of you have been here since Google IO. We covered it,  of course, kind of did the quick coverage because our show was yesterday last week,  right after the keynote. And then of course there were more sessions. We learned more about,  for instance, something we didn't know about at the time. So maybe we'll start with that.  Android on Chrome. Yeah, huge.  Huge. All right. Why is it so huge? Aaron?
+
+Speaker: SPEAKER_01
+Transcript:  Because they're native apps. I mean, again, we always have this debate on the show, right?  Whether Chrome OS or Android is better. Now you have the best of both worlds. So you can  run your Chrome OS and then you can, oh, there's this app I really want to run. And not only does  it run, but it runs and it runs natively. If you go out and look at some of the verge coverage on  this, you'll see they demoed a little bit of this of apps running in Chrome. They did full size  Gmail and a couple of full size apps running on the Pixel. And it looks great and it performs  great. And now you don't have to make a choice. You can just say, oh yeah, I want that app and  I want it to run here, but I want all the native functionality that I have in Chrome OS. And you've  got both. So I think it's really fantastic. And I think eventually as we head towards that  merge, that eventual merge that's going to happen, I think between Chrome OS and Android,  this is one step towards that. So I'm really excited to see it.
+
+Speaker: SPEAKER_02
+Transcript:  What's interesting is it's running. They had, in fact, if you watch the seminar, it's on YouTube,  you can watch the talk, which was on Thursday. They had tried other ways of doing this,  including something called Android runtime for Chrome, which they decided not to use. They said,  this didn't work too well. So they're doing containers basically now, Docker style containers.  And I think the most important upshot of that is if you're a developer, you don't have to change  your app at all. So that means immediately, and this is going to start on people who have,  there's three models. If you're in the developer channel on your Chromebook,  start next month, I immediately put my Chromebook Pixel in the developer channel.  So I'll let you know when we get it, but that should start in June. And then they expect it  to roll out Chrome OS wide, with some exceptions, some of the older Chromebooks, I think don't do  this in September. Here is the demo from Google I O, which unfortunately didn't go too well because  they didn't have internet access, but she demoed how she could use, oh, Skype on Linux.  Linux failed, huh? That didn't take long. We're going to get Matt to boot into Windows.  That's not, by the way, Linux's fault. That's Skype's, Microsoft's fault. So she's using  Photoshop mix on a Chromebook to do Photoshop style editing. Will the app support, I guess if
+
+Speaker: SPEAKER_01
+Transcript:  you have a Pixel, they'll support touch. Right. Yep, they do. In fact, they were showing that  on the video that I saw, he was actually squeezing, pinching and zooming and touching to  move the cursor around as he wanted to enter text and things like that. So it's very, very cool.
+
+Speaker: SPEAKER_02
+Transcript:  They did say that if you wanted to optimize for this as a developer, you might want to look at  layouts, right? Because that's the only issue. Stacey, what do you think this means for Chrome  OS? Does this mean Chrome OS suddenly is going to, it's already very successful in education,
+
+Speaker: SPEAKER_03
+Transcript:  but it's going to go mainstream? Yeah, I would think that you could put this on, I mean,  I don't know. I didn't pay too much attention to this because I was more focused on the device side.
+
+Speaker: SPEAKER_02
+Transcript:  But yeah, we'll get to the home because that's your thing. I know, but home and chips. That's
+
+Speaker: SPEAKER_03
+Transcript:  where I was excited. But this gives me more reason to buy a Chromebook for my daughter,  because right now she's got a MacBook. But it's also, it could change the way people develop.  As these things start moving together, it gives you a reason to put touch on a, not a PC, but a  laptop form factor, perhaps. I don't know. This is just me thinking ahead and getting all crazy here.
+
+Speaker: SPEAKER_02
+Transcript:  Schools will probably turn it off. So will some enterprises because they don't want kids playing  Minecraft. That's one of the advantages of a Chromebook. Here's my question. Maybe you  could answer this, Erin. My sense is because of the way they're doing this with containers,  even though they're talking about Chrome OS and Chromebooks, I think this could probably work on  Windows and Mac as well. It could do this in any Chrome browser. You should be able to, absolutely.  They may artificially restrict that initially, but I don't, I mean, why not? And that means Chrome  is also, and this is really good for Google because the more you use Chrome, the happier they are.
+
+Speaker: SPEAKER_01
+Transcript:  The more you separate yourself from the underlying OS, the better as far as they're concerned.  Yeah. Unless it's Android, and then it's okay.
+
+Speaker: SPEAKER_02
+Transcript:  But all the signals that, what really Google makes money from, of course, is all the data,  the signals that you send them as you use Chrome browsing the web. This makes Chrome an incredibly  valuable product, more so than any browser. It's already dominant. It's already beaten IE.  Here's a, this is interesting. This is a game, fairly challenging game, but because you're  running on a Chromebook, you have a GPU, much better than any Android phone. So you can run  games. That's going to be very interesting to see. The one thing that's hard to get used to,
+
+Speaker: SPEAKER_01
+Transcript:  it's not a problem on the Pixel. By the way, she's making a purchase  with the store using her wallet. Everything works. It all works. With Pixel, you've got the touch  interface right there on the screen, so that's great. One problem that I found, because I run  Android on the desktop a lot, is that you have to, if you don't have a touch interface,  then you have to translate in your head between mouse touches. Like, oh yeah, this isn't double  click, it's single click. Things like that you have to translate in your head. So depending on  where this goes, whether it goes more towards a desktop or whether it'll be a requirement  to have a touch interface to run this, we'll just have to wait and see.
+
+Speaker: SPEAKER_02
+Transcript:  Why did they say why they were restricting it to only some Chromebooks? Is it a CPU problem?  A RAM problem?  I didn't hear. I didn't hear why.  All right, so that's one of the big things they announced. That might have the biggest  short-term impact, but they also announced, before we even talk about Google Home, the underlying  technology, which is...  Oh!  Yes, Stacey?  Very exciting. I'm so excited.  The Home is just one interface to a new way, ambient, kind of ambient search, a new way of  thinking about what Google does. So tell us about that.  Google Assistant?  Yeah, I guess that's the technical thing that's going on.
+
+Speaker: SPEAKER_03
+Transcript:  That's what they call it. So the subtext for the whole keynote, from my perspective, was  they're bringing AI into everything and they're finally talking about it.  And we could see this from Google Now was a wonderful way to start that. And Kevin and I  have talked for, it feels like decades, but it's only years about bringing context when you need  it and where you need it.  Kevin Toffle. But it never quite lived up to...
+
+Speaker: SPEAKER_02
+Transcript:  It didn't.  It's promise, right? It was cool, but not like, wow, cool.
+
+Speaker: SPEAKER_03
+Transcript:  And I think what Google had to figure out, and what I'm still really curious about, is Google saw  that you need context to give people information when and where they need it, because we have no  patience. But they couldn't figure out how to do it in a way that preserved the way they make money.  And I'm still waiting on this, because if you look at... You ask Google for a movie tonight,  they're like, oh, I think the demo that Sundar showed was, I think he asked for a movie. They  showed him like three options playing near him. It was like family movie. Then it brought up  the Jungle Book and others. And he's like, the Jungle Book. And then it went to... Was it  Fandango and bought four tickets to the Jungle? It all happened in the bot format that everyone's  so excited about. But I'm still like, who did the deals on the back end to pay Google for that?
+
+Speaker: SPEAKER_02
+Transcript:  Well, so even more than just bringing machine learning and AI out in more foreground, it also  strikes me that what's going on is that... And we were talking on Windows Weekly earlier that  Microsoft's doing this a little bit with Bing, that Google wants to be your assistant in general,  like your intermediary. And this was the instant app part of it too, which is the very end of the  keynote and I think got underplayed. The idea that right now we're in this weird siloed environment.  You want to add capability to your phone, you have to download, install an app. You have to run the  app. On the iPhone, they don't even really talk to each other. They somewhat more so on Android,  but not a lot. So there's these kind of siloed experiences. If I want to book a table, I go to  open table phone, I book a room, I go to hotels. And so what I got, the sense that I thought was  really the most powerful thing, and this is what you're saying with assistant, I think, is that  Google is going to be our intermediary to the rest of the world. You just ask us and we'll contact.  I don't know if they have to make a biz deal because instant apps means we'll load the app.  The app has to be customized in a modular fashion, but we'll load the part of the app that we need  and we'll do it through the app. And I think that this is very interesting. It means that  Google puts itself between you and everything. But isn't that what we want? Don't we want a smart  assistant that we just talked to and it does what we want? We don't want to think about how you book  a table. I just want that table. Book me a table for two tomorrow night. I don't need to open table.
+
+Speaker: SPEAKER_03
+Transcript:  What is that? I totally agree with you. I think the big questions though are how is this going to  contribute money to Google? And then the way other companies are doing it, like Facebook's doing it  with Facebook M, we've got to assume that Apple's going to do something. And then you've got  Microsoft, Cortana, that whole play there. Everyone wants to be your personal assistant,  but I don't know if people are ready to give all of their... Right now it's based on hardware,  your OS, your platform you're on. I don't know if people are ready for kind of giving all of
+
+Speaker: SPEAKER_02
+Transcript:  that to one vendor. Does that make sense? Well, you mean open table or you mean users?
+
+Speaker: SPEAKER_03
+Transcript:  Users. I always think about the consumer first or the user first. I see how Google makes money,
+
+Speaker: SPEAKER_02
+Transcript:  of course. They just take a penny from every transaction and they're perfectly happy.  Yeah. And they don't even need to do that because right now they make a ton of money  every time you search, every time they put ads up there.
+
+Speaker: SPEAKER_03
+Transcript:  But they want to get rid of the big blue, the list of 10 blue links, right? That was the point.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. So you're saying what do we put there instead of ads?
+
+Speaker: SPEAKER_01
+Transcript:  Right. How do you make 40 or 60 billion? Right. So how you monetize is one thing and how much do  you trust Google is the other, right? If they're sitting in between you and what you want to do  and Google only contracts with open table and they don't contract with ABC reservations  to make those reservations, then you may not realize it, but you're being stifled in your  ability to choose what you want to do. So I think that a lot of it has to do with just how much do  I trust Google or Apple or Microsoft or whoever comes down the pike. And it's another reason why  these things really should be open source. And Google's taken some pretty big steps towards that  in open sourcing their processor, the TPU, the tensor processing unit.
+
+Speaker: SPEAKER_03
+Transcript:  Wait, wait. They did not open source the tensor processing unit.  That's not true.  They will let other people run on it, but they didn't give, they won't even talk about how that  can get the code. I can't get into the code. They did open source tensor flow.
+
+Speaker: SPEAKER_01
+Transcript:  Oh, they did. Yeah. Yeah. That's what I was talking about.
+
+Speaker: SPEAKER_03
+Transcript:  Oh, okay. Yep. I was like, not the processor.
+
+Speaker: SPEAKER_01
+Transcript:  Not the processor. You're right. It's the tensor flow software that you can use,  but anybody can use it. So, I mean, it's more than other companies have done in terms of making this  available in an open way. And so I think that for my money, out of all the companies, I'd probably  trust Google the most to be that intermediary between me and what I want to do. But who knows,  it only takes one bad move on their part. You raise an interesting point. They will
+
+Speaker: SPEAKER_02
+Transcript:  become a big player in a decider of who's successful. If you ask for a movie and they  decide to put it on Voodoo and on Netflix, that's to Netflix detriment. So it almost becomes a net  neutrality issue, doesn't it? Because they're no longer an agnostic provider. Yeah. They're like,  oh, we provide movies. So here's what ran one from us.
+
+Speaker: SPEAKER_03
+Transcript:  They offer you a bunch of choices. I mean, when I look for a movie today, I can see it on a bunch  of things. And I don't think Google will get rid of that because it would put it in a position.  I think it's probably smart enough. It doesn't, it knows it doesn't want to be there.
+
+Speaker: SPEAKER_02
+Transcript:  That's a challenge though. Cause for, so I want to say, book me a table at my favorite restaurant.  I don't want to say, please use open table to book me a table at my, and that's one of the things  wrong by the way with the Alexa is the skills are very specific. And so you have to learn a new  syntax. So I don't want it to be, I mean, as a user, don't I want to just say, book me a table or
+
+Speaker: SPEAKER_03
+Transcript:  show me a Google. It knows what's on your phone. If you've got an Android phone or it knows your  apps, you could also, it could say, Oh, she's got open table. She's got that app on her phone or  her emails are all from open table. Let's pull that in. That would be great. That's that, that's  that becomes a default preference. Yeah. Yeah. So, I mean, it has, it has enough knowledge that it
+
+Speaker: SPEAKER_02
+Transcript:  could do that. Did we lose Matthew? I see you've pulled his monitor out. He's he had a power outage.  Oh, Matthew, I'm sorry. Yeah. You know, there was a big outage in Seattle on the other side of the
+
+Speaker: SPEAKER_03
+Transcript:  country. Okay. Good. Well, sorry, I was looking forward to him explaining Twitter's changes to me.
+
+Speaker: SPEAKER_02
+Transcript:  I know. Well, we'll agree that if he, if the power comes back, we'll get them back on. Not much we  can do about a power outage, unfortunately. Okay, good. Well, I'm so glad though that we got Stacey  and Aaron. So I think frankly, it's, it will survive. We'll survive.  Okay, let's talk about the hardware than the Google Home hardware, which looks of course,  like a me too product compared to Amazon's Echo. Is it Stacey? I mean, this is the thing you cover
+
+Speaker: SPEAKER_03
+Transcript:  most. This is, this was the thing I was most excited about. It's, well, first of all, we don't  know when it's going to be real. So they haven't even announced availability. So I want to get
+
+Speaker: SPEAKER_02
+Transcript:  rumors I've heard are that maybe sooner than we think that they're already in manufacture, right?
+
+Speaker: SPEAKER_03
+Transcript:  I think they, I can tell you that they've got beta units. But again, so we're basing all this  on the video and what we saw. Right. Like we don't even know what the key, we don't even know what
+
+Speaker: SPEAKER_02
+Transcript:  the trigger phrase is. We saw one, at one point somebody said, Hey Google, and it worked. I think
+
+Speaker: SPEAKER_03
+Transcript:  it was Hey Google, which makes sense because they wouldn't want to activate your phone. Right. So
+
+Speaker: SPEAKER_02
+Transcript:  you wouldn't. It's a problem now with the motor, with the Android Wear is that I say, okay, you  know who? And both my phone and my watch wake up. Exactly. So imagine you had that third device.
+
+Speaker: SPEAKER_03
+Transcript:  So the two things that are like different is, well, I guess there's three, one, it looks  different and you can choose your design. It's pretty. It's much prettier. Yeah. I guess it's  prettier. You don't think so? My house has so many of these like white funky looking glowing
+
+Speaker: SPEAKER_02
+Transcript:  LED devices. It's ridiculous. But it's better looking than the Echo, isn't it? Yes. It is.  The Echo is kind of almost 2001 model with scary. Yeah. It's because it's black. Right. It definitely
+
+Speaker: SPEAKER_03
+Transcript:  looks like a consumer product. Right. Yeah. So consumer grade for sure. The two functionalities  that are cool is it's using Chromecast, that capability. So you can multicast, which is like  what you can do on the Sonos. Yeah. Yeah. The Echo doesn't do that. And then the other thing  in the video, it showed a tie into like the contextual information we were talking about.  And the woman in the video said, Hey Google, I'm listening in prompt with a beep. And Google was  like, yo, I think your flight was delayed. Your flight's going to be delayed. But imagine. I love  notifications. Yes. Although you can see how people would totally abuse that, right? It can be beep  it all the time. But it'd be great. Like, hey, you know, leave five minutes earlier for your
+
+Speaker: SPEAKER_02
+Transcript:  appointment. So you're not late. Thanks. Well, we've raised in the both these past two topics,  this whole issue of the user has to have control. I don't, this is the problem because you want to  make it very simple. You don't want to have a long list of check boxes. Like I want notifications  from this app, but not that app. Right. But ultimately you're going to have to do something  like that. You know, it may just be voice might be the boon here. It may be just, Hey, I have a  notification from Tripit. Do you want to hear these in future? Something like that. Right.
+
+Speaker: SPEAKER_03
+Transcript:  Or maybe you just for now, I mean, in Google, now it pops up the card and you're like,  do you care about this? It does ask you, right? Yeah. Oh, right. So maybe that's the sort of  thing we'll get initially. And I think context will matter a lot. And if you have this in your  home, you're going to be giving Google, it's kind of like, think about a triangulation, right? Let's  say you have this, you have an on hub, you have your phone that runs on Android. They can pinpoint  where you are really accurately and start giving you and maybe even who else is with you. I mean,  it's creepy. I know, I love this. Google knows all this stuff already. Right. So if they surface  that information to give you better products, that's kind of really compelling. I agree. This,
+
+Speaker: SPEAKER_02
+Transcript:  I don't know if this is the size. It feels like it's roughly the size. It's definitely the  inspiration. This is a glade air freshener. If I take the label off, I bet I could have fooled you  and said, Oh, you know what, Stacey, you mentioned they're sending these out for beta. I did get mine  the other day. What do you think? I'd be so jealous. I'd be like, dang it. And it smells so good.
+
+Speaker: SPEAKER_01
+Transcript:  I was just, I was just about to say that the thing looks like an aromatherapy product in the,  in the pictures that they have. Ooh, smells wonderful. I love the smell of Google in the morning.
+
+Speaker: SPEAKER_02
+Transcript:  I ordered and it's supposed to, I think it's going to come in the next six months, something  called a Jibo. Do you guys know about this? This is Cynthia. Yeah. Cynthia is a robotics  guru and has been for some time and she announced this and had a crowdfunding  drive for it, which I contributed to. I think it's been two years and it's very similar to all these  other products. The only difference is it has a screen on it. So it can, it can look at you here.  Show it, Karsten, cause you're missing the, you're missing the Jibo in action. So, and it  could follow you around. You can ask it to show stuff. The problem is this is great and it really  should be tied into Google. Yeah. Right. Don't you want the, it's got a camera. Don't you want
+
+Speaker: SPEAKER_03
+Transcript:  the Google intelligence in it? Right. So that would be cool except for the camera. I mean,  cameras freak people out. Look at this thing. Oh, I don't know. Really? That's scary. Yes. I mean,  imagine what you do in your home. I mean, I have an Alexa in my bedroom, for example.
+
+Speaker: SPEAKER_02
+Transcript:  Me too. I don't care. Oh, I guess I have seen you jump on the mattress. Yeah. You've seen a lot  more of me than a, you know, so, you know, this is a little creepy, a girl in the tent talking to her  little pet robot and it's reading to her. This Cynthia is very good. She makes robots that are  very appealing. Oh, my daughter would love this. Yeah. I think this is interesting. Anyway, I'll  get one at about the same time, probably as I'll get a Google home. You're right. The camera's an  interesting slice. It's very different. You could use it by the way. You notice they're using it  like Skype. So you can, you, it could be a telepresence unit. Dad is on a business trip.  He's watching the family eat pizza and they can see him while he sees them. It becomes his little  telepresence unit. There, I don't know. Is this too, is this across the creepy line?
+
+Speaker: SPEAKER_03
+Transcript:  To me, it's a little creepy. I don't have cameras in my house though. So I test them out and then I
+
+Speaker: SPEAKER_02
+Transcript:  take them, I ship them back out. So this is what happens though. This is the interesting thing. We  talk about this a lot is that there are large, large portion of people really find this disturbing  and would like to shut this down. And that's my problem. I want, I want to be able to choose  this as an opportunity for me. I don't have any problem if Stacey, you don't want to have a camera  in your house, but I don't, I hope that people's privacy concerns won't put hobble this kind of  stuff. Cause I think ultimately this could be really great. I think it'd be, I mean, imagine if
+
+Speaker: SPEAKER_03
+Transcript:  you're disabled or like a shut in and shut in is probably the wrong, like elderly and your family  can't visit you. Something like this would be amazing. Cause it acts as like a, a companion,
+
+Speaker: SPEAKER_02
+Transcript:  just like it did for that kid. But wait a minute. You haven't seen the best of it. Show this part.  So sometimes what happens is dad can't be home and, and he wants to say good night to this little  girl. So the G-Bow will do it for you. Good night. I love you. That's just wrong. That part's a little  creepy. I can't wait.  Like, do you not, are you not getting audio from me? Uh, Karsten? You are. Okay. So I'm just curious  what the G-Bow said. I will love you forever. Good night. G-Bow. G-Bow. I will love you forever.  And then it winks. What's up with that? It's, it's well, that's what Brashears does.  I was excited about this for a minute. Now it's, now it's creeping me out.  She's, and I think a lot of roboticists are experimenting with the idea of making this more  companion-like, right? Right. Yeah. Right. This is going to be a challenge.  Right. This could be a challenge. I mean, I, oh, go on. No, no, don't, you're too polite.  You're going to learn not to be so polite, Stacey. Maybe. So I love the fact that the echo,
+
+Speaker: SPEAKER_03
+Transcript:  you know, orients itself to who I'm ever speaking to it. I think that's a really nice,  friendly thing. But when you look at like the teddy bears that will like look at the person  as a way to indicate that they're, those things are, so I think we've got a long way to go. And  that, that kind of crossed over a line for me, especially interacting with children.
+
+Speaker: SPEAKER_02
+Transcript:  I met Cynthia at a foo camp and she brought a small, you know, two or three foot tall robot  that was humanoid, but not human that walked around. And I watched her  have the robot go up to a kid, roughly the same size and watch the kid interact. The kid was not
+
+Speaker: SPEAKER_03
+Transcript:  at all disturbed by it. Oh, was it the now robot that I think it's NAO? Probably. Yeah.  God, that thing is adorable. It was like now. It looks just like now. Yeah. Yeah. My daughter's  saving up the $8,000 it takes to buy that thing. So maybe it's just us. Maybe, by the way, it's
+
+Speaker: SPEAKER_02
+Transcript:  Brazil, not Brashears. I keep saying her name wrong. She's from MIT Media Lab and there's a  great Ted talk. She's, she's really a fairly prominent roboticist professor of media arts  and sciences at MIT Media Lab and the creator of this Jibo. I mean, I'm glad they're, they're  experimenting, right? They're seeing, well, what, what, what can people tolerate? What is the creepy  line? Where is it? But I think it's interesting. It's telling in fact that it's not something  in our genetics. I think a kid looking at Polar Express was creeped out. Were your kids creeped
+
+Speaker: SPEAKER_03
+Transcript:  out by Polar Express? She never saw it because it was creepy. Those eyes. Yeah. That would haunt
+
+Speaker: SPEAKER_02
+Transcript:  her nightmares. That was the uncanny line, Valley, right? But maybe kids aren't creeped out by
+
+Speaker: SPEAKER_01
+Transcript:  semi-humanoid robots like now. Yeah. And they didn't grow up watching all the 80s sci-fi  Terminator stuff like we did too. Well, we're just, you know, we've been propagandized. We've  been programmed to be fearful of all of this stuff, I think a little bit over time. Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  I'd rather frankly have a robot that comes from MIT Media Lab than now that comes from SoftBank,  a giant Japanese multinational. It just makes me more nervous to have a big corporation behind  this. And maybe that's, maybe that's, maybe that's the solution. Have you seen it dance the macarena?
+
+Speaker: SPEAKER_01
+Transcript:  Because it's adorable. Yeah, there's the now. We had someone come and give us a demonstration  of this at our makerspace. It was pretty cool. It was fun to interact with. Yeah. When it didn't  work, it was a little weird because it kept asking questions. What do you want to do? What do you want  to do? But when it was working, it was pretty cool. And the kids loved it. They talk about now
+
+Speaker: SPEAKER_02
+Transcript:  with autistic children and how autistic children can really relate in a way that's much less,  much more comfortable than relating to humans, for instance.  It is expensive though. Yeah, it's not, you know, it's, it's, I'm sure, you know what the  Jibo was expensive, but not, not prohibitively. So I think it was 500, 2000, 2000. Oh, it might be now.
+
+Speaker: SPEAKER_03
+Transcript:  I'm trying to remember. I did the crowd fund. I feel like if I'm going to invest in like a true  robot, I want it to have arms so it can actually do something for me, like fold clothes or empty  the dishwasher, those kinds of like menial tasks that I'm not into. And I haven't seen that yet.  So yeah, everything else I can do with my various connections. Well, that's when you need two legs
+
+Speaker: SPEAKER_02
+Transcript:  and arms, right? They raised over $2 million, $499 in the Indiegogo campaign. The developer  edition with an SDK is $599. But I think that sounds like it might be more open.
+
+Speaker: SPEAKER_01
+Transcript:  Yeah, if it has an SDK. Yeah. Should maybe that's what Google.
+
+Speaker: SPEAKER_02
+Transcript:  And it could do Google lookups. If Google, yeah, Google Home had an SDK.
+
+Speaker: SPEAKER_01
+Transcript:  Yes, it does. It needs an API or something. It needs an API. So that you can,  because I'd love to use it. I've got a camera monitoring my, I think we're going to talk about  something like this in a minute, but I have a camera monitoring my front entryway for when  people come up. So when the UPS guy comes, takes a picture, and then it sends me a notification.  Nice. I was here, but it would be cool to interface that with either Google Home or some  other product. I'd love to have that be the way that I get my notifications or have that be a  consistent way to get notifications. Because right now it's like a bunch of different apps.  There's like five or six different apps you can use to do this. None of them integrate exactly  the same way every time. So it'd be nice if there was a consistent way and say, look, put this  product in your home, Google Home. And then when you can send notifications to it from other things,  and then it would just automatically do whatever your preferences were. Send me an email,
+
+Speaker: SPEAKER_03
+Transcript:  send me a text, whatever. Google has Brillo and Weave. And I was really disappointed they  didn't talk about that. But their version of Weave, not Nest's version of Weave, is going to be a  device to device communications protocol. So it's possible that if you had devices running Weave,  that could happen. And it could become, I mean, that's kind of everyone's hope is that unified  the grand unification theory for smart home. I do. I'm going to go with you now, though,
+
+Speaker: SPEAKER_02
+Transcript:  on the open thing. We talked about this when you're on the new screensavers. Open platforms  for home automation is the only hope. It's for security reasons, for interoperability reasons,  for privacy reasons, it's got to be open. And also think about all the applications and
+
+Speaker: SPEAKER_01
+Transcript:  think about all the applications we can't think about. I know that's a strange way to put it,  but there's a lot of other applications that we're not talking about. But somebody may  want to develop an application for home automation that nobody else is working on. And if it's open  source, then you can go out and write that thing. And then maybe 10 or 20 or 100 other people want  to use that too. And so in my mind, it's the only way to go right now to develop home automation is  to have an open platform, open source software that can be developed by anybody. I'm with you.
+
+Speaker: SPEAKER_03
+Transcript:  So I disagree with you. Oh, shock. And it's because I believe this,  I really do agree with you in philosophy and spirit. But having, and that's why I actually  loved smart things forever. But it's too hard for users. These long tail awesome use cases  that everyone loves to think about in the nerd world, they're not what people want when they buy  the smart home and they don't want to spend a lot of time tweaking it and dealing with it. So  something like Nest that works with Nest that already put everything together for you  is probably how it's going to end up. And I don't like it any more than you guys do, but  no, that's an excellent point. Those two things can co-exist though. Those two things can absolutely
+
+Speaker: SPEAKER_01
+Transcript:  coexist. I mean, think about it. You don't go out, you don't pick up your Android phone and every  time you pick it up, tweak the Linux kernel, right? But the Linux kernel enables Android and  it's open source. You don't have to worry about that necessarily. It took 10 years, but it took  10 years. But I mean, you can write things around that and sell products. It doesn't always have to  be the geeky hard way to do things. Google could totally do Nest and base it on an open source  platform and have it work and have it be that platform that you're talking about where if  someone just puts it on the wall and plugs the power in and they don't do anything else,  it totally could be that. But if it's open source, then you can also go out and build on top of that.  So I think both are possible with open source. I agree with you, Stacey, that consumers just want
+
+Speaker: SPEAKER_02
+Transcript:  to turn it on and it works. And one of the reasons that Nest stopped selling is  it did, but that's all it did. It didn't work very easily with anything else. And so it didn't have  the utility that they had hoped it would have. It was ultimately, I think the Nest was ultimately  a disappointment. And, right? So it was easy, but it didn't do what we wanted it to do.
+
+Speaker: SPEAKER_03
+Transcript:  And it also didn't always work very well. Right. I mean, people-
+
+Speaker: SPEAKER_02
+Transcript:  Like would turn your heat off in the middle of the night after an update.
+
+Speaker: SPEAKER_03
+Transcript:  I always turned it on. I was like, oh, stop. So yeah, those kinds of things confused people.  And I think the market for $250 thermostats was saturated.
+
+Speaker: SPEAKER_02
+Transcript:  Well, that's true too. Yeah. I have two Nests and when we moved, I didn't put them in again.  I'd already done the big hurdle of buying it, but it still wasn't worth a little hurdle of  installing it. It's like, you know what? This programmable thermostat is just fine. I tell it,  turn the heat on at 6 a.m., turn it off at 10 a.m., turn it back on at 5 p.m., turn it off at 10 p.m.  Works. Here's the temperature. Keep it at that temperature. The rest of the time, keep it cold.
+
+Speaker: SPEAKER_03
+Transcript:  It works. What I hope we're getting to is like the world without thermostats,  where your temperature is monitored in each individual room. It knows where you are. And
+
+Speaker: SPEAKER_02
+Transcript:  then it's like, boom. That is the big problem with my thermostat. It was also the problem with the  Nest, which is it heats the hall and it doesn't know how hot I am in the bedroom, but the hall is  perfect. And my bedroom is 100 degrees. You need an Ecobee. Yeah, the Ecobee has like a remote sensor,  which is what you should do. But ironically, the Nest, hey, oh my God, look who showed up.  Your power went out, Matthew. Now we're having the same audio issue. Tell you what, work on his audio  issue. I'm going to take a break. Matthew Ingram is back, fortune.com. Stacy Higginbotham is here,  our new regular on the show. So happy to say that. And Aaron Newcomb, too. And both of you guys can  come back every day if you want to. Our show today brought to you by ziprecruiter.com. Here's my thesis.  If you're hiring, your goal is to reach the most possible people. And here's why I say that,  because somewhere out there is just the right employee. And you want to reach them. Maybe  there's 10 people like that. Maybe there's a thousand. But you've got to get to wherever  they are. And hiring the right person for your job, your opening, is a really big deal. That can make  or break a company. Trust me, I know. The right person makes your company, ha, the wrong person  can bring the whole thing down. Your company is made of people. And getting the right person in  the right job is so critical. Ziprecruiter makes it easy. Because instead of just posting on, you  know, 1Z, 2Z job boards and Craigslist maybe, this posts everywhere. 100 plus job sites,  plus Craigslist, plus Twitter, plus Facebook, plus LinkedIn, plus everywhere. So you're going to get  many, many people seeing your posting. They'll also immediately match it to their more than 6 million  current resumes in their own database. So that's awesome. That means, you know, you're going to get  candidates almost immediately. Now, I know some of you are saying, well, that's the last thing I want  as a million applicants. I don't, they're going to have, my phone's going to ring off the hook. No,  this is the beauty part. It doesn't go to your phone or your inbox. It goes to the Ziprecruiter  interface where you can very easily screen out the ones that just don't make it.  Pick, rank the rest and pick the right person fast. You could search by skills, by location,  by work experience. They're going to deliver the best, most relevant candidates based on what you're  looking for. Plus they offer optimized pages for your candidates to look at that look great on any  screen. There are a lot of people now who apply over mobile. I mean, that's how they're, that's  their computer. They can do this over on their mobile phones. Find candidates in any city,  any industry nationwide. No more juggling emails, no more answering calls. Just find the right person  fast. No wonder more than 800,000 businesses now use Ziprecruiter, including us. They've been trusted  by many hundreds of the Fortune 500. You should try them free. Ziprecruiter.com slash twig,  Ziprecruiter.com slash T W I G four days free. Ziprecruiter.com slash twig. I think we've got  Matthew, we got Ingram back. Are you there? Can you hear me? Yeah. Your power went out.
+
+Speaker: SPEAKER_00
+Transcript:  It went out twice actually. It went out once and came back and I was up and I told  Karsten, okay, you can call me again. And then just literally as I typed that it went out again.  It wasn't just you though. It was your neighborhood. Hard to say. They've been working on the power in
+
+Speaker: SPEAKER_02
+Transcript:  our neighborhood. And so I think wasn't because you have too many nest thermostats and echoes.  I don't have any. So you didn't miss much. We were talking about the new kind of way of thinking  about things that Google has introduced their idea of an assistant as opposed to the 10 blue
+
+Speaker: SPEAKER_00
+Transcript:  links and the Google home device. And Google home is really interesting. I think it's something I  was, I think I said this to you when, when Amazon came out with the echo, I thought this is the  perfect, this should be something that Google does. I mean, if it's already, if you're already  pretty integrated with Google, it just seems like a natural for them. Google now trying to suggest  things to you. And so I'm eager to see what it's like in, in sort of real life.
+
+Speaker: SPEAKER_02
+Transcript:  You know what I do though, with the echo that I won't be able to do is order stuff from my Amazon.  And it's really kind of insanely, I've gotten kind of hooked on it. Like I'm standing there.  It's the morning I'm brushing my teeth and I go, oh, I'm almost out of deodorant. And I can  literally say echo, order me some more deodorant. It knows what I bought last time. It says, oh,  you mean this? And I said, yes. What's your key? What's your pin? I enter it. I don't enter it. I  say it and it's ordered. And I get it two days from now that I don't know if Google's going to,  I guess they could make a deal. And that's really powerful. It's amazing.  You're yeah, you should get a dash button. Yeah, you can get so I order stuff. Now I'll say,  oh, I'm out of batteries. Google, get me some more bad or echo. I get me some more batteries.  That is a remarkable transformation. You know, what happens if those of us who cover technology,  we really can see this happen all the time. And those of you who are enthusiasts who use  technology, but we kind of we get we take it for granted. But our lives have changed phenomenally  with some of these technologies. The fact that I have to go to the library to find out when Jimmy  Stewart was born, I could just literally seconds from now find that information is remarkable.
+
+Speaker: SPEAKER_00
+Transcript:  And this is a comparable step. According to the information, Apple is working on  something very similar. Can they do it as good? Can they do it as well? That's a good question.  And it feels to me, I don't know about what Stacy thinks, but it feels to me as though  what's really going to be important for lots of people or for these things to go broad is,  is for them to be as extensible as possible. So to allow you to connect to as many different
+
+Speaker: SPEAKER_02
+Transcript:  things as possible. Exactly what we're talking about, by the way. Yeah, if it only allows you
+
+Speaker: SPEAKER_00
+Transcript:  to connect to Apple things, that's great if you want to live in inside their ecosystem.  But lots of people don't. So are they going to make it easy to connect to other things?
+
+Speaker: SPEAKER_02
+Transcript:  No, that's not an Apple culture. That's not what they do, right?  No. Google's pretty good.
+
+Speaker: SPEAKER_03
+Transcript:  Google's good at it. And Apple's been bad just on the infrastructure side too.  So you're kind of like, oh, but I will say this whole conversation that we're having right now
+
+Speaker: SPEAKER_02
+Transcript:  makes me feel so bad for Sonos. I know. I said that six months ago. I said,  well, it's nice knowing you. They've got Chromecast audio built into the home.
+
+Speaker: SPEAKER_03
+Transcript:  That's going to be amazing. On the Google thing. Yeah. But okay. So here's what I would like though.  How I just visualize this world with the Sonos, with the mic, and it connects back to whatever  you want. So you could call, it could run, I'll say her name, Alexa Voice Services, or it could run,  Google's. And if you visualize that world, that's like an open world because I don't really want to.
+
+Speaker: SPEAKER_02
+Transcript:  Well, they'd have to make the deals, right? What is Sonos right now? It's just a speaker system.
+
+Speaker: SPEAKER_03
+Transcript:  The 5 has a mic, doesn't it?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, it has a mic, but not turned on.
+
+Speaker: SPEAKER_00
+Transcript:  And actually one of my problems with Sonos in the beginning, apart from the price, was  that they weren't that good at being open to other things. So they weren't.
+
+Speaker: SPEAKER_02
+Transcript:  And their software was awful. Software was awful. And yet I love it. And I have Sonos in every room  because it is the best way to do that. But those days are dying. Right now I have an Amazon dot  Bluetooth to a nice speaker system, nicer than the Sonos, frankly. And that's how I listen. And  I haven't used the Sonos in the bedroom in a long time. And if you can have a Chromecast audio,  then you can use whatever speaker you want. These speakers I bought are from JBL. They do Airplay,  Chromecast. They do everything. Every protocol, Bluetooth. So you can have... I thought this is  going to be what I need. It does DLNA. I could do any input. That's what you want, right? You want  that kind of openness and that kind of flexibility. Exactly. I mean, your speakers should be... I mean,
+
+Speaker: SPEAKER_03
+Transcript:  what they've done is given you a way to talk to your house and hopefully a way for your house to  talk back to you or the web, the internet. And it's just, it feels like such a huge missed opportunity.
+
+Speaker: SPEAKER_00
+Transcript:  And I guess I'm afraid... I mean, I'm afraid that Apple is going to have one that's just Apple and  Amazon's going to focus on trying to get you to order more stuff from Amazon. And you know what?  I resent this sort of siloification of everything. I mean, I'm upset enough about Facebook and  that sort of thing, sort of controlling what we do. And I don't want another
+
+Speaker: SPEAKER_02
+Transcript:  walled garden in a different hardware format. I should point out though, I think we assume  that Apple and Google and Microsoft and maybe Amazon have an inside track because they've  been working on this, but don't forget this Hound app. I mean, these guys out of nowhere  made something that frankly is every bit as good, maybe better. It's better than Siri for sure.  And they, by the way, they are open. You could add Hound, for instance, to your Sonos. And if Sonos
+
+Speaker: SPEAKER_00
+Transcript:  is smart, they're looking at that. And I wonder, to be honest, I don't know enough about it. Maybe  Stacey does, but I got to wonder whether, you know, AI, like real sort of an assistant,  virtual assistant that actually works in a way that's kind of intuitive for people,  is not something you can just throw a huge amount of math horsepower at. Or do you know what I mean?  I think there's something ineffable. There's something sort of hard to define about what makes  those things work well. And so maybe it's open to anyone to solve that problem. Maybe it isn't a  problem that has to do with processing power and how many PhDs you have.
+
+Speaker: SPEAKER_02
+Transcript:  One thing that's key is big data though. You need the inputs.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah. There's a startup called Josh AI that does this. But
+
+Speaker: SPEAKER_02
+Transcript:  there are a lot of them. There's Viv, right? Viv.ai.
+
+Speaker: SPEAKER_03
+Transcript:  Viv is, Viv's AI is more about connecting things without having the developers have to do a lot of  that grunt work of linking APIs together. But what I was going to say is, if you guys saw the movie  Her, what I thought was worth noting is the guy bought a software program and he loaded it on his,  I think his desktop and his phone or whatever. And what if that's the kind of the way this works?  Because that's totally possible. It just needs to the software would link it back to the cloud and
+
+Speaker: SPEAKER_02
+Transcript:  tell it where to go. I don't know. This is the knowledge navigator that originally was conceived  of by Alan Kay. And then he brought it to Apple. And Apple under Scully made a knowledge navigator  video. And the whole idea of the knowledge navigator was, it's kind of silly. You have this  assistant, this digital assistant who knows, in this case it's on, remember this was 30 years ago.  So this is a MacBook, but they didn't have MacBooks at the time. They call it a Dynabook.  And the idea of this whole thing was that it was an intermediate, didn't have to have any  knowledge or data about you. Would learn, I guess. But it had knowledge about, I guess what you need  is knowledge about the outside world, right? So it goes out, it's an agent. If it has enough  knowledge about the outside world, it doesn't need to know much about anything else.
+
+Speaker: SPEAKER_00
+Transcript:  And I think, obviously big data helps, but I'm kind of thinking about the way that I would  interact with and have interacted with sort of virtual assistants. The value of doing that and  the value that it brings to you is in the interaction and the way it sort of responds.  And I think those things are all open. If it can just go find the information you want  and arrange it on the internet, it doesn't need that much.
+
+Speaker: SPEAKER_02
+Transcript:  I guess what I would say is we're not making a distinction between two distinct entities.  There's machine learning and there's artificial intelligence. And I think we conflate them,  but I don't think they're exactly the same. So the idea, and I bought a book on this  after Google IOS, I better learn about this. I bought a book that put me, it literally made  me unconscious after one chapter is called the Python Machine Learning. It's a good book.  It's a great way to sleep. It's better than anything better than Salmonex. No, it's amazing.  It was 7 p.m. and I was out. And it said it's the easiest way. You're going to get this. It's so  simple. Machine learning is about throwing data at algorithms and the algorithms learning a variety  of different skills. And one thing I did learn from the first chapter is sometimes it's the  ability to discriminate between things. Sometimes it's facial recognition. That's machine learning.  But there's artificial intelligence which may involve machine learning, but it's the idea that,  and that's more like this agent, where it has understandings of the outside world and it can  do things on your behalf. And so one needs big data for sure. And I guess you need big data to  develop an AI, but it doesn't have to be Google style. I mean, look at Hound. Hound is really,  really good. Clearly they don't have the data set that Google has.
+
+Speaker: SPEAKER_03
+Transcript:  So none of these things have actual AI. What they've done is, I mean, the way you're defining it is,  tricking you. I mean, it's not even tricking you. I mean, it's pretty, I don't know, I think it's  pretty freaking awesome. But there's a couple ways that it's, I guess you would say tricking  you with this because you're doing so much with speech to, I mean, with talking to something,  which is what we're talking about. So the computer's got to figure out, A, it's got to take  whatever you've just said, turn it into actual text, then figure out what to do with that text,  which is another step. And then from there, it's got to actually go off. Viv is cool because  when it goes off to actually implement something, it's helping automate that process.  So the way it responds back to you is still crazy programmed. I mean, we're not going to get
+
+Speaker: SPEAKER_02
+Transcript:  AIs with personality. Right. Right. Right. Well, and I'm trying to find the article I read,  I think it was in Medium by an AI researcher who said, you'd be surprised how many times  what looks like AI has a human involved, whether it's- Yeah, like Facebook. Facebook. Yeah. Facebook.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. They actually, I find it fascinating that they want to kind of pretend that it's a machine,  but which is the opposite of what you would think they would want to do. Even Facebook's-
+
+Speaker: SPEAKER_02
+Transcript:  They're a public company. Even Facebook's trending topics, it turns out, happen to have  human intervention because computers, frankly, are not that smart. Did you see the- there's an
+
+Speaker: SPEAKER_03
+Transcript:  article in Aon Magazine that is all about how your brain is not a computer. If you haven't read it,
+
+Speaker: SPEAKER_02
+Transcript:  go check it out. It's amazing. Jeff Hawkins has been saying this for a long time.  Right. The founder of Palm, the guy who created the graffiti, he's now, you know,  is a neuroscientist who's now working in Numenta on brain-like chips. And that's what he's always  says. Our brains are slow. Here's the move with the speed of light. Our brain's much, much slower  than that, but they're massively parallel, like unbelievably parallel. And they're also-  Go ahead.
+
+Speaker: SPEAKER_03
+Transcript:  They're also not representational the way a computer is.  Exactly. Exactly.  They're prediction machines.
+
+Speaker: SPEAKER_00
+Transcript:  And that's why computers wind up brute forcing a lot of stuff. You think about the way computers  play chess. Like human chess players make leaps of sort of logic and they see patterns without  even recognizing them. They jump steps and computers have to go through every single one  of those steps, which doesn't always get you to where you want to go.
+
+Speaker: SPEAKER_02
+Transcript:  The essay you were talking about is by Robert Epstein. You're the empty brain. Your brain does  not process information, retrieve knowledge or store memories. In short, your brain is not a  computer that's from this month's Eon Magazine. Yeah, very interesting. He's a research psychologist.  Now, I have to say a lot of people like to think that because we do. And if you ask Ray Kurzweil,  he'll say, well, it doesn't really matter how it gets there. That's what I mean by tricking you,  by the way. I mean, computers don't do division. They just look like they can do division because  they can subtract really fast. Right? So- But as long as you get there, it doesn't matter.  Yeah. Kurzweil's point was if it's indistinguishable from a human mentality,  does it matter that it doesn't work the same way? If it plays chess better than a human,  does it matter it's not playing it the same way a human plays it? I don't know.
+
+Speaker: SPEAKER_00
+Transcript:  But I think if you're thinking about human assistance or sorry, virtual assistance and what  you might want them to do, some things a computer is going to be really good at,  like finding and getting information. Yes. Understanding nuance or your tone of voice  or your emotion or- Terrible.  Do you know what I mean? Yeah, they're terrible at that. We're nowhere near. I mean, even human
+
+Speaker: SPEAKER_02
+Transcript:  beings are terrible at that. Well, but a two-year-old is much better at recognizing mommy's mad than the
+
+Speaker: SPEAKER_03
+Transcript:  Alexa could ever be. Although they do have an advantage. So here's a creepy, like this is one  of the things that I think about Facebook actually did it with them. Imagine telling your personal  assistant, your virtual assistant. Oh, hey, say hello to my dog. Hi, Sam.  That is my UPS delivery. I love that. See who needs a ring doorbell. You got Sam. Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  I've got, yeah. I have Ozzy does exactly the same thing. I know. I like, hopefully she'll stop.
+
+Speaker: SPEAKER_03
+Transcript:  I may have to go. You might have to see what UPS brought. That's just an excuse. I know that's  what you wanted to do. There you go. No, I have, I have a collar that, that vibrates for, that's the  shut up. Really? That's not a shock. I hope it is not a shock. It can shock, but we don't shock
+
+Speaker: SPEAKER_02
+Transcript:  because that vibrates. And does she say, does she go, oh, that feels good or does she stop barking?
+
+Speaker: SPEAKER_03
+Transcript:  No, she stops barking. She's like, what's happening? We use a, we use a Coke,
+
+Speaker: SPEAKER_01
+Transcript:  we use a Coke can with some pennies. Yeah. That works very well. It works like I wouldn't believe.
+
+Speaker: SPEAKER_03
+Transcript:  We tried that and she, she was louder. Oh wow. Yeah. She did not care for that, but told us.  Can you get those colors for humans or? So I tried it on myself before I put it on her.  You are really humane. Yeah. It's painful. It's like the food as well. I, you know, I have eaten a  dog biscuit. Didn't we all do those dares when we were kids? I've eaten a dog biscuit. Yeah.  Recently her dog food is great. It's better than mine. Probably. Okay. I have no idea what we're  talking about. Oh, it's so good too. I gosh darn it. But she learning. Oh, virtual assistant. Oh,  here's the example. Buying a gift. So tell face to be like, oh, it's my wife's birthday. Buy her a  gift. If you've got Facebook and you've got people involved, you know, that don't know the person,  it could be iffy. But if you had like Google and Google like knew our email address,  this is totally unethical, but those assistants could actually generate some really interesting  products and or gifts. I don't know. I'm thinking about like.
+
+Speaker: SPEAKER_00
+Transcript:  True. Amazon could do that easily. That was one of the things we were talking about with Aloe
+
+Speaker: SPEAKER_02
+Transcript:  because of course Aloe incorporates those canned answers that inbox has. And we were thinking  we'd be really nice if Aloe had a switch to say, you know what, I don't want to talk to this person.  Could you just, whenever they chat me respond with a suitable reply. And then what if that person did  the same thing to you and those bots would just continue to talk to each other forever?
+
+Speaker: SPEAKER_03
+Transcript:  That would be kind of awesome. I think it was a great video online about that.
+
+Speaker: SPEAKER_02
+Transcript:  Future of the social internet. Sounds like a Philip K. Dick novel actually.  We all take a break. You can go see what Sam was all upset about and we're going to take a break  and come back with more. You know what it could have been? Could have been your blue apron delivery.  Oh, man, I love blue apron. We got to get Stacey a blue apron box. I bet she'd dig it too.  Blue Aprons named after the little blue aprons, the apprentices at the Cordon Bleu where the  up and coming young chefs. It's not a cooking school, but it kind of makes you really enjoy  cooking. The idea is, you know, end of the day you've been working hard. It's five o'clock.  The last thing you want to do is think about what am I going to make for dinner? And oh, then I got  to go grocery shopping and pick up the ingredients. Then I got to go home and cook it. It's why we all  end up at fast food restaurants or, you know, Applebee's. Now this is so much better.  Imagine instead you go home and there on your doorstep is your blue apron box. Oh, I forgot I  was getting, I got the blue apron box came. It's refrigerated inside delicious fresh ingredients  from local farms, sustainably sourced seafood or humanely raised beef, chicken, free range chicken,  naturally raised pork, regenerative farming practice produce. And it's refrigerated,  never frozen. And each one has exactly the right ingredients and the right proportion to make  the exact meal. So this is the beauty part. You get this card, it's got the recipe in there.  And you know, if it calls recipe calls for a clove of garlic, you get a clove of garlic.  If it calls for three ounces of soy sauce, you get three ounces. So there's no waste.  You always have exactly what you need. You're going to make meals you just won't believe.  They're so good. And in a way, they're meals you probably wouldn't have tried except that you've  got all the ingredients. You've got the card. There's even videos on the blue apron site if  you have questions about a technique and all this for less than $10 a serving. Each meal  can be prepared in 40 minutes or less. They're roughly, you know, 200 to 400 calories are very  helpful. They're delicious. They're delicious. And you're going to use ingredients perhaps you've  never tried before. That's one of the things I love about blue apron. We found a new bok choy  I'd never tried and now it's all I'll eat. It's so good. Oh, heirloom tomatoes this time of year,  we're getting a lot of those cooked meals like crispy cod and cabbage slaw tacos with Pepita  pineapple and avocado salsa. I don't know what the peta is. But after you do it, you'll know.  Pan seared pork chops with two cheese mashed potatoes and sauteed spinach. That sounds like  something Matthew would like. I don't know why I see you as a pan seared pork chop with two cheese  mashed potatoes and sauteed spinach. Totally. Yeah. Yeah, wouldn't you? How about I'm getting  hungry just like I know I hate these ads because my mouth starts watering. How about these Muffaletta  style grilled cheese sandwiches with baby romaine and pistachio salad. See, this is like, this is  like stuff you wouldn't think of. But once you've done it, now you know they even show wine pairings.  Great for date night. They have family plans too with with kid friendly ingredients. What a great  way to get your kids into cooking blueapron.com. Here's the deal. You go there right now.  blueapron.com slash twit. You're going to get your first two meals free. So I like it when we do this  because that way you can try without any risk. See if you like it. blueapron.com slash twit. They  delivered 99% of the continental United States. Don't know if they go to Juneau or Sagway, but
+
+Speaker: SPEAKER_00
+Transcript:  you could ask blueapron.com slash twit. I think the only way to really do these things, Leo,  is for you to ship some of it to all of us. I will. I will. And we will taste it. I don't know
+
+Speaker: SPEAKER_02
+Transcript:  about you. I don't know about Canada. What? Let me find out. It said continental United States,  but I'll, Stacey, you're going to get a box. And Matthew, if I can get you a box, I will.  Otherwise, come to my house. I'll cook. Come visit me, Matthew. Yeah, exactly. All right.  Where, I don't even know where you're located, Stacey. See, it's a big mystery. I'm in Austin,  Texas. Austin. The internet. She lives on the internet. Oh, you've got, Austin's got food,  heaven. You've got barbecue. You've got queso. I want to go there so bad. I could live on queso.  Not for long. Not for long. I could live a very short time. I could live on barbecue.
+
+Speaker: SPEAKER_03
+Transcript:  What's your favorite? Which one? Salt Lick or? Oh, no. It depends on the type. Okay. So pork ribs,  Hoovers. Hoovers. Beef, Franklin's. You got to go to Franklin's even though the line is super crazy
+
+Speaker: SPEAKER_02
+Transcript:  long. Franklin's is world famous. Yeah. Who was it was in the line and was like some celebrity.  And so I think it was like Jay Z. Yeah, Jay Z. Oh, yeah, that's right. Maybe. Yeah, I think so.  You're not going to make me wait in line. Is it? Yeah. What about brisket? The president didn't
+
+Speaker: SPEAKER_03
+Transcript:  wait in line. Sorry, brisket is the beef. Sorry. Okay. And it's got to be, you can't go with lean
+
+Speaker: SPEAKER_04
+Transcript:  brisket. No, Jesus. No. It's got to be fat. It's the fat that makes it good. Makes it taste good.
+
+Speaker: SPEAKER_02
+Transcript:  So, okay. So is Iron Horse in that list? No. None of the places I've been to. Iron Horse is good.  It's not bad. And it's very authentic. I want to go, I'm going to go to Franklin next time. I'll
+
+Speaker: SPEAKER_00
+Transcript:  get in line. So Stacey, I'm going to come. You could take me to one of those and then you can come.  We'll go to Smoke Meat Place, Montreal. We'll have some fat brisket. Oh, look at that brisket.
+
+Speaker: SPEAKER_02
+Transcript:  So good. Oh, man. It's almost dinnertime. I'm so mean. This is cruel. This is so mean. There's  the line. I think we went to Franklin's. I think I remember waiting in this line. Yeah. Oh, man.  Oh, man. That's so mean. That's just mean. We're all drooling now. I know.
+
+Speaker: SPEAKER_01
+Transcript:  So we get to Montreal, you got to go to Schwartz's. Schwartz's is supposed to be great for the smoked
+
+Speaker: SPEAKER_02
+Transcript:  meat and poutine. It's mind boggling. Yeah. Smoke meat is mind boggling. Let's go up. Let's, I maybe  take this show on the road. Yeah, there we go. They brine the brisket for like six weeks or something.
+
+Speaker: SPEAKER_01
+Transcript:  Do you have a connected scale? This week in barbecue.  Yeah, I'll host that. You know, something we do at the MakerSpace every once in a while is we make
+
+Speaker: SPEAKER_02
+Transcript:  our own bacon. Oh, that's fun. Yeah. Yeah, you cure it. You smoke it. I just read a big article on
+
+Speaker: SPEAKER_00
+Transcript:  salting. Yep. Yep. You got to cure it. Have you ever had the bacon explosion?  Oh, God, I don't know if I want to answer this question.  It's where you take sausage and you roll it out. Sausage meat, obviously, take out of the casing,  you roll it out. You put bacon, more sausage meat, bacon. Then you roll it up and wrap it in bacon.  So you've got basically a log of sausage meat with a woven wrap of bacon. Wow. And then you  barbecue. Does it explode or is that just? No, it's just so much bacon and sausage.
+
+Speaker: SPEAKER_02
+Transcript:  So then you explode. This is becoming the hipster rage now. This was the New York Times last week.  Just add salt. How to make bacon and pancetta at home. And pancetta is so good.  Look it in this fireplace. Prosciutto hanging.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. Stacey, you know, Kevin made his own pancetta. Oh, yeah. You can.
+
+Speaker: SPEAKER_03
+Transcript:  Michael Ruhlman, I think. Is that the guy who does it? I think he has a bunch of instructions  on how to do your own meat. But anyway, cure your own meat. That was a big thing. Yeah. Well,
+
+Speaker: SPEAKER_02
+Transcript:  this article in the New York Times is going to bring it all back. This was last week and I think  they recommended some charcuterie. Oh, this is the book. Charcuterie. The crown of salting,
+
+Speaker: SPEAKER_03
+Transcript:  smoking and curing. Michael Ruhlman. Very good. There you go. Yeah. That's my friend, Kevin  Fitchard, who used to be a chef before he became a tech reporter. And now he's like  analyst or marketing person somewhere. He actually cooked his way through that book.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, is he dead now? No. He knows a lot of good things. So this would be so dangerous for me  to buy this book. I'm so tempted, but no, I need a book about you can test some technology. There's
+
+Speaker: SPEAKER_03
+Transcript:  like digital thermometers you need, timers, you can set up all kinds of stuff. True.  There's got to be a connected smoker. There has to be one. Oh, yeah. One of the guys that I think
+
+Speaker: SPEAKER_01
+Transcript:  you can order products online, actually, one of the guys that comes to our makerspace built his own  controller for barbecue, specifically for barbecue. I hear this thing happen. And it actually,  it manually adjusts the heat to make sure that you're getting a consistent temperature. You
+
+Speaker: SPEAKER_03
+Transcript:  don't have to come back and babysit it. It's like a sous vide for barbecuing. Yeah. Yeah.  Charbroil apparently launched a Wi Fi connected smoker. Yeah. You guys are so awful. By the way,
+
+Speaker: SPEAKER_02
+Transcript:  I hear that that that's one of the modules a project era is going to offer is the module.  No, I'm lying. I'm just trying to get us back on track. We can build one of those with my project.
+
+Speaker: SPEAKER_00
+Transcript:  I have to go get something to eat. Really? I'm super excited about. No, no, I'm just kidding.
+
+Speaker: SPEAKER_02
+Transcript:  So let's start. I am less than excited about our so you're gonna have to convince me. The idea is,  and they did they did decide not to have the phone modules be one of the modules. They'll be  add on modules. It just feels like something that's going to fall apart in my hand.  Tell me why you're excited about this, Stacey. I'm excited because I love having everything on
+
+Speaker: SPEAKER_03
+Transcript:  my smartphone, but I'm also sad because like the camera quality isn't as good or you want to like  the idea of swapping stuff out and putting like a glucose monitor or all of that super exciting to  me. And maybe that's just because I I'm the type of person who wants to have like lots of crazy
+
+Speaker: SPEAKER_02
+Transcript:  gadgets. Well, I you know, actually, it probably would save me money because I just buy new phones  all the time. This way, I can just buy a new module. Right? Yeah, I have a budget. I'm going to go out
+
+Speaker: SPEAKER_00
+Transcript:  on a limb and say no one is ever going to use these phones. I mean, not no one. But so this was a
+
+Speaker: SPEAKER_02
+Transcript:  statistically speaking, no part of the advanced technology group that Google acquired when they  bought Motorola, when they sold Motorola, the Nova, they Cape, they kept Project R around,  and they talked about it at Google I.O. this year. For a while, they were saying we're going to sell  it in Puerto Rico. I thought that was like months ago. They never did. So it appeared anywhere?
+
+Speaker: SPEAKER_00
+Transcript:  As are there any units that people are actually using? Good question. Are there? I don't know.  I think developers are getting theirs, but it feels like a great project with a great  rationale that I really want to have happen. That's never going to happen. Yeah. Well, wait,
+
+Speaker: SPEAKER_03
+Transcript:  because they brought because Rick is at Osterlo came back. Yeah. Yeah. He's going to be in charge
+
+Speaker: SPEAKER_02
+Transcript:  of hardware now, Google, which is good news. He's associated with this project, too. So
+
+Speaker: SPEAKER_03
+Transcript:  this is a smart man who actually knows how to build hardware. So maybe that's why I'm like,
+
+Speaker: SPEAKER_02
+Transcript:  this could be real. I'm on. I'm with both of you. I'm going to agree with both of you. And the one  hand, I'm thrilled to see innovation in smartphones because we're kind of at peak smartphone right now.  Right. There's not nobody's thinking of anything new to do. Right. We're just more slabs of glass.  But I also agree with Matthew that and we have seen modular stuff before. Remember the visor  with the visor modules or whatever they call those. It seems a little geeky. It also seems like it's  kind of ugly. Right. I mean, it's the same people who buy a Raspberry Pi might buy it. But yeah. So
+
+Speaker: SPEAKER_00
+Transcript:  that's so I think it's going to be an interesting niche. The thing that I'm hopeful for is that  maybe things will come out of it. That so maybe lots of people won't use these phones, but maybe  things will come out of the as they're developed or people come up with new modules. Maybe we'll find  interesting things that can go beyond just this and actually have an impact on real phones that
+
+Speaker: SPEAKER_02
+Transcript:  regular people use. How's the LG G5 selling? Because that's kind of modular. I mean, you have  a battery module, you have an audio module and you have a camera module. Is that taking the world by  storm? I don't think so. People don't want more complexity. Not that I know of. They just want.
+
+Speaker: SPEAKER_00
+Transcript:  And the problem, like I'm like you, Leo, when I watched the ad, half of me is thinking, wow,  that looks really awesome. And half of me is thinking, I'm going to leave the module I want  in my other pants or it's going to fall out of my shirt pocket. It's going to fall apart in your hand.
+
+Speaker: SPEAKER_01
+Transcript:  With a hole in it that doesn't do anything. It was one thing back in the day when you had,  you couldn't make a choice. I'm thinking like computers, things like that. I mean,  you had to choose, do I want the network card or do I want the, whatever it was at the time,  the FireWire card? Because I don't have room for both. So it has to be modular because I have to  put one thing in or the other. But now phones have everything. There's everything in the market.
+
+Speaker: SPEAKER_02
+Transcript:  Computers have everything. We were in the position where you could put, you had slots,  you had different cards in. And there were standards so that you could make a card.  I mean, I guess you could still buy a tower case with an ATX bus or something. But  for gamers.  It's for gamers. It's not for gamers or 3D designers. I mean, it's a specialized thing.  Most people buy a computer completely unappreciated.  And they never do anything to it.
+
+Speaker: SPEAKER_03
+Transcript:  What if you get something cool like the NUMI? Okay. So if you're familiar with the NUMI sensor  concept, they're building a sensor for glucose monitoring. And this is its own little thingy.  It's a little triangle shape thingy and you stick your food in it. But imagine if you have  these, imagine if you could put that in a phone and then you give that to your kid when they go  out to school or you put it in their phone for them so they can test their food for whatever  they're allergic to. I just think it makes an interesting platform to test out some of the  cool stuff we're developing with advanced sensors and I don't know, other technology.
+
+Speaker: SPEAKER_02
+Transcript:  I love the idea of a science lab in a box with all the sensors and you could, I mean, you'd be like  Mr. Spock or Bones or something. This is the NEMA. This is N-I-M-A.  We actually demoed this on the new screensavers. Scott Jung, our medical guy,  had it. The one he had could detect gluten.
+
+Speaker: SPEAKER_03
+Transcript:  Gluten was the only one. Everyone's talking about peanuts, but it doesn't do that yet, I don't think.
+
+Speaker: SPEAKER_00
+Transcript:  But why couldn't you just have that connect to your phone through some other means?  Like why have a module? Why not just have it connect to your phone?
+
+Speaker: SPEAKER_02
+Transcript:  So that's kind of what Project Aura might have a new NEMA module, right?  Yeah, on the other hand, I cannot think of anything more disgusting than sitting with somebody  who takes a bite of food off their plate and puts it in their phone.  That's really, really weird.
+
+Speaker: SPEAKER_03
+Transcript:  So it kind of reminded me, I don't know if you guys ever saw these, they were Lapka,  Airbnb actually bought the company. There's these little, and I think I threw mine away,  it was these highly designed little sensor cubes they tested for  pesticides in food. There was one for testing Wi-Fi and one for, I don't remember.  You literally would, they had prongs and you would stick the food one into an apple or something  and it would test that. And so when I saw the Aura, that's immediately what I thought of,  because these were designed to be, there they are.
+
+Speaker: SPEAKER_00
+Transcript:  Wait, wait, wait, wait, wait, Airbnb?
+
+Speaker: SPEAKER_02
+Transcript:  Why did they buy? They said it's an acquire, they bought the team.
+
+Speaker: SPEAKER_03
+Transcript:  Think about like, crazy, this was so fetishistic.
+
+Speaker: SPEAKER_02
+Transcript:  It had wood, right? I mean, it was like, yeah.  Weird.  Concept sensor nodes. They were created, by the way, for the Project Aura originally.  Were they?  Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  Oh, no wonder they reminded me of them.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah. Breathalyzer, wooden and ceramic blocks, radiation, humidity.
+
+Speaker: UNKNOWN
+Transcript:  Wow.
+
+Speaker: SPEAKER_02
+Transcript:  Airbnb says.  It's really clever.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah. It's Russian.  Really clever, well-designed thing that no one will ever use.
+
+Speaker: SPEAKER_03
+Transcript:  Right. So maybe that's what Aura is and that's why it's bad that it reminds me of it.
+
+Speaker: SPEAKER_00
+Transcript:  So it's like a Shindougou, remember that, Leo?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, Shindougou. We actually now have people in our chat room named Shindougou.  And didn't we do, like we did a whole Shindougou for iPad episode,  something that is not exactly useful but somehow not altogether useless.  Like the example Matthew you gave is of the helmet with a suction cup on the back.  So when you're on the Tokyo subway, you just glue yourself to the window.  So your head doesn't fall over when you fall asleep.  Yeah, those are Shindougou, I would say. Those sensors.
+
+Speaker: SPEAKER_00
+Transcript:  They're beautiful and kind of useful but also unnecessary.
+
+Speaker: SPEAKER_02
+Transcript:  Kind of. Like, do you really need to know what level of radiation there is in the?
+
+Speaker: SPEAKER_03
+Transcript:  If you were Japanese, you might.  You might. Yeah, you might.
+
+Speaker: SPEAKER_00
+Transcript:  If you're in Fukushima.  And you would want a wood and ceramic beautiful device to do that.
+
+Speaker: SPEAKER_03
+Transcript:  Or a Geiger counter, whichever.
+
+Speaker: SPEAKER_04
+Transcript:  Oh, we're going to have fun with you.
+
+Speaker: SPEAKER_03
+Transcript:  There's a new module right there.
+
+Speaker: SPEAKER_00
+Transcript:  I just have to point out that, Stacey,  I can't think of a single gadget of any kind that Stacey has not wanted and or loved.  Is that unfair, Stacey?
+
+Speaker: SPEAKER_03
+Transcript:  No, I actually brought on the show a non-working gadget to warn people about it.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, you're going to show that later. That'll be your pick of the week.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah, that's good. Well, I was going to ask the rules for that.
+
+Speaker: SPEAKER_02
+Transcript:  There's no rules. You get to make your own rules.  We have a contributor who brings a heavy metal album every time.  So, you know what? I think our audience, one of their favorite parts of all the shows is like  the picks of the week. I call it the back of the book because remember in magazines,  they'd always have the weird columns in the back.  The weird stuff. That's our weird stuff.
+
+Speaker: SPEAKER_00
+Transcript:  Well, I thought you meant the ads like for the Sea Monkeys.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, Sea Monkeys, X-Ray Glasses, and Chindogos.  So, closing arguments have been presented.  And as far as I know, the jury's still out, right? Google versus Oracle.  They thought they'd come in sooner than this, I think.  We had somebody on yesterday on TNT who said we should know soon.  So, closing remarks were Monday. Of course, Oracle is suing Google for $9.3 billion,  saying they violated, this is so weird, Oracle's copyright of the Java API.  No, they didn't copy the code. No, they used the copyrighted APIs.  And the jury of 10 people with no technical experience are now challenged to figure out.
+
+Speaker: SPEAKER_00
+Transcript:  It's just the worst possible combination of things.
+
+Speaker: SPEAKER_02
+Transcript:  But it's a fair use case. That's the funny thing. It's not a technology case. It's a fair use case.  So, Google's defense is, oh yeah, we use those APIs to make Android,  but it was fair use because it was a transformative work and it didn't cost Oracle any money.
+
+Speaker: SPEAKER_01
+Transcript:  It wasn't even Oracle at the time. It was Sun. They were given away.
+
+Speaker: SPEAKER_00
+Transcript:  I think they have a great case. I mean, if you look at the other cases that Google has won on fair use,  they've been way more kind of in a gray area than this.  If you look at the Perfect 10, I think it was the thumbnails that Google used for photos.  The court ruled that that was transformative simply because it allowed people to search them in a way that wasn't possible before.
+
+Speaker: SPEAKER_02
+Transcript:  I don't know. You clearly haven't seen Oracle's slide presented to the jury in the closing arguments showing  the scale heavily balanced in Oracle's favor.  Okay, I'm convinced. You're right.  This is hilarious.  This is what you show people who are not technical.
+
+Speaker: SPEAKER_00
+Transcript:  One like leans to one side. I'm totally convinced.
+
+Speaker: SPEAKER_01
+Transcript:  I used to work in Oracle marketing and this came right out of marketing.  It wasn't the legal department that put this together.
+
+Speaker: SPEAKER_00
+Transcript:  It was the marketing.  It's a joke. My fear is this whole case is kind of a train wreck.  You've got a jury that doesn't know anything about APIs or technology and or fair use,  and they're trying to determine whether these things that they don't understand qualify under some clause in copyright that they likewise don't understand.  There is no hope of a ruling that makes any sense.  That's what all cases are.
+
+Speaker: SPEAKER_01
+Transcript:  It was interesting that they brought in Jonathan Schwartz to testify.
+
+Speaker: SPEAKER_02
+Transcript:  The last CEO at Sun who sold it to Oracle.  He testified on Google's side.  On Google's behalf, which was really, really interesting.
+
+Speaker: SPEAKER_01
+Transcript:  This was actually a very big topic when I was at Sun.  I can't believe Google's doing this. They're stomping all over us. Blah, blah, blah.  This was the cafeteria talk.  We had him on the show.
+
+Speaker: SPEAKER_02
+Transcript:  Nick Gosling who wrote Java said, yeah, we thought it was slimy.  There were, what is it, the nine lines of code, which was really array bounds checking, which anybody could write probably would look pretty similar.  But anyway, Gosling said, no, we looked at Google's Java code and we felt like it looked a lot like what we wrote.  But neither Jonathan nor Gosling thought it was suitable or worth selling.
+
+Speaker: SPEAKER_01
+Transcript:  That's exactly the point.  The CEO at Sun at the time was very disappointed that we weren't going to get any money out of this basically.  But they chose not to sue him.  They felt like they didn't have a leg to stand on in terms of taking this to court.  And then of course Oracle by Sun and the attitude is different at Oracle.
+
+Speaker: SPEAKER_02
+Transcript:  Gosling said he was explaining Java to Oracle and he saw the Oracle lawyers' eyes light up.  So it may well have been part of the reason Oracle bought Sun is they saw some IP that they maybe could go after Google.  Oh, absolutely was.
+
+Speaker: SPEAKER_01
+Transcript:  And the other thing is that if they win this judgment, that's $2 billion more than they paid for Sun Microsystems.  And Java is just one small part of what they got from Sun.  So it's very interesting.
+
+Speaker: SPEAKER_02
+Transcript:  The judge has already ruled, believe it or not, in Google's favor.  The judge said, no, you can't copyright APIs.  And he believed that Google had done this in a clean room environment.  Of course, Oracle appealed.  And it didn't go to where it would have normally gone, which is the Ninth Circuit Court of Appeals,  who might well have continued to rule in Google's favor.  But instead it went to the federal court because it involved patent law.  And there's just this little loophole that means it had to go to federal court.  The federal court has always had a little bit more trouble with cases like this.  And they overturned Judge Alsop's ruling.  Then the Supreme Court declined to rule.  The federal court said you can copyright an API.  So, by the way, that's decided unless the Supreme Court takes it back up.  But that's decided.  So as soon as they were told they could do that, Oracle asserted its copyright on the APIs.  And then the Supreme Court said, all right, now you've got to go back to Judge Alsop's court  and figure out whether Google violated a copyright.  And that's where we stand today. It's just very strange.
+
+Speaker: SPEAKER_00
+Transcript:  And the problem is fair use is in no way a simple concept.  I mean, it's got four incredibly complicated factors that courts have to consider.  In every fair use case, opinions are all over the map.  Is it transformative? Is it not? Is the use justified?  How much of the finished work did it use?  Is it going to affect the market for that?  I mean, even the term transformative is hard to define.
+
+Speaker: SPEAKER_02
+Transcript:  Well, I have more faith that a jury can decide that than they can decide  whether Google stole Sun's code or whether APIs are copyrightable.  Those things really are kind of opaque to a normal non-technical person.  At least fair use is something that you could presumably apply common sense to.  Who knows what will happen, though?  We'll find out. We'll keep an eye on that.  And I'm sure they'll report it the minute it happens.  We'll break in if they come back with a verdict.  But we're still waiting.  They've been now how long? Two days? Three days?  They've been thinking about it since Monday.
+
+Speaker: SPEAKER_00
+Transcript:  And the judge apparently joked to the jury, don't look up what an API is.  I don't know if he was joking.  So don't try to understand what an API is.
+
+Speaker: SPEAKER_02
+Transcript:  He's the judge who famously taught himself Java for the previous case.  Although he might have some standing.  He has a bachelor's in mathematics from Mississippi State,  so he's not completely ignorant of technical stuff.  It was from 1967, so I doubt he used a computer at the time,  but not a personal computer anyway.
+
+Speaker: SPEAKER_00
+Transcript:  I heard he just taught himself JavaScript.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, no, really? Are you kidding? It's a joke.  No, I'm just kidding.  He did say, I taught myself Java so I could talk about this.  Sure, he did.  Yeah, right.  I think he, isn't he the guy who said,  and I wrote an array bounce checker and it wasn't that hard.
+
+Speaker: UNKNOWN
+Transcript:  Nine lines of code.
+
+Speaker: SPEAKER_02
+Transcript:  Don't we all?  Who hasn't done it?  Who hasn't?  I've done it in E-Max Lisp.  You could.  You could.  Fewer lines of code, probably.  I did it recursively.  I did it with notepad.  I'm sorry.  Nerd joke.  Foxconn is replacing 60,000 factory workers.  Foxconn, of course, builds the iPhone,  but builds also a lot of other technology stuff.  They're replacing those workers with robots.  They say, no, no, nobody's going to lose their job.  Maybe not.  Maybe the business is so good that according to a government  official speaking to the South China Morning Post,  one factory, one Foxconn factory has reduced employee strength  from 110,000 to 50,000 thanks to the introduction of robots.  China, actually, this is about China investing in robots  as much as it is Foxconn.  The other thing that's happening, of course,  is Foxconn is building plants outside of China.  They built a plant in Brazil, and now they're  building a plant in India.  And by the way, they're the ones who bought the Nokia candy bar  phone business from Microsoft.  Speaking of Microsoft, I think it's kind of over  for Windows Phone.  I don't know.  I don't want to be premature.  You think so?  Maybe.  Maybe they sold the feature phone business to Foxconn last week.  This week, they laid off 1,850 people, most of them in Finland,  to streamline the smartphone business, and nearly a billion  dollar charge for that, mostly in severance and so forth.  I think that it's pretty clear if Microsoft continues in the  phone business, it won't be to compete with iOS and Android.  It'll be some sort of enterprise play.
+
+Speaker: SPEAKER_00
+Transcript:  How much have they spent on that thing?  Well, they bought Nokia for $7.6 billion.
+
+Speaker: SPEAKER_02
+Transcript:  They took a write-off of how much?  $5, $6.5 billion?  Something like that.  I think they've written off the entire amount now.  Oh yeah, with that $950 million.  Yeah, I think it's pretty much...  Wow.  What's kind of ironic is that the current CEO,  Satya Nadella, was dead set against it before he was CEO.  This was Balmer's acquisition, and he didn't think it was a good  idea, and maybe he was proven right.  And he was right.  Maybe he was.  You're going to have to explain what this means to me,  Aaron Newcomb.  Google wants to add the Raspberry Pi 3 to AOSP.  Oh, cool.  What the hell?  Does it mean it's going to be an Android?
+
+Speaker: SPEAKER_01
+Transcript:  Yeah, you'll be able to run Android on it.  Yeah.  Yeah, that's awesome.  I did not see that one.  I'm excited all of a sudden.  Woohoo!
+
+Speaker: SPEAKER_02
+Transcript:  That is interesting.  So, right now, Pi's typically will...  Mostly run Linux, Debian, a special version called Raspbian.  But there are other operating systems people sometimes run on it.
+
+Speaker: SPEAKER_01
+Transcript:  And you can run Android on...  It's very difficult to run Android on Raspberry Pi now,  because the drivers aren't there.  And that's what this does.  It has the drivers that they need to actually run this on the  Broadcom chip that they use.  So this is going to be really, really exciting.  So I, for a long time...  In fact, I think maybe last time I was on the new screensavers,  we talked a little bit about this.  I use some of the knockoff Raspberry Pi clones like  Odroid, C1, and now C2.  That's right.  And those types of things that use the hard kernel...  The all-winner type chipsets.  Because Android already runs on those chipsets.  So it makes it really easy to run.  And things run natively.  There's native drivers.  There's support for the Mali GPUs that are built into them and so forth.  But there hasn't been support for it on the Raspberry Pi.  People would love to run Android on Raspberry Pi.  Now it looks like they're going to be able to.
+
+Speaker: SPEAKER_02
+Transcript:  Well, someday.  Currently, the Google Git commit has no...  It's an empty repository.  But the repository is there.  They've created the repository.  That's the news.  We've got a repository.  We have created a repository.  We haven't actually put anything in it.  But any day now...  I didn't know Google had a Git.  Does that compete with GitHub, Google Git?  That's Google code.  Yeah, well, they killed code.  They did, didn't they?  Yeah.  90 days of Android sales beat almost 9 months of Windows 10 sales.  Maybe that's Windows...  No, Windows...  What?  Yeah, Windows 10.  So, Microsoft, of course, all happy because they've sold 300 million...  Or they didn't sell any of them because they gave them away.  But there are 300 million Windows 10 active users.  But that was...  It took 9 months to get there.  Almost 10 or 11 soon.  It's July 29th.  It was the anniversary date.  In just the last quarter, 350 million smartphones were sold.  293 million of them ran Android.  2.4 million ran Windows Phone.  I'm sorry.  I shouldn't laugh.  That's mean.  And those of you who live in Canada have been there before.  With Blackberry.  I'm sure you blanked that out.  What is this one?  Google says you're going to be able to not use passwords anymore on Android.  Yeah, I thought that was interesting.  Because we can tell who you are.  So you don't have to tell us.  Trust scores.  Authentication, of course, is really the biggest challenge out there.  How do you prove you are who you say you are?  And it's why all of a sudden in the last 20 years,  all of us have acquired hundreds of passwords.  Or in my case, one.  Monkey123.  And every time you go somewhere and do something,  remember your password.  Terrible system.  Everybody agrees.  And people have tried to come up with some solution.  Google says you're not going to need to log into Android apps by next year.  They talked about this at I.O.  There's something they call the Trust API.  And what they'll do is they'll look at things like how fast you type  and how you talk and devices you've logged into,  Wi-Fi and Bluetooth.  And we can create an effect like a super cookie that identifies you uniquely  and is pretty reliable.  It's like using metadata.
+
+Speaker: SPEAKER_03
+Transcript:  This is why metadata is so powerful.  So now they're finally using it for good.  People have used this.  That's where the term super cookie came from.
+
+Speaker: SPEAKER_02
+Transcript:  They've used this to create cookies that identify you uniquely.  Actually, Google probably thought about it and said,  that could also be used instead of a password.  How reliable is it?  Apparently, they're going to do a scoring system so that they kind of know  if you're going to use it or not.  So that they kind of know if it's a high quality identification  or maybe it's a little dicey.
+
+Speaker: SPEAKER_03
+Transcript:  So they're not going to launch it, roll it out to my bank account first?  Yeah, maybe not.
+
+Speaker: SPEAKER_02
+Transcript:  I like this idea, though.  I love it.
+
+Speaker: SPEAKER_00
+Transcript:  It says they're going to use for games.
+
+Speaker: SPEAKER_02
+Transcript:  It'll be relatively low.  When you start to play a game, the Google games thing won't say,  OK, log in now.  It'll know it's you.  Yeah, I could see that being handy.  My Xbox One does that with face recognition.  When I sit down, it says, hello, Leo.  The weird thing is that my wife's son, my stepson,  looks a lot like his mother.  So every time Lisa sits down, it says, hello, Michael.  So it's not perfect.
+
+Speaker: SPEAKER_00
+Transcript:  Needs a bit of work.
+
+Speaker: SPEAKER_03
+Transcript:  They need to retrain that model.
+
+Speaker: SPEAKER_01
+Transcript:  But I think it's the combination of the things that they're talking about,  the vocal inflections, the facial recognition and the proximity.  It's not just one of those things.  It's when you combine those three different vectors,  you get with a fairly high degree, you can get a unique match on that.
+
+Speaker: SPEAKER_00
+Transcript:  And you're going to have to be like, it's going to have to be Mission Impossible,  basically, Tom Cruise with all this gear, and imitating your voice  in order to get by that.
+
+Speaker: SPEAKER_02
+Transcript:  Well, that's biometrics.  I think biometrics is pretty good to begin with.  Although Apple drives me crazy, because even though they know my fingerprint,  they constantly ask me for a password.  The iPhone, we found out now.  Really?  Yeah.  If you don't use your iPhone for, what was it, eight hours?
+
+Speaker: SPEAKER_00
+Transcript:  It asks you for the code.  It asks you for your password.
+
+Speaker: SPEAKER_02
+Transcript:  It's like, dude, you have my freaking fingerprint.  Is that better than my password?  Isn't it?
+
+Speaker: SPEAKER_00
+Transcript:  Maybe not.  Well, we're getting there, though.  I mean, I remember with my iPhone, every time I installed something,  every time I tried to download an app,  every time it asked me for my App Store password,  I was like, could you not just remember it from 15 seconds ago?
+
+Speaker: SPEAKER_02
+Transcript:  But that's what's frustrating for me, because now we do have a fingerprint,  and we have a way of actively authenticating,  and it still wants the password.  It's like, come on.
+
+Speaker: SPEAKER_00
+Transcript:  I think they're afraid, if you haven't used it for a while,
+
+Speaker: SPEAKER_02
+Transcript:  they're afraid it's, you know, someone else has gotten it.  Stole your finger and your phone.  Cut off your finger and your phone.  Samsung's newest tablet will scan your iris.  They're actually aiming not at consumers, but at business and mostly government.  So an iris scanner, it's in the Indian market only right now,  has dual eye scanners to an actual iris scanner.  You know, Windows has that Hello feature,  but I don't think it's as quite... maybe it is.  That's pretty sophisticated, iris scanning.  Yeah, no kidding.  Actually, I guess no.  I guess Windows Hello does use iris,  as well as fingerprint scanning and facial recognition.  Because I can look at my laptop, my Surface Book,  and it says, oh, hi, Leo.  Sometimes it says, I have no idea who you are.
+
+Speaker: SPEAKER_00
+Transcript:  I hope it's better than the Nexus machines,  the global entry type machines that we have in Canada.  Do they not work well?  Well, so they scan your iris.  Right, I've seen people do it.  Nine times out of ten, it says, please move back, please move forward.  Please move back.  Please try again.  No, Windows Hello does that.  15 times.
+
+Speaker: SPEAKER_02
+Transcript:  No, that's what Windows Hello does.  It does the same exact thing.  It drives me nuts.
+
+Speaker: SPEAKER_00
+Transcript:  Sit forward, sit back.  Please move back.
+
+Speaker: SPEAKER_02
+Transcript:  You have to be exactly at the focal length, I guess.  Yeah.  I don't know if this is good or bad,  but puppy cams are coming to Facebook Live.  It's bad.  And you won't be limited to 90 minutes anymore.  You can stream.  Unlimited.  Forever.
+
+Speaker: SPEAKER_04
+Transcript:  Wow.  I don't know.  Why not?  I don't know.
+
+Speaker: SPEAKER_00
+Transcript:  Because it's not just going to be puppies, obviously.  It's going to be exploding watermelons and stuff like that.  Crotch shot.  But it won't be born.  Over and over and over.  No.
+
+Speaker: SPEAKER_03
+Transcript:  So that's sort of a plus.
+
+Speaker: SPEAKER_02
+Transcript:  It's true.  Among other new features, the ability to  look at an engagement graph so you can skip to the most exciting parts of live videos.
+
+Speaker: SPEAKER_00
+Transcript:  The end.  So we're going to give you an infinite amount of time, but we're going to be like,
+
+Speaker: SPEAKER_03
+Transcript:  oh, hey, by the way, you can skip to right here.  Skip to this boring part.  You might want to jump to this part.  What?
+
+Speaker: SPEAKER_02
+Transcript:  That's actually kind of an interesting idea.  Lots of people were engaged at this point.  Actually, that could be really useful.  That's really interesting.  They should do that with Game of Thrones.  I have a friend who does, it's an app called, or it's a service called Are You Watching This?
+
+Speaker: SPEAKER_03
+Transcript:  Are You Watching This?  Are You Watching This?  Are You?  Yeah.  And they mine data like on the Twitter timeline for sporting events.  And they would let you know, they would like send you a notification when a game that you,  a team that you followed, their game got good so you could tune in.  Oh, I love that.  Interesting.  That's a good idea.  Why isn't Twitter doing that?
+
+Speaker: SPEAKER_00
+Transcript:  Wait, what?  Why doesn't Twitter do that?
+
+Speaker: SPEAKER_03
+Transcript:  I don't know.  What would be super cool?  This is something that FCC is doing with their cable card, not cable card.  Oh, God.  Opening up the cable box.  Please don't mention that.  Sorry.  Things like that could be amazing because right now I think you, I'm not a sports fan,  so I'm lost here.  But you could actually think of it if you had like open, if you treated your cable box  like you did the internet, you could actually like just send people directly to the game,  which would be freaking awesome.  Anyway.
+
+Speaker: SPEAKER_02
+Transcript:  Just walk in the room and it knows what you want to see.
+
+Speaker: SPEAKER_03
+Transcript:  Oh, now we're going back to like crazy context in AI.  Full circle.
+
+Speaker: SPEAKER_02
+Transcript:  I want it.  So we're glad you're back, Matthew, because Stacey wanted you to explain what Twitter's  changes mean.
+
+Speaker: SPEAKER_03
+Transcript:  Oh, yeah.
+
+Speaker: SPEAKER_02
+Transcript:  Help me, Matthew.  Is he the expert on this?  Is that the deal?
+
+Speaker: SPEAKER_00
+Transcript:  Yeah.  Twitter, I mean, this is your beat.  Kind of live on there.  So no more Twitter canoes.  It is part of my beat.
+
+Speaker: SPEAKER_03
+Transcript:  Are you tweeting right now, Matthew?
+
+Speaker: SPEAKER_00
+Transcript:  I am.
+
+Speaker: SPEAKER_02
+Transcript:  Actually infinite, infinite Twitter canoes now.  Right.  So the canoes can be unlimited.
+
+Speaker: SPEAKER_00
+Transcript:  And you can add up to 50 people, I think.  So if you depending on where you fall on using Twitter and whether you've been harassed,  for example, you would either see these changes as good or the worst thing ever.  So I saw probably 50 50 in my stream, people saying, hey, this sounds great because, you  know, handles won't be counted against the character limit.  Canoes and other embeds won't be counted against the character limit.  So that's good, right?  You get more room.  But then anyone who's ever been at mentioned into a giant fight with social justice warriors  or whatever, and then been copied on every mention and every retweet knows that that's  that can be a huge, hugely annoying problem.  So Twitter's made it easier for people to tweet without worrying about using up space.  But at the same time, it's enabled probably more harassment.  So in a way, this is this is Twitter in a nutshell.  Everything it does is simultaneously good, really good and also incredibly horrible.
+
+Speaker: SPEAKER_02
+Transcript:  So the only thing that really I mean, really the bottom line is the only thing that counts  against 140 characters is the stuff you say.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, you're you're.  Yeah, we haven't we haven't gotten to the part about the period before the hat symbol.  Do you want me to get into that?  They're changing that.
+
+Speaker: SPEAKER_04
+Transcript:  What?
+
+Speaker: SPEAKER_02
+Transcript:  Yes.  So what?  So it took us years to figure that out.
+
+Speaker: SPEAKER_00
+Transcript:  Right.  I think that a lot of people didn't even know exist.  Some people still haven't figured it out.  It's now going away.  So that's good in a sense that lots of people can now live their lives without having to  figure out how it works.  But the way it was described was confusing.
+
+Speaker: SPEAKER_02
+Transcript:  So I think you're right.  I think a lot of people have I've taught so many people that when you just at reply somebody  at Matthew I, hey, that was great.  The only people who see it are people who follow both of us.  Right.  So if you want to reply to somebody, but you want all of your followers to see it, you  can't begin it with an at sign.  So the thing that people just made up, I mean, Twitter never said to do this.  But the thing people made up is you put a dot and then at Matthew I now I'm both responding  to you and everybody in my who follows me can see it.  That's not going to work anymore.
+
+Speaker: SPEAKER_00
+Transcript:  No, you won't have to do that.  So in effect, if you if you so there's two things which are which make it actually more  confusing rather than less or the way it was described made it more confusing.  So if you start a tweet with an at everyone in your timeline can see it.
+
+Speaker: SPEAKER_02
+Transcript:  So they're basically turning that off.  Right.  Thing that was only that was important because it meant you could have a conversation without  being exactly you and I could talk back and forth without annoying everybody else.
+
+Speaker: SPEAKER_00
+Transcript:  So this is the this is another example of where it's good because it was a dumb thing  that people didn't understand and it confused people.  But but the change actually can make some things worse because things that originally  would have been just between you and somebody will now or could now be seen by everyone.  You may not want that.  My understanding is replies will still only be seen by.  So if you reply to a tweet and it starts with an ad, then it's only seen by I get your  followers.  So you create a new tweet that starts with an ad.  Exactly.  Then everyone will see.
+
+Speaker: SPEAKER_03
+Transcript:  Oh, actually, that sounds OK.  That's good.  Yeah, it does.
+
+Speaker: SPEAKER_00
+Transcript:  Right.  It sounds good.  Yeah.  But OK, I can handle that time.  It took me to explain all that.  Well, that's because I can you imagine having this conversation with a normal human.  But it's more intuitive.
+
+Speaker: SPEAKER_02
+Transcript:  You shouldn't even have to have the conversation now because it will behave kind of like you  would expect.  Like you would expect.  Yeah.  If it's a reply, then only you and I'll see it.
+
+Speaker: SPEAKER_00
+Transcript:  We're not even getting into the whole quote tweet versus, you know, native retweet.
+
+Speaker: SPEAKER_02
+Transcript:  They got rid of the whole show.  They got rid of long ago what most people wanted, which was a retweet that quotes the  original tweet and then allows you to add your own thoughts.
+
+Speaker: SPEAKER_00
+Transcript:  No, they have that.
+
+Speaker: SPEAKER_03
+Transcript:  So that that's still there.  That's the tweet.
+
+Speaker: SPEAKER_02
+Transcript:  But it's actually worse.  So you get a quote tweet.
+
+Speaker: SPEAKER_03
+Transcript:  Well, maybe you just use for Twitter.  What app do you use for Twitter?
+
+Speaker: SPEAKER_02
+Transcript:  Do you use I'm using OK, I'm on the Twitter homepage right now.  That's what Twitter wants you to use, Matthew, don't you know?  All right.  All right.  So I see a retweet button.
+
+Speaker: SPEAKER_03
+Transcript:  So you should be able to when you go to retweet.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, here it is.  No, copy.
+
+Speaker: SPEAKER_00
+Transcript:  No, no, go to the comment at the top.  Yeah.  If you click on retweet, click it.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, they have added that back.  They have been there for a long time.  Oh, sorry.  Because I remember when it just went it just went out.  It was like, that's it.  That's all you got.  The native retweet.  That was that was that was Twitter's biggest.  That was Twitter's change.  So they backed off on that some some time previously.  I just didn't notice.
+
+Speaker: SPEAKER_00
+Transcript:  OK.  Unfortunately, the quoting has actually caused even more problems.  So I have been yelled at.  I've been yelled at by people, including a prominent Twitter investor for what he called  witch hunt retweets, where you quote someone's tweet and then say something snarky about  it.  This is apparently bad behavior.
+
+Speaker: SPEAKER_03
+Transcript:  You used to be able to like, I mean, the reason they did that is because people were changing  people's original tweets and not necessarily doing whatever was it?  M.T. Q.T. R.T.  I don't know.  Whatever language you were supposed to do to indicate.  Yes.  M.T.
+
+Speaker: SPEAKER_00
+Transcript:  Which again was invented by users.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, which all the all the good stuff was invented by users, frankly.
+
+Speaker: SPEAKER_00
+Transcript:  Well, and unfortunately, it feels like the things that users invented to solve a problem  that actually worked have been replaced by things that are official but don't work.
+
+Speaker: SPEAKER_02
+Transcript:  In other words, Twitter's better idea.  Yeah.
+
+Speaker: SPEAKER_00
+Transcript:  We need a this week in Twitter.  No, I don't.
+
+Speaker: SPEAKER_02
+Transcript:  No, no, no.
+
+Speaker: SPEAKER_03
+Transcript:  It'd be 140 seconds.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, I don't.  I don't.  You know, I, my Twitter is if there were anything that had I have had a love hate relationship  with it would be Twitter.  Yep.  That is the epitome of a love hate relationship.
+
+Speaker: SPEAKER_00
+Transcript:  I wrote a whole post about that.  How I have a love hate relationship.  I'm on it all the time.  I use it for work.  It's a fantastic thing.  It's probably it's changed my life more than any other certainly social technology that  I can think of including Facebook.  And yet it's so frustrating.  I have a theory.  Can you you all just like service but the company?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  Well, the company's ridiculous.  It's part of the fun of it.  But here's my theory.  I think okay, you tell me where I'm wrong here.  If you just watched your timeline, not the at replies to you, but if you just looked  at the home, that's when you love it, right?  Because it's a great continuous stream of what's happening right now.  Where we get into the deeper waters is where you look at notifications and what people  are saying to you.  Now admittedly, that's the conversation part of Twitter.  And so I'm throwing out the baby with the bath water.  But I find Twitter wonderful.  If I just look at the timeline stream, the main home stream.  No, you're right.
+
+Speaker: SPEAKER_00
+Transcript:  And they do two completely different things.  In a way, Twitter is several different arguably useful services kind of merged into one.  And so the notifications on the conversation is one of those things.  And the sort of real time stream of information is another.  But I don't think, I think what makes Twitter so useful and frustrating is the way those  things work together.  To me, if you had either of those all by themselves, they might be less irritating, but I'm not  convinced they would be as sort of magical or produce the kinds of things that Twitter  does.  But less frustrating probably.
+
+Speaker: SPEAKER_02
+Transcript:  Moving along, I noticed on your having a deep conversation on Twitter, of all things,  with Jason Calacanis about the sexiest story of the week.  This broken originally with a blind item, I think it was in the New York Times, saying  that some people, including Dan Denton of Gawker.  I know I say his name wrong because I don't want to give many publicity.  So Freddie Mercury of the Gawker.  No, all right.  Nick Denton.  I can't, I really have a problem saying his name.  It kind of sticks in my mouth.  Or maybe it's my craw more properly.  Nick Denton, in an interview with Nick Denton in the New York Times, I think it was, said  he thought, and maybe it's true, that somebody's funding Hulk Hogan's lawsuits against Gawker.  Hogan, of course, won a $140 million lawsuit for Gawker showing his sex tape.  There's a long, stupid story there.  And of course, those of us in the media are very conflicted about this because on the  one hand, freedom of the press, blah, blah, blah.  But on the other hand, Nick Denton is Satan.  So the problem is, at least one of his minions.  So I don't know how you feel about Nick Denton.  But there's no love lost.  I'm sure he's very likable.  He's extremely likable.  I'm sure he's very likable.  I'm sure he's very likable.  I have no interest in meeting him.  But the latest is, and this comes from a deal book, that in fact, that Silicon Valley financier  is Peter Thiel.
+
+Speaker: SPEAKER_00
+Transcript:  I see Forbes broke that originally.
+
+Speaker: SPEAKER_02
+Transcript:  Forbes did break it.  And then Andrew Sorkin.  And now Andrew Sorkin is saying it.  Confirmed it.  Because he was the one who wrote the original blind item.
+
+Speaker: SPEAKER_00
+Transcript:  And I have a feeling, I don't know this, but I have a feeling that Peter Thiel confirmed
+
+Speaker: SPEAKER_02
+Transcript:  that.  Yeah, it sure seems to be the accepted story.
+
+Speaker: SPEAKER_00
+Transcript:  Because it's just the kind of thing Peter Thiel would do.
+
+Speaker: SPEAKER_02
+Transcript:  And it makes a lot of sense.  Because Thiel was outed when he was still closeted by Gawker.  I mean, that's enough to make you angry.  Thiel, of course, the financier who, if you watched the social network movie, you know  Gate was the first to give Facebook any venture funding.  Made quite a bit of money.  And that's a very, very well-known venture capitalist.  Created a thing called PayPal.  You've heard of PayPal before?
+
+Speaker: UNKNOWN
+Transcript:  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  He, Elon, you know, the gang.
+
+Speaker: SPEAKER_03
+Transcript:  So I think they call him a mafia.
+
+Speaker: SPEAKER_02
+Transcript:  The PayPal mafia.  Yeah.  So you're going back and forth with Jason Calacanis.  And Calacanis is saying, what?  This is fine.  Peter Thiel should give Hulk Hogan money to pursue his lawsuit and others.  Let's bring down Gawker.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, he wasn't exactly saying that.  But Twitter, so I can misquote him.  Yeah.  Certainly lots of people in my stream were saying that.  And so it's a popular viewpoint.  I mean, my, the point I was trying to make, and I actually got into it a bit with Keith  Rabois, I think is how you pronounce his name, who's also a PayPal mafia member.  The point I was trying to make is that if the first amendment means anything, it's supposed  to protect speech and the press, even when it's offensive.  If it only protected things that we agreed with, written by people that we like, then  it wouldn't function properly.  So if you remember Jerry Falwell and Hustler magazine, one of famous first amendment case,  even though Larry Flint is a, was a flaming trash fire of a human being and Hustler was  a horrible, horrible, worse than Gawker times a thousand.  And Jerry Falwell was also kind of a horrible human being.  And so you had, but the point was that a satire of Falwell was protected by the first amendment,  even though it was incredibly offensive and horrible in all kinds of obscene ways.  And so, you know, my point is not like, maybe Nick Denton is not the media person we would  like to hold up as a symbol of everything that journalism stands for.  But that's not when you, that's not where first amendment cases, where the rubber hits  the road.  It's where, it's where the person is unpleasant.  The thing they wrote is offensive and the person who's criticizing it kind of has a
+
+Speaker: SPEAKER_02
+Transcript:  point.  And I think that's a point of view and still root for Peter Thiel.
+
+Speaker: SPEAKER_00
+Transcript:  Can you?  Yeah, absolutely.  I don't think so.  I don't think so.
+
+Speaker: SPEAKER_03
+Transcript:  He's trying to create a chill.  I mean, it's the whole idea of a chilling effect on how people report.  Exactly.
+
+Speaker: SPEAKER_02
+Transcript:  Well, there's certain things that should be chilled.  No.  Well, no, really.  But who decides what those things are?
+
+Speaker: SPEAKER_03
+Transcript:  We have laws that...
+
+Speaker: SPEAKER_00
+Transcript:  Should Peter Thiel decide what those things are?  No, the court should, but Peter Thiel could make it very painful for Nick Denton.  Right.  So let's say if the case succeeds, Peter Thiel will have bankrupted Garland.
+
+Speaker: SPEAKER_02
+Transcript:  No, and even if the case fails, he's done what he wants to do, which is cost Denton  millions and millions of dollars.  Denton had to go out and get an investor to pay his legal costs.  So there's some pain there.
+
+Speaker: SPEAKER_00
+Transcript:  Right.  So if you, but if Peter Thiel, let's say he takes exception to something someone else  writes about Silicon Valley or one of his investments, he's got enough money to crush  them as well.  I have to...
+
+Speaker: SPEAKER_03
+Transcript:  So using the court system for a personal vendetta.  I know, I have to agree with you.  It's like Charlie Ergen.
+
+Speaker: SPEAKER_02
+Transcript:  I still root for him.
+
+Speaker: SPEAKER_00
+Transcript:  And look, we already have another example.  A billionaire sued Mother Jones.  Luckily, he lost.  But I think if a billionaire succeeds, other billionaires will be like, hey, that's a good  idea.  I should sue this guy who wrote something I don't like.
+
+Speaker: SPEAKER_02
+Transcript:  It's not against the law for him to do this, though.  Right.  That's what I was just about to say.
+
+Speaker: SPEAKER_01
+Transcript:  I mean, it's not against the law.  So you can go ahead and give money, pay for someone's court fees.  Donald Trump's promising to do that all the time with the people that get into trouble  at his rallies and stuff.  I mean, anybody can say, oh yeah, here, I'll pay for your leave monies.  And there's nothing wrong with that either.
+
+Speaker: SPEAKER_00
+Transcript:  What's disturbing is that Peter Thiel did this in secret.  So if he had just come out and said, I'm against Nick Denton and Gawker, I'm going to crush  this company, I'm going to fund anybody's lawsuit who's suing them, I would actually  feel better about that.
+
+Speaker: SPEAKER_02
+Transcript:  And as Simon Owens pointed out as a coda to your conversation with Jason Calacan, there's  plenty of examples of mainstream media companies not running a story out of fear of a litigious  billionaire.  We wouldn't want that.  And that is a chilling effect, right?  Sigh.  Can I just assassinate Nick Denton?  Would that be okay?
+
+Speaker: SPEAKER_00
+Transcript:  Pretty sure that's against the law.  Oh man.
+
+Speaker: SPEAKER_03
+Transcript:  That's a different court case.
+
+Speaker: SPEAKER_02
+Transcript:  Might be worth it.  All right.
+
+Speaker: SPEAKER_00
+Transcript:  You don't have to like him, Leo.  No one's asking you to like him.
+
+Speaker: SPEAKER_02
+Transcript:  Wait till you've been his victim twice.  And you might, the problem is I completely agree.  But it does change the tenor of the conversation a little bit.
+
+Speaker: SPEAKER_00
+Transcript:  And the problem is that the video clip of Hulk Hogan is, I said this to Keith, it is  right on the line of things that...
+
+Speaker: SPEAKER_02
+Transcript:  For instance, what if he'd done a written description of the video?  It would have accomplished the same journalistic benefit.
+
+Speaker: SPEAKER_00
+Transcript:  They did.  And then they included a nine second clip.  Well, did they have to include the nine second clip?  No.  So they probably didn't.  So, but that's, you know, that isn't a judgment.  No, I know.  They still have the right to do it.  Right.
+
+Speaker: UNKNOWN
+Transcript:  Sigh.  Sigh.  Sigh.
+
+Speaker: SPEAKER_02
+Transcript:  I know it's a stupid thing to get upset about.  It's actually a great, you know what?  It's a great thing to talk about because it really asserts the issue of free speech.  And you're right.  There's no point defending free speech if it's speech you agree with.
+
+Speaker: SPEAKER_00
+Transcript:  And I'm trying to think of who said it, a First Amendment expert said, you know, we  never get the First Amendment case that we want.  The one where it's someone we can defend 100% always Nazis or something shining light  and everyone loves them.  And the person who's fighting them is clearly evil.  You just never get that.
+
+Speaker: SPEAKER_02
+Transcript:  It's meaningless unless you're willing to represent and defend speech that you hate.
+
+Speaker: SPEAKER_04
+Transcript:  Right.
+
+Speaker: SPEAKER_02
+Transcript:  Let's take a break.  Oh, this is fun.  Stacy Higginbotham is here from stacyoniot.com.  You have a podcast with Kevin Tofel.  We love Kevin too.  At stacyoniot.com.  Still have the old gigastacy handle I see on the Twitter.
+
+Speaker: SPEAKER_03
+Transcript:  That's me.  Why change?  Why change something so good?  It's such a good name.
+
+Speaker: SPEAKER_02
+Transcript:  It's such a good name.  Aaron Newcomb here.  He's going to show us one of his latest projects.  Yeah.  But also the Venetia Maker Space.  That's right.  Inspiring and empowering all ages.  Wearing my shirt today.  Wearing his shirt.  Representing.  Always wear your shirt.  I didn't wear my shirt over the weekend.  It was a big mistake.  And Matthew Ingram is here.  He is with fortune.com.  Our show today brought to you by something Aaron's going to make himself for you.  Yes.  This is the easy way.  You don't have to be a maker to use the Ring Video Doorbell.  You don't.  I mean, I installed it and I'm no maker.  It's an easy thing to install, but it changes your experience of your doorbell.  I always say, everywhere I've ever lived, the doorbells would kind of this funky thing  hanging off the door jam and it goes, donk, donk.  You know, the chimes never really work.  So I was ready for an upgrade.  I always miss the doorbell.  And I like to know when the UPS guy comes.  Looking forward to my presence.  Then I found out about the Ring Video Doorbell.  This easily installed doorbell takes over from your old doorbell.  Wired or not, by the way, because it has a big old lithium-ion battery and it can go  a full year on one charge.  And it was, but I had wired, so it was an easy thing to do.  I unscrewed my old doorbell, happy to see it go.  So I had drips of paint on it from the last time the house was painted.  Took those two wires coming out of the door jam, attached it to this very attractive Ring  Video Doorbell using the tools they provide, including a level and the drill bit, everything  they, you don't need a drill bit probably, but they provide one.  Because there's, I didn't have to drill.  It was very simple.  I just unscrewed some things, screwed something else back on.  And there now, all of a sudden, I've got a camera where my doorbell is and a microphone  and a speaker and a motion detector.  And this thing, I could show you on my smartphone.  When the doorbell rings, I hear it no matter where I am.  I don't have to, not only in the house, but I mean, I'm at work and I can hear it ring.  I can answer it from anywhere over the internet.  It's tied to the Wi-Fi, which means if somebody comes to the door that I don't like the looks  of, I can say, hey, I'm in the bathroom.  I'll be right out with my shotgun.  That usually is sufficient.  You know that over 95% of home break-ins happen during the day.  And burglars almost always start by ringing your doorbell to see if you're home.  Then they go around back and break in.  Well, now you'll not only have crystal clear HD video of them ringing your doorbell, but  you can scare them off.  Nick Denton, I got a gun.  Get out of here.  You don't go through my garbage anymore.  Stop it.  It's so useful.  It also detects motion.  So you can see people just walking by.  You can set how sensitive the motion detection is.  I love this thing.  I am so happy I got it.  In fact, so happy that we've even given it to family members.  I mean, parents, family, friends, lots of people really love the Ring Video Doorbell.  Why don't you take a look at it?  Go to ring.com slash twig and you can get free expedited shipping.  It's well worth it.  Makes a really good gift too.  And free expedited shipping for Twig viewers when you go to ring.com slash twig.  Sure, you could build your own kludgy little thing hanging off your door jam.  Like me.  You might even want to do that.  But for those of you who don't, there's always ring.  Ring.com slash twig.  Time Magazine.  I mean, USA Today rather.  Oh, Time Magazine and USA Today.  They have one of their top 10 gadgets last year.  And Richard Branson invested $28 million in it because he saw somebody use it at his  island retreat and said, what's that?  What's a Ring Doorbell?  Oh, I'd like to buy that.  But when Richard Branson says, I'd like to buy that, he's not talking 200 bucks.  Ring.com slash twig.  All right.  Let's start.  Stacey's got something that doesn't work.
+
+Speaker: SPEAKER_03
+Transcript:  Yes, I also set up something that does work.  So you can take the pick which you want.  No, do both.  All right.  So this is my thing that doesn't work.  This is the Pebblebee.  Pebblebee Stone.  This is a tracker.  And let me pull.  I was going to pull up my app for you so you could see it.  And it's got a soft programmable button on the back.  And if I press it once, it will find my phone for me by doing an alarm, even if my phone  volume is turned off.  And if you do a long press, you can do things like have it talk to your phone like it will  take a picture.  It's supposed to work with if this then that.  But I haven't gotten that to work.  So I set it up trying to turn my Hue lights on and off with the long press.  And that didn't work.  And then I set it up with the Wemo to turn a different light off and on.  And that didn't work.  So it's $30.  I really don't want to recommend it because so far I haven't gotten the functionality  that I thought was so awesome to work.  But you know, there you have it.  But the alarm thing works.  Yeah, you want to hear it?  Yeah, sure.  Here we go.  I just pressed it.  And all the other things like I can talk, I can send a text like if I wanted to set  it up to do an emergency text from this thing, like if my phone's in my pocket and I mean,  it's Bluetooth.  So, you know, it needs to be near your phone.  But you know, I could be like, help, I'm being attacked.  I would make that the short press, not the long press.  It helped me.
+
+Speaker: SPEAKER_02
+Transcript:  So there you have it.  So that sort of works.  It does work.
+
+Speaker: SPEAKER_03
+Transcript:  It does work.  Yeah.  But you know, because I'm a person who likes to play with my house, I was like really keen  on the whole button thing.  So disappointing.  Maybe I'll figure out what's going on.
+
+Speaker: SPEAKER_02
+Transcript:  It happens a lot, doesn't it though, right?  Things kind of 90% work, 80% work.  It kind of works.  Kind of works.  So the other thing...  That's what you need us for.  Could it be if this, then that?
+
+Speaker: SPEAKER_00
+Transcript:  Could it be that integration?
+
+Speaker: SPEAKER_03
+Transcript:  So it does trigger to if and then it goes away.  And so it could be that.  But my other if this, then that integrations with you and Wemo work.  So it could see this is where things get lost in the cloud.
+
+Speaker: SPEAKER_01
+Transcript:  So you could also just take one of the Amazon Dash buttons.  One of the guys that our makerspaces hacked at so that it works.  They've actually opened it up.  Yeah.  It's $20.  Yeah, it's kind of expensive for a button.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  But it doesn't have a replaceable battery or does the new one have a replaceable battery?  It does not.  It still does.
+
+Speaker: SPEAKER_03
+Transcript:  A thousand presses.
+
+Speaker: SPEAKER_00
+Transcript:  So you can make it do anything.  They opened up the code.  Yes.
+
+Speaker: SPEAKER_02
+Transcript:  But you have the code.  By a kind of all purpose Dash.  Right.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah.  You can make one.  So that's cool.  Okay.  So the thing that...  I've talked about this before.  So this may not be new, but I'm running an app called Roger, not the evil telecom company.  It's GetRoger.  It's a walkie talkie app.  But what's cool about it is I set it up to talk to my Echo.  I don't know.  Let me...  I'm like terrible focusing.  Just glare.  So here we go.  Oops.
+
+Speaker: SPEAKER_02
+Transcript:  I screwed that up.  Cover your Echo's ears.
+
+Speaker: UNKNOWN
+Transcript:  Yes.
+
+Speaker: SPEAKER_03
+Transcript:  Alexa, turn on master bedroom.
+
+Speaker: SPEAKER_02
+Transcript:  Can we have one that says just turn on master?
+
+Speaker: SPEAKER_03
+Transcript:  Did you see that happen?  Yeah.  Neat.  So this is like, so you don't have to buy the $30 remote.  You can control it from your phone.
+
+Speaker: SPEAKER_02
+Transcript:  Is that your Wemo doing that?
+
+Speaker: SPEAKER_03
+Transcript:  That's actually a Hue.
+
+Speaker: SPEAKER_02
+Transcript:  That's Hue doing that.  Okay.
+
+Speaker: SPEAKER_03
+Transcript:  It's Hue through the Echo.  So it's talking to my actual...
+
+Speaker: SPEAKER_04
+Transcript:  Yeah.
+
+Speaker: SPEAKER_03
+Transcript:  So yeah.  And that's free.  Yay.
+
+Speaker: SPEAKER_02
+Transcript:  Neato.  Walkie talkie.  Free if you have a $200 Amazon Echo.
+
+Speaker: SPEAKER_03
+Transcript:  And the Hue lights.
+
+Speaker: SPEAKER_02
+Transcript:  And the $60 light Hue lights.  But then it's free.
+
+Speaker: SPEAKER_03
+Transcript:  It saves you the $30 extra remote.
+
+Speaker: UNKNOWN
+Transcript:  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  No, I like it.  I love...  That's another thing.  I have a lot of Hue lights that I never screwed back in when we moved.  It's like, I got a box.  I got the whole SmartThings kit, the Hue lights, the nests.  And it just got...  I thought, I don't really...  I don't...  I don't...  It's cool.
+
+Speaker: SPEAKER_01
+Transcript:  I don't really need it.  Being like it enough to reinstall everything.  I guess that's it.  I feel bad.
+
+Speaker: SPEAKER_02
+Transcript:  Nobody needs the trouble.  Nobody needs that.  Now this you need.  This is new from Logitech.  It's called their Zero Touch.  And I just...  You know, I just saw it...  Like, I don't...  Maybe I saw it...  No, this isn't it.  That's the Dash, Amazon Dash, Internet of Things version.  The Zero Touch is kind of an interesting idea.  And I'm not sure really why I like it.  But I do.  So here's the thing.  It's a little dotty kind of thing.  That there's two of them.  There's one that you can put on your dash.  And there's one that I bought that you could put in a vent.  And if you...  Carson, show me because I've got it right here.  So it's a big magnet is what it is.  I'm thinking an RF...  I don't know what's in it.  Maybe RFID or Bluetooth.  I don't know.  Then you put...  And they offer...  In the box, they offer two different kinds of metal plates.  One big round one.  And then this one.  And these are just magnetic plates, right?  And you're supposed to put them not anywhere near where your NFC...  Your charging or your NFC would be.  So I put it down at the bottom of the phone.  And it's a good powerful magnet.  Do you have to glue it on there?  No.  Because this goes right on my vent.  I push it on a vent.  You could glue it.  Okay.
+
+Speaker: SPEAKER_01
+Transcript:  You had to glue the magnet to the back, right?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, you had to glue the magnet to the back.  But you can peel it off.  Yes, sorry.  That's what I meant.  So did you notice that as soon as I attached it...  I'll do it again.  The Logitech...  You have an app on here.  The Logitech Zero Touch app woke up.  And then went away.  Now that's Android only right now.  If you have Android, you know that most newer versions of Android you could say, automatically  be unlocked when you're paired to this device.  So that's set up.  So now if I wave my hand in front...  This whole idea is you're not going to touch it.  You're going to wave your hand in front of these...  Hey, what's up?  Did you hear that said, hey Leo, what's up?  And I can now command it.  It can be tied to your Bluetooth so it can come through your speakers.  It does a lot of different things.  So the obvious, immediately obvious ones are navigation.  You could tie it to your Google Maps or Waze.  It'll launch music in Spotify or Pandora.  When text messages come in, it will say, oh, you just got a text from Lisa.  It'll read you the text to say you want to reply.  All the stuff that you would kind of do with...  There are a variety of different tools that will do this.  Apps that will do this.  Kind of would do with OK, Google.  But it does it kind of automatically just because you wave your hand in front of it  while you're driving.  And it also will send a glimpse.  So I could say, send a glimpse to Lisa, I'm running late.  And it will send the little text message with the map on it that's updated automatically  about where I am.  You can send text messages and emails too, just the same as you would on OK, Google.  Send a text to Lisa, I'm running late.  It does a lot of different stuff.  And what I like is it just kind of...  It's really a little easy $60 doohickey that attaches your phone to your dash.  But then, because of the software, I really like that.  I just feel like this is a really cool thing.  $59.99 for the AirVent version.  $79.99 for the one that glues to your dashboard.  And actually I didn't get that kind, so I don't know exactly how it works.  And so unfortunately, because iOS doesn't allow you to kind of do this kind of integration,  it has to be Android.  Hands-free calling as well, I didn't mention that.  You can launch arbitrary apps as well.  So you can say, launch the Weather app or Yahoo Weather or whatever.  So I guess it's pretty much what OK, Google will do.  But touchless.  And you don't have to shout OK, Google over the car.
+
+Speaker: SPEAKER_01
+Transcript:  I was going to ask, have you tried this as you're driving?  And how well does it recognize your voice with the car engine background and all that?
+
+Speaker: SPEAKER_02
+Transcript:  Very well.  And one of the advantages, of course, is it's kind of closer to your mouth than anything  else is because you put it on an event right in front of you.  And it's actually, the vents are a pretty easy place to put this thing.  This thing, it doesn't mar anything.  It just clips right on.  And it keeps your phone cool.
+
+Speaker: SPEAKER_00
+Transcript:  So you have to glue something to your phone though.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, not that bad.  It's a little metal sticker.  And I can pry it off.  It's not going to...  My bigger problem is I change phones so often.  I only have two of these.  I don't know where I'll get another one.  So it's not going to take long before I can't use it anymore.  What does it do to battery life?  It does have a battery in the doohickey.  And I don't know if it's replaceable.  Actually, I should have found that out.  I would guess you could pry this off.  And it's one of those little diamond lithium...
+
+Speaker: SPEAKER_01
+Transcript:  Yeah, I'm sure it's got to be a super long life.  It's not doing much.  Because it's not doing anything.
+
+Speaker: SPEAKER_03
+Transcript:  I meant the battery on your phone.  So running the app and having it pay attention.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, I haven't noticed that.  But of course, one of the nice things about doing this in the car is you could always  connect it to the charger if you wanted to.  Oh, yeah.  It's not something you don't already have.  You can always say, OK, Google and do most of that stuff.  But it's kind of so transparent and easy.  I really like this.  Android 4.4 or later, it does work with the Bluetooth system in most cars.  But you don't have to have one.  Your phone will make all the noise it needs to make.  And it's pretty cool.  Zero Touch from Logitech.  Matthew, what do you got for us?  Anything?  Heavy metal album?
+
+Speaker: SPEAKER_00
+Transcript:  I do not have a heavy metal album.  But I was thinking about a number because I know Jeff...  We ought to do a number.  Yeah.  Has a number.  So here's the number.  One hundred and forty six million three hundred and eighty thousand five hundred  ninety eight.  What's that?  Those are the views of the woman who got the Chewbacca mask.  How many?
+
+Speaker: SPEAKER_02
+Transcript:  How many?  One hundred forty six million.
+
+Speaker: SPEAKER_00
+Transcript:  One hundred and forty six point four million right now.  I assume everyone has seen it.  Yes.  I find this fascinating.  So now she's gone to Facebook.  She met Mark Zuckerberg.  She's been on Ellen.  She's been on Today's Show.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, Chewbacca was there.  She's met Chewbacca.
+
+Speaker: SPEAKER_00
+Transcript:  Well, someone in a suit.  Peter Mayhew, the original Chewbacca.  No, he mentioned her.  So he's seen the video.  I just find it fascinating that...  I mean, what was it like two days ago or something?  It wasn't.  So it's gone from kind of woman in car streaming to what she presumes are just her  friends to global Facebook phenomenon.  I just find that fascinating.  I mean, it's such a huge and the thing that I like about it.  So as someone mentioned, it's it's kind of it makes you feel a little weird because  she's kind of marketing for Disney and she's kind of marketing for Facebook Live.  But that's not why she did it.  She just did it because she enjoyed the mask.  I like the fact that she's just so goddamn happy about that.  It's the best laugh ever.  She is so overjoyed and it is so infectious.  It's and so I don't mind that she's kind of been turned into this media star.  Now she's everywhere and Facebook is using it to market live and Disney's using it to  market whatever.  I'm sure I will get sick of it because it's going to become annoying.  But I'm not.  But her and the video was just so genuine.  I found it fascinating.  And obviously, that's what people are reacting to, I think.  Don't play it.
+
+Speaker: SPEAKER_01
+Transcript:  I'm not going to play.  I was tempted.  I'm sitting here looking at it hovering over.  Have you not seen it?  I haven't seen it.  Oh, wow.  It's hilarious.
+
+Speaker: SPEAKER_02
+Transcript:  Make that one hundred forty six million and one.  She makes you laugh like she's got a great laugh.  It's a beautiful, rich laugh.  And it's authentic, which really is what makes it.  And Cole's the department store that sold it that she cleverly mentioned has given her  some money and a bunch of masks for her kids.  And of course, Hasbro is very happy because they sold the mask out.  You can buy them now on eBay for only four times the face value.  Right. Right.
+
+Speaker: SPEAKER_00
+Transcript:  So, of course, it's going to get completely overdone and it's going to get perverted in  some way.  And then people are going to try and recreate it with all these dumb kind of knockoffs.  But I've I found it fascinating just how because obviously something about her resonates with people.
+
+Speaker: SPEAKER_02
+Transcript:  In about 10 years, you'll be able to write that piece, that think piece, whatever happened  to the Chewbacca mom and how she went through some real depression afterwards.  And she's back on her feet again.
+
+Speaker: SPEAKER_00
+Transcript:  Marriage broke up. She's got a new movie.
+
+Speaker: SPEAKER_02
+Transcript:  I'm not going to.  It's the lifestyle piece.  Hey, I forgot we usually do do numbers with Jeff and I did have some numbers I wanted to do.  First of all, Patrick Delahanty has told me he's our programmer on house programmer that he  checked with the API and there are now five hundred thirty five days, right?  Days, right?  Worth of content. If you started listening to every podcast we've made since day one, you  would be listening for nearly two years, five hundred thirty five days nonstop.  And this, which I was very happy to see from Pod Track, which does our audience metrics,  that we are the number six podcast in the country with one million unique listeners  every month and a total six point five million downloads every month.  Of course, NPR is number one, this American Life and Serial number two, WNYC studios,  number three, How Stuff Works, number four, CBS, number five, we're number six.  And good on the moth and Roman Mars because they've got great numbers and one podcast.  So one million uniques for one podcast.  That's a lot better.
+
+Speaker: SPEAKER_00
+Transcript:  Hey, Leo, aren't you part of this new PRX thing?  What's that public?
+
+Speaker: SPEAKER_02
+Transcript:  I don't know what it is. Radio public.
+
+Speaker: SPEAKER_00
+Transcript:  Have you heard of that?
+
+Speaker: SPEAKER_02
+Transcript:  I'm pretty sure we might well be around because I wrote I wrote about it.
+
+Speaker: SPEAKER_00
+Transcript:  So it's a spinoff from PRX, which is the distributor for this American  Life and a bunch of other public radio programs.  It's a it's a nonprofit, basically distribution entity.  So it has spun off a new thing called Radio Public.  And they're going they're trying to create a kind of radio  app or service that will let you listen to anything, not just  not just public radio, but any form of audio.  So podcasts, it's an app.  It yeah.  Hmm. App slash service.
+
+Speaker: SPEAKER_02
+Transcript:  We may well be.  I mean, our license allows anybody who wants to do that, do that as long as they don't,  you know, take out our hands or try to cash in.  It's online at radio public dot com.  We make listening to podcasts better by listening to the people who make them.  Hmm. Yeah, I'm trying to public benefit corporation.
+
+Speaker: SPEAKER_00
+Transcript:  I could have sworn they mentioned you.
+
+Speaker: SPEAKER_02
+Transcript:  It just seems like more of a power grab from the NPR mafia, but
+
+Speaker: SPEAKER_01
+Transcript:  hopefully not.  Seriously, it's like they act like they invented podcasting.  Oh, yeah, I agree.  I totally agree on that.  But you know, the models, the public radio model is basically broken, I think.  Yeah, I agree.  And so maybe this is a way to to get back to something that actually is in the public benefit.  This radio. I'm going to look into this.  This is interesting.  I shall as well.
+
+Speaker: SPEAKER_00
+Transcript:  And one interesting thing is that they I think it's interesting that they they decided to create a separate company.  So Radio Public is a separate entity.  It's actually for profit, but it's it's a public benefit corporation.  So they've incorporated as whatever the schedule is to be a public benefit corporation.  And they're funded.  So they got funding from Clatchy, I think the Knight Foundation, Graham Holdings, Matter Ventures.  I just think it's an interesting.
+
+Speaker: SPEAKER_02
+Transcript:  No, very interested.  I don't really know at all what it means.  Is it just another podcast app and directory?  I mean, iTunes has was used to be dominant, which was both good and bad for podcasting.  They haven't been in a long time.  You know, only about 60, 50 to 60 percent of our downloads go through iTunes now, and it's going down every month.  But I would welcome another directory.  I don't know if that's going to change the world.
+
+Speaker: SPEAKER_01
+Transcript:  What I hope it is.  What I hope they're doing is I hope that they're bringing some of the locally produced  to that would be great to a more national audience.  Exactly. I had never heard a forum until we moved out here to San Francisco.  It's a great show. It's a great show.  It's on here at KQED every morning.  And now I love to listen to it.  But when I was back east, I had no idea that it was even there.
+
+Speaker: SPEAKER_02
+Transcript:  Maybe that's the idea is to.  And I'd be all for that.
+
+Speaker: SPEAKER_01
+Transcript:  Great stuff out there that, you know, if they could make it easily, you find it easy on here  and make a good, you know, a good way for people to to find new things that, hey, here's this podcast or public radio show out of Texas somewhere.  And it's really interesting.  And now I have an easy way to listen to it as well.  I think that would be really cool because it's hard to find stuff that's not already in your podcasting app or whatever.  It's just hard to find that stuff.
+
+Speaker: SPEAKER_00
+Transcript:  And I think that is what they're going to try and do.  At least my understanding of what they wanted to do was to make it easier to find those things.  To make to have recommendation engines, for example, or to just sort of sort through the massive amounts of audio type content out there and find things that you might like listening to.
+
+Speaker: SPEAKER_02
+Transcript:  I shall keep my eye peeled.  I'll be interested to see what they're doing.  And now, ladies and gentlemen, it's time to make.  That's right. Time for a project.  Aaron Newcomb has he always comes in with great projects.  I don't know how you have time to do this.
+
+Speaker: SPEAKER_01
+Transcript:  I don't either.  Do you do it in the middle of the night?  Yeah, late nights and taking breaks from other things.  And I mean, it's hard to do.  Very hard to do. It's very time consuming.  My wife will tell you.  Yeah. So what I brought today is we talk a lot about Raspberry Pi, talk a lot about Arduino.  But there's a third platform that's that over the past couple of years has really started to gain ground with makers.  And that is the ESP8266.  It doesn't have a catchy name, which is part of the problem with the platform.  In my opinion, but it makes you sound like a real geek.  And you have the ESP8266.  Oh, yeah, that's a that's a great Wi-Fi module.  Got a great sock. I love the sock on that.  But it is the ESP8266, what sets us apart from an Arduino, for example, it is a microcontroller like an Arduino,  but it has built in Wi-Fi.  So there's a lot that you can do.  And it's cheap. It's five bucks.  Very cheap, very cheap.  So you can get it on eBay.  I put a link in the rundown.  You can get it for three ninety nine on eBay from China right now.  And that's for the developer board, not even the chip itself.  So the chip you can buy for about two dollars and fifty cents.  But if you want the developer board, which breaks out all the connections, the GPIO and all that is right now, it's three ninety nine on eBay.  So let me show you what it looks like.  And I'll give you a comparison to.  So here it is right here.  This is the this is the developer board.  And you'll notice the this right here.  I got to go the other way. This right here, this this silver thing.  And this is the Wi-Fi antenna.  This is the actual module.  All the rest of this is actually the dev board, which gives you the ability, for example, to plug into your computer and program it and things like.
+
+Speaker: SPEAKER_02
+Transcript:  So it comes with a USB interface, but the rest is like the dev board.  Yeah, you get the USB interface.
+
+Speaker: SPEAKER_01
+Transcript:  You can plug it in, like I said.  And it also comes with a three volt power regulator because it's a three volt board.  And sometimes you're using five volt things like that.  So it's worth it to get the dev board if you just want to play around with it.  But just in size comparison here, I can hold this up.  This is a Raspberry Pi, much bigger.  Yeah, Raspberry Pi version two.  I just happen to have that half the size of that.  And this is about half the size in the actual module that runs this thing is about the size of the Broadcom chip.  It's less than one inch by one inch in diameter.  So you say, OK, that's cool.  It's small, it's cheap. What can you do with it?  There's all kinds of things.  Once you add the ability to to be able to talk over Wi-Fi, there's all kinds of things you can do with it.  Also, it's low power, so you can run it off of just about any power source.  It'll run for days.  Somebody ran this thing for 17 days on one of those coin cell batteries.  And you can do things like this.  What I did was a quick and dirty little project where since this thing has Wi-Fi and it it,  I've programmed it to automatically connect to various hotspots around.  One of them happens to be here in the brick house.  And all it's doing is it's telling me what the signal strength of the Wi-Fi is.  So what I can do is I could if I wanted to, I could walk around the studio right now and tell you where the signal is coming in,  the clearest and where it has problems.  And it'll also automatically switch to the strongest signal.  Or if I if I get below a certain DB level on this, it'll it'll tell me and it'll it'll switch to the next best Wi-Fi access point that it can it can find.  So it's it's really easy.  Another really good thing about this is the people that develop code for it have made it compatible with Arduino.  So with the Arduino ID.  What do you program it with?  With the Arduino ID.  It's a C. Can you see?  Is it C? C++.  C++ and the Arduino ID.  But what that also gives you is the access to all the not all but most of the Arduino libraries.  So, for example, on this, what I use to program my little OLED display here is the Adafruit graphics library.  Because that was already already existed for Arduino.  And I was able to use that to do all the graphics on this nice little display here.  So you get a lot of compatibility by using the Arduino ID.  And it's really easy to code that way.  And you just upload your upload your code to the board and away you go.  So I would highly recommend it.  There's a lot of cool things.  What started me down this path was I wanted to make a light sensor to put out in the garden to figure out how much light I get in various areas of the garden to know what kind of plants to put there and how much to water them.  And all that kind of stuff.  I was like, boy, it'd be really nice if I just had a little thing that had built in Wi-Fi and I could just set it here and it would automatically upload the data to my server somewhere and tell me, you know, I could go at the end of the day, go look at it.  And so I bought these to use for that.  Now I'm thinking of all kinds of other uses.  Right. So, for example, I think it would be fun if I had one of these and I was wearing it and then I gave everyone else one and it showed me the signal strength relative to the one that I had set up as an access point that I was wearing.  You could kind of like do a game where you had to find me and you could use that to see if you were getting hotter or colder, if you were getting close to where I was hiding.  Oh, that would be fun.  I think it would be really fun.  There's all kinds of other things you can do with it because it's Wi-Fi enabled.  And so if anyone out there has thought about using an Arduino, but they were longing for a platform that they could use, connect to their Wi-Fi on really easily, I would definitely recommend picking this up and checking it out.  There's a lot of good information that I've put in that should be in the show notes for this show.  So you can find out how to use it, how to get your Arduino ID set up to run it.  And there's a lot of great tutorials out there online.  If you just do a Google search, you'll find all sorts of stuff.  And I love this.
+
+Speaker: SPEAKER_02
+Transcript:  It supports the Hayes Modem AT command set.
+
+Speaker: SPEAKER_01
+Transcript:  Yes, natively, natively.  This is great.
+
+Speaker: SPEAKER_02
+Transcript:  ATDT, baby.
+
+Speaker: SPEAKER_01
+Transcript:  When you when you first get this thing, that's the default firmware that it has on that.  It lets you connect with the serial port and send AT commands to it.  So you can send AT commands to find out, for example, what local access points this thing can see.
+
+Speaker: SPEAKER_02
+Transcript:  So even though you're using AT commands, you're talking to Wi-Fi.
+
+Speaker: SPEAKER_01
+Transcript:  You can still talk to Wi-Fi with those AT commands.  Absolutely.
+
+Speaker: SPEAKER_02
+Transcript:  I think that's kind of cool.  Talking about a copyrighted API.  It was, by the way, the AT command set.  Oh, it was copyrighted?  Oh, wow.  Apparently, they weren't able to keep a lid on it.  They should have talked to Larry Ellison.
+
+Speaker: SPEAKER_01
+Transcript:  I guess not.  Yeah.  But it's a lot of fun.  If you're looking for something to tinker with.
+
+Speaker: SPEAKER_02
+Transcript:  I expect a flood of these kind of microcontrollers in all sorts of specialty areas.  This is going to be a flood.
+
+Speaker: SPEAKER_01
+Transcript:  This really enables the Internet of Things.  Because again, if I was to break off this module off of the development board, it's super tiny.  Yeah.  It's about as big as my thumb.  It's almost smaller than my thumb.
+
+Speaker: SPEAKER_02
+Transcript:  There's a picture without the dev board.  There you go.  I mean, it is a chip.
+
+Speaker: SPEAKER_01
+Transcript:  Look at that in comparison to the battery.  I mean, it's super small.  And so you can put that anywhere.  You can put it in a light switch, behind a light switch.  You could put it underneath a table at Starbucks.
+
+Speaker: SPEAKER_02
+Transcript:  So does it have non-volatile memory you can store the program in?
+
+Speaker: SPEAKER_01
+Transcript:  The program will stay resident in the ROM.  So you don't have to worry.  Once you've uploaded it, it'll stay there.  And just like in Arduino, you can unplug it, plug it in.  A little bit more difficult to do that with the Raspberry Pi because it doesn't write as fast.  But this, yeah, you can plug it in, unplug it, stick it somewhere.
+
+Speaker: SPEAKER_02
+Transcript:  So you get the dev board program it.  But then how do you program the little one?
+
+Speaker: SPEAKER_01
+Transcript:  So the little one, you'd have to do kind of what they're doing there.  You would have to hook up an FTDI programmer, some sort of programmer that hooked up to it.  That's why I say it's good.  If you get the development board, then you can play with that.  At the very least, start there.  Start with the development board because it's easy to hook up to the computer.  It shows up as a COM port.  You don't have to worry about buying an extra programmer to get your program to run on it.  But even if you do, it's really not that hard.  Nice.  It's cool.  That's a lot.  I've been having a lot of fun with it.  Between the graphics library, the OLED screen, and the Wi-Fi built into it,  I've been having a lot of fun with it over the past couple of weeks.
+
+Speaker: SPEAKER_02
+Transcript:  And we were talking before on the screensavers, and I know you and Stacey before the show,  we're talking about the OpenHAB software that would let you kind of create  an open IoT environment where other things could talk to it.  And they could.  I mean, I think this is going to be great.
+
+Speaker: SPEAKER_01
+Transcript:  And this totally could be one of those devices.  You could absolutely integrate this with OpenHAB.  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  Well, it's been kind of an IoT show.  Thank you, Aaron Newcomb.
+
+Speaker: SPEAKER_00
+Transcript:  Actually, Leo, I just wanted to say I got two things I wrote confused.  So it wasn't the PRX radio thing that you were involved with.  It was the BitTorrent Live.
+
+Speaker: SPEAKER_02
+Transcript:  Yes, we are in the launch product for Apple TV of BitTorrent Live.  We've been playing with that and talking to them for ages.  I used BitTorrent in the earliest days of the podcast because we didn't have any bandwidth.  We couldn't afford bandwidth.  So I had actually asked our audience, would you mind seating the show?  Did you?  Thank you.
+
+Speaker: SPEAKER_01
+Transcript:  Episode six or something.  I was like, yeah, I'll do that.  It was a free way to distribution.
+
+Speaker: SPEAKER_02
+Transcript:  So I've been using BitTorrent forever.  And BitTorrent Live, we used for a little while.  And now they have an app on the Apple TV and we're on it, which is pretty awesome.  Interesting.  One of the 10 or 11 networks that they launched with.  So that means another way to watch us on the Apple TV.  Stacey, what do you want to plug?  Stacey on iot.com, right?
+
+Speaker: SPEAKER_03
+Transcript:  Sure.  Anything else?  That's my newsletter.  iotpodcast.com is the podcast.  Got it.
+
+Speaker: SPEAKER_02
+Transcript:  And Giga Stacey on the Twitter.  Thank you for putting off your dinner a little bit.  We appreciate it.
+
+Speaker: SPEAKER_03
+Transcript:  Yeah, I'm waiting for it.  How long is that going to take to arrive?  The blue apron?
+
+Speaker: SPEAKER_02
+Transcript:  It's on its way.  Yeah, the box is on its way.  It should be there any minute now.  Excellent.  We're using Amazon drones.  The latest drone technology.
+
+Speaker: SPEAKER_00
+Transcript:  I'll drive to Buffalo and pick mine up at the border.
+
+Speaker: SPEAKER_02
+Transcript:  That's what you'll have to do.  Get a mail drop in Buffalo.  That's what you need.  So great to have you, Stacey.  Welcome to the show.  We're thrilled to have you.  Any time.  It's just great.  Will we see you next week?  Are you going to be around next week?  I think so, yeah.  I'll introduce you to the excitement that is Jeff Jarvis.
+
+Speaker: SPEAKER_03
+Transcript:  I know the excitement that is Jeff Jarvis.
+
+Speaker: SPEAKER_02
+Transcript:  Maybe we can get Dan Denton on.  I mean, Nick Denton.  That'd be kind of fun.  Erin, thank you for being here.  Where can people find more about your projects?  The Benicia Makerspace must have a website.  We do.
+
+Speaker: SPEAKER_01
+Transcript:  benishamakerspace.org for sure.  If you're in the Bay Area, come check us out.  We have people coming up from San Francisco  to take our welding classes.  They're coming down from Petaluma  to do some of our programming classes  and Arduino Raspberry Pi nights.  So definitely check us out if you're in the Bay Area.  If not, I'm at Erin Newcomb and plus Erin Newcomb Online.  You can follow me there.  And I'm on the Twitch shows all over the place, right?  So you can just tune into Floss Weekly,  tune into This Week in Google, All About Android.  So any of the shows.  Yeah, I pop up all over the place.
+
+Speaker: SPEAKER_02
+Transcript:  Thank you, sir.  Matthew Igram, love having you on fortune.com.  At Matthew I, one T, M-A-T-H-E-W-I on Twitter.  Anything you want to promote or plug or plug?  Got to give everybody a chance.
+
+Speaker: SPEAKER_00
+Transcript:  Just everything I write.  Everything I write.  Read it all right to the end.
+
+Speaker: SPEAKER_02
+Transcript:  Every word he takes.  Share it with your friends.  Click on the ads.  Please click on the ads.  God knows.
+
+Speaker: SPEAKER_04
+Transcript:  Don't use ad blockers, kids.  Please don't run an ad blocker.
+
+Speaker: SPEAKER_02
+Transcript:  I only use it for the show.  I'm honest.  At home I don't use it.  Thank you all for joining us.  We do This Week in Google every Wednesday,  1.30 Pacific, 4.30 Eastern, 20.30 UTC.  Watch us live, will ya?  Or come and visit us in the studio.  It's always nice to have a live studio audience.  You can email tickets at twit.tv.  We'll put a chair out for you.  Don't forget those World Tour Ts are available,  but only for a couple more weeks.  At teespring.com slash twit,  T-D-E-S-P-R-I-N-G dot com slash twit.  $20, it goes to a good cause.  The people who sew the T-shirt.  Teespring.com slash twit for a limited time only.  Thanks for being here.  We'll see you next time on Twig.
+
