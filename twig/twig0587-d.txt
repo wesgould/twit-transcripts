@@ -1,0 +1,1515 @@
+;FFMETADATA1
+title=Counsel of Open Source Poobahs
+artist=TWiT
+album_artist=TWiT
+album=This Week in Google
+track=587
+genre=Podcast
+comment=https://twit.tv/twig
+copyright=These podcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2020
+encoder=Lavf58.76.100
+Failed to align segment (""): no characters in this segment found in model dictionary, resorting to original...
+Failed to align segment (" Did you dance?"): backtrack failed, resorting to original...
+Failed to align segment (" 2015."): no characters in this segment found in model dictionary, resorting to original...
+Failed to align segment (" 2015."): no characters in this segment found in model dictionary, resorting to original...
+Failed to align segment (" This is very interesting."): backtrack failed, resorting to original...
+Failed to align segment (""): no characters in this segment found in model dictionary, resorting to original...
+Speaker: SPEAKER_02
+Transcript:  Coming up on This Week in Google, Leo Laporte is out. I'm in, Jason Howell also joining me,  Jeff Jarvis, Stacey Higginbotham and Ant Pruitt. We've got a lot to talk about today.  RCS getting end-to-end encryption, social media companies and the fact that they're all kind of  blurring together at this point. TikTok and the fan generated Ratatouille musical. So awesome.  Also Google's project guideline that actually enables the blind to run in marathons and so  much more next on This Week in Google. This Week in Google is brought to you from LastPass  Studios. Securing every access point in your company doesn't have to be a challenge. LastPass  unifies access and authentication to make securing your employees simple and secure,  even when they're working remotely. Check out lastpass.com slash twit to learn more.
+
+Speaker: SPEAKER_03
+Transcript:  This is twig. This Week in Google episode 587 recorded on Wednesday, November 25th, 2020. Council
+
+Speaker: SPEAKER_02
+Transcript:  of open source pubas. This Week in Google is brought to you by Linode. Simplify your cloud  infrastructure with Linode's Linux virtual machines and devices. This week in Google,  we're bringing you the latest in the business world of the cloud. We're bringing you the latest in  the business world of the cloud. This week in Google is brought to you by Linode. Simplify your  cloud infrastructure with Linode's Linux virtual machines and develop, deploy, and scale your  modern applications faster and easier. Get $100 in free credit when you create your account today  at Linode.com slash twig or text twit to 474747 for direct link to the offer.  And by Technology Powers X. Learn how technology and IT departments are reshaping their businesses  through an original podcast from Dell Technologies. Search for Technology Powers X anywhere you  listen to podcasts and download each episode today. And by Bandwidth. Easily add voice calling,  text messaging, and emergency calling to your platform. Backed by the power of a fully owned  and operated tier one carrier network. Start a free trial at bandwidth.com slash twig. It's time  for this week in Google. I'm Jason Howell sitting in for Leo who finally got some time away from  twit. I think Leo's been working solid ever since lockdown. And actually that would make sense  because I think the last time I was here for Leo, I think was last was just in January. So I'm not  sure Leo's been gone anytime since. So happy that Leo finally got a chance to get away and take a  little break and I'm happy to sit in for him. Joining me today as usual, as always on this show,  Jeff Jarvis, Buzzmachine.com. How you doing, Jeff? I'm good. I'm good. Good to see you, Jason. It has  been too long. It has been. Yes, indeed. Yeah, it's great to see you. We like Leo here, but we also  like you here. Thank you. I always look forward to hopping on this week in Google with you guys. So  I appreciate that. Thank you. It's good to see you also joining us from his home studio and Pruitt.  How you doing, Ann? Unbelievable, Mr. Howell. How are you, B, sir? Good. I'm realizing how  like symmetrical your, the color coloring of your shot is like the nice blue that like, it's almost  like it interplays with your lower third seamlessly. I may have thought this through.  You're good. Me, I just like looked in my bedroom when all this stuff happened and went,  well, I guess that's the corner. Let's see what we could do and hung up a couple of pictures.  I like what you've done just a little bit better than what I've done.  I got good stuff. And also joining us, Stacey Higginbotham, Stacey on iot.com. What's up, Stacey?
+
+Speaker: SPEAKER_09
+Transcript:  Hello everyone. And hello, Jason. So good to have you. Well, I feel like you've been in since.
+
+Speaker: SPEAKER_02
+Transcript:  It's yeah. Since then, I mean, well, this has just been a weird year, right? So it's kind of,  it's like, at least for me, I've lost track of time. Like Jason, it's been a weird decade.  Since March, it's been a weird decade. Yep. This year feels like a decade. You're right.  Unbelievable. So yeah, it's great to be here and great to see all three of you. Stacey,
+
+Speaker: SPEAKER_11
+Transcript:  did you get brain freeze from snarping down that ice cream sandwich too fast?
+
+Speaker: SPEAKER_09
+Transcript:  I did not because it was modestly sized and perfect. And I'm coming. This is going to be  unusual. You guys, I have a story that I think we should start off with today. I love it. I love it
+
+Speaker: SPEAKER_02
+Transcript:  when you all arrive and you're like, this is what we need to talk about. I have a favorite story
+
+Speaker: SPEAKER_11
+Transcript:  after that too. Wait, wait a minute. Why are we making this so easy for Mr. Howe? No, please.  Come on, man. We can't mess with Jason. Can we do a guess as to what Stacey's favorite story is?
+
+Speaker: SPEAKER_02
+Transcript:  Echo Buds? Is it? Nope. Okay.
+
+Speaker: SPEAKER_11
+Transcript:  What is stadium? Jeff, you want to go for it? Well, let's do some questions. Is it a Google  related story? Not only tangentially. Oh, that's harder than animal. Maybe it's the
+
+Speaker: SPEAKER_09
+Transcript:  Chromium project opening up. It's open source. Y'all know it's AWS is down and like half the
+
+Speaker: SPEAKER_08
+Transcript:  internet is broken. Oh, yeah. But it's a certain node, right? I think Mr.
+
+Speaker: SPEAKER_09
+Transcript:  Jamerby was talking about that this morning. Yeah. It's US East. It's the one that always  goes down. It's their Virginia data center, but it's affecting services. Like I went to watch a  workout video on my halo. Nope. I went to check my ring doorbell. Nope. What would I go to, to see  if it's up down here? Well, you could ask Madam A to do something. And my Madam A is working.  But if you go to status.aws.amazon.com, you will see what's happening. But  just whenever this happens, and it's often in this particular region, US East one region,  I just picture a data center in Virginia just on fire and just like,
+
+Speaker: SPEAKER_08
+Transcript:  since admins running in and out, I was like, I wonder if this is in Reston. Is that rest in
+
+Speaker: SPEAKER_09
+Transcript:  Virginia? It is. It is rested. Okay. Is that old AOL space? I don't remember where it is.  Their oldest facility here. And it is the most common cause of problems. And I mean, this isn't,  this is just something that happens. But whenever AWS goes down, you know, Netflix, Roku,  right. A good 50% of my IOT devices, they all are just like, giving it up. And this,  this particular outage has been going on since this morning. So, yep. With that said, is it safe
+
+Speaker: SPEAKER_08
+Transcript:  to say that Amazon would have logs to see that this is a pretty common occurrence for this  particular node? And why haven't they done anything about it? That would be a clue to them
+
+Speaker: SPEAKER_09
+Transcript:  to do something, maybe perhaps. You know, I did read at some point in time, a while back,  a wonderful story on why, why this particular node just why they still I mean, they can't rip  everything out and replace it, right. And they know it's a weak point, because this is where  things break a lot. And, you know, Google, Google has these issues too. Last week, we were talking  about Nesco and down, but I thought, you know, when it comes to cloud service providers, AWS is  the king. Google's no AWS. No. But it's, it's struggling today. And it's always worth noting  that, you know, when these things happen, things break, and it is a weak point in our infrastructure.
+
+Speaker: SPEAKER_11
+Transcript:  But it is amazing, isn't it? How rarely we have that story now. You think about it, right?  We used to come on and say, Oh, my God, Google's down or the fail whales off Twitter. Yeah.  It was always. Yeah. Yep. Yep. And the reliability, as I think, is my just my impression has increased
+
+Speaker: SPEAKER_09
+Transcript:  market. It is. Yes, it is. I mean, but when you think about it, five nines, which is kind of what  the telco standard is, that does still mean I think, is it seven downtime? Someone else can do  the math here, but seven days of downtime? That's four nights. I mean, there's still going to be  downtime, and there's still people running this. And I don't know, I just, whenever these happen,  I'm always, you know, the real risk is a business is just don't host everything  on that particular region so you can fail over to other places. But so when I ran my first sites
+
+Speaker: SPEAKER_11
+Transcript:  for advance, there were newspaper sites. We were so stupid. We were in an old newspaper building.  We put the servers in the old dentist's office. And we had no cola. We didn't know what cola was.  Yeah. And so the entire country services for all the newspapers would go down because somebody
+
+Speaker: SPEAKER_09
+Transcript:  hit the light switch in the dentist's office. Nice. Who plugged in the vacuum again? You can't do it
+
+Speaker: SPEAKER_11
+Transcript:  on that circuit. My favorite, I don't know if I told this story before, but the server room,  which again was the x-ray room for the dentist, it had moved out, would overheat. And I hired a CTO  at one point. I hired him, my fault. And he wanted to turn off the heads, the screens for the servers.  Instead, he turned off the servers. Oh no. It was cooler. Bad move. That is one way to solve it.
+
+Speaker: SPEAKER_08
+Transcript:  I mean, he didn't even go get a box span at least.
+
+Speaker: SPEAKER_11
+Transcript:  Exactly. So the early days of the net, but you kind of think there actually was kind of a  of a stage coach early day to the net. Oh yeah. And I mean, I still remember
+
+Speaker: SPEAKER_09
+Transcript:  going in and meeting with these venture-backed startups and they would proudly show me their  server closet with their sun gear that had the beautiful different colored lights. And it was,  they were like encased in clear glass. Do you remember these setups? Yeah. I mean, it was  fantastic. And now I will say when I go into a data center with nice cabling,  oh, it warms my heart. It's so beautiful. I completely agree. It's very respectable to
+
+Speaker: SPEAKER_02
+Transcript:  see a data center that's been planned and plotted accordingly, like properly, like,  you know, with everything in its right place, all the colors, all neatly stacked. It's kind of like  a work of art. There's, I swear I've seen a site somewhere that like, there is, there is, there are
+
+Speaker: SPEAKER_09
+Transcript:  awards for cabling. There are cable, there are network cabling awards and you can, they submit  pictures and it's, it is a thing of beauty. I would buy the calendar if they make a,  it's a hell, but it's so important. I was actually just swapping out my routers and I was like,  why the hell haven't I taken a label maker and labeled like, this is the ethernet, you know,  because I've got all these hubs connected to my switch. I'm like, which one goes to the era,  which one goes to the, or not the era, the, well, actually yes, the era, the Lutron, the hue. It's  just, and I'm sitting there tugging on things and things are falling. It's terrible. Yes. So,
+
+Speaker: SPEAKER_02
+Transcript:  John just squawked in my ear and said, cable porn on a Reddit. So if you go to reddit.com  r slash cable porn, you'll find a sub Reddit dedicated to amazing cabling. I love it.
+
+Speaker: SPEAKER_11
+Transcript:  I was watching this old house for the first time. I used to love this one. I saw one and they had a  geothermal system and it was cable porn with water. It was phenomenal. All the lines up and out  and behind that was not wires was all water. It was kind of a lovely too. Wow. Oh, I like that
+
+Speaker: SPEAKER_09
+Transcript:  chicken head 21 in the chat says we need rape my server room. Yes. That is geeky.
+
+Speaker: SPEAKER_08
+Transcript:  Okay. I just want to stay out of my studio, please dismiss. You wouldn't want to see on the other  side of this camera. Trust me. Ooh, it's pretty camera wrap. Let's see. Let's, let's have a look.
+
+Speaker: SPEAKER_02
+Transcript:  I'm right there with you. And like my, I am like the, whatever the opposite of cable porn is,  I am the opposite of that. I'm so bad. Like do not look behind our TV downstairs.  There's tons of cables. There is no rhyme or reason. It's just like, Oh, that needs to go there.
+
+Speaker: SPEAKER_08
+Transcript:  Plug. You know, you can tell from my desk that the rest of the place is going to be a mess.  Cause my desk is that all kinds of things here, right at arms reach. Like what is this? I don't  even know why I have this Velcro sitting right next to the keyboard. It's been there for months.
+
+Speaker: SPEAKER_09
+Transcript:  That would be good for cabling. That could be excellent.
+
+Speaker: SPEAKER_08
+Transcript:  But why is it like my, beside my keyboard and mouse, it's, and I haven't moved and it's been
+
+Speaker: SPEAKER_02
+Transcript:  there forever with dust on it. You want to, you want to be in a position to be able to make a snap  decision or judgment on when to use that. And that's why you keep it close because you don't  know when that, that inspiration is going to strike. It's even going to be useful for, but at
+
+Speaker: SPEAKER_09
+Transcript:  least it's there. Let us know. Let us know when that moment comes. I would like to revisit the
+
+Speaker: SPEAKER_02
+Transcript:  Velcro strap later. That's why I have this Perler beads heart next to me sitting on the desk,  either that or I have two kids and they, they drop things like this for me all the time.  Yeah. So, okay. So if this, if this one data center is known to go down all the time or  more so than others, like as a, you know, I'm looking at the list of different companies that  are affected as Autodesk or anchor or pocket or whatever. Can they choose to like not  participate in that data center? And I mean, I imagine they can, right?
+
+Speaker: SPEAKER_09
+Transcript:  They do have, so I don't remember how many regions Amazon has in the U S we have multi,  we have more than one. So you will, but I think it's the most prominent one on the East coast.  This is, this gets into, so, so you usually will use this. It's like the default setting basically  for AWS in the U S of your U S company. So you have to, a, not use the default and then you  fail over to others. So what happens is like a couple of years back, Christmas Eve Netflix  went down. It was the same data center. Netflix was like, Oh, we're going to architect a little  bit differently so we can fail over. But really what happens is they know this is a problem.  You try not to be utterly reliant on it, but you know, when you're, you're building a startup and  you've got some engineer who's like, Oh yeah, we'll use AWS. And then you start building and  you keep building. And then one day it goes down and you're like, no, everyone has to learn the
+
+Speaker: SPEAKER_11
+Transcript:  hard way. So Stacy, um, do it's been so long since I've had to do this for a living. Um,  if, if I have an office in Jersey city and I'm using the AWS in, uh, Virginia, am I doing  dedicated lines anymore and paying for those? Or is that, is that so old fashioned?
+
+Speaker: SPEAKER_09
+Transcript:  That's really old fashioned. I mean, it, there are eight AWS has like cloud front,  which is their CDN service. So you might be using something like that to host things. Um,  but it's not like there's a, there's a T one or an OC 48 sitting in an office outside your house.
+
+Speaker: SPEAKER_11
+Transcript:  That's what I used to have. Yeah.  Yeah.  T ones. Wow.  I was buying T ones back in the day, man.
+
+Speaker: SPEAKER_08
+Transcript:  And those were fast.
+
+Speaker: SPEAKER_09
+Transcript:  They're like one meg. I mean, were they 10 megabits per second?
+
+Speaker: SPEAKER_08
+Transcript:  I was thinking more like three.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah. I mean, they were, they were not a lie.  1.5 megabits per second.
+
+Speaker: SPEAKER_11
+Transcript:  And dedicated.  And it cost a fortune.  Yes.
+
+Speaker: SPEAKER_02
+Transcript:  Wow.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah. All right. So I, I know that was
+
+Speaker: SPEAKER_11
+Transcript:  we have Stacy and old folks, uh, reminiscing mode now.  It feels good to remember.
+
+Speaker: SPEAKER_02
+Transcript:  All right. Well, maybe by the end of the show, this data center will be back up and we can give  you the full arc of the story, at least, at least give you some closure. But for now,  like I went to pocket, that's not working right now.  I still saw it working.
+
+Speaker: SPEAKER_11
+Transcript:  This is active right now. So  Netflix is working.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah. Well, your Netflix should be working because Netflix learned the hard way several  years ago and fails over.  And that's that whole chaos monkey theory, right?  They're just like, plan for the cast monkeys.  And actually, ironically, Adrian Cockroft, guy who kind of came up with that idea,  is at AWS right now.  I bet his phone is.  His phone's probably not buzzing right now, but you know,  his non-existent pager.  What do you even do? His Slack channel?  Chime. No, it's Chime.
+
+Speaker: SPEAKER_02
+Transcript:  Okay. His Discord.
+
+Speaker: SPEAKER_09
+Transcript:  No, there we go.  So now we can talk about Google, but I figured the Internet is fair game.
+
+Speaker: SPEAKER_02
+Transcript:  Well, yeah. So, okay. So we got Stacey's pick out of the way right off the top.  Jeff, you had a you had a pick.
+
+Speaker: SPEAKER_11
+Transcript:  Oh, this is a this is a friendly, nice one.  On line 75 TikTok, Ratatouille, the fan generated musical on TikTok  is really pretty amazing.
+
+Speaker: SPEAKER_02
+Transcript:  So explain this because I haven't I haven't seen it.
+
+Speaker: SPEAKER_11
+Transcript:  So Ratatouille was going to the fans want Ratatouille the musical,  but of course, there is no Broadway right now.  So fans are creating music, script, makeup, choreography,  everything for Ratatouille the musical on TikTok.  So if you go down on that page, oh, hell, where did it go?  No, I lost the page.  To the guy, there's a guy, scroll down if you would.  I keep going, keep going.  Keep going.  Oh, is this the right? No, it's the wrong story.  Oh, I changed. I changed the link.  I thought, shoot, I didn't.
+
+Speaker: SPEAKER_08
+Transcript:  No, it may be something about that sheet.  I've seen this happen a couple of times.  We paste and go back and it's totally different.
+
+Speaker: SPEAKER_03
+Transcript:  You know what?
+
+Speaker: SPEAKER_02
+Transcript:  I have seen this.  I do know that sometimes with Google Docs with the new  with some change that they made recently,  probably about the same time that they got rid of Doc Chat for enterprise logins,  which just drives me insane.  But there are times where there's a link in there  and I replace a link with another link and it has the new link in the cell.  Yeah, I just did that.  But the hyperlink that it links out to is the old one.  It's like, yeah, that just happened.
+
+Speaker: SPEAKER_11
+Transcript:  So I put it I put in the new proper link below, which is Playbill,  because they did a Playbill just for it.  And if you go down to Blake, why Rouse?  So this is people making up stuff for Ratatouille.  And they're just that guy, that guy right there.  Just just to get a sense of this.  Oops.
+
+Speaker: SPEAKER_07
+Transcript:  And all the different cooking times, but muster high on the customer's table  at exactly the same time.  Heart and perfect every second counts and you cannot be mommy.  Do you understand?  Not particularly.  You are such a stupid boy.  Just listen to me.  OK.  If you want to make it in the kitchen, you can't just flail your arms around.  Right.  Super talented.
+
+Speaker: SPEAKER_08
+Transcript:  You lose me at musical though.  And listen.
+
+Speaker: SPEAKER_09
+Transcript:  And you've got to admit this kid is cute and talented and.  No, that's great.  Having fun.
+
+Speaker: SPEAKER_08
+Transcript:  That is great.  That's a lot of effort that went into that.
+
+Speaker: SPEAKER_11
+Transcript:  It is the top one is, I think, kind of a theme.  And you go down, there's a choreography one, there's a makeup one.  And it just really strikes me.  We talked about this last week when we had the.  Vaccine song.  Oh, yeah.  Right.  Jolene vaccine.  Jolene is vaccine.  The ability to collaborate here.  Oh, wow.  Is phenomenal.  Right.  And and and for fans of this idea that the content is something one person makes  and they sell it is so outmoded when you see what's possible here.  These people are doing this out of love and they're enjoying each other.  They're connecting.  Oh, the guy, the guy, the chef, just to the chef and then we'll leave this.  But the guy in the chef's outfit, he's really good.  He does all kinds of great, funny stuff online.  If you go back to him, they have that guy.
+
+Speaker: SPEAKER_03
+Transcript:  You know what I always say?  Anyone can cook.  Anyone can cook.  All you have to do is look inside yourself.  Anyone can cook.  You could even write a book.  It could sit right next to mine there on that.  This is amazing.  I love it.
+
+Speaker: SPEAKER_02
+Transcript:  And that it's so creative.  Yeah, it's not like I'm rice.
+
+Speaker: SPEAKER_11
+Transcript:  Oh, Stacey, you and Ant are getting the Cynics Award of the day.
+
+Speaker: SPEAKER_09
+Transcript:  No, the kid was but this guy, I'm like,  that's a little more what I expect from user generated content.
+
+Speaker: SPEAKER_11
+Transcript:  Anyone can cook.
+
+Speaker: SPEAKER_00
+Transcript:  Well, I thought anyone can write a musical.
+
+Speaker: SPEAKER_02
+Transcript:  But I mean, OK, so then you take this collaborative effort of all these random people from across the  world pitching in on this one like magical idea, magical, put that in air quotes, if you don't  actually think it's magical, but like creating a musical around Ratatouille and doing it around  the format that you're given with TikTok, which are these short little clips that allow you to,  it's like you're building a sandwich slowly over time.  And at the end, you've got all the pieces like do they then I'd be curious to know if at the end of  this, at the end of the day, they have all the songs in place.  They have all the lyrics written, the music written to those.  And some sort of a story arc to combine it.  Does it then end up in in an actual musical like an actual play?  Could you extract that and then turn it into something that ends up on the stage?  I think that you totally could.  I mean, I think you could.
+
+Speaker: SPEAKER_11
+Transcript:  I think Disney, Pixar, right, doing this.  But then imagine the lawyer hell of rights.  Yeah, anyone could cook.  That's my song.  Well, no, I did it, too.  No, I had it.  Oh, boy.  Yeah, that's true.
+
+Speaker: SPEAKER_02
+Transcript:  Yep.
+
+Speaker: SPEAKER_09
+Transcript:  I mean, that's I love.  I love that people can do it.  I want them to do it.  But when you think about creating something this way, and, you know, I did theater in high school  when, you know, every student directed play suddenly went over this where everybody was like,  I have this idea.  I have this idea.  I have this idea.  And then suddenly you have nothing on stage.  Right.  So there's a place for this.  It's exciting.  I want there to be room for it.  And I am glad when creators put their stuff out there for this sort of thing.  But it's also like we do live in a society where you have to buy food.  So how do you allow people to do something like this and still let them buy food?  And so I wrote a post some time ago.
+
+Speaker: SPEAKER_11
+Transcript:  Sorry, I wrote a post some time ago and then part of my one of my last books,  arguing for a system of credit, right versus copyright, but in a chain of creativity,  right, the person who inspired Jolene is vaccine has credit.  The person who wrote the lyrics gets credit.  The person who actually recorded it gets credit.  The person who promotes it gets credit.  And you want a system where you can reward the behaviors you want in a chain of creativity.  And what we're seeing in both these cases is a chain of creativity.  And clearly there's something here.  The hashtag ratatouille the musical has 14 million views.  Ratatouille the musical has approximately 80.  What is it?  How's that 80?  8.5 million.  Well, anyway, each okay.  So it's different.  So together it's 100 million views to the two hashtags, right?  So there's clearly popularity here.  There's clearly value here.  In the old days, Disney would come down and say,  Ratatouille is our copyright.  You can't do anything.  But now they see they're clearly see some value here.  And we're going to invent new systems to figure this out.  You're right, Stacey.  We've got to support creativity.  But creativity is not supported in one model,  which is an only in the content view that we had before.
+
+Speaker: SPEAKER_08
+Transcript:  The issue I have with this is the attention span.  This is something that was created for a 60 second clip or so,  you know, two minutes or less, pretty much.  And it's great.  I really do respect that.  It's probably more than you want, right, Ed?
+
+Speaker: SPEAKER_11
+Transcript:  It's probably about just what you could bear in a musical.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah, it is a musical.  But no, seriously, they have these constraints  of creating something captivating within 60 seconds.  And that's great.  So you're going to get those 100 million views.  And this probably isn't a question for you, Mr. Jarvis,  but I'll just ask everybody in general.  If that same creator was to put together a indie film  with this type of model,  say it was 30 minutes, would you watch it?
+
+Speaker: SPEAKER_09
+Transcript:  For Ratatouille?  I would, because I like it.  Yeah.  Yeah.
+
+Speaker: SPEAKER_08
+Transcript:  Because I think that's where a lot of it sort of falls off.  These cats, not cats, these people.  Sorry, I went slang.  They're kind of jazzy.  These people, they're super talented.  And I like to see how they could get a fair shake  going into a bigger screen, bigger stage, if you will.  But it just seems like society will totally forget about them  because they're only wanting that little 60 second snippet of them.  They don't want a half hour full feature film from them.  At least that's what I see.
+
+Speaker: SPEAKER_09
+Transcript:  Society might forget,  but I think it is a great chance to show the hiring people at Pixar.  I think there is room for something like this  to build a name for yourself or to create,  you know, like a kid.  Yeah, it's basically like, hey, I did this.  And it's really compelling.
+
+Speaker: SPEAKER_08
+Transcript:  And yeah, I love it.  And again, I love it.  I just feel bad for these people because I've been in certain forums  and community groups and seen these conversations come up  where I put this thing together for XYZ platform  and it got a gazillion likes and a gazillion reshares and yada, yada, yada.  And then I spent months working on this film and nobody watched it.  You know, it was pretty much the same thing,  but they put it in a long form format with a little bit more meat and taters to it.  But people just, yeah, whatever.
+
+Speaker: SPEAKER_11
+Transcript:  So sorry, I'm trying to find something here.  So I've been reading it depends on what your goal in life is,  what your goal for the thing is.  It may be sufficient that you found a community of people  who like it and share and collaborate.  Just about to write about a book called  Distributed Blackness by Andre Brock Jr.,  which is about Twitter.  I mentioned before, good.  I'll give more plugs.  And one thing I learned from him is that I had a mass media view of it.  When something passed over a critical mass, that's what has made it.  What he argues is no, yes, Black Lives Matter had to pass over a critical mass to make an impact.  True.  But on the every day he's saying in black Twitter,  people don't want to talk to the whole world.  They want to talk to each other with their own language, with their own views.  And that is sufficient.  And we have to honor that, that the mass media view that something has to be huge  is the only definition of success.  It's what we're escaping on the net.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  And I realized that's kind of the at least I can accept my part in that is that was what I  brought to this conversation was wait a minute, this is great.  But what if we made it better?  And really this could be the pinnacle of what they were even wanting in the first place.  The fact that that kid wrote that two minute clip and did that so incredibly well in his mind,  that could be absolutely enough and probably is actually.  And kudos.  Probably them hearing me say, what if we make this a big play is probably the difference  between me being older and not understanding what the younger generation really feels about  like creating for something like TikTok.
+
+Speaker: SPEAKER_11
+Transcript:  Or even even twit, right?  Leo has said that he doesn't want the podcast to get too big because then they lose their focus.  They lose the community around them.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah.  Yeah.  That's why I posed my question the way I did.  I didn't necessarily want it to direct it to Mr. Jarvis because he's an older gentleman.  And it's quite frankly, I mean, it is what it is.  Come on.  Older folks have a different way of thinking about certain things,  especially when it comes to these little platforms.
+
+Speaker: SPEAKER_02
+Transcript:  So yeah, they keep evolving.  And so I think you're in this discussion.
+
+Speaker: SPEAKER_11
+Transcript:  You're the most old farty of us.  Oh, I know I'm an old fart.  I've been an old fart for about 20 years.  Musical off my yard.  I've been an old fart for about 20 years.  What did you play in high school?
+
+Speaker: SPEAKER_08
+Transcript:  She'll tell you the same thing.  Yeah, he's an old man.  Yeah.
+
+Speaker: SPEAKER_11
+Transcript:  Yeah.  Grump.  You're being grumpy.  Stacey, what did you play in high school?  I'm dying to know.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, all kinds of things.  I was a state UIL award winning actress.  Ta-da!  Oh, wow.  Outstanding.  Outstanding.
+
+Speaker: SPEAKER_08
+Transcript:  Wow.
+
+Speaker: SPEAKER_09
+Transcript:  But I didn't do musicals because I can't carry a tune in a bucket.  So for those, I was the stage manager.  Did you dance?  I can dance.  Oh, I was the Wicked Witch.  That's probably something that everyone can see and appreciate.  I had a prosthetic nose, green paint on my face.
+
+Speaker: SPEAKER_11
+Transcript:  Wow.  Did you do the evil laugh?  Come on. Can you do it now?  I can.  OK, ready?
+
+Speaker: SPEAKER_09
+Transcript:  Hold on.  Let's see.  Well, I think I can't.  Hold on.
+
+Speaker: UNKNOWN
+Transcript:  Yes.
+
+Speaker: SPEAKER_09
+Transcript:  I'll get you, my pretty and your little dog, too.
+
+Speaker: SPEAKER_08
+Transcript:  Oh, my gosh.
+
+Speaker: SPEAKER_05
+Transcript:  Perfect.  That's awesome.  OK.
+
+Speaker: SPEAKER_09
+Transcript:  Now I'm going to be red for the rest of the show.  I can't believe you convinced me to do that.  OK.
+
+Speaker: SPEAKER_11
+Transcript:  Wow.  What else did you play?  Well, no, no, we're not done yet.  What else did you play?
+
+Speaker: SPEAKER_09
+Transcript:  Oh, I played a miner, like a mining person in a company town who unionized people.  What else did I play?
+
+Speaker: UNKNOWN
+Transcript:  I can't remember all of them.  Ant?
+
+Speaker: SPEAKER_09
+Transcript:  I was in Pygmalion, the old lady, not Eliza Doolittle, Mrs. Higgins.  Sigans.  So, yeah, I did a lot of older people.  Did you have theater in your back type of time?
+
+Speaker: SPEAKER_08
+Transcript:  It was all banned for me, just me and the saxophone.
+
+Speaker: SPEAKER_11
+Transcript:  I do want to hear that at some point.  I do.  Yeah, you should.  I need another saxophone.
+
+Speaker: SPEAKER_08
+Transcript:  I got rid of mine a couple of years ago because I wasn't able to play it.  So I got rid of it.  But I do know it's Mrs. Sax.
+
+Speaker: SPEAKER_02
+Transcript:  Getting a new one.
+
+Speaker: SPEAKER_09
+Transcript:  I have some eBay or Craigslist listings I can send you.
+
+Speaker: SPEAKER_02
+Transcript:  It's so pretty.  We need to do a Patreon for Sax.
+
+Speaker: SPEAKER_11
+Transcript:  Jason, theater in your background?
+
+Speaker: SPEAKER_02
+Transcript:  I remember taking drama a couple of semesters, but it wasn't my thing.  I was way more into the music.  And yeah, it was trombone, baritone.  Those were my instruments.
+
+Speaker: SPEAKER_11
+Transcript:  But how different now, if young Stacey had the chance to be on TikTok,  would you?
+
+Speaker: SPEAKER_09
+Transcript:  Oh, sure.  I mean, we used to be, I mean, we were theater kids.  We used to run around doing bits all the time.  I think I had my entire junior year, I had a fake English accent that we would just  run around screaming strange things.  I mean, that's what you did.  Yep.
+
+Speaker: SPEAKER_02
+Transcript:  Yep.  And so I would say, I'd come right there with you, Stacey, though I wasn't in theater,  formally at school or whatever, my entire friend group was all incredibly creative.  That was like what unified us.  So we were all either creating all these bands with different configurations of different people,  or we were creating little short movies.  So when I think about TikTok and me being younger creating,  we would have been throwing our stuff left, right and center on TikTok.  I don't know if it would have been any good, but absolutely.  We were basically doing TikTok, but it was just for us.  And we were cracking ourselves up in the process.  And would you have done TikTok?
+
+Speaker: SPEAKER_08
+Transcript:  Young Ant?  No, sir.  I was in a talent show twice ever in my life.  And it's just not me.  I'm not like that.  The instrument was way more comfortable.  Yeah.  I told you, I've been an old man for a long time.
+
+Speaker: SPEAKER_09
+Transcript:  They were like normal people on TikTok.  I mean, who aren't doing silly theater bits or band kit bits.  Yeah, there are.
+
+Speaker: SPEAKER_08
+Transcript:  There are some normal quote unquote people on there.  But again, I'm not as creative as those people that are really flourishing because it's a lot  of work to get things done in 60 seconds.  Well, to get the message that you're trying to get across, plus put it out where there's a hook to it.  Make them want to come back.  That's a lot of work and it takes a lot of talent.  I'm not that talented.  Not yet.
+
+Speaker: SPEAKER_02
+Transcript:  But at the same time, maybe not in current Ant configuration, but I think a lot of kids,  and if you were of TikTok era right now, I think there's a lot of kids that are learning  through osmosis how to create in this short timeframe because they're just so used to  watching and consuming that content in that way.  I see it in my kids.  You know, like of course they want, you know, they're 10 and seven.  They want a TikTok account.  Of course, I'm not going to, I just don't feel comfortable with that, but that doesn't stop them  from creating and playing as if they were.  And I can see the instinct is there for them.  And it's an instinct that's developed purely through exposure, right?  Through the fact that they see others that are doing these things.  And it's an art form that they understand.
+
+Speaker: SPEAKER_08
+Transcript:  The osmosis references spot on.  Sorry, go ahead, Miss Stacey.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, no, I was going to say.  And it's also, they don't, I know that we talk about people who go viral or get big or,  you know, influencers, but a lot of kids get on these things just to share with their friends.  Right.  And they're doing that.  So it's not like their goals are maybe like our goals, right?  Their goals could just be like, hey, if the 50 people I love in my higher high school  thinks this is cool, great.  Yep.
+
+Speaker: SPEAKER_08
+Transcript:  I think something else changed too.  I thought about Alex Lindsay and his family, his, his son and daughter have a tick tock  and it's called the McDubbies.  And if you know anything about Mr. Alex Lindsay, this guy is a video extraordinaire,  just, just unbelievable with video production and his children decided, you know what?  We want to do tick tock.  And they pretty much just a chip off the old block, if you will, as far as the way he creates  content and they put that into their tick tock and it's really, really great.  And it got him involved to, you know, he's like, well, I'll use this black magic cinema  six K camera for your tick tock.  No problem.  You know, I mean, it's, it's, it's awesome to see that they're, you know, all the wheels  were really just turning for those kids.  And the content that they put out was unbelievable.  Yeah.
+
+Speaker: SPEAKER_11
+Transcript:  Yeah.  Here's a, here's a theory.  So I just, I'm reminded of the new Manuma guy, right?  Remember a new Manuma?  No, sir.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, the little kid in the, was he Star Wars kid?
+
+Speaker: SPEAKER_11
+Transcript:  No, that's a different Star Wars kid, right?  And he, and he just did this little video and it wasn't intended for everybody to see  it.  And it went out and people made fun of him.  He became kind of a star.  It ruined his life.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah.
+
+Speaker: SPEAKER_11
+Transcript:  Well, I think it's different here is that we are all making fun of ourselves.  We're all, we're all making fools of ourselves online now.  And I don't think you could make a new Manuma meme out of making fun of somebody.  Cause we, cause, Hey, we all do this now.
+
+Speaker: SPEAKER_08
+Transcript:  Okay.  Yeah.  We're all guilty.
+
+Speaker: SPEAKER_09
+Transcript:  I saw somebody trying to do like backflips while drunk and it was hilarious.  And I would have mocked them a lot.  Actually, I wouldn't.  I don't mock people.  That's mean.  Nevermind.  So, so she says.  I know I'm like, would I really mock them?  I mean, I did laugh.  I was like, Oh no, that is not something you want posted, but I didn't make fun of them,  I guess.
+
+Speaker: SPEAKER_11
+Transcript:  I wonder what happened.  Let's take a Gary Brawls month.  What's that Gary Brawls, but that's his name.
+
+Speaker: SPEAKER_02
+Transcript:  The new Manuma guy.
+
+Speaker: SPEAKER_11
+Transcript:  This is, yes, this is, this is 15 years ago.  He's yeah.  Yeah.  No, it now says American musicians.
+
+Speaker: SPEAKER_01
+Transcript:  Star was good.
+
+Speaker: SPEAKER_02
+Transcript:  Good.  He was able to turn that into something.  He deserves that.  He did.
+
+Speaker: SPEAKER_11
+Transcript:  He's an actor and director known for the Christie storms show 2009 between the lines,  the rise and fall of Tobias 2010 and new Manuma 2004.
+
+Speaker: SPEAKER_02
+Transcript:  It known for the 2004 is great.  No Manuma.  Let's take a break because I just realized we've been tight.  I love that conversation.  We are 40 minutes in.  We got to thank a sponsor.  So let's do that right now.  And then we will maybe we'll dip our toes into some Google.  Who knows?  Maybe we won't.  That's just how things roll around here.  This episode of this week in Google is brought to you by Linode managing your complex  cloud infrastructure should not be hard.  And that's what Linode is all about.  They believe in cloud computing for everyone.  They make deploying, managing and scaling your cloud applications simple.  So you can simplify your cloud infrastructure with Linode's Linux virtual machines.  That Linux is the Lin and Linode after all.  And you can develop, deploy and scale your modern applications faster and easier.  Why do over 800,000 developers choose Linode?  Well, they give you flat pricing across all 11 global data centers.  You have an intuitive cloud manager, fully featured API, and they have award winning  customer support.  That's 24 hours a day, seven days a week, 365 days a year with no tiers or handoffs  regardless of your plan size.  So you know you're getting the best support possible at any time that you need it.  So think of all the things that you can do.  Of course, you could host a website or build your apps.  So many developers use Linode with their apps, store or backup your media.  It's really up to you what you do with the storage with Linode's access.  You can easily launch and enrich your developer applications, hosted services, websites,  AI, machine learning workloads, gaming services, CI, CD environments.  The sky's really the limit.  You can launch and scale in the cloud with our virtual machines and with a $100 credit  that I'm going to talk about.  You could use that on S3 compatible object storage, managed Kubernetes and more in addition  to shared and dedicated compute instances.  So be sure to check out Linode's new YouTube channel for video tutorials.  You'll also get security tips and more.  That's youtube.com slash Linode.  Bryce Adams from Metarik says, from the start, we were looking for a partner, not a provider.  Some of the large providers see us only as a transaction.  Linode is the kind of partner that will be with us from the start today and beyond.  So whether you're working on a personal project, maybe you're managing enterprise infrastructure,  whatever happens to be, you deserve simple, affordable and accessible cloud computing  solutions that allow you to take your project to the next level.  So get started with Linode today.  Visit Linode.com slash Twig and then you'll want to click on the create account button  and you'll get $100 in free credit.  Like I said, to find out more, visit Linode.com slash Twig.  That's $100 in free credit when you create your account today.  Linode.com slash Twig or you can also text Twit to 474747 and you'll get a direct link  to the offer.  Check it out for yourself and we thank Linode for their support of this week in Google.  All right.  So when it comes to, excuse me, my voice is already going.  When it comes to Google news, I feel like there's a lot of stories in here, but not  very many definition of top news stories for Google this week.  One thing that piqued my interest that I'm happy to see is that RCS has some news, rich  communication services, which if you have an Android device and you've got Google messages  app installed, you've got chat features built into that.  That's tapping into RCS and I've really enjoyed it when I know that I'm talking to someone  or chatting with someone on the other end that also has an RCS enabled device.  It's just great to kind of get the little typing indicator that tells me they're typing  or they're paying attention and some of the other advantages that you get.  Well, you're going to get something else here soon, which I don't know that I expected  was going to happen.  They are bringing end to end communication or sorry, end to end encryption into RCS via  Android messages starting next year.  And in fact, if you have the beta version of Android messages right now, although I  am on the beta track and I don't have any options for it yet.  So I don't know if it's just automatically you get it if you're on a beta channel or  not or if I'm going to see that sometime soon.  But if you happen to be chatting with somebody else that also has the beta, your communication  is going to be automatically end to end encrypted.  And that's just good for security.
+
+Speaker: SPEAKER_11
+Transcript:  What else comes with RCS to Android messages?  Any other features?  Yeah, I mean, everything Apple people have, right?
+
+Speaker: SPEAKER_09
+Transcript:  Exactly.
+
+Speaker: SPEAKER_02
+Transcript:  It's essentially Google's kind of way to say, hey, we've got an iMessages too.  So all the features that iMessages have with kind of a better delivery of media, that's  one that I enjoy.  Like if you're doing true MMS, there's a certain kind of quality level that your image will  transfer at with RCS.  You get kind of like a more full res version of that.  The typing, the read receipts, you know, when it says delivered, you can react to a message.  So you could, you know, I don't know if you've ever been chatting or messaging with someone  on iOS and you get a message that is the entire message that you wrote but said liked but  says liked at the beginning.  Drives me nuts.
+
+Speaker: SPEAKER_08
+Transcript:  I get a notification that they just liked it.  Dang it, I didn't need that notification.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, yeah.  I mean, I guess that's the roundabout way to do it.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah, I'm on these group texts with my entire husband's family and like we'll get a picture  and I'm like, I have to bother to say something about it, right?  Because I'm on Android so I can't just heart it.  So I'm like, oh, so and so so cute.  Look at those rosy cheeks.  And then I get like 18 so and so like so and so hard.  It's so and so like I'm like,  right.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, and I don't and you know, this won't necessarily tackle that problem, right?  Just because it's not going to interplay with iMessages in that way.
+
+Speaker: SPEAKER_09
+Transcript:  What happens when you text others?  So if I've got encryption, what happens when I text people who are not?  Actually, two questions.  What happens when I text people who encryption because they're using something funky?  Or what happens when I texting someone who's on an I?
+
+Speaker: SPEAKER_02
+Transcript:  I I think in both cases, it's going to be unencrypted.  I think the only way that this will encrypt and this is more of a long term game by long  term. I mean, next year from what Google is saying right now, the only way it's going to  be encrypted is if I have the beta messages installed that includes encryption and the  person that I'm chatting with has the beta installed with encryption.  So it's going to be very limited at first, but the default going forward once this rolls out to  all devices like another part of this news is that RCS is finally worldwide rolled out like  everywhere that they wanted to roll it out.  It's out.  So so RCS is everywhere.  It's just not encrypted everywhere yet, but that will be the default sometime next year.  And in the meantime, you can get on the beta channel to check it out now and see how you  know, see what that's like.
+
+Speaker: SPEAKER_09
+Transcript:  Which is good because people.
+
+Speaker: SPEAKER_08
+Transcript:  This is just saying it seems like it's been a year since this has been in the discussion.  Pretty long road to hoe, right?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, that they've been building up to encryption.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah, well, just even the whole RCS project seems like I'm talking about this last year with you.  Yes, where it was here.  They had to get the carriers involved.  Yeah, the carriers were the bottleneck.
+
+Speaker: SPEAKER_02
+Transcript:  I believe they have to run RCS servers.  They have been the bottleneck.  But if you remember last year, the carriers announced their own version of RCS,  so they were going to try their own soon after that.  Google then said, you know what?  We're just we're just releasing the crack and we're just going out with ours to get everybody  on RCS now and not have to wait for the carriers.  And meanwhile, I don't even know that I've heard anything about the carrier initiative  to do their own version of RCS.  And at some point in the next year, I mean, from my perspective, it doesn't matter, right?  If every Android device that has Android messages by default also has,  you know, they all have RCS by default.  And at some point, they will all have end to end encryption enabled by default,  all talking to each other.  So it's kind of the best of all worlds.  Took longer than it needed to or feels that way anyways.  But I'll be happy to.
+
+Speaker: SPEAKER_11
+Transcript:  Jason, I think of the times we've been at, I have my teacher on the day.
+
+Speaker: SPEAKER_02
+Transcript:  I oh, very nice.
+
+Speaker: SPEAKER_11
+Transcript:  How long if we went back and did a calendar of everything that was announced at IO and  when it really showed up, if at all, it's not speedies.  I think I think you're quite right.  These things you forget how long they take.
+
+Speaker: SPEAKER_02
+Transcript:  Everything takes forever.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah.  And this drives me bonkers because we have gone from used to be able to like email someone or  call someone on the phone and it would work.  And now everything is by that's why I still do it.  I just I'm like, like, I want to shoot myself every time someone is like, hey,  let's schedule a call.  And then they're like, do you want Blue Jeans, Skype, Zoom, you know, chime Microsoft?  Now, Stacey's the old fart.  Let's do it.
+
+Speaker: SPEAKER_11
+Transcript:  I enjoy the days when you could just pick up a phone and it had a wire and you knew it would work.  And you heard a dial tone.  Remember a dial tone?  That was a great thing.
+
+Speaker: SPEAKER_09
+Transcript:  We had standards and we had things like we had.  I'm right in this one.  I am so right.  And you can't deny it.
+
+Speaker: SPEAKER_11
+Transcript:  These kids just don't understand.  Jason, you're the next one who's going to be old.
+
+Speaker: SPEAKER_08
+Transcript:  Stacey, I totally agree with you, though, because it feels like that's the only way that I can  communicate efficiently with people outside of work is shoot an email that will go to their phone  because they realize, oh, I got email on my phone or I just actually pick it up and just call and  say, hey, I need to talk to you about ABCD and end the discussion.
+
+Speaker: SPEAKER_09
+Transcript:  It's just I don't want to waste so many breaks.  I mean, like because that's a whole email you're wasting time on.  You're like, let's chat.  Great.  And then which do you want to use?  Let's chat.  Here's my number.
+
+Speaker: SPEAKER_08
+Transcript:  Right there.  There you go.
+
+Speaker: SPEAKER_09
+Transcript:  Restore a whole thing.  You're right.  You know, well, I know I may be old, but man.
+
+Speaker: SPEAKER_08
+Transcript:  Oh, dish.  Mr. Howell, is there anybody?  I consider all of you.
+
+Speaker: SPEAKER_11
+Transcript:  Is there anybody you would just pick up the phone to call without having scheduled it?  Do you do that?
+
+Speaker: SPEAKER_02
+Transcript:  My mom.  Yes.  Oh, yeah.  My parents.  Yeah.
+
+Speaker: SPEAKER_09
+Transcript:  And my BFF.  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  Parents.  You're BFF too.  Okay.  All right.  Yeah.  Yeah.  Right.  Me too.
+
+Speaker: SPEAKER_09
+Transcript:  And my brother just to troll him.  That's so fun.
+
+Speaker: SPEAKER_08
+Transcript:  Wow.  Really?  You're like that, huh?
+
+Speaker: SPEAKER_09
+Transcript:  Because I'll call and then I get a text like either it's either going to come five  minutes or five days later.  Did you call me?  Question mark.
+
+Speaker: SPEAKER_02
+Transcript:  Does he not have you saved in his contacts?  No, he does.
+
+Speaker: SPEAKER_09
+Transcript:  He's just it's just the physical.  He's like, why would he's like, why would you call me?  I don't pick up the phone.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  I really don't pick up the phone either.  Unless I know exactly who's on the other end.  Then I might pick up the phone.
+
+Speaker: SPEAKER_08
+Transcript:  Then you consider it.  Yeah.  Just consider.  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  Then I negotiate with myself.  I mean, I know who that is.  They're great.  Don't get me wrong.  But do I actually want to talk right now?
+
+Speaker: SPEAKER_11
+Transcript:  I know.
+
+Speaker: SPEAKER_08
+Transcript:  I know.  With this RCS, something else to consider on and maybe you have a better explanation  of it is all Android devices with the default messaging Android app.  That makes me think about the folks of Samsung and LG and their handsets  and the messaging apps on those there.  At least at one point, it was their own flavor of messaging, not necessarily the  default Android app that you would get from the Play Store.  So that still means no encryption from an RCS enabled phone to something like that.  Is that correct?
+
+Speaker: SPEAKER_02
+Transcript:  Well, so I'm trying to think of this right now as you're talking.  Google has agreements with manufacturers.  The name of that agreement escapes me in this moment.  But they have agreements with manufacturers that encompass the apps that are required  on an Android phone that you as a company plan to sell that is cleared for all of our  Google services.  So it includes every Android phone that you get that has Google services is going to have  a Gmail app there.  It's going to have a Google Maps there and a handful of others.  And I think that the messages app is one of those that doesn't stop Samsung from putting  their own messaging app there also.  And I don't know if that means that Samsung can automatically have their app be a default  and just be in Google's just happy to have messages, their messages app on the device  as an option if someone chooses to use it or if Google requires for their messaging  app to be the default.  I don't think that's the case because I tested a lot of Samsung phones and usually I have  to switch away from Samsung's messaging into messages by Google.  But I do believe that it's there off the top of my head.  I think it's there.  It's just not the default.
+
+Speaker: SPEAKER_09
+Transcript:  Is it the Mata agreements or the Mata?  It's M-A-D-A?
+
+Speaker: SPEAKER_02
+Transcript:  What does that stand for?  The mobile application distribution agreement.  That might be it.  Rules and requirements when it comes to putting out an Android device.  I think that is it.  Yeah.
+
+Speaker: SPEAKER_09
+Transcript:  That's what they make OEM sign.  But I don't know if that's the one you're thinking of.  They also have it's the one that they.
+
+Speaker: SPEAKER_02
+Transcript:  GMS.  GMS.  That's what I'm thinking of.  Suddenly it came to me.  Google Mobile Services.  Okay.  There we go.  Finally, I got there.  That's the collection of Google applications and their APIs and all that stuff that makes  an Android phone a Google happy Android phone with all of the things that most people,  at least here in the US, expect on an Android device.  I don't understand.  And so listen.  Devices are going off right now.
+
+Speaker: SPEAKER_08
+Transcript:  To the chat room there, Asimatic in the chat room mentions he or she has a Samsung device  and they have to go and install the Google messages app secondhand.  So the question is, will most people decide to do that?  Everybody is not Mr. Jason Howell and knows their way in and out of Android and how to  go and get this app for this service.  Updated.  So totally.
+
+Speaker: SPEAKER_02
+Transcript:  Or that they need to or that they should or whatever the case may be.  Yeah, absolutely.  Yeah.  So I just launched my Note 20 Ultra and you know how when I don't know if you've  had a Samsung phone, but they always have in the app tray, you've got this little Google folder  that I think these are the apps that Google is like, these need to be on your phone if  you're going to have Google services and messages is not part of this.  So I must have actually gone and installed Google messages on this automatically or on my own,  not through Samsung just offering it.
+
+Speaker: SPEAKER_08
+Transcript:  So you're right.  This is not a Samsung phone.  This is a TCL.  And I just took a look at the messages on here and it is that Verizon crap.  There is no.  No, no way.  Yeah.  So there's that.  That's why I asked the question because everybody's not going to get a pure Android device.  Most people are just going to get what they can flat out afford.  And if it ends up being something like this TCL device, that's what they're going to deal with.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  And so then the question becomes, because I do know that Samsung had worked with Google  to enable RCS in Samsung's messaging app.  So that's a plus.  That's a plus.  But will that messaging app also offer end to end communications when Google is baking  it into messages, their messenger app?  And that I don't know the answer to.  So, you know, welcome back to Android and its history of fragmentation in all different ways.
+
+Speaker: SPEAKER_08
+Transcript:  I wasn't going to go there, but you did.  Thank you.  You went ahead and said the word.
+
+Speaker: SPEAKER_11
+Transcript:  They just change the name every few months and then they think it's something new.
+
+Speaker: SPEAKER_02
+Transcript:  Exactly.  That's how Google rolls.  So anyway, I mean, overall, it's good news.  Like Google needed to do that.  It's also very late in the game, right?  Like Google needed to do this a long time ago.  A long time ago.  At least they're finally doing it.  But oh my God, how many hoops have we had to jump through in order to get to this point?  It's annoying.
+
+Speaker: SPEAKER_09
+Transcript:  I thought the AMP story was interesting just because we have such impassioned AMP people here.  But I also wondered.
+
+Speaker: SPEAKER_08
+Transcript:  Impassioned AMP person.  Pretty much that.  Leo had his opinions too.
+
+Speaker: SPEAKER_11
+Transcript:  So Google.
+
+Speaker: SPEAKER_09
+Transcript:  OK, yeah, Hugo.
+
+Speaker: SPEAKER_02
+Transcript:  You be the host.  I don't want to step on you.  Google is going to end preferential treatment to AMP pages, which apparently they've been  talking about this as being a possibility for the last couple of years.  But this particularly comes into play in the top stories carousel that you see at the top  of searches.  And for the longest time, at least since they launched AMP, which how long has it been now?  Has it been four years, three years, somewhere around there?  Just about, yeah.  Wow, that's crazy.  On one hand, it kind of feels like it just happened, but it's four years later.  Anyways, they've been giving AMP pages full.
+
+Speaker: SPEAKER_11
+Transcript:  Wow.  Five years.  It's crazy.  October 7, 2015.  So that's.
+
+Speaker: SPEAKER_09
+Transcript:  OK, we'll finish because I have questions about this.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  So the top stories carousel used to only feature AMP stories, and I think it still does.  They've been hitting it, changing that to kind of open it up.  So now they're going to end that preferential treatment and let other pages get into that,  you know, depending on how they rank and that sort of stuff.  So yeah, I mean, that's about as much as I know about it.  It feels kind of like a reaction to all the antitrust stuff that's stirring up,  or it feels like it could be the reason that they're doing it now.  But who knows?  But what do you all think?
+
+Speaker: SPEAKER_09
+Transcript:  So I'm wondering if.  Yeah, because.  Couple things.  I wonder if this is the beginning of the end for AMP because we all know that Google loves to  throw things in the wall, right?  But I mean, if you build for AMP, all those links,  what happens to that if you've optimized your site and publishing around that?  Because that's not normal web stuff.
+
+Speaker: SPEAKER_11
+Transcript:  You always had a backup link, as I recall.  OK.  You always had a.  What's the word for original?  You had the OG link there.  Canonical link.  Canonical.
+
+Speaker: SPEAKER_09
+Transcript:  Got it.  OK, so then I shouldn't worry if I'm a publisher.
+
+Speaker: SPEAKER_11
+Transcript:  Think so.  I think if you send well, you got to have something in place that if you go to an AMP  page, it doesn't exist.  Right.  Let's go to the canonical.  Right.  What's interesting about this to me is a couple things.  Or did you have a question, Stacey?  Sorry.  Nope.  Those were my questions.  So because I was around at the beginning of AMP when it was pushed for Google to do this  and Google News guys to Helsinki.  We talked about this the first time and it was already in the works with a guy named  Bez was working on it at Google.  The original goal again was we in media screwed up the web.  We junked it up with all this stuff.  This was to speed up the web and make it better.  All right.  And not to do it in the closed world of Facebook instant articles, but instead do it in the  open world of the net.  The second thing was supposed to happen here was that it was open source and they were  supposed to open it up to others and have it taken over by others.  And they never really did that, which is why some of the Chrome stuff is really interesting  to talk about next.  And yes, it was done collaboratively with a lot of publishers and a lot of others, but  they never really fully opened up the governance as much as they could have to make it truly  open source.  Then third, they said, okay, we got this carousel.  We're going to motivate you to do fast pages and we're going to put AMP pages up on that  carousel.  Well, the problem is that conflated the two.  They should have said from the beginning, which is kind of what they're saying now is,  well, if you have a fast page, no matter how you make it, it can be in the carousel.  They should have done that ages ago.  But now in antitrust world, it doesn't look so good that they, you know, you had to use  their thing.  You never had to use Google hosting, but Google hosting was a lot faster and cheaper.  It was free.  You didn't have to pay for other services to be your CDN.  So it had advantages.  The rollout had some problems.  And I think now you're right, Stacey, that it's one of those things that Google says,  oh, that was yesterday's fun thing.  We're kind of bored by that now.  I don't know that they'll kill AMP.  They'll act like it's open source.  But I don't know what's going to happen.
+
+Speaker: SPEAKER_09
+Transcript:  They will throw it to the wolves.  It will suffer or survive as the market demands.
+
+Speaker: SPEAKER_11
+Transcript:  But that's why, if you don't mind, Jason, Dr. Host, the thing that I think is related  here is that Chromium, was it Chromium said they've added now someone to Chromium outside  of Google as one of the ruling poobahs of Chromium?  Was that was that on here somewhere?  That is on here.
+
+Speaker: SPEAKER_02
+Transcript:  And I did not die very deep on this one.  So if you if you got where Stacey can probably explain it to us.
+
+Speaker: SPEAKER_09
+Transcript:  Well, no, no.  I didn't know Chromium had ruling poobahs.
+
+Speaker: SPEAKER_11
+Transcript:  Well, as any open source thing, like even, you know, as as as.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, OK.
+
+Speaker: SPEAKER_11
+Transcript:  So now Google, the council of open source poobahs is not the formal title.  Sure.
+
+Speaker: SPEAKER_09
+Transcript:  Here it is.  Sure, old man, Jeff.
+
+Speaker: SPEAKER_11
+Transcript:  What's a poobah?  So now they've they've they've added someone else into this group, into this.  Oh, so I think they're trying to be real about being open source.  That's my point.  Yeah.  OK, that makes sense.
+
+Speaker: SPEAKER_09
+Transcript:  And then if you wanted to pull like AMP into something like that, this is a chance to get  other people on board as opposed to be like, fopin.  It's actually open.  And as long as people actually want to participate in it, Google actually has two non-Google  engineers overseers, overseers, overseers.
+
+Speaker: SPEAKER_11
+Transcript:  But so they have to they have a process where they put them in there.  So I think that makes it do people trust that more as open source if you have other voices  other than a company saying it's open source, but running it themselves.  Right.
+
+Speaker: SPEAKER_09
+Transcript:  Y'all didn't like my fopin.  Come on, y'all.  That's crazy.  Come on, y'all.  That's great.  That was clever.
+
+Speaker: SPEAKER_08
+Transcript:  Come on.  I'll give you a couple snaps for that.
+
+Speaker: SPEAKER_11
+Transcript:  That's good.  That's good.  Not quite a show.  Not quite.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, no, I would never.
+
+Speaker: SPEAKER_02
+Transcript:  But I really like Council of Open Source Poo-Bahs.  So I think that might just be the title.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, it's Poo-Bahs not Poo-Mahs.  Poo-Bahs.
+
+Speaker: SPEAKER_11
+Transcript:  Is that how you spell it?  Poo-Bahs.  Yeah, Poo-Bahs.
+
+Speaker: SPEAKER_09
+Transcript:  I don't know how we spell it.  I thought it was P-U-B-A-S.
+
+Speaker: SPEAKER_08
+Transcript:  P-A-H-S.  I thought it was P-U.  Fred Flintstone.  Oh, it's the Grand Poo-Bah.  It's a Grand Poo-Bah.
+
+Speaker: UNKNOWN
+Transcript:  Yeah.
+
+Speaker: SPEAKER_09
+Transcript:  It's actually the name of a haughty character in Gilbert and Sullivan's The Macado.
+
+Speaker: SPEAKER_11
+Transcript:  Oh, we're going to scare Ant.  Ant, that's a musical.  Watch out.
+
+Speaker: SPEAKER_09
+Transcript:  Everything goes back to musicals.
+
+Speaker: SPEAKER_08
+Transcript:  The only Grand Poo-Bah I know was part of the brand Nubian hip hop group back in the 90s.  That's it.  That's all I know.  Ant's being old again.
+
+Speaker: SPEAKER_09
+Transcript:  Here we go.  90s hip hop.  We still listen to that in our house.  I got to tell you.  I still do.  It's kind of aggravating.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  Good stuff.  I'll be honest.  Okay.
+
+Speaker: SPEAKER_08
+Transcript:  Where else can we take this?  Where else can we go?  I see you host.  I wanted to ask about this Stadia story because I've been too lazy to read up on Stadia because  it still confuses me.  It's Google's online gaming platform.  I remember Mr. Howell did a Hands on Tech with it, umpteen months ago, and the performance  of it was not very good, even on our super fast Twitch Studio internet connection.  But then we got the notification about getting access for free for, was it three months,  to the pro version of it or something like that?  Because I ended up getting this in the mail and I have no idea what to do with it.  I tried to play some game that looked like PUBG and was horrible at it.  I haven't hooked it up to the Chromecast.  I just did it here on the PC, even though it says I should probably connect it to the phone.  Why would I want to play a game on my phone?  I don't get it.  So can you explain all of this hoopla?  Because now it's been around for a year, but does anybody care?  Because they're sending this stuff out to someone like me to get me hooked on it.  And I'm not getting hooked.
+
+Speaker: SPEAKER_02
+Transcript:  It is interesting that they went on this spree of just handing out their premium package  controller and Chromecast Ultra.  I got that too.  I have it in a box over there, unopened.  I have another one already from the initial year ago.  But I don't really play Stadia a whole lot because I have a PS4.  I'm not one of the new kids with the new controllers or anything,  or the consoles that are coming out right now.  But I have a PS4, so if I get an edge for gaming, I'm using that or I'm using an Oculus  Quest or whatever.  So I haven't really spent a whole lot of time gaming on Stadia with any sort of regularity,  except to jump in here and there and see how it's doing, to see how the service is going.  I've felt like it's improved.  I felt the last time, which was probably like three or four months ago, that I launched  it was a Tomb Raider game that I have in my library.  I actually had a blast.  I ended up playing it for three hours and had a great time and put it up on my TV and  everything.  I think it's interesting.  I wonder how much to read into the fact that Google is really gifting the controller and  the Chromecast because I'm not entirely sure.  I have no data to back it up, but I'm not entirely sure that Stadia is lighting the  world on fire as far as the gaming scene is concerned.  But I understand its promise and I respect why it exists because I think that's a really good  hole in the gaming world to fill, which is the fact that if you have the controller,  or even if you don't, if you just have a Bluetooth controller, you can stream from their  service for free console and PC quality games.  You're talking about some latency that's introduced there, but depending on the type  of game you're playing, it's kind of negligible.  I think the promise is really interesting.  You don't end up having to buy a console and that's really great in a time right now where  people are spending $400 or $500 on one of the new consoles.  You don't need to do that with Stadia, but you don't have a huge library.  You do have a little bit of that latency to deal with.  Maybe that'll get better over time, but it will never be as direct as what you get when  you're plugging directly into a console.  You do have a free tier.  You just have to be okay with buying a game in the cloud that's stored on their servers.  Touching back on what we were talking about just a few minutes ago, we already know how  bored Google gets with things.  I think to a certain degree, that's what holds Stadia back.  At this point, even the most ardent Google fans, myself included, I'm starting to get  gun-shy with Google services because it's happened so many times where they get bored or they  totally pull the rug out from underneath what I'm used to, what I'm comfortable with, what I enjoy.  Then I have to figure it out again.  It's like, just dedicate yourself to this thing and see it through the difficult time to be a  better thing as it is and not something completely different.  I'm not guaranteed that Stadia is going to be there two years from now.  When I pay $60 for a game that exists in the cloud, do I know that it's going to be there for me two  years from now, as if it's consoling me or something?  No, I don't know.
+
+Speaker: SPEAKER_09
+Transcript:  Stacey Dixon, this is your old man moment.  I love this.  There it is.
+
+Speaker: SPEAKER_11
+Transcript:  I'm the kid.  No, Stacey, I want to tell you I'm not an old man.  Not yet, okay?
+
+Speaker: SPEAKER_10
+Transcript:  Is this the same sentiment?  I'm right, I tell you.
+
+Speaker: SPEAKER_08
+Transcript:  Do you think the game developers share that same sentiment as far as Google just keeps killing  stuff off? That's why we don't have the likes of Call of Duty on Stadia?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, that's a great question.  I enjoy gaming, but I'm not super close to how game developers are thinking about these  consoles. I do know that Cyberpunk 2077 is a pretty big game and it is coming to Stadia.  So that says something and Stadia does have some exclusives.  It's just a really hard time.  This moment in time right now, we've got the PS5, we've got the new Xbox  systems. It's a hard time to compete against those two if you're Google and Stadia.  I think that's part of the reason why they're gifting these controllers to try and be like,  hey, you don't want to spend $500 on a console. Here, we'll give you our console.  It's in the form of this controller in this Chromecast. Just buy your game in the cloud  and then it's done. You don't even need to waste your money on the console.  Buy five games for a console.
+
+Speaker: SPEAKER_11
+Transcript:  Yeah, it's the Razer business model, right? We'll give you the Razer by the blade.
+
+Speaker: SPEAKER_02
+Transcript:  Absolutely.
+
+Speaker: SPEAKER_09
+Transcript:  We also see, I mean, like Amazon did, oh, sorry.
+
+Speaker: SPEAKER_11
+Transcript:  I just want to observe. Obviously, Ant must have an incredibly cluttered desk because he had that  never used right at hand.  I told you, it's everything right at hand.
+
+Speaker: SPEAKER_08
+Transcript:  Everything's right there.  I also have this Westcott wipe here from a glasses. This looks like some sort of DVI,  the HDMI adapter here for some reason. There's also a quarter right here.  I think there's, yeah, there's six-  You might want to save that for a rainy day, young man. Some stamps.  You know, I think this is a C band just in case I decide to get motion sickness while podcasting.  Yeah, my desk is rather cluttered, sir.
+
+Speaker: SPEAKER_02
+Transcript:  My desk is cluttered with a stack of phones.  Holy Santa Croix.  Oh, that's amazing.
+
+Speaker: SPEAKER_08
+Transcript:  Oh yeah, then there's another phone here. Here's the Pixel 4. That's the 4A. Yeah,  I totally feel you, sir.
+
+Speaker: SPEAKER_09
+Transcript:  This is what's on my desk.
+
+Speaker: SPEAKER_08
+Transcript:  All right, she's all clean.
+
+Speaker: SPEAKER_02
+Transcript:  Oh, see, that's the right way to go.  And?
+
+Speaker: SPEAKER_11
+Transcript:  And?  Books.  Keynotes.  Books, I tell you.
+
+Speaker: UNKNOWN
+Transcript:  Books.
+
+Speaker: SPEAKER_02
+Transcript:  Those are behind me.  That's better than a stack of phones.
+
+Speaker: SPEAKER_08
+Transcript:  I'll turn on my overhead camera so you can actually see this.
+
+Speaker: SPEAKER_09
+Transcript:  I'm lying. I have a corner over there and that has a light bulb, a ring box, a  smart lamp.  And I don't even know what else is in that tiny little corner and a bunch of screws and doodads.
+
+Speaker: SPEAKER_11
+Transcript:  Is Queen through it like this or is she the opposite as I would predict?
+
+Speaker: SPEAKER_08
+Transcript:  She's totally the opposite.  The thing is, though, I will clean up in here, air quotes, clean up,  and I'll get pissed off because I can't find anything.  She'll walk in here and she'll have this look of just amazement, like, wow, it's clean.  And then about two days later, I'm in here cussing because I moved something.  I moved something.
+
+Speaker: SPEAKER_11
+Transcript:  My wife's favorite place on earth is the container store.  She loves the container store.  And so my family joke is that I'm going to be buried in rubber made.  Everything has a container.
+
+Speaker: SPEAKER_02
+Transcript:  And pushed under the bed.  Yeah.  Yeah, exactly.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah.  It's a fitting edge, Jeff.  I just want you to know that she's not cheapen out if she's going container store.
+
+Speaker: SPEAKER_10
+Transcript:  That's the equivalent of the mahogany coffin right there.
+
+Speaker: SPEAKER_11
+Transcript:  That's no Ikea, man.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, it's true.  It's true.  Let's let's take a break.  This is so much fun.  I'm so happy to do this show with you guys.  Let's take a break and thank the sponsor and then we'll get back into more fun discussion.  We probably got some more Google news that we can talk about.  We'll dig it up.  But first, this episode of This Week in Google is brought to you by Technology Powers X.  It's an original podcast by Dell Technologies.  Every episode of Technology Powers X focuses on a different industry and goes behind the scenes  in a way that helps you understand how technology and how IT departments are actually reshaping  their businesses through all these things that we talk about on the show all the time.  AI, cloud, edge, intelligent devices, and so much more.  We've got so many episodes and I've had a sneak peek of a few of them.  One episode is all about theme parks and really how they use sensors, right?  Sometimes when you think of theme parks, you don't think of smart necessarily.  Just think of these rides and whatever.  They're highly intelligent systems.  They use sensors, massive amounts of data, software to make rides safer, more efficient,  obviously to make them more fun.  Another episode is about the technology behind F1 racing and how the legendary McLaren racing  team uses technology to make decisions about pitting and tire selection, racing strategies,  both trackside and at their data center.  So how they integrate all of that data from all those points and improve the performance of the  team.  And then there's an upcoming episode that talks all about vertical farming and how innovative  new tech can change where your food is actually coming from and how this may be the future of  sustainably feeding 21st century populations.  Fascinating stuff.  Technology Powers X is hosted by Danielle Applestone.  She's a hardware engineer and entrepreneur.  And we actually have a little clip.  This is a clip from the episode, The Beer You Love.
+
+Speaker: SPEAKER_04
+Transcript:  Today at New Belgium, the ancient craft of brewing has an indispensable 21st century ingredient,  hyper converged infrastructure.  That infrastructure supports almost every aspect of planning, marketing, sales and distribution.
+
+Speaker: SPEAKER_02
+Transcript:  You can listen to the whole episode and you can learn all about how technology is powering beer  at the New Belgium Brewing Company and maybe have a beer on hand while you're listening to that.  Search for Technology Powers X anywhere you listen to podcasts.  You can download each episode today.  That's Technology Powers X.  Download it today.  And my thanks to Technology Powers X for their support of this week in Google.
+
+Speaker: SPEAKER_08
+Transcript:  All right.  New Belgium recommendation, Ranger IPA or Fat Tire.
+
+Speaker: SPEAKER_02
+Transcript:  Okay.
+
+Speaker: SPEAKER_08
+Transcript:  Great beer.  Great brewery.
+
+Speaker: SPEAKER_02
+Transcript:  Fat Tire.  I've had, I kind of hit a point with Fat Tire where I was like, you know,  sometimes it just has a little of this like certain sweetness that I don't care about.  But the Ranger IPA is really delicious.  Let's see here.  What Google stories can we discuss?  Actually, we don't have to keep looking at Google, but yeah,  some of these projects are actually really interesting.
+
+Speaker: SPEAKER_11
+Transcript:  The blind one is really good.  It's a video worth playing.
+
+Speaker: SPEAKER_02
+Transcript:  All right.  So we've got two projects here to talk about.  Let's start with since you mentioned it, Stacey, we'll start with the trees.  Google's new Tree Canopy Lab tool,  which actually maps where trees are needed in a specific location.  And from my understanding, they started in LA.  The idea here is, you know, obviously global warming is heating the earth.  But where that is really apparent, in one way, it's very apparent,  is that just the fact that cities are very warm places.  There's asphalt everywhere, buildings that kind of lock in the heat.  And if you don't have enough trees distributed around in those areas,  there's not as many opportunity to cool the temperature down.  So this tool actually identifies where trees can be planted  to cool down those neighborhoods.  By 2028, I believe, they plan on the city of LA wants to increase tree canopy cover  of 50% of low income, severely heat impacted neighborhoods.  Because often a lot of the neighborhoods that end up kind of the hottest of all,  less trees, more asphalt, that sort of thing are the low income neighborhoods.  And so this would be a way to change that.
+
+Speaker: SPEAKER_09
+Transcript:  So yeah, I thought this was cool because I had covered,  it was a public radio station in New York City did a  it was like hot in Harlem project where they actually put sensors on rooftops  in areas of Harlem to track temperatures and showed how hot it was.  And I'm interested because I looked at Google thing and I'm like,  are they extrapolating this out based on like just simply a lack of trees from their map data?  Like they have an algorithm doing this as opposed to actually having to deploy these  physical sensors.  And that would be really cool because that makes something.  It's an important, is it the most important social justice issue?  No, but it is a very, it has a big impact on quality of life.  Yeah, and on environment too.  And on the environment.
+
+Speaker: SPEAKER_11
+Transcript:  Stacey, it says here they use aerial imagery to figure out where every tree is in a city.
+
+Speaker: SPEAKER_09
+Transcript:  Okay. So yeah, they're just extrapolating.  It's a tree census.  Yeah, exactly.  So yeah, I was a time.
+
+Speaker: SPEAKER_11
+Transcript:  Stacey, you know what the TK is for those of us, those of you not in the audience,  who don't know the TK.  I've got one of my newsletter right now.  When you don't know something, you'll fill it in later.  You know, Jeff is TK years old because he won't tell us.  So the researchers at time make were legendary for finding out any answers.  Let me put a ticket by God.  They found it in some damn writer and editor at time.  Inc said TK trees in Russia.  And the researcher then spent like a week trying to calculate how many trees there were in Russia.  So now Google can do it.  That's awesome.
+
+Speaker: SPEAKER_09
+Transcript:  What does TK stand for?  It's supposed to be to come, but the reason is so they won't get in type.
+
+Speaker: SPEAKER_11
+Transcript:  So that's why we misspell lead is spelled L E D E.  And it's called HED.  TK is spelled TK.  Yeah, right.  They're supposed to stand out.  So you wouldn't set them in type.
+
+Speaker: SPEAKER_09
+Transcript:  Jeff, you're 66 years old.
+
+Speaker: SPEAKER_08
+Transcript:  Allegedly.  I'm open to TK no more.
+
+Speaker: SPEAKER_11
+Transcript:  Well, I have to remember TK in my day.  We left blanks and we filled in the facts later.  So that's a cool project.
+
+Speaker: SPEAKER_02
+Transcript:  People do that.  Yeah, there's another project you were mentioning also, Jeff.  This is a project guideline.
+
+Speaker: SPEAKER_11
+Transcript:  We've talked about this in the show too is why couldn't you use  the tools that Google has to help blind people?  And I was thinking about this like within a home.  But they instead did this so that blind people could run.  And the video, which you can show, is a man who's been blind for a long time.  And he has to run with people.  It's always too slow.  All right.  Because they're guiding him and they have a guide rope or something so he can do this.  If you go forward a bit, right there was a moment where he said,  could you do this?  Could you help blind people run?  So they need a line in the route.  And they talk about how this is not easy because when you run, you go back and forth, left and  right, left and right, left and right.  And so you're not straight on to the line, but it learns enough to understand what's around you  and how to do this.  And so there's the, you can turn this on up now.  This is where he's doing it for the first time.  He's running on his own.
+
+Speaker: SPEAKER_08
+Transcript:  It's very obvious.  It's very obvious to recognize the line.
+
+Speaker: SPEAKER_04
+Transcript:  Teaching a machine learning model to do that is not that easy.
+
+Speaker: SPEAKER_00
+Transcript:  You step left and right as you're running.  So there's like a shake to the line left and right.  As soon as you start going outdoors, now the light is a lot more variable.
+
+Speaker: SPEAKER_05
+Transcript:  Three shadows, falling leaves, and also the line on the ground.
+
+Speaker: SPEAKER_02
+Transcript:  He's actually wearing like a harness.
+
+Speaker: SPEAKER_11
+Transcript:  He's wearing an Android phone.
+
+Speaker: SPEAKER_00
+Transcript:  Yeah, a harness with an Android phone.
+
+Speaker: SPEAKER_06
+Transcript:  And then is it haptic feedback telling him to be on the left?  It's a sound.
+
+Speaker: SPEAKER_09
+Transcript:  No, it's a sound.  It's a sound.  Okay.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, audio prompts.  So when the runner is left of the line, audio plays in the left ear.  That kind of increases in volume and distance, depending on where that person is in relation to the line.  People don't want blind people to take risks.
+
+Speaker: SPEAKER_01
+Transcript:  That's what keeps people who are blind from participating in society fully.  The safest thing for a blind person to do is to sit still.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, no kidding.  I could not imagine running at my full speed in darkness, right?  Like that.  It was.  You got to trust whatever the system is that is enabling you to do that.  You got to have full trust.
+
+Speaker: SPEAKER_08
+Transcript:  And he was in full stride just now.
+
+Speaker: SPEAKER_09
+Transcript:  I was about to say, look at that stride, man.
+
+Speaker: SPEAKER_11
+Transcript:  He really does.  And he breaks down in tears.  Yeah, that's amazing.  Because it's the first time in his life.  And then they put a whole bunch of people with this.  And it's really, this is what technology is supposed to be, right?  Yeah, this is what it's supposed to be.
+
+Speaker: SPEAKER_09
+Transcript:  When I talk to people who are trying to build solutions like this for either hearing impaired,  visual impaired, they're all like, please don't build for us.  Build for the community at large.  And we will adapt it for us.  Because otherwise, it's priced out of our market.  People think of it not as.  So if you can build accessibility into everyday products, it's far better for those communities  because there's no stigma associated with it.  It's cheaper.  And it's just easier for them to access it.  So I think using things like an Android phone is great.
+
+Speaker: SPEAKER_11
+Transcript:  And you can imagine other uses.  I still think that we've talked about, I forget what the Google project was that maps out into  your space and your vacuum.  Was that Tango?
+
+Speaker: SPEAKER_02
+Transcript:  Tango, right.
+
+Speaker: SPEAKER_11
+Transcript:  So you can imagine things.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah, you can see that spot, the Boston Dynamics robot, just chasing after people  using computer vision and accurately going in a straight line to them.
+
+Speaker: SPEAKER_08
+Transcript:  True.
+
+Speaker: SPEAKER_11
+Transcript:  I was afraid you were going to go moral panic there, Stacy, but you didn't.  You held back.  You stopped just short.
+
+Speaker: SPEAKER_09
+Transcript:  I am terrified of spot gaining any more intelligence.
+
+Speaker: SPEAKER_02
+Transcript:  Personally, save that moral panic for later.  Maybe this next story.  No, I don't know that this next story will induce that.  But I think maybe Jeff, did you add this story about French publishers?
+
+Speaker: SPEAKER_11
+Transcript:  Yeah, so I.  So Google, I won't spend a lot on this because we talked about it many, many times.  But but but there's an effort to basically charge for links, charge Google for linking  two publishers, which of course is in market senses is absolutely absurd.  But Google is basically agreeing to do it.  They're going to start paying publishers in France.  I think it's a huge mistake.  I think it's a precedent.  I think they should have fought for the Internet because what they're what they're losing here  is the value of the link.  And I got into arguments today with French people all over the Internet because of it.  But I want to quote my favorite newsletter author, Ben Evans,  who has a very good post, which I put up on Twitter.  It says this is let's be honest about this.  This is taxing Google to subsidize news.  It has no basis in copyright or competition to call that is intellectually dishonest, Ben says.  This is a targeted tax of a politically unpopular company to subsidize politically connected  companies.  And that's what's happening here.  But what's happening, too, is there's a precedent being set that says that you can charge for the  right to link to something that kills the public conversation.  It kills the academic.  It kills newspapers, by the way, because newspapers quote everybody.  And so now as a source, next time a French newspaper calls me, which they do once in a  while, I'm going to say, oh, well, no, you can't quote me unless you pay me.  That's the deal.  Works one way, works the other way.  You know, that's where we head here.  And it's protectionism by companies.  So I just wanted to market and say that I think this is a bad thing to happen.  That's all.  Nobody cares.
+
+Speaker: SPEAKER_08
+Transcript:  Jeff, what was the reaction you got when you were having discussions with  some of these French people earlier?
+
+Speaker: SPEAKER_11
+Transcript:  You said they tried to justify it.  You know, news cost money.  Well, OK, yeah, but that's not the way it does.  And and and government and I keep on saying I don't want government involved in speech  and that gets me in trouble.  BBC.  I say, yeah, but Boris Johnson.  It's an argument that I go into all the time.  No, we don't have the answers to all this.  I don't say that we do, but we know that there are dangers to some of these paths.  And this is a dangerous path.  And Google's given up because the French government has pushed them to and I.  And the way I don't blame them because in pathologies resistance, but in a way,  I do blame them for not standing up harder longer for the sake of the net.  That was all.  Thank you for that commercial message.
+
+Speaker: SPEAKER_02
+Transcript:  Thank you, Jeff.  Let's see here.  What do we have here?  YouTube.
+
+Speaker: SPEAKER_11
+Transcript:  So there's an interesting one here.  Line 56 Facebook.  Sarah Fisher at Axios.  Yes, did a comparison where she looked at all the features of all the social networks.  This is another Ben Evans tweet to us.  I saw this where he said, oh, no competition for Facebook.  Everybody is competing with everybody with every single feature.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, no kidding.
+
+Speaker: SPEAKER_08
+Transcript:  Look at this chart.  It's been like this at least a solid year, right?  Yeah, at least a year.  Everyone is trying to mimic the other ones just because they  they know that's what's working well over there.  And it started with Snapchat back in the days and their whole stories.  And it's just been going on ever since.  I'm still a little bit iffy with.  Was it fleets on Twitter?  Is that what it's called?  Fleets.  Yeah, I'm still a little bit iffy on that.  Have you used it yet?  Like have you fleeted?  I have fleeted.  And a couple of times it just seemed a little awkward.  The past tense is to flot.  I've flot.  You have flot.
+
+Speaker: SPEAKER_09
+Transcript:  No, it's to flit.  Flittered?
+
+Speaker: SPEAKER_11
+Transcript:  Fluttered?  How about you fluted?  Sorry, sorry.
+
+Speaker: SPEAKER_08
+Transcript:  But it was not quite the same as using Instagram stories.  It's just there's still a couple simple user interface issues there  as far as like putting text in and how to manipulate the text  and work with the background and things like that.
+
+Speaker: SPEAKER_09
+Transcript:  How are people putting their tweets in there?  Are they putting them in the screenshot?  Are they putting them in there?
+
+Speaker: SPEAKER_08
+Transcript:  They're putting it in as a screenshot because if you put it in as a link,  the link shows up as a URL instead of the actual embedded.  And they're just not there yet.  But again, it's been an experiment for me because I don't know how many people  that follow AntPruitt on Twitter, Ant underscore Pruitt,  give a crap about my fleets.  They worry more about the tweets, right?
+
+Speaker: SPEAKER_09
+Transcript:  I've seen your tweets, Ant.  People like mine, but I'm only doing dogs.  I'm only doing my dog.  That's the only thing I'm fleeting.  Ant's like, I'm no longer interested in your fleets, which is fine.  I mean, I just was like, what's some low stakes content  that will make people happy if they encounter it,  but won't feel like they missed anything if they don't encounter it, right?  Because it's going to go away.  Right.  And I'm not one of those people.  One day maybe someone will ask me to serve in a public place  and someone would look at my history of some 27,000 tweets  and they will find something that will be embarrassing.
+
+Speaker: SPEAKER_11
+Transcript:  Can I search on your fleets, Stacey?
+
+Speaker: SPEAKER_09
+Transcript:  No, because they're all gone.  I haven't done a fleet in 24 hours.
+
+Speaker: SPEAKER_08
+Transcript:  I see.  Right.  Okay.
+
+Speaker: SPEAKER_09
+Transcript:  Not that I feel that my tweets are like for posterity,  but I'll stand by them for a full week or a year.
+
+Speaker: SPEAKER_11
+Transcript:  How about, Ant, do you get stories?  Does that make sense to you or is that the same problem?
+
+Speaker: SPEAKER_08
+Transcript:  I do the same.  I'm using stories pretty regularly.  I use it more so as a behind the scenes tool  to promote something that's just been launched.  Like if Hop goes out, I put something in store to say,  hey, the latest Hop is up.  But most of the time it's more so for behind the scenes  because people are curious to see how I shoot something.  Or if I'm shooting the show, they want to see how I shoot the show  and see the messy desk and all of that.  And I figured I could do the same thing on Twitter with fleets  and it just feels different.
+
+Speaker: SPEAKER_02
+Transcript:  I have not myself gotten into any of the stories or the fleets  or the whatever they're called and all of the other networks,  social networks.  Like I get them.  I understand them.  I just have never created a habit or a ritual of adding to them.  I didn't have that habit.
+
+Speaker: SPEAKER_08
+Transcript:  It only happened because people began to ask, wow,  how did you do this?  Or what made you think of this kind of thing?  And that's the only reason I started doing it.  Most people use stories to essentially vlog and show off stuff.  And that's not me.  I'm way too private for that.  And I don't ever want to come off as braggadocious  because a lot of times those vlogs come off as braggadocious.  So I just stay away from that.  So I just try to use it more so as a behind the scenes tool.  If I'm going out to go test something out outside,  a new camera lens or whatever, I'll mention that, hey,  I'm testing this and this is what it looks like behind the scenes  as I'm testing or something like that.  Or I think last time I did a time lapse of setting up for last week's show  and had Queen Pruitt setting up as the model  and me setting up the lights and all of that.  And people seemed to like that kind of stuff.  I think of Twitter as my place to put my behind the scenes stuff.
+
+Speaker: SPEAKER_09
+Transcript:  But it's a nice place, either stories or fleets or Twitter.  If you are a journalist who is creating formal content,  I know having a place to share the informal behind the scenes  or just sharing the content that you're sharing  is a nice place to do that.  But I think that's the only way to do that.  Having a place to share the informal behind the scenes  or just a little bit more of your authentic self,  provided your authentic self is not a terrible person.  I think it helps you connect with people in a way that is nice.  And some of your audience will appreciate it.  Obviously not everybody.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah, it does humanize you a bit.  At least that's the part of the approach that I have with it  is let people see that I am human and I am going to set up behind the scenes.  And you will see me drop a C-stand right on my toe  and fuss and cuss about it because I'm human and it happens.  Hopefully the film's rolling when that happens.  It has, unfortunately.
+
+Speaker: SPEAKER_02
+Transcript:  I just always, especially now where we're just kind of  working out of our homes and everything,  I have a hard time thinking that anybody really would care that much  to see what behind the scenes is here.  Because really behind the scenes is just me living my life with my family.  And I don't necessarily like to put, to make the choice for them  that I'm going to put them.  Yeah, I'm pretty private.  I don't make the choice to put them in front of my social media following.  So my opportunities to use something like stories or fleets or whatever  are very minuscule.  So I just don't even think about it.  And then I wonder like, well, I should probably be doing more.  Considering what I do for a living, I should probably be a little more public.
+
+Speaker: SPEAKER_08
+Transcript:  I'm not going to speak as the Twitter co-worker here, Mr. Howell.  I'm going to speak as the fan.  I think your behind the scenes would be quite fascinating  because you have a pretty interesting story with how you're passionate with Android,  but you're a pretty technical guy.  And you're also a pretty freaking cool musical guy.  Your behind the scenes would be pretty interesting to see.
+
+Speaker: SPEAKER_02
+Transcript:  I appreciate that.  I could maybe see that more with the music stuff.  That makes more sense to me when I'm actually writing anything,  which I'm not actively right now.  But the technical stuff, it's just me sitting on my bed.
+
+Speaker: SPEAKER_11
+Transcript:  But that's humanizing.  I'm sitting on my bed working.  But that is humanizing.  People like that.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah.  Believe me, my technical stuff is basically me armed with a phone running around my house  hitting reset on a hub and then going back to the device.  It's basically like Stacey runs around with a phone in her hand.
+
+Speaker: SPEAKER_11
+Transcript:  Is it also daughter and husband yelling, Mom, would you fix this thing of yours?
+
+Speaker: SPEAKER_09
+Transcript:  You guys, I had to take the, I had to, I was testing out a router  and I had to take the internet down on a weekday.  I mean, it was like a 40 minute lunch break.  I felt like, like I was on 24.  I mean, I was just like, come on.
+
+Speaker: SPEAKER_11
+Transcript:  You were AWS in Virginia.
+
+Speaker: SPEAKER_09
+Transcript:  I felt them so much in that moment.  I was like, why did I do this now?  I did it because there was help available during business hours.  But my husband was like, why'd you do this now?  Why couldn't you have waited till the weekend?  And I'm like, this is because they don't work on the weekend.
+
+Speaker: SPEAKER_11
+Transcript:  This is what I imagined for Shay Higginbotham.  Yeah.  This is exactly what I imagined.
+
+Speaker: SPEAKER_09
+Transcript:  My husband was real irritated with me and y'all be like either completely justified.  It was, but also you might feel sad for me and hate my husband  because he was definitely like,
+
+Speaker: SPEAKER_08
+Transcript:  just slightly irritated, right?
+
+Speaker: SPEAKER_02
+Transcript:  I can so relate to that.  I can so relate to that.
+
+Speaker: SPEAKER_11
+Transcript:  Hey, what do you think?  I've got big figures in my world.  Oh, go ahead.  Oh, okay.  What is it?  What is it?  Go.  No, just Buzzfeed taking over HuffPost.
+
+Speaker: SPEAKER_09
+Transcript:  Jonah Peretti just bringing his peeps back together.  Exactly.  Is it Jonah Peretti?  Is that?  Yeah, that's who it is, right?
+
+Speaker: SPEAKER_11
+Transcript:  Jonah Peretti, who was one of the founders of HuffPost,  HuffPost as he now calls it, bringing it together.  Basically, what Jonah's been saying lately is that all,  because Vox, HuffPost, Quartz, Buzzfeed, they're all having problems now.  Stacey lived there before with Giga Home.  It's coming to the rest of them.  So Jonah's been arguing that there needs to be consolidation.  They all need to gather together against the cold winds of media world.  So we'll see.
+
+Speaker: SPEAKER_09
+Transcript:  There was a, what's his name?  Stratechery Dude had a good take on all of that.  Ben Thompson?
+
+Speaker: SPEAKER_02
+Transcript:  Ben Thompson.
+
+Speaker: SPEAKER_09
+Transcript:  Ben Thompson.  Yes.  Did y'all read it?  It was his idea was, I'm not even going to go.  I don't care.  It's my industry and I don't care.  I'm like, I'll look it up.  I'll look it up.  Jeff, you'll like it.  It was smart.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, you got to read his stuff.  It's kind of like trying to describe his writing is incredibly difficult because he's so wicked smart.  He's so smart.
+
+Speaker: SPEAKER_11
+Transcript:  He's so smart and so long at it.  Yes.  He threw a tour of an entire country.
+
+Speaker: SPEAKER_09
+Transcript:  I just don't want to go through the whole, I'm like, there's a lot of background.
+
+Speaker: SPEAKER_02
+Transcript:  Really?  The best option is to just go read it for yourself.  That's what you need to do at the end of the day.  You'll enjoy it.
+
+Speaker: SPEAKER_09
+Transcript:  I promise.
+
+Speaker: SPEAKER_02
+Transcript:  What do you say we jump into a little change log?  Oh, do that.  Let's change some logs together.  Or log some changes.
+
+Speaker: SPEAKER_04
+Transcript:  Has an indispensable 21st century ingredient.  Hyper converged infrastructure.  That infrastructure supports.
+
+Speaker: SPEAKER_11
+Transcript:  I thought it was a new theme song.
+
+Speaker: SPEAKER_09
+Transcript:  What is happening?  I was like, we're back to that podcast again.
+
+Speaker: SPEAKER_02
+Transcript:  We got some new production values going on here.  Love it.  Yeah, at first I didn't think we had a lot in here and then suddenly it ballooned.  So buckle up.  First, Google announced some family focused features coming to both assistant  and Google Fi.  We'll start with assistant here.  Smart displays are going to get a new family tab, which includes, at least at the start,  includes something called family notes, essentially like little stickies.  So if you're, if you want to leave a note for someone, you can leave a family note.  It looks like a sticky on the smart display and then somebody can do the to do or the  reminder or whatever.  Family bell is getting some new sound effects and new suggested bells and you'll soon be able  to pause the bells for an entire, for a day.  If you know, like a week like this happens, I don't know if you noticed earlier while  the show was going on and suddenly my Google home went nuts.  That was family bell because at two 30, I have a reminder for me to get up and stretch  and like walk around and stuff.  Cause otherwise I just sit in that bed working.
+
+Speaker: SPEAKER_09
+Transcript:  I think we should take that actually on the show and do that.  Cause like my Fitbit buzzes at me all the time.  It's like, get up, get up.  Just take a little stretch break.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, I completely agree.  If I didn't have that reminder, I'd probably never would.  So a family bell, by the way, I absolutely love it.  It's such a great feature.  It comes in handy in this house, you know, with the kids at school and all this kind  of stuff we rely on.  We literally rely on it.  So great feature.  Some other features, some other commands.  Hey G, what can I learn with my family?  Which kind of integrates some learning content from partners like ABC mouse on the smart  display.  Also, Hey G, where's my family?  Where's my family?  We're a specific family member and it will pop up a Google map and show you on the map  where they are last, their last known location.  All of that is coming soon.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, it's with life 360.  Okay.  I was like, do they have to have an Android phone for that?  But they do not.
+
+Speaker: SPEAKER_08
+Transcript:  When you say the live 360.
+
+Speaker: SPEAKER_09
+Transcript:  Is the logo in the corner.  Sorry.  As I point to your screen, I'm like right there.  It was in the corner.  It's from life 360, which is a, it's a app that are y'all familiar with it.  It's a great app.  No, I'm not at all.  Families love it.  You download it and anybody on their phone, you can see where they are and you can send  messages to them.  And it's, it's just a very handy service.  If you like, now that my daughter has a phone that she does not carry with her.  But theoretically, if she left the house with the phone, I could find her and see her location  in a way that's kind of nice.  And they have all these kind of, they have the permissioning down and a nice feature  set for like parents who are trying to monitor their teens, but not like be psychotic about it.
+
+Speaker: SPEAKER_02
+Transcript:  Well, I mean, even family, the, the family features that Google, why am I suddenly a  family link has location tracking on kids devices as well.  So I wonder how those two services.  Differ that this life 360 runs on any phone.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, I see.  So like, that's why I was like, oh, cause then you could run it on an Apple phone.  Cause you know, the kids all gotta be on Apple.  So their friends need not RCS, right?  I messages can be ostracized and unable to like things y'all.
+
+Speaker: SPEAKER_02
+Transcript:  Yep.  Yep.  Unable to heart comments.  Phi is also getting expanded parental controls of the service.  You can block calls as a parent.  You can block calls, texts from strangers.  You could set a data budget for kids that's coming next week.  So if you're on phi and you have a family kind of sharing the data on phi, that that'd  be useful for you.  New features to Google meet a new feature called attendance reports.  And this is rolling out first to enterprise for education customers.  Eventually it's going to roll roll out to other workplace tiers, but it's essentially  a spreadsheet that's emailed out from my understanding at the end of the meeting  with the names, email addresses, length of time on a call of all the people that have  attended at what point in the meeting they attended graphs users over the course of the  entire meeting.  So I suppose people who are running these meetings can see who was actually paying  attention, who was there and who wasn't.
+
+Speaker: SPEAKER_11
+Transcript:  A little worrisome.  I guess they know you were there on a box.
+
+Speaker: SPEAKER_09
+Transcript:  Right.  We should.  I mean, you should do it for.  I mean, for employee tracking, it makes sense.  Right.  I mean, you wouldn't do it necessarily for your friends or family.  No, you weren't in a happy hour.
+
+Speaker: SPEAKER_02
+Transcript:  Right.  Rolling out for enterprise for education.  So I think a lot of the students that are on these, you know, my kids, they're on Zoom,  but there's a lot of kind of rules around this where their video has to be on because  they want to know that the students there, I think the districts have these requirements  and they're figuring out these requirements to keep to be certain that if they're passing  these kids are given grades or whatever, that it's based on actual metrics that are rating  something specific and not just like, oh, well, they showed up and that was good enough,  which is how it felt.  So there's a few issues.
+
+Speaker: SPEAKER_11
+Transcript:  Springtime.  I mean, one is we have a policy that we can't require you to turn on your camera  because some of our students are poor.  They're in there.  It violates the privacy of the people who are behind them.  That there is an issue there.  The second is that these companies making a fortune now on the exam proctoring stuff  where they watch your eyes and all this kind of stuff while you're taking the exams.  It's really, you know, and I'm Mr. Mr. Technology can be OK.  This is where Jeff gets a little moral panic.  Well, we're doing this to our children.
+
+Speaker: SPEAKER_09
+Transcript:  It's not moral panic if it's a justifiable concern or question.  You're allowed to ask questions, Jeff.
+
+Speaker: SPEAKER_11
+Transcript:  But if your child is so untrusted by the school,  what matters is not that they had their eyes glued to the screen.  Don't look off the screen.  No, don't look up the strings.  You might be looking at something cheat.  You got to look at the screen.  That's the way to teach.  That's screwed up.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, that's all.  They're all learning lessons right now.  As far as like what's necessary and what's not.  I feel so bad for one of my kids teachers because I swear every single day it's  insert name here.  Obviously, I can't remember his name and I wouldn't say it if I knew it.  But he's always playing a video game, right?  Like all of these challenges that like if you're a teacher on the other side of the glass,  you want to be able to run a class where you know the students are engaged,  they're connected to the content and then to the discussion and that you can grade them  accordingly.  You know all about this, Jeff.  But it's all these new challenges like, oh no, right off the side of the screen is a  video game controller and he's always looking off to the side and he can see his eyes moving  all the time so he knows something's going on.  Yeah, I feel for teachers in this situation.  It's hard to do your job like that.  Yeah, kids being kids.  Google removed group calling or is removing group calling from hangouts.
+
+Speaker: SPEAKER_08
+Transcript:  Really wishing users that notification in my inbox.  I've seen the notification about a gazillion times.  I get it.  Stop putting it in there.
+
+Speaker: SPEAKER_02
+Transcript:  There's that notification again.  Then there's the notification in drive how your trash, you know, the trash is changing  to 30 days or something and I swear every single time I log into drive, it's that big  banner.  Yeah.  Trash changing.  It's like, okay, I get it now.  Yeah, hangouts, of course, has an end of life that's planned for some time next year.  Obviously, when the dust all settles there, we're going to be left with chat,  meet and messages.  So this is kind of the pathway to get there.  Another another part of the pathway to get there.  New Google Pay rolled out last week.  You guys talked about it on the show, but it does have some caveats which people weren't  as aware of when it launched at first.  First of all, the Google Pay website is going to go away or the web app rather goes away  January 2021.  This means no person to person money transfers or payments or anything using the web.  It must happen through the new app.  And in fact, the old app is going to stop allowing peer to peer payments as well.  So you have to use the new app.  And then the new system is also going to add a 1.5% fee on instant money transfers on the  old system.  There was no fee there.  Now they're going to charge the 1.5% fee.  Pretty standard, though, right?  Pretty standard, right?  Yeah, I would imagine that's pretty standard.  But it was free before.  So it's good to know you're going to be charged now going forward.  Chrome update launched last week speeds up the browser better on battery.  It reduces CPU by five times, extends battery, they say by 1.25 hours, launches 25% faster,  loads pages 7% faster.  But it also in that announcement, they made mention of a few other features which are  kind of neat.  Tab search for all of you crazy people that love to load your Chrome instance with millions  of tabs.  I don't know how you do it, but now there's going to be a search feature coming to Chromebooks  first.  Unbelievable.  So you can look for that.  I know I've never been able to do that.
+
+Speaker: SPEAKER_09
+Transcript:  I get stressed out.  I have 20 open and that's about all I can handle.
+
+Speaker: SPEAKER_02
+Transcript:  That would be about my limit and that would be pushing it for me for sure.  When I can't read at least a little bit of the words up in the tab, then I know it's  just too much.  But when it's just this tiny little.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah, that's my giveaway too.  Let's close a few of them, dude.
+
+Speaker: SPEAKER_02
+Transcript:  Exactly.  Also Chrome actions.  So this is using the bar in your Chrome browser to issue actions like edit password or delete  history or clear cache or launch incognito mode.  You type that into the bar and it'll do the thing instead of having to go into the settings  or the pull down menu or anything like that.  You can just type it in there and jump right to it.  That's kind of cool.  It's one of those features I'm like, oh, I'm surprised I wasn't there before.  That makes a lot of sense.  Yeah.  And finally, go ahead and type into your Google search, happy Thanksgiving.  When you do that, you'll get a little translation box up at the top of your search results.  You can enter anything into the English or any other language section on the left and  it'll translate it into Turkey gobbles.  Okay, I'm doing it.
+
+Speaker: SPEAKER_08
+Transcript:  Biscuit comes out as gobble.
+
+Speaker: SPEAKER_09
+Transcript:  Oh, I need it to tuck.  Oh, yeah, you can listen to it.
+
+Speaker: SPEAKER_02
+Transcript:  Be careful.
+
+Speaker: SPEAKER_09
+Transcript:  I asked what time is dinner and that was the answer.  Turkey did sound appropriately upset over dinner.
+
+Speaker: SPEAKER_02
+Transcript:  And it even says poultry verified.  So, you know, it's an official source.  Wow.  So that's good.  Nice.  Go ahead and do that for some reason.  And that is the Google change log.
+
+Speaker: SPEAKER_09
+Transcript:  You say for some reason, but my daughter will love this.  This is a girl.
+
+Speaker: SPEAKER_04
+Transcript:  New Belgium, the ancient craft of doing has an indispensable 21st ingredient.
+
+Speaker: SPEAKER_11
+Transcript:  John's hit the wrong button.  I love it.  I didn't do it.
+
+Speaker: SPEAKER_04
+Transcript:  Supports almost every aspect of play.
+
+Speaker: SPEAKER_02
+Transcript:  Look, the TriCaster, it's basically like a mouse trap game.  Like the mouse trap game.  Sorry, it's over for John.  I'm covering for you, man.  I know what it's like to take over a TriCaster.  Oh, when I push that, that happens now.  Let's take a break and then we will get back and do some tips and tricks and stuff.  I can't wait to show off mine.  I'm really, I'm really proud of what I found for you all.  But first, this episode of this week in Google is brought to you by Bandwidth.  Bandwidth has injected the power of software into telephony, delivering cloud-ready voice calling.  You got text messaging and 911 built for the enterprise.  It helps some of the biggest brands in the world disrupt industries, create new products,  and change how people communicate.  So for over 10 years, Google has relied on bandwidth for many of their communications needs.  We were talking about it earlier from Google Meet to Google Homes.  Even the Google Home that announced itself earlier while we were doing the show.  Bandwidth APIs are behind the scenes of Google products,  and they're ensuring quality communications.  Google and other giants like Microsoft and Zoom rely on bandwidth  to bring their most important customer experiences to life.  So that's from sending SMS notifications at just the right time,  to making sure contact center calls sound crystal clear,  to ensuring reliable and secure 911 call routing.  Bandwidth's own tier one carrier network backs their API platform,  allowing for a no middleman pricing structure.  Also greater insight into quality and deliverability and a seat at the industry table.  Rovers co-founder and director of software development, Philip Kimme, raves about bandwidth,  saying no other provider offered the same level of hands-on support  or cost savings that bandwidth has been able to deliver.  Their flexible APIs made it simple for us to get up and running without missing a beat.  So you can join companies like Google, like Microsoft and Zoom who build with bandwidth.  Get the power and the reliability of a tier one carrier network paired with a control and agility  of enterprise-grade APIs with bandwidth.  Start a free trial at bandwidth.com slash twig.  That's bandwidth.com slash twig.  And we thank bandwidth for their support of this week in Google.  And man, with all these phones, they just all go off when I say the word Google.  Like one of them hears it wrong.  It was a sitcom.
+
+Speaker: SPEAKER_08
+Transcript:  One of my favorite tweets from you here recently was the alarm going off in the morning  and one of the phones ends up being under the bed.  And you're trying to find which one of these things is going off and  come to find out it's actually under the bed.
+
+Speaker: SPEAKER_02
+Transcript:  Because Google has gotten really good at or has gotten better.  You know how it used to be?  Like if you got a new phone and you wanted to set it up, you had to manually install  all the apps that you had on your old phone.  Google's gotten much better at automatically transferring over apps or at least installing  them.  But some apps go deeper.  Some apps like revive on the new phone with the settings from the old phone.  And one of the apps that does that every time is the alarm clock.  And so I've got, you know, I showed you earlier, I've got like 15 phones on the desk right now.  And if I have even one of those powered up that I forget to shut down at the end of the night,  then probably in the morning on like a weekend or whatever, my alarm on one of those phones  is going to start going off at 630.  And it could be any number of noises.  Usually it's a really loud annoying noise because I didn't set it up properly.
+
+Speaker: SPEAKER_11
+Transcript:  So this is the Android version of what Stacey has.
+
+Speaker: SPEAKER_05
+Transcript:  Dad, your phone's going off again.
+
+Speaker: SPEAKER_03
+Transcript:  Dad.
+
+Speaker: SPEAKER_02
+Transcript:  Thankfully, thankfully it doesn't wake anyone else up, but it definitely wakes me up.  And it's like the worst way to start the day is like fumbling in the dark with 15 phones,  trying to find the one that's that's alarm is going off.
+
+Speaker: SPEAKER_08
+Transcript:  You tweeted that and I just couldn't help but laugh because I could see it just so vividly.  Oh my goodness.
+
+Speaker: SPEAKER_02
+Transcript:  I've had so many times, so many times.  All right, let's do some some picks.  Why don't we start with you, Ant?  What you got?
+
+Speaker: SPEAKER_08
+Transcript:  Well, me, I want to give a shout out to someone back in Charlotte.  This gentleman used to go out with me on my photo walks whenever I offer up for people  to meet up for photo walks.  His name is Mike Wilson and he was he's an aspiring photographer.  And over the last year and a half, two years, it's been just unbelievable to see his growth  and see how much better he's gotten and seeing now that his business is starting to build  and he's invested in himself.  He was part of Tita Hurley's headshot crew schooling and it's really, really paying off.  And he's been putting some things on his Instagram page and it's just he just continues  to blow me away.  And the latest thing he put out there, I just had had to stop and say, look, dude,  I'm happy for you.  It's just great to see other creators that are starting out and just putting in the work,  putting in the effort and then starting to see some of the fruits from their labor,  if you will.  And it's just, yeah, it's just great to see that.  But Mike Wilson, the website is MJWphoto, c-o-t dot com.  We'll have that in our show notes, but you can see on the screen right now, he does some  amazing headshots, just beautiful work.
+
+Speaker: SPEAKER_02
+Transcript:  Yeah.  Yeah, I'm thumbing through them right now.
+
+Speaker: SPEAKER_08
+Transcript:  And he does some location shots as well.  I've seen him work on a couple of those in downtown Charlotte and it's just,  and he's using a APS-C camera.  It's not a full frame sensor and he's using, I want to say he's using an old Fuji,  so he's not using all of this expensive, fancy, schmancy equipment.  He's just using what he has and he's getting the job done.  It's unbelievable.  I love it.  Right on.  Love it.  Talented.  And that's some of his real estate work he's been doing too.  So yeah, shout out to you, Mike.  It's, hey, I hadn't been able to see you in a long time, man.  It was always great to hang out with you for sure.  And then secondly, I want to just plug my YouTube channel, youtube.com slash Antaprewit.  Go over there, subscribe, watch some videos.  It's growing and I'm enjoying the growth.  So let's keep it going.  Right on.
+
+Speaker: SPEAKER_02
+Transcript:  Create and dominate.  Yeah.  YouTube.com slash Antaprewit.  Nice.  Thank you, man.  Jeff, what you got?
+
+Speaker: SPEAKER_11
+Transcript:  Oh, let's see here.  I'm going to do this one.  So as of now in California, robo taxis can start charging for rides.  So my question is, would you be comfortable taking a ride  in a robo taxi in a self-driving car with no driver?
+
+Speaker: SPEAKER_09
+Transcript:  Sure.  They drive like 20 miles an hour.  It's fine.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah.  Seems like all of the tech is in place, right?
+
+Speaker: SPEAKER_09
+Transcript:  No, we're not at level five autonomy yet, but sure.  Yeah, I would.
+
+Speaker: SPEAKER_11
+Transcript:  I've got one other thing.  This is where we are on Thanksgiving week.  I want to see if anybody has brought back memories to me.  I saw it on Twitter as the show started.  I never heard by this title, Lutheran Sushi.  Have you ever heard of this?  No.  Otherwise known as pickle rolls.
+
+Speaker: UNKNOWN
+Transcript:  What?
+
+Speaker: SPEAKER_11
+Transcript:  This is very Midwest.  This is very MyHeritage.  A pickle with cream cheese and ham.
+
+Speaker: SPEAKER_08
+Transcript:  Oh, yeah.  Yeah.
+
+Speaker: SPEAKER_11
+Transcript:  I've had this.  I did that to get Stacey's face.
+
+Speaker: SPEAKER_08
+Transcript:  Yeah, I've had those.  They'll do in a pinch.  Yeah, they're kind of good, aren't they?
+
+Speaker: SPEAKER_09
+Transcript:  We do jalapenos with cream cheese and bacon and shrimp.  So that's far too fancy.
+
+Speaker: SPEAKER_11
+Transcript:  Little America, Stacey.
+
+Speaker: SPEAKER_09
+Transcript:  My mom used to spread cream cheese inside rolls of deli meat ham.  And she would cut it in thirds and stick toothpicks and give it to me.  My brother and I is fancy.
+
+Speaker: SPEAKER_02
+Transcript:  There you go.  Yeah, it's always fancier with the toothpick through it.  That was actually my question.
+
+Speaker: SPEAKER_09
+Transcript:  We would ask for something fancy and that's what we would get.
+
+Speaker: SPEAKER_08
+Transcript:  There it is.  Yep.
+
+Speaker: SPEAKER_02
+Transcript:  There it is.  Okay, now I'm sold.  When I just saw the pickle roll ups with no toothpick, I was on the fence.
+
+Speaker: SPEAKER_09
+Transcript:  Now it's fancy.  Now you're like, it's party food.
+
+Speaker: SPEAKER_02
+Transcript:  Really steps it up and I'm in here.  Ooh, fried cheese.  I always think of tailgating when I see that.
+
+Speaker: SPEAKER_11
+Transcript:  While we're on food, one quick second, Stacey,  because you're the one who does all the fancy stuff.  What are you fixing tomorrow?
+
+Speaker: SPEAKER_09
+Transcript:  Oh, tomorrow is a low key Thanksgiving.  We're only having five dishes.  We're making a chicken, not a turkey.  So chicken, stuffing, cranberries, mashed potatoes.  I'm doing a sherry mushroom cream gravy and then six dishes.  Hold on.  And then a delicata squash with a maple glaze served on top of a bed of arugula  with pomegranate and a hunk of burrata on top.
+
+Speaker: SPEAKER_11
+Transcript:  That's six dishes itself.  A hunk of burrata.  Well, it's my daughter because she's a vegetarian.
+
+Speaker: SPEAKER_09
+Transcript:  So she needed something to like, we've got a chicken.
+
+Speaker: SPEAKER_02
+Transcript:  Something grand.  Yeah.
+
+Speaker: SPEAKER_09
+Transcript:  And she needed something fancy and it's so pretty, y'all.  It's just beautiful.
+
+Speaker: SPEAKER_11
+Transcript:  So Ant, are you barbecuing?
+
+Speaker: SPEAKER_08
+Transcript:  No, we're frying bird.  A frying bird.  I love fried turkey.  No, not turkey.  Just fried chicken.  Just fried chicken.  Oh, okay.  Queen Pruitt wanted fried chicken and she's going to do it up  because she wanted fried chicken, buttermilk, marinade and all of that.  So yeah, fried chicken.  That sounds so good.
+
+Speaker: SPEAKER_02
+Transcript:  Why aren't we doing fried chicken?  Simple pleasures.
+
+Speaker: SPEAKER_11
+Transcript:  Simple pleasures.  You're the turkey, Jason?
+
+Speaker: SPEAKER_02
+Transcript:  Yeah, we're doing a turkey.  I'm on deck for the veggie and I'm going to make some monkey bread.  That's not a veggie.
+
+Speaker: SPEAKER_09
+Transcript:  No, I know.
+
+Speaker: SPEAKER_02
+Transcript:  I'm on deck for the veggie and I'm making some monkey bread.  Just so you know.  I'm still trying to figure out what the veggie is going to be.  My wife's like, don't overthink it.  Just like, you know, make some cauliflower or something like that.  I'm like, I want it to be, I want it to be awesome.  So I don't know what I'm going to do.  But yeah, we're doing turkey stuffing, mashed potatoes.  Super easy.
+
+Speaker: SPEAKER_09
+Transcript:  Just so you know, you mix equal parts maple syrup and olive oil.  You just sprinkle that on.  Pick a summer, winter squash, butternut, delicata, pumpkin.  Doesn't matter.  Just stick it on there.  Stick in the oven and roast it and poof, it's delicious.  And if you want to get fancy, you can sprinkle nuts or something on it.
+
+Speaker: SPEAKER_02
+Transcript:  And then stick a toothpick in it.
+
+Speaker: SPEAKER_09
+Transcript:  And a toothpick, yes.
+
+Speaker: SPEAKER_02
+Transcript:  Okay.  All right, good.  As long as I can put toothpick in it.  All right.
+
+Speaker: SPEAKER_11
+Transcript:  Thank you for that little tour.  What about you, Jeff?  What do you do?  Oh, just what do you have?  This family doesn't like turkey.  I'm fine with turkey, but nobody likes turkey.  So we'll have chicken or macaroni and cheese or I don't know.
+
+Speaker: SPEAKER_09
+Transcript:  Cacio e pepe.
+
+Speaker: SPEAKER_11
+Transcript:  That's tonight.  That's tonight.  And Trader Joe's got it back.  So I'm relieved.  Oh, man.
+
+Speaker: SPEAKER_09
+Transcript:  I don't want to see your freezer.  I'm just imagining like in a day's Cacio e pepe.
+
+Speaker: SPEAKER_11
+Transcript:  I'll take a picture of it for you for that show.  Yeah.
+
+Speaker: SPEAKER_09
+Transcript:  Excellent.  Tweet it out, man.  Do a fleet.
+
+Speaker: SPEAKER_11
+Transcript:  Yeah, by next week.  Fleet it out.
+
+Speaker: SPEAKER_09
+Transcript:  I know that's why you should fleet it out now.  We can all see.  So I don't get embarrassed forever?
+
+Speaker: SPEAKER_11
+Transcript:  Is that what you're saying?
+
+Speaker: SPEAKER_09
+Transcript:  I just want it.  It's only my desire for you not to have a heart attack that I'm like,  please just eat a salad every now and then too.
+
+Speaker: SPEAKER_11
+Transcript:  I eat a salad before every dish of Cacio e pepe.
+
+Speaker: SPEAKER_09
+Transcript:  Okay.  And every Wednesday night.  After it'll clean your arteries out afterwards.
+
+Speaker: SPEAKER_02
+Transcript:  Stacey, what you got?
+
+Speaker: SPEAKER_09
+Transcript:  Oh, I have a thing.  Yes.  You have a thing.  Well, I have, I'm going to do a,  it's on my desk for a reason now.  It's not just a dirty desk.  Hold up.  Here it is.  I have the new Nanoleaf thread enabled light bulb.  It's not screwed into anything right now.  So, but I'm showing it to people because it has this funky.  Weird shape to it.  Oh, yeah.  It's like a Dungeons and Dives.  It's like a hundred sided die on top.  But, oh, faceted.  That's it.  This is a home kit enabled light.  It's thread enabled as well, because like I'm telling people,  thread is going to be important for the project chip support as that comes out next year.  And so Apple's home kit mini, which is behind me somewhere, maybe over somewhere.  Have you all seen the home kit mini?  Home pod?  Home pod?  Sorry.  Home pod mini.  It's like home kit.  Sorry.  Stacey doesn't speak normal words.  Here's the home pod mini.  Oh, can you see it?  We don't see it.
+
+Speaker: SPEAKER_08
+Transcript:  There we go.
+
+Speaker: SPEAKER_09
+Transcript:  There it is.  It's floating up here.  It's plugged in a little far away.  So I'm like, but it's, it's, there it is.
+
+Speaker: SPEAKER_02
+Transcript:  It's glowing.  There it is.
+
+Speaker: SPEAKER_08
+Transcript:  In all of its beautiful Apple glory, the most magnificent home assistant we've ever designed.
+
+Speaker: UNKNOWN
+Transcript:  You're going to love it.
+
+Speaker: SPEAKER_09
+Transcript:  Are you reading that on something?  Anyway, that has thread in it.  So it talks to this light bulb.  Now it's the first time that Apple has supported through home kit, anything that is a wifi or  Bluetooth.  So that's notable.  And if you're wondering, the home pod mini sounds really good.  Actually, it's comparable.  I have all of the $99 speakers in my home and I will tell you that it sounds to me on  par with the nest audio, which is bigger and heavier.  And the echo generation four is probably my least favorite just because it's too bass heavy  for me.  And the highs, they just are real money, but other people might love it.  Your nineties rap probably is going to sound great on the echo four or fourth generation echo.  There you go.
+
+Speaker: SPEAKER_02
+Transcript:  That was a lot of things.  It's a lot of things.  Stacey's things.  Thank you, Stacey.  My, I guess Leo normally does a tip, but I also have, I don't know if it's a thing or a stuff.  It's not a number.  It's called crown and paw, crown and paw.com.  And this is, this is a gift that I've had.  I can't speak too loudly.  Actually, I'm realizing my wife's in the other room and she's getting this for Christmas.  The gift that I've had in my back pocket for a while now, someone, a friend of mine showed me  like, he was like, oh man, I'm so happy this thing delivered to a friend.  He showed it to me.  You basically, you take a really awesome picture of your pet and you have to do it in the right  lighting conditions.  You like, so I like took my dog outside and what didn't do it in direct sunlight.  I did it kind of like in well lit shade.  So there was nice, even bright light, but nothing like super harsh or anything.  And you kind of try and get a fully unobstructed, as high res as you can shot of the front of your  pet, either looking off to the side or slightly or straightforward or whatever.  And then they have all of these templates for like these really kind of like postured  and posh looking like, you know, generals and all this stuff.  Hard to explain, but they basically have all of these themes based on the gender of your pet.  And then they do the work, which, you know, and you're probably like, oh yeah, I could  do this in like two seconds, but I'm happy to let them do it.  But they do the Photoshop work to kind of like superimpose your pet onto this amazing picture.  And then you get a canvas out of it or you can get a digital print or you can do all  sorts of different merchandise, but I'm getting it as a canvas.  And I can't wait.  Like I sent off the photo yesterday.
+
+Speaker: SPEAKER_08
+Transcript:  This looks awesome.  And for that price, yeah, let them do it.
+
+Speaker: SPEAKER_09
+Transcript:  In an Elizabethan collar, like not an E-collar like for dogs, but the actual rough that they  put. Oh my gosh, I love it.
+
+Speaker: SPEAKER_05
+Transcript:  It's so cool.
+
+Speaker: SPEAKER_09
+Transcript:  I have to give this to someone.
+
+Speaker: SPEAKER_02
+Transcript:  Exactly.  This is great.  And they're having, they are actually having a sale right now, 30% off.  30% off.  They have their Black Friday sale.  And I didn't even know that going to it.  But, you know, it's like, I think that the 12 by 16 canvas was something like  80 bucks before the sale and then like 60 bucks after somewhere around there.  Totally worth it as far as I'm concerned.  Wow.
+
+Speaker: SPEAKER_08
+Transcript:  So I think I need to do this.
+
+Speaker: SPEAKER_09
+Transcript:  I totally need to.  Oh, my niece would love this.  She has an Insta account for her little mini schnauzer and they've been featured in an ad  campaign.  Yeah.
+
+Speaker: SPEAKER_02
+Transcript:  If you're on Instagram, you will probably see ads for this because I've definitely come  across a few of them.
+
+Speaker: SPEAKER_08
+Transcript:  The Leo bug has creeped into you.  You're now buying from Instagram?  No, no, no, I didn't.
+
+Speaker: SPEAKER_02
+Transcript:  I didn't get to hear from Instagram, but I have noticed it ever since.  Like I've had, like I said, I've had this in my back pocket for probably like a year now.  And this was just one of this Christmas, especially it's like, God, what do I get her?  She's going to love this because she, because basically our dog is her dog.  Sugar is Stacey's dog.  We are just all here to support them and their, you know, their dog.
+
+Speaker: SPEAKER_05
+Transcript:  They have custom phone cases.  I saw that too.
+
+Speaker: SPEAKER_11
+Transcript:  That's where I just, I just mailed it to somebody in the family.
+
+Speaker: SPEAKER_02
+Transcript:  It was just really well done and they, they proof it.  So I'll get a proof in a couple of days and then I can tell them whether it's okay or if  there needs to be changes or whatever.  So, you know, there's like a little back and forth and I just think it's hilarious.  So if you're, if you're wondering like a nice kooky, weird, but probably perfect gift  option for like a pet lover in your life, this is probably a really great way to go  nailed it, dude.  Nice called crown and paw.com crown and paw.  Love it.  So check it out.  I love it too.  I can't wait to see the look on her face because there's no way she saw this coming  when, when she opens this gift.  So that is that.  And we have reached the end of this week in Google and fun times as always.  Thank you so much for allowing me to sit in Leo's place for an episode.  Jeff Jarvis, buzz machine.com.  Anything else you want to tell people before you get off to your Thanksgiving?
+
+Speaker: SPEAKER_11
+Transcript:  That's fine.
+
+Speaker: SPEAKER_02
+Transcript:  That's fine.  You can just know Jeff.  That's good enough.  All right.  Also says the curmudgeon of the week.
+
+Speaker: SPEAKER_11
+Transcript:  Yes.
+
+Speaker: SPEAKER_02
+Transcript:  Hey, we're a show full of curmudgeon.
+
+Speaker: SPEAKER_09
+Transcript:  Yeah, this is, this is this week in old men right here.  Get off my mind.  Sorry, you're trying to end the show.  Go for it.  That's exactly it though.
+
+Speaker: SPEAKER_11
+Transcript:  Which Stacey always supports the idea of doing that.  She always in favor of ending the show.  Stacey, I didn't have lunch this time.
+
+Speaker: SPEAKER_02
+Transcript:  Stacey on iot.com.  Any other URLs or things you want to promote?
+
+Speaker: SPEAKER_09
+Transcript:  Feel free to sign up for my newsletter at stacey on iot.com.  And this Friday we will be sending out our gift guide.
+
+Speaker: SPEAKER_02
+Transcript:  Nice.  Very nice.  Nice.  Thank you.  And Ant Pruitt, hands on photography, twit.tv slash hop.  That's right.
+
+Speaker: SPEAKER_08
+Transcript:  Promote anything else?  Oh, I was supposed to show y'all the desk.  Whoa.  Oh, there it is.
+
+Speaker: SPEAKER_09
+Transcript:  Wow.  That is a lot of stuff that would, I did not work there.
+
+Speaker: SPEAKER_08
+Transcript:  I get it done though.  There's stuff getting done because I have an old Nokia phone up there on the left.
+
+Speaker: SPEAKER_11
+Transcript:  Huh?
+
+Speaker: SPEAKER_08
+Transcript:  And I have a checklist.  I write notes and scratch things off.  So I still get stuff done.
+
+Speaker: SPEAKER_00
+Transcript:  I relate to your desk.  I have to break in for a second and share.  I got you all topped by the way.
+
+Speaker: SPEAKER_08
+Transcript:  Look at Burt's desk.  Yes.  What?  Yes.  I've seen that desk.  That gives me anxiety.
+
+Speaker: SPEAKER_00
+Transcript:  That's exactly how it looks.  It stays shaking right now.
+
+Speaker: UNKNOWN
+Transcript:  It's too much.
+
+Speaker: SPEAKER_02
+Transcript:  I love it.  It's been so long since I've been in the studio that it's usually normal for me to walk past  your desk, Burt, and see all of that.  But watching it out of context, it's a different story.
+
+Speaker: SPEAKER_00
+Transcript:  It's organized.  Trust me.  I know where everything is.
+
+Speaker: SPEAKER_11
+Transcript:  Yes.
+
+Speaker: SPEAKER_02
+Transcript:  Exactly.  You can find me here on the Twitter network or on Twitter at Jason Howell.  We just had episode 500 of All About Android last night.  So we had a lot of fun.  It was totally news light, but we had different folks who have been on the show  in the past on to just talk about life.  So we had a good time yesterday.  So check that out.  Twitter.tv slash AAA.  And that is it for this week's episode of This Week in Google.  Of course, we record live every Wednesday.  Is it 4 p.m.?  No, the time on the site is wrong.  It's now 2 p.m. Pacific, right?  5 p.m. Eastern.  2200 UTC.  So we need to update the website.  Oh, that was very impressive.
+
+Speaker: SPEAKER_11
+Transcript:  You did the UTC calculation.  Very good, Jason.
+
+Speaker: SPEAKER_02
+Transcript:  I just added one to what was there.  That's math I can deal with.  I can handle that.
+
+Speaker: SPEAKER_09
+Transcript:  Jason, just let him be impressed.  Yeah, it's easier to work going forward.
+
+Speaker: SPEAKER_02
+Transcript:  My eyes.  Thank you, Jeff.  I appreciate it.  I know I'm good.  Twitter.tv slash TWIG is where you can go to find all the ways to subscribe,  jump out to YouTube, subscribe with your favorite podcatcher.  The most important thing is that you subscribe so you don't miss a single episode.  That is it for this week.  Next week, Leo will be back in the studio joining you for This Week in Google.  But until then, have a wonderful week.  And if you're in the U.S., have a wonderful Thanksgiving tomorrow.  And we'll see you next time on This Week in Google.  Bye, everybody.
+
+Speaker: SPEAKER_05
+Transcript:  Want more twits?  Well, check out Smart Tech today.  It's at twit.tv slash STT.  It's the show where Matthew Cassonelli and I cover everything there is to know about smart tech.  It's automation.  It's connected devices.  It's smart home.  It's all those goodies and so much more.  We get the news.  We get the latest devices.  We do reviews.  Everything.  You gotta check it out.  Twit.tv slash STT for Smart Tech today.
+
