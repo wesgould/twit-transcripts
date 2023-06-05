@@ -1,0 +1,2136 @@
+;FFMETADATA1
+title=The Year in Review
+artist=TWiT
+album_artist=TWiT
+album=This Week in Tech
+track=802
+genre=Podcast
+comment=https://twit.tv/twit
+copyright=These podcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2020
+encoder=Lavf58.76.100
+Failed to align segment (" 2021."): no characters in this segment found in model dictionary, resorting to original...
+Failed to align segment (" But I think that on-campus experience is important."): backtrack failed, resorting to original...
+Failed to align segment (" It's nice actually, you can put it in your pocket,"): backtrack failed, resorting to original...
+Failed to align segment (" 100%."): no characters in this segment found in model dictionary, resorting to original...
+Start time: 0.72
+End time: 348.38
+Speaker: SPEAKER_03
+Transcript:  It's time for Twit this week in Tech. It's a very special end of the year episode. Steve Gibson, Paul Thurrott, Jeff Jarvis and I will take a look back at the top 10 stories of 2020 and a look ahead to 2021. Next on Twit.  This week in Tech comes to you from Twit's LastPass studios. Securing every access point in your company doesn't have to be a challenge. LastPass unifies access and authentication to make securing your employees simple and secure. Even when they're working remotely. Check out lastpass.com slash twit to learn more.  This is Twit this week in Tech. Episode 802 recorded Sunday, December 20th, 2020. The Year in Review. This episode of This Week in Tech is brought to you by ExpressVPN. ExpressVPN is the world's number one rated VPN by CNET, Wired and The Verge. For three extra months free with a one year package, go to ExpressVPN.com.  And by Cashfly. Give your users the seamless online experience they want. Power your site or app with Cashfly's CDN and be 30% faster than the competition. Learn more at twit.cashfly.com.  And by Zendesk. Zendesk makes software for better customer service. They help empower support agents and give them the right tools. You could say they're champions of customer service. Visit zendesk.com slash twit to learn more.  And by Forward Networks. Forward Networks reduces business risk by revolutionizing the way large networks are managed. Their advanced software delivers a digital twin of the network, a completely accurate mathematical model in software. Get a demo at forwardnetworks.com slash twit.  It's time for twit this week in tech show where we cover the week's tech news in this case the year's tech news. It's our last show of the year. Next week it's going to be a twit best of and we like to do on our holiday episode. I always like to do something special. This week we thought this year we thought we'd bring in the OG twits. People who have been with our shows.  Practically since the very beginning Paul Thurad I hear you laughing. I feel old. You're an original gangster Paul. Just accept that. Oh gee. Windows Weekly started on this network when? I have to go look and see Windows. 2006. Oh gosh you don't deserve to be here. You're practically a youngin. It's only been 14 years. We've only recorded 700 episodes. Amazing.  Amazing Paul. Of course the hearst of Windows Weekly. Really nice to have you. You're in lower Mccungee township in Pennsylvania where you are. How many feet of snow? We only got maybe nine or 10 inches. Oh they got more in New York. Mary Jo got more. Yeah and it might rain on Christmas Eve. Oh that's awful.  Also with us I think he's the longest running twit host. Security Now started on August 2005. Steve Gibson. Old timer. Hi Steve. Hey everybody great to be with you all for this holiday episode. Yeah. From Orange County.  Where I think all the ICUs are full so Steve don't fall or stumble or anything. And the youngest member of our team the host of this week in Google since August 1st 2009. Look at that kid. 2009 why that? I'm so happy to be at the grown ups table at last. Paul can you pass the cranberry sauce please? Yep.  I should have brought you turkey or something but I figured you turkeys would be enough for this show. We're going to do this year. Every year we kind of do this. We look back at the year gone by and I think you three are actually perfect for that because between Security Now, Windows Weekly and this week in Google I think you guys cover the waterfront.  But what I've decided to do and Jason Howell helped me out. Thank you Jason. He's been he worked pulled an all nighter getting this all together. Is we just go through what I consider kind of the top 10 stories of the year and get your thoughts on it. Kicking it off with ironically I think this happened last year.  The biggest story of the year this year is the story that just broke a week ago. The hack of the Commerce Department, the Treasury Department, the Department of Homeland Security, the Department of Energy. Yes the department that controls our nuclear arsenal.  Many localities including the city of Austin Texas as many as 18,000 enterprises. The SolarWinds hack. This is a brand new story so we probably don't have all the details. I know we don't. There's a lot more to come out of this. But over the last week and a half it's really developed very rapidly.  Steve you spent Security Now talking about SolarWinds but even since Tuesday we've learned more. More importantly maybe we've learned how widespread this hack is. How bad is it?
+
+Start time: 352.70
+End time: 437.98
+Speaker: SPEAKER_02
+Transcript:  Well everyone is calling it the worst hack in history. Of course they're using the term in the popular press of an attack but it's much more properly described as cyber espionage. It was bad because it was clearly by design.  So it's being attributed to Russia and there are so-called indications of compromise, IOCs, which strongly suggest that they're behind it. That Russian state sponsored cyber groups are there. I'm sure there is much less publicly known than is now known in the depths of the NSA and the CIA.  The very recent news is that there are some indications that SolarWinds was not the only point of entry. That is they have found some commonality of indications of compromise on systems that did not have the SolarWinds Orion system in it.  Leading them to believe either that there was some lateral movement that was initiated through SolarWinds compromised networks or that there was some other way in that has not been determined yet.
+
+Start time: 438.18
+End time: 468.00
+Speaker: SPEAKER_03
+Transcript:  Brian Krebs quotes sources saying it might have been VMware that was a vector, whether related to the SolarWinds DLL hack of their Orion product or not. The NSA warned way back in December 7th that VMware, we talked about this I think on Security Now, was being used to impersonate authorized users on the victim networks.  So the authentication part of VMware was being used, VMware Access and the Unity Manager.
+
+Start time: 468.78
+End time: 626.96
+Speaker: SPEAKER_02
+Transcript:  So I think really the takeaway, one of the themes that we often discuss on the Security Now podcast is the truth that security is porous. It's got porosity for lack of a better term. I haven't ever come up with one.  And the degree of porousness would be how hard you have to press in order to get yourself through a barrier. And so there are things that are easy to do, low hanging fruit is the common term, and things that are much more difficult.  This was a high finesse attack where presumably Russians somehow got themselves into the SolarWinds network. They got access to the source code repository that is on servers, there is source code for like this Orion IT management software.  They inserted their Trojan code, merged it in with the existing source code, knowing that the next time the SolarWinds guys made some incidental tweak to their Orion system, and then rebuilt the software, that that Trojan would be incorporated into the rebuild,  which would then automatically go out to all the Orion customers. Once upon a time, there was a page on the SolarWinds site bragging about everyone who was using their stuff, and probably it listed all of the US government agencies that they counted as proud customers.  Well, that page is gone now. So consequently, when all of these customers updated their copies of the Orion IT management software, they all acquired the Trojan. The Trojan then stayed quiet deliberately for a while, and then it reached out to a deliberately arranged local IP.  That is, the Russians also set up VPN endpoints around the world so that the Trojan wouldn't be seen making an outreach out of the country, but to somewhere local. So the point is that at every step of the way, this was not easy to do, but highly skilled hackers did it.
+
+Start time: 627.56
+End time: 643.94
+Speaker: SPEAKER_03
+Transcript:  I read that the code they inserted, the backdoor code, was actually 4,000 lines. It was not a trivial thing. How could SolarWinds not have noticed a commit to their repository of 4,000 lines of malicious code and then just built the update?
+
+Start time: 644.96
+End time: 652.00
+Speaker: SPEAKER_02
+Transcript:  As a fraction of the total SolarWinds code, it was still miniscule. So it was super tiny.
+
+Start time: 653.14
+End time: 659.86
+Speaker: SPEAKER_03
+Transcript:  How do we know it's Russia? Secretary of State Mike Pompeo said it was Russia. The President has notably said it's China.
+
+Start time: 663.19
+End time: 675.00
+Speaker: SPEAKER_12
+Transcript:  Look at the map that Microsoft published and notice that the only major country on it that hasn't been hacked is Russia.  There you go. Russia and Greenland, I guess. Even countries in Africa.
+
+Start time: 675.30
+End time: 740.98
+Speaker: SPEAKER_02
+Transcript:  The one other really important point I think to make is that we only know about this. Remember, this began the first instance had a SolarWinds security certificate signed on March 24th of 2020.  We only found out about this because about 10 days ago, the Russians made their first mistake and did something that tripped an alarm at FireEye that then caused FireEye to say, Whoa, what?  And how do people get in? And that's the only reason we know. This would still be going on. This kind of pervasive penetration into our highest levels of government networks, unless that mistake had been made, something tripped an alarm.  And they probably did all of the other things they wanted to do before they decided, well, let's go hope we can creep into FireEye and nobody will see us.
+
+Start time: 741.06
+End time: 751.98
+Speaker: SPEAKER_03
+Transcript:  They were probably looking for hacking tools that FireEye had. In fact, I think there was some evidence those were exfiltrated.  Here's the map you were talking about, Paul, from Microsoft. It's either Russia or Burkina Faso.
+
+Start time: 753.12
+End time: 755.30
+Speaker: SPEAKER_04
+Transcript:  Right. Madagascar is a little suspicious.
+
+Start time: 756.52
+End time: 788.72
+Speaker: SPEAKER_03
+Transcript:  There's some candidates, but there's a little purple is, I guess, where there's some outbreaks and it is pretty much everywhere.  And very notably, there's this big landmass called Russia that has not, but nor has Scandinavia.  Yeah, interesting.  I don't think the Finns are hacking our systems, though. China was hacked.  The president says it's China. Pompeo says it's Russia. Isn't it notoriously hard to source these?  Yes.  So you can't be sure, right?
+
+Start time: 789.58
+End time: 797.46
+Speaker: SPEAKER_02
+Transcript:  And it's also possible to set up fakeouts where you deliberately leave some information that is elsewhere.
+
+Start time: 798.52
+End time: 815.98
+Speaker: SPEAKER_03
+Transcript:  This happened when the North Koreans supposedly hacked Sony. The federal government said it's the North Koreans.  You and I said, well, how do you know? And they said, we know, trust us, but we're not going to tell you how we know.  And this is the same kind of thing. They're not revealing the information.  But apparently, cozy bears fingerprints are all over it.
+
+Start time: 817.10
+End time: 860.00
+Speaker: SPEAKER_02
+Transcript:  And what's really interesting, too, is if we assume that our intelligence, you know, like we have hackers, too.  We know that, unfortunately, from the public disclosures that we've had a lot of time discussing.  It's interesting that our penetrations into Russian networks apparently did not pick up the fact that they had penetrated ours.  That is, they're clearly keeping their cyber espionage deliberately separate from the rest of Russia.  Otherwise, we would have seen because it would have appeared in their networks, stuff that they shouldn't have from ours.  And that would have raised the alarm, too. But that didn't happen.
+
+Start time: 860.64
+End time: 876.88
+Speaker: SPEAKER_03
+Transcript:  Well, it's it's like the enigma. When we cracked the enigma machine, the British had to be very careful about the use of that intelligence,  because that would have told the Nazis we knew their codes and we were able to break it.  So presumably, the Russians have the same limitations on what they could do with the intelligence that they gain.
+
+Start time: 877.76
+End time: 892.44
+Speaker: SPEAKER_09
+Transcript:  So, Steve, I'm delighted to be here with the expert of experts.  How does the forensic analysis of what's been compromised work?  How do you ever really know what has been seen? Is there any way to know that?
+
+Start time: 893.54
+End time: 940.00
+Speaker: SPEAKER_02
+Transcript:  No. Well, OK, maybe, but not necessarily.  One of the things these guys have done is they've and even the non experts are repeating what the experts are saying,  which is these these hackers have demonstrated the highest level of skill.  So which is to say, you know, they're as good as anybody.  And it is notoriously possible to cover your tracks.  Sometimes backup snapshots from like will capture old logs.  Right now, you can imagine that there is scrambling going on retroactively looking at like for traces that weren't appreciated at the time.
+
+Start time: 941.12
+End time: 988.98
+Speaker: SPEAKER_03
+Transcript:  So there's rumors. There were stories that we there were rumblings about this back in October.  You know, they got in in March, we think there were there were signs in October, but it wasn't until FireEye got hacked that we were sure.  So part of the problem is that these guys have been have had six or seven months to just wander around unobserved.  They could have exfiltrated stuff. They've been able to cover their tracks.  And I think even there's even a larger issue of what other payloads have they injected in some.  There's 18000 potential sites, right? Each right with millions of endpoints.  This is going to be almost impossible. It's like cockroaches.  You can't you can't eradicate it. Right.
+
+Start time: 990.04
+End time: 1015.90
+Speaker: SPEAKER_02
+Transcript:  And so to answer Jeff's question, you know, the the the famous hacker approach is you get into a system, you do a bunch of things, then you delete your own.  You delete the logs that demonstrate what it was you just did and hopefully get out undetected so that even somebody who's looking at the log says, yeah, look, there's nothing here.  Nothing happened because it is all digital and it is all digital forensics.
+
+Start time: 1016.90
+End time: 1021.51
+Speaker: SPEAKER_09
+Transcript:  And it's not backed up. So you don't you don't offload your logs.  So you have a you might you might.
+
+Start time: 1023.36
+End time: 1040.00
+Speaker: SPEAKER_02
+Transcript:  That's right. So it might be that a snapshot of a server in the past would be able to show something.  I mean, it's a it is, you know, you can imagine a lot of people's Christmas holidays, a lot of IP IT Christmas holidays just got wrecked.
+
+Start time: 1041.60
+End time: 1060.92
+Speaker: SPEAKER_03
+Transcript:  There's is, you know, and if with the Sony hack, they exfiltrated, they downloaded movies, you know, terabytes worth of data.  So I guess you might see unusual traffic.  But it sounds like these guys were pretty were so savvy that if they did anything, they did it very carefully and probably were able to obfuscate.
+
+Start time: 1061.32
+End time: 1096.00
+Speaker: SPEAKER_02
+Transcript:  You really want to be surgical because they recognize they had they managed to establish an incredible advantage.  So the last thing they would want to do, for example, is to shoot terabytes of data out of some network connection.  That's the kind of thing that would immediately trigger alarms.  And, you know, we do have cyber intrusion stuff.  And it's, you know, Einstein is the system that we've heard of that our federal government uses specifically to keep this from happening.  And it just, you know, the Russians know about it.  And so they said, OK, let's, you know, not trip Einstein up.
+
+Start time: 1096.82
+End time: 1152.94
+Speaker: SPEAKER_03
+Transcript:  Well, the other problem is that it's notoriously difficult to catch what are called supply chain hacks.  So true or not, there was that Bloomberg story last year or two years ago, I guess now about the super micro motherboards that had rice kernel size chips added to them in this as it went down the supply chain to put spy devices on there.  Never found any proof of that.  Bloomberg never retracted it.  We really will never know what the truth is there.  But but that was a warning at the time.  You've got to be careful about your supply chain.  You cannot assume that those updates coming from this, you know, signed updates coming from a trusted security company are legit.  And I do hope this becomes a warning to be more careful.  But everybody I've seen talking about this says this is really hard.  A supply chain hack is about the hardest to do.
+
+Start time: 1153.06
+End time: 1157.35
+Speaker: SPEAKER_09
+Transcript:  Was the Huawei paranoia legit or politics?
+
+Start time: 1160.30
+End time: 1198.00
+Speaker: SPEAKER_02
+Transcript:  Steve, I have no firsthand knowledge.  Yeah, and I'm I know it's again to Leo's point about that motherboard hack.  Even if it didn't happen, we know it could happen.  You know, there have been proof of concepts.  You can bury a little microprocessor in the net in the LAN network connector now so that you don't even know it's under the little metal shell that protects it from RF radiation.  And you just you look at it looks just fine.  But there's something squirreled away in there.  I mean, this is the world we're in today.
+
+Start time: 1198.62
+End time: 1255.58
+Speaker: SPEAKER_03
+Transcript:  There's nobody that makes all their own hardware and software.  So everybody has a supply chain.  They have external suppliers.  And I guess to some degree, you need to trust them.  Although Google has been promoting this zero knowledge architecture where you trust no one inside or outside the perimeter.  But I don't you know, the the the GSA had done a survey a couple of months ago because they were concerned about this.  This is not really a surprise to some.  And they found that government agencies had done very few, if any of the proactive protections that the GSA had recommended.  These these guys not only were not doing zero knowledge architectures, they weren't even checking for malware.  They were just assuming the best.  And so we were wide open to this.  Now, the question is, maybe I don't know if anybody knows this, but are we doing the same thing to them?  And if not, why not?
+
+Start time: 1260.90
+End time: 1315.32
+Speaker: SPEAKER_02
+Transcript:  Given given the Snowden leaks and the WikiLeaks revelations, we we we really got a surprise with clear evidence of the extent to which our intelligence agencies have very actively developed espionage capabilities.  So and that was some time ago.  So it's hard to imagine that we're not every bit as good as they are.  And that in fact, it's secondhand.  But I heard someone say that Michael Hayden was asked about about this whole issue of cyber espionage.  And and he said former director of the NSA.  Right.  Right. He said, we are so deep into Russians networks.  I'm just hoping they're not as deeply into ours.
+
+Start time: 1316.87
+End time: 1327.16
+Speaker: SPEAKER_09
+Transcript:  Is that braggadocio?  Or do you believe maybe impressions?  And yeah, and Michael is a fan of this network, by the way.  Oh, really?  We are.
+
+Start time: 1328.08
+End time: 1410.00
+Speaker: SPEAKER_03
+Transcript:  Oh, you know that we have to be nicer to him.  We've said some mean things about him, I believe, Steve.  So  No, that's I think that that's the problem is that cyber.  This is the new form of warfare, right?  It's not conventional warfare.  It's not nuclear weapons.  It's not armies marching and invading other countries.  It's cyber warfare.  And perhaps the saving grace is there has just as there was with nuclear warfare,  there has to be some notion of mutually assured destruction.  That's what kept us from destroying the planet was the knowledge that it well,  if you fire nukes at us, we're going to fire nukes back at you and there'll be nothing left.  If we are doing the same thing to them,  maybe that's the only thing that's keeping them from doing things like that.  You know, I have to presume if they're that deep inside our networks,  they could screw with our financial markets, for instance, or the electrical grid.  Right, Steve?  They may have capability.  We've seen that they've been in the electrical grid for some years.  They did a trial power outage in the Ukraine, in Ukraine, I'm sorry,  I know the in Ukraine a couple of years ago.  And we think that that was a test of capabilities.  It may be the only thing keeping them from doing these kinds of acts of war is that we could do the same thing back.  Yeah, I hope.  I don't know.
+
+Start time: 1410.84
+End time: 1427.66
+Speaker: SPEAKER_09
+Transcript:  What about what about non governmental bodies, mafias, terrorists, bad companies, bad people?  Bond villains.  Is it possible to be that good with our do you need so many resources to be this good?  It's only major.
+
+Start time: 1429.56
+End time: 1462.94
+Speaker: SPEAKER_02
+Transcript:  We see evidence that we discuss every week on the podcast of individual hackers who are really gifted.  So I wouldn't say it's impossible for it to not be a nation state.  You could imagine that there was some desire to to sell this as requiring the elitist of the elite,  just so there isn't a sense of like, oh, yeah, you know, anybody could have done this.  It's like we have a guy in New Jersey basement.  We don't want to think that.
+
+Start time: 1463.34
+End time: 1506.16
+Speaker: SPEAKER_03
+Transcript:  Well, there is a kind of a Pareto principle that most of the hacks,  80 or 90 percent of the hacks are performed by script kiddies who really don't have lead skills.  But no matter what they say, they're running scripts they got from elsewhere.  We've talked on the show about ransomware as a service.  There are a number of companies, I guess you call them companies that offer ransomware service that you could subscribe to.  There are a number of companies that offer DDoS attacks as a service.  And so there are a lot of little low level script kiddies around using this stuff.  I guess there are enough elite hackers around that any country that has the wants to could hire enough of them to be a threat.  Right.  Yeah.
+
+Start time: 1507.79
+End time: 1542.00
+Speaker: SPEAKER_02
+Transcript:  Well, the other problem is the inside man problem.  We don't know, for example, that it wasn't a programmer at SolarWinds.  And I'm just making this up.  I have no evidence of this.  But who is in serious financial trouble due to gambling and was approached by someone who said,  Look, you know, you're really in trouble.  We've got plenty of cash.  So we need you to add this module and we'll solve your problems.
+
+Start time: 1542.46
+End time: 1584.96
+Speaker: SPEAKER_03
+Transcript:  Couple of months ago in October, you and I and Bruce Schneier and last passes CISO Jerry Bukele did a really great along along with red versus blue attack panel.  Actually, you weren't on that one, Steve.  It was no father Robert and Cheebert where they attacked.  They defended. And really, I think Schneier had that kind of the seminal quote from that event, which you should all watch if you haven't seen it, which is there is no such thing as perfect security.  You can layer it. You could do the best you can.  But ultimately, nobody is impervious, especially if the attacker has unlimited limitless resources and limitless desire to get in.  Would you say that's fair, Steve?
+
+Start time: 1585.92
+End time: 1597.00
+Speaker: SPEAKER_02
+Transcript:  I think that's absolutely right, which is why I use the term porous.  It's there is no wall, which is impenetrable.  It's just varying degrees of effort required to penetrate.
+
+Start time: 1597.52
+End time: 1623.00
+Speaker: SPEAKER_03
+Transcript:  So at this point, I feel like it's no longer almost not a tech story anymore.  At this point, it's a political story because the next stage is is is diplomatic is political is our government and their government coming to some sort of detente.  We've got the weapons. You've got the weapons.  I don't think there's a technical solution to this.  They're in there. They're going to be in there forever.  I don't think you could ever say with any certainty they've been eradicated from the networks.
+
+Start time: 1624.40
+End time: 1668.94
+Speaker: SPEAKER_02
+Transcript:  Well, yes. And it's you know, we know of a growing number of high profile government entities which have been penetrated because we do have really good people there who are now able to look in and go, oh, shoot.  But what we know that eighteen thousand somethings downloaded the update and that that update then did a phone home within a couple of weeks of being downloaded.  So within those eighteen thousand, there are thousands of smaller organizations that are like, oh, do we have anything here?  Oh, we turned our logs off. Well, we don't really know.  But probably not. Everything seems fine.
+
+Start time: 1670.85
+End time: 1702.66
+Speaker: SPEAKER_03
+Transcript:  It's going to be a fun twenty twenty one on security.  I want to move on. It really is funny because that is a story we would have been doing on any twit.  This is probably the biggest tech story of the year.  So we brought it up here and it's a developing story and it's fresh.  And I think next year we'll be spending time talking about this.  I might imagine we will continue. It's not going to be the Steve Gibson show that we have other other topics.  Paul Thurotte, it's great to have you.  Jeff Jarvis and Steve Gibson.  It's the original gangsta twits.
+
+Start time: 1703.54
+End time: 1705.58
+Speaker: SPEAKER_09
+Transcript:  Old guys, old guys, old guys.
+
+Start time: 1706.26
+End time: 1714.83
+Speaker: SPEAKER_12
+Transcript:  Like those movies where like aging holiday Hollywood stars are in a movie together and they go to Vegas.  It's Oceans 3. Yeah, it's going to be great.  Can't wait to watch it.
+
+Start time: 1716.06
+End time: 1717.80
+Speaker: SPEAKER_03
+Transcript:  We're doing a table read.
+
+Start time: 1718.40
+End time: 1719.84
+Speaker: SPEAKER_04
+Transcript:  Lots of ageism jokes.
+
+Start time: 1721.65
+End time: 1940.00
+Speaker: SPEAKER_03
+Transcript:  No, none of that will happen.  We're going to talk about some of the other the top 10 stories of 2020 as we continue.  Ironically, the number one story, I think clearly of 2020 is this solar wind story.  But we have more to talk about in just a sec.  Our show today brought to you by ExpressVPN.  You may not be able to prevent a supply chain attack,  but you probably can prevent the spying from your Internet service provider.  Logging the sites you visit, the searches you make.  A lot of people say when we talk about privacy, hey, if you got nothing to hide, I got nothing to hide.  No big deal.  But I bet those same people close the bathroom door behind them.  You don't want random passersby checking in on you.  So why would you let people look in on you while you go online?  ExpressVPN protects your privacy, protects your security, and it does it better than anyone else.  You know, I think by now, anybody who's listened to our shows knows they want a VPN both at home and abroad.  But the question is which VPN?  Because really, you've got to trust the VPN.  And that's why I recommend and use ExpressVPN.  First of all, they are thoroughly audited.  They use PricewaterhouseCoopers.  They vetted their privacy policy and they said, yep, ExpressVPN does not log.  That's exactly right.  They even vetted the trusted server technology that ExpressVPN uses.  They're so committed to not tracking you that when you use an ExpressVPN server, it spins up in RAM just for you.  It's dedicated to you.  You use it as soon as you leave.  It goes, you know, goes away.  Cannot write to the hard drive.  It's sandboxed.  So they couldn't log if they wanted to.  And by the way, PricewaterhouseCoopers verified that that does work exactly as stated.  ExpressVPN is fast, fast enough that you can use it to watch Netflix in the UK, even if you're in the US.  It's secure and it's totally private.  That's why I use it.  It's also very affordable.  ExpressVPN is the number one rated VPN according to CNET, according to Wired, according to The Verge.  They trust it. I trust it.  Roughly seven bucks a month.  Now you might say, well, I can get a free VPN.  Yeah, good luck, because if you're not paying for the VPN, they're paying for it somehow.  So I would suggest you want to pay a reasonable amount for the VPN.  I think that's very, very fair.  If you're like me and you believe your online activity is your business, you should secure yourself by visiting expressvpn.com slash twit today.  We got a special deal for you.  Fifteen months for the price of twelve.  When you go to e-x-p-r-e-s-s vpn.com slash twit.  Three extra months free.  Expressvpn.com slash twit.  I trust them.  And I think that's really the most important thing.  They're a good company.  And we thank them so much for supporting us all through 2020.  We're talking about the top 10 stories of 2020.  It's not a tech story exactly, except that there are tech elements to it.  Of course, COVID-19.  It's so funny.  I was thinking back.  It was you and me, Paul.  We're talking about CES.  That seems like a hundred years ago.  Back in January.  Different world.  It really does.  It was a different world.  Did you?  You didn't go to...  None of you went to CES this year.  I did.  And I feel like I...  Boy, super spreader.  I could have dodged one.  I did dodge one.  Yeah.  In fact, it could have been a really bad thing.  We knew that some people at CES did have COVID-19, but it did not...
+
+Start time: 1940.10
+End time: 1946.61
+Speaker: SPEAKER_12
+Transcript:  There was a late...  I think it was a late 2019 event in Boston, like a biotech event.  That's the one.
+
+Start time: 1947.02
+End time: 1950.00
+Speaker: SPEAKER_03
+Transcript:  That was a super spreader.  Yeah.  Yeah.
+
+Start time: 1950.06
+End time: 1952.28
+Speaker: SPEAKER_09
+Transcript:  There were 300,000 cases, I think, Paul, that have been...
+
+Start time: 1953.04
+End time: 1954.51
+Speaker: SPEAKER_12
+Transcript:  Yeah, that have been attributed to this.  Yeah, crazy.
+
+Start time: 1955.00
+End time: 1959.88
+Speaker: SPEAKER_03
+Transcript:  From one relatively small conference in Boston.
+
+Start time: 1960.54
+End time: 1963.48
+Speaker: SPEAKER_09
+Transcript:  And ironically, in a conference that probably should have flown better.
+
+Start time: 1964.00
+End time: 1964.76
+Speaker: SPEAKER_12
+Transcript:  Yeah, exactly.
+
+Start time: 1965.80
+End time: 1976.50
+Speaker: SPEAKER_03
+Transcript:  So, I think really the first kind of tremors from the point of view of the tech industry,  anyway, were when conferences started canceling.  I think the first was Mobile World Congress in March.
+
+Start time: 1977.69
+End time: 1987.00
+Speaker: SPEAKER_12
+Transcript:  Yep.  A bunch of companies begged out first, and then the conference followed.  And that's when it...  For us in the United States, it started to get weird, I think.
+
+Start time: 1987.08
+End time: 2058.54
+Speaker: SPEAKER_03
+Transcript:  That's when we knew it was serious.  Apple started shutting down its stores in China.  Ironically, here we are almost a year later, and Apple is once again closing down all its  California stores.  The Tokyo Olympics was called off.  Tony Awards called off.  Burning Man, Burning Man, called off.  But in a way...  South by Southwest, very last minute.  South by, that was a big deal, right?  Because South by did not want to cancel in Austin.  That's in April in Austin.  And I think Austin said, no, you better cancel.  But this was a huge economic hit to the city of Austin.  Lots of people come to town, stay in hotels.  They're all booked up.  Restaurants are booked up.  It's not just the tech festival, the interactive festival.  It's also the music and film festival.  That was a huge loss to Austin.  But again, it all seems so long ago, the distant past now, because it just got worse and worse  and worse and worse.  And yet coronavirus, COVID-19 was kind of a boon for some companies.  The richest people in America made more money.
+
+Start time: 2059.40
+End time: 2066.27
+Speaker: SPEAKER_12
+Transcript:  Well, and the companies that we all cover, Google, Microsoft, Apple, all the video game  companies, it was a big year.  Yeah.
+
+Start time: 2067.00
+End time: 2085.72
+Speaker: SPEAKER_03
+Transcript:  Zoom.  Zoom.  Nobody really even knew about Zoom in 2019 unless you used it for work.  And you probably didn't think twice about it.  All of a sudden, it became a generic noun for getting online with people, used by schools,  used by pretty much families, by everybody.
+
+Start time: 2086.82
+End time: 2103.47
+Speaker: SPEAKER_02
+Transcript:  And they had a bit of a trial by fire also at the beginning, because the rush to popularity  brought the hackers, who put a lot more pressure on the Zoom security than it had been subjected  to before.  And they stumbled a bit, but they've survived.  Remember Zoom bombing?
+
+Start time: 2104.51
+End time: 2105.29
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Yeah.
+
+Start time: 2106.32
+End time: 2113.96
+Speaker: SPEAKER_09
+Transcript:  It was very smart to hire Alex Deimos quickly.  Yeah.  And they apparently listened to him and made a fair number of changes.
+
+Start time: 2115.24
+End time: 2142.18
+Speaker: SPEAKER_03
+Transcript:  And also, it's funny because we got used to Zoom and Zoom-like interaction on TV shows,  even.  Apple TV's Mythic Quest, the game show, came back.  Apple sent them all iPhones and FaceTime, and they came back and did a, they concluded  their season already.  They did an extra episode that was all on FaceTime.  Saturday Night Live did a Zoom version of Saturday Night Live.  Right.
+
+Start time: 2143.10
+End time: 2157.96
+Speaker: SPEAKER_02
+Transcript:  It was so weird.  And the quality of all the talking head shows has just fallen down ridiculously.  It's now just common for people to freeze on screen, and then the commentator says,  oh, well, they just froze.  All the time.  Just like us.
+
+Start time: 2158.45
+End time: 2159.00
+Speaker: SPEAKER_09
+Transcript:  Just like us.
+
+Start time: 2159.70
+End time: 2163.95
+Speaker: SPEAKER_12
+Transcript:  Could we please take credit for being pioneers in this area?  I think we froze first.
+
+Start time: 2165.00
+End time: 2168.84
+Speaker: SPEAKER_03
+Transcript:  We froze before anybody else did.  Yeah, I've been freezing for the last 20 years.
+
+Start time: 2169.16
+End time: 2169.37
+Speaker: SPEAKER_12
+Transcript:  Come on.
+
+Start time: 2170.00
+End time: 2176.95
+Speaker: SPEAKER_03
+Transcript:  We learned early on not to use those iPhone headphones as microphones, and I still see  that on CNN and MSNBC.
+
+Start time: 2178.00
+End time: 2193.33
+Speaker: SPEAKER_09
+Transcript:  But Steve, I'm also, though, really happy about two things.  One is, they're finally getting some new voices, and people don't have to go into the studio  and that doesn't make a living.  And two, we get to see in their homes, and that gives us Rate My Skype Room, which makes  me really happy.
+
+Start time: 2194.76
+End time: 2213.92
+Speaker: SPEAKER_03
+Transcript:  Jeff is happy about that because he is one of the few to get 10 out of 10 on the Skype  Room Rater on Twitter.  I wasn't going there, Leo, but thank you for mentioning that.  This has been the most fun on Twitter of all, I think, is following Rate My Skype Room.
+
+Start time: 2215.92
+End time: 2227.00
+Speaker: SPEAKER_02
+Transcript:  In fact, sometimes you recognize obscure hosts by their background.  It's like, oh, I remember that guy.  He's got the weird bookcase.  It's like, oh, OK, yeah.
+
+Start time: 2227.76
+End time: 2229.95
+Speaker: SPEAKER_12
+Transcript:  Or the guy with the speak and say in the background, Steve.
+
+Start time: 2232.70
+End time: 2249.51
+Speaker: SPEAKER_03
+Transcript:  Or the blinking lights in the background.  It is really, and this is something you always celebrate, Jeff, about the internet.  It is democratizing because everybody's got a TV studio now in their house, for better  or for worse.
+
+Start time: 2251.02
+End time: 2265.00
+Speaker: SPEAKER_09
+Transcript:  I think it's generally better for TV.  The other part of this story that I talked about on Twig, but that I think is my favorite  story of the year, is how science and medicine adapted to this open information ecosystem.
+
+Start time: 2266.28
+End time: 2273.90
+Speaker: SPEAKER_03
+Transcript:  Yes, at first, we were getting a lot of preprints and bad info kind of treated as if it had  been peer reviewed.  But we learned, didn't we?
+
+Start time: 2275.30
+End time: 2342.00
+Speaker: SPEAKER_09
+Transcript:  Well, now, the people I follow, and I have a COVID Twitter list, bit.ly slash COVID Twitter  list, if you're interested, where I have 600 experts, and they peer review papers on Twitter.  Wow.  And they do.  And top experts, whom I trust immensely, go on there.  And so today, there was a controversy where various privileged white male journalist arm  chair epidemiologists were criticizing CDC proposals for who should go next.  And Dr. Greg Konsalvis, who's a top Yale epidemiologist, comes on and says why they're wrong and how  with a lot of snark, too, which I enjoy.  I'm looking for what's happening in the UK with the variants now in the genome of the  virus, and is it really a problem or not?  I go immediately my Twitter list and there's a woman named Emma Hodcroft, who's been studying  this out of Switzerland, who's brilliant about it, who says, well, here's what we know and  here's what we don't know.  Science is coming directly to the people thanks to, believe it or not, Twitter.
+
+Start time: 2343.97
+End time: 2348.33
+Speaker: SPEAKER_03
+Transcript:  Which you have two COVID lists, COVID community and COVID.  The one that...  It's COVID.  COVID.
+
+Start time: 2349.34
+End time: 2351.37
+Speaker: SPEAKER_09
+Transcript:  Or the easiest one is bit.ly slash COVID Twitter.  Right.
+
+Start time: 2352.44
+End time: 2357.00
+Speaker: SPEAKER_03
+Transcript:  632 people.  And these are all people you've vetted as somebody reliable or trustworthy.
+
+Start time: 2357.00
+End time: 2368.86
+Speaker: SPEAKER_09
+Transcript:  Yeah, sometimes people go off the list, but I trust the people I trust.  And it's interesting how it was not that difficult to get out maybe two runs.  I stopped there.  There's Emma Hodcroft right there.
+
+Start time: 2369.82
+End time: 2385.14
+Speaker: SPEAKER_03
+Transcript:  For all of the criticism I give and others give social media, this is a really interesting  example of how the internet can organize information and make it useful kind of autonomously.
+
+Start time: 2386.26
+End time: 2387.98
+Speaker: SPEAKER_12
+Transcript:  Kind of the way we thought it was going to be.
+
+Start time: 2388.29
+End time: 2404.76
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Well, it used to be you'd have editors and curators and people would self-designate,  but somehow this is self-organized in a way that's actually become a great and useful  ecosystem.  Unfortunately, it's gone both ways because there's also QAnon and anti-vaxxers and all  sorts of other things.
+
+Start time: 2405.16
+End time: 2430.42
+Speaker: SPEAKER_09
+Transcript:  We're trying to invent new institutions of credibility, but I talked to one, to a Columbia  virologist, Angela Rasmussen, who said that during the SARS, the last SARS outbreak,  papers took a year to get out because of peer review.  Right.  And we couldn't afford that now.  Imagine the speed with which the science and the data passed around and the reviews of  it has been critical to learning more.
+
+Start time: 2431.60
+End time: 2455.27
+Speaker: SPEAKER_03
+Transcript:  One of the concerns early on was that people with money were escaping.  In fact, there was the article, I think we talked about it from Douglas Rushkoff at the  end of the summer, the privileged have entered their escaped pods.  Is that still the case or it seems like there's nowhere you can go that's completely safe  these days.
+
+Start time: 2456.00
+End time: 2457.54
+Speaker: SPEAKER_09
+Transcript:  Now they're going to buy their shots probably.
+
+Start time: 2458.47
+End time: 2467.92
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Well, that's also a possibility.  Preppers and survivalists said, see, we told you.  I'll see.
+
+Start time: 2468.04
+End time: 2474.71
+Speaker: SPEAKER_12
+Transcript:  I, you know, just because a disaster happened doesn't mean extremism works.  You know?  Yeah.
+
+Start time: 2475.18
+End time: 2511.32
+Speaker: SPEAKER_03
+Transcript:  But yeah, there are people.  We talked about for a long time, the decommissioned nuclear missile silos that people had turned  into escape pods, little small underground apartment complexes that you'd pay millions  of dollars to get into that would have their own private guard service.  And I think there were some people who actually moved to these silos.  Where is Peter Thiel these days?  Yeah.  But I think they're out of there by now.  It turned out most people just went to Barbados.
+
+Start time: 2512.08
+End time: 2515.92
+Speaker: SPEAKER_12
+Transcript:  I was going to, you know, if you want to do it cheaply, just move to Vermont.  Or Vermont.
+
+Start time: 2516.73
+End time: 2563.00
+Speaker: SPEAKER_03
+Transcript:  Vermont's a little chilly right now.  I prefer Barbados.  It's also a little safe.  One of the things, though, that did definitely happen because of the virus is that the social  contract kind of fractured.  And the fault lines that have been here all along really showed up.  The difference between the haves and the have-nots, the kids who had fast internet and had laptop  computers, and the kids who were forced to take beat up old Android devices to the Taco  Bell parking lot to use their free Wi-Fi so that they could go to school.  That became very clear.  And I'm hoping that the result of that will be that we'll do something about it instead  of just muddle through until it's over and then go back to the same old, same old.
+
+Start time: 2563.32
+End time: 2597.00
+Speaker: SPEAKER_09
+Transcript:  You know, Leo, it strikes me that the latest cruel paradox is that, as we all know now,  too late, African Americans, people of color, Latinos are the worst hit by this pandemic.  Yet when it comes time to stand in line for the vaccine, when maybe the political will  would finally give them the first shot, of course, having been so distrustful for a good  reason, they're going to lose out again.  And it's a terrible paradox, I think.  The systemic racism just hits you from every which way.
+
+Start time: 2597.48
+End time: 2643.00
+Speaker: SPEAKER_03
+Transcript:  Well, and it goes back to the Tuskegee project, Tuskegee project, where thousands of black  men or hundreds of black men were not treated for syphilis and not told they were not being  treated for syphilis so we could see what would happen.  And it continued into the 70s.  And so as a result, I think a lot of blacks and other people of color are very reluctant  to trust public health when maybe now is the time to do it.  If there's anything good that came out of it, you could say Quibi, the failure of Quibi.  Quibi was an attempt.  It will be a punchline for a long time, won't it?  It's like, just say it, Quibi.
+
+Start time: 2643.16
+End time: 2649.00
+Speaker: SPEAKER_12
+Transcript:  Well, like so many things, the pandemic accelerates things.  And that's one of the things that accelerated was Quibi failing.
+
+Start time: 2649.28
+End time: 2696.90
+Speaker: SPEAKER_03
+Transcript:  The failure of Quibi.  I wonder, there's been a lot of talk about the end of cities.  And after or during COVID, Oracle, Tesla, a number of companies moved to Texas out of  California.  There was, remember the article saying New York is over.  People were leaving the city and never going to come back.  Not true, is it Mr. New Yorker?  Wait a minute, you're living in the burbs.  You're living in New Jersey.  I know, listen to me.  I'm out here in the woods.  Yeah.  But I think it's clear that the world will be different when we come out of this, whenever  we come out of this.  I wonder if people will move back to San Francisco and New York City or if these exoduses are  permanent and the beginning of something even larger.  But more than cities, isn't it offices?
+
+Start time: 2697.00
+End time: 2697.12
+Speaker: SPEAKER_09
+Transcript:  Yeah.
+
+Start time: 2698.40
+End time: 2711.21
+Speaker: SPEAKER_03
+Transcript:  Well, Google has said now, not only do you not have to come back till the fall of 2021,  but a good portion of your work can be done remotely even if you do come back.  Twitter said you never have to come back.
+
+Start time: 2713.60
+End time: 2776.00
+Speaker: SPEAKER_02
+Transcript:  One of the things that we talk about on Security Now often is the great power of inertia.  And I think if nothing else, this shook things and forced people to see whether they could,  for example, need to go into spend hours a day on the freeway commuting to go to the  office, or if they couldn't get the job done at home.  And so before this horrible pandemic, people were doing things that they had always been  doing for a long time.  In some cases, retailers were still in business just because they had been in business the  year before and the year before that.  But there wasn't any real reason for them to remain in business except inertia.  So this is sort of shaken everything.  It'll be interesting to see it as you say, Leo.  My guess is we will not be returning to where we were.  We'll be returning to where we where we need to be after the pressure to change has been  lifted.  We'll be somewhere else and actually probably better.
+
+Start time: 2778.01
+End time: 2842.90
+Speaker: SPEAKER_03
+Transcript:  Certainly the big tech leapt into the fray by April.  Apple and Google announced an API for COVID tracking that they were going to build into  iOS and Android.  A few months later, it did in fact ship.  Initially, they said it'll be designed to support the apps that government and health  officials might want to make for COVID tracking.  But now, at least in some places here in California, the Apple system works without an app.  But I put works in air quotes because it doesn't seem to do anything at all as far as I know.  I can tell.  And a lot of people were very suspicious of Apple and Google and the idea that they might  put tracking into a phone.  Do you think that big tech is using or has used COVID as an excuse to enhance their or  government, for that matter, enhance the tracking of people to spy more?  And do you think that will go back to normal after it's over?  Or will they say now that they're in the phones, oh, good, we're going to stay here?  There's definitely been concern among some people.  I know, Jeff, you probably.  They've done a crappy job of it so far.
+
+Start time: 2843.00
+End time: 2843.55
+Speaker: UNKNOWN
+Transcript:  I know.
+
+Start time: 2844.00
+End time: 2849.74
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Steve and I did a whole show.  And I think I remember it was in our best of on why COVID trackers won't work.
+
+Start time: 2850.22
+End time: 2907.00
+Speaker: SPEAKER_02
+Transcript:  Can't work.  Right.  And I guess my feeling is that the technology is now in iOS and Android.  And it may be good for us to have it for next time.  Because all of the people who know this stuff are looking at the intervals between these  massive epidemic outbreaks and are noticing that the intervals are decreasing.  These are happening more frequently.  We keep hearing this will not be the last one.  So I think if nothing else, you know, this has proven to be horrible, but not, you know,  the end of humankind.  We'd like to prevent the end of humankind.  So I would say we're in far better condition for preparedness next time.  This all got everybody's attention.  The fact that you got to wear a mask wherever you go outside and even among your own family  members, that's a wake up call.
+
+Start time: 2908.22
+End time: 2926.82
+Speaker: SPEAKER_03
+Transcript:  It does feel like maybe we've gotten used to it and maybe we've made some progress.  Like this was a rehearsal and we'll be ready next time.  At the same time, don't you think, Paul, if Apple and Google leave these APIs turned on,  there'll be a hue and cry in six months?  People saying, why is it still on the phone?
+
+Start time: 2927.20
+End time: 2941.00
+Speaker: SPEAKER_12
+Transcript:  Yeah, of course.  But I've had the same experience.  I mean, you kind of take a little survey every couple of days on your phone for some reason.  It doesn't seem to do anything.  And so I don't quite.  I turned on the California version.
+
+Start time: 2941.22
+End time: 2943.00
+Speaker: SPEAKER_03
+Transcript:  I haven't gotten any more.
+
+Start time: 2943.32
+End time: 2962.80
+Speaker: SPEAKER_12
+Transcript:  The efficacy of this is not clear.  But yeah, I mean, there are always going to be people who trust and just think this is a good thing.  And don't worry about it.  Just like they don't worry about their own privacy.  Right.  Online. And then there are going to be the people who won't trust anything at any time.  So I don't know.  It's a basic trust, but verify situation, I think.
+
+Start time: 2963.90
+End time: 2993.84
+Speaker: SPEAKER_03
+Transcript:  The other, I think, big technology story around COVID is the mRNA vaccines.  These are very advanced, high tech vaccines.  In fact, I think a number of AIs were early on assigned the project of figuring out how to create a synthetic vaccine  against COVID-19. And it worked.  It worked.  Anybody want to address that?  I know none of you are biotech guys.  But this is a great.
+
+Start time: 2994.30
+End time: 3016.74
+Speaker: SPEAKER_09
+Transcript:  Not at all. But I think it's important.  There's been suspicion that, gee, this happened so quickly.  But again, I think that the Internet had an impact there.  Where there was AI, there was data, there was preparation, but it was also easier to put together the tests.  The actual testing was still to spec from everything I can see.  But everything else got truncated around it.
+
+Start time: 3017.48
+End time: 3146.13
+Speaker: SPEAKER_03
+Transcript:  Well, also, the fact that it really didn't happen quickly.  It took more than a decade because the vaccines that we're using now from Moderna and Pfizer are based on vaccines for the original SARS epidemic that were created in the early 2000s.  This was a technology that they've been working on ever since.  So in a way, we're kind of lucked out that SARS happened, which is a very closely related virus.  And the mRNA vaccines development began then.  In fact, credit to the researcher who came up with the notion and was demoted at her university because they said, oh, that'll never work.  I'm going to see if I can find her name.  Because here it is.  This is from Stat.  The story of mRNA, how a once dismissed idea became a leading technology in the COVID vaccine race.  Both vaccines come from research that was done many years ago.  Let me see if I can find her name.  Kathleen Carrico spent the 90s collecting rejections.  Her work attempting to harness the power of messenger RNA to fight disease was too far fetched for government grants, corporate funding, even support from her own colleagues.  She did not give up, even though after six years in the faculty of the University of Pennsylvania, she was demoted in 1995.  She'd been on the path to full professorship, but with no money coming in to support her work on mRNA, her bosses saw no point in pressing on.  She was back to the lower rungs of the scientific academy.  She kept working on it.  And in fact, it was her research that eventually made its way to Pfizer and Moderna.  The key discovery, Carrico and Weissman figured out if you incorporate modified nucleosides into mRNA, you can kill two birds with one stone.  That research paper came out in 2005, so she'd been working on it for 25 years.
+
+Start time: 3148.42
+End time: 3155.00
+Speaker: SPEAKER_02
+Transcript:  The pioneers always get the arrows in their back.  Yeah.  Especially for women.
+
+Start time: 3155.00
+End time: 3204.62
+Speaker: SPEAKER_03
+Transcript:  There's some talk that they both deserve a Nobel Prize in chemistry, or maybe medicine.  I wouldn't be surprised if they did.  So yeah, it seems like it happened really fast.  But yes, as always, there was some researcher in a closet somewhere at the University of Pennsylvania had been working on it since 1995.  But again, that's technology, that's science, and it's pretty amazing.  There was early on a lot of news about, of course, Black Lives Matter and the death of George Floyd was this year.  And the protests in Minnesota, violent protests.  According to Boy Genius Report, Minnesota was using contact tracing to track protesters as the Minnesota protests escalated.  We didn't hear much more about that.
+
+Start time: 3206.38
+End time: 3209.71
+Speaker: SPEAKER_09
+Transcript:  Nobody had the darn tracking app, so it probably didn't work very well.
+
+Start time: 3212.10
+End time: 3258.36
+Speaker: SPEAKER_03
+Transcript:  Maybe that was it.  All right.  Enough of COVID.  We've had enough.  It's still a good story of 2020.  Geez.  It's not been really good.  It's not been good news, has it?  Work from home.  Certainly because of COVID, we learned how to work from home, and that might end up being good news.  That might change the way we think of work.  Certainly for us at Twit, we sent all our employees home late February, early March.  They haven't come back except for the absolutely essential engineers who have to push the buttons and run the machinery.  And that's worked out all right.  It's not been perfect.  You guys all work from home anyway.  I've been working from home for 25 years.
+
+Start time: 3261.09
+End time: 3287.00
+Speaker: SPEAKER_12
+Transcript:  It's been interesting to watch the rest of the world go through these issues that I dealt with a long time ago.  Some people can and some people can't.  Some people prefer it.  Some people won't.  I think, like Steve said, the future is going to look different.  But it's going to be a hybrid work world, I think.  I think the Google schedule is particularly interesting for people who can do that, where you don't have to come in the office every day, but maybe you come in once a week or once every two weeks or whatever it is.
+
+Start time: 3288.31
+End time: 3296.55
+Speaker: SPEAKER_03
+Transcript:  Jeff, you're teaching remotely, right?  Right.  So you do your classes from the house?  And Zoom.  How's that been?
+
+Start time: 3298.49
+End time: 3343.00
+Speaker: SPEAKER_09
+Transcript:  I actually think that it's generally okay.  The problems the students have don't have to do with the classroom time.  They're journalists.  So they wanted to be out on the street and we teach them to go and show up and be with people.  And then we say, no, don't show up.  Maybe not.  Stay home.  Yeah.  You know, for having helped start a program in social journalism, this is its time because finding people online and connecting with them through social media, that's what you have to do.  So they leave with a greater expertise in that.  So I've told them all they had some rough times.  They had some tender moments.  But I've told them all they're going to end up just being so darn resilient from this that they're going to be able to face lots of things in life.
+
+Start time: 3343.22
+End time: 3350.35
+Speaker: SPEAKER_03
+Transcript:  You're teaching older students, graduate students.  Do you think they're better or worse able to do this?  Oh, I think probably better.
+
+Start time: 3352.35
+End time: 3367.78
+Speaker: SPEAKER_09
+Transcript:  My daughter is in graduate school in Canada but from upstairs.  And I think if it had been an undergrad for her, that would have been a lot rougher.  The structure is different.  The expectations.  A lot of what college sells is not education.  It's socialization.  Yeah.  It's an experience.
+
+Start time: 3368.26
+End time: 3381.12
+Speaker: SPEAKER_03
+Transcript:  It's a halfway house for teenagers, basically.  It's a take care.  It's a take care for teens.  Paul, you have a daughter who is in college.  Yeah.  But she's going to school, which is interesting.  Yeah.
+
+Start time: 3382.47
+End time: 3382.67
+Speaker: UNKNOWN
+Transcript:  Yeah.
+
+Start time: 3383.12
+End time: 3389.69
+Speaker: SPEAKER_12
+Transcript:  So she actually just flew home today for the break.  And she's only had one class this past semester that was in person.  It was a lab class.
+
+Start time: 3391.12
+End time: 3397.14
+Speaker: SPEAKER_03
+Transcript:  So she went to UNC and stayed on campus but was doing the classes remotely anyway.  Right.
+
+Start time: 3398.59
+End time: 3417.49
+Speaker: SPEAKER_12
+Transcript:  But you know what?  From our perspective as her parents, we still wanted that for her because there's still  things she can do that she can socialize with people, the people she lives with, the people  on campus.  And she still gets, it's kind of like a starter college experience.  And then when things open up, she'll get more of the normal.  Is she a freshman?
+
+Start time: 3418.02
+End time: 3422.20
+Speaker: SPEAKER_03
+Transcript:  Yeah.  So she had no other experience of college anyway.  Yeah.
+
+Start time: 3423.51
+End time: 3437.00
+Speaker: SPEAKER_12
+Transcript:  I mean, she didn't have a real graduation.  She didn't have a prom.  Poor kid.  Her start of college was delayed by two, three weeks, I guess.  How did she like?  We just wanted it to work.  Yeah.  How does she like what she's doing?
+
+Start time: 3437.24
+End time: 3439.00
+Speaker: SPEAKER_03
+Transcript:  I mean, is it okay?  She loves it.
+
+Start time: 3439.00
+End time: 3458.80
+Speaker: SPEAKER_12
+Transcript:  I love it.  Yeah.  It worked out.  So you think about this.  I mean, she's in a dorm where there's two bedrooms that would normally have two kids  in each and an extra room and a bathroom and everything.  And there's just two of them in there.  And so she has a room to herself.  Her roommate has a room to herself.  She's spoiled.  She's still living in a luxury situation that's not going to be duplicated next year.
+
+Start time: 3459.00
+End time: 3460.63
+Speaker: SPEAKER_03
+Transcript:  She's going to hate it next year.  I know.
+
+Start time: 3461.20
+End time: 3464.63
+Speaker: SPEAKER_12
+Transcript:  I know.  Do you have to have a roommate?  I have to get an apartment off campus.
+
+Start time: 3466.00
+End time: 3473.37
+Speaker: SPEAKER_03
+Transcript:  Yeah.  I think that was the beginning of the end of my college experience.  As soon as I realized I could live off campus, that was it.  It was over.  You do.  Exactly.
+
+Start time: 3475.60
+End time: 3485.51
+Speaker: SPEAKER_12
+Transcript:  And I think there's a reason why so many colleges require it, right?  You can't have an apartment the first year in many cases.  Rightly so.  That's true at UNC.
+
+Start time: 3486.24
+End time: 3494.00
+Speaker: SPEAKER_09
+Transcript:  Do the three of you think that fall will start to look like normal, that we'll be back in  things like classes and offices?
+
+Start time: 3494.44
+End time: 3501.34
+Speaker: SPEAKER_03
+Transcript:  I can only quote my hero, Dr. Fauci, who says we'll be enjoying NFL games in the fall.
+
+Start time: 3502.85
+End time: 3544.12
+Speaker: SPEAKER_12
+Transcript:  So he thinks so.  Mark Cuban, who owns the...  Him I don't trust.  ...the NBA team.  Really?  I actually think he's a really smart guy.  He's a really smart guy.  But he was saying that his...  And he talks to experts.  He reads up on everything.  And his view of this coming NBA season is that they're going to start the season with  empty stadiums and that there's going to be some kind of inflection point in March or  April and they'll be able to start letting people back in.  And he's not saying they'll be full exactly, but by the time the season ends, probably  mid-summer next year, we're going to be approaching normal between vaccinations and whatever else.  So we'll see.  What do you think?  There's been such an anti-vax movement.
+
+Start time: 3544.68
+End time: 3555.10
+Speaker: SPEAKER_03
+Transcript:  There were people, there were conspiracy theories who said the vaccine was Bill Gates' attempt  to inject some sort of device in your body so he could track you.  I mean, they're crazy.
+
+Start time: 3555.50
+End time: 3559.94
+Speaker: SPEAKER_12
+Transcript:  You thought he was all good now.  He's not.  It's the same old Bill Gates.
+
+Start time: 3560.16
+End time: 3563.38
+Speaker: SPEAKER_03
+Transcript:  Do you think people will change their tune and get vaccinated?
+
+Start time: 3564.20
+End time: 3564.59
+Speaker: UNKNOWN
+Transcript:  Yes.
+
+Start time: 3565.18
+End time: 3568.28
+Speaker: SPEAKER_03
+Transcript:  I think so too.  I'm hopeful too.  I do.  Yeah.
+
+Start time: 3570.00
+End time: 3584.40
+Speaker: SPEAKER_12
+Transcript:  No, because when push comes to shove, you can have, I mean, there'll always be some  percentage obviously, but if vaccination is what's standing between you and normal, it's  such a small price to pay.  It's not even a price really.
+
+Start time: 3584.44
+End time: 3587.70
+Speaker: SPEAKER_09
+Transcript:  Look at these members of Congress who've been doubtful, who are rushing to get it.
+
+Start time: 3587.78
+End time: 3591.87
+Speaker: SPEAKER_12
+Transcript:  Yeah.  Oh yeah, yeah.  The hypocrites are the first in line all the time.
+
+Start time: 3595.84
+End time: 3617.08
+Speaker: SPEAKER_03
+Transcript:  Public health says it's roughly 70 to 80% of the population has to get immunity of some  kind vaccinated or somehow for it to work.  Yeah, you know what?  I bet you 70%, I bet you get the vaccine.  I think when it comes down to it's easy and abstract to say I'm not going to let Bill  Gates track me in my arm.
+
+Start time: 3617.72
+End time: 3664.33
+Speaker: SPEAKER_12
+Transcript:  Unfortunately, the one thing you saw during the pandemic, and I think we probably all  have personal experience with this, is the people who didn't, there were people who didn't  believe this was a pandemic.  There were people who didn't believe this was real.  And what happens is-  Oddly there still are and I don't understand what world they're living in.  When people you know die from this or you're impacted by it, all of a sudden the switch  flips and I think, I mean, unfortunately, because of the way things are going, more  and more people are being impacted and it's become apparent, I think to at least a large  segment of the population that this is an applaud against the president.  It's not a China thing.  You know, it's real.  It's a pandemic.  You know, it shouldn't be going to a gym not wearing a mask.  Just a thought.
+
+Start time: 3665.41
+End time: 3682.07
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Yeah.  Well, that's what I think will be interesting to see is if people get vaccinated and then  stop wearing masks, which of course, public health officials say that's not the thing  to do.  Yeah.  Right.  That's right.  It's going to be an interesting few months, quarters, years.  I don't know.
+
+Start time: 3683.72
+End time: 3685.94
+Speaker: SPEAKER_12
+Transcript:  Do we all think that next year will be better?
+
+Start time: 3686.33
+End time: 3690.36
+Speaker: SPEAKER_03
+Transcript:  Yes.  God, it can't be any worse, Paul.  It's a low bar.  Well, couldn't it?
+
+Start time: 3690.48
+End time: 3694.21
+Speaker: SPEAKER_09
+Transcript:  Don't tempt the things.  Don't say that.  There could be a comet.  I understand.
+
+Start time: 3694.52
+End time: 3696.48
+Speaker: SPEAKER_03
+Transcript:  There could be a mutation.  There could be all kinds of things.
+
+Start time: 3696.50
+End time: 3698.15
+Speaker: SPEAKER_12
+Transcript:  I guess you're right.  There could be as...
+
+Start time: 3698.54
+End time: 3698.81
+Speaker: SPEAKER_03
+Transcript:  Go ahead.
+
+Start time: 3703.13
+End time: 3746.14
+Speaker: SPEAKER_02
+Transcript:  It's also worth remembering that for a while we were thinking, well, you know, you get  it and if you're healthy and your vitamin D status is good, you'll recover and then  you'll be fine and you'll have immunity.  What we're learning is that this thing leaves people worse off often than they were before.  It's not like a common cold that you get over and you're fine.  There can be, you know, they call it long hauler syndrome, lots of weird things that  it does to you.  So, you know, at this point where we have a vaccine probably a few months away, especially  the O.G. group who may have some priority over the youngsters.  It really does make sense not to get it and to get vaccinated.
+
+Start time: 3747.51
+End time: 3753.84
+Speaker: SPEAKER_12
+Transcript:  Well, this is like a new benefit of AARP.  You know, get in line early at the vaccination store.
+
+Start time: 3754.48
+End time: 3768.58
+Speaker: SPEAKER_03
+Transcript:  Paul, join us.  Embrace my elderly nature.  Your elderly nature, yes.  Actually, Dr. Mom was telling me they might be raising it from 65 to 75.  So that's what the latest is.
+
+Start time: 3768.72
+End time: 3770.48
+Speaker: SPEAKER_09
+Transcript:  They're going to do 75 up.  Yeah.
+
+Start time: 3771.36
+End time: 3777.93
+Speaker: SPEAKER_12
+Transcript:  And then they're going to do three now all of a sudden.  But we're going to get grandfathered in, right?  Yeah, sure.  Grandfather.
+
+Start time: 3778.46
+End time: 3814.68
+Speaker: SPEAKER_03
+Transcript:  Terrible thing to do.  The term grandfather.  All right.  We're going to take a break there.  We're covering the top 10 stories of tech stories of 2021, although already you can  see the intersection between real life and technology.  In some ways, that's kind of the big story is that what was 10 years ago when we first,  the three of us started working and doing shows on Twitter was really kind of a, you  know, a subculture.  Technology is now mainstream in every possible way.  It impacts everything.  And the biggest stories of the day are tech stories as much as anything else.
+
+Start time: 3814.70
+End time: 3816.19
+Speaker: SPEAKER_09
+Transcript:  Which is why tech upsets some people.
+
+Start time: 3817.22
+End time: 4122.98
+Speaker: SPEAKER_03
+Transcript:  Like you and me.  We get in a fight every time I say the F word.  I'm all right.  Yeah, I'm not going to say the F word.  Is the F word Facebook?  Yes.  Okay.  Well, we have something in common.  We've reached a taunt.  Jeff says, if you stop bringing it up, I won't yell at you.  I said, okay, fine.  Fine.  No.  Well, we'll do your commercial.  I got some Facebook stories coming up in a little bit.  Our show today brought to you literally, quite literally by Cashfly.  All year long, Cashfly has been our content delivery network.  I remember in the early days back when Steve Gibson had hair and Paul Therot wasn't quite  so gray and Jeff looked exactly the same.  We were trying to distribute this by web downloads.  I remember going to people saying, please seed our BitTorrent so more people can listen  to the show.  That's when Matt Levine at Cashfly called me and said, Leo, can we help?  This is ridiculous.  I at the time didn't really know what a CDN did, but boy, was I glad to find out.  Cashfly has servers all over the world, servers that will cash your content, bringing it closer  to your end users, whether it's a podcast like ours or a game, a video stream, a software.  And by doing that, it's five times faster.  It's more reliable.  In fact, Cashfly has a 100% uptime SLA guarantee and industry leading global performance.  And that's really benefited us.  We are big fans of Cashfly.  Early on, we discovered something Cashfly now is offering everybody.  They call it SOS, Storage Optimization System.  The issue with a CDN is it's great once your content is cached on their servers all over  the world.  But the first time somebody requests your download from their local server, it has to  go out to your origins.  In our case, it was S3 or wherever it is, get it, then put it on the server and then  offer it to the customer, which means it's going to be slow.  It's going to cost you money because you're going to have origin traffic.  You're suddenly reliant on the public internet.  What you don't want is a cache miss.  That's what SOS does.  It guarantees no cache misses, which increases download speeds, eliminates buffering and  can save you a lot of money and data transfer out fees.  We've been using it, it turns out, for years.  We've stored our content on Cashfly.  The first thing we do when we upload a podcast, we upload it to Cashfly so that when their  caching servers, their points of presence need the content, they get it directly from  Cashfly itself through their own peering, which means five times faster than the origin,  hyper fast downloads, low latency, highly scalable.  That's good news.  Now you can do it too.  SOS is available to everybody.  But the other good news is Cashfly is expanding rapidly.  They just added six new points of presence, POPs, in South America.  What's great is they're serving 10 times the traffic in Latin America over the last year.  And not only have they maintained, but they've drastically improved their performance in  the region while taking on a much higher traffic load.  This is why I love Cashfly.  We have listeners all over the world, wherever your end users are, North America, Latin America,  the Caribbean, Europe, the Middle East, Asia Pacific, your content will be delivered quickly  and reliably with 100% uptime.  They guarantee it.  So check out Cashfly.  Cashfly is giving away a complimentary detailed analysis of your current CDN bill and usage  trends.  Chances are you're spending 20% more than you have to.  Twit.cashfly.com.  Bring your CDN bill or your usage trends.  See how much Cashfly can save.  See how much better Cashfly can be.  And by the way, thanks to Cashfly during this crisis, they've been helping the World Central  Kitchen deliver warm meals.  They've donated over $50,000 to serve 300,000 warm meals to people who are struggling.  Cashfly is a great company, great people, and they've done so much for us to get rid  of the pain of getting our content out to you.  You should find out what Cashfly can do for you.  Twit.cashfly.com.  Thank you, Cashfly.  It's been a great 2020.  Here's to 2021 together.  We've got the OG Twits on the line here talking about the top stories of the year.  I guess we have to talk about TikTok, the gift that just kept on giving.  If I look at the TikTok, and I'm going to throw into this Huawei, WeChat, all of the  kind of concern about the Chinese apps that might be spying on you, and I compare that  to what the Russians have been doing all along with SolarWinds, the TikTok story isn't just  a sideshow.  It just seems like misdirection at this point.
+
+Start time: 4126.38
+End time: 4128.89
+Speaker: SPEAKER_12
+Transcript:  Thoughts?  I agree.  Let's move on.
+
+Start time: 4133.60
+End time: 4148.43
+Speaker: SPEAKER_03
+Transcript:  The president wanted to ban TikTok.  As far as we know, that ban is still in effect.  They gave them a reprieve.  For a while, Microsoft was going to buy it.  We had Chris Cappicello, the CTO of Microsoft, this week on Windows Weekly.  You asked him...
+
+Start time: 4149.40
+End time: 4161.80
+Speaker: SPEAKER_12
+Transcript:  He said something very interesting about this, which was that he was not part of the group  that was discussing this.  He implied that he wasn't necessarily a fan of this idea and that there were many in the
+
+Start time: 4161.86
+End time: 4222.32
+Speaker: SPEAKER_03
+Transcript:  country that didn't like him.  We should point out, Chris is on the leadership team.  He goes in those meetings with Sachin Adela and all the...  He's the chief marketing officer.  He's one of the top executives.  Here's how I interpreted that, Paul.  I thought that was really interesting too.  To me, that was Chris saying this was never an effort...  Distance himself.  Yeah, this was not an agreed upon effort by the leadership team.  This is something we want.  He gave reasons.  Yeah, it's good.  It's always good to acquire more users, get a strong user base, blah, blah, blah.  I'm putting words in his mouth here, but my interpretation reading between the lines  was, you know what?  This was a phone call from Sachin Adela and the president.  The president said, would you be interested in buying them?  And if you do, will you give me $5 million?  And Adela...  Seriously, I'm not joking.  Fighters feed.  I know.  I am not joking.  It's still ludicrous.  And Adela politically said, yeah, of course.
+
+Start time: 4222.46
+End time: 4227.01
+Speaker: SPEAKER_09
+Transcript:  Well, now that you mention it, I guess.  Okay.
+
+Start time: 4227.86
+End time: 4239.80
+Speaker: SPEAKER_03
+Transcript:  Right.  Because they didn't tell the leadership team.  They didn't go to the board and say, hey, we'd like to buy TikTok.  What do you think?  My assessment...  Everyone on the board would have been like, you want to buy what?
+
+Start time: 4240.53
+End time: 4240.71
+Speaker: SPEAKER_12
+Transcript:  What?
+
+Start time: 4241.12
+End time: 4263.86
+Speaker: SPEAKER_03
+Transcript:  My assessment of it is it never rose to that level of seriousness or they would have told  the board, they would have told the leadership team.  This was politics.  This had nothing to do with Microsoft and their intent to do anything.  It's just very hard if you were a CEO of a publicly held company in the United States  to say no to the president when he calls and says, would you do me a favor?  Of course, Larry Ellison has agreed to do that favor.
+
+Start time: 4264.30
+End time: 4267.97
+Speaker: SPEAKER_09
+Transcript:  Larry Ellison is a different character.  Yeah, some people are just personae.
+
+Start time: 4270.26
+End time: 4285.94
+Speaker: SPEAKER_03
+Transcript:  I think honestly, Adela and maybe even Ellison and Walmart, all of whom have been named as  potential buyers of TikTok, had the same reaction, which is it's never going to happen.  Go ahead and say yes.  Yeah.  Well.  Because it isn't going to happen at this point, right?
+
+Start time: 4286.77
+End time: 4286.81
+Speaker: UNKNOWN
+Transcript:  No.
+
+Start time: 4287.44
+End time: 4287.75
+Speaker: SPEAKER_03
+Transcript:  No.
+
+Start time: 4289.14
+End time: 4293.70
+Speaker: SPEAKER_12
+Transcript:  I mean, I don't know what we're going to do about the security problem that is TikTok,
+
+Start time: 4294.83
+End time: 4309.80
+Speaker: SPEAKER_03
+Transcript:  I guess.  Is it though?  I mean, you look at what happened with SolarWinds and then you look at, well, TikTok might be  spying on people through their location on their cell phone.  It doesn't rise to the same level of problem.
+
+Start time: 4309.94
+End time: 4310.50
+Speaker: SPEAKER_12
+Transcript:  It really doesn't.
+
+Start time: 4312.82
+End time: 4354.86
+Speaker: SPEAKER_09
+Transcript:  And I just want to say this about TikTok.  I being an OG, I looked at it at first and said, huh?  But I love what it does for collaboration.  I think it's a step ahead of the rest of platforms and that you can put up a piece of audio and  people can build on it.  You can put up a video and people respond to it.  You can create Ratatouille the musical entirely on TikTok with choreography and costumes and  songs and scripts.  To me, it just begins to crack what I think is the true nature of the net, which is collaboration.
+
+Start time: 4355.70
+End time: 4377.96
+Speaker: SPEAKER_03
+Transcript:  Which is not to say that there are not potential issues.  The commerce has just banned the DJI drones again because they work with the Chinese government  to monitor Uyghurs in concentration camps.  Any company that is a Chinese company is going to be potentially complicit in some.
+
+Start time: 4378.26
+End time: 4382.91
+Speaker: SPEAKER_12
+Transcript:  Potentially, but doesn't it seem rather arbitrary?  They've gone after a handful of very specific companies.
+
+Start time: 4386.68
+End time: 4390.25
+Speaker: SPEAKER_03
+Transcript:  It feels political.  There's no doubt about it.
+
+Start time: 4392.18
+End time: 4416.81
+Speaker: SPEAKER_02
+Transcript:  We talk about on the podcast the fact that all of our IoT devices are connecting back  to server infrastructure in China to control our plugs and light bulbs and all this other  stuff.  The reality of this exposure to global threats is real and most of it just gets ignored until  something bad happens.
+
+Start time: 4419.70
+End time: 4447.28
+Speaker: SPEAKER_03
+Transcript:  You could say the prudent thing to do would be to have no business with any other country  in the world and seal our borders, but that's not practical.  It's not doable.  The proper response, it seems to me, is to weigh the risks, to deal with the most serious  risks and certainly be aware of them.  I think there are diplomatic roots, the political roots that you could use to encourage China  to do the right thing.  I would hope we would use those.
+
+Start time: 4447.88
+End time: 4457.25
+Speaker: SPEAKER_09
+Transcript:  Steve, what's your latest...  I know you've talked about it a lot on your show, but is there anything new or current  in terms of your view of the risks of TikTok?
+
+Start time: 4459.38
+End time: 4461.41
+Speaker: SPEAKER_02
+Transcript:  I didn't hear the last...  What's the risk, Steve?
+
+Start time: 4462.10
+End time: 4466.24
+Speaker: SPEAKER_03
+Transcript:  What's the threat from TikTok?  Of TikTok specifically.  I have no idea.
+
+Start time: 4467.89
+End time: 4508.54
+Speaker: SPEAKER_02
+Transcript:  That gives me comfort.  One of the things that I know you are focused on, Jeff, is because I listened to you on  this week in Google, is the changing feeling about privacy as a function of age, where  young kids are just like, oh yeah, we don't care.  We're just putting it all online and letting it hang out there, whereas these OGs here  are like, wait a minute, you gave them your what?  I think it is a function of where you come from and how new this is to you.  Of course, one of the stories this week...
+
+Start time: 4508.92
+End time: 4509.90
+Speaker: SPEAKER_03
+Transcript:  Go ahead.
+
+Start time: 4510.17
+End time: 4553.15
+Speaker: SPEAKER_09
+Transcript:  Just one quick point.  I think it's a really good point, Steve.  It also goes to, I think one of the great talents of young people online and other communities  online is that they create their own languages.  They don't find privacy the way we do.  They hide in plain sight the things that they do.  And it's true of young people.  Dana Boyd has done great research on this.  And I just read a book by Andre Brock Jr. on black culture on Twitter.  And there's the creation of languages and structures and understandings that if you're  not inside the community, you're not going to get.  And it's in that in plain sight view, which is a really interesting strategy then for  how to deal with the internet.
+
+Start time: 4554.22
+End time: 4577.28
+Speaker: SPEAKER_03
+Transcript:  TikTok was very savvy, too.  They went to the courts to fight the Trump declaration.  But they did it by getting people who make money, influencers on TikTok to sue because  they had the standing, right?  And in fact, in two different court cases, it worked.  The judge ruled that shutting TikTok down would be a significant penalty to these influencers.
+
+Start time: 4577.38
+End time: 4599.22
+Speaker: SPEAKER_09
+Transcript:  The first was a First Amendment case, too.  This is the printing press of the people.  And so it really is a First Amendment case.  And whether it's in China or not, people are using it to be able to talk to the public  and to have their voice.  And you try to shut that off from government.  That's a violation of the First Amendment.
+
+Start time: 4599.38
+End time: 4670.71
+Speaker: SPEAKER_03
+Transcript:  I think it's pretty clear.  Now don't yell at me, Jeff.  I don't yell at you.  You're the one who yells at me.  Oh, I'm sorry.  I'm yelling at you.  I won't yell at you on this.  This was actually a story this week because Apple changed its privacy reporting with the  most recent version of iOS.  And there was a very long, several screens long reveal of all of the things Facebook  potentially was collecting from you on your iOS app.  At which point, Facebook took out full page ads in the New York Times, the Wall Street  Journal and the Washington Post saying, it's not us.  Think of the small business people who are going to suffer if you tell them what we're  collecting.  Apple said, look, we're not saying you can't collect it, Facebook.  We're just telling people they have the right to say no.  And Facebook was up in arms.  And I guess my point is Facebook is doing and admittedly doing more probably than TikTok  is.  The only difference that Facebook is doing is their American company and TikTok is a  Chinese company.  Is that the difference?
+
+Start time: 4671.06
+End time: 4692.36
+Speaker: SPEAKER_12
+Transcript:  TikTok, there's a fear they might have do something.  With Facebook, they literally are doing it.  That's the one thing.  But also this Facebook protection of small businesses is like the mob claiming that if  you take them down, no one will protect the small businesses on the street because we're  collecting money from them.  Shane, what could happen to that nice bakery of yours?  Yeah, I'd hate to see anything happen to your small business.
+
+Start time: 4692.78
+End time: 4725.26
+Speaker: SPEAKER_03
+Transcript:  Kara Swisher's opinion piece in The New York Times said, Facebook's tone deaf attack on  Apple, the company declared in newspaper ads it was standing up to Apple.  It's a desperate ploy that's unlikely to work.  She says, casting itself as a protector of small businesses in full page ads in irony  alert big newspapers.  Facebook is criticizing Apple for planning to give users of its popular devices more  control over the data they share with third party apps.  Think of the small businesses.  That's a new kind of moral panic, isn't it, Jeff?
+
+Start time: 4725.68
+End time: 4767.36
+Speaker: SPEAKER_09
+Transcript:  So just to be clear here, I agree with you on this story.  It was the other story you brought that called Facebook a doomsday machine that I had a little  problem with.  This story I agree with.  Facebook is tone deaf.  They do all kinds of things that don't make sense.  Yeah, they don't have my biggest complaint about them is they don't operate with a North  star that you can test them against to say, why do you exist?  And we're going to test your behavior against that.  Instead, they have a book of statutes.  You can't show a female breast unless it's attached to a kid.  But why?  What's the higher view of why you exist besides we're going to connect people?  And that's what I've been urging them publicly on this show and in my writing to do.  And they don't.
+
+Start time: 4770.02
+End time: 4800.89
+Speaker: SPEAKER_03
+Transcript:  In any event, I guess the reason I bring it up in conjunction with TikTok is they're both  doing somewhat similar things.  And there's always the threat that TikTok could be used somehow to propagandize American  public or and you could say the same thing for Facebook.  In fact, I think you could say Facebook has been used that way in Myanmar and the Philippines  and other dictatorships.  So so is the president trying to shut down Facebook as well as TikTok?  Or is it just that it's it's a Chinese 230?
+
+Start time: 4801.96
+End time: 4831.36
+Speaker: SPEAKER_09
+Transcript:  That's no, that's where 230 comes in.  That's where his insistence on trying to kill 230.  That's where I think it's going to that's going to be the battleground for next year  and where odd bedfellows come together because of the, pardon me, moral panic about the  Internet, that what suffers in the end is all of our speech.  Yes, it's not about Facebook.  I'll back you on about Twitter.  It's not about TikTok.  It's about our rights online and what's going to happen there because of this panic that  goes on and 230 is going to be the target.
+
+Start time: 4832.12
+End time: 4876.36
+Speaker: SPEAKER_03
+Transcript:  Well, let's take a little break when we come back.  Let's talk about that social media section 230 of the Communications Decency Act.  Let's talk about the attack on encryption.  There is a lot more to talk about as we go through some of the top 10 stories of 2020  with my top three buddies on Twitter.  Steve Gibson of Security Now and the creator of Spinrite.  I'll give you a plug.  The world's finest hard drive recovery and maintenance utility.  And by the way, you said that by the time we come back next week for all three shows,  Windows Weekly, Security Now, this week in Google will be doing best ofs.  We won't be back until the following week.  You said we might have some spin right news, Steve, you think?
+
+Start time: 4877.08
+End time: 4900.42
+Speaker: SPEAKER_02
+Transcript:  Yep, we will. We're at the we're at the really the final release candidate for the  benchmark, not for Spinrite, but for the benchmark that is the the testing platform  for all the new hardware drivers that will that spin right will that inherit.  So this allows it to get a lot more rigorous testing so that when we do launch  it in Spinrite, it'll just come out working.
+
+Start time: 4900.84
+End time: 4930.99
+Speaker: SPEAKER_03
+Transcript:  GRC.com. If you if you buy spin right now, you'll be in on all the beta testing and  you'll get a free copy of six point one when it comes out soon, it sounds like.  Steve Gibson, Security Now, Windows Weekly host Paul Thurotte.  It's great to have you. Thurotte.com is his website.  His book, The Field Guide to Windows 10 is at leanpub.com.  I'm giving people plugs now, Paul.  What happened to you? Wait a minute.  I'm looking over your left shoulder.  Your Xbox is gone.  Where'd it go?
+
+Start time: 4931.98
+End time: 4934.46
+Speaker: SPEAKER_12
+Transcript:  Well, the you'll see which side the old Xbox is up there.
+
+Start time: 4934.82
+End time: 4945.76
+Speaker: SPEAKER_03
+Transcript:  OK, the series, the series X used to be over your left shoulder.  What's well, it was just the box.  The series X was just the box.  Never mind. The box is gone.  I'm trying to be taken away.
+
+Start time: 4946.04
+End time: 4947.86
+Speaker: SPEAKER_09
+Transcript:  You robbed me of my sense of reality.
+
+Start time: 4949.08
+End time: 4951.18
+Speaker: SPEAKER_12
+Transcript:  The new Xbox is so last month.
+
+Start time: 4953.48
+End time: 4956.56
+Speaker: SPEAKER_03
+Transcript:  Call of Duty. You still playing on that?  They know Series X.
+
+Start time: 4958.02
+End time: 4963.38
+Speaker: SPEAKER_12
+Transcript:  I am, but I'm going to be moving on pretty soon.  I'm not actually with that.
+
+Start time: 4964.92
+End time: 4984.32
+Speaker: SPEAKER_03
+Transcript:  It won't be part of our top 10, I don't think.  But one of the big stories this week was maybe not surprising.  It seems to be the way it is these days in triple A game releases.  But the abject failure of Cyberpunk 2077 refunds being offered by Sony.  It apparently does not work well on PlayStation 4 or the Xbox One.
+
+Start time: 4985.14
+End time: 4992.86
+Speaker: SPEAKER_12
+Transcript:  Yep. Like not well, like not at all.  Yeah, the most hyped game of 2020 somehow bombed immediately upon release.
+
+Start time: 4992.86
+End time: 5010.42
+Speaker: SPEAKER_03
+Transcript:  That seems to be the case more often than not these days with triple A releases.  The servers bogged down, the game won't work.  On the other hand, on Google Stadia, it's playing fine.  On GeForce Now, it's playing fine.  It seems like the best way to run these games is to not be running them.
+
+Start time: 5011.10
+End time: 5018.44
+Speaker: SPEAKER_12
+Transcript:  But that's how you get people to move to the cloud.  Do you think it's a plot? It's a conspiracy.
+
+Start time: 5018.58
+End time: 5024.55
+Speaker: SPEAKER_03
+Transcript:  Red Project is a Polish company.  Do you think this is a conspiracy?  Follow the money, Leo.
+
+Start time: 5026.94
+End time: 5027.78
+Speaker: SPEAKER_12
+Transcript:  I don't even know what I'm talking about.
+
+Start time: 5027.78
+End time: 5045.24
+Speaker: SPEAKER_03
+Transcript:  Where one plays, so plays us all.  Yeah, yeah.  I actually really it's a fun game, but I haven't played it on a on a device  because I couldn't get a PlayStation 5 or Xbox Series X.  People do you think people are taking the refund?
+
+Start time: 5047.36
+End time: 5063.04
+Speaker: SPEAKER_12
+Transcript:  Yeah.  Sony, you know, infamously pulled the game from the store and is offering  refunds. Microsoft is also offering refunds, but they're not pulling it from the store.  I don't think there's any movement on that on the PC side that I'm aware of.  But yeah, I bet people have.
+
+Start time: 5063.34
+End time: 5072.98
+Speaker: SPEAKER_03
+Transcript:  I remember, you know, every time in the last few years, a big,  massively online game comes out, the servers crash and there's all sorts of issues.  But this is the first time I can remember it being pulled.
+
+Start time: 5074.36
+End time: 5077.42
+Speaker: SPEAKER_12
+Transcript:  No, I can't think of it.  Even Duke Nukem forever wasn't pulled.
+
+Start time: 5077.94
+End time: 5106.90
+Speaker: SPEAKER_03
+Transcript:  I think it was terrible.  Wow. That's so we'll talk about that when we come back  in a couple of weeks on Windows Weekly, because I think that is a big story.  Not probably doesn't rise to the top 10.  It's not quite not quite such a big story.  And of course, Jeff Jarvis is here this week in Google,  which really is no longer about Google at all.  Mostly just about me and Jeff fighting and.  No, we don't all love each other.
+
+Start time: 5107.08
+End time: 5110.46
+Speaker: SPEAKER_09
+Transcript:  And Stacy and could be dating me and me standing up for the rights of the Internet.
+
+Start time: 5110.54
+End time: 5138.56
+Speaker: SPEAKER_03
+Transcript:  But beyond that, I just like I just like to beat you.  That's all you know. I like to poke the bear.  Anything you want to plug?  Should I should I give Craig Newmark his his weekly?  Oh, sure. Yeah, sure.  Jeff is the Leonard Tao Professor for Journalistic Innovation at the Craig  Graduate School of Journalism at the City University of New York.  How's Craig doing?  Craig's doing great. Craig was the creator of a lot of money.
+
+Start time: 5139.00
+End time: 5147.88
+Speaker: SPEAKER_09
+Transcript:  He's extended his his philanthropy from journalism and women in code  and veterans. He's also worried about hunger now.  Good for him.
+
+Start time: 5148.06
+End time: 5154.54
+Speaker: SPEAKER_03
+Transcript:  This is he still involved with Craigslist?  Does he still do that?  Or do you sell it or what's going on?
+
+Start time: 5154.94
+End time: 5168.82
+Speaker: SPEAKER_09
+Transcript:  Craig Craig so great about this.  But he said long, long, long ago, he realized what a bad manager he was.  And so he hired a CEO and he cares about the company.  But but he used to do customer service a lot.  I think he might still do some.  Oh, that's cute. He hasn't managed the company.
+
+Start time: 5168.86
+End time: 5176.78
+Speaker: SPEAKER_03
+Transcript:  Jim Buckmaster has been the CEO for ages.  And done a good job with it.  So Craig just takes the checks and and that's about it.
+
+Start time: 5176.82
+End time: 5193.00
+Speaker: SPEAKER_09
+Transcript:  Craig cares. And Craig Craig, you know, the great thing about  about Craigslist is that it's.  It hasn't changed, right?  I mean, it's it's well, the Internet went went crazy all around it.  Craigslist has been a rock.  It is what it is.  Pridefully, undesigned.
+
+Start time: 5193.68
+End time: 5255.67
+Speaker: SPEAKER_03
+Transcript:  Actually, perhaps one of the top 10 stories we should have covered  is is the benefactors, the gifts, people like Craig,  Jeff Bezos is X.  He's got Mackenzie,  Laureen Jobs, these very wealthy  tech benefactors have really put a lot of money,  Bill Gates, into into good causes.  That seems to be more and more for a long time.  Silicon Valley was very much criticized for not participating,  for not being charitable.  Steve Jobs famously said, I'm too busy.  We don't want to.  I think secretly he might have been donating.  But now Apple is very much in the forefront of  of gifts and charity.  So that's probably a big story, too, for 2020.  How much did Mackenzie Scott give away?
+
+Start time: 5257.26
+End time: 5259.46
+Speaker: SPEAKER_12
+Transcript:  Four billion, I thought it was four or eight billion.
+
+Start time: 5259.50
+End time: 5290.42
+Speaker: SPEAKER_03
+Transcript:  Yeah, she and that is one of the big stories.  She, like her ex, Jeff Bezos,  benefited amazingly from covid-19.  Scott's the third richest woman in the world.  She got thirty seven billion dollars in her divorce,  but it's now worth sixty two billion dollars,  thanks to the run up in Amazon stock due primarily to covid  over the last nine months.  And so she decided to give a lot of it away.
+
+Start time: 5290.92
+End time: 5328.11
+Speaker: SPEAKER_09
+Transcript:  By the way, sorry, you know, I got money  in the disinformation thing with my school from Facebook,  which almost all of it we gave away.  So I was kind of a short term  for about 10 minutes, philanthropist of sorts, right?  A grantor instead of a grantee.  And it's hard.  It's very hard work, oddly, to give away money.  Because everybody's going to come after you  and you need some sense of what impact you're going to have  and some sense of data around it.  And, you know, I didn't know how to do it.  And I hired people who did,  but it's amazing to watch how that works.  This is not easy.
+
+Start time: 5328.36
+End time: 5329.30
+Speaker: SPEAKER_03
+Transcript:  Yeah, very famously.
+
+Start time: 5329.50
+End time: 5331.19
+Speaker: SPEAKER_09
+Transcript:  Easy to be rich, but it's hard to keep it away.
+
+Start time: 5332.00
+End time: 5690.79
+Speaker: SPEAKER_03
+Transcript:  Yeah, very famously, Mark Zuckerberg gave a hundred million  dollars to creating an education foundation in Newark.  That was just kind of a flop.  The other philanthropists matched the grant,  200 million dollars.  And as far as anybody can tell,  it closed the store for five years  with very little impact on Newark schools.  So it's hard.  It is hard.  Bill Gates always said, I'm not going to give away money  until I have the time to do it right.  He started a little bit before his retirement,  but I think Melinda had a lot to do with that  in the bill and Melinda Gates Foundation has  since his retirement, not only given away a lot of money,  but really done a lot of good in the world.  Been leaders.  Yeah, really been leaders.  So that's a good story.  That's a nice story.  People like Mackenzie Scott, Bill Gates.  Zuckerberg's an interesting story because the Zuckerberg  and Priscilla Chan, his wife's foundation  has been more politic in its giving, if you will.  I think that's a story perhaps for 2021.  Our show today brought to you by Zendesk.  Customer service is everything, isn't it?  I mean, that's the best run companies in the world  are the ones that treat their customers  like what they are, the most important part of the business.  And how many of us, I guarantee you, every one of us  has a customer service horror story to tell.  Customer service is job one if you have customers.  And how many times have you been on the phone  and just hung up in fury or been kept on hold for hours?  Even the best teams can struggle to make their customers  feel taken care of.  Zendesk does award-winning support sales  and customer engagement software that helps businesses  give good customer service at scale,  because that's the problem.  It's easy when your company's small  and you have a few customers,  but as that customer list grows,  it can get harder and harder to give  authentic customer service.  That's what Zendesk helps you do.  Create conversational, authentic experiences  that keep customers happy.  And you know this, when a customer, I know this,  when I have a bad experience, I tweet about it,  I tell the world, those guys kept me on hold for 14 hours.  People will say when they have a bad experience,  but similarly, I think people will tell others  when they have a good experience.  Zendesk gives businesses what they need  to stay connected with customers,  communicate seamlessly across every channel.  And that's important too,  because we all have different ways we want to communicate.  Email, phone, chat, messenger, community forums,  help centers, social media.  Zendesk uses that phrase conversational experience.  Connected, ongoing, natural customer interactions.  You don't want customers feeling  like they're talking to a robot.  You want them feeling like they're getting heard by humans.  And that's made possible  with Zendesk's complete customer profile.  So when your customer service reps  are talking to a customer, they know what's going on.  They're not, the worst thing in the world  is to be on hold for an hour with some,  let's not say names, cable company.  And they say, oh, oh, well I have to transfer you  to somebody else for that particular problem.  And you have to start all over again.  Zendesk makes sure that each customer service reps  knows what's going on.  They've got a unified set of tools  to give them the context they need  to deliver great service in every conversation.  Know who are you?  What's your problem?  I just told you.  Most support software requires expensive consultants.  Months of setup, you'll love it with Zendesk.  In hours, you're up and running,  but Zendesk has the capability to scale  and change with your needs.  So it's a perfect blend of easy to set up, easy to use,  but powerful enough to be flexible enough  to be customized to fit exactly what you want.  Zendesk gives organizations the flexibility to move quickly,  to focus on innovation, to adapt to growth.  It's not a surprise, 150,000 paid customers  and over a decade of experience,  they're pretty good at customer service themselves.  No matter what you need in business,  Zendesk products are flexible enough to pave the path  that's best for your organization.  See for yourself why the best customer service experiences  are built with Zendesk.  Zendesk.com slash twit, Z-E-N-D-E-S-K,  zendesk.com slash twit.  We're talking the top stories of 2020.  I guess we can't forget when Apple, Amazon, Facebook,  and Google all came to testify.  Well, they didn't come anywhere.  They didn't fly their big corporate jets.  They just sat down in a Zoom room  to talk to the House Antitrust Subcommittee.  That was quite the experience.  And then again, later, a strangely bearded Twitter CEO  and a strangely unbearded, in fact,  somebody who looks like he had never had  any facial hair at all, Mark Zuckerberg,  testified to the Senate.  Big Tech is being investigated by Washington, D.C.  and of course, it ended up with a trust,  antitrust suit filed against Google,  an antitrust suit filed against Facebook.  In fact, the only company really left out  of all this scrutiny was Microsoft, Paul.  What, did they suffer their penance 20 years ago  and now they're in the clear?
+
+Start time: 5692.32
+End time: 5714.99
+Speaker: SPEAKER_12
+Transcript:  They're just not as public facing  as these other companies.  I mean, they're just as big as all of them.  They're bigger than most.  But writing about technology,  this kind of thing is fascinating to me.  And of course, with the Microsoft case here in the U.S.  and the EU case, as well as a backdrop,  the parallels are just obvious in many.
+
+Start time: 5716.58
+End time: 5736.02
+Speaker: SPEAKER_03
+Transcript:  You and I, and I think Jeff and I talked about  the Facebook complaint and I thought how well-written,  thoughtful and well-documented it was.  The FDC's complaint backed by 46 states, D.C. and Guam.  I think more states are gonna sign on as well.  California, I think, was about to sign on.
+
+Start time: 5736.02
+End time: 5760.54
+Speaker: SPEAKER_12
+Transcript:  So by the way, I've had that reaction to a few of these.  The Google case, the quality of the writing.  I know this is such a weird thing to say about government,  but especially our government today.  But I actually pointed it out to my wife.  I said, if you ever doubt that our government  is incapable of intelligent acts,  you gotta read this paper, it's crazy.  I think that's, I found that to be very striking.
+
+Start time: 5761.08
+End time: 5809.86
+Speaker: SPEAKER_03
+Transcript:  It contrasts so, and here's why it's striking.  It's so well-written, so well-thought out,  and then you get Jim Jordan with his sleeves  rolled up going, brrrr!  And it doesn't, the two don't seem to be related.  The two different planets, exactly.  So there's on the one hand, this kind of visceral hatred  of social media by the president and Republicans  because the social media dares to say,  well, that's not right, or that's not true, or, you know.  And then there's this, I think fairly well-thought out,  and maybe even justified, probably written entirely  by staffers in Congress, indictment of how big tech  has gotten, how influential it's gotten,  and really how predatory, and really the issue  is how predatory it's gotten with this monopoly.
+
+Start time: 5810.18
+End time: 5813.66
+Speaker: SPEAKER_12
+Transcript:  The social media thing is kind of, sorry, go ahead.
+
+Start time: 5813.66
+End time: 5836.36
+Speaker: SPEAKER_02
+Transcript:  I was just gonna say, I really agree with Paul  in his sense of the deja vu that we're feeling.  Those of us who were present during the whole  Microsoft antitrust stuff, when you're hearing this  about Facebook and listening to it, it's like,  oh, does that sound familiar?  Oh yeah, I remember that, oh yeah.  I mean, it really is just exactly the same, abuse of power.
+
+Start time: 5836.88
+End time: 5874.19
+Speaker: SPEAKER_03
+Transcript:  I've asked this on several shows,  but I wanna ask you guys.  It's my sense that, you know, I mean,  the Microsoft thing dragged on for years, almost 10 years.  Eventually, it never did settle.  There was a consent decree.  Microsoft said, all right, all right.  We'll let an ombudsman come and watch what we do.  We'll agree not to do this again, this again.  The same thing happened in Europe.  They had the browser ballot and various things.  Disconnect IE, yeah.  But my sense of it is the real success  of the case against Microsoft was that it just made them  think twice before they did some of them  more predatory practices that they had done  on their bill of gains.
+
+Start time: 5874.46
+End time: 5877.58
+Speaker: SPEAKER_12
+Transcript:  That consent decree is what led to the rise  of the companies we're now worried about, actually.
+
+Start time: 5877.72
+End time: 5888.37
+Speaker: SPEAKER_03
+Transcript:  Google, Facebook, yeah, I think so.  A lot of people said Google wouldn't exist  if Microsoft had continued its practices  with internet slower and bigger.  Say more about that, Paul, please.
+
+Start time: 5888.96
+End time: 5891.82
+Speaker: SPEAKER_09
+Transcript:  I'm curious to hear more about the connection to the rise.
+
+Start time: 5893.82
+End time: 5944.49
+Speaker: SPEAKER_12
+Transcript:  Oh, because, you know, when I entered the industry,  I sort of think of myself as someone  who covers personal technology.  Most people that know about me think of me  as someone who covers Microsoft,  because when I came in, Microsoft was personal technology.  It was 100% of it.  And the internet and mobile and a lot of other things  have changed that, but Microsoft might have done  to a nascent Google or a nascent, a re-nascent,  if that's a word, Apple in the early 2000s, or a Facebook,  what it had done previously to WordPerfect and Netscape  and Lotus and so many others.  But they were shackled.  And Bill Gates, in that timeframe,  said that Microsoft would not be distracted.  And if you talk to him about it now, he says,  oh yeah, yeah, we were distracted.  Heavily, yeah.
+
+Start time: 5945.18
+End time: 5951.75
+Speaker: SPEAKER_03
+Transcript:  And I have to think, it wasn't just Microsoft,  but other companies who said, hmm, let's not do that,  because we don't want the scrutiny.
+
+Start time: 5952.44
+End time: 5959.34
+Speaker: SPEAKER_12
+Transcript:  Microsoft could just say, oh yeah,  we're going to do that thing.  And then the business would just disappear.  Even if Microsoft never came out with anything.
+
+Start time: 5960.38
+End time: 5963.21
+Speaker: SPEAKER_09
+Transcript:  What might they have gone into if they hadn't been shackled,  if they'd won the case?
+
+Start time: 5964.48
+End time: 6044.78
+Speaker: SPEAKER_12
+Transcript:  Well, what you could look at is what has happened.  So is there a company on Earth that  could have built a search engine to rival what Google did?  Yes, that company is Microsoft.  Is there a company that already had an incredible,  successful-for-the-day mobile platform that could have taken  on the iPhone?  Yes, that company was Microsoft.  Microsoft was 100% of the world, of my world certainly,  until it wasn't.  Until 1998.  Yeah, and by the way, I think it's a good thing overall.  I felt very strongly at the time that Microsoft  should have been broken up.  I was horrified by what I saw in all the testimony.  In fact, one of the most horrible experiences of my life  was sitting through.  I actually requested anyone in any journalist  could have gotten this is the, I don't remember how many it was,  21 tape, like literally VHS tapes,  of the Bill Gates deposition.  If you think it's hard to watch the entire Godfather  trilogy at once, I would challenge  you to watch any of this.  It is the hardest thing to watch.  Sizzling he ate.  It is awful.  And if there are lessons to be learned by Google today,  and Apple, and Amazon, and Facebook, there it is.  Don't do that.
+
+Start time: 6047.52
+End time: 6053.64
+Speaker: SPEAKER_03
+Transcript:  So do you think we'll have the same salubrious effect,  the suits against Facebook approval?
+
+Start time: 6054.18
+End time: 6128.44
+Speaker: SPEAKER_12
+Transcript:  You know what?  The big commonality here is that all of those companies,  the four we're talking about today at Microsoft,  are what they call gatekeepers.  And this is the challenge.  I think you'll see because of so much antitrust action right  now, and legal action against these companies,  even Apple, which is in many ways very  belligerent about this kind of stuff,  has taken steps this year to scale back from the cliff  a little bit with regards to their relationship  with developers, for example.  So I think in some cases, you'll see companies  make changes voluntarily.  I think you will see stalling.  Some of these things are going to take years, and years,  and years.  The hope is that the impact, however it comes about,  it will be similar to what happened to Microsoft.  Which, by the way, today is literally  right the second is probably the second biggest  company in the world.  So it's not like they disappeared.  It was good for Microsoft in the long run, right?  That's right.  Sometimes you need to go through a little bit of pain  to get to the other side and to a better place.  And Microsoft, that was forced on them.  That's not something they would have done voluntarily.  And we'll see.  These companies, they're all going  to react in their own unique way, I guess.
+
+Start time: 6128.78
+End time: 6143.35
+Speaker: SPEAKER_03
+Transcript:  So there's this kind of thoughtful attempt  to figure out what's going on and what to do about it  on the one hand.  And then the other hand, there's a lot of frothing at the mouth  and threats against section 230.  What is section 230, Jeff?
+
+Start time: 6145.58
+End time: 6161.90
+Speaker: SPEAKER_09
+Transcript:  Section 230 says that a platform or publisher  is not responsible for the actions of others  on their platform or publishing platform  so that we would encourage conversation.  It creates a safe harbor of swords.
+
+Start time: 6162.22
+End time: 6166.20
+Speaker: SPEAKER_03
+Transcript:  And moderation.  It gives them the sword and the shield.  And moderation, right?  Yes, the sword and the shield.
+
+Start time: 6166.22
+End time: 6195.75
+Speaker: SPEAKER_09
+Transcript:  It gives them the sword, which says,  you can choose to take down stuff.  And if you miss stuff, which was part of the problem  with case law before, you won't be in more trouble for trying.  So please try.  And you can allow conversation to happen  without getting in trouble.  So it gives you both the opportunity.  Because Congress, in its last smart act,  knew that this internet was going  to be a platform for conversation.  And without this, if everyone were  liable for anything everyone did on their platform,  they would allow nothing to happen on their platform.  We'd be stuck with mass media still.
+
+Start time: 6197.32
+End time: 6216.05
+Speaker: SPEAKER_03
+Transcript:  And honestly, it isn't section 230  that is the problem for the president.  That has nothing to do with section 230.  He's upset, of course, because first Twitter and then  Facebook started to label some of his tweets and posts  with fact checking.
+
+Start time: 6217.30
+End time: 6227.78
+Speaker: SPEAKER_09
+Transcript:  This is where we're stuck in the paradoxes.  The left goes up to the platform saying,  take down hate speech.  Then they take down the hate speech.  And then the right says, hey, that was my speech.  And that's what Trump is basically saying.
+
+Start time: 6228.16
+End time: 6243.09
+Speaker: SPEAKER_12
+Transcript:  By the way, if Twitter labeled one of your tweets  as misinformation, would that cause some self-reflection?  I mean, I think most people confronted by that  would pause and think, maybe I'm not doing  the right thing here.
+
+Start time: 6243.58
+End time: 6279.98
+Speaker: SPEAKER_03
+Transcript:  They've done it so much in the last month.  But I have to point out they only started doing that  a couple of months ago.  That's right.  Yeah, they finally grew some.  For four years, anything he or others posted,  regardless of its absurdity, was just, you know.  It's just left hanging.  Left hanging.  And it was only when they started to fact check  and say, you know, this might not be true.  You might want to look at other sources.  As benign a kind of a, it wasn't even a slap on the wrist,  a nudge, as one could imagine,  that he really started to say, all right,  we got to do something about these platforms.
+
+Start time: 6280.50
+End time: 6286.12
+Speaker: SPEAKER_12
+Transcript:  We got to do something about that,  not about what I'm doing.  Yeah.  Like, this is not the right approach to a problem.
+
+Start time: 6286.14
+End time: 6293.50
+Speaker: SPEAKER_03
+Transcript:  And they aren't, by the way, to this day,  they are still, you know, he's still tweeting stuff  that they are still fact checking.  Yeah.
+
+Start time: 6294.87
+End time: 6304.31
+Speaker: SPEAKER_09
+Transcript:  Even now.  Well, the latest is so much fun,  is that when he says that he won,  now Twitter just started saying,  authorities say,  That took weeks.  Weeks.  Yeah.
+
+Start time: 6304.58
+End time: 6310.35
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Well, it happened, perhaps,  because of the Electoral College voting.  That was the final.
+
+Start time: 6312.26
+End time: 6332.43
+Speaker: SPEAKER_12
+Transcript:  I think this is kind of a very specific issue  about a very specific person in some ways.  I don't think that, I don't see social media  being anti-right, you know, or Republican or whatever.  If anything, they've allowed this to happen for years.  Right.  They've been very accommodating.
+
+Start time: 6334.04
+End time: 6384.63
+Speaker: SPEAKER_03
+Transcript:  The president is-  And making a lot of money from it.  The president is a-  Yeah, well, that's another point.  The president is a lame duck.  We're one month away from the inauguration of president-  Why are we limping?  Joe, we're limping home.  But do you think in the months remaining  he did threaten to veto the defense spending bill?  It was passed with a veto-proof margin.  It would be a very interesting thing.  He still has not vetoed it.  If he vetoed it and forced Republican members of Congress  then to vote against him,  that would be an interesting contraton.  Do you think that anything will happen at 2.30  between now and January 20th?  And then the next question,  maybe that's for the end of the show,  but the next question is,  Biden himself has said he doesn't think  2.30 is such a good idea.  Will it continue to be under assault?
+
+Start time: 6385.30
+End time: 6391.49
+Speaker: SPEAKER_09
+Transcript:  Yes, that's my story for next year.  So yes, just like when you steal my numbers on Twig.  I just stole your story.  So we'll talk-
+
+Start time: 6391.86
+End time: 6396.46
+Speaker: SPEAKER_03
+Transcript:  All right, hold that thought that we won't talk about.  We'll save that because that's an interesting question.
+
+Start time: 6396.86
+End time: 6398.28
+Speaker: SPEAKER_12
+Transcript:  I like the dynamic you two have.
+
+Start time: 6398.60
+End time: 6424.26
+Speaker: SPEAKER_03
+Transcript:  I know.  That's good.  Brothers from different mother.  Let's see, what other stories here?  Powering you.  Oh, I know a big story.  You're enabling him.  I know a big story.  Let me play a little video  that will lead into our next story.  This came from the Apple event announcing the new iPhones.
+
+Start time: 6424.26
+End time: 6432.18
+Speaker: SPEAKER_11
+Transcript:  It's the beginning of a new era for iPhone.  Today, we're bringing 5G to iPhone.  5G, 5G, 5G, 5G, 5G to 5G, 5G, 5G, 5G.
+
+Start time: 6437.66
+End time: 6440.17
+Speaker: SPEAKER_00
+Transcript:  5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G.
+
+Start time: 6450.74
+End time: 6461.94
+Speaker: SPEAKER_01
+Transcript:  iPhone 12 with 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G, 5G.  There's more 5G in this ad than there is in the world.
+
+Start time: 6462.62
+End time: 6468.50
+Speaker: SPEAKER_10
+Transcript:  The funny thing is this is a keynote.  This wasn't an ad.  This was the announcement of the new iPhones.
+
+Start time: 6468.78
+End time: 6478.18
+Speaker: SPEAKER_11
+Transcript:  Well, the keynote isn't an ad, but I guess you're right.  It's a long form.  5G, 5G.  Thank you for joining us.  Stay safe and have a great day.
+
+Start time: 6478.34
+End time: 6485.24
+Speaker: SPEAKER_03
+Transcript:  So here's the question.  How has 5G transformed your lives today?
+
+Start time: 6485.44
+End time: 6496.01
+Speaker: SPEAKER_12
+Transcript:  I test this regularly, Leo.  My phone now says 5G.  Yeah?  That's what changed.  Because I gotta tell you, the speeds are not any different.  In fact, they might be worse.
+
+Start time: 6497.32
+End time: 6516.14
+Speaker: SPEAKER_03
+Transcript:  Jeff, at least you're in a metro.  Do you get in the millimeter wave 5G from Verizon?  Five what?  Huh?  Really, the only story that I know that was of any import  about 5G this year was the burning of the 5G towers  because some people thought it caused coronavirus.
+
+Start time: 6516.44
+End time: 6533.55
+Speaker: SPEAKER_09
+Transcript:  That is probably, I mean, in a year of incredible  stupidity and raging dumbness.  That was peak 2020 right there.  It's the biggest thing to happen in 2020  and that's saying a lot.  It's saying an awful lot.  Yep, I agree.  So Steve, you wanna say something?
+
+Start time: 6535.62
+End time: 6548.35
+Speaker: SPEAKER_02
+Transcript:  No, I was just nodding in agreement with all of this.  I have, the whole 5G thing never made that much sense to me.  It seemed like a total buzz, just a buzz word  and it's like, okay, we're gonna have that too.
+
+Start time: 6549.46
+End time: 6565.52
+Speaker: SPEAKER_12
+Transcript:  It's like, good.  What are we gonna do when it works?  No one has truly unlimited data.  What if I can download a season of shows  on Netflix in 10 seconds?  That's it, you've used up your months.  I'll kill my months worth of data in like 17 seconds.  That's a good point too.
+
+Start time: 6565.70
+End time: 6573.86
+Speaker: SPEAKER_02
+Transcript:  And I'm not feeling any lack of bandwidth on my 4G.  I've got enough Gs as it is.  In a way, I mean, look, there is a technology,
+
+Start time: 6573.94
+End time: 6605.02
+Speaker: SPEAKER_03
+Transcript:  there are several technologies that make up 5G.  They're real, they're not made up.  But the problem is by overhyping it, overmarketing it,  buying, I don't know what Verizon paid Apple  to inject the word 5G 100 times into their keynote.  But that has actually done more harm to 5G.  That's just created a whole nation of people going,  yes, so what, 5, who cares?  Right?  I mean, eventually 5G could be something.
+
+Start time: 6606.22
+End time: 6615.13
+Speaker: SPEAKER_12
+Transcript:  This is my wish for humanity,  is that COVID never happened this year  and 5G would be what we were complaining about this year.  Yeah, if only.  That would have been great.
+
+Start time: 6617.26
+End time: 6625.07
+Speaker: SPEAKER_03
+Transcript:  It is hard to get irate about anything  when you've got COVID knocking at your door.  You put it in perspective, it's like, well,
+
+Start time: 6625.80
+End time: 6626.64
+Speaker: SPEAKER_12
+Transcript:  5G is stupid.
+
+Start time: 6628.34
+End time: 6664.93
+Speaker: SPEAKER_03
+Transcript:  Okay, that's it, that's the story.  5G, 5G, 5G, 5G.  The other story, the gift they kept on giving,  in a weird way is Elon Musk.  There are so many, so on the one hand,  Elon Musk has single-handedly revived  our aspirations to go into space  with amazing launches and technological superiority  and the landing of the, twin landing of the rocket.  Was that this year, John?  That was this year.  The recovery.
+
+Start time: 6666.56
+End time: 6682.70
+Speaker: SPEAKER_12
+Transcript:  I almost come to tears when I watch a rocket  come down from space and land on a platform.  It is the most mesmerizing and amazing,  awe-inspiring event.  But the thing is, there's something about Elon Musk,  I can't stand it, I can't put my feet around him.
+
+Start time: 6682.70
+End time: 6684.64
+Speaker: SPEAKER_09
+Transcript:  Would you ride in his rocket ship, Paul?
+
+Start time: 6684.74
+End time: 6694.26
+Speaker: SPEAKER_12
+Transcript:  Would you ride in his rocket ship?  Would I ride in his, no.  I went to the top of the Stratocere in Vegas one time  and launched up and I realized in that moment  I can't be an astronaut, so no.
+
+Start time: 6694.94
+End time: 6706.47
+Speaker: SPEAKER_03
+Transcript:  This is the ride that you want to take.  This is the Falcon boosters.  Having been used to launch a rocket,  coming in to land.  It's incredible.
+
+Start time: 6707.00
+End time: 6714.82
+Speaker: SPEAKER_12
+Transcript:  And just land and they're just gonna touch down.  It's like the first time you saw the space shuttle  land like an airplane and it's just,  you can't believe you're seeing this happen.
+
+Start time: 6715.34
+End time: 6719.70
+Speaker: SPEAKER_09
+Transcript:  So this is a miracle.  Nobody gave me any crap for one of them blowing up recently
+
+Start time: 6719.82
+End time: 6758.96
+Speaker: SPEAKER_03
+Transcript:  because he's done so well.  That's the funny thing, we see those things blowing up  and Challenger goes in.  But everybody agreed, no, it was a massive success.  The bringing back of the booster was a minor.  That wasn't really what they were testing.  This was, by the way, the rocket  that's going to bring humans to Mars.  So Elon, I mean, look at that.  Those beautiful rockets landing in synchrony.  It's like ballet.  On the one hand, it's doing these amazing things.  On the other hand, it's saying, free America now.  There's no COVID.  Let my workers go back to work.
+
+Start time: 6759.30
+End time: 6761.84
+Speaker: SPEAKER_12
+Transcript:  I know, it's hard to reconcile.
+
+Start time: 6762.86
+End time: 6813.57
+Speaker: SPEAKER_03
+Transcript:  He and Prime named their new baby XAEA-12 or something.  It's a Star Wars character, isn't it?  I don't know what it is.  It's crazy.  And yet, SpaceX launched two NASA astronauts  to the space station.  Somehow he still does smart things.  The Japanese astronaut who rode in the most recent  Crew Dragon said it was the best ride.  He's been on three shuttle launches.  It's the best ride he's ever had.  They used Baby Yoda as a zero gravity monitor.  He's also, by the way, the second richest man  in the world now.  So I just think Elon is a gift that keeps on giving.  This is Elon Musk.  Maybe he's PT Barnum.  I don't know what he is.  He's unique.
+
+Start time: 6814.56
+End time: 6815.36
+Speaker: SPEAKER_12
+Transcript:  He is unique, yeah.
+
+Start time: 6818.54
+End time: 6862.26
+Speaker: SPEAKER_03
+Transcript:  And I'm glad he's around, but I'm not gonna buy  another Tesla.  He also announced, demonstrated how a Neuralink  could control live pigs.  He described it as a Fitbit in your skull.  It's Animal Farm come to life.  It's the strangest thing ever.  They inserted a device in a pig's brain, a live pig,  and then showed the pig doing something  because humans told it to.  It's, again, the gift that just keeps on giving.  I don't know what he's smoking, but I'll have some of that.  Oh, I think we know what he's smoking.
+
+Start time: 6862.32
+End time: 6863.21
+Speaker: SPEAKER_12
+Transcript:  Actually, we do know, don't we?
+
+Start time: 6863.94
+End time: 6946.82
+Speaker: SPEAKER_03
+Transcript:  We do.  We do.  This was not a good year for self-driving cars, was it?  Apple seems to have pulled back.  Uber sold its self-driving car division.  Former Google and Uber self-driving car engineered  pleaded guilty to trade secret theft  and was fined kind of an unimaginably large amount  to which he promptly declared bankruptcy.  Talking about Anthony Lewandowski.  Let me ask you, Steve, because you're the most geekiest  of the bunch here.  Is it harder to do a self-driving car than we knew?  I remember in the very earliest days of the DARPA challenge,  remember this, they wanted autonomous vehicles  to drive in the desert.  And for the first five years, the cars would go two feet  and go careening off the road.  That was almost, it was humorous.  And then all of a sudden,  none of them completing the DARPA challenge,  but they're putting people in these cars  and they're driving around Phoenix  and other parts of the country.  And then a self-driving car kills somebody.  And then Tesla seemed to keep running into things.  Is it easier or harder or both  to do a self-driving vehicle?
+
+Start time: 6946.96
+End time: 7076.82
+Speaker: SPEAKER_02
+Transcript:  It's completely insanely impossible  to even think that this should be done  or it's a good thing.  I mean, I'm on record years ago on the podcast saying,  what, they're gonna drive themselves?  No, that's clearly crazy.  I mean, there's, I mean,  it's been a good learning experience of, okay,  so way, way back, I worked for several years  at Stanford University's AI lab.  And this was in the early 70s.  And we thought we were gonna,  like there was a cart project.  It was a completely computer controlled robot cart in 1970.  And the thing we learned was that this was impossible.  I mean, it was like, back in the early days of AI,  oh yeah, we're gonna make smart computers  that are gonna be intelligent.  Well, it is amazing that we have lost jeopardy  to an automated machine.  That's astonishing.  But what these exercises in attempting to solve  these problems always do is teach the people  who are trying to solve them  actually how hard they are to solve.  And there's just, there's so much that we take for granted  about what we see in our visual field  and how we interpret it,  from the millions of years of evolving  to be able to do this for reason of our own survival,  that what you learn when you try to do it with a machine  is how much you take what is natural to you for granted.  So, and we've talked about all kinds of games  that you can play with the car driving AI,  where you paint some weird stripes on the road  and the car just stops because it thinks there's a wall there.  But no, there's just some particularly shaped paint  on the road. If it's a white truck in the road,
+
+Start time: 7076.92
+End time: 7078.34
+Speaker: SPEAKER_03
+Transcript:  it might plow straight into it.
+
+Start time: 7080.24
+End time: 7083.86
+Speaker: SPEAKER_02
+Transcript:  Because it thought it could fit under,  but nope, miscalculated that a little bit.
+
+Start time: 7084.30
+End time: 7118.79
+Speaker: SPEAKER_03
+Transcript:  It's funny, this is not unusual,  but especially common when computers try to emulate things  that humans can do, that it's simultaneously easier  than you think and harder than you think.  A two-year-old can recognize its mother,  but a computer has a hard time figuring out  if that black person committed a crime  or is a Supreme Court justice.  It's both harder and easier than it seems.  And we're kind of caught in that middle ground now  where it works, but it doesn't work.  It's a...
+
+Start time: 7119.86
+End time: 7132.50
+Speaker: SPEAKER_09
+Transcript:  This really is the OG show, though, this is interesting.  Because we're all kind of the voice of caution,  like, yeah, kids, go ahead, try it, try it.  I'm not getting in that car, though.  It's tick-tock big, I don't know, I don't know.
+
+Start time: 7132.86
+End time: 7136.30
+Speaker: SPEAKER_03
+Transcript:  Get off of my lawn, tick-tock.  Getting in a car and not paying attention
+
+Start time: 7136.56
+End time: 7156.58
+Speaker: SPEAKER_12
+Transcript:  is the dumbest thing anyone does.  And yet, yeah, that's what we're all...  We don't have one now, but most of the cars I've owned  as an adult have been stick shifts,  and part of the rationale there is you have to...  You can't...  You have to drive.  You have to drive.  Yeah, you actually have to pay attention  to what you're doing.  That's a good point.  And I think there's some merit to that.
+
+Start time: 7156.58
+End time: 7162.16
+Speaker: SPEAKER_03
+Transcript:  It's really hard to text while you're shifting  into fourth gear.  Yeah, exactly.  That's a good point.
+
+Start time: 7162.36
+End time: 7166.82
+Speaker: SPEAKER_02
+Transcript:  I have a key that I have to turn to start my engine.  What?  Just FYI.  Oh, yeah.
+
+Start time: 7167.02
+End time: 7186.15
+Speaker: SPEAKER_03
+Transcript:  You're making an explicit action, it's nice.  It's funny, because my Tesla could parallel park perfectly,  but it would try to pull into the median strip  every time I went around a particular curve.  It was just...  It's simultaneously amazing and incredibly stupid.  And that's the real little bit of unreliability.
+
+Start time: 7187.12
+End time: 7240.22
+Speaker: SPEAKER_02
+Transcript:  One of the nicest examples of a compromise,  and I've used it a lot, because I think it's so cool,  was the Palm Pilots idea of asking the user  to adapt a little bit to the limitations of the technology  with graffiti, which was Jeff Hawkins' creation  that allowed this really low power little PDA  in the early days to do a perfect, I mean,  P with a capital perfect, job of recognizing handwriting.  So what I could imagine is a future  where we adapt our streets a little bit  to the needs of self-driving cars.  If we decide as a society  that this is something we really need to have  is that we need to just remove the windows  and get into a black cube that navigates us  to where we're going, then it makes sense.  We have this technology.
+
+Start time: 7240.38
+End time: 7243.33
+Speaker: SPEAKER_12
+Transcript:  This is bumper cars.  You know, I mean, we...
+
+Start time: 7244.08
+End time: 7262.70
+Speaker: SPEAKER_03
+Transcript:  Just make the cars a little more resilient.  Just put a ring around it and...  Yeah.  This is the black box that you're gonna get into.  Zucs announced its self-driving cabs  just a couple of weeks ago, and literally,  this is what they hope to make available in the future.
+
+Start time: 7262.84
+End time: 7264.92
+Speaker: SPEAKER_12
+Transcript:  It should have a giant inflatable ring around it.
+
+Start time: 7265.24
+End time: 7296.91
+Speaker: SPEAKER_02
+Transcript:  So, you know, like bury some cables  and down the middle of the road  and make that be the car guide.  And you just, you solve all these problems  if you're willing to go, not ask the AI  to do as good a job as humans do with no aid,  but just say, okay, we're gonna add some AI augmentation  to our roads so that then they actually can do the right job.  This feels so sci-fi.
+
+Start time: 7298.10
+End time: 7340.79
+Speaker: SPEAKER_03
+Transcript:  You know, Jeff Hawkins, I completely agree.  I mean, he was absolutely brilliant,  the creation of graffiti.  He then, in 2005, after Pilot, he sold Pilot  and then he went on to found a company called Numenta.  I interviewed him.  Yeah, Hierarchical Teporal Memory, HTM.  Yeah, he's trying to create chips  that duplicate the function of the human brain,  which is a very different process  from the von Neumann architecture  our computers currently use.  It's massively parallel.  Our brains aren't that fast,  but they're so massively parallel,  they're able to do things that chips can't do.  So I don't know if Numenta's a dead end.  I haven't heard much from them,  but he's a brilliant guy.
+
+Start time: 7341.82
+End time: 7345.12
+Speaker: SPEAKER_09
+Transcript:  Did you use the, you do it Elon mode?
+
+Start time: 7346.04
+End time: 7350.28
+Speaker: SPEAKER_12
+Transcript:  Oh yeah, but I would just keep my hands...  Were you like eating a sandwich and watching a movie?
+
+Start time: 7350.94
+End time: 7357.21
+Speaker: SPEAKER_03
+Transcript:  I was holding the wheel,  I was looking at the window,  because the problem is when it fails,  you have to act immediately.
+
+Start time: 7358.06
+End time: 7365.07
+Speaker: SPEAKER_02
+Transcript:  The problem was that Leo was in the car alone  because the door kept closing on Lisa.  Yeah, Lisa would just use to ride in the car.
+
+Start time: 7366.34
+End time: 7447.78
+Speaker: SPEAKER_03
+Transcript:  Poor Lisa.  It's exactly right.  Eventually we had to create a protocol  that I would not push the closed doors,  but this was the one that had the falcon wings.  I had to shout, all clear, doors are closing.  And everybody would have to scatter,  because this car, which it was laden with technology.  Was the car jealous of Lisa?  It didn't have sensors in the bottom part of the door  where your head would be.  So it would like balk at opening in the garage,  it would say, oh, it's not wide enough for me.  But if there's somebody standing on her,  it'd go, boom, right on her head.  It was terrible.  It was very Elon.  It was very Elon.  All right, another big story,  and actually this is a huge story in 2020,  which was Intel's self-destruction.  The rise of not only AMD and amazing thread ripper  technology, but the rise of Apple Silicon and ARM.  Intel never got to 10 nanometer.  They announced in 2020 that their seven nanometer chips  wouldn't be out for two more years, maybe three.  This was a company that powered the PC industry, Paul.  I mean, it was Windows and Intel, hand in hand, arm in arm.
+
+Start time: 7448.48
+End time: 7489.86
+Speaker: SPEAKER_12
+Transcript:  This is a story that's actually been years in the making.  And I think the M1 thing has driven it home  for a lot of people, but I don't know,  three, four years ago, Microsoft partnered with Qualcomm  to have some alternative to Intel,  because they didn't want to monoculture.  And the reason they went with Qualcomm  was because AMD was, in their words at the time,  circling the drain, which of course is not the case today.  But Intel is, it's so weird because they're such a huge  and important and powerful company today still.  I feel like they're on the edge of disappearing.  Isn't that sad?  They seem almost irrelevant all of a sudden.
+
+Start time: 7489.98
+End time: 7495.68
+Speaker: SPEAKER_09
+Transcript:  What was the bad move?  What was the mistake?  If you go back in their history, where did it go wrong?
+
+Start time: 7497.02
+End time: 7548.66
+Speaker: SPEAKER_12
+Transcript:  The mistake was probably hubris,  but I mean, it was just a technical inability  to scale down in size at a time where their competitors,  which in this case, were not actually companies like AMD,  but rather the manufacturers that have these processes  that can rival Intel.  And then the Apple thing is,  the Apple stuff is just kind of an exclamation point  at the end.  Apple kind of came up out of nowhere on the side  and it's been a very public story.  And I think this is the thing that normal people,  non-technical people, people not in the industry  are aware of this, that all of a sudden there is this thing.  And remember when Intel used to be in all the computers?  They're not really there.
+
+Start time: 7548.90
+End time: 7549.33
+Speaker: SPEAKER_09
+Transcript:  Intel inside.
+
+Start time: 7550.54
+End time: 7615.58
+Speaker: SPEAKER_02
+Transcript:  First movers also often have a problem.  IBM had huge mainframes and created a market,  but they're not making PCs any longer.  Microsoft was super strong, but is unable to make a phone.  Other people have done that.  Intel basically got completely behind an architecture,  this CISC, the complex instruction set,  which was great as long as you had large power cords  going to your devices.  But the world went to battery power  and the ARM architecture turns out to be the right one  for battery power.  It can be far more scalable and power conserving.  And so Intel, in all of these cases,  there was too much corporate inertia.  And one by one these behemoths end up falling  and they're just not adept enough to move  as quickly as they have to.  So along came ARM and that was the right answer.
+
+Start time: 7616.26
+End time: 7691.63
+Speaker: SPEAKER_03
+Transcript:  Ben Thompson wrote a good article in June.  In a way, Jeff, it's kind of a form  of the innovator's dilemma.  The worst thing a company can have is great success.  And Intel had huge success with what Thompson calls  their integrated model, where they would build the fabs,  they would design the chips, build the fabs.  They integrated both design and manufacture.  And for 35 years, profit.  It was incredibly successful for them.  But there was success of this integrated model.  Ended up blinding them to the model that ARM  and TSMC and others were following.  ARM would design the chips,  TSMC would manufacture the chips.  And so by separating this out, they were more nimble,  it was less capital intensive,  they were able to do better designs.  And ultimately, by focusing on manufacture,  only TSMC got down.  They're now at five nanometers, the M1 is a five nanometer  chip and they're talking about three nanometer chips  while Intel's still stuck at 10.  So it's a story told as old as time,  or at least as old as the tech industry,  of being too successful and then being tied  into your model.
+
+Start time: 7692.96
+End time: 7741.55
+Speaker: SPEAKER_12
+Transcript:  We just talked about Microsoft and the impact  of the antitrust stuff.  Intel is the hardware equivalent of Microsoft  and they didn't change like Microsoft did.  Also the other way to look at it is,  I talked about Microsoft being 100% of the market  back in the day from a software perspective, that's true.  From a hardware perspective, it was basically Intel.  Today, Intel is the biggest fish in the smallest pond.  Mobile is much, much bigger than the PC.  Isn't that wild?  265, 275 million computers are gonna be sold this year.  Two something billion-ish mobile,  smartphones will be sold this year.  It's not exponentially bigger, but it's dramatically bigger  and year after year after year.  Intel hasn't been the biggest microprocessor company  arguably in years.
+
+Start time: 7742.48
+End time: 7747.00
+Speaker: SPEAKER_03
+Transcript:  And they could never make mobile.  They tried and they just couldn't figure out how to do mobile.
+
+Start time: 7747.20
+End time: 7755.56
+Speaker: SPEAKER_12
+Transcript:  Well, what markets have they exited in recent years, right?  Mobile, 5G.  Pick everything important and they've walked away from it.
+
+Start time: 7756.66
+End time: 7789.60
+Speaker: SPEAKER_03
+Transcript:  Now here's the funny story and this isn't really,  this is just the button on the whole thing.  Every time Apple does something,  it seems like Microsoft says, oh, we can do that.  Apple came out with a touchscreen and they had the surface,  I can't remember what they call it, the surface table.  Surface studio.  We've got that.  Apple comes out with the M1 chip.  Microsoft, according to Tom Warren, writing the verge,  is now working on designing its own arm-based chips  for surfers and surface PCs.  It feels like me too.
+
+Start time: 7789.96
+End time: 7820.26
+Speaker: SPEAKER_12
+Transcript:  I don't actually think this is a reaction to the M1.  Microsoft has for years been partnering  with other companies to design specialty chips.  Microsoft has for years been making its own chips  for use inside its computers, not the CPUs,  but other special chips, and also in their data centers.  So I think Microsoft has tried to do what it's always done,  which is partner with other companies,  and that it's seeing the limitations of this  and that this didn't just happen,  this story just came up.  No, I agree.  You don't just start a chip design business.  They've been moving in this direction.
+
+Start time: 7820.32
+End time: 7850.47
+Speaker: SPEAKER_03
+Transcript:  Yeah, right.  And I have to say the tensions  between Intel and Microsoft are age old.  Oh yeah.  I remember Andy Grove saying,  oh, if Microsoft would just do a 32-bit operating system,  we make these 32-bit chips, what are they thinking?  And it's just been forever.  And I think maybe that's the real key  to Apple's success here is total integration.  We'll do the software and the hardware.  We'll build everything ourselves  or get somebody to build it for us.  How would you like to be an Apple partner today?
+
+Start time: 7851.52
+End time: 7858.16
+Speaker: SPEAKER_12
+Transcript:  Yeah.  What's left that Apple doesn't make?  5G chips, I guess, they're doing that.  No, they say they're designing those too, yeah.
+
+Start time: 7858.30
+End time: 7872.76
+Speaker: SPEAKER_03
+Transcript:  Yeah, they're gonna replace everything.  And actually, that's why I thought Microsoft  would be hard for Microsoft to do their own chips  because how many OEMs are there  that make Intel-based Windows hardware?  If Microsoft doesn't sell those chips to those guys.
+
+Start time: 7873.38
+End time: 7905.84
+Speaker: SPEAKER_12
+Transcript:  Yeah, but everyone's looking for diversity.  When Microsoft started making Surface PCs,  every PC maker on Earth started making Chromebooks.  Every PC maker on Earth now has AMD-based PCs  as well as Intel-based PCs.  Some of them have, I would say most of the big ones  have Qualcomm-based PCs as well.  Everyone is kind of hedging their bets.  But that's the problem with the ecosystem  and also the strength, but part of the problem,  Apple just goes all in on one thing.  On the PC side of the fence, the Microsoft side,  everyone's, we're trying different things.
+
+Start time: 7905.84
+End time: 7937.97
+Speaker: SPEAKER_03
+Transcript:  But that's the strength of the PC industry,  there's diversity.  Yeah, but it's also the problem.  It's simultaneous.  It's a two-edged sword.  All right, we're gonna take our last break.  I want a couple of things we're gonna run down.  Jason Howell's done such a great job at the show  putting together the top 10 listed.  He also ran down some of the most important products  of the year, so we'll just, any thoughts you guys have,  we can just run through those.  And then of course, I'll let you guys tell us  what the stories of 2021 will be, Jeff Jarvis.  You get to talk about it.  Section 230.
+
+Start time: 7938.44
+End time: 7941.70
+Speaker: SPEAKER_09
+Transcript:  Rears by crystal ball.  Go get it.  Who threw it away?
+
+Start time: 7942.04
+End time: 7965.32
+Speaker: SPEAKER_03
+Transcript:  Go get it.  The OG Twits are here.  And one of the reasons you guys have been  such an important part of this network  for more than 10 years, all three of you,  some of you as long as 15 years,  is because not only are you great, nice, fun,  interesting people to hang with,  but your insights are so great.  Twit wouldn't exist without you three.  So I just, I sincerely thank you.  It certainly wouldn't exist without you, boss,
+
+Start time: 7965.50
+End time: 7967.92
+Speaker: SPEAKER_09
+Transcript:  and without Lisa, and without your team, which is great.
+
+Start time: 7968.66
+End time: 8247.58
+Speaker: SPEAKER_03
+Transcript:  We try to pull together some of the best people we can,  and I'm so happy.  And of course, honored always to be.  The shows that continue are the ones  with the smartest folk.  So I appreciate all you've done over the last years.  Our show today brought to you by Forward Networks.  This is looking forward to the future.  Forward Networks, I talked to these guys,  was founded by four Stanford PhD students, graduate students,  seven years ago.  They were looking at the pain network operators suffered  by not knowing what was going on in the network.  You know, that puffy little cloud we call the internet,  it's cute to us, but you know what network engineers see?  A complete fog.  I don't know what's going on in there.  Forward Networks developed some empathy  for these network operators.  They said, what if, and this was their PhD project,  we could develop a software only model,  a mathematically identical model of the network  that you could use to reduce network outages,  to improve troubleshooting, to eliminate errors.  So what Forward Networks does, their advanced software,  it delivers a digital twin,  a mathematically accurate model of your network.  It does it in software, and it gives you,  this is the dashboard, if you're looking at the video,  that's the dashboard.  It gives you a single source of truth for the network.  This is amazing.  This is what you, as a network engineer,  have been dying for.  You can verify that your network is configured correctly.  It's in compliance with policies,  it's behaving as you intend.  And here's the best part,  you ready to make a change to the network?  They have something called behavior diffs  that allow side-by-side comparisons in one view  of the current network and configuration changes  and what that's going to do to your network.  No more do you have to try it and then roll it back  because everything broke.  You will know ahead of time.  Forward Networks can accurately predict the impact  of a proposed change across every possible traffic path.  So network operators can roll out changes with confidence.  This makes sure that your network is healthy, is agile.  You'll get insights with visualizations  that you can easily understand.  You can export, you can show others.  You can automatically create an always accurate  network diagram with full details  about the topology of your network.  PayPal used this.  They were, as many big companies,  they had lots of endpoints,  lots of network stuff all over the world,  and they realized they didn't know what was going on.  They were about to build something.  They found Forward Networks and they said, this is it.  This is the software we've needed.  Anytime there's a change in the network,  it's immediately reflected  in the Forward Networks mathematical model.  It saved them time and money.  Goldman Sachs, same thing.  They were, we can't figure out our network.  We don't know what's wrong.  We're going to make changes.  We don't know what the impact will be.  They found Forward Networks.  Now, by the way, they're the lead on their C funding round,  their series C funding round.  Goldman Sachs, Mark Andreessen and Andreessen Horowitz,  also huge fan.  People saw this is something the world needs.  50% faster resolution of trouble tickets,  90% faster fixes related to audit processes,  but the most important one is 33% reduction  in aborted network updates due to identified errors.  And if you're having problems,  imagine just searching your network,  just like you would search with Google  for what's causing problems.  That's what Forward Networks let you do.  This, you need this.  You got to get this.  Get network automation and verification  for your intent-based network with Forward Networks.  Your business may depend on it.  You can get a demo.  It's a really cool demo at forwardnetworks.com slash twit.  Forwardnetworks.com slash twit.  I was so inspired when I talked to these guys.  They even have a podcast if you want to listen  called Seeking Truth in Networking.  I love that name.  You can download it wherever you get your podcasts.  And I encourage you, if you're responsible for a network  or you know someone who is, stop tearing your hair out.  Forwardnetworks.com slash twit.  No more mystery.  Forwardnetworks.com slash twit.  We thank Forward Networks for supporting this week in tech.  We thank you for supporting us by going there.  Forwardnetworks.com slash twit.  Now, John, press that magic tricaster button.  If you missed anything this week,  we've made a little movie for you.  The best of this week in TwitWatch.  Looks like Mary Jo got you to wear
+
+Start time: 8247.96
+End time: 8249.49
+Speaker: SPEAKER_12
+Transcript:  a paint ugly sweater.
+
+Start time: 8250.10
+End time: 8252.18
+Speaker: SPEAKER_08
+Transcript:  Yes, we got the paint ugly sweater this year.
+
+Start time: 8252.84
+End time: 8254.83
+Speaker: SPEAKER_05
+Transcript:  Next year, you know what has to happen, right?
+
+Start time: 8255.58
+End time: 8256.43
+Speaker: SPEAKER_08
+Transcript:  I think notepad.
+
+Start time: 8257.69
+End time: 8259.86
+Speaker: SPEAKER_05
+Transcript:  Oh, Mary Jo.  I think notepad also.
+
+Start time: 8259.88
+End time: 8265.28
+Speaker: SPEAKER_10
+Transcript:  Mary Jo's happy.  Previously on Twit, Tech News Weekly.
+
+Start time: 8266.00
+End time: 8278.49
+Speaker: SPEAKER_06
+Transcript:  And CESA said, I think yesterday,  that everyone should delete solar winds from their networks.  The only way to make sure that you're secure  is to take your network and burn it down to the ground  and rebuild it from scratch.  No one wants to do that.
+
+Start time: 8279.26
+End time: 8291.05
+Speaker: SPEAKER_07
+Transcript:  Hands on tech.  The Oculus Quest 2 is a pretty remarkable VR platform,  but there's just one very large asterisk,  and I'm gonna give you my full review.  I know what that asterisk is.
+
+Start time: 8292.10
+End time: 8292.85
+Speaker: SPEAKER_10
+Transcript:  Windows Weekly.
+
+Start time: 8293.44
+End time: 8301.98
+Speaker: SPEAKER_05
+Transcript:  When you guys put the consoles on sale,  you didn't have enough.  And I'm curious if that was a strategy,  like to create more demand.
+
+Start time: 8302.20
+End time: 8312.60
+Speaker: SPEAKER_08
+Transcript:  The reality is if we had great confidence  that we could tell you the date, then we would.  And it's a great thing for us to aspire to do much better.
+
+Start time: 8313.38
+End time: 8316.03
+Speaker: SPEAKER_10
+Transcript:  iOS Today.  Should we do a little dance?
+
+Start time: 8316.76
+End time: 8319.40
+Speaker: SPEAKER_03
+Transcript:  Yeah, let's do a preview.  Oh yeah, let's do it, let's do it.
+
+Start time: 8321.48
+End time: 8328.84
+Speaker: SPEAKER_10
+Transcript:  Here we go, here we go.  This reminds me of us.  Oh wow, he's really doing it now.  Twit, you think this is easy?  Just try to run a network and work out  on a Pilates reformer.
+
+Start time: 8330.18
+End time: 8480.96
+Speaker: SPEAKER_03
+Transcript:  How did you know?  Oh, I have to thank the great Jim Cutler,  his wonderful partner at Dawn,  because all year long, Jim Pro Bono,  he's the voice of ESPN,  he's the voice of many TV and radio stations  all over the country.  He's a commercial voiceover guy  who I couldn't come close to affording 30 seconds  of his time.  But for the last, I don't know how many years,  Jim and Dawn have provided us with announcing,  especially those promos and the funny  little comments at the end.  That's amazing.  He is a great friend of the network.  You know, Twit really wouldn't exist  without people like Jim and you guys.  It's really a group effort.  So I'm from the bottom of my heart,  I'm absolutely sincere, thank you.  I'm just very, I'm incredibly fortunate to know you guys  and to be able to do this.  It's a real privilege, so thank you.  I don't even know if we wanna go through  all of the things that came out this year.  The iPad Pro, the MacBook Air, the M1 chip,  the iPhone SE, Apple announced a new cheaper version  of the Apple Watch,  along with a more expensive version of the Apple Watch  and an Apple Watch for seniors.  There were a number of Surfacy,  the Surface Go 2,  Surface Book 3,  Surface Headphones 2, the Surface Earbuds.  You know, this was actually the year  of the overpriced headphone earbud combination, right?  God, they were all so expensive.  And of course, you know why?  Because you can't put a wired headphone,  a cheap skull candy, you bought it at the Five and Dime  store headphone in any of these phones anymore.  A Mac OS 11 Big Sur came out, the Galaxy Note 20 Ultra,  the Pixel 4A, which I think widely considered  to be maybe the best phone of the year,  the most expensive phone of the year,  which I have one and I don't know what I'm gonna do with it,  the Galaxy Fold Z2.  Don't laugh at me and my $2,000 phone.  Old buyer's remorse there, boss.  Oh, yay, yay.  I did buy a Surface Duo and I was able to return that.  You know what?  I think both the Surface Duo and the Fold 2  are gonna be around for a long,  the Fold will be around for a long time, so will the Duo.  There's something going on there, right, Paul?  There's some value in that.
+
+Start time: 8482.52
+End time: 8511.80
+Speaker: SPEAKER_12
+Transcript:  Yeah, I don't think we've latched onto  what the real value is.  Microsoft pushes this notion that when you have  two different things on two different displays,  something clicks and you become more productive  or you become more creative.  I don't think that's it.  Actually, since we're all the OG Twits,  I think we can all, we all agree, looking at a phone,  it's a little tough at this age,  and having a bigger screen is nice.  I love that.  Yeah, the Fold is great that way.  It's nice if you're using it for maps in a car,  it's nice if you're watching a movie, whatever.
+
+Start time: 8511.92
+End time: 8519.72
+Speaker: SPEAKER_03
+Transcript:  You're playing games, I can play Cyberpunk on the Fold,  or, and it really, it's nice to have a little bit,  it's not huge, it's just a little more room.
+
+Start time: 8520.70
+End time: 8522.36
+Speaker: SPEAKER_12
+Transcript:  but then you open it up and it's a bigger display.
+
+Start time: 8524.12
+End time: 8527.68
+Speaker: SPEAKER_03
+Transcript:  So far, nothing that Steve Gibson wants to put  in his freezer for future, right?
+
+Start time: 8531.01
+End time: 8532.86
+Speaker: SPEAKER_02
+Transcript:  No, I still have my Palm Pilots in there.
+
+Start time: 8532.96
+End time: 8535.66
+Speaker: SPEAKER_03
+Transcript:  There's still seven Palm Pilots in there.
+
+Start time: 8536.38
+End time: 8538.80
+Speaker: SPEAKER_12
+Transcript:  All right, you need to explain what's going on there.
+
+Start time: 8539.24
+End time: 8561.16
+Speaker: SPEAKER_02
+Transcript:  Do you want to explain, Steve?  Back at the time, so it's been my experience  that sometimes the world moves on past the perfect solution.  It doesn't just settle on the perfect solution.  For example, I happen to have here within reach,  that was not set up ahead of time,  the most perfect calculators that were ever created.  No, I have the new one.
+
+Start time: 8561.36
+End time: 8563.57
+Speaker: SPEAKER_03
+Transcript:  He's got the, what is it, the HP, what, 35?
+
+Start time: 8565.56
+End time: 8613.13
+Speaker: SPEAKER_02
+Transcript:  So one is the hex calculator,  because I'm a programmer, the 16C,  and I was using it earlier this morning,  and the other is the 15C,  which is the scientific calculator.  Nice.  And they're gone now.  I have about 20 of these,  because it's the, I don't ever want to be  without this calculator.  They're going to make a TV show about you or something.  The best one ever created.  It's called Hoarders 2.  Yeah, Tech Hoarders.  Now, as it happens, I was wrong about the Palm Tungsten.  I have several of those in the freezer,  and I don't think I'm going to ever thaw them out,  because I now have an iPhone.  Explain to Paul why you put them in the freezer.  Well, both, because the battery chemistry  needs to be kept cold, so that it does not be a bad.  Not metaphoric.  No.
+
+Start time: 8614.22
+End time: 8619.80
+Speaker: SPEAKER_03
+Transcript:  Literally in the freezer.  Do you worry about freezer burn?
+
+Start time: 8621.16
+End time: 8651.88
+Speaker: SPEAKER_02
+Transcript:  No, actually, I think they're in the refrigerator,  because you don't want to freeze a lithium polymer cell.  But you do want to cool it off in order to slow things down,  and it is possible to actually get  fresh replacement batteries.  But again, in that instance,  I will not be going back to there.  I used to read books, e-books on my little Palm Pilot.  That was wonderful.  But we now have iPhones, that's the right solution.  But we have no calculators that are equivalent  to the fantastic HPs.
+
+Start time: 8652.74
+End time: 8661.87
+Speaker: SPEAKER_03
+Transcript:  Steve dreams in reverse Polish notation.  I bet he actually does.  I bet occasionally he wakes up and just...
+
+Start time: 8662.98
+End time: 8679.06
+Speaker: SPEAKER_02
+Transcript:  When I was at Cal, my best friend and roommate  used to say, you know, when you talk in your sleep,  it sounds real.  I have no idea what you're talking about.  And I always wanted him to write it,  you know, like record it or something,  but that never happened.  A lot of peaks and pokes.
+
+Start time: 8679.24
+End time: 8695.18
+Speaker: SPEAKER_12
+Transcript:  Pushes and pops.  You write a lot of assembly language, which is Intel.  So do you have any...  Okay, so I mean, do you have any fears about  some shift away from the x86 platform?
+
+Start time: 8695.54
+End time: 8728.34
+Speaker: SPEAKER_02
+Transcript:  Yes, as a matter of fact,  that it's going to be a problem for me.  I'm not sure what I'm going to do,  because everything I'm doing is x86,  and we're clearly seeing the world  moving away from that architecture.  So, you know, maybe the ARM will be able to emulate x86,  and then it'll only be, you know,  I'll have to create drivers for non-Intel based systems.  Hopefully I'm old enough that the x86  will last just long enough to move me out of a point  where I want to be profitable.
+
+Start time: 8728.60
+End time: 8762.33
+Speaker: SPEAKER_03
+Transcript:  I remember moving from 68,000,  which was a very nice assembly language.  Oh, beautiful design.  And the memory architecture was, you know, flat.  All orthogonal instruction set.  And then going to x...  Well, I guess it was x16, I don't know what it was,  but going to the Intel platform and its segment of memory.  8086, maybe, yeah.  Was written by an insane person.  Oh my God, and it's not any better.  So, you know what, you might actually embrace risk.  You might say, the problem is you probably have  a thousand macros written in x86  that you're going to have to rewrite or something.  I imagine.
+
+Start time: 8763.16
+End time: 8773.81
+Speaker: SPEAKER_02
+Transcript:  Yeah, the thing to do would be to move  to a higher level language.  I would just go to C,  I would make the smallest step above assembler,  and that would give me some machine independence.
+
+Start time: 8774.74
+End time: 8783.24
+Speaker: SPEAKER_03
+Transcript:  Actually, there was one product  I remember Steve was very excited about.  The Ring drone security camera that flies around.
+
+Start time: 8784.32
+End time: 8787.00
+Speaker: SPEAKER_12
+Transcript:  That seems like his kind of product.  I bet he's got 20 of those, yeah.
+
+Start time: 8787.30
+End time: 8803.08
+Speaker: SPEAKER_03
+Transcript:  It's not out yet, but I think Steve,  you said you were going to get one right away, right?  No.  No.  That wasn't me.  I must have been thinking of somebody else.  You don't want an autonomous drone camera  flying around inside your house when you're not home.
+
+Start time: 8803.12
+End time: 8807.28
+Speaker: SPEAKER_02
+Transcript:  Oh, in fact, we had fun with it saying,  what could possibly go wrong?
+
+Start time: 8807.90
+End time: 8809.23
+Speaker: UNKNOWN
+Transcript:  Yeah.  Right.
+
+Start time: 8810.10
+End time: 8816.68
+Speaker: SPEAKER_02
+Transcript:  It's allow China to be steering your camera  around your house while you're not home.  That just really sounds like a bad idea.
+
+Start time: 8817.02
+End time: 8827.27
+Speaker: SPEAKER_03
+Transcript:  I think that was the most interesting product.  There was also the Amazon Halo.  Amazon really came out with some very interesting stuff.  The wristband that listens to you as you talk  and tells you if you're a little too grumpy.
+
+Start time: 8828.28
+End time: 8830.62
+Speaker: SPEAKER_12
+Transcript:  Yeah, I tried that.  I was grumpy a lot.
+
+Start time: 8832.36
+End time: 8833.44
+Speaker: SPEAKER_09
+Transcript:  It made me a lot grumpier.
+
+Start time: 8833.70
+End time: 8851.18
+Speaker: SPEAKER_03
+Transcript:  Mine's sitting on my dresser.  I couldn't bring myself to strip naked for it  because apparently that was also part of the functionality.  It did the, it assessed your body fat  by taking naked pictures of you and uploading to Amazon.  Again, what could possibly go wrong?
+
+Start time: 8851.78
+End time: 8854.12
+Speaker: SPEAKER_04
+Transcript:  I feel like you don't trust big time.
+
+Start time: 8854.72
+End time: 8868.28
+Speaker: SPEAKER_02
+Transcript:  I do remember, I do remember of that flying camera  that there was some concern  that the thing was going to sneak up on you.  And I remember saying, have you heard any of those drones  with small props?  That means it's like the end of the world approaching.
+
+Start time: 8868.42
+End time: 8884.98
+Speaker: SPEAKER_03
+Transcript:  Oh yeah, yeah, they're loud, loud, loud, loud.  When they make a quiet drone,  that's when we should all be worried.  I'm sad to say Boston Dynamics got sold  to another company, the Robotic Dog.  Now that would have been a product  that came out this year  that maybe I wouldn't have mind having around the studio.
+
+Start time: 8887.04
+End time: 8889.40
+Speaker: SPEAKER_02
+Transcript:  No, no.  Well, it's COVID safe.
+
+Start time: 8890.92
+End time: 8893.56
+Speaker: SPEAKER_12
+Transcript:  Well, you need that to protect you  against that little Amazon drone thing.
+
+Start time: 8894.98
+End time: 8929.78
+Speaker: SPEAKER_03
+Transcript:  My dog is fighting my drone.  My dog took down the drone.  Oh yeah.  I think probably the PlayStation 5  and the Xbox Series X would be viewed  as one of the most important products of the year  if you could just buy one.  Yep.  In both cases, and I guess we should throw in  some of the newer Nvidia graphics cards.  These things sold out probably to scalpers  so quickly that nobody,  there'll be a lot of unhappy children  coming down in the States.
+
+Start time: 8929.80
+End time: 8934.92
+Speaker: SPEAKER_12
+Transcript:  Well, that makes a nice projection of 2021, right?  I mean, those products will all be  more readily available next year.  Will they?
+
+Start time: 8936.00
+End time: 8942.06
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Oh yeah.  Yeah, okay.  From your mouth to Chris Cappuccella's ear.
+
+Start time: 8942.70
+End time: 8949.50
+Speaker: SPEAKER_12
+Transcript:  Well, I mean, in the sense that  they'll make more over time  and eventually the available market will be satisfied.
+
+Start time: 8949.68
+End time: 8961.20
+Speaker: SPEAKER_03
+Transcript:  Someday.  You think it'll be 2021?  In fact, let's start with your predictions  for a wonderful 2021.  Paul Therotte, what kind of world are we headed into?
+
+Start time: 8962.28
+End time: 8973.95
+Speaker: SPEAKER_12
+Transcript:  Yeah, well, I mean, the post-COVID world  is going to be a lot like the COVID world in some ways,  more working from home,  more, you know, a thousand new Microsoft Teams features  by the end of 2021, I'm sure.
+
+Start time: 8974.94
+End time: 8977.43
+Speaker: SPEAKER_03
+Transcript:  I should have mentioned Teams  as the product of the year, yeah.
+
+Start time: 8977.92
+End time: 9027.78
+Speaker: SPEAKER_12
+Transcript:  They really-  Well, I mean, it's, you know, in the Microsoft space,  certainly, I mean, I think Zoom was a bigger deal,  but, you know, for Microsoft,  it's the next big platform, so it's big.  I don't know, to me, one of the things  I want to see more of that was really good this year,  and there weren't that many things that were really good,  but low cost, kind of high value smartphones,  you know, the iPhone SE, the Pixel 4A, like you said,  or the Galaxy S20 FE,  are low cost phones that aren't terrible, you know?  And I think that's an important trend,  especially with all the uncertainty  and the fact that people are holding onto their phones  longer and so forth.  It's nice to see phones in the $350 to $700 range.  I think we're going to see more of that next year as well.  And maybe-  Well, we had a theory on Twig that Google's latest,
+
+Start time: 9028.54
+End time: 9032.95
+Speaker: SPEAKER_09
+Transcript:  they just kind of pulled back.  This is not the time when people are going to spend  a lot of money on this stuff.  Right, right.
+
+Start time: 9033.64
+End time: 9046.36
+Speaker: SPEAKER_03
+Transcript:  Yeah, I didn't notice, I didn't mention the Pixel 5,  which would have normally been one of the big releases  of 2020, but Google acted as if, you know,  they were taking a nap and they had this phone  and maybe you'd be interested, but maybe not.
+
+Start time: 9046.88
+End time: 9053.27
+Speaker: SPEAKER_12
+Transcript:  Yeah, but you know what, like the 4A 5G, I think-  Those are great.  I think it's sold out.  Well, that, yeah.  I mean, they made 17 or 18.
+
+Start time: 9054.32
+End time: 9074.93
+Speaker: SPEAKER_03
+Transcript:  Yeah, I think the 4A was a great phone.  The 4A was the phone probably we deserved last year.  I don't know what Google's going to be.  You know what, Google should have been one of the  top 10 stories, just Google wandering off,  losing interest in life-  But they do this all the time, don't they?  And just drifting away.
+
+Start time: 9075.74
+End time: 9095.42
+Speaker: SPEAKER_12
+Transcript:  It's a strange company.  I find it weird from being outside.  Every fall, Google will announce some smart home products,  and they have five or six of them.  And then there's a week in September where Amazon  unleashes about 1,100 different smart home products.  You featured a couple of them.  I mean, how does anyone compete with that?  Yeah.
+
+Start time: 9098.24
+End time: 9100.20
+Speaker: SPEAKER_02
+Transcript:  We did get the Blob Opera, though, from Google.
+
+Start time: 9100.46
+End time: 9104.34
+Speaker: SPEAKER_03
+Transcript:  Blob Opera, you enjoyed that, yes.  It became-  Oh, the Blob Opera.
+
+Start time: 9105.32
+End time: 9114.44
+Speaker: SPEAKER_09
+Transcript:  I insisted it was the lead story on Twig.  You made it the lead story.  Leo tried to avoid me.  He said, it's not a democracy, but I held a religion.  You won.  You won.
+
+Start time: 9114.62
+End time: 9134.84
+Speaker: SPEAKER_03
+Transcript:  And got the Blob Opera on the top of the list.  It may not be a democracy, but you chopped my head off.  That's clear.  The Blob Opera.  The Blob Opera.  What about you, Steve?  We didn't even mention ransomware gone wild in 2020.  I think a safe prediction for 2021  is more of the same in that regard.
+
+Start time: 9136.30
+End time: 9262.90
+Speaker: SPEAKER_02
+Transcript:  I think that's clear.  For me, and we talk about this constantly on the podcast,  the most interesting issue is this fundamental tension  that exists between governments and encryption.  And our right to privacy,  and the fact that in the US, privacy is not an absolute.  You have privacy and a right to have it,  except if a court will give a warrant  saying it's in the public interest  for some particular target to sacrifice some aspect  of their privacy for a specific purpose.  We talk about encryptions and backdoors and all that.  My feeling is that there's a different way  to solve the problem.  And it's gonna be interesting to see next year,  maybe it's gonna be the year after,  how this gets resolved.  It's not necessary to weaken encryption  because first of all, we can't.  That math has already escaped.  So you can do perfect encryption,  so you can do perfect encryption.  But we forget that on the opposite ends  of that encrypted tunnel, the data is not encrypted.  So it would be entirely possible for the government  to legislate that high volume consumer products  like Pixel phones and iOS devices  have to be warrant compatible.  That is, they have to be, like by law,  they have to be subject to a search warrant.  And all that means is that you get the data  either before it's encrypted or after it's decrypted  under some sort of constraint.  So I think the problem can be solved  without weakening encryption, but just by recognizing it  that there are times when encryption isn't present  and you can snatch it at that point.  But to me, that's one of the big issues that as a society  we haven't yet come to grips with.  And maybe next year.
+
+Start time: 9265.00
+End time: 9292.02
+Speaker: SPEAKER_03
+Transcript:  That's a scary thought.  And the thing that scares me is the only, as usual,  the only people disadvantaged by that  are the less sophisticated because hackers, bad guys,  and you and I will always have encryption.  The math is out there.  There's nothing anybody can do about it.  It's just normal people use iPhones  and other phones will lose it.  Right.  So the bad guys aren't going to be disadvantaged.
+
+Start time: 9293.92
+End time: 9336.50
+Speaker: SPEAKER_02
+Transcript:  Well, if your phone itself is able to be tapped  at the keyboard and the screen,  then any encryption that you apply within the phone  can be snatched ahead of time.  Now, if you want to send documents back and forth,  then you could create a document,  do your own offline encryption, and then mail it,  and there's nothing anyone can do in order to crack that.  But for mass market products,  I can see that the government might well say,  look, you've enjoyed this honeymoon period,  but we have to have warrant compatible access  to these devices.
+
+Start time: 9336.64
+End time: 9379.01
+Speaker: SPEAKER_03
+Transcript:  There's a jump from that though to we've got a back door  and we're watching you at all times.  Right.  I doubt that's going to happen.  First of all, that's a lot of bandwidth,  a lot of storage,  and a lot of people watching what you're doing.  It's much more likely that they just say,  but at any point, if we should decide we want your phone  or we want your account,  we can go and get it and see what's on there.  Exactly.  Yeah, but I think things like encrypted messaging platforms  and so forth are probably going to continue on.  I don't see how they can stop signal.  I don't know.  This will be, you're right.  This will be a big story in 2021.  I agree with you.  Jeff Jarvis, your big story for 2021.
+
+Start time: 9380.56
+End time: 9386.55
+Speaker: SPEAKER_09
+Transcript:  That's going to drive me nuts.  I'll be screaming on the show and having fits  that have to calm me down and give me drugs,  but it's going to be regulation.
+
+Start time: 9387.34
+End time: 9399.82
+Speaker: SPEAKER_03
+Transcript:  Regulation.  I agree.  230, I think.  So you think Biden will pursue, will continue to pursue,  really Congress initiated it.  So Congress is clearly going to pursue those.
+
+Start time: 9399.92
+End time: 9471.78
+Speaker: SPEAKER_09
+Transcript:  It's an interesting thing because one,  I know he's getting advice to say, hold on.  Hello, OG.  Hold on.  I think there's a lot of ways to look at this.  There may be other ways to look at this,  but there's a pincer movement against tech.  The problem is I think what's going to happen  is at some point the progressives are going to wake up  and look and realize that they're on the same side  of some of this as the Trumpists,  and that's not going to be a comfortable place to be.  Yeah.  And freedom of expression for communities,  too long not heard in mass media is what I care about most.  We have the Digital Services Act  and the Digital Markets Act, which are going to come in,  along with UK regulation on antitrust  and also on digital harms is coming up.  Australia has its Murdoch law trying to go after them.  We have all kinds of things I think are going to be happening  in the next year.  And the platforms, my problem is,  that they're the ones who need to defend the internet  and they're the worst defenders of the internet,  and that's what bothers me.
+
+Start time: 9471.96
+End time: 9502.52
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Right now it's a politically volatile situation.  Maybe that'll get less so in January,  and then maybe calmer heads can prevail.  But I think that the investigations the FTC  and Congress have initiated, those are not going away.  The EU, Marguerite Vesteiger has become  more and more aggressive.  Those aren't going to go away.  So yeah, this is going to be the year of reckoning  for big tech.  There's a book coming out in March
+
+Start time: 9502.72
+End time: 9528.72
+Speaker: SPEAKER_09
+Transcript:  I just read for blurbing purposes by Nuret Weissblatt,  who's a researcher at I think it's USC or UCLA,  I suddenly forget which one,  and about the tech clash and when it started.  And we'll talk about it when the book comes out,  but it's a fascinating, you ought to have her on.  It's a fascinating bit of data as to when media  just suddenly did a 180, and it wasn't what I expected.
+
+Start time: 9530.00
+End time: 9627.36
+Speaker: SPEAKER_03
+Transcript:  My story for next year that I think is going to be  interesting is one that's been developing this year,  but I think is going to take off next year,  which is the advent of streaming.  Of course, this was the year streaming gaming got pressed.  And in fact, Cyberpunk 2077 seems to be only played  playable on streaming services like GeForce Now and Stadia.  Google engineer has said we have ported Stadia to iOS.  So they've gotten around Apple's restriction  on streaming gaming by just making it work in the browser.  And apparently work quite well.  This is Thumper, which is working in Safari  on the new version of iOS in beta and working in real time.  But it isn't about gaming in the long run.  It's about things like Windows Virtual Desktop.  I suspect that more and more of our computing  will be done with a thin client.  Maybe that's why the fold is so interesting  because that could be your thin client,  not just for gaming, but for Windows,  for your operating system.  Amazon has put Mac minis on AWS.  Soon you'll be able to use a Mac and Mac OS over the cloud.  I think that's going to be a big trend in 2021.  And it's going to very much change how we think of computing  and desktop computing in particular.  And I'm hopeful, Steve,  I think one of the things that's driving this  is ransomware and security.  I'm hopeful that these professionally managed  operating systems in the cloud will be more reliable  and more secure than, they'll do a better job  than we have been doing on our systems at home.
+
+Start time: 9627.58
+End time: 9629.00
+Speaker: SPEAKER_12
+Transcript:  Plus 5G, don't forget 5G.
+
+Start time: 9629.28
+End time: 9642.25
+Speaker: SPEAKER_03
+Transcript:  And 5G is going to make it all possible.  I should have just said that.  This show is brought to you by the magic of 5G.  This is the year of 5G.  Is the year of...  I'm not leaving 3G.
+
+Start time: 9643.12
+End time: 9650.48
+Speaker: SPEAKER_09
+Transcript:  You're in the old OG and I'm sticking with 3G.  It's good enough for me.  I like it.  Steve has some 3G in his refrigerator.
+
+Start time: 9650.72
+End time: 9658.28
+Speaker: SPEAKER_03
+Transcript:  I like 3G.  And then of course it's the year of the Linux desktop, 2020.  Yes.  Very important.
+
+Start time: 9658.28
+End time: 9663.23
+Speaker: SPEAKER_09
+Transcript:  Paul, I want a new Chromebook.  From Google.  You want the real one.
+
+Start time: 9664.68
+End time: 9690.92
+Speaker: SPEAKER_03
+Transcript:  Yeah, I don't blame you.  Paul Thurad, thank you so much for being a part of our family,  for being here today to end the year.  Windows Weekly on Wednesday will be our best of episode  and I will see you in, I guess it won't be the new year.  I'll see you for one last show on January 30th,  I mean December 30th.  And we'll do our wrap up of the year.  You and Mary Joffrey.
+
+Start time: 9690.94
+End time: 9693.42
+Speaker: SPEAKER_09
+Transcript:  Just don't go on too late Paul,  because it delays us, okay?
+
+Start time: 9696.20
+End time: 9702.04
+Speaker: SPEAKER_12
+Transcript:  I wanted to apologize publicly  for what you probably endure every week.  Sorry.
+
+Start time: 9702.68
+End time: 9727.64
+Speaker: SPEAKER_03
+Transcript:  Oh good, they're on the beer.  Yes, you know when we hit beer, it's time for you.  Jeff Jarvis.  I'm ready to drink, yeah.  Host of This Week at Google,  along with Ant Pruitt and Stacey Higginbotham.  I always consider you one of my best friends  that I never get to see in real life,  but it's always a pleasure to see you.  I know, we're gonna change that.  Every Wednesday on This Week at Google,  thank you for all you do,  and for keeping me honest and spanking me from time to time.
+
+Start time: 9728.14
+End time: 9739.91
+Speaker: SPEAKER_09
+Transcript:  And you, me, and this sounds like an S&M show,  but we're gonna go off this.  We're gonna stop that.  And Paul says we have an interesting dynamic  and that's what it is now.  Now I'm even more interested.  Let it be an interesting dynamic.
+
+Start time: 9740.80
+End time: 9767.68
+Speaker: SPEAKER_03
+Transcript:  I'll get the paddle, you get the straps.  Whoa.  I don't know, it got weird at the end there.  And actually somebody I've known longer  than almost anybody.  The OG of OGs.  The OG of OGs.  The God of Gods, the expert of experts.  Steve Gibson, who I first met in the late 90s,  who is of course our host at Security Now.  And also, I think for all of us,  a mentor and an inspiration,  the guy who keeps us safe.
+
+Start time: 9767.82
+End time: 9775.37
+Speaker: SPEAKER_02
+Transcript:  Yes, when 300 baud was the speed at which we telecommuted.  God, that's right.  No one needs more than 300 baud.
+
+Start time: 9776.26
+End time: 9777.22
+Speaker: UNKNOWN
+Transcript:  We've got.  God.
+
+Start time: 9778.30
+End time: 9782.07
+Speaker: SPEAKER_02
+Transcript:  You can't type that fast.  It can keep up with typing, so that's all you need.
+
+Start time: 9783.22
+End time: 9817.46
+Speaker: SPEAKER_03
+Transcript:  You guys are the greatest.  Thank you for making Tweet what it is.  Thank you, dear listeners and dear viewers,  because there'd be no point in the chat room.  There'd be no point in doing this  if you didn't watch and listen.  We're very, very grateful.  I know it's been a hard year for all of us.  Thank you for hanging in there with us.  I think 2021 is gonna be a better year  as the boy, as the who said in Tommy,  I got a feeling 21 is gonna be a good year,  but we gotta see it in together.  Thanks for joining us.  Another Tweet is in the can.
+
+Start time: 9817.98
+End time: 9820.42
+Speaker: UNKNOWN
+Transcript:  ["Doing the Tweet"]
+

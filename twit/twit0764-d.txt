@@ -1,0 +1,1842 @@
+;FFMETADATA1
+title=Tech Support in Tights
+artist=TWiT
+album_artist=TWiT
+album=This Week in Tech
+track=764
+genre=Podcast
+comment=http://twit.tv/twit
+copyright=These netcasts are released under a Creative Commons License - Attribution-NonCommercial-NoDerivatives 4.0 International. TWiT and TWiT Logo are registered trademarks of Leo Laporte.
+publisher=TWiT
+date=2020
+encoder=Lavf58.76.100
+Start time: 0.32
+End time: 180.45
+Speaker: SPEAKER_02
+Transcript:  It's time for Tweet This Week in Tech.  Lexi Savides is here from CNET.  Ed Bott is here from ZDNet.  And from our favorite security guy from theparallax.com, Seth Rosenblatt.  He was at CanSec West.  He said the last conference.  We'll talk about Pwn to Own.  We'll also talk about the eLibrary that authors are saying shouldn't be giving away their  books and eSports.  Is racing the next great eSport?  Apparently so.  It's all coming up next on Tweet.  This Week in Tech comes to you from Tweet's LastPass studios.  Stay in control when it comes to your company's access points and authentication.  LastPass makes enterprise-level security simple.  Check out lastpass.com slash twit to learn more.  This is Tweet This Week in Tech, episode 764, recorded Sunday, March 29th, 2020.  Tech support entights.  This episode of This Week in Tech is brought to you by LastPass.  From access to authentication to passwords, LastPass manages every entry point to your  So you can mitigate risk while improving employee productivity.  Visit lastpass.com slash twit to find out how they can help you.  And by Cashfly.  Give your users the seamless online experience they want.  Power your site or app with Cashfly's CDN and be 30% faster than the competition.  Learn more at twit.cashfly.com.  And by ZipRecruiter.  Hiring is challenging, but there's one place you can go where hiring is simple and smart.  That place is ZipRecruiter, where growing businesses connect to qualified candidates.  Try it free at ziprecruiter.com slash twit.  And by HealthIQ.  HealthIQ uses science and data to secure lower life insurance rates for healthy people like  you.  To see if you qualify, go to healthiq.com slash twit and take the HealthIQ quiz.  It could help you save up to 41% on your life insurance premiums compared to other providers.  For those of you listening, it shouldn't sound any different.  Let me welcome our guests today from left to right, Seth Rosenblatt.  Hi Seth from theparallax.com.
+
+Start time: 181.28
+End time: 181.85
+Speaker: SPEAKER_09
+Transcript:  How's it going?
+
+Start time: 182.24
+End time: 184.57
+Speaker: SPEAKER_02
+Transcript:  It's going well.  How's it going in your inner sanctum?
+
+Start time: 186.18
+End time: 200.37
+Speaker: SPEAKER_09
+Transcript:  This is the same for me.  I self-quarantined five years ago and I work from home and the dog still needs to be taken  out for runs.  I'm just wondering where all these people came from.
+
+Start time: 201.76
+End time: 202.56
+Speaker: SPEAKER_10
+Transcript:  Where are you located?
+
+Start time: 203.47
+End time: 205.86
+Speaker: SPEAKER_09
+Transcript:  I'm in San Francisco.  I'm near Golongay Park.
+
+Start time: 206.26
+End time: 211.87
+Speaker: SPEAKER_02
+Transcript:  I saw a video this morning, drone footage shot on Sunday, last Sunday of San Francisco.  It's pretty quiet.
+
+Start time: 214.64
+End time: 217.11
+Speaker: SPEAKER_09
+Transcript:  It's like Christmas plus Burning Man.
+
+Start time: 218.37
+End time: 228.48
+Speaker: SPEAKER_02
+Transcript:  Right.  Everybody went to the desert.  Also with us from CNET, Lexi Savides.  It's so good to see you, Lexi.  How are you doing in this troubled time?
+
+Start time: 229.20
+End time: 251.46
+Speaker: SPEAKER_06
+Transcript:  Yeah, I'm doing well.  All things considered, thanks for having me back.  We love having you on.  This is my DIY studio, fitness studio.  As you can see, menagerie of plants as well behind me.  I'm really getting into the one room does everything spirit.  It's interesting to see how long it takes to go so crazy in here.
+
+Start time: 252.04
+End time: 265.79
+Speaker: SPEAKER_02
+Transcript:  The Instapod style of broadcasting.  You put it all in one.  But I have to say, normally we have a lot of nerdy guys on.  You're the first to have actual plants in your studio.  That's really nice.  Living creatures in there.
+
+Start time: 267.04
+End time: 283.43
+Speaker: SPEAKER_06
+Transcript:  Yeah, it makes me like I can see trees outside, but I'm not going outside.  So if I can't go outside, at least bring outside inside and in the air and just makes me feel  better.  So why not adopt a plant?  Can't have a pet, adopt a plant.
+
+Start time: 283.92
+End time: 296.30
+Speaker: SPEAKER_02
+Transcript:  You're in San Francisco as well?  Yes, I am.  And then we go all the way to and he knows I'm going to say something weird.  Took him, carry New Mexico.  I don't know where he is.
+
+Start time: 296.48
+End time: 305.05
+Speaker: SPEAKER_07
+Transcript:  Yeah, you know, let's go.  We're going to go with that.  We're going to go with that one.  Yeah, but maybe Barstow.  Barstow.
+
+Start time: 305.52
+End time: 317.05
+Speaker: SPEAKER_02
+Transcript:  He's coming to us from the Painted Desert.  It's Ed Bott of the Ed Bott Report.  He's eating it.  Good friend, longtime friend.  He's been with us since the college days.  So this probably looks to you like it used to.
+
+Start time: 318.62
+End time: 328.76
+Speaker: SPEAKER_07
+Transcript:  This is giving me flashbacks.  And it is Santa Fe, New Mexico up here at 7000 feet where it's still winter.  So I've still got the winter flannels on.
+
+Start time: 329.14
+End time: 335.11
+Speaker: SPEAKER_02
+Transcript:  Nice.  And as everybody knows, COVID doesn't doesn't live over 6000 feet.  So you don't have to worry.
+
+Start time: 335.89
+End time: 339.54
+Speaker: SPEAKER_07
+Transcript:  I know.  And you can use you can use flannel as a face mask.
+
+Start time: 340.72
+End time: 406.77
+Speaker: SPEAKER_02
+Transcript:  You know, that was one thing that really is started to bug me a little bit.  We had somebody in the chat room from Prague in the Czech Republic.  And unlike here in the US where we were told, oh, masks don't help in Prague, they told  everybody masks do help.  All the grandmas in Prague started homemaking masks so much so that they and unlike Asia,  there was no tradition of wearing masks in public.  But all the influencers started posting pictures of themselves in masks.  And now it's pretty much 100% in the Czech Republic.  They put masks on trees outside.  So people if they didn't have a mask, they were making them out of T-shirts.  They weren't the N95 masks that the hospital technicians use.  But apparently any mask is helpful.  Take it home at night, wash it and make it out of a T-shirt and wear it the next day.  And it's it's made a huge difference in the Czech Republic.  And it makes me a little mad that they said they were so anxious to keep these masks for  medical personnel who do obviously need them.  And there's a shortage that they kind of misrepresented the fact that masks can help whether you're  sick or not.
+
+Start time: 407.70
+End time: 427.52
+Speaker: SPEAKER_09
+Transcript:  I mean, no doubt like the big story coming out of this is going to be the utter failure  of all levels of government in the in at least in the US to effectively communicate what  needs to be done to prevent people from getting sick, how to prevent people who might be sick  from spreading it to others and how to treat the people who are sick.
+
+Start time: 427.90
+End time: 428.04
+Speaker: SPEAKER_08
+Transcript:  Yeah.
+
+Start time: 428.90
+End time: 436.96
+Speaker: SPEAKER_09
+Transcript:  I mean, it's it's I think it's going to be the big scandal of of the year, presuming  that, you know, we all make it through the year.
+
+Start time: 437.44
+End time: 567.26
+Speaker: SPEAKER_02
+Transcript:  The good news is there's not to be a downer.  Thanks a lot, Seth.  It does seem and I'll give you the up the upside of it.  It does. Social distancing does seem to work.  And I know it's tough in New Orleans and in New York City and Brooklyn, you know, still  hard in Seattle, Florida, but in areas like this in northern California, where we've been  social, we were the first to social distance in the US.  The sickness rates are way low.  And this is we know this thanks to a Internet connected thermometer from a company called  Kinza Health.  Kinza.  I ordered one early on, and so I have it.  I take my temperature every day and their their temperature map is not reliant on tests  for covid or anything like that.  It just shows areas where people's temperatures are higher.  Since they've been handing these out for six years to schools and so forth, they have  more than a million out in the United States.  And I think it's very interesting.  I think this is one area where you're seeing a technology that's been kind of very helpful.  Additional information.  You see observed illness and atypical illness on their map, which is at US Health.  Actually, it's health weather dot US.  And you can see where hot spots are, atypical trends and observed.  And all of this comes from the map data.  But this is the graph I think is most interesting.  This is for the whole US, but you can do this county by county.  You see the blue line is what you'd expect from flu season.  Typical illness.  The orange line is observed illness, which was until late February following that blue  line, but then started to go up.  When you see it red, that's where it's higher than average.  But look at the precipitous drop, starting with general social distancing in March 19th,  March 20th last week.  We're actually now well below what you'd expect for this time of year for flu season.  I think that people aren't getting the flu.
+
+Start time: 567.71
+End time: 656.96
+Speaker: SPEAKER_07
+Transcript:  Yeah.  Or cold or anything else.  Right.  Right.  Yeah.  Right.  I think that's good.  You know, Zeynep Tufceki has been doing some really excellent work the last couple of  months, the last couple of days and weeks in particular.  And she's been really beating the drum on the need for people in the United States to  get it together and start wearing masks when you go outside.  And the odd thing is that, you know, if you look at the data, the countries that have  been using masks across the board consistently and universally are among the most successful  at managing the spread of the virus.  And one of the things that we did here, you know, one of the many things that we did  wrong here was to sort of stigmatize the use of masks so that somebody who goes out wearing  a mask is presumed to be sick and therefore can be, I mean, you're going to be shunned,  which isn't a bad thing.  And, you know, today we all want to be shunned now.  Right.  But you run the risk of being harassed or even assaulted if someone thinks that you're  carrying germs, carrying viruses into the environment.  So the sooner we can get to the point where it's nearly universal use of masks here, the  better off we'll be.
+
+Start time: 657.16
+End time: 698.36
+Speaker: SPEAKER_02
+Transcript:  And I understand the Surgeon General saying don't get, don't buy masks, folks, they don't  help because they wanted to preserve these, you know, medical grade masks for the people  who really need them, are hardworking medical and EMT folks and the first responders who  are exposed every day.  And boy, the statistics you see now about police officers and nurses and EMTs come down  with COVID because they don't have enough protective gear are tragic.  So I understand their motivation, but maybe it would have been better to be a little bit  more honest because as they've done in the Czech Republic, you can make masks out of  an old T-shirt.  It doesn't have to be a medical grade mask.  And even that will help keep you from touching your face.  At the very least.
+
+Start time: 699.30
+End time: 775.76
+Speaker: SPEAKER_09
+Transcript:  Certainly the advice for the early advice for medical professionals to only wear a mask  if you showed symptoms has been shown to be a real error in judgment, because if you can  still spread it, if you're asymptomatic and that's the problem, people don't know if  they're sick.  And I want to quickly circle back to what you said about whether or not we're doing the  right thing in here in Northern California, where we were the earliest municipality in  the country to adopt a shelter in place regulation.  We're going to what medical professionals were saying and public health officials were  saying earlier this at the end of last week is that this coming week is going to be the real  point where we're going to be able to tell because this is the two week mark from the  shelter in place.  We should see people who were asymptomatic two weeks ago start to develop symptoms and  they're predicting a huge spike in positive COVID-19 infections and all of the difficulties  that will come with that.  So I would love to think that here in the Bay Area, we're doing better than others.  But I'm not convinced that's where we are yet.
+
+Start time: 777.69
+End time: 822.44
+Speaker: SPEAKER_02
+Transcript:  Then there's the issue of using so there's some benefits to things like Kinza Health.  There's some additional information you can get from these Bluetooth and internet  connected thermometers.  But then there's some disturbing news.  Jeffrey Fowler wrote about it in the Washington Post today that some companies, including I  think the CDC and other health authorities, are using advertisements to track us.  So they're buying ads which send back geolocation information.  And as a result, they are knowing where people are congregating, not congregating.
+
+Start time: 824.54
+End time: 830.90
+Speaker: SPEAKER_10
+Transcript:  Does that worry anybody, the idea that perhaps we're entering a surveillance system?
+
+Start time: 831.24
+End time: 855.86
+Speaker: SPEAKER_02
+Transcript:  And you know, this is what happens when you have a crisis is, you know, as it happened  with 9-11 and the Patriot Act, you suspend, you know, our traditional rights to solve  a crisis.  But does it concern you that all of a sudden this cell phone location information, which  we've been battling over for the last few years anyway, is being used in this way?  What about you, Lexi?  Is this something that concerns you?
+
+Start time: 856.96
+End time: 897.20
+Speaker: SPEAKER_06
+Transcript:  Yeah, I mean, I think anyone who has been following this for any time in terms of all  the implications that this might have, as you just said, with enacting anything in the  Patriot Act kind of way or just in the time of an emergency to think that what will happen  when this is all over and be able to roll back the things that have been implemented in  terms of tracking.  I mean, I've been thinking about this a lot and, you know, the ways to kind of circumvent  it, obviously, like, you know, if you have to go outside, if you are going to be flagrantly  going against regulations, like you would leave your phone at home, you know, turn on  airplane mode, things like that.  But I, you know, I just.
+
+Start time: 897.50
+End time: 901.96
+Speaker: SPEAKER_10
+Transcript:  But this information is useful and we kind of want to help, right?
+
+Start time: 902.44
+End time: 932.82
+Speaker: SPEAKER_02
+Transcript:  So apparently the government has been in talks with Facebook and Google and other  companies about how they can use location data to combat the virus.  Then they're buying ads because it turns out, oh, what a surprise.  Those ads tell you where tell the buyer where their viewers are and they're aggregating  this. On the one hand, I think it's great if it can if it helps us beat the virus.  Is it a bad precedent?  So you're saying, Lexi, are you turning off your location information when you go out?
+
+Start time: 933.50
+End time: 994.44
+Speaker: SPEAKER_06
+Transcript:  Well, I'm not going out.  That's the thing.  Good. Good.  Good.  Yeah, no, absolutely not.  I don't want to be misinterpreted.  I'm definitely not leaving the house without an absolute necessity.  But just just thinking about the ways that like this is going to have implications if  this continues to happen after the crisis is over.  And, you know, as has, you know, as you say, you want anything, any data that we have  access to now to help stop the spread of this.  But, you know, once this is said and done to continue to have this, you know, monitoring  this tracking through advertising, through whatever it might be, through data from, you  know, cellular providers or even from, you know, the phone manufacturers to there's a  lot to think about in terms of, you know, the tradeoffs that have to be made here.  And, you know, it's scary enough thinking about the situation that we are all currently  facing with the virus, let alone, you know, the data protection stuff that we also have  to add on top of it.
+
+Start time: 994.86
+End time: 996.84
+Speaker: SPEAKER_02
+Transcript:  Seth, you're a security guru.  Does it worry you?
+
+Start time: 999.56
+End time: 1085.10
+Speaker: SPEAKER_09
+Transcript:  Yeah, and I think I think it's a lot of smoke and mirrors at this point.  Fewer than 50 percent of the states in the US have shelter in place orders or similar  at this point.  Certainly municipalities have been better about it, but not all of them have.  And I can't remember which state, but one of them, even the governor decided to declare  that municipalities couldn't enforce shelter in place laws that were regulations that were  stricter than the ones that the state had.  I think it was Tennessee, I think.  Yeah, it was some place with a lot of gun stores, I think.  And I mean, oh, was that on to on the point there?  So I feel I feel like, you know, like, sure, if we are struggling to prevent people from  going out, yes, location data could be helpful, but we're not even we're trying to  that. That's running.  That's running. We're not even crawling at this point.  And I think that this is going to be just seeing the patterns of how people got infected  in China, in Italy, in other places where it was really severe.  Suddenly, what we're doing in the US is nothing.  I mean, we have more cases in the more positive coronavirus cases in the US than China  has, has had this entire time.
+
+Start time: 1086.14
+End time: 1087.96
+Speaker: SPEAKER_02
+Transcript:  Although who knows what China's numbers?
+
+Start time: 1088.10
+End time: 1093.60
+Speaker: SPEAKER_09
+Transcript:  Sure, sure. Even if even if even if China is suppressing their numbers, it's a very bad
+
+Start time: 1094.34
+End time: 1098.05
+Speaker: SPEAKER_10
+Transcript:  exponential increase here in the US.  As an example, South Korea is scary.
+
+Start time: 1099.06
+End time: 1109.08
+Speaker: SPEAKER_02
+Transcript:  Yeah, China's used it.  South Korea's used it.  Apparently, with great effect, they had an app to attract people and would alert  authorities if they left home.  You know, you're well.
+
+Start time: 1109.30
+End time: 1171.94
+Speaker: SPEAKER_07
+Transcript:  And and that's what it and and that's what you really I mean, if you're going to use  location data as a way to manage public behavior, then be transparent about it.  One of the things that that the countries that have been successful with this have been  doing, as you mentioned there, is that the big thing they've been doing is contact  tracing so that if you can use that location data to say this person was very near a person  who was infected, then then you can you can quarantine those people until it's clear  that they either are infected or aren't.  And, you know, you can stop the spread that way.  So that mean that's what but this this weird ass idea that you can sneak in and grab a  bunch of location data from advertising that's, you know, that's going to be blocked by a  bunch of people anyway.
+
+Start time: 1172.50
+End time: 1179.92
+Speaker: SPEAKER_02
+Transcript:  It's that would be my concern is that people's knee jerk reaction might be to shut this  stuff down to leave their phones at home and so forth.
+
+Start time: 1180.40
+End time: 1204.58
+Speaker: SPEAKER_07
+Transcript:  So the idea that this is going to do any good, I mean, I think it's it's it has a whiff of  desperation to it.  Maybe let's gather this information and see if we can use it for something later.  Maybe the data will be useful.  And that's kind of been the way that online advertising has worked for the last few years.  Let's collect everything because maybe we don't know how much of it's going to be useful.
+
+Start time: 1205.20
+End time: 1251.56
+Speaker: SPEAKER_02
+Transcript:  This is a company called Unicast.  They get location data from games, social media apps, five thousand different apps people  install and they actually have a location data toolkit and a social distancing scoreboard  so that organ is so that you can get a score about how well you're doing in social distancing  in the country.  Session ended by server.  I guess I'm going to get a new a new a new session here.  The top states, according to this, are D.C., Alaska, Nevada, New Jersey and New York.  The bottom states are Idaho, North Dakota, South Dakota.  You don't need to do social distancing in Montana and Wyoming.  There's nobody there.
+
+Start time: 1252.32
+End time: 1284.80
+Speaker: SPEAKER_09
+Transcript:  So so what is that?  I mean, what part of the problem is, is that the data here has doesn't seem to appear to  have a lot of connection to positive cases.  New York, we know, has the highest number of positive coronavirus cases in the country.  And yet they're also excelling at social distancing.  So it would seem to imply that social distancing doesn't work.  But we know that it works because we've seen it work in other places.  So this kind of of of data flim flammery, I think, is is really bad for people.  Yeah. Is that a technical term?
+
+Start time: 1284.90
+End time: 1357.50
+Speaker: SPEAKER_02
+Transcript:  It's a good term. I like flim flammery.  Of course, when this is going to really be useful and important and maybe even we'll  all give permission to do this, since we're not going to have herd immunity or a  vaccine for another year, at least what's going to happen when social distancing  works and ends in some number of months.  The only thing you can do is what what South Korea is doing at this point, which is  now you've got to track positive tests, you got to test all the time, track positive  tests and be very aggressive with those.  Go back to the containment strategy that we never pursued here in the U.S.  That's what we're going to have to do for the next year.  Once once we can get this thing under control.  And that's when these apps are going to really be useful.  My guess is companies like Unicast, which is they've long been selling this  information for other reasons.  The real reason they're doing this is is they see a opportunity in the coming  months. And I'm not sure it's a bad thing.  Shouldn't we use technology to to save us to solve?  Transparently.  I like you. I like that.  You're right. You got to let people know you're doing it and why.
+
+Start time: 1357.86
+End time: 1392.70
+Speaker: SPEAKER_07
+Transcript:  Yeah. And, you know, disclose up front.  Here's what we're doing. Here's why it's important for you to opt in to it.  And here's where your data is.  And here's how and here are the the judgments and activities that we've taken  in response to that data.  If you have that kind of transparency, I think you can go a long ways towards  getting rid of people's trepidation about it.
+
+Start time: 1393.42
+End time: 1394.40
+Speaker: SPEAKER_10
+Transcript:  I feel good about.
+
+Start time: 1394.64
+End time: 1459.03
+Speaker: SPEAKER_02
+Transcript:  So this is it's interesting because, of course, we're this all happened in the  middle of this debate over how big tech is, you know, is getting too big and  privacy and security concerns.  This is a big debate that's been going on for the last couple of years.  Some say companies like Amazon are jumping on the bandwagon.  They're taking advantage of this to consolidate power.  Others say and I'm not sure which camp I fall in.  I'm curious what you all think.  Others say, no, the tech companies are stepping forward to help.  Apple's making a covid-19 site.  Amazon's hired 100,000 people to help deliver products.  In fact, many of us are relying on Amazon just to keep stuff we need in stock.  Walmart's hired 150,000 people.  Maybe these aren't the best jobs in the world, but they're jobs.  And there's so many people out of work in the restaurant industry and the  service industries.  It is our tech companies are saviors or are they taking advantage of this  opportunity or both?  Definitely both.
+
+Start time: 1460.24
+End time: 1461.74
+Speaker: SPEAKER_07
+Transcript:  Yeah.  Yeah, I think that's fair.  Yeah.
+
+Start time: 1462.66
+End time: 1465.51
+Speaker: SPEAKER_02
+Transcript:  I mean, you know, up until this point, there, you know, if you looked at the
+
+Start time: 1468.86
+End time: 1496.14
+Speaker: SPEAKER_07
+Transcript:  surveys of people's attitudes towards big tech, it was, you know, they were  generally getting more and more negative.  I think right now.  I think we feel better about them now, don't we?  Well, we feel better about them right now because it's one of the because it's  all we can do.  It's the only part of the economy that is still functioning.  The physical economy, you know, restaurants are shut down.  Non-essential businesses are shut down.
+
+Start time: 1496.56
+End time: 1514.62
+Speaker: SPEAKER_02
+Transcript:  Yeah, but if it weren't for DoorTash, I wouldn't have had takeout last night.  And I want to get takeout because I want to support my local restaurants, right?  So, yes.  And those DoorDashers, by the way, Monday, they're all going on strike.  Is it DoorDash or Instacart?  Instacart is going on strike.
+
+Start time: 1515.10
+End time: 1548.28
+Speaker: SPEAKER_09
+Transcript:  Yeah, if they don't have coronavirus yet, they will soon.  I mean, I think this is one of the massive problems that faces a lot of, you  know, capitalist-based societies in the world, but certainly here in the U.S.  where we have a federal reserve to back up the banking system, which is fine.  And it's actually worked fairly well over the past, you know, however long, 80 years or  so without, you know, I don't want to trigger too many of our libertarian friends, but  it has worked.  We don't have something similar for health care.
+
+Start time: 1548.97
+End time: 1550.46
+Speaker: UNKNOWN
+Transcript:  We don't have something similar for unemployment.
+
+Start time: 1550.94
+End time: 1629.40
+Speaker: SPEAKER_09
+Transcript:  In the U.S., you need to be working for, I think it's two years before you qualify for  unemployment insurance.  And these days, who does that?  Who, for one thing, who has an employer, a single employer for two years straight?  Very few of us relatively.  And then how many of us are with the same one for two years straight is, you know, is  another nail in the coffin.  So you're going to find a ton of people with no money, no way to support themselves, no  way to pay for their, even their rent.  And while in California and a few other places, they've, they've announced a moratorium on  evictions that, you know, that shit is going to come due as soon as the moratorium gets  lifted.  How are people going to get that money going to come from?  You even talked about at the top of the show that you had to do five layoffs.  I mean, right.  Or whatever it was.  It's brutal.  It's really, really brutal.  And without the proper safety nets, people, I don't know what people are going to do.  And we need the health insurance safety net.  We need to have some sort of publicly funded health care for all kind of thing where, especially  when there is a disaster like this going forward, people can get the care they need.  You don't want people who have symptoms or asymptomatic, but infected wandering around  and infecting others.  That's what God is here.
+
+Start time: 1631.58
+End time: 1634.94
+Speaker: UNKNOWN
+Transcript:  Deep philosophical question.  Here's a deep philosophical question.
+
+Start time: 1635.56
+End time: 1698.06
+Speaker: SPEAKER_02
+Transcript:  No, I think you, I mean, I think what happens is.  The cracks in the system don't show up till it's stressed.  It's like a bridge.  You can drive over it day after day and it might even have some cracks in it.  But there admit there's an earthquake.  Then you know if that bridge is solid.  We even you and I, Ed, who are a little older than these youngsters on the right there,  have never lived through anything like this.  It's our parents and grandparents who lived through World War II.  Perhaps they were the last people who really lived through it.  Great national crisis.  You could say 9-11 was, it was certainly an emotional crisis for us.  But except for New York City, it wasn't something that impacted us directly.  It was an indirect thing.  This has been our great come to Jesus moment.  And I think it was, we're going to be very different coming out of this whenever we do  in six months, three months a year, whatever it takes.  It's going to be a different, if it's going to be a different society, is it not?
+
+Start time: 1699.36
+End time: 1762.80
+Speaker: SPEAKER_07
+Transcript:  Can I offer one slight amendment to what you said there?  The, you said we, you know, we didn't see the cracks in the system until it was under  stress.  There are a whole bunch of people who have been feeling and seeing and experiencing that  stress in the system for many years.  No, that's true.  But they are from groups of people that don't have any political power, that are, you know,  they're economically disadvantaged, politically disadvantaged, socially disadvantaged.  They might as well be invisible.  And what's happening now is that the things that were happening to those groups of people  are now bubbling up into the middle class to everyday working people.  And now we're worried.  And now we're pissed.  And so there's a whole bunch of people who are going, I've been trying to tell you this  for years.  Yeah.  And here we are.
+
+Start time: 1762.84
+End time: 1763.72
+Speaker: SPEAKER_02
+Transcript:  That's an excellent point.
+
+Start time: 1764.64
+End time: 1777.70
+Speaker: SPEAKER_09
+Transcript:  Ed Bott.  I mean, I think it's more than just disadvantaged groups.  I mean, when GoFundMe is considered a viable option for paying for healthcare by a vast
+
+Start time: 1779.22
+End time: 1783.23
+Speaker: SPEAKER_02
+Transcript:  number of states covering a huge number of people.  It's been going on for years.
+
+Start time: 1783.86
+End time: 1784.41
+Speaker: SPEAKER_09
+Transcript:  It's insane.
+
+Start time: 1784.84
+End time: 1786.65
+Speaker: UNKNOWN
+Transcript:  This is an insane system.  It's been broken.
+
+Start time: 1787.00
+End time: 1839.42
+Speaker: SPEAKER_09
+Transcript:  The middle class has known it's been broken.  The less economically advantaged have known it's been broken for a very, very long time.  It's not going to get any better without fundamental systemic changes.  And in a situation like what we have, we can't, as much as we on the left side of the political  spectrum would like to blame only Trump, we clearly can't.  It's clearly been a failure of political will up and down the board.  You know, when cases were spreading, why did Washington state not have a shelter in place  order?  Why was Mayor de Blasio in New York City encouraging people to go out in the middle of February  and do social activities when they knew that coronavirus cases were happening and spreading?  I mean, it's just, it's been a massive loss of failure.
+
+Start time: 1839.60
+End time: 1857.91
+Speaker: SPEAKER_02
+Transcript:  Yeah.  Yeah.  Good point.  And I don't want to make this the COVID-19 show, but it's kind of hard to talk about  the new iPad when we're clearly as a nation going through some difficult times.  Does that make it hard, Lexi, to do your job?
+
+Start time: 1860.18
+End time: 1925.78
+Speaker: SPEAKER_06
+Transcript:  I mean, it just seems I can't work out whether it's like, obviously, you know, companies  have got product roadmaps and they have things in the pipeline.  And we've seen, you know, iPad, MacBook, Huawei P40, all those products launched in the past  week and a half.  And, you know, these have been in the works for months and months and months.  I was reading an interview with Huawei CEO who said that, you know, manufacturing was  basically started in the end of 2019, like in quarter four.  So, you know, what do you do in that situation?  So I do understand from the sense that, yes, these products are just sitting there, they're  operating. So why not launch a product?  But then it also does seem kind of tone deaf to especially launch a product that is incredibly  expensive. And, you know, none of the things that we've seen in the past couple of weeks  have been particularly affordable.  People are losing jobs. People are just, you know, struggling to work out just what we  were talking about before, what we're going to do in terms of health care, you know,  and unemployment benefits and then have a big ritzy product launch.  Whether that's through a live stream or a pressure leak.
+
+Start time: 1925.88
+End time: 1926.78
+Speaker: SPEAKER_02
+Transcript:  Tone deaf, doesn't it?
+
+Start time: 1927.70
+End time: 1964.96
+Speaker: SPEAKER_06
+Transcript:  It's very difficult to reconcile as someone who covers this as, you know, their job.  I don't get involved in the political elements of tech or like anything like that.  But it is kind of hard to go, hang on a minute.  Maybe I shouldn't be, you know, saying how great XYZ product is or testing it out,  because the reality is like who is going to be using it?  A very select portion of people.  And that is just it's a difficult thing.  I'm struggling with it every day.  You know, how do you cover things in a way that is sensitive,  but it's also informative for the people that want to know about it, too.
+
+Start time: 1966.46
+End time: 2017.50
+Speaker: SPEAKER_02
+Transcript:  The some say the fall of the Roman Empire  occurred occurred because of a pandemic that raged through much of Europe.  The Antonine Plague in one sixty five to one eighty A.D.  It certainly hastened the fall.  And that's where I wanted to get philosophic is sometimes these systems kind of  lurch on for a while.  But when a but these crises.  Often trigger a complete sea change.  Do you think that in a year that our society is going to go bounce, snap back,  everything will be normal, restaurants will be open.  We're going out and playing soccer.  The movie theaters will be full or will be will be emerge.  Kind of into the sunlight, bleary eyed into a brave new world.
+
+Start time: 2020.02
+End time: 2022.38
+Speaker: SPEAKER_06
+Transcript:  Hey, such a tough question.  And I don't know.
+
+Start time: 2022.40
+End time: 2024.50
+Speaker: SPEAKER_02
+Transcript:  There's no right answer, but I'm just curious.
+
+Start time: 2024.56
+End time: 2118.08
+Speaker: SPEAKER_06
+Transcript:  Yeah, that's the thing.  I mean, you'd have to hope.  I mean, I'm an optimist in the sense that I hope that we can take  the situation and what we learn from it and use things going forward to  not just have a collective memory that just forgets what's happened.  I mean, I think this is really going to have I think the next week, two weeks,  three weeks month is really going to have the biggest impact into how we  collectively remember and how we also are able to go forward.  And, you know, are we going to be able to go back to life as normal?  Are people going to handshake?  Are people going to go to big conferences?  I was just thinking like, how do we, you know, tech conferences,  thousands and thousands of people often at many of them.  Are they going to continue as is?  Or are we going to transition to something that is more a hybrid online  slash maybe a smaller event in person product briefings?  How is this all going to happen?  I don't know. I would hope that we take some learnings and go.  Maybe we don't need a conference where five hundred thousand people  from all around the world converge into one space.  Maybe we don't need that anymore.  Maybe there's a smarter way to do it, not just because we don't want to,  you know, we obviously don't want to have the risk of a virus or another  infectious disease transmitting, but also maybe there's an environmental  cost of flying in 500,000 people from all around the world.  Maybe, you know, there's an there's another aspect to it as well.  So I am really interested to see what happens.  I just hope that we can also, you know, it doesn't end up being  we just forget what happened in life goes back to normal.
+
+Start time: 2118.42
+End time: 2126.54
+Speaker: SPEAKER_02
+Transcript:  Yeah, I hope people don't just go to massive pool parties in Las Vegas  and celebrate the end of Covid.  I mean, yeah, as fun as those might be.
+
+Start time: 2127.96
+End time: 2208.60
+Speaker: SPEAKER_09
+Transcript:  So what I've been reading about best case scenarios  are that whenever areas decide to leave to lift their shelter in place orders,  it'll be because there's been a drop in the number of positive coronavirus cases.  But what's going to wind up happening is those cases are going to come back  because the actual period of time it's going to take us to develop  some kind of vaccine or preventative  is going to, you know, and have it approved and run through tests  and not kill people. You don't want the thalatomide babies.  I mean, there are real concerns here.  So we're probably looking at 18 months, right?  Twelve to 18 months of rolling shelter in place orders.  I mean, I think that anyone who sounds any kind of optimistic tone  regarding when this is going to end is better.  They better be an epidemiologist and have access to a lot of research  because I don't think anybody knows.  And we just saw in San Francisco, the schools announced that they are  staying closed until May 1st.  Yeah. Beyond the shelter in place order.  What's going to happen to their parents?  They have to stay home.  I think this is going to be this is going to take us a real long time.  I hope things change.
+
+Start time: 2208.74
+End time: 2233.58
+Speaker: SPEAKER_02
+Transcript:  Brian X Chen took a little heat because he did a piece in The New York Times  about how to get on those business conference calls.  And one of the things he said is don't let your kids in the room  and whatever you do, don't have your pets in the room with you.  And I just I think those of us who've been doing this for some time,  those are the highlights, the highlights of any show.  When the kid comes in the room or the pet jumps in the lap,  that's what we want to see.  That's what we need. The humanity of it.
+
+Start time: 2234.22
+End time: 2258.74
+Speaker: SPEAKER_07
+Transcript:  You know, I have a slightly different take on the philosophical question.  I, you know, I agree with with the others, but I have a different  aspect to look at of it.  I, you know, I grew up, my parents were born  in the depths of the depression. Right.  Early 1930s, my grandparents were born at the turn of the century.
+
+Start time: 2258.78
+End time: 2264.77
+Speaker: SPEAKER_02
+Transcript:  By the way, and we all have family members who were and they are scarred by it.  Right. Many of them carry those scars.
+
+Start time: 2265.70
+End time: 2312.09
+Speaker: SPEAKER_07
+Transcript:  And that's the point that I want to make.  They they had they not just a not just scarring,  but it changed the way they approached the the world.  They it changed their feeling about money and food and physical goods.  There were they there was all they always felt like scarcity.  It was always a shortage. Yep.  Was was just around the corner.  And so you had to be thrifty and you had to be frugal.  And so I'm not sure what I am positive.  There will be something similar in our in the generation that is living  through this now.  I think there's going to be a sort of there's a lingering  going to be a fear of people.  I'm never going to see. Yes, again.  There's going to be a fear.
+
+Start time: 2312.82
+End time: 2318.73
+Speaker: SPEAKER_09
+Transcript:  Yeah, like you should have been going in the first place.  Yeah. Yeah. We got such a bullet.  It was January.
+
+Start time: 2319.26
+End time: 2325.24
+Speaker: SPEAKER_10
+Transcript:  We had one hundred eighty thousand geeks all in the same place.  Bunch of people from China.  I don't know how it didn't get start there.
+
+Start time: 2325.88
+End time: 2359.82
+Speaker: SPEAKER_07
+Transcript:  We we used to joke about the CES flu.  Yes, we'd all get sick.  Everyone would get sick.  You know, it was.  And eventually, that's why I stopped going to CES.  But I think you're going to see that.  I think that's going to be the the lingering takeaway from all this is  sort of a palpable fear of other people and and even a fear like, OK,  well, we we we get this one.  We figured out how to deal with this one.  But is there another one right around the corner?
+
+Start time: 2360.06
+End time: 2388.20
+Speaker: SPEAKER_02
+Transcript:  We are going to be and somebody called it the C generation generation C.  We are going to be the generation that our kids and grandkids will say, God,  grandpa washes his hands all the time.  Grandpa always uses a towel to open the door.  What's that all about?  You know, I mean, honestly, we're shell shocked.  We're traumatized. I'm traumatized already.  I don't know about you guys.  Do you dream at night about viruses?  I do. Or all the time.
+
+Start time: 2388.20
+End time: 2391.44
+Speaker: SPEAKER_09
+Transcript:  Well, computer viruses, but that's that's part of the job.
+
+Start time: 2392.46
+End time: 2393.76
+Speaker: SPEAKER_10
+Transcript:  You've always talked about those.
+
+Start time: 2394.30
+End time: 2411.92
+Speaker: SPEAKER_09
+Transcript:  Right. Do you want me to mention that I attended the last conference,  that last tech conference?  I say, did you go to RSA?  No, I did go to RSA, but that's because I'm here.  And, you know, it's pretty hard to avoid the gravity of that.  But about a week and a half ago, I went up to Cansec West.
+
+Start time: 2412.04
+End time: 2414.44
+Speaker: SPEAKER_10
+Transcript:  You went, I thought that was all virtual.
+
+Start time: 2415.86
+End time: 2455.92
+Speaker: SPEAKER_09
+Transcript:  It was, but he still held the physical portion of it.  Cansec is a 20 year old hacker conference in Vancouver, for those who don't know.  And it tends to focus on very technical talks.  And I've been going up for several years covering it.  And the founder and host,  Drago Srui, said he was still going to do a physical conference.  And I said, I got to go up and see what this is like.  Did you wear a mask?  Yeah. I mean, it was actually really remarkable.  There were three attendees.  So there were about 36 feet per person.
+
+Start time: 2456.76
+End time: 2459.14
+Speaker: SPEAKER_02
+Transcript:  Wait a minute. Three. One, two, three.
+
+Start time: 2459.94
+End time: 2570.42
+Speaker: SPEAKER_09
+Transcript:  Three people showed up in person.  Wow. 100.  He had about 180 plus at the peak of the live stream.  So that was about that's about 40 percent of his regular in-person attendees.  So he was happy about that.  But he provided a forehead thermometers.  So I did. I checked my temperature three times a day.  There were plenty of face masks, because as the coronavirus  pandemic spread, he came up with a series of different things to do  before people started dropping out entirely.  So one of them was to provide multiple masks for every attendee,  which he told me he would donate all the leftovers to local hospitals in Vancouver.  There were more hand sanitizer stations than there were people on hand.  He had about a half.  It was him in a in less than a half dozen other people  making sure the streams were all working and these three attendees and myself.  But, you know, I asked him, I said, why?  You know, like, this is all great, but you could be doing this from your  from the comfort of your home.  Why are you doing this in in person at all?  And he said, you know, we have relationships and also keep in mind,  this is a week and a half ago.  So things had certainly gone a lot worse elsewhere since then.  But he said, you know, we have relationships with the hotel,  with caterers, with people.  And he wanted to make sure that he maintained that community.  That's reasonable.  And that's reasonable.  And I think that because there were so few people in person,  that was actually, you know,  I don't know that that was the call I personally would make.  But I can see why he made that call.  And I respect him for feeling like people were going to be really hard up.
+
+Start time: 2571.20
+End time: 2621.26
+Speaker: SPEAKER_02
+Transcript:  They did pwned on virtually, which I think was kind of cool.  They had the hackers send in their their their attacks.  We actually will talk about the way to get back.  So you got to see that in person. Yeah.  I feel like at least the generation that's lived through this.  We're going to have a very different idea about what a what what's  what's a healthy thing to do, like conferencing.  I don't know if the cruise industry is going to recover.  I used to like to go on cruises.  I don't I don't know, you know.  Airplanes are flying pretty much empty.  They're still flying, but they're pretty much empty.  Johnny Jett, my travel guide, told me yesterday on the radio show,  you can get a round trip from San Francisco to Miami for forty dollars.  Shall we go?  No, no.
+
+Start time: 2623.74
+End time: 2625.78
+Speaker: SPEAKER_10
+Transcript:  Forty dollars. It's cheap.
+
+Start time: 2626.80
+End time: 2668.50
+Speaker: SPEAKER_09
+Transcript:  Yeah.  I mean, I spoke, you know, I was talking with with with the stewards  on the flight that I was on up to Vancouver and back.  It's it's two less than two and a half hours from SF.  None of them were were required to wear gloves or face masks.  They they I think they had just been allowed the option of wearing gloves  per United on my return flight, which was on the 20th.  I feel really, really bad for anybody in those situations  where their employers are not allowing them to take sensible precautions.
+
+Start time: 2668.60
+End time: 2735.41
+Speaker: SPEAKER_02
+Transcript:  There's a lot of people.  And again, I'm very grateful for the people who are on the front lines.  And it's not just the nurses and doctors, it's the people  stocking the grocery stores for minimum wage.  But without them, we'd have no food.  I mean, it's the it's the door dash and the Instacart.  And it's funny, you can't get  I have I mean, I was really annoyed because Whole Foods here.  You go through Amazon, but they don't say anything.  You put the whole list together, grocery list together,  do the whole process at the very end.  You pick your delivery window.  There are none available at the end of this, like half hour  of shopping, kind of imagining all the wonderful produce I'm going to be getting.  There are none available, but we add more all the time.  So I'm sitting there refreshing all day trying to get a delivery.  And yet I understand I understand that that's a that's a risky job.  Being a picker for for Amazon, for Whole Foods, for Instacart, that's a risky job.  And so thank you for doing that.
+
+Start time: 2737.62
+End time: 2745.12
+Speaker: SPEAKER_06
+Transcript:  And it's not just Amazon and other services that are experiencing those kind of delays,  you know, all sorts of grocery delivery services.
+
+Start time: 2745.42
+End time: 2746.35
+Speaker: SPEAKER_02
+Transcript:  I can't get groceries.
+
+Start time: 2747.06
+End time: 2770.80
+Speaker: SPEAKER_06
+Transcript:  But if there's so few that the smaller ones seem to be having slightly more luck,  at least in the Bay Area, but it's it's just very difficult.  The demand is just through the roof.  And I just hope that people are hoarding unnecessarily  because there are people that are, you know, in more disadvantaged  situations that just can't afford to buy four to five hundred dollars worth of groceries  in one haul. They have to shop week by week.
+
+Start time: 2770.96
+End time: 2784.08
+Speaker: SPEAKER_02
+Transcript:  Imagine if we didn't. I mean, we at least have this infrastructure.  Yeah. Ten years ago, it wouldn't have existed.  I mean, and it would have been a very different experience.  Let me take a break. There's a lot more to talk about.  And we're not going to it's not going to be the covid show.
+
+Start time: 2784.20
+End time: 2787.26
+Speaker: SPEAKER_09
+Transcript:  We'll find a little late for that.
+
+Start time: 2787.32
+End time: 2820.32
+Speaker: SPEAKER_02
+Transcript:  It's getting harder. I'll be honest.  You know, it's I never wanted to do the covid show.  We're a tech network. We wanted to talk about tech, but it's getting harder.  There's less and less tech news all the time.  And there's a lot of covid news.  Certainly there's an intersection between tech and covid.  So I apologize if I know there are people who say I don't need to hear any more about this.  Go play UNO. We're going to take do something else because all it's there.  Solitaire. Yeah, maybe.  I feel bad for anybody.  Are any of you sheltering a place alone?  No, I got lucky.
+
+Start time: 2821.11
+End time: 2823.87
+Speaker: SPEAKER_09
+Transcript:  My girlfriend moved in February 1st.  See, you're thankful now.
+
+Start time: 2824.60
+End time: 2826.26
+Speaker: SPEAKER_02
+Transcript:  Not just me and roommate and the dog.
+
+Start time: 2826.72
+End time: 2830.53
+Speaker: SPEAKER_09
+Transcript:  And the girlfriend and the roommate.  That would be really I feel I know there are many people doing that.
+
+Start time: 2831.52
+End time: 2857.85
+Speaker: SPEAKER_02
+Transcript:  That would be hard.  Yeah, my son just got back from he was on a three month kind of.  I don't know, grand tour of Asia ended up in Bali and finally realized,  you know, maybe I better get out of here.  Finally got home and he's going to be kind of a little bit more comfortable  and he's going to be quarantined for two weeks all by himself.  But I'll wave at him through the window or something.  I said, do you need anything? He said a PlayStation four, please.
+
+Start time: 2861.16
+End time: 2864.66
+Speaker: SPEAKER_10
+Transcript:  I have a three. Will that do our show today?
+
+Start time: 2865.04
+End time: 3112.04
+Speaker: SPEAKER_02
+Transcript:  We we think also we thank very much our sponsors, the people who  make make this week in tech possible and especially want to thank  LastPass, which I know you guys all are well aware of.  LastPass is the password manager I've been using for a decade now  and good friends of the network.  Thank you for sponsoring the LastPass Studio and thank you for  keeping the lights on here at this week in tech.  And if you are a business and you've got people working from home,  if you aren't using LastPass, you're probably wondering, oh, boy, oh, boy,  what are we going to do now?  LastPass protects your remote workforce.  And more importantly, maybe from your point of view, protects your business.  Very important to keep security top of mind.  And also, I would say as important without impending on employee productivity,  transitioning to a full work from home environment  can be a lot less complicated with LastPass.  They can make that transition much simpler, much cleaner, much faster  without reducing security.  For one thing, we've got to be aware of an uptick in phishing attacks.  This is going crazy right now.  Coronavirus websites, I just saw a stat, something like 60,000 new fake  websites created with phishing attacks,  you know, built in attacks on those websites, email phishing, email  spear phishing, email LastPass reduces the risk of phishing schemes  because it won't auto fill passwords on a suspicious website.  And you can set up LastPass.  We do it so that your employees don't actually have the password.  So if they accidentally open an email, it says fill in the log  into the bank account, they don't know they can't.  And LastPass won't fill that in.  If you've got remote employees accessing your corporate VPN,  LastPass adds a critical additional layer of security directly to your VPN  through biometric multi-factor authentication.  It's biometric because of course, face ID or touch ID,  but they also use additional authentication factors,  IP address, geo location, things like that, to make sure that the right people  are logging into your bank account, not the wrong people,  regardless of when or how your employees need access.  LastPass ensures your employees have secure access to the work  applications they need.  They've got single sign on which employees love.  It's better than a password.  It's easier, but it's more secure from your point of view.  Of course, LastPass is the best password manager out there,  and they offer an offline mode for both password management  and multi-factor authentication.  So even if your employees are not able to get online,  they haven't lost access to their resources.  Seamless collaboration, of course, is important.  And that's one of the things LastPass does in the enterprise.  We use it here. We'll have a folder for each part of the business.  So there's a folder for the business operation, for sales, for network operations.  Those passwords are there.  If you're on that team, you have access.  If you're not, you don't.  So it really is a great way to keep everybody online, keeping things done.  It's great for the admins.  We have 100 plus policies we can enforce.  We enforce things like two factor.  You got to use two factor.  We you don't have to, but we turn it on because we want to make sure  every one of our employees is using it.  We have a pretty smart band of employees here.  So they're happy to do that.  We also turn on minimum requirements for their master password.  That's really important.  We know on the dashboard exactly who's accessing what resource,  no matter where they're working.  That's important, too, because they may not be on site, but we still know.  Oh, yeah, that's Robin.  She's accessing the QuickBooks.  Oh, yeah, that's Lisa. She's in the sales system.  That's all OK.  The good news is increased security doesn't have to be complex.  Not with LastPass. Start your journey today.  Visit LastPass.com slash twit and find out how they can help you.  And thank you, LastPass, for supporting us.  Thank you for supporting LastPass.  LastPass.com slash twit.
+
+Start time: 3113.78
+End time: 3115.13
+Speaker: SPEAKER_10
+Transcript:  Turning your mics back on.
+
+Start time: 3116.22
+End time: 3149.86
+Speaker: SPEAKER_02
+Transcript:  The gang is all assembled.  Ed Bott is here from ZDNet, the Ed Bott report.  Also, actually, Ed was saying it's almost all CBS Interactive.  And Seth, you even used to work for for CNET.  So Lexi's from CNET.  Ed is from ZDNet, which is now CNET.  It's just so confusing to me.  And Seth used to be in CNET News.  So I didn't plan it that way, but I'm glad you're all here.  Google taking advantage of this by donating eight hundred million dollars  to fight coronavirus, most of that in ad credits.
+
+Start time: 3150.60
+End time: 3174.80
+Speaker: SPEAKER_07
+Transcript:  Yeah, that I you know, I read that headline and then I  and then I read the first two lines and I said, oh, come on.  That doesn't count.  Well, especially because ad sales are down across the board anyway.  It's like they got all these slots they have to fill.  It's it's remnant advertising.  You know, you you, Leo, you know what that means.  Better than better than anybody.
+
+Start time: 3174.90
+End time: 3267.58
+Speaker: SPEAKER_02
+Transcript:  Don't imply that everything we do is no, we did the same thing,  but we didn't put a headline in the newspaper.  We didn't release a press release.  We gave our longstanding clients our direct clients  bonus ads because we want to keep them happy.  And we know they're going through tight times just as we are.  So, yeah, and our stuff, I would never call remnant.  But we absolutely did give them bonus bonus advertising.  Instacart hiring three hundred thousand new shoppers.  That'll break the logjam.  Although Instacart shoppers are planning to strike on Monday  because they say their company isn't protecting them.  As many as 200,000 Instacart employees could walk off the job.  They're hoping for hazard pay.  Instacart says, well, you guys are working more.  And you should be happy to have a job.  They're all independent contractors.  On average, they shop fewer than 10 hours a week.  Costco, CVS, Petco, Target, Wegmans.  They used to be Instacart used to be Whole Foods.  Amazon took it over, took it internal.  The plan strike comes as more and more people stay home  and are relying on Instacart.  But in an announcement with the Gig Workers Collective,  which is an activist group for, I guess, gig workers,  Instacart employees said the company's, quote,  mistreatment of shoppers has shoppers as them has stooped to an all time low.  They are again with the quote, profiting astronomically off of us,  literally risking our lives while refusing to provide us  with effective protection, meaningful pay and meaningful benefits.
+
+Start time: 3268.48
+End time: 3269.82
+Speaker: SPEAKER_10
+Transcript:  I think I'm not against this.
+
+Start time: 3269.92
+End time: 3287.24
+Speaker: SPEAKER_02
+Transcript:  I think this is they should be rewarded.  They're doing a tough job  and taking, you know, taking some big risks.  They want personal protection equipment.  They want hand sanitizers, wipes, sprays and so I don't know  if you've been to the grocery store lately, but good luck getting.  They used to have wipes for the carts. Good luck getting those.
+
+Start time: 3287.70
+End time: 3291.66
+Speaker: SPEAKER_09
+Transcript:  They're all how how dare they want to be treated like people like humans.
+
+Start time: 3291.78
+End time: 3293.82
+Speaker: SPEAKER_02
+Transcript:  What's wrong with you? You're gig workers.
+
+Start time: 3294.66
+End time: 3375.36
+Speaker: SPEAKER_07
+Transcript:  So there were a couple of stories I heard this week.  There was one company, a travel related company,  and a member of the team reported on Monday morning.  They there was a there was a big zoom meeting, big company wide zoom meeting.  A hundred people signed on.  Everyone was chatting excitedly at the beginning of the thing.  You know, geez, you know, is this going to be some kind of big team building thing?  The CEO comes on  and rattles off a prepared speech about coronavirus  and the economy and then says, and everyone on this call is fired.  Laid off immediately.  It was just ghastly.  I went to the company's website and looked at their their HR page.  And it was it was definitely a mismatch between the happy talk  on their HR page and what they did there.  There was another story that I heard this week of people,  a completely different company, but it was double digit number of employees  were given a were emailed a zoom link and they clicked the link.  And that took them to a pre-recorded message telling them they had been laid off.
+
+Start time: 3375.44
+End time: 3383.68
+Speaker: SPEAKER_02
+Transcript:  But but but Ed, you don't expect them to do the traditional come in the office.  Sorry to tell you, but we have to lay you off.  They don't they don't want that.
+
+Start time: 3383.68
+End time: 3397.36
+Speaker: SPEAKER_07
+Transcript:  You know, I think probably there's probably a spot somewhere  between those two approaches.  It's a little callous. Yeah.  But but the idea, I mean, these are the zoom stories that are, you know,
+
+Start time: 3398.24
+End time: 3401.90
+Speaker: SPEAKER_02
+Transcript:  we at least made personal phone calls to each of the people we had to lay off.
+
+Start time: 3402.48
+End time: 3406.62
+Speaker: SPEAKER_07
+Transcript:  You know, you do that.  You absolutely do that.
+
+Start time: 3407.06
+End time: 3444.21
+Speaker: SPEAKER_02
+Transcript:  You know, but I understand.  I mean, a lot of very few companies have reserves.  I mean, you look at the airlines, they squandered all their cash  from all the money they made over the last few years on stock buybacks.  I don't have a lot of sympathy for them.  But but but most most companies like ours,  it's not like we have a year's payroll in the bank,  you know, so that we can keep if we could, I would keep paying everybody.  What we're trying to do is save the company by laying a few people off,  hoping to keep the rest employed.  I don't know. It's I have sympathy on both sides.  You're right. That seems very callous.
+
+Start time: 3446.40
+End time: 3450.42
+Speaker: SPEAKER_07
+Transcript:  I don't know what the right way is.  Yeah. But that ain't it. Yeah.
+
+Start time: 3451.94
+End time: 3455.87
+Speaker: SPEAKER_09
+Transcript:  Yeah. I'm not a big fan of these corporate bailouts.  I know that's a shock.
+
+Start time: 3456.58
+End time: 3464.96
+Speaker: SPEAKER_02
+Transcript:  Some look, we need an airline industry, right?  We need airlines. Sure.  That's vital to the economy. Sure.  And it's offensive.
+
+Start time: 3465.20
+End time: 3467.94
+Speaker: SPEAKER_10
+Transcript:  I agree. But what are you going to do?  You need the airlines.
+
+Start time: 3468.16
+End time: 3472.61
+Speaker: SPEAKER_02
+Transcript:  You can't just say, well, you blew it, guys.  Bye bye. We need them.
+
+Start time: 3474.62
+End time: 3581.02
+Speaker: SPEAKER_09
+Transcript:  What are you going to do?  I think that companies that have had many,  many years to advocate for better worker policies,  suddenly crying because they're about to get decimated.  It's unsimly.  I mean, it's it's worse than unseemly because people are literally dying.  People are going to be dying a lot more.  And it's not from something random and it's not from something  unstoppable.  It is from something that we know exactly how to deal with,  who know exactly how to stop it.  And I wouldn't mind seeing this behavior is I'll tell you one thing.  One thing that really impressed me for all of for all of those screw ups  in the UK regarding their response to coronavirus and their  their idiotic interpretation of herd immunity.  And that is a technical definition of idiotic.  They came back and they said, we're going to pay everybody  who gets laid off 80 percent of their wages,  because they know that if you can't support people  who are living in your country,  then you're not going to be able to prevent this virus from spreading  because they're going to be on the street.  There's going to be significant societal problems.  And here in the US, we have this attitude of and you can just run  the censor beep right now because there's a lot of profanity.  I have to say about this.  People are going to be dying.  People are not going to have money in their accounts.  Twelve hundred dollars per person.  Are you kidding me?  Like in San Francisco, that that that, you know, that'll get you food  that won't get you that won't get you rent.  And if you have a family, you get 2400.  I mean, this is nuts. This is all nuts.  This is this is terrifying.  And for friends of mine who are entertainers, who who are musicians or artists,  this is this is a death now.
+
+Start time: 3582.34
+End time: 3593.20
+Speaker: SPEAKER_02
+Transcript:  Socialism, socialism is starting to look a little bit better, isn't it?  Take over, you know, bail out the airlines, but take them over.  That's something that's what they do in most countries, right?
+
+Start time: 3594.78
+End time: 3598.56
+Speaker: SPEAKER_09
+Transcript:  I don't mean eat the rich is not out of the realm of possibility, right?
+
+Start time: 3600.42
+End time: 3602.32
+Speaker: SPEAKER_02
+Transcript:  Well, can you start at my thigh, please?
+
+Start time: 3602.84
+End time: 3605.64
+Speaker: SPEAKER_09
+Transcript:  Sure. We'll cut a little chunk off at a time.
+
+Start time: 3608.28
+End time: 3644.55
+Speaker: SPEAKER_02
+Transcript:  Detroit Auto Show canceled.  FEMA is actually taking over the Detroit  Hall to prepare a field hospital for covid.  Here was the weirdest story.  And Sam, I will submit our car guy told me about this.  Of course, most I think all the motor races, NASCAR, Formula One,  they've all been canceled.  Now they're doing them virtually as e-sports.  If you turn in Fox Sports One right now.  What? No, I know.  If you turn in Fox Sports One right now, you'll see a game, a video game.  That's the race. The actual drivers are driving the cars.  I know it's a fine.
+
+Start time: 3646.49
+End time: 3650.63
+Speaker: SPEAKER_09
+Transcript:  That's an onion headline. No.  Where, you know, everything's an onion headline in 2020.
+
+Start time: 3652.08
+End time: 3657.83
+Speaker: SPEAKER_07
+Transcript:  So it's yeah, tell me.  It's hard to tell.  I feel bad for the onion because I don't know if you could tell what's
+
+Start time: 3660.04
+End time: 3682.63
+Speaker: SPEAKER_02
+Transcript:  what's what's what's real and what's not.  Let me see if I can find this.  The there was a big NASCAR race.  Oh, shoot. I wish I'd saved this Sam.  Oh, shoot. I wish I'd saved this Sam.  Oh, yes.  Now it's horse racing and actually horse racing is continuing for real.  But there's nobody in the stands.
+
+Start time: 3683.68
+End time: 3731.82
+Speaker: SPEAKER_07
+Transcript:  I got a PR pitch today from someone  very excitedly telling me about their new Zoom based  live online poker games.  So they've built they've built on top of Zoom, I guess, another layer.  And they, you know, they swear, you know, it's all for fun.  You know, it's not it's not tied to an online casino of any kind.  But I know, you know,  it I you know, that one I'm all actually in favor of.  That's that's a really good, good.  I mean, words with friends and all these social games should, you know,  they that would be a good that would be a good thing to be doing right about now.  But having the Formula One drivers  doing, you know, a little weird PlayStation version.
+
+Start time: 3732.32
+End time: 3733.08
+Speaker: SPEAKER_10
+Transcript:  It's a little weird.
+
+Start time: 3733.26
+End time: 3757.42
+Speaker: SPEAKER_02
+Transcript:  I think it's a little it's the company that does the simulation is called I racing  at I racing dot com.  And they're the same cars.  They're the same drivers, but they're virtual.  They have mechanical breakdowns and and all kinds of things.  This is how they're this is how they're doing auto races now, which is odd.
+
+Start time: 3758.10
+End time: 3762.44
+Speaker: SPEAKER_09
+Transcript:  To say aren't they aren't they doing e-sports MMA next?
+
+Start time: 3763.18
+End time: 3764.78
+Speaker: SPEAKER_02
+Transcript:  That's I think a good idea.
+
+Start time: 3765.24
+End time: 3767.22
+Speaker: SPEAKER_07
+Transcript:  I think I think I heard that, too.
+
+Start time: 3767.42
+End time: 3770.41
+Speaker: SPEAKER_09
+Transcript:  Are they really? They're really doing.  Oh, God, I was making that up.
+
+Start time: 3771.26
+End time: 3778.17
+Speaker: SPEAKER_02
+Transcript:  Again, we live in the onion world.  I am done. Yeah.  Welcome to the onion.  Is it real? I don't know.
+
+Start time: 3779.78
+End time: 3789.69
+Speaker: SPEAKER_06
+Transcript:  I don't know what the Konami code would be for one of the.  I think like a real drive.  It's wild.
+
+Start time: 3790.16
+End time: 3798.28
+Speaker: SPEAKER_02
+Transcript:  We live in very interesting times.  Vidcom canceled, of course.  I mean, all the conferences are going to be canceled.
+
+Start time: 3799.20
+End time: 3807.29
+Speaker: SPEAKER_09
+Transcript:  Speaking of conferences, can we back up?  Why did the Detroit Auto Show just make this announcement that they were canceling?  What did they think was going to happen?
+
+Start time: 3808.78
+End time: 3816.84
+Speaker: SPEAKER_02
+Transcript:  Yeah, you have to wonder.  I mean, I think there were a lot of people still living in hope, right?  Like, oh, it'll it'll be better next week.
+
+Start time: 3818.04
+End time: 3844.06
+Speaker: SPEAKER_07
+Transcript:  It's the Elizabeth Kubler-Ross sequence.  Denial. But for but for conferences.  Yeah, it's it's it's denial, anger, bargaining.  You know, you get you ultimately get to accept it into the acceptance.  Yeah, I think I've left out  there's a spreadsheet in the middle somewhere  where you're looking at the money that you have to be refunding to your attendees.  Is it going to get worse?
+
+Start time: 3844.34
+End time: 3849.17
+Speaker: SPEAKER_02
+Transcript:  Is it going to get worse before it gets better or is or is the light?  Can we see the light at the end of the tunnel?
+
+Start time: 3850.26
+End time: 3851.03
+Speaker: SPEAKER_07
+Transcript:  It's going to get worse.
+
+Start time: 3851.60
+End time: 3963.02
+Speaker: SPEAKER_09
+Transcript:  It's going to get a lot worse.  One of the things I didn't mention about about  Jai Gos Rui and Konsek West was that he actually discovered the hard way that,  you know, because he had to,  that the Zoom conferencing for the cybersecurity training sessions  that he runs before the conference, sort of like these pre-conference,  you know, cyber dojo things.  He said was he was actually very pleased with the turnout. And  in fact, one class had the devices that the students were hacking  had already been shipped to Vancouver from Israel.  The instructor couldn't leave Israel to come to to Vancouver.  So he was stuck there.  And then the students were moated into these devices from all over the world.  And, you know, and Jai Gos told me that he was very pleased with the turnout.  The class had a dozen students in it.  And he realized that there might be an opportunity for him  to continue to run cybersecurity education throughout the year.  The benefit being that people who are very eager to learn these skills  but can't afford to travel to where the classes are physically can,  you know, can remote in and can do things.  You know, it doesn't quite have a one to one.  It's not quite a one to one system.  You don't have the teacher looking over your shoulder,  you know, to help you out when you make a mistake.  But he said that he thinks that he's far more optimistic about  his ability and the ability of other small conference organizers  to do what they need to do in order to survive digitally.  The big ones I have no idea about.  I don't know how you replicate the insanity of walking down,  you know, the Las Vegas Convention Center or whatever.
+
+Start time: 3964.18
+End time: 3982.50
+Speaker: SPEAKER_02
+Transcript:  Tell us about Pwn to Own.  So the the teams which and this is a wonderful yearly event.  A hackers hackers save exploits all year long,  hoping to win big bucks.  Used to be they'd get the machine they hacked.  I don't know if they still do that.  That's still the case. They get the machine.
+
+Start time: 3982.60
+End time: 3990.64
+Speaker: SPEAKER_09
+Transcript:  Yeah. Last year at Pwn to Own, two hackers, one a Tesla,  because they hacked it through the infotainment system.
+
+Start time: 3990.68
+End time: 3999.85
+Speaker: SPEAKER_02
+Transcript:  So hence the name Pwn it and Own it.  But this year, of course, they didn't do it in person.  So what they they email the exploits.  How did they do that?
+
+Start time: 4001.12
+End time: 4024.24
+Speaker: SPEAKER_09
+Transcript:  I think I think what they did was so a little a little bit more background  on Pwn to Own.  It's quite challenging because as the hackers are developing the exploits  and creating the exploit chains that are needed,  you now need a lot more than just one exploit to to.  A lot of these exploits were like six different exploits,
+
+Start time: 4024.94
+End time: 4035.08
+Speaker: SPEAKER_02
+Transcript:  one after the other to get deeper and deeper into the system.  Ultimately, you win by what?  Pwning the system by. Right.  What? How is that defined?
+
+Start time: 4035.26
+End time: 4094.70
+Speaker: SPEAKER_09
+Transcript:  By getting Shell or getting root on the device.  And, you know, usually what happens is it's sort of this ongoing  race between the hackers and the device makers to patch their systems.  And in fact, you know, there's been multiple cases where,  you know, an organization that, you know, makes, say,  you know, Google Chrome or another device  will send out a patch the day before Pwn to Own.  And it's not unheard of.  It's actually quite common for those patches to kill an exploit in that chain.  And so there's sort of this race between the hackers and the companies to  to see who can get get it first.  But it's this year, I believe that they emailed them into  the organization, ZDI, which which runs Pwn to Own.
+
+Start time: 4096.32
+End time: 4097.04
+Speaker: UNKNOWN
+Transcript:  Yeah.
+
+Start time: 4098.95
+End time: 4104.76
+Speaker: SPEAKER_02
+Transcript:  So the team, Floro, Elacite, Acite, which is one,  I think three or four years in a row now.
+
+Start time: 4105.46
+End time: 4114.30
+Speaker: SPEAKER_09
+Transcript:  Yeah, they're the ones that they're the ones who who hacked the the Tesla last year.  Yeah. Two guys. Yeah.  I asked them how they how they split custody on the Tesla.
+
+Start time: 4114.54
+End time: 4116.32
+Speaker: SPEAKER_02
+Transcript:  Yeah, they probably sold it.
+
+Start time: 4117.00
+End time: 4127.16
+Speaker: SPEAKER_09
+Transcript:  Well, I think they one lives in North America and one doesn't.  And so or at least didn't used to.  So I think it was whenever he flew over, he got to drive it.
+
+Start time: 4129.92
+End time: 4160.91
+Speaker: SPEAKER_02
+Transcript:  I hope he sanitizes before he before he goes for a ride.  So everything I don't think anything survived.  Right. Did anything survive?  I don't think everything was hacked.  Safari. Yeah.  There were women. No, I think there was was it VMware that survived?  One one of the the virtual machines survived.  Of course, a virtual machine takedown is awesome.  If you can escape the virtual machine now, you're now you're really golden.  Right. Right. Right.
+
+Start time: 4162.20
+End time: 4176.84
+Speaker: SPEAKER_09
+Transcript:  You know, in retrospect, maybe one of the opponent owns coming up,  maybe we'll start seeing a lot more remote video conferencing hacks  using that to get into systems and not just zoom bombing.
+
+Start time: 4177.80
+End time: 4203.47
+Speaker: SPEAKER_02
+Transcript:  So a mod comma.  Yes, zoom bombing.  We'll talk about that in a second.  Richard, you are a floral acetate.  They came in first with nine points.  Jew actually has his own four points because he did his own hack later.  It was pretty exciting, I think.  You know, we used to do a play by play.  I think maybe we need to bring that back.  The Pondone play by play.
+
+Start time: 4204.08
+End time: 4209.40
+Speaker: SPEAKER_09
+Transcript:  Well, there's that there's that British sportsman, right?  He's been doing the play by play on his dog's eating.
+
+Start time: 4209.58
+End time: 4251.76
+Speaker: SPEAKER_02
+Transcript:  So, yeah, that's a great Twitter feed.  Let me see if I can find it.  He does play by play for.  Even like just people waiting in a bus stop.  Right. Let me see if I can I can find some of these and play them,  play them back for you here.  I'm running on the board.  Here's his here's the one he did.  This is his name is Andrew Cotter.  He's on Twitter at Andrew at I think it's at Andrew Cotter on Twitter.  Mr. Andrew Cotter on Twitter.  And he some of them are very.  Let's see if I can play one here for you.  No, that's not it.  That's got music. That's not it.
+
+Start time: 4256.46
+End time: 4349.63
+Speaker: SPEAKER_01
+Transcript:  And her familiar black five times the champion.  So he's at what a rugby cup?  I think that it should come down to these two all of in her familiar  black five times the champion, Mabel, the rising star.  But also feel the tension.  And here it's in the crowd as we near the start with it.  And now they go all the way first.  But a problem with Mabel's ball that Mike Coster now having to play catch up  both settling quickly into rhythm.  You can see this is a guy's style really bored.  Although he tell you happy to be alive.  Everything's amazing.  All of more steady wasting little energy.  Very much of the old Labrador school eating is a serious business.  Don't bollocks around wagging your tail.  And Mabel seems just a little sluggish.  She has two dogs taken out of her by the warm medicine  she was given last night when we thought eating that all focused relentless,  tasting absolutely nothing.  Mabel trying, but surely a lost cause.  Her title defense coming to an end.  All of taking everything.  Nothing left but the ball to lick now.  And Mabel doesn't seem to upset a bit of.  Class there from the youngster,  generous in what will surely be defeat because all of has won now.  She's taken the title back at seven and a half.  Mabel looking to offer congratulations again to the dog,  who was her inspiration growing up.  Once more wonderful to see that spirit in the game.  The final we've had here, great rivals, but great friends.  Oh, you see the swapping of bulls at the end.  Join us again tomorrow.  Life coverage of a snooze on the sofa.  Oh, you're all wonderful.
+
+Start time: 4352.80
+End time: 4615.19
+Speaker: SPEAKER_02
+Transcript:  He's he's found his Metier, I think.  Forget the soccer.  Our show today brought to you by Cashfly.  I mean, when I say brought to you by Cashfly, I mean, quite literally  brought to you by Cashfly when you download our shows, it comes from our  content delivery network at Cashfly.  And I have to say, for 10 years, we've been doing that.  We deliver petabytes of audio and video every single month  to our audience.  And not once have we had a problem, not once.  And the nice thing is the Cashfly bill is smoothed out.  They look at all your peaks and spikes in our data delivery is quite spiky  and they smooth it out over a year long thing.  So you don't ever get surprised.  You don't spend time logging in.  Have I exceeded my bandwidth cap this month?  I don't have to ever worry about that.  Now, Cashfly has brought is introducing a new technology that I love.  It's 100% cash shield.  That's what they call with this with this new feature.  You'll benefit from a drastic reduction in data transfer fees  with AWS's S3 and other cloud storage origins  by increasing your cash hit ratio to 100%.  You pay for storage at Cashfly.  It supplies the cash to all the various Cashfly servers.  So if you ever get a, you know, out of date cash,  you don't have to worry about suddenly a lot of data transferred out of S3.  Customers are looking for high quality content, big files, 4K  delivered anytime on any device, anywhere in the world.  Whether it's your web page loading, your video buffering, your games downloading,  you need to be faster.  And as a podcast network, man, there's nothing better than Cashfly.  And you just can't do that when your cash items are being evicted  for large one off requests that cost you a fortune in data transfer out fees.  That's what 100% cash shield was invented for.  With 100% cash shield and Cashfly's guaranteed availability,  there's a simple way to avoid it.  It's a next generation content delivery solution for today and tomorrow.  A dedicated storage space just for you.  You keep your content and your data closer to your customers  without the traffic of other companies.  You buy as much space as you need.  Your data will always be fetched from 100% cash shield, not your origin.  Shielding reduces origin spend by thousands a month because  and there are never any cash misses.  100% cash shield. Get it?  It'll also improve your download speeds.  No buffering.  When you download our podcast, I don't know if you've noticed this,  whether it's in your podcast client or from our website.  Boom, it comes in fast. No waiting.  That's beautiful.  You can easily and reliably scale video streaming for a global audience  of any size nowadays. That's important, too, right?  We're doing a lot more of that.  Get hyper fast download speeds, low latency and a scalable solution for gaming.  Your podcast, your digital downloads or your big conferences.  Cashfly, their global throughput performance dominance  ensures that any cash misses are delivered five times faster  than from your origins.  People won't even know there was a cash miss.  Didn't know. Just for you right now, Cashfly is giving away a complimentary.  No pressure, no sales pitch analysis of your current CDN bill and usage trends.  You send them your bill, they'll tell you, hey, you're overpaying  in many cases as much as 20% or more for your CDN.  Get the best. Use what we use.  Twit.cashfly.com.  We thank them so much for their support.  Twit.cashfly.com.  When you when you download our shows, you're literally  using Cashfly every single time.  Twit.cashfly.com.  Hackers are, of course, jumping on the opportunity  to take advantage of any disaster.  According to the FBI, hackers are sending, get this, this is really low,  malicious teddy bears via the postal service,  along with USB drives.  The FBI warns organizations and security professionals  that cyber criminal groups have been targeting various businesses  with malicious USB devices acting as a keyboard when plugged into a computer,  injecting commands, downloading and executing a JavaScript backdoor.  Here's one pretending to be a Best Buy refund.  Oh, Lord.
+
+Start time: 4616.58
+End time: 4624.03
+Speaker: SPEAKER_09
+Transcript:  2007 wants its security headlines back.  Yeah, this is this is really sort of old.  They call these candy drops the the leaving behind the USB key.
+
+Start time: 4625.92
+End time: 4657.36
+Speaker: SPEAKER_02
+Transcript:  The sad thing is these USB like bad USB was never fixed.  So you could still hack these things very easily and put them,  you know, send them out via email.  Hackers never, never rests, do they?  Let's see.  Snopes has had to scale back its fact checking  because there's so much COVID-19 misinformation.  They can't keep up.  They can't keep up.
+
+Start time: 4657.36
+End time: 4662.63
+Speaker: SPEAKER_10
+Transcript:  Exhausting our staff in this crisis is not the cure for what is ailing  our industry, says Snopes.
+
+Start time: 4664.54
+End time: 4676.22
+Speaker: SPEAKER_02
+Transcript:  We're overwhelming our our small team is being overwhelmed  and we can't ask them to ramp up productivity.  Well, and you're also starting to see now some reports.
+
+Start time: 4677.42
+End time: 4701.96
+Speaker: SPEAKER_07
+Transcript:  I haven't seen them confirmed by multiple sources yet, but I'm sure  some reports that the Chinese are using the same types of networks  that the Russians used for disinformation.  And, you know, so so coronavirus disinformation  schemes coming coming from China now.  Yeah. And Russia and China and Russia.
+
+Start time: 4702.02
+End time: 4732.90
+Speaker: SPEAKER_09
+Transcript:  Yeah. Yeah. It's it's pretty it's pretty gross.  There is that there is a lot of misinformation  story from from Reuters.  Joe Mann wrote up on the cyber.  Oh, God, what are they called?  The CTI League, the Cyber Threat Intelligence League,  which is fighting  COVID-19 misinformation, disinformation.  They like the Justice League.
+
+Start time: 4733.08
+End time: 4734.15
+Speaker: SPEAKER_02
+Transcript:  Is that who these guys are?
+
+Start time: 4734.92
+End time: 4780.10
+Speaker: SPEAKER_09
+Transcript:  Yeah. I mean, it's a it's a large group of of professional hackers,  cybersecurity experts.  Mark Rogers, who is a VP at Okta,  and he's a he's well known in the cybersecurity and info  set communities, is one of the four people who's organizing this.  But they said that they're seeing phishing attacks in every language  known to man.  I don't know how you send a phishing attack in cuneiform, but  I presume every all the other ones are being represented.  And people are so freaked out by a coronavirus and COVID-19 that  that they're clicking on things that they really ought not to be clicking on.
+
+Start time: 4782.78
+End time: 4786.53
+Speaker: SPEAKER_10
+Transcript:  So this is this is the story there.  They're the CTI League, this 400
+
+Start time: 4788.84
+End time: 4800.80
+Speaker: SPEAKER_02
+Transcript:  security experts of 40 countries.  And what are they what are they doing?  Are they is it an informational thing?  Are they are they like the Justice League donning tights in a cape  and running over and fixing your computer?
+
+Start time: 4800.86
+End time: 4810.88
+Speaker: SPEAKER_09
+Transcript:  What are they? What are they doing?  Oh, help.  I don't know that I want to see people in tights any more than I have to.
+
+Start time: 4812.60
+End time: 4819.18
+Speaker: SPEAKER_07
+Transcript:  Especially from the security community, because, you know, God love them.  They are the fittest bunch.
+
+Start time: 4819.72
+End time: 4821.44
+Speaker: SPEAKER_02
+Transcript:  Yes. Oh,
+
+Start time: 4823.66
+End time: 4887.28
+Speaker: SPEAKER_09
+Transcript:  I think what's happening is, is that they're they're sharing information on  the phishing attacks that they're seeing in ways that they haven't shared before.  And it's it's, you know, these messages are being used to get people  to cough up passwords, other sensitive information,  which almost always comes back to finances. Right.  And if you can, if you can own some company's corporate network  because they get inside the end. Yeah.  You know, why not?  So, you know, Rogers didn't give Joe Men a lot of specifics,  but he did say that they had already dismantled one campaign  that used a software vulnerability to spread malicious software.  I mean, it's not really clear how much they're stopping.  Certainly, I can say that I've personally seen an uptick in coronavirus spam  and not just pitches from, you know, desperate marketers.  You know, standard standard rules apply.  Don't click on stuff.  If you get text messages, make sure you know who it's from.
+
+Start time: 4887.92
+End time: 4929.87
+Speaker: SPEAKER_02
+Transcript:  Well, I think people working from home, you don't have the IT  department down the hall.  You might feel a little bit more comfy because you're wearing your bunny slippers  and you might just your guard might be down a little bit.  And of course, the thing I most worry about is when those people  working from home come back to work and put that computer on the network.  I guess if they're VPNing, they might as well be on the network.  And that's that's just going to just going to be bad.  I want to take a little break.  There is more opportunism coming this time from China and Huawei,  who are proposing a redesign for the Internet.  They call it new IP.  We'll talk about that in just a second.  Lexi Savitis is here. Hi, Lexi.  Hi. Good to have you.
+
+Start time: 4930.54
+End time: 4934.01
+Speaker: SPEAKER_10
+Transcript:  What do you what are you still doing videos of?  Is there stuff to talk about?
+
+Start time: 4935.08
+End time: 4947.32
+Speaker: SPEAKER_06
+Transcript:  Yeah, I mean, there's always stuff to talk about.  I mean, so I'm kind of interested in using existing things that I have  and making the most of it because, you know, getting new product is challenging.
+
+Start time: 4947.46
+End time: 4951.74
+Speaker: SPEAKER_02
+Transcript:  Yeah. And we're all doing like work from home videos and stuff like that. Right.
+
+Start time: 4952.60
+End time: 4960.18
+Speaker: SPEAKER_06
+Transcript:  Exactly. So it's about I'm trying to focus on things that you can do  with existing tech that you already have, maybe even repurposing really old stuff.
+
+Start time: 4960.48
+End time: 4975.78
+Speaker: SPEAKER_02
+Transcript:  And I want I'm starting to do cooking videos.  I don't know. Is it me?  Because I must have at some point searched for sourdough,  because it seems like everybody in the world is now cooking sourdough bread  as they're stuck at home. Yeah.
+
+Start time: 4976.28
+End time: 4981.23
+Speaker: SPEAKER_07
+Transcript:  It's not just me.  We got two big jars of sourdough starter out there.  And everybody's doing it.
+
+Start time: 4982.32
+End time: 5023.92
+Speaker: SPEAKER_02
+Transcript:  So I want to make a video because all this time.  OK, this is really off topic.  All this time, you know, when you when you make sourdough starter,  you feed it every day, sometimes twice a day,  if you really want an active starter, which means it grows.  It's bigger. So all this time, I've been throwing out the excess start.  I've been doing it for years.  It's pouring it in the garbage.  Then I saw a video says, no, throw it out.  Cook a delicious sourdough pancake.  So I take out the pan.  I put a little butter in it.  Pour the excess sourdough in the pan.  It makes a big nice put a little scallions on it.  Or I have some Trader Joe's everything bagel spice.  Put that on there. A little savory pancake. It's delicious.  I have it for lunch every day.  I have a little sourdough pancake. Just a little tip.
+
+Start time: 5026.60
+End time: 5033.70
+Speaker: SPEAKER_06
+Transcript:  I'm trying to do it.  I'm trying to do a new recipe every day.  So every day on Instagram, I'm just doing a couple of stories  every day about a new recipe.
+
+Start time: 5034.10
+End time: 5037.94
+Speaker: SPEAKER_02
+Transcript:  So I got to get back on Instagram.  Follow you. What's your Instagram handle?
+
+Start time: 5038.44
+End time: 5040.82
+Speaker: SPEAKER_06
+Transcript:  It's just my same as my Twitter handle at Lexi.
+
+Start time: 5041.66
+End time: 5049.24
+Speaker: SPEAKER_02
+Transcript:  L-E-X-Y-S-A-V-V-I-D-E-S.  That's correct.  And a recipe or two every day on Instagram.
+
+Start time: 5049.86
+End time: 5070.82
+Speaker: SPEAKER_06
+Transcript:  Yesterday was focaccia and pizza.  And tonight, I don't know what it's going to be.  This is kind of I'm calling it quarantine kitchen  because it's like the dwindling whatever I got fridge and pantry.  And so the recipes are quite elaborate at the start of quarantine two weeks ago.  And now we're getting more and more basic with whatever I have left.
+
+Start time: 5071.02
+End time: 5075.38
+Speaker: SPEAKER_02
+Transcript:  So chickpea stew.  That's what I'm down to. Chickpea stew.
+
+Start time: 5076.62
+End time: 5077.18
+Speaker: SPEAKER_06
+Transcript:  Nice, nice.
+
+Start time: 5077.38
+End time: 5092.15
+Speaker: SPEAKER_02
+Transcript:  What I've what I've actually taken to do is I'm sorting now all the beans  and rice and dry, dry stuff, legumes by expiration date so that I can do the.  I have some for back to 2017, but I think that they don't go bad.  They're just dry.
+
+Start time: 5092.84
+End time: 5099.30
+Speaker: SPEAKER_07
+Transcript:  White rice will keep basically indefinitely brown rice.  Brown rice, not so much.  Really?  On rice. You have to be careful.
+
+Start time: 5099.40
+End time: 5104.43
+Speaker: SPEAKER_02
+Transcript:  Yeah, I love it. I'm doing a lot of the brown rice.  All right. Well, I'll use the brown rice first.  Thank you for that tip, Ed.
+
+Start time: 5105.76
+End time: 5108.28
+Speaker: SPEAKER_07
+Transcript:  You know, we live to serve the quarantine.
+
+Start time: 5108.70
+End time: 5125.84
+Speaker: SPEAKER_09
+Transcript:  Yeah, I'm a little shocked.  I've never had any rice stick around long enough in the house.  So I go I go through.  I don't want to even tell you.  A lot of rice.  This is one of the nice.  I mean, I do I do tons of cooking, so I don't I don't keep stuff.  You know what? After the break, we're going to come back.
+
+Start time: 5125.90
+End time: 5128.97
+Speaker: SPEAKER_02
+Transcript:  We're going to do the recipe of the week.  Forget all this tech news. I'm so bored.
+
+Start time: 5130.14
+End time: 5136.42
+Speaker: SPEAKER_09
+Transcript:  I could talk about we could talk about kitchen tech.  I'm still trying to figure out what a mango peeler is supposed to do.
+
+Start time: 5138.10
+End time: 5168.32
+Speaker: SPEAKER_02
+Transcript:  I I am a sucker for kitchen tech.  And my wife says I can't buy any more because I filled the counter  and there's no more room, you know, on the counter.  And she's moving old stuff out.  But I got this thing that was all the rage a few years ago in Europe  called the Thermomix.  It is crazy.  It is a crazy device.  It does everything.  And I've been playing with that.  So I'm going to get good at the at thermo mixology.  Maybe I'll do some thermo mix videos.
+
+Start time: 5168.60
+End time: 5171.06
+Speaker: SPEAKER_09
+Transcript:  I'm I'm big into the Vitamix Vitamix.
+
+Start time: 5171.52
+End time: 5176.34
+Speaker: SPEAKER_02
+Transcript:  So thermo mix is the next thing after the Vitamix.  Yeah, yeah. It's like a.
+
+Start time: 5176.56
+End time: 5192.75
+Speaker: SPEAKER_09
+Transcript:  I mean, I I got to say that the most the single most important thing  I have in the kitchen, aside from, you know, cast iron pans,  is my ten dollar rice cooker that I got off of Craigslist in 2007.  That's good. And it's it's a ten cup.  And I just.
+
+Start time: 5193.98
+End time: 5194.96
+Speaker: SPEAKER_10
+Transcript:  That's another project.
+
+Start time: 5195.06
+End time: 5215.26
+Speaker: SPEAKER_02
+Transcript:  That's all you need. I put all my cast iron pans in the oven, did a cleaning cycle.  They're all down to the bare metal now.  I got to get I got the flak soil.  That's going to take me a few weeks.  I got to I got to I got to redo all my cast iron pans.  Oh, it's so sad.  I showed it.  Thank you, Lexi, for being here.  You're supposed to use them.
+
+Start time: 5215.50
+End time: 5218.50
+Speaker: SPEAKER_10
+Transcript:  Yeah, no, I know.  But every once in a while, I like to burn them down.
+
+Start time: 5219.28
+End time: 5253.78
+Speaker: SPEAKER_02
+Transcript:  You know, if you if you put them in the oven and do the cleaning cycle,  it gets everything off.  You start over and then you can build up using flak soil.  You can build up some really nice  reconditioning.  So I like to every once in a while, I do that.  Just I don't know. I got nothing else to do.  It's ambitious. It's overambitious.  But I got, like I said, nothing else to do.  Also, Ed Bott is here from the Ed Bott Report.  And it's wonderful to have you.  And of course, Seth Rosenblatt from the dash parallax dot org.  That's the security you say you started what a year ago, two years ago.
+
+Start time: 5255.02
+End time: 5266.39
+Speaker: SPEAKER_09
+Transcript:  Five years ago. That long.  Four and a half. Oh, wow.  Nice job. Yeah.  Yeah. Yeah.  I'd like to make money at it, but, you know, I don't have to eat.  I have rice.
+
+Start time: 5269.14
+End time: 5270.63
+Speaker: SPEAKER_02
+Transcript:  Well, at least you're not down to ramen.
+
+Start time: 5272.34
+End time: 5275.82
+Speaker: SPEAKER_09
+Transcript:  Oh, yeah, we can have conversations about ramen.
+
+Start time: 5276.68
+End time: 5286.46
+Speaker: SPEAKER_02
+Transcript:  It's the website is the let me pull it up because I have it on the  I have it on the lower third, the dash parallax dot com.  I'm sorry. I said the org dot com.
+
+Start time: 5286.58
+End time: 5288.16
+Speaker: SPEAKER_09
+Transcript:  I also have dot org. It'll take them to this.
+
+Start time: 5288.20
+End time: 5305.74
+Speaker: SPEAKER_02
+Transcript:  That's what I thought. OK, good. Yeah.  Thank you, Seth.  We we mean the editors are all home, all working hard,  but they made a little a little promo for all of you.  If you missed anything this week, this is what you might have missed  this week on Twitter previously on Twitter.
+
+Start time: 5306.92
+End time: 5307.88
+Speaker: SPEAKER_05
+Transcript:  Mac break weekly.
+
+Start time: 5308.14
+End time: 5315.80
+Speaker: SPEAKER_02
+Transcript:  We've speculated, gee, will Apple release new hardware?  Their stores are closed.  Well, they announced a new MacBook Air and a new iPad troll.
+
+Start time: 5316.00
+End time: 5320.32
+Speaker: SPEAKER_10
+Transcript:  And was that the MacBook Air you got there?  Is that all gold? Oh.
+
+Start time: 5321.68
+End time: 5332.24
+Speaker: SPEAKER_05
+Transcript:  Hands on tech.  We're working from home, many of us.  And so I have some stuff here and some recommendations for you  so that you can have the best work from home experience that you can.
+
+Start time: 5333.26
+End time: 5348.32
+Speaker: SPEAKER_03
+Transcript:  Tech News Weekly.  Zoom quickly in a very short amount of time has become the go to tool  for people suddenly finding themselves, you know, working from home,  kind of like we're doing right here.  But there may be some reason to be at least hesitant or concerned.
+
+Start time: 5348.44
+End time: 5372.36
+Speaker: SPEAKER_00
+Transcript:  Problem with Zoom as much of its structure centers on giving explicit  knowledge to the hosts and the attendees don't really get to know.  They learn later on the ability of administrators to dial into a call  whenever they want of that organization.  They have the autonomy to do that.  And so right now, this is a make or break moment for all of us  where we can put pressure on Zoom and say you need to be explicitly clear  about what's being extracted, what's being accessed.
+
+Start time: 5373.36
+End time: 5376.52
+Speaker: SPEAKER_10
+Transcript:  Hello, everybody. Welcome to Hands on Macintosh.  I'm Leo Laporte.
+
+Start time: 5376.86
+End time: 5399.64
+Speaker: SPEAKER_02
+Transcript:  Once again, we're going to show you how to get the most out of your Mac.  I got a Lulu of a program.  Literally, I have Lulu running in the background on all my Macs at all times,  letting me know when something outbound is trying to connect.  It's keeping the bad guys from going to the outside world,  sending your data out, connecting to a command and control server,  doing anything to it.
+
+Start time: 5399.98
+End time: 5414.80
+Speaker: SPEAKER_04
+Transcript:  Learn something new every day and what it means.  The New York Times had an article in the tech section saying that it was bad  etiquette for your kids and pets to show up on your conference call.  Oh, so your dog should be on your lap.
+
+Start time: 5416.95
+End time: 5418.44
+Speaker: SPEAKER_02
+Transcript:  Oh, that is a sweet puppy.
+
+Start time: 5418.94
+End time: 5420.57
+Speaker: SPEAKER_03
+Transcript:  Oh, I got dog hair in my lipstick. Gross.
+
+Start time: 5422.18
+End time: 5438.84
+Speaker: SPEAKER_02
+Transcript:  OK, that might be TMI.  Sorry, I'm like, what is happening?  I'm just kidding. I'm just kidding. Sorry.  We had fun, I have to say.  And if any of you have pets you want to bring in, please don't hesitate.  Any pets? Where's oh, oh, oh, what is that?
+
+Start time: 5440.32
+End time: 5444.88
+Speaker: SPEAKER_09
+Transcript:  That is Zero the dog.  Oh, she is a professional.
+
+Start time: 5445.10
+End time: 5446.32
+Speaker: SPEAKER_10
+Transcript:  She's a professional.
+
+Start time: 5446.60
+End time: 5455.12
+Speaker: SPEAKER_09
+Transcript:  I can't tell you what the full name for Zero is,  but the second two words, second and third word is F and G.  You can figure that out.
+
+Start time: 5457.36
+End time: 5462.88
+Speaker: SPEAKER_02
+Transcript:  See, I think that's good on your conference calls.  I like it.  Oh, no, she's great, but she doesn't care.
+
+Start time: 5463.08
+End time: 5469.80
+Speaker: SPEAKER_09
+Transcript:  She doesn't want to be on the conference call.  She wants to know when we're going out running.  Yeah.  We've got Lucy.  Five miles a day.
+
+Start time: 5470.28
+End time: 5489.74
+Speaker: SPEAKER_07
+Transcript:  Yeah, we've got Lucy, the Springer Spaniel, who I'm sure you've heard of.  I just saw the car pulling and she just got back from the dog park.  Oh, we might be.  We have a so she's going to go in and head straight for the food bowl.  And then, you know, and then at that point,  basically everything for the afternoon's list is checked off.
+
+Start time: 5491.90
+End time: 5492.47
+Speaker: SPEAKER_02
+Transcript:  Snap time.
+
+Start time: 5493.34
+End time: 5500.71
+Speaker: SPEAKER_10
+Transcript:  So, yeah, apparently, Lexi, you got anybody?  You got anybody to show us any furry critter there?  Just your plants.
+
+Start time: 5501.30
+End time: 5513.41
+Speaker: SPEAKER_06
+Transcript:  It's not that my plant babies upset.  I mean, I have a pillow.  That doesn't really count.  I mean, I wish I had a pet.  This is really the time in my life that I wish I petitioned the landlord to be like,  no, please, let me have a dog.
+
+Start time: 5514.78
+End time: 5533.98
+Speaker: SPEAKER_09
+Transcript:  I need a pet.  So, you know, a lot of the dogs and I'm sure even cat shelters in SF  need people to come by and interact with the animals.  Certainly the dogs need walking.  So if you are, if you don't mind going out and wearing a face mask,  dog volunteer dog walks, there's certainly something you can you can do.
+
+Start time: 5534.50
+End time: 5538.79
+Speaker: SPEAKER_02
+Transcript:  A lot of dogs getting walked five, six, seven times a day now.  They're going, please, please.
+
+Start time: 5541.40
+End time: 5543.58
+Speaker: SPEAKER_09
+Transcript:  I wish that was true, but that's not what I'm hearing.
+
+Start time: 5545.24
+End time: 5560.10
+Speaker: SPEAKER_02
+Transcript:  Actually, there is in New York City, apparently a shortage  at the pet adoption centers because everybody's rushed in and said,  give me a pet, give me a pet.  So I actually still cats.  There are still probably cats.  Nobody has the dogs.
+
+Start time: 5560.28
+End time: 5569.51
+Speaker: SPEAKER_07
+Transcript:  The dogs are gone.  Yeah. The cats are going like, yeah, you can come rescue me.  I'll go hide in your, you know, hide in the top shelf of your closet for a week.  You won't even know I'm there.
+
+Start time: 5571.16
+End time: 5597.21
+Speaker: SPEAKER_09
+Transcript:  So one of my friends, their cats, they don't care.  One of my friends has has harness trained his cat and  and you can you can see them on Instagram and they go out  and he puts him in little outfits and he's a he's a tuxedo cat named Lepew.  And it's it's quite remarkable.  So I keep expecting to see more harness trained cats in the near future,  but that hasn't happened yet.
+
+Start time: 5597.98
+End time: 5600.90
+Speaker: SPEAKER_02
+Transcript:  Training cats is an exercise in futility, if you ask me.
+
+Start time: 5601.90
+End time: 5632.80
+Speaker: SPEAKER_07
+Transcript:  So my co-author on we're working on a new edition of the  Windows 10 Inside Outbook.  Oh, good. And  he his his wife is a professional dog walker and she takes  he puts the cat on a leash and and walks the cat along with the dogs  out there in California, Southern California.  It's very modern.
+
+Start time: 5633.14
+End time: 5802.86
+Speaker: SPEAKER_02
+Transcript:  It's a little weird, according to the New York Post, consider the source.  South Africa is banning walking dogs.  Meanwhile, in Spain, they're cracking down on pet rentals.  Saying it's illegal to walk someone else's dog.  I don't know why they're trying to keep South Africans from walking their dogs.  That's that's one of the big things around here in Northern California.  If you go out on a walk or go to a park, all you see is dog lovers walking their dog.  I don't know how they could ban it in South Africa.  It's strange.  Every country is reacting to this somewhat differently.  If you are hiring and I hope you are, there are a lot of people looking for work right now.  And I want to mention our sponsor is ZipRecruiter, which is the absolute  best way, the easiest way to hire. If you've got job openings, man, you're golden.  But you want to get the right person because every single person you hire  can make or break your company. And that's why we use ZipRecruiter.  We've done a lot of our hiring through ZipRecruiter. We've been very happy with it.  According to their own research, nearly 75% of employers are having a hard time filling open positions.  68% raising their wages, 23% raising their benefits.  There are still jobs out there.  So if you're a job hunter, go to ZipRecruiter.com.  And if you are looking to fill a position, go to ZipRecruiter.com.  They post your job on 100 plus job boards.  They have many, many resumes already on file.  And one of the things they do, which is really cool, they use their matching technology to look at those resumes,  look at your job and then invite people who have the right qualifications to apply.  That's why four out of five employers who post on ZipRecruiter will get a quality candidate within the first day.  I bet that number is even higher now. We've always got it.  I've been amazed within a few hours of posting on ZipRecruiter.  I always love Lisa's face because she's always worried when we're down somebody.  Oh, this person's great. This person's great.  You can try ZipRecruiter free right now.  Go to ZipRecruiter.com slash twit.  That's ZipRecruiter.com slash TWIT.  It's the smartest way to hire.  And if you've got a job, you're somebody special right now.  Take advantage of it. Find the right person fast.  ZipRecruiter.com slash twit.  Thank you, ZipRecruiter, for supporting this week in tech.  Let's see.  GM is offering free unlimited internet access on its connected cars.  If you have those, what do they call it? The OnStar thing.  Is that on GM cars? You press that button.  Yeah, you get unlimited internet access. Who would have thunk it?  Maybe you could use it to take free courses from Yale University  on happiness and positivity.  Practice happiness.
+
+Start time: 5802.96
+End time: 5805.00
+Speaker: SPEAKER_09
+Transcript:  What does Yale know about that?
+
+Start time: 5805.48
+End time: 5851.44
+Speaker: SPEAKER_02
+Transcript:  I, you know, what I.  Good question. Professor Laurie Santos.  She created a course called the Science of Wellbeing.  It was actually very popular when it was launched,  probably because Yale students saw it as a gut. Easy, eh?  But maybe they really wanted to be happy.  They've now released it for free. You're not going for a grade.  So this is what Yale says.  The Professor Santos reveals misconceptions about happiness,  annoying features of the mind that lead us to think the way we do  and the research that can help us change.  You can also take courses in artificial intelligence.  This is a good time to take Harvard's  Introduction to Computer Science CS50 at Eds.org.  There's this is a good take a class.
+
+Start time: 5851.80
+End time: 5854.22
+Speaker: SPEAKER_10
+Transcript:  You got a little free time. Take a class.
+
+Start time: 5855.80
+End time: 5857.03
+Speaker: SPEAKER_07
+Transcript:  I don't have any free time.
+
+Start time: 5858.62
+End time: 5864.23
+Speaker: SPEAKER_10
+Transcript:  You're exactly the same as always, right?  You're doing nothing has changed for you.  It's exactly the same.
+
+Start time: 5864.88
+End time: 5866.63
+Speaker: SPEAKER_02
+Transcript:  You're right. Actually, I don't have any free time either.
+
+Start time: 5867.48
+End time: 5926.20
+Speaker: SPEAKER_07
+Transcript:  Yeah, no, it's the amount of stress.  You know, everyone's stressed right now.  If you don't have a job, you're stressed at the idea of finding one.  If you do have a job, you're stressed at the idea of keeping it  continuing to perform.  So, you know, it's it's like the stress levels are through the roof right now.  And, you know, it's just I'm you know, the thing that I'm doing,  I am trying to be kinder in.  I like it, you know, in special, you know, especially in social media  context, where it's easy to be flip and sarcastic and and and all.  And, you know, I'm trying to, you know, move the needle  the other direction a little bit and say thank you to people  and give people the benefit of the doubt over their motives.  I like that mute instead of block, you know, everything.
+
+Start time: 5926.54
+End time: 5936.76
+Speaker: SPEAKER_02
+Transcript:  Do you notice that Twitter is a nicer place?  At all a bit.  Yeah, a little bit.  Lexi, does it seem nicer?  Oops, that's not Lexi.  Lexi, does it seem nicer to you these days?
+
+Start time: 5937.98
+End time: 5979.85
+Speaker: SPEAKER_06
+Transcript:  I have actually been making a kind of a concerted effort  to only be on Twitter very for brief periods.  They just it's there's just so much information and just my entire feeds  are just covered 19.  And so there's parts of that I want to know about.  And then there's other parts that just becomes so overwhelming  that I I need to just turn it off and actually have the the mental space  to be like, OK, I need to concentrate on what I have to do.  Otherwise, I feel like I would fall into the great Twitter vortex,  which is probably OK in normal times.  But now I think I need that space.  So I don't think I can really judge whether or not it's a better place right now.  It's just a lot of information.
+
+Start time: 5980.58
+End time: 5981.79
+Speaker: SPEAKER_10
+Transcript:  Do you use Twitter, Seth?
+
+Start time: 5983.26
+End time: 5984.75
+Speaker: SPEAKER_09
+Transcript:  Yeah, yeah, at Seth R.
+
+Start time: 5985.68
+End time: 5987.18
+Speaker: SPEAKER_02
+Transcript:  That's a good one. I like it.
+
+Start time: 5987.78
+End time: 5998.04
+Speaker: SPEAKER_09
+Transcript:  Yeah, I had a worse one.  And then years ago, Twitter let me switch because the person who had it wasn't using it.  So I've been at Seth R. now for longer than not.
+
+Start time: 5998.96
+End time: 6005.34
+Speaker: SPEAKER_02
+Transcript:  Do you do you notice that as Ed Bott has that people are a little gentler  these days on Twitter to each other? I hope we are.
+
+Start time: 6006.02
+End time: 6010.98
+Speaker: SPEAKER_09
+Transcript:  Oh, have you seen Infosec Twitter?  Is it brutal?
+
+Start time: 6011.76
+End time: 6039.40
+Speaker: SPEAKER_07
+Transcript:  And just to be clear, I was talking about my own personal.  You are nice behavior.  I'm not saying I'm, you know,  like I said, mute, not block.  That's you know, it's I'm muting.  I'm muting a fair number of people and I'm responding to them with  comments that suggest that their remarks were in good faith.  If I think that they see that's a difference.
+
+Start time: 6039.56
+End time: 6044.82
+Speaker: SPEAKER_02
+Transcript:  Possibility. Yeah, because what usually happens on Twitter is you go,  what do you mean?  Oh, it escalates.
+
+Start time: 6044.96
+End time: 6050.74
+Speaker: SPEAKER_07
+Transcript:  You know, you go from you go from zero to 60 in, you know,  three point two milliseconds.
+
+Start time: 6050.82
+End time: 6053.62
+Speaker: SPEAKER_02
+Transcript:  Nobody, nobody assumes good faith on Twitter.
+
+Start time: 6054.40
+End time: 6084.56
+Speaker: SPEAKER_09
+Transcript:  I've always had a very difficult time focusing on  the seven bazillion important tasks I need to focus on and doing Twitter  or Facebook or Instagram.  I just I'm really bad at it.  So see, the problem that I have now is that you get more  up to date, more and more easily verifiable information from Twitter  than you will from news reports.  It's just, you know, it's the nature of of what the two different beasts are.
+
+Start time: 6084.72
+End time: 6086.64
+Speaker: SPEAKER_02
+Transcript:  Simultaneously better and worse.
+
+Start time: 6087.42
+End time: 6142.82
+Speaker: SPEAKER_09
+Transcript:  Yeah. Yeah. I mean, you have to pick your you have to pick your your,  you know, who you're following.  But like following, you know, like I'm doing a story on biohackers  who are helping out with the various coronavirus  efforts, and it's important for me to, you know, to also like figure out  who actually knows what they're talking about and who's just scrambling to,  you know, to 3D print something that may not even be useful.  There's there's a lot of challenges.  I follow a couple of epidemiologists.  I follow more politicians now than I really feel comfortable doing.  But, you know, you have to hear and see what people are saying,  because a lot of it needs to be debunked or even is accurate  at the time of posting and then is incorrect 24 hours later  or has changed 24 hours later.  So it's it's it's hard right now.
+
+Start time: 6144.30
+End time: 6246.56
+Speaker: SPEAKER_02
+Transcript:  I'm curious what you think about this.  China, according to the Financial Times, has unveiled a new  proposal for reinventing the Internet.  They've proposed this to the ITU, the International  Telecommunications Union.  It's being spearheaded by Huawei, Chinese company, and in fact, Futureway,  which is a Silicon Valley based think tank and a research arm of Huawei.  They they made this proposal together with China Unicom and China Telecom,  the country's Ministry of Industry and Information Technology.  The Financial Times got the PowerPoint presentation  for something China calls New IP.  I don't know if we need a new IP to replace TCP.  They said that the infrastructure is unstable, vastly insufficient,  and they suggested that the ITU should take the long term view  and shoulder the responsibility for a top down design of the future network.  One of the reasons they want to do this, there's a new feature in New IP  that the Chinese call shut up.  Which would be it's aptly named.  It would be useful on Twitter.  It allows it's a top down, by the way, governmental run Internet.  It would allow whoever's running the Internet in that country to take anybody  offline to restrict communications between two different IP addresses  or just to say, hey, you you're not on the Internet anymore.  And I have the feeling this is the main reason.  What could possibly go wrong?
+
+Start time: 6248.08
+End time: 6301.52
+Speaker: SPEAKER_07
+Transcript:  But I mean, so two different things, two different things here.  Number one, the statement of problem there is 100 percent accurate.  The Internet was never designed to be what it has become today.  DNS was never designed to be a directory.  And and so, you know, the Internet is just a god awful mess today.  But it's but a top down government  imposed solution that gives a central authority  the ability to arbitrarily cut off access  to a single node on the Internet with with with surgical precision.  They are the basically an online drone strike is not the answer.  Absolutely. You can see why.
+
+Start time: 6302.40
+End time: 6320.48
+Speaker: SPEAKER_02
+Transcript:  China would love this, though, right?  The ability to shut down dissent on the Internet.  And you could also see why other countries might kind of fall for it,  because for a variety of reasons.  Well, we could.  You know, this is why the Earn It Act is rushing through Congress  so that we can control child abuse online.
+
+Start time: 6321.74
+End time: 6359.19
+Speaker: SPEAKER_07
+Transcript:  I think one of the original, one of the most important statements  about the Internet as it exists today is the the aphorism that is absolutely true.  The Internet interprets censorship as damage and routes around it.  Right. That's the real problem.  And and that's yeah, that's the good part about the Internet.  But there's so many bad parts that go with it.  But honestly, the idea that somebody is going to,  you know, come in top down and invent a better Internet,  especially in China.  No. Yeah.  Yeah.
+
+Start time: 6359.36
+End time: 6449.44
+Speaker: SPEAKER_09
+Transcript:  No. One of the scary things I can I can totally foresee quite easily  is China creating this, you know, Internet, which for all we know  is the Internet that their Internet is based on,  or at least what they're trying to achieve with their implementation  of the Internet already.  And then mandates that if you want to do trade with China  or if you want Chinese dollars for whatever infrastructure project  you have going on, you're going to have to use this Internet as well.  I don't think that is terribly hard to imagine happening.  I do think, however, that we are underestimating the coronavirus impact  and we don't know what's going to come out.  And, you know, when when when we have gotten through this globally.  So it worries me that China is talking about this,  but it also worries me that, you know, we're seeing  government organizations trying to do an end run on Section 230  with the Internet Act.  So I'm I'm this is highly concerning, but also we don't  we don't know how things are going to be in China  when coronavirus returns there, if they will be as successful as before  in tamping down on it.  We don't know, as we mentioned, if they've been misleading about their  numbers, their infection rates.  So it sounds like a really bad idea.  And I could see China making it a thing, but
+
+Start time: 6450.82
+End time: 6453.34
+Speaker: SPEAKER_02
+Transcript:  one hopes the ITU will be smarter about this.
+
+Start time: 6453.56
+End time: 6479.50
+Speaker: SPEAKER_09
+Transcript:  You know, well, it depends.  I mean, if someone wants to buy what was the the top level domain that  that was it dot org that they just got sold.  Oh, yeah. Like a billion dollars or something.  Yeah. Yeah. That was that was obviously a bad idea.  So how did how that happened in the first place is, you know,  that doesn't give me any confidence in China proposing a government run Internet.
+
+Start time: 6481.38
+End time: 6553.20
+Speaker: SPEAKER_07
+Transcript:  Well, and that happened not to get too lost in the weeds there,  but that happened because of financial pressures at ICANN. Right. Right.  I mean, right. That's right. That's.  And if they, you know, I mean, it's sort of  ICANN is the the is to the Internet as the postal services to the  United States to, you know, and and they're both.  In theory, not pure capitalist  institutions, but in practice, they have to act like them  because otherwise they go bankrupt and can't do their jobs  and pay their people and and deliver the bits or the envelopes  and magazines, depending on which side you're talking about.  And and, you know, so it's it's back to what you said, Seth, at the beginning.  You know, is it you know, once you get into a capitalist system here,  especially in a time of stress like this, a lot of  a lot of flaws in the underlying infrastructure become really obvious.  There is at the Sands Internet Storm Center, a COVID-19
+
+Start time: 6553.68
+End time: 6652.99
+Speaker: SPEAKER_02
+Transcript:  domain classifier,  partly because there's so many malicious sites.  What they're asking people to do is to log in to a site.  There's a whole database of sites you can help them out with  and determine whether it's a malicious site, whether it's  a site full of misinformation and then report back.  So if you want to help the the Sands folks  in Sands Internet Storm Center, you can you go to ISC.sands.edu  and help them with their COVID-19 domain classifier.  That's really interesting.  I guess so many domains have been registered.  They're trying to figure out which are for scams, which are for illegal.  They're trying to enlist volunteers.  Now, they say as part of this task, you'll need to visit possibly malicious websites.  Currently, I don't know who I is, whoever's writing this says,  I haven't seen any outright malicious content malware,  but there are a few thousand domains on the list.  It's likely that a couple of them will carry malware.  So take precaution.  Use a separate system, a virtual machine or a mobile device that can be reset  and has no personal information may work well.  So use a safe computer, classify it and go to the next one.  This is kind of an interesting community effort to weed out misinformation  and actively malicious sites being put together by the Sands Institute.  If anything comes out of all of this, I hope it's a safe site.  I mean, that's what the promise of all this technology is about
+
+Start time: 6654.02
+End time: 6708.24
+Speaker: SPEAKER_09
+Transcript:  and why so many people are into it.  Right.  But using it to, you know, for the kinds of, you know,  to make sure that it's not just a  But using it to, you know, for the kinds of self-aggrandizing  and ego-stroking that's been happening and tearing people down,  I think really doesn't serve any purpose.  And, you know, if people, if just security researchers alone  can come together more than they have and get better at sharing  the information they have on threats,  that alone, I think, would be enormous in
+
+Start time: 6709.24
+End time: 6714.44
+Speaker: SPEAKER_02
+Transcript:  Is that a group of people who are rivals and fight together?
+
+Start time: 6715.44
+End time: 6716.14
+Speaker: SPEAKER_10
+Transcript:  Well, I don't know.
+
+Start time: 6716.38
+End time: 6718.05
+Speaker: SPEAKER_02
+Transcript:  You would hope they'd be more cooperative.
+
+Start time: 6718.82
+End time: 6764.23
+Speaker: SPEAKER_09
+Transcript:  I don't know. I mean, I think there are a lot who are cooperative.  Yeah.  I certainly, you know, in the coronavirus era,  we've seen people come together, sharing across international borders,  you know, 3D models for different kind of mask holders  that you can, where you can insert a reusable cloth,  but the mask frame stays the same.  We've seen ventilator widgets being 3D printed  and those are getting shared.  But this sense of infighting has, at times,  prevented different researchers from being able to share information,  whether or not they wanted to.
+
+Start time: 6765.52
+End time: 6856.36
+Speaker: SPEAKER_02
+Transcript:  This is an opportunity. I agree with you.  An opportunity to get together.  And we need to all work together to get out of this hole.  No time to be fighting, fussing and feuding.  I want to take a break and then I will talk about a couple of fights  going on in the open source area, ARENA.  Our sponsor for this segment of this week in tech  is a life insurance agency that specializes in getting insurance  for people who are healthy.  You might say, well, yeah, but you can really save a lot of money  if you are doing everything right for your health.  If you exercise regularly, if you get a minimum of eight hours of sleep,  I know that's hard these days, maybe you're eating right.  Basically, you're insuring a longer life.  That means you should get a better deal on life insurance.  But a lot of life insurance companies, you're just a number to them.  And so they don't know that you're a healthy person.  That's where Health IQ comes in.  A life insurance agency that uses science and data  to get lower life insurance rates for healthy people like you.  You can get a million dollars, as an example,  a million dollars policy from 36 bucks a month.  See, what's happened all along is the people who are healthy  subsidize unhealthy people.  It's not a conspiracy.  It's statistics.  It's actuarial science.  That's how life insurance works.  You might be healthy, but your life insurance company doesn't know.  But if you are, if you're a runner, a cyclist, you're into CrossFit,
+
+Start time: 6856.72
+End time: 6859.70
+Speaker: SPEAKER_10
+Transcript:  you're a vegetarian or a vegan, you deserve to be rewarded
+
+Start time: 6859.76
+End time: 6961.77
+Speaker: SPEAKER_02
+Transcript:  for your hard work with more affordable life insurance rates.  Physically active people have significantly lower risks  for heart disease, for cancer, for diabetes.  And that's where Health IQ comes in.  They're concierge life insurance agency.  They give you a white glove service.  They walk you through the entire process of applying.  They work with the top 30 insurance companies in the country.  So these are good companies.  And they have pre-negotiated better rates,  rates you can't get anywhere else for people who are healthy.  They've got exclusive rates for Health IQ.  Now, the trick is you got to qualify.  Oh yeah, no, no, no, no, no, everybody can get into this.  So here's what you do.  You take the Health IQ quiz at healthiq.com slash twit.  It's a knowledge assessment, not a self-assessment.  They put together a team of the nation's leading medical,  health and fitness experts to create this quiz.  It's actually a lot of fun to take.  Depending on your score, plus other related qualifying factors,  you can save up to 41% in your life insurance premiums  compared to other providers.  You'd be crazy not to do this.  There's no commitment.  You're going to learn a lot more about other opportunities  to be rewarded because you care about healthy living.  And it's a lot of fun.  Let Health IQ's concierge service guide you  toward getting the life insurance you deserve.  Go to healthiq.com slash twit.  Take the Health IQ quiz.  Once you complete it, they'll call you.  The team will walk you through the process.  And you could save a lot of money on your life insurance.  There's no reason not to try this.  There's no cost, no obligation.  See how much you could save.  Go to healthiq.com slash twit.  Healthiq.com slash twit.
+
+Start time: 6966.20
+End time: 6969.10
+Speaker: SPEAKER_10
+Transcript:  A few more stories before we wrap this up.
+
+Start time: 6969.48
+End time: 7127.46
+Speaker: SPEAKER_02
+Transcript:  Let's see here.  The Library of Congress, I think this is nice,  has opened up its collection of open access books.  I think it's 1.7 million volumes of open access books.  There's actually a lot of collections.  There's Project Gutenberg out there.  But some of the Library of Congress stuff  is more recent, Cory Doctorow's Little Brother,  which is a great young adult story  about the surveillance economy.  A book I would highly recommend,  Bankler's Wealth of Networks is fascinating.  Pop City, Korean Popular Culture and the Selling of Place,  all of this from the Library of Congress website.  And this is all legal.  There is some dispute over the Internet Archive  doing something similar.  Did you follow this?  The Internet Archive has been, first of all, disclaimer.  Love the Internet Archive.  I support them.  They are preserving our internet history, downloading.  I don't know how much they do every day,  but terabytes of data which they store,  otherwise would be lost.  Every GeoCity site ever is there.  If you've ever used the Wayback Machine,  you've used the Internet Archive.  They also scan books.  Now this has been very controversial.  Remember when Google did this, the Authors Guild sued.  There was a legal opinion some time ago  that said that a digital copy could be put online  for every print copy any library owned.  But you had to do it like a library.  You could only lend out one per copy you owned,  so there wouldn't be more,  a thousand copies of one book out there.  And you had to have an expiration, a due date and all of that.  Because of COVID, starting March 24th,  the Internet Archive suspended the wait lists  for its 1.4 million book library.  They created what they called  the National Emergency Library  to serve the nation's displaced learners.  They say the suspension of rules  will run through June 30th of this year  or the end of the emergency, whichever is later.  During the wait list suspension,  users will be able to borrow books from the Internet Archive  without joining a wait list, ensuring, sounds good.  Students will have access to assigned readings  and library materials that the Internet Archive  has digitized for the remainder of the U.S. academic year.  People who cannot physically access their local libraries  because of closure or self-quarantine  continue to read and thrive.  The authors are pissed.
+
+Start time: 7129.48
+End time: 7130.41
+Speaker: SPEAKER_09
+Transcript:  That's an understatement.
+
+Start time: 7131.36
+End time: 7162.69
+Speaker: SPEAKER_02
+Transcript:  The authors say, this is a pirate website.  It's not legit.  NPR apparently publicized this on Twitter,  earning them the wrath,  the wrath of the authors guild  and many authors, Mark Wunderlich said,  this is piracy, plain and simple.  Your local library can get you eBooks  once they've paid for.  What do you think?  It is a national emergency.  I think the Internet Archive does the work of the angels.  Have they gone too far?
+
+Start time: 7163.36
+End time: 7214.71
+Speaker: SPEAKER_07
+Transcript:  So I'm a member of the authors guild.  I get checks from the authors guild every year  for royalties, for use of my books in various libraries  and academic systems and such.  And I think this is awesome.  I want it to happen.  We're in uncharted waters right now.  The idea that everyone should be entitled  to extract their rent from the economic system right now,  sorry, off the books.  This is great.  Do it, go read.  If one of my books happens to be there,  you have my blessing to go read it  and I won't take a penny from it  and I won't feel bad about it, period.  Thank you, Edbot.
+
+Start time: 7216.54
+End time: 7233.94
+Speaker: SPEAKER_02
+Transcript:  Thank you.  I understand why authors would be perturbed,  but it only goes through June 30th, right?  This is not a power grab from the Internet Archives.  There are a lot of kids at home  who could probably benefit from this.  I'm not a member of the authors guild,  so I don't have a dog in this hunt.
+
+Start time: 7235.45
+End time: 7268.26
+Speaker: SPEAKER_09
+Transcript:  You know, I saw that story  and the thing that I don't recall it answering  or maybe it just wasn't answered in the version I read  is how many works that they've been scanning are,  sorry, I just died.  Orphan works.  Orphan works.  Yeah, how many are, well, no, it's the opposite.  How many are copywritten?  How many are still under active copyright?  Well, the thing, the problem with orphan works
+
+Start time: 7268.90
+End time: 7312.47
+Speaker: SPEAKER_02
+Transcript:  is because we've extended copyright,  thanks to Mickey Mouse and Walt Disney,  we've extended copyright for so long  that anything 75 years old or younger is copyright,  but they may be what we call orphan works,  where the author's long gone, the books are out of print,  nobody's gonna make any money on those books.  They're lost.  This is what Google was trying to do with the scanning effort.  In fact, there were even proposals  that, well, how about this?  How about we say, if we think it's an orphan work,  if the author wants us not to do this, send us a dollar,  $1, and we won't do it, proving the ownership  and putting a little bit of a speed bump over just saying,  yeah, don't do it.
+
+Start time: 7314.32
+End time: 7323.69
+Speaker: SPEAKER_09
+Transcript:  I think the Internet Archive could have avoided  a lot of the drama over this by simply making it opt in  by saying if an author reached out to them.
+
+Start time: 7324.90
+End time: 7330.25
+Speaker: SPEAKER_02
+Transcript:  But that's the problem, because orphan works,  nobody knows who the author's long gone.  There's no-
+
+Start time: 7330.92
+End time: 7333.68
+Speaker: SPEAKER_09
+Transcript:  Aren't those public domain?  No.  I mean, if they're public domain-
+
+Start time: 7333.68
+End time: 7385.32
+Speaker: SPEAKER_07
+Transcript:  No, no, no, they're not.  It's a weird, I live in the weeds of copyright.  Yeah, and the real thing is,  this is not taking money out of the pockets  of people who need it.  It's just not.  The books that are here, the people who are downloading  these books would not have paid to buy these books  and sent their 10% or 15% or whatever the royalty  percentage is off to the authors.  In general, these are things that people would have  either pirated or not read.  The idea that this is taking money out of the pockets  of authors is ludicrous.
+
+Start time: 7386.18
+End time: 7416.02
+Speaker: SPEAKER_02
+Transcript:  This is a 1925 book, so still in copyright  for one more year, of, it's called German Lyrics and Ballads  from Kloppstock to Modern Times, Modern Times being 1925.  You can see this book was discarded from a library,  from the Port Wayne and Allen County, Indiana Library.  As far as I can tell, I don't see the card,  but I bet you it wasn't checked out a whole heck of a lot.
+
+Start time: 7421.24
+End time: 7424.70
+Speaker: SPEAKER_10
+Transcript:  But somebody might want this for research  or some student might want it.
+
+Start time: 7425.08
+End time: 7427.42
+Speaker: SPEAKER_02
+Transcript:  I think this is, well, I don't know.
+
+Start time: 7428.54
+End time: 7443.47
+Speaker: SPEAKER_09
+Transcript:  For works that have some kind of clear authorship,  I don't see a problem if Internet Archive puts up  some kind of donation that goes back to the authors guild,  if that makes the guild happy.  Well, I know they're not doing that.
+
+Start time: 7444.88
+End time: 7450.33
+Speaker: SPEAKER_02
+Transcript:  It's a difficult one.  By the way, the law is on the authors guild's side.  Nobody's disputing that.
+
+Start time: 7451.24
+End time: 7453.64
+Speaker: SPEAKER_10
+Transcript:  Uh-oh, dog attack, dog attack.
+
+Start time: 7457.96
+End time: 7460.81
+Speaker: SPEAKER_02
+Transcript:  Come on, Lexi, you want a dog, don't you?  I do.
+
+Start time: 7461.20
+End time: 7461.80
+Speaker: SPEAKER_06
+Transcript:  Come on.
+
+Start time: 7462.02
+End time: 7471.55
+Speaker: SPEAKER_09
+Transcript:  Go to Mutville.  Zero's the second dog I've gotten from Mutville.  If you're in San Francisco, it's a senior dog rescue.  Maybe your landlord would agree
+
+Start time: 7474.06
+End time: 7517.38
+Speaker: SPEAKER_07
+Transcript:  to like a three week foster.  It is a special time, right?  It's a special time.  You just say three weeks, six week foster.  You know, because fostering dogs is,  both of our dogs, both of the dogs that we've had,  well, we've lived here in Santa Fe,  have come to us from people who fostered them.  Oh, okay.  And they came to their forever homes here,  but they were fostered by other people  who kept them for a week or two or three  so that they didn't have to go upstate New York.
+
+Start time: 7517.70
+End time: 7521.32
+Speaker: SPEAKER_02
+Transcript:  Lexi, is it an Australian shepherd you're looking for?
+
+Start time: 7523.00
+End time: 7523.37
+Speaker: SPEAKER_08
+Transcript:  No, I'm not.
+
+Start time: 7525.44
+End time: 7526.11
+Speaker: SPEAKER_02
+Transcript:  What would you like?
+
+Start time: 7527.44
+End time: 7543.94
+Speaker: SPEAKER_06
+Transcript:  I never sort of realized the obsession  with Australian shepherds.  They're great dogs.  Beautiful dogs, but not that many people  have them in Australia.  So, well, at least not in my experience.  I would definitely look any rescue dog,  but I need a big dog, I'm tall.  So I need a big dog, otherwise carrying a tiny little dog.
+
+Start time: 7544.16
+End time: 7544.90
+Speaker: SPEAKER_02
+Transcript:  No, yeah.
+
+Start time: 7547.64
+End time: 7551.26
+Speaker: SPEAKER_07
+Transcript:  So Bernice Mountain Dogs, I am tall.
+
+Start time: 7551.84
+End time: 7554.81
+Speaker: SPEAKER_10
+Transcript:  Those are huge.  Don't make a leg, they're horses.
+
+Start time: 7557.46
+End time: 7562.80
+Speaker: SPEAKER_07
+Transcript:  But they are the mellowest dogs.  They need very little physical activity.
+
+Start time: 7564.44
+End time: 7566.30
+Speaker: SPEAKER_09
+Transcript:  They need five pounds of food a day.
+
+Start time: 7566.52
+End time: 7569.16
+Speaker: SPEAKER_02
+Transcript:  The energy of the dog is in inverse proportion
+
+Start time: 7569.26
+End time: 7589.25
+Speaker: SPEAKER_07
+Transcript:  to its size, you know that.  They leave three pounds of food.  Bring a shovel and a bucket.  I'm just saying though, that they're very calm,  relaxed, mellow dogs that don't need a lot of activity,  that don't need a lot of, you know, they don't need to,  I mean, we have Springer Spaniels.
+
+Start time: 7590.16
+End time: 7591.78
+Speaker: SPEAKER_02
+Transcript:  Those are very jumpy dogs.
+
+Start time: 7592.20
+End time: 7606.35
+Speaker: SPEAKER_07
+Transcript:  They're very twitchy dogs.  And the reason that Lucy went to the dog park  this afternoon is because if she doesn't go to the dog park,  she's, you know, bouncing off the walls.  And she's almost 12 years old.
+
+Start time: 7607.14
+End time: 7641.75
+Speaker: SPEAKER_09
+Transcript:  Well, this is why I recommend Mutville.  So my first dog was a Pit Bull mix from Mutville, Athena.  I had to rename the dogs because everything is great  about Mutville, but they give the worst shelter names.  And so Athena was great.  She, you know, was in her twilight years  and we had a good year and a half plus together.  And, you know, Pit Bull mix, not a small dog.  And then I adopted Zero and Zero is a Black Lab mix,  probably Border Collie is the other half of her.
+
+Start time: 7646.74
+End time: 7650.53
+Speaker: SPEAKER_02
+Transcript:  But don't you think adopting a dog  that's on its last legs is kind of sad?
+
+Start time: 7651.48
+End time: 7681.95
+Speaker: SPEAKER_09
+Transcript:  No, it's wonderful.  It's one, it's, no, it's wonderful  because these dogs are so happy to have another place to go.  They are so thrilled that they're in a home,  that they're getting fed.  I just, the only tactical error I made with Zero  was that I didn't realize that I had to buy running shoes  to go with her.  And she's 11 and a half.  And for over a year, we do five miles a day  in Golden Gate Park and I'm just blown away.  You're in great shape, yeah.  I'm getting there, I'm getting there.  There's a lot that needed to change.
+
+Start time: 7683.24
+End time: 7686.25
+Speaker: SPEAKER_02
+Transcript:  You, my friend, you could wear tights  if you wanted to come visit.
+
+Start time: 7687.42
+End time: 7688.44
+Speaker: SPEAKER_09
+Transcript:  No one needs to see that.
+
+Start time: 7690.71
+End time: 7778.43
+Speaker: SPEAKER_02
+Transcript:  One last story, I thought we should end with a happy story.  The Elizabeth Warren for President campaign is over,  but I think this is great.  They're open sourcing all the 2020 campaign tech  they created.  Public, they're gonna make public all the apps,  all the digital tools.  They used a lot of open source technology  and they're re, and they're re, you know,  contributing that open source technology back.  There was a nice medium post by members of the team,  including Chief Technology Strategist Mike Conlo  and CTO Nikki Sutton.  And they talked about all of the software  they're gonna make available to any campaign  they want to use it.  I think this is exactly the idea behind open source  and I'm really, I think that's a really great thing to do.  They have Spoke, a peer-to-peer texting platform  originally developed by MoveOn, Polaris,  a polling location lookup tool,  Caucus app to help Caucus captains calculate,  they could have used that in Iowa,  to calculate the votes, switchboard.  But it's really interesting.  There's a lot of these days campaigns are very high tech.  There's a lot of software out there, Red Hook.  Ladies and gentlemen, I think it's time for everybody  to go home, find a dog, cuddle up, watch Tiger King.  Any of you watching Tiger King on Netflix?  Not yet, not yet.  It's all the rage.  Gary.  Have you seen it?  Have you seen it, Lexi?
+
+Start time: 7779.28
+End time: 7783.44
+Speaker: SPEAKER_06
+Transcript:  Just episode, so I'm only just starting it now.  I'm trying not to binge it.
+
+Start time: 7783.56
+End time: 7784.54
+Speaker: SPEAKER_02
+Transcript:  I know, I wanna binge it.
+
+Start time: 7786.80
+End time: 7799.50
+Speaker: SPEAKER_07
+Transcript:  We got Outlander tonight, Better Call Saul tomorrow.  So, those two things are keeping us,  the Sunday Monday access is pretty solid right now.
+
+Start time: 7800.22
+End time: 7817.67
+Speaker: SPEAKER_02
+Transcript:  Yeah, we were watching The Outsider, which had a,  wow, that was a wild ride.  The original?  No, they made the Stephen King movie into a,  I think an eight part or 10 part mini series on HBO.  It was very well done.  It was very good, I think.  So, we've been watching that.
+
+Start time: 7818.64
+End time: 7822.54
+Speaker: SPEAKER_09
+Transcript:  I just finished, what was it, Hunters.
+
+Start time: 7823.30
+End time: 7824.79
+Speaker: SPEAKER_02
+Transcript:  Oh my God, is that wild.
+
+Start time: 7825.56
+End time: 7836.32
+Speaker: SPEAKER_09
+Transcript:  Oh, I could rant about that for a very long time.  I have problems with that.  Loved Pacino though.  Pacino was stellar.
+
+Start time: 7836.40
+End time: 7837.82
+Speaker: SPEAKER_02
+Transcript:  The Italian Jewish guy.
+
+Start time: 7837.84
+End time: 7848.08
+Speaker: SPEAKER_09
+Transcript:  Wow, wow.  Yeah, I'm too sober to rant about it.  But, and then I finished up Picard and similar.
+
+Start time: 7848.70
+End time: 7852.39
+Speaker: SPEAKER_02
+Transcript:  What do you think,  because I haven't watched that yet  and I think I can watch it for free now.  I think they've put it out.
+
+Start time: 7853.04
+End time: 7855.51
+Speaker: SPEAKER_09
+Transcript:  Yeah, CBS made it free until the end of April.
+
+Start time: 7856.76
+End time: 7860.46
+Speaker: SPEAKER_02
+Transcript:  Should I leap in?  Because I'm a Star Trek fan, but not a huge fan.
+
+Start time: 7861.26
+End time: 7881.86
+Speaker: SPEAKER_09
+Transcript:  If you love Star Trek  or if you love watching Patrick Stewart's scenery.  He's great.  He's phenomenal.  I, there's a lot of fan service in this, in the show.  And I feel like this is the case  with a lot of these shows that you can binge  where they're not tight.
+
+Start time: 7882.32
+End time: 7884.88
+Speaker: SPEAKER_02
+Transcript:  They're very aware of who the audience is, aren't they?
+
+Start time: 7885.12
+End time: 7902.20
+Speaker: SPEAKER_09
+Transcript:  And they're written for 45 minutes or an hour.  This was a huge problem I thought in Hunters  where it just, it really needed an editor  to sit down and slash through 40% of it.  And that was the problem with Picard.  The camera has never met a view of Patrick Stewart  that it didn't like.
+
+Start time: 7902.32
+End time: 7904.89
+Speaker: SPEAKER_02
+Transcript:  Any thoughts on Westworld, the new season three?
+
+Start time: 7906.04
+End time: 7906.78
+Speaker: SPEAKER_09
+Transcript:  Haven't checked it out yet.
+
+Start time: 7907.12
+End time: 7907.82
+Speaker: SPEAKER_02
+Transcript:  Haven't started yet?
+
+Start time: 7908.06
+End time: 7911.83
+Speaker: SPEAKER_10
+Transcript:  Can't watch it.  Why can't you?  What are you gonna, you saving it for binging?
+
+Start time: 7912.54
+End time: 7919.40
+Speaker: SPEAKER_07
+Transcript:  No, no, no, we skipped, we stopped it  at the end of season one.  It was too dark. It was pretty awful.  It was pretty awful.
+
+Start time: 7919.44
+End time: 7942.65
+Speaker: SPEAKER_02
+Transcript:  Too dark.  Well, and also Nolan's desire to do everything  out of order.  In fact, before I started season three,  I watched two different YouTube chronological recaps.  So they rearranged everything and I'm more confused.  I'm more confused.  It was, it's insane.  There's like a hundred years  between the beginning and the end.
+
+Start time: 7943.18
+End time: 7958.38
+Speaker: SPEAKER_07
+Transcript:  I'll just go back and watch Memento one more time.  You know, just to, if I want-  He loves that stuff.  Chronological incongruence,  I'll go back and watch Memento one more time.  But we seem to be getting that in our daily life.
+
+Start time: 7958.82
+End time: 7959.01
+Speaker: SPEAKER_08
+Transcript:  Yeah.
+
+Start time: 7959.89
+End time: 7998.34
+Speaker: SPEAKER_02
+Transcript:  Yeah.  You know, I had the same feeling.  I watched the first episode and we've had the second now.  The first episode was actually pretty good.  I thought, oh, finally we're up in the future now  and the robots have escaped.  But then they went back to Westworld  and I thought, oh, this again.  Been there, done that.  We can't have nice things.  Ed Bott, we can have you and thank goodness,  Ed Bott is a very nice person.  We love him.  Ed Bott does the Ed Bott report on ZDNet.  He's at Ed Bott on Twitter.  Stay well, stay healthy there in beautiful Santa Fe.  It's always a pleasure.  I've known Ed for almost three decades now.
+
+Start time: 7998.96
+End time: 8001.74
+Speaker: SPEAKER_07
+Transcript:  Yeah, it's pretty damn close to 30 years, Leo.
+
+Start time: 8001.92
+End time: 8038.63
+Speaker: SPEAKER_02
+Transcript:  Yeah.  Wow.  30 good years.  30 very good years.  I think I met you, John introduced us,  Dvorak introduced us in the maybe 93 or 94.  So it's been 27 years.  And every moment of it I've enjoyed.  Thank you, Ed, I appreciate it.  I hope I'm around to enjoy Lexi Savides for 27 years.  I'll be in my 90s, but it's good to know you, Lexi.  Senior editor at CNET, at Lexi Savides on the Twitter.  And don't forget to work, your videos are so good on CNET.  I just love them.  And I wanna see more cooking videos from you.
+
+Start time: 8039.40
+End time: 8042.27
+Speaker: SPEAKER_06
+Transcript:  Yeah, well, Instagram every day.  That's where they, I don't know.
+
+Start time: 8044.12
+End time: 8054.53
+Speaker: SPEAKER_02
+Transcript:  I'm joining Instagram just to see those.  I think now that I think about it,  Instagram would be nice in this.  If they're doing a lot of cocooning stuff,  I would enjoy Instagram.
+
+Start time: 8055.34
+End time: 8067.77
+Speaker: SPEAKER_06
+Transcript:  Everyone's cooking, everyone's just being kind.  It's all about local community and just being in touch  with people that I haven't been in touch with for ages.  It's like a much nicer Facebook.  Yes.  It's not mine by Facebook, but.
+
+Start time: 8068.28
+End time: 8077.55
+Speaker: SPEAKER_02
+Transcript:  Well, that's why I took it off my phone.  I took everything, WhatsApp, Facebook, Instagram  off my phone.  I do miss Instagram.  And maybe this is the right time to go back.
+
+Start time: 8078.40
+End time: 8082.91
+Speaker: SPEAKER_06
+Transcript:  Yeah, it's like the face of boomerangers.  Instagram boomerangers come back around.  Just this. I'm a boomeranger.
+
+Start time: 8084.72
+End time: 8087.41
+Speaker: SPEAKER_02
+Transcript:  Okay, boomeranger.  It's okay.  You can say.
+
+Start time: 8090.61
+End time: 8096.72
+Speaker: SPEAKER_10
+Transcript:  And Seth, always a pleasure.  Thank you so much.  Seth Rosenblatt is the EIC at the-parallax.com
+
+Start time: 8098.34
+End time: 8099.68
+Speaker: SPEAKER_02
+Transcript:  at Seth R on the Twitter.
+
+Start time: 8099.80
+End time: 8107.28
+Speaker: SPEAKER_09
+Transcript:  Always a pleasure to have you on this one.  Check out my story tomorrow in Fast Company  on the last tech conference standing.
+
+Start time: 8109.60
+End time: 8115.12
+Speaker: SPEAKER_02
+Transcript:  You went to the last one.  You brave person.  You and two others.  I think that's hysterical.
+
+Start time: 8115.88
+End time: 8123.59
+Speaker: SPEAKER_09
+Transcript:  There were three attendees.  There were about five or six staffers  and there was one journalist.
+
+Start time: 8124.72
+End time: 8213.25
+Speaker: SPEAKER_02
+Transcript:  That's pretty amazing.  We do, I don't know what we're going to do next week.  We're really running out of stories here.  The tech industry is just basically shut down.  I'm telling you, I think we might do cooking next week.  But I hope you will come by.  We'll keep you company no matter what is going on.  Every Sunday afternoon, 2.30 Pacific, 5.30 Eastern,  21.30 UTC.  You can watch or listen live at twit.tv slash live  or you can ask your Amazon Echo.  You can just say Echo play a twit live  and it'll play whatever's going on  at any time of the day or night.  We're always here.  Lots of shows.  Of course put out on demand versions of everything too.  You don't have to arrange your schedule around us.  Just go to twit.tv, download whatever you're interested in.  We've got shows on Mac, on Windows, on security.  Security now one of our most popular shows, iOS Today.  We've got Tech News Weekly every Thursday.  We're starting to do a lot of those little short shows  like Hands on Mac, Hands on Tech, Hands on iOS,  Hands on Android.  Those are really nice short bits  if you just want a little bit of something, something  to watch or listen to.  It's all at twit.tv.  It's also on YouTube at youtube.com slash twit.  Thank you all for being here.  Stay safe, stay healthy, sanitize.  I'm gonna look just, you know, after this conversation  I have to sanitize here and we'll see you all next time.  Another twit is in the can.  Bye bye.
+
+Start time: 8214.06
+End time: 8219.60
+Speaker: UNKNOWN
+Transcript:  Do it on the twit, all right.  Do it on the twit, baby.  Do it on the twit, all right.
+

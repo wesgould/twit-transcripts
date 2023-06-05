@@ -1,0 +1,1953 @@
+;FFMETADATA1
+title=Let's Get Social
+artist=TWiT
+album_artist=TWiT
+album=This Week in Tech
+track=453
+genre=Podcast
+comment=http://www.twit.tv/twit
+copyright=These netcasts are released under a Creative Commons Attribution Non-Commercial Share-Alike license. TWiT and TWiT Logo are registered trademarks of Leo Laporte
+publisher=TWiT
+date=2014
+encoder=Lavf58.76.100
+Failed to align segment (""): no characters in this segment found in model dictionary, resorting to original...
+Start time: 1.22
+End time: 24.76
+Speaker: SPEAKER_03
+Transcript:  It's time for Twit this week in tech and we've got a great show Harry McCracken here from Time Magazine, Dwight Silverman from the Houston Chronicle and we're going to kick things off with security expert Bruce Schneier.  He originally said Heartbleed on a scale of 1 to 10 was an 11. He says it's not as bad as he thought. The details on Heartbleed and all the tech news coming up next on Twit.  This is Twit.
+
+Start time: 26.23
+End time: 26.98
+Speaker: SPEAKER_04
+Transcript:  Netcasts you love.
+
+Start time: 28.29
+End time: 29.00
+Speaker: SPEAKER_11
+Transcript:  From people you trust.
+
+Start time: 33.40
+End time: 149.35
+Speaker: SPEAKER_03
+Transcript:  This is Twit.  Bandwidth for this week in tech is provided by Cashfly at C-A-C-H-E-F-L-Y dot com.  This is Twit this week in tech.  Episode 453 recorded April 13th, 2014.  Let's get social.  This week in tech is brought to you by GoToMeeting with HD Faces from Citrix.  The powerfully simple way to meet with coworkers and clients anywhere.  Share the same screen and see each other face to face with HD video conferencing.  Even present from an iPad.  Start your 30 day free trial of GoToMeeting today.  Visit GoToMeeting.com, click the try it free button and use the promo code TWIT.  And by Shutterstock.com.  With over 30 million high quality stock photos, illustrations, vectors and video clips.  Shutterstock helps you take your creative projects to the next level.  For 20% off your new account go to Shutterstock.com and use the offer code TWIT414.  And by Stamps.com.  Use Stamps.com to buy and print real US postage the instant you need it right from your desk.  For our special offer go to Stamps.com now.  Click on the microphone and enter TWIT.  That's Stamps.com.  Use the offer code TWIT.  And by Carbonite.  Whether you have one computer at home or several at your small business.  Carbonite backs up your files to the cloud automatically and continually.  Plus access your files anytime, anywhere with a free app.  Start your free trial at Carbonite.com.  No credit card required.  Use the offer code TWIT and you get two bonus months with the purchase.  It's time for TWIT this week in tech.  Every week we get together with some of the best journalists in the biz to talk about the latest tech news.  Welcoming Harry McCracken who's been knocking it out of the park.  I told you when you got here with Time Magazine.  I loved your Google 10th anniversary story.  That was fabulous.
+
+Start time: 150.00
+End time: 151.97
+Speaker: SPEAKER_09
+Transcript:  Thank you. That was a lot of fun to do.  Yeah. Welcome back. Good to have you.
+
+Start time: 153.08
+End time: 165.45
+Speaker: SPEAKER_03
+Transcript:  Great to be here.  We also hear from the Houston Chronicle, our good friend Dwight Silverman.  Blog.Kron.com slash techblog.  And he's in the offices today.  Covering no doubt Heartbleed.  No, I'm here for you Leo.
+
+Start time: 166.58
+End time: 177.78
+Speaker: SPEAKER_13
+Transcript:  I just don't have a, I moved and I just don't have the wonderful set up that I used to have.  So I'm deep in the bowels of the mighty Houston Chronicle in a conference room.  Much further than I'll be here on a Sunday.
+
+Start time: 178.28
+End time: 219.42
+Speaker: SPEAKER_03
+Transcript:  Yeah, I'm sorry that we made you come to work.  Sigh.  Also with us, probably one of the best known security experts in America.  He's a cryptographer.  You may remember, I think he helped, in fact last time you were on I think we mentioned this,  helped with the crypto in Cryptonomicon.  And a perfect guy to have on during Heartbleed week.  Bruce Schneier is here. Hi Bruce.  Hey, hi.  Great to have you.  So at the beginning of the week you said on a scale of 1 to 10 Heartbleed is an 11.  A very serious flaw.  It's funny, we thought this would be the week we'd be talking about XP exploits.
+
+Start time: 220.27
+End time: 220.31
+Speaker: UNKNOWN
+Transcript:  No.
+
+Start time: 221.06
+End time: 250.15
+Speaker: SPEAKER_10
+Transcript:  Well, it turns out you never know, right?  These things happen kind of at random.  Heartbleed, you know, it was real interesting because for a whole lot of reasons.  One, it was potentially catastrophic.  It affected an enormous number of servers out there.  And you can weaponize it with like three lines of shell scripts.  I had colleagues who were up and running and scanning and attacking systems within 10 minutes of learning about it.  Wow.  So it was a big deal. It still is a big deal.
+
+Start time: 252.56
+End time: 268.63
+Speaker: SPEAKER_03
+Transcript:  You were able to send a packet using this heartbeat technique built into OpenSSL a couple of years ago.  You're able to send a malformed packet that requests data up to 64K from memory of the server, right?  But you can't be specific. It's whatever's there.
+
+Start time: 271.26
+End time: 310.64
+Speaker: SPEAKER_10
+Transcript:  Yeah, it has to do with how the heap's working.  And it's kind of random what you get, but you can query that 64K multiple times and you get different data.  You don't always get the same.  So if you're looking to get everything on the computer, you just do it again and again.  Turns out you actually can't get everything.  There are some weird reasons why some data comes and some data doesn't.  We're still exploring that.  But potentially when we heard about this, you could basically grab everything and it left no trace.  I mean, there's nothing in an audit log that said that you were attacked, which made it really scary.  And we had to fix it quick.
+
+Start time: 311.42
+End time: 322.84
+Speaker: SPEAKER_03
+Transcript:  Yeah, the fact that this has been around for two years,  it's conceivable that somebody knew about it two years ago and has been just pinging servers.  I mean, how rapidly can you do this? I guess every second or faster.
+
+Start time: 323.00
+End time: 361.96
+Speaker: SPEAKER_10
+Transcript:  Yeah, you can do it as fast as you can.  And it turns out you can ping the entire internet and see who's vulnerable in about 15, 20 minutes, depending on your setup.  So a bunch of researchers have been doing that.  And so we can watch the decay of sites that are vulnerable.  We do know that we have good evidence that before the announcement,  nobody was doing a sweep of the Internet looking to see who's vulnerable.  So we have data from servers, from honey pots that we've been able to comb through  and have seen no one use Heartbleed at a global basis before that.  We have no idea if they were targeted attacks.  But that's very good news.
+
+Start time: 362.22
+End time: 375.96
+Speaker: SPEAKER_03
+Transcript:  That means it seems unlikely that this is a vulnerability known in the hacker community.  They'd be scanning sites looking for vulnerabilities.  A targeted attack, well, you know, at least it's unlikely that you and I were a target.
+
+Start time: 376.68
+End time: 404.33
+Speaker: SPEAKER_10
+Transcript:  Indeed. Right. The good news is the hacker community did not know about this, it seems.  You know, we started seeing scans within minutes of the announcement, but before that we saw nothing.  So that's the good news.  The other good news is that subsequent research over the week has shown that while it's possible in theory  and has been done in practice to retrieve the private SSL key, you know, the master keys you're worried about,  it's actually a lot harder than we originally thought.  That's very good news.
+
+Start time: 405.12
+End time: 414.00
+Speaker: SPEAKER_03
+Transcript:  Because the concern was that all of these secure servers, certificates have been compromised,  allowing massive man-in-the-middle attacks. You're saying that seems unlikely.
+
+Start time: 415.91
+End time: 429.41
+Speaker: SPEAKER_10
+Transcript:  That seems unlikely. It's certainly possible.  CloudFlare was the company that's been leading this research. They've put up challenges.  One of the challenges was met, so someone did manage to extract the keys, but it's not easy.  It's not a slam dunk.
+
+Start time: 430.06
+End time: 434.32
+Speaker: SPEAKER_03
+Transcript:  So for the most part, what do you get? Passwords, logins? What are you getting in these 64K chunks?
+
+Start time: 435.70
+End time: 504.17
+Speaker: SPEAKER_10
+Transcript:  You get the random cruft of what the server is doing.  So yes, you get password changes, you get web pages served.  If there are credentials in the URLs, you get those. You get random stuff.  You get a lot of nothing, but occasionally you get something good.  And what we're seeing, and this is the obvious tactic from a criminal who will be using this,  is you just scan everything constantly, hoping you get lucky.  Now, you know, there's some good news on our side. Some of this stuff is hard to parse.  So, you know, it's sort of interesting to watch, and we don't know really what the effects are in terms of enabling crime.  And of course, it's now being patched.  A lot of the sites are no longer vulnerable. Now, vulnerable to the ping.  There are any number of universities who are basically auditing the net every hour and watching as sites patch their open SSL.  Now, that doesn't mean if they were compromised before the patch, they're not still vulnerable.  They had to change their key and their certificate. There's no way to check that.  Right. No easy way to check that.
+
+Start time: 505.38
+End time: 516.96
+Speaker: SPEAKER_03
+Transcript:  Right. So the initial estimate was about two-thirds of the web would be, or servers would be vulnerable to this.  Is that accurate? And is the number, what is the number now?
+
+Start time: 518.36
+End time: 539.98
+Speaker: SPEAKER_10
+Transcript:  That is accurate. The number is probably 10 percent that, and it's skewed because all of the big, popular, well-run servers have updated.  A lot of the stuff that's left. I see a top 1,000 sites that are vulnerable list that some university publishes, and the sites are getting more obscure every hour that are still vulnerable.
+
+Start time: 540.44
+End time: 542.96
+Speaker: SPEAKER_03
+Transcript:  Are there any big companies, though, that should have fixed it that haven't?
+
+Start time: 543.32
+End time: 607.92
+Speaker: SPEAKER_10
+Transcript:  You know, I didn't see any, but I'm not going to guarantee there aren't.  It's an easy fix.  You know, like all of these patches, it's an easy fix. You install the patch. But closing the vulnerability is a multi-step process.  I mean, this is one of the reasons it was so nasty, is that installing the patch is just step one.  Regenerating your public-private keys are step two. Revoking your old key is step three. Getting a new key is step four. I guess you can switch three and four.  And then every user on that site who could have had their credentials exposed needs to update their password, which is steps five through a million.  Right.  And all of those things have to happen in sequence.  You know, I mean, I updated my own website and had to go through all those steps. But, you know, for me, it was pretty easy.  If you're a banking site, you know, at a minimum, any customer who logged on between when the vulnerability became public and when the site was patched needs to update their password.  Right.  And it might be nothing, but that's just prudent.
+
+Start time: 608.22
+End time: 611.94
+Speaker: SPEAKER_03
+Transcript:  It's prudent. And the good news is it's not a bad thing to do once in a while anyway.
+
+Start time: 612.62
+End time: 636.78
+Speaker: SPEAKER_10
+Transcript:  It isn't. But, you know, we all have passwords that we rarely use and then we remember we don't like doing this.  I'm not going to blame you on this, but, you know, I think it's safe that if you didn't log into the server between when the vulnerability was announced on Monday and when your server patched a few days later, you're OK.  So those obscure sites you haven't been to in a week or two, I think you're fine at this point.
+
+Start time: 638.00
+End time: 640.05
+Speaker: SPEAKER_03
+Transcript:  And second factor authentication hasn't been compromised. Is that right?
+
+Start time: 642.52
+End time: 663.00
+Speaker: SPEAKER_10
+Transcript:  What's been compromised is the public key potentially, although it seems unlikely, and stuff that happened to happen on the server when someone did the ping.  So if you got unlucky and your data was in the heap at the time the bad guys did the scan, it was compromised potentially.
+
+Start time: 663.24
+End time: 668.00
+Speaker: SPEAKER_03
+Transcript:  It's pretty random, though, and it seems like unlikely that there have been mass compromises as a result.
+
+Start time: 668.38
+End time: 703.46
+Speaker: SPEAKER_10
+Transcript:  It's extraordinarily random. Mass is definitely unlikely.  Yeah.  And it'll be individual. You know, I haven't seen yet anybody with any estimates on what sorts of crime has been a result.  We know the hacker started pinging this vulnerability as soon as public.  So they didn't waste it. And it was actually triply easy. Yeah.  What's interesting, some of these other vulnerabilities.  They're now in a computer to write to run arbitrary code. This one you can't. Right.  But this one you could really weaponize within a couple of minutes of learning about it. It's just so easy.
+
+Start time: 704.00
+End time: 714.34
+Speaker: SPEAKER_03
+Transcript:  Bloomberg said that two sources told them this was an NSA bug or that the NSA knew about it and had been using it for two years.  Given its utility, that seems highly unlikely.
+
+Start time: 715.08
+End time: 785.04
+Speaker: SPEAKER_10
+Transcript:  You know, so we're all debating this right now. Right.  There was a Bloomberg article that said two anonymous sources at the NSA knew this for two years.  NSA came out with actually the director of national intelligence on his blog, came out with a very strong denial.  This is untrue. You know, answer is we don't know. It seems unlikely.  This vulnerability is so big and so nasty.  And the United States and other democratic countries, I think, are so vulnerable that it would make a lot of sense to the NSA if they found this to alert the community and get this closed.  It's a bigger risk to us than it is value.  Certainly, the NSA probably got an advance notice of a week or so like some of the big companies.  I mean, they I hope they took it and ran with it and attacked everybody they could during that week.  And then you've done not to. Right.  Might as well. Who knows what you're going to get.  But that's what you do. Right. They're good at fishing expeditions.  We know we get advance notice of Microsoft bugs that are being fixed the next patch Tuesday.  And they just roll with them for the week or two they have. That makes perfect sense. We want them to do that.
+
+Start time: 786.26
+End time: 794.56
+Speaker: SPEAKER_03
+Transcript:  I saw Google said that, honey, one version of Android was vulnerable for one one.  How could Android be vulnerable at all to this? It's not a server.
+
+Start time: 795.80
+End time: 817.94
+Speaker: SPEAKER_10
+Transcript:  Well, anybody that's using open SSL and responding to pings is vulnerable.  I'm when I'm worried most about right now are some of the hardware devices, the routers cost unpatchable routers and switches and modems.  Where upgrading involves the trash can a credit card or trip to Best Buy. Right. That's not going to be fun.
+
+Start time: 818.92
+End time: 822.78
+Speaker: SPEAKER_03
+Transcript:  These things are laden with problems. We've seen so many problems on these inexpensive routers.
+
+Start time: 823.08
+End time: 862.50
+Speaker: SPEAKER_10
+Transcript:  So it's because the economics is different. Right.  I mean, essentially, they're like the computers were in the mid 90s.  But they're very low cost, very low engineering expertise.  They're not built with the same care. Then they're not as robust.  So they're built as throw away devices. Yet they have these enormous vulnerabilities.  And in the mid 90s, we got a whole community to embrace quick patching and an open vulnerability disclosure and all of these things that made us safer.  It's really hard to imagine the same systems working on these on your refrigerator just because nobody cares very much.
+
+Start time: 863.96
+End time: 874.92
+Speaker: SPEAKER_03
+Transcript:  Bruce, do you think this is some have said is an indictment of open source software that people can commit the guy who did this as a German software developer who I mean, we know who it is because there's a commit log.
+
+Start time: 876.79
+End time: 927.98
+Speaker: SPEAKER_10
+Transcript:  And he's been interviewed and he's been, you know, he's I'm sure really embarrassed about this.  You know, it's not an indictment of open source software. It's an indictment of software that isn't independently analyzed.  This could have easily happened in closed source and proprietary software could easily have been thrown out there.  The problem was nobody was doing the analysis and any software open or closed needs to be analyzed.  Open software is more secure because it can be looked at by more people because it's harder to slip in something of this unnoticed.  But open source doesn't magically mean someone's going to look at it.  And this seemed to have fallen through the cracks.  It was incredibly pivotal, important, critical piece of code that's just being maintained by a few guys in their spare time.  Now, good for them. And I'm glad they're doing it.
+
+Start time: 928.64
+End time: 945.88
+Speaker: SPEAKER_03
+Transcript:  But they can use some backup. Yeah, I feel bad for Robin Segelman, who's the the German who introduced the flaw.  And he just said, I forgot to validate a variable containing a length.  It's just, you know, I missed it. And that happens all the time.
+
+Start time: 946.12
+End time: 962.02
+Speaker: SPEAKER_10
+Transcript:  It happens all the time. Now, something interesting to ask.  I mean, if we're going to speculate about the NSA, I mean, they they spend millions of dollars searching for vulnerabilities every year in critical software.  If they didn't find this one, you know, maybe we should wonder how well our money is being spent.
+
+Start time: 963.56
+End time: 966.96
+Speaker: SPEAKER_03
+Transcript:  This is this is like you can't get more critical than the open SSL library used by two.
+
+Start time: 967.06
+End time: 979.48
+Speaker: SPEAKER_10
+Transcript:  Right. You think somebody in the NSA would have looked at it and would have would have checked for all of these sorts of bounds checking problems.  It would have noticed this. The fact that they didn't or at least claim they didn't is independently interesting.
+
+Start time: 980.26
+End time: 997.40
+Speaker: SPEAKER_03
+Transcript:  We've heard President Obama's it turns out President Obama has said, well, the NSA will not have if they find a flaw in software like this.  And there's a compelling security argument, national security argument for not exposing that flaw, then they can do that in general.  They will. But they do have it out.
+
+Start time: 998.52
+End time: 1050.58
+Speaker: SPEAKER_10
+Transcript:  Well, you know, and this is all the weasel wording. Yeah.  As long as the NSA's mission is primarily to eavesdrop on the entire planet, there will be a compelling reason to keep these vulnerabilities secret.  We know the NSA purchases of old abilities on the open market.  We know they keep things secret.  I mean, this is the this is a fundamental problem of giving the NSA both hats that the same organization is in charge of security and insecurity,  which causes some interesting debates inside the NSA.  And it's called this is called the equities issue.  Right. And in this case, you mean, I mean, looking at it, I would hope the NSA would make the right decision.  And if they did learn about it, would try to fix it, because I think we are uniquely vulnerable, you know, more than I'm going to make this up.  The Russians or the Chinese, because we use SSL more than everybody else.
+
+Start time: 1051.88
+End time: 1070.78
+Speaker: SPEAKER_13
+Transcript:  Bruce, can I ask a question about you? I want to go back to the idea of nobody looking behind the creators of this code.  Have you seen as a result of this a movement to create some kind of Q&A, to do analysis arising from this?  Are there going to be changes as a result?
+
+Start time: 1071.12
+End time: 1098.00
+Speaker: SPEAKER_10
+Transcript:  You know, I haven't seen anything yet, but I think it's something that will be discussed in the open source community.  Unfortunately, a lot of the open source community are people working for altruistic reasons, not for pay.  But as long as this stuff is being put in for profit products by big companies, they should pick up some of the auditing functions.  And hopefully that'll happen. I haven't seen any concerted discussion about this.  It'll certainly be something we're going to talk about because it's important.
+
+Start time: 1099.68
+End time: 1117.00
+Speaker: SPEAKER_03
+Transcript:  I use LastPass. One of the things LastPass is security check does now is go through the sites that I have passwords for.  And it does a couple of things. First, it assesses whether that site was bit by Heartbleed.  That I think is hard to do since sites often obfuscate what libraries and servers they're using.
+
+Start time: 1117.02
+End time: 1129.92
+Speaker: SPEAKER_10
+Transcript:  Yeah, but see, the way you tell is you do the ping. If you do the ping and it comes back, you know they're using open SSL.  You know that they're vulnerable. So you can audit this.
+
+Start time: 1130.24
+End time: 1132.90
+Speaker: SPEAKER_03
+Transcript:  You audit it by hacking it. Isn't that illegal?
+
+Start time: 1134.40
+End time: 1138.98
+Speaker: SPEAKER_10
+Transcript:  Well, you know, you do it at four bytes. You don't do it at an amount that actually matters.
+
+Start time: 1139.24
+End time: 1151.68
+Speaker: SPEAKER_03
+Transcript:  Ah, perfect. Right. You take a small amount. Okay, that's good. All right.  And then they also, of course, check to see if the certificate has been updated.  And there's no point changing that password if a site was vulnerable and has the out-of-date certificate.
+
+Start time: 1152.18
+End time: 1154.64
+Speaker: SPEAKER_10
+Transcript:  Right. And we're trusting that they've regenerated their keys.
+
+Start time: 1155.26
+End time: 1158.64
+Speaker: SPEAKER_03
+Transcript:  And we don't know. We can't tell. That part we don't know.
+
+Start time: 1159.94
+End time: 1166.86
+Speaker: SPEAKER_10
+Transcript:  Actually, that's interesting. You probably, and I'm thinking about this out loud, the public key would be in the certificate. So you can tell. Never mind.
+
+Start time: 1167.08
+End time: 1173.72
+Speaker: SPEAKER_03
+Transcript:  If the certificate has been revoked and a new one has been issued in this last five days, then you're all right.
+
+Start time: 1174.46
+End time: 1180.00
+Speaker: SPEAKER_10
+Transcript:  Right. Exactly. All right.  And then if you have logged in during the danger period, you really should change your password at that point.
+
+Start time: 1180.14
+End time: 1196.00
+Speaker: SPEAKER_03
+Transcript:  It's such, it's just, it's just good hygiene anyway. Just do it anyway.  It is. Yeah. All right. So that's, I was curious to how well we can assess whether there's a problem.  It sounds like we can do a pretty good job of that.  All right. And so your advice to people?
+
+Start time: 1197.72
+End time: 1211.00
+Speaker: SPEAKER_10
+Transcript:  Wow. My advice to people is, is, you know, we can calm down now.  Do change your passwords if you have to.  And if the site you care about hasn't corrected itself, you need to bug them.
+
+Start time: 1212.68
+End time: 1231.92
+Speaker: SPEAKER_03
+Transcript:  Very good. Bruce, it's so great to talk to you. Schneier.com, the website.  Bruce Schneier is one of the, I'm going to say the best guy to talk to on stuff like this.  I promise to get myself better lit next time.  Hey, if you agree to come on every once in a while, I'm going to send you lights.  I'm going to send you cameras. I'm going to send you microphones.
+
+Start time: 1232.02
+End time: 1236.00
+Speaker: SPEAKER_10
+Transcript:  And I'm actually all I need is a backdrop right up a little tarp will do.
+
+Start time: 1236.24
+End time: 1247.00
+Speaker: SPEAKER_03
+Transcript:  I'll get you a green screen. Bruce, anything you want.  We'll get you if you just come on every once in a while, because we just love having you on.  That's the deal. All right. Thank you. Bruce Schneier, Schneier on security.
+
+Start time: 1247.02
+End time: 1252.31
+Speaker: SPEAKER_13
+Transcript:  I want to see the green screen. That'd be fun.  We can put you in the Kremlin. Thanks, Bruce. We'll let you go now. Thank you.
+
+Start time: 1257.22
+End time: 1266.45
+Speaker: SPEAKER_03
+Transcript:  Thank you. Take care.  When you hear him talk, you just get the authority. You know this guy knows what he's talking about.  And he really does have the reputation. So I feel better.
+
+Start time: 1271.09
+End time: 1273.68
+Speaker: SPEAKER_09
+Transcript:  It sounds like it's no longer an 11. It's only a nine.
+
+Start time: 1276.01
+End time: 1294.54
+Speaker: SPEAKER_13
+Transcript:  So you were talking earlier about there's no real good test for it.  You have to do the hack.  Huh. Because what was funny, I had a debate with somebody online.  They found that cron.com was vulnerable, but the tests I were doing showed it not.  And we were both working on the same tool.
+
+Start time: 1295.74
+End time: 1344.50
+Speaker: SPEAKER_03
+Transcript:  And here's the issue. You can't just query the server and say, are you running OpenSSL pre 1.0.1, the fix?  Are you running NGINX or Apache? Because most servers will just not respond honestly.  It's foolish to tell people what you're doing.  So if it's something at that level, that's not going to be useful.  But obviously, it's not so hard to write a little test that says, well, let's just take advantage of Heartbleed.  I'm going to send you a word. So what you do is you say, here's an authentication word.  Cake. And send me back five letters.  And if you get cake plus one back, it's got Heartbleed.  If you get cake back, then you know it's been fixed.
+
+Start time: 1345.96
+End time: 1358.74
+Speaker: SPEAKER_09
+Transcript:  So little sites are scary because I mean, Google is going to fix itself really quickly.  Right. But if you have if you're doing business with itty bitty sites, I mean, some of these things don't look like they've been updated in the last five or six years in some cases.
+
+Start time: 1360.10
+End time: 1361.92
+Speaker: SPEAKER_03
+Transcript:  Yeah. And maybe there's nobody at home.
+
+Start time: 1362.42
+End time: 1378.82
+Speaker: SPEAKER_13
+Transcript:  Or hosting services where you share libraries for these kind of things.  For example, I'm not saying that they had it, but say WordPress.com where essentially everybody uses the same set of libraries across the board.  And there are literally millions of sites there.
+
+Start time: 1379.14
+End time: 1517.92
+Speaker: SPEAKER_03
+Transcript:  Right. Well, that's the problem with XP. And that's the problem with a lot of things.  In fact, I'm sorry, I didn't get to ask or should have asked, but I didn't get I think to ask Bruce about XP.  This was the week that XP ended its life.  Again.  Again.  We'll talk about that and a lot more.  Harry McCracken's here, the Technologizer from Time Magazine, from the Houston Chronicle, the great Dwight Silverman.  It's good to have you both. Good time to talk about lots of things in just a bit.  And first, a word from our great sponsors, Citrix, makers of GoToMeeting, which I think is without a doubt the number one meeting software in the world.  This is what people and boy, there couldn't be a better time as more and more teams are spread out all over the world.  You know, you don't very often you're working with people in different time zones, different countries.  It's hard to have a meeting and yet meetings are so valuable to get on the same page, to communicate with each other, to understand, to break through the logjam.  We have a rule here, Lisa instituted it. Three emails on a subject.  That's it. Boom.  You're getting in the same room and we're going to we're going to hash this out or have a GoToMeeting.  You know what? Most of our contributors are not in Petaluma.  They're all over the place.  When meetings matter, lots of people use GoToMeeting.  Thirty four million meetings last year, uptime ninety nine point nine percent and and just a great platform.  You could share the screen, but you can also share cameras so you could see each other face to face in crystal clear video.  GoToMeeting allows you to present, demonstrate and simply meet from anywhere with any Mac, any PC, any tablet or smartphone.  We've got 30 days free.  If you visit, go to meeting dot com, click the try it free button and use our promo code twit.  If you want to do it on iPads and tablets and Macs and PCs and meet with everybody everywhere, just use our promo code twit.  Thirty days free. GoToMeeting.com.  Have either of you guys, I mean, you know, all three of us talk to real people from time to time.  Have any of you heard about problems with Windows XP in the past week?  It was Tuesday was the last update. April 8th.
+
+Start time: 1518.06
+End time: 1525.31
+Speaker: SPEAKER_09
+Transcript:  I have a friend who works for a court system in a large eastern US city and they're still on XP and all of them.  Oh, yeah.
+
+Start time: 1526.06
+End time: 1557.94
+Speaker: SPEAKER_13
+Transcript:  Oh, here in Houston, a lot of oil companies still use XP.  Banks.  Yes, banks.  One of our energy reporters last year did with this deadline looming, did a big story on how it's so impacting the energy industry  because they have so many proprietary programs that have been written specifically to run on XP.  They can't move to seven or eight.  Right.  And they're essentially they kind of have to wait till they can get the proprietary software.  Here at the Houston Chronicle, most of our desktop systems are still Windows XP.
+
+Start time: 1558.40
+End time: 1561.00
+Speaker: SPEAKER_03
+Transcript:  But you're not surfing the net and opening emails on those, or are you?
+
+Start time: 1566.26
+End time: 1614.07
+Speaker: SPEAKER_13
+Transcript:  I have Windows 7 on my mind.  No, actually, our problem is, is that we are using a content management system for print for writing the print.  Right, using basis or something and you can't you got to use XP.  It's DTI. It runs on Adobe's suite.  And so it you know, it we simply haven't updated it to run the Windows 7 version.  We're in the process of doing that now.  But, you know, a lot of big companies are in that case.  And then you have smaller companies who can't afford, you know, new hardware and new software.  And they're just kind of stuck on it.  My wife runs Windows XP to run the software that she uses for her medical accounting.  She's a psychotherapist and she has to use the software.  And it's about ten thousand dollars for her to upgrade to the new software.  And she's just not going to do it.
+
+Start time: 1615.36
+End time: 1630.93
+Speaker: SPEAKER_09
+Transcript:  I mean, Microsoft does not get to decide when operating systems are not alive.  Alas not.  I mean, within the last six months, I've seen businesses using DOS.  And if DOS is still with us, I mean, the last XP machine is going to be shut off many, many years from now.  And medical systems.
+
+Start time: 1632.02
+End time: 1667.00
+Speaker: SPEAKER_03
+Transcript:  Dr. Mom is in our chat room.  She's a physician.  She was sending me pictures of X-ray machines and all sorts of medical hardware and even desktops in hospitals using XP.  Now, the medical machines, the ATMs, they're not going online.  They're not doing risky things.  But nurses are using those XP machines to send emails and surf the net.  And those are risky things.  So that stuff survives.  And it's expensive to shift.  I understand.  You said it exactly right, Harry.  Microsoft doesn't get to make the decision about who stops using XP.  We, you know, users do.
+
+Start time: 1667.78
+End time: 1672.14
+Speaker: SPEAKER_09
+Transcript:  It might be a terrible decision to keep using it, but it's not a decision Microsoft can make for anybody else.  Right.
+
+Start time: 1673.47
+End time: 1691.00
+Speaker: SPEAKER_13
+Transcript:  They try.  One of the stories you have on the list, Leo, is about the fact that there are a lot of web servers that are with the operating system, underlying operating system is Windows XP.  And in that same story, they talk about the fact that there are still Windows NT 4.0 systems out there running websites.
+
+Start time: 1691.32
+End time: 1696.00
+Speaker: SPEAKER_03
+Transcript:  But can I point out none of those systems had any problem with Heartbleed?  Not one.  That's right.
+
+Start time: 1696.54
+End time: 1700.92
+Speaker: SPEAKER_13
+Transcript:  Microsoft doesn't use the open source.  It's got its own library.
+
+Start time: 1701.08
+End time: 1757.37
+Speaker: SPEAKER_03
+Transcript:  IIS has its own SSL library.  You mentioned content management systems.  That brought to mind an article this week in the New York Times.  They're talking about Ezra Klein.  And he left the New York Times, the Washington Post, the WONC blog to go to work for Vox.  But the funny thing, and maybe you could speak to this a little bit, Dwight, the funny thing is in this article, they said many people go to Vox.  Vox publishes The Verge, SB Nation, Polygon, and now this new Ezra Klein blog.  Many people go there because of their fabulous content management system.  They wrote something from scratch called Chorus.  And apparently this is a selling point that one of the reasons Ezra Klein left the Washington Post and went to Vox is because of Chorus.  You guys both work with content management systems.  I'm sure they're a little bit antiquated.  I don't know.
+
+Start time: 1758.06
+End time: 1770.69
+Speaker: SPEAKER_09
+Transcript:  Well, we're on WordPress.com, actually.  That's easy.  Which, if I had to pick anything, I would probably pick that.  Yeah.  Yeah.  Particularly for a company that is probably not going to develop the next great CMS system itself.  I think WordPress is a really good choice.
+
+Start time: 1772.02
+End time: 1830.00
+Speaker: SPEAKER_13
+Transcript:  Well, we're on one of the problems in the newspaper industry is that we have multiple content management systems.  So we use WordPress, a hosted version.  Right.  We have a separate set of software products for creating stories in print.  And then we have a pretty nice CMS for running our website and managing the website that's fairly modern and up to date.  And so we have to jump back and forth.  The Holy Grail is one CMS that ends up handling both print and online if you have both components.  But I can see people who have grown up using decent software and suddenly you go to work for a company that has a terrible CMS.  It's painful.  Yes.  And so I can see that happening.  I'm not sure I would jump to a company that had a great CMS.  I'd jump for a company that's willing to overpay me.
+
+Start time: 1830.59
+End time: 1858.46
+Speaker: SPEAKER_03
+Transcript:  There you go.  I'll suffer with your CMS if you give me enough money.  That's right.  Although I guess the whole point of Chorus was it integrates social media.  It's easy to update.  You can do kind of these multimedia things that these guys like to do.  It's kind of funny.  Apparently in their interview process, they show people Chorus and they say, how would you like to use this instead?
+
+Start time: 1859.30
+End time: 1861.71
+Speaker: SPEAKER_09
+Transcript:  I can totally see getting excited over that.
+
+Start time: 1863.00
+End time: 1877.96
+Speaker: SPEAKER_03
+Transcript:  I think the New York Times author started talking about Ezra Klein and Vox and then just fell in love with the content management system.  The article ends up being about Chorus.  It just shows you.  I'm sure the Times has something.  Well, I don't know.
+
+Start time: 1878.63
+End time: 1880.60
+Speaker: SPEAKER_13
+Transcript:  We'll have to ask.  Leo, maybe you can show this week in CMS.
+
+Start time: 1881.16
+End time: 1885.09
+Speaker: SPEAKER_03
+Transcript:  CMSs.  This week in CMSs.  This week in CMSs.  Yeah, maybe not.
+
+Start time: 1887.67
+End time: 1893.92
+Speaker: SPEAKER_13
+Transcript:  Show us your CMS.  Get a bunch of these tech writers on.  Show us your CMS.  Show us your CMS.  I like it.
+
+Start time: 1894.48
+End time: 1896.98
+Speaker: SPEAKER_03
+Transcript:  All right, Chateram, would you like that?  Show us your CMS.
+
+Start time: 1898.15
+End time: 1898.92
+Speaker: SPEAKER_13
+Transcript:  They all fell asleep.
+
+Start time: 1900.26
+End time: 1941.72
+Speaker: SPEAKER_03
+Transcript:  Apparently on Tuesday, the Canadian Revenue Agency that collects income tax shut down because of Heartbleed.  They were so afraid of what Heartbleed might bring that they blocked access to their online tax filing services as a quote, preventative measure to safeguard the integrity of the information we hold.  Wow.  That may be taking it a little bit too seriously.  The filing services will be down till further notice.  That's a great graphic, too, for that.  Yeah, Heartbleed is really the first open source bug with a great logo.
+
+Start time: 1942.75
+End time: 1943.74
+Speaker: SPEAKER_09
+Transcript:  Great name, great logo.
+
+Start time: 1944.02
+End time: 1947.03
+Speaker: SPEAKER_13
+Transcript:  That's the Canadian flag, too.  Oh, nice.
+
+Start time: 1948.54
+End time: 1951.96
+Speaker: SPEAKER_03
+Transcript:  Credit to Mashable for mashing those two up.  That's great.
+
+Start time: 1952.72
+End time: 1954.68
+Speaker: SPEAKER_09
+Transcript:  When do Canadians pay their taxes anyway?
+
+Start time: 1955.27
+End time: 1975.87
+Speaker: SPEAKER_03
+Transcript:  I don't know.  Where ours is coming up April 15th, which is an interesting thing.  That's Tuesday, right?  Everybody, you all filed?  Any Canadians here?  No?  Did another thing about Canada?  For some reason, I think it's a month later.  I don't know why.  I think it's a month later.  Like it's May 15th.  And then because it's cold in the winter and things move slower.
+
+Start time: 1978.32
+End time: 1979.37
+Speaker: SPEAKER_09
+Transcript:  April 30th, apparently.
+
+Start time: 1980.06
+End time: 1984.74
+Speaker: SPEAKER_03
+Transcript:  They just, according to PC Guy, they just re-enabled the net file and e-file today.
+
+Start time: 1985.12
+End time: 1986.00
+Speaker: SPEAKER_09
+Transcript:  May 5th, apparently.
+
+Start time: 1986.53
+End time: 1996.70
+Speaker: SPEAKER_03
+Transcript:  May 5th this year.  April 15th, interestingly enough, is also an important day because it's the one day anybody, anybody can buy Google Glass for $1,500.
+
+Start time: 1999.87
+End time: 2004.00
+Speaker: SPEAKER_09
+Transcript:  You going to run out and buy it?  I already ran out some months ago and bought it.  You already did it.
+
+Start time: 2004.93
+End time: 2006.94
+Speaker: SPEAKER_03
+Transcript:  How about you, Dwight?  You going to get some glass?
+
+Start time: 2007.57
+End time: 2010.13
+Speaker: SPEAKER_13
+Transcript:  No, I want to wait for the production version.  I want the production version.
+
+Start time: 2011.70
+End time: 2013.19
+Speaker: SPEAKER_03
+Transcript:  Harry, would you go buy it again?
+
+Start time: 2014.79
+End time: 2020.29
+Speaker: SPEAKER_09
+Transcript:  As a guy who writes about this stuff, yes.  You have to.  As a consumer, I would say wait until the consumer version comes out.  Yeah.
+
+Start time: 2021.00
+End time: 2021.88
+Speaker: UNKNOWN
+Transcript:  Right.
+
+Start time: 2022.66
+End time: 2031.76
+Speaker: SPEAKER_09
+Transcript:  Unless you are really, really well off, in which case it might be worth considering.  If $1,500 means nothing to you, buy it.  If it sounds like a large chunk of change, wait.
+
+Start time: 2032.06
+End time: 2032.91
+Speaker: SPEAKER_03
+Transcript:  I don't think it's $1,500 useful.
+
+Start time: 2034.33
+End time: 2034.92
+Speaker: SPEAKER_09
+Transcript:  No, it's not.
+
+Start time: 2035.04
+End time: 2072.01
+Speaker: SPEAKER_03
+Transcript:  That's my issue with it.  In fact, I did buy it, but I don't use it.  I gave it a long story, but I never was that interested in it.  I have a Glass Explorer number from Google I.O. last year.  When that came up, I said, Jason, you get it.  Because he had a newborn, and I thought it would be more appropriate for him.  I just never really attracted.  According to Google, we're opening a limited number of spots in the Explorer program at 9 a.m. Eastern on April 15th.  Get on in there if you want to get glass.  You think there will be a rush for it?
+
+Start time: 2073.80
+End time: 2081.06
+Speaker: SPEAKER_09
+Transcript:  I would think a lot of the people who want to know somebody who has invites and therefore has already had that opportunity, but maybe not.
+
+Start time: 2082.50
+End time: 2085.94
+Speaker: SPEAKER_03
+Transcript:  One thing you should not do is wear it in downtown San Francisco.
+
+Start time: 2087.26
+End time: 2088.41
+Speaker: SPEAKER_09
+Transcript:  Or if you do, you should go like that.
+
+Start time: 2089.02
+End time: 2188.96
+Speaker: SPEAKER_03
+Transcript:  Some guy tweeted it.  I saw the tweet, and now it's a big story.  He was wearing his glass in the Mission District, if you know San Francisco.  He got off BART and was walking through the Mission District.  Somebody ran up, tore the glass off his face.  Okay, I mean, that's a little...  Is it a little glass holy to get off BART in the Mission District wearing your Google Glass, especially given the sensitivity right now?  He was a reporter, ironically covering the protests going on in San Francisco about housing prices and evictions.  So he should have been somewhat sensitized.  I think he was.  A guy runs up to him and rips the glass off his face.  At first I thought, well, maybe he's stealing it.  No.  So they give chase.  The guy takes the glass, smashes it on the ground, and runs on.  That's following on a story from a few weeks ago, a woman getting almost beat up in a bar for wearing glass.  I think you should not wear your glass in San Francisco.  It is a mugging. He did call the police. They did take a report, but I don't think...  And he took the pieces of his glass with him.  Chris...  I'm sorry, Kyle Russell.  He's a journalist with Business Insider.  And he was covering those protests.  I wonder...  I don't know. I guess glass and Google in general, but glass specifically is a good kind of... is a hot point for all of this kind of upset.
+
+Start time: 2189.28
+End time: 2198.71
+Speaker: SPEAKER_09
+Transcript:  Yeah, I really wonder whether Google anticipated that it would become an object of fascination, but not entirely positive fascination in some ways.  I'm sure they didn't.
+
+Start time: 2199.64
+End time: 2206.00
+Speaker: SPEAKER_03
+Transcript:  Although they now have training videos how not to be a gladiator and stuff like that.  I think they're aware of the issue.
+
+Start time: 2206.54
+End time: 2231.94
+Speaker: SPEAKER_13
+Transcript:  When Google Glass was first announced, and even when it was leaked, almost immediately the speculation about how it would be treated in social settings.  The idea that the etiquette around it and it changing social mores came almost immediately.  So I kind of would be surprised if Google didn't have an inkling that if you have a camera pointed at someone while you're talking to them with a little light on it, that it's not going to cause...
+
+Start time: 2232.80
+End time: 2236.00
+Speaker: SPEAKER_02
+Transcript:  It's kind of asking to get your glass kicked, to be honest with you.
+
+Start time: 2236.12
+End time: 2245.52
+Speaker: SPEAKER_13
+Transcript:  Yeah, right.  And I think there's... the other day I saw somebody in a furniture store shopping for furniture and he was wearing Google Glass.
+
+Start time: 2246.26
+End time: 2253.00
+Speaker: SPEAKER_03
+Transcript:  Don't you just... doesn't it in your mind that you should go, a-hole?  Well, what he was doing, because I watched what he was doing...  He was taking pictures, sending it to his wife.
+
+Start time: 2253.02
+End time: 2256.00
+Speaker: SPEAKER_13
+Transcript:  He was taking pictures of the furniture and sending it to someone.
+
+Start time: 2256.76
+End time: 2259.72
+Speaker: SPEAKER_03
+Transcript:  I mean, I would do that with a camera phone. It's not that different, I guess.
+
+Start time: 2260.06
+End time: 2262.56
+Speaker: SPEAKER_13
+Transcript:  Right. And it's better pictures with a camera phone, too.
+
+Start time: 2265.20
+End time: 2320.00
+Speaker: SPEAKER_03
+Transcript:  I'm not... I don't find myself tempted at all.  I feel like I understand why Google's doing this. In fact, I don't think they're going to ever productize it.  It's my kind of belief that what Google's really doing is gathering information about how people use wearables.  They understand this isn't the perfect form factor. It's a form factor.  But they want the information. As we know, they're doing a SDK for wearables.  It's more in their interest, I think, to support people who want to make wearables in whatever form they want to make them and get Google on it.  This was the debate over the Google phone.  Fred Vogelstein, I keep quoting this book because it's such a good book, Dog Fight, talks about Google not really being sure whether they want...  They were making so much money, it was so successful putting Google apps on the iPhone.  Did they really want to compete with it? Wouldn't it just make more sense from Google's point of view to support smartphones than to make them?  They ended up deciding to make them, but I wonder if they're going to make wearables or just support them.
+
+Start time: 2320.24
+End time: 2338.00
+Speaker: SPEAKER_09
+Transcript:  I mean, to me, the battery life is still an entirely unsolved conundrum.  It does not make sense as a consumer product until it has way better battery life than it does.  And it won't. It's too small.  You know, if you want to wear a battery pack on their forehead.  And you can make a phone larger and thicker, but there's a real limit to what you can do with something you strap to your head.
+
+Start time: 2339.66
+End time: 2358.94
+Speaker: SPEAKER_13
+Transcript:  So has there been any discussion about using solar power to power or recharge Google Glass?  You'd have to wear a special hat with a big brim to go with your glass.  And then you'd really be a target.  I mean, on top of a Prius.
+
+Start time: 2363.14
+End time: 2368.00
+Speaker: SPEAKER_03
+Transcript:  Battery life's bad.  To me, it's a little bit of a headache.  He experienced to look up over my eyebrow.
+
+Start time: 2368.04
+End time: 2375.90
+Speaker: SPEAKER_09
+Transcript:  Yeah, I should say if I had the prescription eyeglasses model, I might be at least a little more excited because I prop it on top of my glasses and I have to have it just so.
+
+Start time: 2377.81
+End time: 2382.98
+Speaker: SPEAKER_03
+Transcript:  Look, you ride around on a Segway.  You look like a dork. You wear Google Glass.  You look like a dork. Right.  It's the same thing.
+
+Start time: 2384.05
+End time: 2393.00
+Speaker: SPEAKER_09
+Transcript:  Originally, if you used a cell phone in public, you look like a dork.  True. We've gotten used to that.  And when you did data on your smartphone in public 10 years ago, you looked like a dork.  Now.  Some of the stuff people get used to over time.
+
+Start time: 2393.56
+End time: 2398.56
+Speaker: SPEAKER_03
+Transcript:  Now I find myself unusual if I'm looking up.  Everybody's looking at their thing.
+
+Start time: 2401.12
+End time: 2418.51
+Speaker: SPEAKER_13
+Transcript:  The problem, though, with Google Glass is it's not where you're looking.  It's that, well, it is.  You're looking at the clouds.  Yeah.  You know, that's the difference.  It's that blinking eye.  I think if maybe if 1984 and Brave New World had never been written, we wouldn't be so freaky about it.  But they were.
+
+Start time: 2419.77
+End time: 2439.00
+Speaker: SPEAKER_03
+Transcript:  This bleeding heart points out I do ride a tricycle.  And people have thrown things at me out of their car.  So I guess I'm not exempt from that.  The dork factor.  It's not a tricycle.  It's a three wheeled bicycle.  How many times do I have to say that?  Do we have pictures of you, Leo?
+
+Start time: 2439.00
+End time: 2445.60
+Speaker: SPEAKER_13
+Transcript:  I mean, your three wheeled.  You know, when we first moved to this building and the basement was empty, it was great because I could go take rides around the basement.
+
+Start time: 2446.00
+End time: 2455.98
+Speaker: SPEAKER_03
+Transcript:  But now it's so crowded and cluttered, you can't can barely walk down there, let alone ride a bicycle.  If it was a recumbent tricycle, that would be cool.  It is.  Oh, it's recumbent?  Well, yes.
+
+Start time: 2456.00
+End time: 2460.98
+Speaker: SPEAKER_13
+Transcript:  What do you think?  I'm sitting high like on a thing with pedaling as fast as I can as I go around town.
+
+Start time: 2461.18
+End time: 2467.91
+Speaker: SPEAKER_03
+Transcript:  The pedals on the wheels.  Never mind.  Gary McCracken standing on the back holding my shoulders.  No, it's a recumbent bike.
+
+Start time: 2469.06
+End time: 2471.63
+Speaker: SPEAKER_13
+Transcript:  It's two wheels.  Wait a minute.
+
+Start time: 2472.30
+End time: 2492.45
+Speaker: SPEAKER_03
+Transcript:  Is it two wheels in front and one in back?  No, it's one wheel in front and two in back.  You still look like a dork.  I don't care.  I don't care whether it's recumbent or not.  At least your feet are going to be in the air.  I don't care.  I don't care.  I don't care.  I don't care whether it's recumbent or not.  At least your feet are going around.  They're not going.
+
+Start time: 2495.69
+End time: 2500.02
+Speaker: SPEAKER_02
+Transcript:  I want to take a break now because I just can't get that image out of my head.
+
+Start time: 2501.00
+End time: 2503.72
+Speaker: SPEAKER_03
+Transcript:  Tricycles are very hipster, I'm told.
+
+Start time: 2504.38
+End time: 2506.00
+Speaker: SPEAKER_13
+Transcript:  Particularly the ones with the big wheels in the front.
+
+Start time: 2506.46
+End time: 2694.41
+Speaker: SPEAKER_03
+Transcript:  I still, I see people going around on their Segways and I think dork.  I mean, they're cool.  I love Segways.  They're really cool.  But you're eight feet tall on them.  You look just weird.  Am I wrong?  Our show today brought to you by Shutterstock.com.  If you are a blogger, if you have a website, you know that plain text on a page somehow doesn't grasp the human imagination.  We need images.  And Shutterstock is a great source for royalty free stock photos, illustrations, vectors and video clips, all kinds of stuff.  In fact, I always like to look at the count.  Thirty five million eight hundred and thirteen thousand two hundred and fifty seven royalty free stock images.  When we started talking about Shutterstock a few months ago, it was twenty five million.  They added this week a quarter of a million new images.  They're gathering new images like crazy.  All of them carefully vetted, curated so that they're gorgeous.  They're useful.  Most of them are from professional photographers and artists.  Every time you visit, you'll find something new.  You might say, well, what good is a thirty five million image collection?  How am I going to find it?  Well, really Shutterstock and they keep making this better, has a great search tool that allows you to search for footage, video footage, photos, vectors, illustrations or all of the above.  And you can search not just by noun.  Let's say what should I what should I search for a bicycle?  So I could search for bicycles, but I can then I can add stuff.  I could say blue bicycles.  In fact, they have a color picker that lets you just choose blue bicycles.  I could say silly bicycles.  You can add adjectives and then you get pictures like this.  So I think that's really it really makes it a very useful tool.  Then even by the way, you can use this without having an account or anything.  But if you want to save these, just create a free account, you don't have to give them any credit card or anything.  Just give it a free account and then you could save images into a light box.  You could keep that light box for further reference, future reference or share it with colleagues.  If you decide to buy images, they're very affordable.  They have individual image packs or monthly subscriptions.  We have the 25 image a day standard subscription.  We love it.  We use it all the time.  And you can download any image in any size and pay only one price.  Great search tools, light boxes.  Their iPad and Android apps are gorgeous.  In fact, the iPad app won a Webby Award.  Multilingual customer service.  They're in more than a dozen countries.  Full time support throughout the week.  You're going to love it.  Shutterstock.com.  Try today.  Create that free account.  And if you decide to purchase, use our offer code TWIT414.  Because it's April 2014.  TWIT414 and new accounts will get 20% off any package.  Hey, that's good.  20% off.  Shutterstock.com, the offer code is TWIT414.  Great place.
+
+Start time: 2695.00
+End time: 2695.47
+Speaker: UNKNOWN
+Transcript:  And go to the footage.
+
+Start time: 2696.04
+End time: 2783.74
+Speaker: SPEAKER_03
+Transcript:  Don't forget to go to the footage tab on there.  Wait a minute.  That was a silly.  I had a really good bicycle.  Silly bicycle.  The footage is incredible.  1.6 million royalty-free stock videos as well.  Great for your presentations and things like that.  Shutterstock.com.  That's a silly bicycle.  That's me riding my trike.  That's what I was thinking.  Yeah, I have a trike.  That's a nice trike.  That looks like aluminum.  Aluminium.  Aluminium.  I do have the little streamers coming off the handle.  You've got to have that.  That's very important.  Handheld quantum key generators.  According to Ars Technica, just around the corner.  This is actually a security issue.  Because one of the issues is getting good random numbers.  A QKD is a quantum key distribution.  While it's been very difficult to do in practice,  the theory has really helped us create great security.  Now, apparently, QKD is on its way.  I don't think there's anything to say about this.  But good article.  Good article.  Highly recommended from Ars Technica.
+
+Start time: 2784.34
+End time: 2792.43
+Speaker: SPEAKER_13
+Transcript:  Other than that, we need to get away some form or fashion  from the traditional password.  Absolutely.  And there's maybe a path toward it.
+
+Start time: 2793.34
+End time: 2794.52
+Speaker: SPEAKER_02
+Transcript:  Absolutely.
+
+Start time: 2798.85
+End time: 2806.59
+Speaker: SPEAKER_03
+Transcript:  I got my Amazon Fire TV.  Reviewed it on Tuesday and before you buy.  Have you played with it a little bit yet?  I have.
+
+Start time: 2807.00
+End time: 2842.53
+Speaker: SPEAKER_09
+Transcript:  What do you think?  I think if you were already a big fan of getting stuff from Amazon,  it's a good experience.  Just like the Kindle Fire.  Netflix and Hulu are really kind of off to the side  and nowhere near as well done.  The speech worked really well.  Except it only searches Amazon.  Right, it only searches Amazon.  Which I guess is not surprising.  Also, the other thing which is interesting is on Roku,  they neatly divide the stuff you have to pay for  if you're a Prime member from the stuff which is free  if you're a Prime member.  And on Fire TV, the free stuff and the stuff you have to pay for  are all intermingled.  And it is therefore more likely, I think, that you'll find something  and then pay for it.
+
+Start time: 2844.00
+End time: 2853.82
+Speaker: SPEAKER_03
+Transcript:  I noticed that on the TiVo too.  I used to have this Amazon Prime streaming.  On the TiVo, there's no entry for that.  It's just all mushed together.  That must be the new way with Amazon.  That makes sense.
+
+Start time: 2854.38
+End time: 2864.98
+Speaker: SPEAKER_13
+Transcript:  Harry, if you have a Roku, is there any reason to get the Fire TV?  They seem to me to be essentially the same types of content.
+
+Start time: 2865.22
+End time: 2880.31
+Speaker: SPEAKER_09
+Transcript:  If I'd already invested money in Roku, I would not invest more money in Fire TV.  I mean, there are some differences.  Fire TV is more serious about games.  Only the high-end Roku has games.  They're not very good games.  Doesn't have very many.  No, the games are bad.  The games are pretty good on the Fire TV.
+
+Start time: 2881.00
+End time: 2886.52
+Speaker: SPEAKER_03
+Transcript:  We were playing Asphalt 8.  It's Android.  It has a nice controller.  Very much like playing a game on a smartphone.
+
+Start time: 2887.00
+End time: 2894.98
+Speaker: SPEAKER_09
+Transcript:  Roku has far more content overall.  It has over 1,000 channels.  Right.  Actually, there's two weird gaps on the Fire TV.
+
+Start time: 2895.06
+End time: 2901.93
+Speaker: SPEAKER_03
+Transcript:  No HBO Go, and oddly enough, no Amazon Music.  Although Amazon Music is coming, I think, next month.
+
+Start time: 2903.00
+End time: 2910.17
+Speaker: SPEAKER_09
+Transcript:  I mean, it's their own service.  And they have other music.  They have a number of streaming music services.  It's so strange.  It must be that they were working on it.
+
+Start time: 2911.36
+End time: 2916.00
+Speaker: SPEAKER_03
+Transcript:  That's the way Amazon, when they have hardware, they tend to release it missing two or three things you really want,
+
+Start time: 2916.00
+End time: 2924.00
+Speaker: SPEAKER_09
+Transcript:  but they come along pretty quickly thereafter.  Yeah, you know, it's just a Me Too product, except for that search thing, the voice search, which works pretty well,
+
+Start time: 2924.06
+End time: 2932.90
+Speaker: SPEAKER_03
+Transcript:  although my Xbox One does something similar.  Is there an API for the search?  In other words, are they eventually going to open that up to other apps, or is it always going to be Amazon only?
+
+Start time: 2933.00
+End time: 2936.86
+Speaker: SPEAKER_13
+Transcript:  I'm not sure if they've said.  Yeah.  It's Android.
+
+Start time: 2937.74
+End time: 2941.43
+Speaker: SPEAKER_09
+Transcript:  In fact, Kosh was able to make his Allcast, which is his Chromecast, all stuff to Chromecast,
+
+Start time: 2944.00
+End time: 2969.01
+Speaker: SPEAKER_03
+Transcript:  app for Android, work with the Fire TV almost immediately.  He says because it's kind of generic dial, it's a standard system, DLNA and dial.  So it is open in the sense that it's an Android, it's pretty much an Android device.  Of course, you have to get on the Amazon store.  It doesn't work with a Play Store.  I mean, generally speaking, I think we have enough boxes of this type now,  unless something comes out that doesn't work with a Play Store.
+
+Start time: 2970.00
+End time: 2992.86
+Speaker: SPEAKER_09
+Transcript:  I mean, I think we have enough boxes of this type now,  unless something comes out that is truly transcendent and radically better than Roku or Apple TV or Fire TV.  There's not a lot of need for a new one, especially given that so many TVs have stuff built in.  The game consoles all have stuff built in.  We don't need more things that are roughly comparable to what we already have anymore.
+
+Start time: 2993.50
+End time: 3008.00
+Speaker: SPEAKER_03
+Transcript:  You see, if you look at the controller, it looks just pretty much like a kind of a pancake Xbox controller.  Same exact buttons and everything.  That's $40, the Fire TV is $99.  Yeah, you don't need it if you've already got a Roku or an Apple TV.
+
+Start time: 3008.82
+End time: 3014.27
+Speaker: SPEAKER_09
+Transcript:  You have no way to do this stuff already and really like Amazon.  I think actually it has a pretty strong competitor.  I wonder...
+
+Start time: 3015.66
+End time: 3029.24
+Speaker: SPEAKER_13
+Transcript:  So with this and with Roku, which has a lot more content than Apple TV,  is Apple kind of in trouble here if they don't...  If their expected update to Apple TV doesn't really wow people?
+
+Start time: 3030.74
+End time: 3074.62
+Speaker: SPEAKER_03
+Transcript:  I figure Apple is betting the farm.  They're all in on the idea of making this deal with Comcast.  They negotiated for years with Time Warner, then they had to shift gears and go to Comcast.  If they could get live TV on there...  But I don't think Comcast is going to make a deal with just one company.  We had Peter Kafka on our coverage of the Amazon announcement and he said that.  He said that everybody's learned their lesson from the music industry's experience with Apple.  You give Apple too much power and you're in trouble.  So if anything, if Comcast ever makes a deal, it'll be with all of them.  And I think maybe that's why Amazon did this, just so that they at least be in the hunt.  But that would be...  Wouldn't that...  You want the perfect cord cutter device.
+
+Start time: 3076.16
+End time: 3124.88
+Speaker: SPEAKER_13
+Transcript:  Well, I have both. I have Apple TV and I have Roku.  I should be getting a Fire TV shortly.  And what's interesting is I find myself these days using the Roku more than the Apple TV,  mainly because we have Aereo here.  And I watch...  The place I've moved to actually has a very bad signal for HDTV over the air.  And so I use Aereo and Aereo is only on the Roku.  And it works quite well over a very fast connection.  And to me at the moment, it looks like the Roku 3 is probably the ultimate cord cutter device.  So I'd be very curious to see if Amazon comes up with something like an Aereo app,  particularly if Aereo wins its April 22nd...  That's right.
+
+Start time: 3125.00
+End time: 3141.03
+Speaker: SPEAKER_03
+Transcript:  ...final Supreme Court.  We're all on hold, right? Everybody's on hold, including Aereo,  because the Supreme Court has agreed to review the lawsuit,  and the network's saying Aereo's stealing their copyrighted content.  Aereo's saying, hey, you're just renting an antenna.  That's just... I mean, that's all.
+
+Start time: 3142.14
+End time: 3185.82
+Speaker: SPEAKER_13
+Transcript:  So Aereo has a Houston facility, and I got a tour of it about a week and a half ago.  Chet Kanogia came down and I got to interview him and got to see the...  And it is incredibly efficient.  It's two cabinets on the roof of a data center.  There are a series of circuit boards with their little antennas inside the cabinets  and a fiber connection that takes it down to about three or four servers in the data center down below  and then out to the internet.  And it is... they can expand it quickly and easily.  There's no Houston employees.  Everything is done remotely.  And they're already profitable here and in most of the cities that they're in.
+
+Start time: 3186.48
+End time: 3194.00
+Speaker: SPEAKER_03
+Transcript:  They did have to shut down in Denver and Salt Lake because they lost a court case in that district.
+
+Start time: 3194.28
+End time: 3199.78
+Speaker: SPEAKER_13
+Transcript:  They've won two out of the three court battles that they have faced.
+
+Start time: 3200.22
+End time: 3239.48
+Speaker: SPEAKER_03
+Transcript:  What are the odds on the Supreme Court's decision? What do you think?  I mean, remember the Supreme Court decided on the lawsuit by the Motion Picture Association of America  to try to stop video recorders.  And the Supreme Court in 1984 ruled that you could record for personal use.  It wasn't a violation of copyright law.  And created an industry which, I might point out, the motion picture industry immediately benefited  to the tune of billions of dollars.  So I don't... I think at least there's some history of the Supreme Court supporting new technologies like this.  It was a long time ago.  But that was 1984.
+
+Start time: 3241.88
+End time: 3301.15
+Speaker: SPEAKER_13
+Transcript:  But you can bet that the defendants in the case will bring up that groundbreaking...  Oh yeah.  But the other thing is, is there's... one of the interesting side effects on this is that  there was a 2008 case involving cable vision and cloud DVRs.  Right.  Which never went to the Supreme Court. That never went to the court.  The current case law is such that it allows it and that's why you have...  And essentially what Aereo is doing is they're grafting the concept of outsourcing an antenna  to a cloud DVR, which they say is legal.  And so, you know, is putting those two together legal?  There are both copyright issues and there are... there's the issue of the carriage fees  and whether they should be paying carriage fees on that.  But, you know, it's such a complex thing.  Both sides try to paint it as black and white, but it's actually a really complex issue.  And I can see the Supreme Court going either way on this.  Aereo is doing us a favor though.
+
+Start time: 3302.06
+End time: 3305.54
+Speaker: SPEAKER_09
+Transcript:  I mean, it's doing everybody a favor just by forcing the issue.
+
+Start time: 3306.51
+End time: 3307.66
+Speaker: SPEAKER_13
+Transcript:  Right. It's making everybody think.
+
+Start time: 3308.32
+End time: 3310.42
+Speaker: SPEAKER_09
+Transcript:  And before too long, we will know one way or the other.
+
+Start time: 3311.50
+End time: 3375.62
+Speaker: SPEAKER_03
+Transcript:  It's really... so the oral arguments are April 22nd, a week from Tuesday.  And by the way, you can hear those, which is great.  I don't know if you can hear them live, but you can hear them after the fact,  like within a day.  So I'm sure it'll be very interesting to listen to that.  ABC, CBS, NBC, and Fox and others are all trying to get the court to say  Aereo is a violation of copyright.  Aereo, you know, it's Aereo, which was started by Barry Diller.  It's obvious it's a trick.  I mean, everybody looking at it, oh, that was clever.  It's a clever trick.  Oh, no, you're not.  Well, you're just renting an antenna.  It's the fact that they're dime shaped and there's hundreds of them in a rack  that's up in the Houston with no employees.  But it's an antenna.  And you're renting that particular antenna.  And the fact that we're DVRing it for you, that's on your behalf.  But everybody knows it's kind of a wink, wink, nudge, nudge.  See, isn't that clever?
+
+Start time: 3376.22
+End time: 3400.62
+Speaker: SPEAKER_13
+Transcript:  Yeah, the dissent in the Boston case, the judge called it a contrivance.  Yes.  And that's what it is.  But again, I think that all technologies like this where they kind of,  where they graph two things together is a contrivance.  And then it becomes, if it becomes legal, it's not a contrivance, it's an innovation.
+
+Start time: 3401.10
+End time: 3456.60
+Speaker: SPEAKER_03
+Transcript:  And the reason now that these networks, and it's ABC TV is the plaintiff in it,  the reason that these networks don't want it, it's also a contrivance in a way  because the networks have been offering free over the air television  for as long as there's been television and they support it with ads.  And those ads in the free over the air television is just being sucked in the dime sized thing  and sent out to my iPad.  So I'm still seeing all the ads.  It's no different than if I literally were in Houston and I had an antenna.  But what they don't like about it is they have very lucrative retransmission agreements  with the cable companies.  And so in a way, I think you could also look at that as a contrivance,  as in a way the television networks have figured out a way to make more money  for the product they've been offering for free.  And they don't want to do it for free anymore.
+
+Start time: 3457.72
+End time: 3503.94
+Speaker: SPEAKER_13
+Transcript:  There's a law that essentially created the transmission fee system  where it made the capture of the over the air local broadcasts legal by the carriers,  the cable companies, and they said, okay, you can do this, but you have to pay them for it.  And they designated them as a certain type of business, and so that's why they have to do it.  One of the arguments that is made by broadcasters is that if Aereo succeeds with this,  then what is to keep Comcast and Cablevision and so forth from saying,  oh, we don't have to pay it, we'll just set up antennas.  Well, there's a law that says you have to pay if you're this type of carrier.  Aereo is essentially because it's over the internet is not that type of carrier.  What could happen is the law could be changed.
+
+Start time: 3504.08
+End time: 3519.80
+Speaker: SPEAKER_03
+Transcript:  That's how cable started was that I remember in the early days of cable,  you and I are old enough to remember that,  it was they put an antenna up downtown and then they had a long wire  that went to Petaluma from that antenna downtown so I could watch TV as if I had an antenna downtown.
+
+Start time: 3520.26
+End time: 3521.82
+Speaker: SPEAKER_02
+Transcript:  That's all it was.
+
+Start time: 3522.77
+End time: 3543.80
+Speaker: SPEAKER_13
+Transcript:  And that still exists in some communities.  I forget the exact name of it, but it's in places where you simply can't get a signal.  Companies, and I believe it may actually be nonprofits,  are allowed to set up antennas and then beam them back into those homes  in those cases where they can't get a signal at all.
+
+Start time: 3544.44
+End time: 3546.23
+Speaker: SPEAKER_03
+Transcript:  Is Aereo out of business if they lose?
+
+Start time: 3547.04
+End time: 3560.62
+Speaker: SPEAKER_13
+Transcript:  They have said yes.  Cech Kanojia told me that there's no Plan B.  He says he's not thinking about Plan B.  He said, you're thinking about Plan B, you're not thinking about Plan A.  And that's what he's, that's his approach to it.
+
+Start time: 3563.29
+End time: 3573.62
+Speaker: SPEAKER_09
+Transcript:  It'll be interesting to see if any of the networks who say that if Aereo does win,  that they'll take their network off the air and go people only.  If any of them will actually go through with that or whether that's just posturing.
+
+Start time: 3574.00
+End time: 3578.22
+Speaker: SPEAKER_03
+Transcript:  Yeah.  Fox says we're going to take down FX, you're not going to be able to watch it over broadcast.
+
+Start time: 3579.20
+End time: 3607.00
+Speaker: SPEAKER_13
+Transcript:  There has been a lot of posturing on that,  and a lot of the people I talked to, a lot of the analysts I talked to for the story said  that this is something that the broadcast networks have wanted for a long time,  is to take their stuff behind the scenes.  And that this is something of an excuse for that.  However, if you have a broadcast license, there are certain expectations by the public.  And if they try to take that off, I guarantee you Congress is not going to be happy about it.
+
+Start time: 3607.80
+End time: 3625.36
+Speaker: SPEAKER_03
+Transcript:  Well, Congress had hearings this week on Comcast's bid to merge with Time Warner.  We'll talk about that in just a second.  In just a second, Dwight Silverman is here from the Houston Chronicle, blog.chron.com slash tech blog,  and your fabulous Pacifica radio show called Technology Bites.
+
+Start time: 3626.51
+End time: 3631.00
+Speaker: SPEAKER_13
+Transcript:  Oh, Leo, I'm not doing that one either.  What?  Yeah, I quit doing that in January.
+
+Start time: 3631.80
+End time: 3634.57
+Speaker: SPEAKER_03
+Transcript:  It's the end of the world as we know it.
+
+Start time: 3636.68
+End time: 3638.74
+Speaker: SPEAKER_13
+Transcript:  I decided that I've done that for 10 years.
+
+Start time: 3639.32
+End time: 3640.98
+Speaker: SPEAKER_03
+Transcript:  It's an all new Dwight Silverman.
+
+Start time: 3641.58
+End time: 3643.98
+Speaker: SPEAKER_13
+Transcript:  Yes, yes, whiter and breezier.
+
+Start time: 3645.15
+End time: 3651.00
+Speaker: SPEAKER_03
+Transcript:  All new, breezy, lighty.  Well, it's a lot easier for me not to have to plug.  You know, one more thing I don't have to plug. I don't mind.
+
+Start time: 3651.02
+End time: 3660.11
+Speaker: SPEAKER_13
+Transcript:  Well, Technology Bites is still in the air. It's still a great show.  I actually will be a guest host when they're down a man or two.  So I'll be on it.
+
+Start time: 3661.10
+End time: 3715.96
+Speaker: SPEAKER_03
+Transcript:  I mean, let's be honest. They have 34 hosts. They don't really need you, Dwight.  There are more hosts on that show.  It's five, and now there's four.  It feels like more than five. It's like Ham Nation. We have the Ham show.  I think how many hosts are on Ham Nation now? There's like 20.  It's like it gets bigger and bigger and bigger.  And you know, the problem with Ham, how many? Eight?  Eight!  The problem with Hams is nobody stops talking.  They're trained talkers.  Like me.  Harry McRacken also here, the Technologizer.  He's so good to have Harry.  At Time Magazine. You've been doing so many great stories.  Everybody should read. And we talked about a couple of weeks ago, the 10th anniversary of a Gmail story.  You really dug deep, talked to Paul Buhite and really got the inside story.  It was such a surprise, all the details.
+
+Start time: 3716.57
+End time: 3723.00
+Speaker: SPEAKER_09
+Transcript:  I learn an awful lot during that.  Sometimes I do a story like that and I just sort of have to write down what I know.  And that one, I knew almost nothing until I started.
+
+Start time: 3723.32
+End time: 3731.96
+Speaker: SPEAKER_03
+Transcript:  Well, nobody knew anything. In fact, many of the things you said, the fact that Google was, for instance,  so ambivalent about the whole thing.  They were a search engine.  They were a search engine.
+
+Start time: 3732.02
+End time: 3744.96
+Speaker: SPEAKER_09
+Transcript:  That was at the time when all the things that you used to do only search started branching out and becoming portals.  And people loved Google because it did not want to be a portal.  Gmail was the start of the Google portal era.
+
+Start time: 3745.00
+End time: 3750.51
+Speaker: SPEAKER_03
+Transcript:  Did you go to Techland.Time.com? Is that the best?  You can do that.
+
+Start time: 3751.04
+End time: 3758.37
+Speaker: SPEAKER_09
+Transcript:  You can just go to Time.com and click on the tech section.  But Techland.com actually is the quickest way to do it.  I love it.
+
+Start time: 3760.05
+End time: 3763.00
+Speaker: SPEAKER_03
+Transcript:  Oh, now you're interviewing Sid Meier, Civilization Beyond Earth.
+
+Start time: 3763.47
+End time: 3763.76
+Speaker: UNKNOWN
+Transcript:  Wow.
+
+Start time: 3764.10
+End time: 3765.66
+Speaker: SPEAKER_09
+Transcript:  Yeah, my colleague Matt.
+
+Start time: 3766.02
+End time: 3792.49
+Speaker: SPEAKER_03
+Transcript:  Wow. I didn't know Sid was doing a new Civ.  Wow.  I keep buying Civ.  I've bought Civ 3, Civ 4, Civ 5.  I keep buying it thinking I'm going to like this game.  And I just I can I try.  I really do because everybody loves it.  But it's turn based.  You know, you do a lot of stuff and then you go, OK, now your turn.  Well, I should like that.  I play chess.  That's turn based.
+
+Start time: 3794.11
+End time: 3798.76
+Speaker: SPEAKER_09
+Transcript:  Are you a Civ player?  I have not been.  I just don't understand it.
+
+Start time: 3799.00
+End time: 3799.55
+Speaker: SPEAKER_02
+Transcript:  I admire Sid.
+
+Start time: 3801.02
+End time: 3809.00
+Speaker: SPEAKER_03
+Transcript:  But I love Sid because he's creating a universe in a game.  Maybe I'll like this one.  You're in you're in space now, right?
+
+Start time: 3813.00
+End time: 3813.20
+Speaker: UNKNOWN
+Transcript:  All right.
+
+Start time: 3814.24
+End time: 4022.68
+Speaker: SPEAKER_03
+Transcript:  Let's let's continue.  By the way, five billion dollars for Tinder.  IAC says it ain't true.  Five billion dollars.  So you can meet to meet meet your true love on your phone.  So moving on, we're talking about we'll talk about the the hearings  and Comcast's very weak justification for why they should be by Time Warner.  It's good for you.  Just take our word for it.  But first, a word from our friends at Stamps.com.  This really is good for you if you're spending any time in the post office at all.  You know, it's just it's a time sink.  The post office is always crowded.  And now we're at the time sink.  And you know, it's a time sink.  The post office is always crowded.  And now April 15th, it's going to be nuts.  But if you're in a business that requires mailing, you know, if it's just invoices or brochures  or maybe you mail packages, are you a seller on Etsy or eBay?  Then you know, the last thing you want to do is go to the post office right about now.  You should be using Stamps.com.  This is an opportunity for you to try it.  Stamps.com. It brings all the services the post office right to your desk.  If you visit Stamps.com right now, we can get you set up.  You can buy and print U.S. postage for any letter, any package using your computer, your printer.  You do not need a postage meter or special ink.  The mailman comes every day, right?  So he picks it up, but you can even use a button on Stamps.com.  You press that button and an email carrier will come immediately.  Come and pick up the package.  Stamps.com will even send you a free digital scale.  So you always have the postage you need.  Oh, you know, I should have saved that envelope.  So somebody this week sent me something to try, like these bungee cords or something.  And it arrived, postage to 85 cents.  Do you ever get stuff for review that comes postage to?  It's like, this is not a good way to introduce yourself to the world.  Hey, try our new product.  It only costs you 85 cents in postage.  If they had Stamps.com, they would have plopped it on the scale.  They would have had exactly the right postage.  It looks more professional.  It's got the mailing label with your logo.  It automatically fills in the return address.  And if you're sending it, you know, priority or certified mail,  it will automatically send an email to the recipient saying it's on its way.  It's just more professional.  Stamps.com, you also get discounts.  You save money.  Discounts you cannot get at the post office.  I mean, why wouldn't you use Stamps.com?  Go to Stamps.com right now.  Click the microphone in the upper right-hand corner.  Enter our offer code TWIT, and you're going to get a $110 bonus offer.  $55 in free postage.  You get the scale.  You get a supply kit and a four-week trial, of course, of Stamps.com.  If you've been looking for a reason to try Stamps.com,  April 15th is good enough.  Stamps.com, please use our offer code TWIT to get a special, improved offer.  So I watched a little C-SPAN this week, watching the testimony,  Comcast in Congress,  explaining why they should become the largest broadband provider in the United States,  the largest cable company in the United States by taking over Time Warner.  Do you think that Congress was moved by the testimony?  Either one of you watching any of this?
+
+Start time: 4025.07
+End time: 4082.00
+Speaker: SPEAKER_13
+Transcript:  Well, in the wake of the failed AT&T-T mobile merger,  I think people, maybe regulators, may be more emboldened to just say no.  That was fairly rare until that.  And, however, the argument that they don't compete in the same space may make it harder for them.  Houston is an interesting case because we're one of the few markets that had Time Warner,  and then it switched to Comcast.  They traded territories.  And so I've seen both of them.  It started out here as Time Warner and Roadrunner for broadband, and then became Comcast.  And there's two different eras.  And on one level, Comcast is much better than Time Warner,  at least, again, from the era that I saw Time Warner.  But on another one, it's just meet the old boss same, meet the new boss same as the old boss.
+
+Start time: 4082.34
+End time: 4143.50
+Speaker: SPEAKER_03
+Transcript:  Brian Roberts, the CEO of Comcast, says, we want to be like Apple,  and we want to invest money in R&D, and we want to be innovative.  Meanwhile, according to Consumerist, Comcast is now the worst company in America.  Consumerist has an annual competition that's only the second company to take this title twice.  Comcast defeated Monsanto.  I guess they do it like in brackets.  I don't know where you go head to head, and then you advance.  And in the Consumerist annual poll to find America's worst company,  Comcast has emerged bloody and victorious.  Send that to the Senate Judiciary Committee.  Comcast says, even though we turned a profit of $6.8 billion last year,  even though Time Warner earned $2 billion last year,  those are pretty successful companies,  they want to get together so that they can spend money on research and development  to make themselves a better company.
+
+Start time: 4144.99
+End time: 4146.52
+Speaker: SPEAKER_13
+Transcript:  They don't do any R&D now?  Very little.
+
+Start time: 4149.81
+End time: 4163.92
+Speaker: SPEAKER_03
+Transcript:  Neither company, this is according to the LA Times,  neither company has spent enough on R&D to even disclose its figure in the annual report.  So why Comcast will suddenly do R&D because they merged with Time Warner is beyond me.
+
+Start time: 4166.12
+End time: 4170.83
+Speaker: SPEAKER_09
+Transcript:  And Apple doesn't spend all that much on R&D anyhow compared to a lot of other companies.  Yeah, isn't that interesting?
+
+Start time: 4173.20
+End time: 4176.90
+Speaker: SPEAKER_03
+Transcript:  You'd think they spend a lot more, but I guess they get a lot of money.
+
+Start time: 4177.20
+End time: 4187.00
+Speaker: SPEAKER_13
+Transcript:  AT&T does. I know that AT&T does a lot of R&D.  So perhaps you could look at it competitively that way.  Does Time Warner own any broadcast licenses?
+
+Start time: 4187.63
+End time: 4189.00
+Speaker: SPEAKER_03
+Transcript:  Ah, that's an interesting question.
+
+Start time: 4189.00
+End time: 4197.54
+Speaker: SPEAKER_13
+Transcript:  Comcast owns NBC, and if I were a regulator looking at that,  I would almost be tempted to say, you know what, we might consider this if you divest NBC.
+
+Start time: 4198.32
+End time: 4243.84
+Speaker: SPEAKER_03
+Transcript:  I would expect, and this is fairly typical in these things, something like that,  where we don't want you to control all media everywhere in every form,  so maybe you could just get some of that stuff off your table.  Yeah, NBC, not just NBC, NBC and Universal, they make TV, they distribute TV, they do it all.  Comcast and Time Warner say we're locked in a do-or-die competitive fight  with Google, Apple, Amazon, and Netflix. That may be true.  I mean, we're seeing these companies come up and start to,  Netflix has done a very good job of offering content,  and certainly they distribute films as well, or better than Comcast does.
+
+Start time: 4247.04
+End time: 4252.00
+Speaker: SPEAKER_09
+Transcript:  But Comcast has its fingers in all of that too, because those are the pipes that all those companies use.
+
+Start time: 4252.12
+End time: 4259.00
+Speaker: SPEAKER_03
+Transcript:  That's right. I really sincerely hope that the merger is not approved, but one does not know.
+
+Start time: 4260.65
+End time: 4261.58
+Speaker: SPEAKER_09
+Transcript:  I'm running against it too.
+
+Start time: 4262.92
+End time: 4270.60
+Speaker: SPEAKER_03
+Transcript:  Yeah, $40 billion merger. It would not help in competition, in innovation.
+
+Start time: 4271.36
+End time: 4278.78
+Speaker: SPEAKER_09
+Transcript:  There's just not a lot of evidence that companies like that, getting huge and monopolistic,  improves the situation for consumers. It tends to hurt it.
+
+Start time: 4279.60
+End time: 4283.68
+Speaker: SPEAKER_03
+Transcript:  The worst company in America. Congratulations, Comcast, on your victory.
+
+Start time: 4284.00
+End time: 4286.72
+Speaker: SPEAKER_09
+Transcript:  I mean, this is why AT&T was broken up in the first place 30 years ago.
+
+Start time: 4288.37
+End time: 4292.51
+Speaker: SPEAKER_03
+Transcript:  By the way, AT&T, you're back.  They're back. I think it pretty clearly did benefit consumers.
+
+Start time: 4294.02
+End time: 4300.00
+Speaker: SPEAKER_09
+Transcript:  It did.  We had many phone companies rather than one enormous one, and I don't want one enormous cable company.
+
+Start time: 4301.33
+End time: 4303.00
+Speaker: SPEAKER_13
+Transcript:  Or one enormous internet provider.
+
+Start time: 4303.32
+End time: 4305.98
+Speaker: SPEAKER_09
+Transcript:  Yeah, cable, TV, and internet service.
+
+Start time: 4308.50
+End time: 4381.97
+Speaker: SPEAKER_03
+Transcript:  Actually, I love how the consumerists does this, and I think it's somewhat just for fun, but they do have a bracket.  So AT&T faced Microsoft, AT&T won for worst company.  Verizon faced eBay, and Verizon won for worst company.  Then Verizon faced AT&T, and Verizon won.  Then Verizon faced Comcast, and Comcast won.  So you have to work your way up. It's much like March Madness.  EA, which has for a long time, I think, been considered one of the worst companies in America, lost immediately.  Kind of an upset victory for Time Warner Cable, which just whooped EA right out of the box.  Then Time Warner Cable faced Coke Industries, and beat them, beat the Coke Brothers.  So there you go.  And then finally Monsanto beat Time Warner Cable.  It's just it's really exciting.  I think we should have next year, let's have some brackets.  We can have the we can really have some fun.  We have our little our pool.  SeaWorld is in there, but we're not going to have a lot of fun.  SeaWorld was in there, by the way.  SeaWorld beat Johnson & Johnson and Ticketmaster.
+
+Start time: 4385.00
+End time: 4387.07
+Speaker: SPEAKER_13
+Transcript:  Those crappy installers.  And Chase.
+
+Start time: 4388.26
+End time: 4432.00
+Speaker: SPEAKER_03
+Transcript:  SeaWorld almost got to the final four.  I think SeaWorld, that's got to be because of the documentary Blackfish, right?  And the handling of the killer whales and all of that.  Wow.  SeaWorld faced Comcast and finally met their match.  It's pretty hard to beat Comcast in this game.  Those guys are tough, longtime competitors for worst company in America.  Facebook immediately got, by the way, was eliminated in the first round.  Surprisingly.  Anything to say about Facebook this week?  Not really.  They were kind of quiet.  They had to digest after swallowing that large.
+
+Start time: 4432.10
+End time: 4436.96
+Speaker: SPEAKER_13
+Transcript:  There's a story about the removing chat from their.  Oh, yeah.  Their main.
+
+Start time: 4437.00
+End time: 4448.00
+Speaker: SPEAKER_03
+Transcript:  So what do they do?  Because I keep getting this message on my Facebook saying download chat, download chat, download chat.  Are they because chat.  I never did download chat because it's in the Facebook.
+
+Start time: 4448.04
+End time: 4456.42
+Speaker: SPEAKER_09
+Transcript:  They're going to take it out of the apps.  I mean, already, if you have it installed, they kind of jump back and forth and they will force that decision for you by taking it out of the app.
+
+Start time: 4457.24
+End time: 4471.96
+Speaker: SPEAKER_13
+Transcript:  Yeah, I don't have I don't have messenger installed and I very seldom use chat on the phone app.  But yeah, I've been seeing that that message and that's going to, I think, irritate a lot of people.  I think that's not a I think that's not a smart move on their part.
+
+Start time: 4472.34
+End time: 4497.84
+Speaker: SPEAKER_09
+Transcript:  And I'm not sure why they would do that.  Well, they have the strategy of thinking that you should have different apps for different purposes.  So you have Facebook and you have Instagram and you have messenger and you have what's the direction.  Do you want to consolidate all that?  I think their argument is that if it's easier to do a great chat experience, if that's all an app is doing, I find it disjointed because I'm in Facebook and it boots me out of Facebook and the chat and the messenger.
+
+Start time: 4499.36
+End time: 4507.86
+Speaker: SPEAKER_03
+Transcript:  It feels like they're trying to turn Facebook itself into a news app, which is ironic, like the paper.  Right. And then Twitter is trying to turn into Facebook.
+
+Start time: 4508.24
+End time: 4523.00
+Speaker: SPEAKER_09
+Transcript:  Dropbox is also following this, this because Dropbox just announced Carousel.  If you're doing photos in your Dropbox, I think you should be using a standalone photos app rather than doing it within Dropbox.  Same basic idea.  And they own Mailbox, which is a standalone email client.
+
+Start time: 4523.22
+End time: 4544.96
+Speaker: SPEAKER_13
+Transcript:  So is anyone still using that? It was called Paper, the app that I like.  I like it.  I found it hard to find the thing to stay up with the things I wanted to stay up with.  It was it looked like the pretty overtook the stuff I actually wanted to see and I quit using it.  It's still there and every now and then I open it.
+
+Start time: 4545.86
+End time: 4553.92
+Speaker: SPEAKER_03
+Transcript:  What is it you wanted to see? Because Facebook thinks what you want is news.  But I've always thought people join Facebook and want to see their friends because they want to see their friends and family.
+
+Start time: 4554.02
+End time: 4563.90
+Speaker: SPEAKER_09
+Transcript:  I like groups. Groups are really hidden in paper.  You use groups? Yes, all the time.  And they are hard to find in paper, which I like even despite that.  Yeah. What are you looking for that you don't get?
+
+Start time: 4564.50
+End time: 4603.96
+Speaker: SPEAKER_13
+Transcript:  I'm looking for my what my friends are doing and what they think is interesting.  You know, I run our news. I run our Facebook page.  And so I want our readers to find our news through there.  But my personal use of Facebook is not that there was a Pew study a couple of weeks ago about the way people use social media and that most people don't use Facebook looking for news.  But if it comes to them, they're interested in it.  They see Facebook as a way to keep up with their friends and family, not necessarily a way to keep up with the news.  Twitter, on the other hand, has more of the... It's a news feed, isn't it?  It's a news feed. Right. It's everybody's personal AP wire.
+
+Start time: 4604.44
+End time: 4618.74
+Speaker: SPEAKER_03
+Transcript:  And in fact, we just saw a study in which Twitter denies, but a study that 44 percent of Twitter accounts have never tweeted.  So people join Twitter to read, not to post, which surprises me a little bit.
+
+Start time: 4619.70
+End time: 4640.00
+Speaker: SPEAKER_13
+Transcript:  They read it to keep up with the news. That's how my wife uses it.  She... The first thing she does in the morning, she reaches over and grabs her phone and starts reading Twitter.  It drives me crazy because, you know, one of the joys about being in the news business is you get to know everything first.  But I can't tell her anything anymore. She knows it all. Right. That's good. That's what she wants. That's what you want.
+
+Start time: 4641.00
+End time: 4661.98
+Speaker: SPEAKER_03
+Transcript:  Yeah, so this new algorithm, this thing... Facebook seems to want to do... I don't know. They're up to something.  What is their evil plan? They want... They make money from showing you ads. Right.  So everything is around making it a product that you will want to look at more.  The more you spend on Facebook, using Facebook, the more money they make. Is that right? Is that what they care about?
+
+Start time: 4662.16
+End time: 4680.00
+Speaker: SPEAKER_13
+Transcript:  Or is that... So could it be that they want to sell different kinds of ads in chat versus regular app?  That it essentially gives them another avenue to sell to advertisers?  I mean... You can do it in chat and it may be a different kind of ad and may have different kind of results from being in chat versus the main app.
+
+Start time: 4680.02
+End time: 4711.24
+Speaker: SPEAKER_09
+Transcript:  That would make sense. I think in some instances it's totally logical. Like with Instagram, I would not want...  No, please don't mix the two. I don't want Instagram to be part of Facebook. It makes sense for it to be standalone.  I think the difference is that right now, if you're on Facebook Messenger, it's because you want to talk to your Facebook friends  and it's not a separate thing from reading their updates and so forth.  And that's why you get into this loop where you're jumping back and forth between them, which does not happen with Instagram.  Instagram, you're probably... I just want to see pictures. You're looking at other people's photos and it's not the same group.
+
+Start time: 4712.66
+End time: 4730.00
+Speaker: SPEAKER_03
+Transcript:  That does make sense. Somebody in the chat room said that's the Unix tools model where you want to do small tools that do things well.  But on Unix, you can chain them together to make a bigger thing that does different things.  There's no piping yet in Facebook apps.
+
+Start time: 4730.32
+End time: 4746.24
+Speaker: SPEAKER_09
+Transcript:  And Facebook does have this challenge that it does so many things.  It's a lot.  There's a real danger for it to become bloated and you won't be able to find stuff, which is already an issue.  There are all kinds of things you can do on Facebook I don't know about simply because they're three menus down.
+
+Start time: 4747.22
+End time: 4765.94
+Speaker: SPEAKER_03
+Transcript:  The irony, though, is that they don't have a great track record of introducing new apps that take off.  The Facebook home was a flop. I think it sounds like paper might well be a flop.  And paper is gorgeous. They did everything right with paper.  But people just kind of want the Facebook experience.
+
+Start time: 4766.56
+End time: 4774.00
+Speaker: SPEAKER_09
+Transcript:  It's the Windows XP effect. People understand Facebook in its original form and they don't necessarily want to give it up even for something that is theoretically better.
+
+Start time: 4774.00
+End time: 4812.90
+Speaker: SPEAKER_13
+Transcript:  I think part of it may also have to do with just the overall form factor and the design of smartphones and the way they interact with the operating system.  In iOS, when you switch to an app, there's a visual swapping of the apps and that's jarring.  Same thing in Android. It's less so.  But if you chained it so that you didn't realize you were leaving the Messenger app to go look at something that someone linked to you in a Facebook page,  and then when you went back to the Messenger app, it seemed seamless, that might make more sense.  But the way smartphone interfaces work, it just kind of makes you blink and you don't like it.
+
+Start time: 4813.44
+End time: 4825.19
+Speaker: SPEAKER_03
+Transcript:  It strikes me there's a risk in separating Messenger out that people just won't use it.  It'll be just like taking a chunk out of Facebook and throwing it away. I'm not going to download Messenger.  Right. Nobody messages me. Right. I don't need it.
+
+Start time: 4827.22
+End time: 4847.92
+Speaker: SPEAKER_13
+Transcript:  And I use other things. I mean, people already have all kinds of messaging apps coming at you.  There's WhatsApp. There's iMessage if you use that. There's the Messenger built into Android.  You already have many ways in which you can get notifications.  And to separate that out and make just one more seems to be like overload.
+
+Start time: 4848.22
+End time: 4868.76
+Speaker: SPEAKER_03
+Transcript:  So that's an interesting question. How do you think people like to use stuff?  Would they rather have an omnibus app that does it all? Or would they rather separate all these functions out,  which would maybe allow them to choose in each case best in class?  Maybe it's the Facebook Messenger, but maybe it's not. I'm going to use the Messenger that's best in class.
+
+Start time: 4870.16
+End time: 4890.72
+Speaker: SPEAKER_09
+Transcript:  Remember, like two or three years ago, Facebook gave everybody their own email address?  Yeah. Nobody used it. Or pissed.  And they kind of envisioned becoming a primary email provider, which never happened as far as I know.  I think they see Messenger as getting people to think of it not as where you go to message Facebook users,  but where you go first for messaging, period.
+
+Start time: 4892.30
+End time: 4902.98
+Speaker: SPEAKER_03
+Transcript:  Okay. Now I'm thinking, I can't remember any big successes recently in the last three years from Facebook,  any apps that took off, anything that they've done that's been significant.
+
+Start time: 4903.56
+End time: 4909.00
+Speaker: SPEAKER_09
+Transcript:  They've done a good job of keeping Instagram strong, but obviously they didn't.  By keeping their hands off of it.  They didn't get it going in the first place.
+
+Start time: 4909.58
+End time: 4913.24
+Speaker: SPEAKER_03
+Transcript:  And there's no question they've got growth. They're well over a billion, what is it, 1.2 billion now users.
+
+Start time: 4914.02
+End time: 4923.00
+Speaker: SPEAKER_09
+Transcript:  Their big success is that the Facebook mobile app has done really well, probably better than it necessarily would have,  because I think they've been generally speaking a good job of having a good mobile experience.
+
+Start time: 4923.02
+End time: 4935.92
+Speaker: SPEAKER_03
+Transcript:  They've been able to go to, and that's the transition everybody was wondering if they could make.  They've been able to remove revenue off the desktop to mobile. People are using Facebook.  In fact, most of their revenue is now mobile, like 54%.
+
+Start time: 4937.50
+End time: 4965.94
+Speaker: SPEAKER_13
+Transcript:  But one of the reasons why is that it duplicates or replicates the desktop look.  It's familiar. When you're looking at it, there's no question, oh, I'm looking at Facebook.  It looks like this on the desktop too. And they kept the familiarity.  Remember the early Facebook apps, because they were using HTML5, were slow and irritating to use.  And once they got away from it, that is what sped it up.  But I think one of the big reasons why people use it is it looks like Facebook.
+
+Start time: 4966.92
+End time: 4997.49
+Speaker: SPEAKER_03
+Transcript:  Well, you know, that's funny. Now, I don't use the iPhone version. I use the Android version.  I don't know if you guys are iPhone users, but they have really changed the Android one now.  It's got these columns. It isn't like the old Facebook app.  And they moved the hamburger for absolutely no reason that I can understand.  Remember that the settings used to be over on the left. Now they're on the right.  I don't really understand. They've changed everything kind of randomly.  Does it look like that on iOS?
+
+Start time: 4998.00
+End time: 5006.42
+Speaker: SPEAKER_09
+Transcript:  Well, I do confess I do have an issue where there are like two hamburgers.  There's my main hamburger. There are. There's two hamburgers.  And my messenger hamburger. And that is kind of confusing.
+
+Start time: 5007.14
+End time: 5008.21
+Speaker: SPEAKER_03
+Transcript:  It's very confusing.
+
+Start time: 5009.48
+End time: 5015.40
+Speaker: SPEAKER_09
+Transcript:  It is already. It does feel like a little bit like two worlds.  It's the main world of Facebook and the messenger world of Facebook.
+
+Start time: 5016.08
+End time: 5024.00
+Speaker: SPEAKER_13
+Transcript:  Well, although when you look at the...  So this is going to go away though, right?  The news feed looks like Facebook on the desktop. That news feed does look like it.
+
+Start time: 5024.56
+End time: 5100.57
+Speaker: SPEAKER_03
+Transcript:  It does. Yeah. It's unchanged.  It's Facebook. It's exactly like Facebook on the desktop.  So it's interesting. Here's a company.  They talk about spending a lot of money on R&D, talking about being innovative and forward thinking.  And yet can you think of a big hit that they've had lately?  Chat faces? Chat heads? Whatever that's called.  I mean, really, what have you done for me lately?  Maybe you just, you know, maybe you just...  It's never... We're not going to see companies on top anymore.  It's just going to be a constant churn of companies going through this cycle.  Although I have to say, I've been very impressed.  We talked, I think, a little bit about this last week.  We certainly have been talking about it on Windows Weekly.  Satya Nadella seems to have brought Microsoft back from the dead in some ways.  They like the new Microsoft. They're open-end sourcing some of their code, .NET code.  They've reduced the price of Windows on 9-inch screens or less to zero.  Unheard of.  Is it a kinder, gentler Microsoft?  And I think, I just, you know, Windows Phone 8.1 looks pretty darn good.  Would you ever consider a Windows Phone?
+
+Start time: 5103.08
+End time: 5114.00
+Speaker: SPEAKER_09
+Transcript:  Yeah, I mean, again, my advice to myself as somebody who writes about this stuff is I need to use everything.  You have to.  So I jump back and forth. I jump back and forth between iPhone and Android kind of constantly.  Yeah.  And Windows, I think, should be in that mix.
+
+Start time: 5114.78
+End time: 5121.74
+Speaker: SPEAKER_03
+Transcript:  I guess it should. I'm thinking I'm going to wait until the end of the month and then there'll be some Windows Phones with 8.1.  Although you could buy one today and it'll be updated.
+
+Start time: 5122.00
+End time: 5126.10
+Speaker: SPEAKER_09
+Transcript:  I would recommend a Windows Phone in some cases to, like, civilians who are looking for something.  Yeah.
+
+Start time: 5128.46
+End time: 5179.00
+Speaker: SPEAKER_03
+Transcript:  You know, what's the cricket metaphor for Satya Nadella?  I need a crick. He's apparently a big cricket fan.  We don't know here in the States. We don't know.  It's a sticky wicket.  It's a sticky wicket. That's a bad thing.  What's the equivalent of hitting a home running cricket?  That's a three bagger.  I don't know.  There's a name. There's a word, right?  Come on, chat room. Help me out here.  He's got a, he's a, I don't know.  I don't know.  Blackberry CEO, speaking of not hitting a home run, he says that he is going to kill off Blackberry Phones if they don't start making money.  Forgive me, but what else do they, Blackberry Messenger? Is that the business?  The server stuff.  QNX and BES?
+
+Start time: 5179.85
+End time: 5180.74
+Speaker: SPEAKER_09
+Transcript:  The enterprise stuff, yeah.
+
+Start time: 5181.00
+End time: 5184.24
+Speaker: SPEAKER_03
+Transcript:  But if you don't have a Blackberry Phone, do you need Blackberry Enterprise Server?
+
+Start time: 5185.84
+End time: 5196.62
+Speaker: SPEAKER_09
+Transcript:  I think their general philosophy is that they will sell you a lot of enterprise software and hopefully you'll have some Blackberry Phones, but if you also have iPhones and Androids, that's okay too.
+
+Start time: 5197.39
+End time: 5197.57
+Speaker: SPEAKER_04
+Transcript:  Yeah.
+
+Start time: 5198.40
+End time: 5200.26
+Speaker: SPEAKER_09
+Transcript:  And then he said that he was kind of misquoted.
+
+Start time: 5201.36
+End time: 5206.80
+Speaker: SPEAKER_03
+Transcript:  In his blog he said, I assure you, I have no intention of selling off or abandoning this business anytime soon.
+
+Start time: 5207.46
+End time: 5211.83
+Speaker: SPEAKER_09
+Transcript:  This happens every time any CEO of Blackberry ever says anything. They have to clarify it a day later.
+
+Start time: 5214.40
+End time: 5224.87
+Speaker: SPEAKER_03
+Transcript:  Come on chat room. So a home run is a sixer.  So Satya Nadella has hit a sixer.  Just doesn't have the ring to it. He's bold a googly.
+
+Start time: 5226.22
+End time: 5230.74
+Speaker: SPEAKER_13
+Transcript:  It's too early on Microsoft. I don't think he wants to say that.  I think it's too early. It's too early to say if they're...
+
+Start time: 5231.20
+End time: 5232.53
+Speaker: SPEAKER_03
+Transcript:  You don't think he's bold a googly?
+
+Start time: 5236.00
+End time: 5237.59
+Speaker: SPEAKER_13
+Transcript:  I think he's still at bat.  Okay.
+
+Start time: 5238.00
+End time: 5239.72
+Speaker: SPEAKER_09
+Transcript:  Is there a synonym for googly that doesn't have Google in it?
+
+Start time: 5240.00
+End time: 5242.36
+Speaker: SPEAKER_03
+Transcript:  I do believe that in cricket you could be at bat for days.
+
+Start time: 5243.67
+End time: 5244.98
+Speaker: SPEAKER_09
+Transcript:  Well, it is...  That's what it'll take.
+
+Start time: 5245.04
+End time: 5245.14
+Speaker: SPEAKER_13
+Transcript:  Yep.
+
+Start time: 5247.07
+End time: 5349.77
+Speaker: SPEAKER_03
+Transcript:  Days.  Weave is off the hook, but only because of a technicality.  Weave really became a cause celeb for a lot of the hacker community.  He himself bills himself as a hacker troll.  But what Weave did, which got him in so much trouble, was he discovered a flaw in AT&T's system  and used it to download the names and email addresses of iPad users.  And he says, I told AT&T he downloaded 140,000 iPad owners from an AT&T website.  Maybe he went a little far by publishing it, but it was a pretty...  He passed along the email addresses to Gawker,  although they didn't publish it without redacting some of the information.  He was convicted in the New Jersey Federal Court of a felony for conspiracy to access AT&T's servers,  but the three-judge federal appellate panel turned the conviction over on appeals saying,  well, it turns out none of the servers were in New Jersey.  So AT&T wanted to have the trial in New Jersey for some reason,  or maybe the government wanted to have it.  The addresses were obtained from residents in New Jersey,  but it turns out that the servers themselves, not one of them was in New Jersey.  So purely on a technicality, he's off the hook.  Justice Department has not decided to appeal.
+
+Start time: 5351.30
+End time: 5354.86
+Speaker: SPEAKER_13
+Transcript:  There's some issue of doing another trial would be double jeopardy in this case.
+
+Start time: 5355.48
+End time: 5362.11
+Speaker: SPEAKER_09
+Transcript:  It's amazing that they only figured out that now, so long after all of this happened.  Yeah, it seems like that's like...
+
+Start time: 5363.06
+End time: 5429.51
+Speaker: SPEAKER_03
+Transcript:  It seems kind of base...  It was a venue technicality that was fairly obvious.  Maybe they didn't know at the time.  The real issue is the Computer Fraud and Abuse Act,  which is so broad that it really is possible to prosecute people for almost anything.  And so I think that's really the issue that ultimately needs to be addressed.  The third court of appeals said that Weave was charged on the wrong federal court.  So celebration, but for all the wrong reasons.  Hewlett-Packard is going to pay $108 million for bribing public officials.  In Poland, Russia, and Mexico, an international investigation found corruption in those three countries,  and HP is going to have to pay $108 in fines.  HP really seems to have had a kind of bad business practices all around.
+
+Start time: 5432.36
+End time: 5436.61
+Speaker: SPEAKER_13
+Transcript:  Yeah, this was the board that spied on reporters.  Right, the pre-texting stuff, right?
+
+Start time: 5440.38
+End time: 5463.96
+Speaker: SPEAKER_03
+Transcript:  All right, I'll tell you what.  We had a pretty good week this week.  Some interesting stuff.  We debuted a new show, Marketing Mavericks, on the network.  I'm very happy with Tanya Hall.  In fact, Tanya interviewed the Chief Marketing Officer of Taco Bell.  Talked about their social media.  We had a lot of good stuff.  Let's take a look.  If you missed anything this week, here's kind of a quick summary of some of the things that happened on Twitter.  Previously on Twitter,
+
+Start time: 5464.10
+End time: 5466.00
+Speaker: SPEAKER_00
+Transcript:  Twitter Live specials.
+
+Start time: 5466.82
+End time: 5475.77
+Speaker: SPEAKER_07
+Transcript:  Every year, everyone who's even remotely connected to content production comes to one place.  The mecca of all things video and audio.  Ladies and gentlemen, NAB 2014, Las Vegas.
+
+Start time: 5479.25
+End time: 5480.00
+Speaker: SPEAKER_04
+Transcript:  Tech News tonight.
+
+Start time: 5480.66
+End time: 5491.78
+Speaker: SPEAKER_01
+Transcript:  A bug in OpenSSL, which if you haven't heard of, is an open source cryptographic library  securing a big percentage of the Internet's traffic, has just been discovered and publicly disclosed.
+
+Start time: 5493.77
+End time: 5503.84
+Speaker: SPEAKER_04
+Transcript:  How the heart bleeds.  Much overhyped, as always.  Much misunderstanding.  Nowhere will you get more comprehensive coverage of it than here.
+
+Start time: 5505.64
+End time: 5512.00
+Speaker: SPEAKER_06
+Transcript:  We've got a really important guest with us today.  I'm the Chief Marketing Officer at Taco Bell.  And we do love the Ronald McDonald campaign.
+
+Start time: 5512.20
+End time: 5519.00
+Speaker: SPEAKER_00
+Transcript:  It's clever, it's witty.  What we're really pleased about is that people get the joke.  We want to do everything that has a little bit of a wink, a little bit of rebellion.
+
+Start time: 5519.22
+End time: 5521.74
+Speaker: SPEAKER_06
+Transcript:  So, pretty exciting times for Taco Bell.
+
+Start time: 5522.20
+End time: 5571.98
+Speaker: SPEAKER_03
+Transcript:  That is disgusting.  It's what's for dinner.  I love it.  Actually, you know, NAB didn't have any huge stories, but we had some great coverage.  And thanks to Scott Wilkinson and Father Robert Balisar.  And if you didn't see our NAB coverage, it's in the specials feed, right?  twit.tv slash specials.  A little out of breath.  I just ran across the studio and back during that promo.  One of the things that they did announce at NAB that we were very interested in,  Skype announced, you know, Skype's now a Microsoft product.  Microsoft had acquired a company called Cat and Mouse.  Is that it?  Cat and Mouse.  And they're going to do a new media product.  So we called them up immediately.  Skype TX.  Skype TX.  Yeah. Have you heard about that?
+
+Start time: 5572.00
+End time: 5579.47
+Speaker: SPEAKER_13
+Transcript:  Yeah. It looks interesting, particularly for broadcasters.  It looks like it would.  It's almost like a virtual TriCaster.  Is that?
+
+Start time: 5580.33
+End time: 5659.15
+Speaker: SPEAKER_03
+Transcript:  Yeah.  I'm not completely sure what they're doing, but we did talk to them and they knew who we were.  They know we use Skype like crazy.  You're on Skype right now.  And so they're going to get us.  We think they're going to get us a Skype TX pretty quick.  So for all the people who tweeted me.  Will it change what we do here?  I don't think from your point of view it will.  I think you'll just use Skype as you are using it.  But we will have a Skype TX box here that will give us all sorts of capabilities in terms of settings,  things that we under the hood that we haven't been able to dials,  we haven't been able to twiddle in Skype.  Plus it will be integrated better into our hardware setup.  It will have SDI video and all of that stuff.  You should get better video back, better audio back, and we should be able to...  There's all sorts of issues with screen sizes and stuff, weird things happening there,  and we should be able to get better results.  So to me that was the big story.  I know a lot of you probably don't care, but that was the big story.  I know enough of you care because I got a lot of tweets from people  and emails flying back and forth.  What did they announce? What did they announce?  So we're excited about that.  So that's good news.  Do you have a week ahead with Mr. Mike Elgin?  Let's see what's coming up in the week ahead.
+
+Start time: 5676.04
+End time: 5683.09
+Speaker: SPEAKER_11
+Transcript:  The service that powers the app will be terminated on Friday, April 18th.  That's the week coming up. Back to you, Leo.
+
+Start time: 5684.02
+End time: 5700.96
+Speaker: SPEAKER_02
+Transcript:  You know, actually it was really pleasing.  It's kind of a plug, but I'm going to mention it anyway,  because Sonos just added Google Play Music to the Sonos player.  And that's it. I'm done.  I'm so happy about that.  I can play not only all my music on that now, but everything in the Google Store.
+
+Start time: 5701.20
+End time: 5884.31
+Speaker: SPEAKER_03
+Transcript:  I think it's 20 million songs.  All right, we're going to take a break.  We'll come back with more.  Dwight Silverman from The Chronicle, Houston Chronicle,  from Time Magazine, Technologizer, Harry McCracken.  I always call you Technologizer. Is that OK?  Is that your title?  It's flattering.  The Terminator, the Technologizer.  Our show today brought to you by Carbonite Online Backup.  Whether you have a computer, a single computer at home,  or you've got external drives or multiple computers at your business,  Carbonite is the place to backup your files to the cloud automatically,  continuously.  They are, I tell you, they are a great company.  What is the number? If you scroll down a little bit,  I think it says 50,000 businesses.  Yeah, 50,000 businesses now use Carbonite to backup 350 million files a day.  30 billion files total.  The thing about it is it's automatic, so you don't have to remember it.  It's continuous.  Whenever you're online, it's backing up.  So instantly, you don't have to wait until the weekend to backup.  You can get to your files anytime on the Carbonite servers,  so it's in the cloud.  You log on to your Carbonite account, there's your stuff.  And it's just really easy.  I'm sorry, 300 billion files backed up.  HIPAA compliant, too.  And in fact, if you're worried about the idea that maybe your files  would be visible to three-letter federal agencies in the Carbonite cloud,  you do have the ability to further encrypt using trust-know-one encryption.  Only you have the key, not Carbonite.  Just things like that that really make Carbonite great.  Now, the best part is a very affordable flat rate plans,  $59.99 a year for everything on a single Mac or a PC,  but they've got plans for networks, servers, and more.  Always one yearly flat rate, no matter how much data you have.  Carbonite.com, you can try it right now.  You don't need a credit card, just our offer code TWIT.  If you use our offer code TWIT during your two-week trial,  you'll get two weeks, I'm sorry, two months free with purchase.  You got to back it up to get it back.  Do it right.  Carbonite.  Actually, I think there's been a lot of interest in Carbonite  since we found out this week that Condoleezza Rice,  the architect of the federal spying infrastructure  that was created during the Bush administration,  is now on the board of Dropbox, so that'll make it easier.  Not that Dropbox would ever turn down a federal request anyway,  but it's just, you know, we've got a channel right into the...  I like Dropbox, but it is a little bit weird.  Here's a good one.  Apparently, the feds were able to get into GoGo's in-flight Wi-Fi.  You know, in case you were wondering,  when you're in the air using GoGo Wi-Fi,  you're automatically sharing your stuff with law enforcement.  Apparently, GoGo has voluntarily shared more than required  with law enforcement.
+
+Start time: 5886.18
+End time: 5890.29
+Speaker: SPEAKER_09
+Transcript:  I've always assumed I was.  Really?  Yeah, I'm on an airplane.
+
+Start time: 5891.14
+End time: 5925.94
+Speaker: SPEAKER_03
+Transcript:  It should be public, right?  Chris Seguian, we love Chris.  You're in the air! What the hell?  Chris Seguian, who is at the ACLU,  tweeted a link to a letter submitted from a GoGo attorney to the FCC  which said,  The Commission's air-to-ground rules do not require licensees  to implement capabilities to support law enforcement  beyond those outlined in CALEA,  but GoGo worked with federal agencies to reach agreement  regarding a set of additional capabilities  to accommodate law enforcement interests.  Do you think terrorists in the air like tweet,  I'm going to take over the plane before?  Is that why you think, because they're in the air?
+
+Start time: 5926.20
+End time: 5941.88
+Speaker: SPEAKER_09
+Transcript:  Yeah, I sort of assumed that at least the government would be worried about that.  GoGo also said that the only reason there's a cap chop  when you pay for GoGo in the air  is because the government insisted on it being there,  which I always wondered about,  because I didn't understand anybody could spam GoGo.
+
+Start time: 5942.00
+End time: 5945.62
+Speaker: SPEAKER_03
+Transcript:  Yeah, I'm on a flight to Newark,  and I'm going to spam while I'm up there.
+
+Start time: 5946.00
+End time: 5949.23
+Speaker: SPEAKER_09
+Transcript:  So I'm not sure that anybody was worried about  somebody building some sort of device.
+
+Start time: 5950.00
+End time: 5950.16
+Speaker: SPEAKER_03
+Transcript:  A robot?
+
+Start time: 5951.00
+End time: 5958.68
+Speaker: SPEAKER_09
+Transcript:  Which they could plant on the plane,  which would log into GoGo  and then send information to the ground  or be triggered from the ground or something.
+
+Start time: 5959.34
+End time: 5997.00
+Speaker: SPEAKER_03
+Transcript:  That's bizarre.  GoGo says its primary concession to law enforcement  was to impose a CAPTCHA  to thwart spammers and other network abuse.  So CAPTCHA only finds bots.  It doesn't do a very good job of it, by the way.  In fact, nobody should be using CAPTCHA ever.  It's terrible.  Besides annoying your users,  it doesn't provide you with any additional security.  In fact, we know what bad guys do  is they just make a porn site  and they feed the CAPTCHAs into the porn site  and say, if you want to see porn,  enter this CAPTCHA, tell us what this means,  and then they take the results back,  and there's so many people hitting the site,  they can unlock any CAPTCHA right away.
+
+Start time: 5997.08
+End time: 6000.07
+Speaker: SPEAKER_09
+Transcript:  So CAPTCHAs are completely useless.  They keep out people.
+
+Start time: 6001.02
+End time: 6011.39
+Speaker: SPEAKER_03
+Transcript:  They don't keep out robots.  And robots are there at 10,000 and 30,000 feet.  Who's writing spam robots?  You're right, it must be like,  oh, we've infiltrated the air-conditioning.
+
+Start time: 6012.00
+End time: 6026.64
+Speaker: SPEAKER_09
+Transcript:  What if somebody put a bomb on a plane  in the cargo space and it was somehow able to log on to?  Wouldn't it be great if the CAPTCHA would thwart that?  I sort of wondered if that was the reason it was there.  It's bizarre.  Because the stories I saw didn't really explain  why the government would care if there was a CAPTCHA on GoGo.
+
+Start time: 6027.04
+End time: 6032.21
+Speaker: SPEAKER_03
+Transcript:  Yeah.  So GoGo says that's the kind of stuff we did.  We didn't have to monitor traffic at all.
+
+Start time: 6033.00
+End time: 6035.00
+Speaker: UNKNOWN
+Transcript:  Essentially, what if you could like communicate
+
+Start time: 6035.48
+End time: 6038.29
+Speaker: SPEAKER_09
+Transcript:  with a bomb from the ground via GoGo?  Oh, I see what you're saying.
+
+Start time: 6039.10
+End time: 6043.36
+Speaker: SPEAKER_03
+Transcript:  That's interesting.  Hmm.  Okay.
+
+Start time: 6045.02
+End time: 6048.98
+Speaker: SPEAKER_05
+Transcript:  I can't quite figure it out,  but I'm sure that the NSA knows what it's doing.
+
+Start time: 6049.48
+End time: 6090.31
+Speaker: SPEAKER_03
+Transcript:  Sir David Attenborough,  famous creator of documentaries like Planet Earth  and the Earth's End,  is a very famous writer.  He's a very famous writer.  Of documentaries like Planet Earth and Life.  He's doing a new  documentary, Conquest on the Skies.  They're filming with an 8-camera rig  because they wanted to deliver  a 360-degree video  for wearers of the Oculus Rift.  Imagine...  Now this, to me, is kind of intriguing.  Imagine  watching a movie in the Rift headset  and when you see something going over there,  you look to the left.  And when you see something going over there,  you look to the right.
+
+Start time: 6091.44
+End time: 6094.52
+Speaker: SPEAKER_13
+Transcript:  That's wild.  There's a regular version of it.
+
+Start time: 6095.00
+End time: 6097.95
+Speaker: SPEAKER_03
+Transcript:  Yes, the film will also be released  in normal 3D.
+
+Start time: 6099.02
+End time: 6103.00
+Speaker: SPEAKER_13
+Transcript:  So which of the 8-camera angles  does he decide is going to be the...
+
+Start time: 6104.17
+End time: 6130.98
+Speaker: SPEAKER_03
+Transcript:  The middle.  It has to be the middle  because you have to have something on the left and right to look at.  But if it's 8, it's all around you.  It's 360.  You could turn around.  That would be wild.  That wouldn't be weird.  Am I just paranoid?  Because I think one of the problems with the Oculus Rift is  the fact that you are standing with a thing on your head  that means you can't hear or see anything  that's going on around you.  Somebody could just come knock you on the head
+
+Start time: 6131.06
+End time: 6159.38
+Speaker: SPEAKER_13
+Transcript:  and steal your cool glass.  So there's a company here in Houston,  I think it's called Virtuix Omni  or something like that,  that has developed a treadmill for use  with headsets like the Oculus Rift.  Terrible idea.  It's like a little platform  with guardrails around it  and it allows you to move around in this world.  I think they just went up on Kickstarter.  Virtuix Omni is what it's called.  Yeah.  They're based here.  It's only $500.
+
+Start time: 6162.82
+End time: 6172.98
+Speaker: SPEAKER_03
+Transcript:  Huh.  Wow.  Yeah, I've seen the people...  But you have to be harnessed  because you could accidentally  get excited and run off of it and fall down.
+
+Start time: 6173.95
+End time: 6174.13
+Speaker: UNKNOWN
+Transcript:  Right.
+
+Start time: 6175.00
+End time: 6184.03
+Speaker: SPEAKER_13
+Transcript:  In the early days of  virtual reality,  there was this pterodactyl game  that was going around.  Yes, I played it.
+
+Start time: 6185.00
+End time: 6216.35
+Speaker: SPEAKER_03
+Transcript:  Yes, at SIGGRAPH.  Guaranteed to make you throw up.  So we did a little demo  of somebody had a virtual reality suit  that you would be...  You'd aim the gun,  you'd physically aim the gun  and then they put the Oculus Rift on me  and I was beating zombies with a stick  but then I got sick.  And it wasn't fun.  But we did get an email  from somebody saying if you put a cool, damp  washcloth on the back of your neck  you'll feel better.  But I didn't get that until like three days later
+
+Start time: 6218.05
+End time: 6220.88
+Speaker: SPEAKER_13
+Transcript:  so it didn't help.  That's right, the high-end version of the Oculus Rift
+
+Start time: 6221.40
+End time: 6253.28
+Speaker: SPEAKER_03
+Transcript:  comes with a little holder for your...  Cooling, damp washcloth.  Apparently that works every time.  I don't know, I love the idea of immersive  virtual reality but at the same time  it's like there's an uncanny valley with VR too.  That if it's kind of not perfect  it's like nauseating.  Let's take a break. No, we did our...  Did we do everything? Okay, so I can play the  worst social media marketing song  you've ever heard.  You want to hear it?  It's called Let's Get Social.  Oh no.
+
+Start time: 6255.36
+End time: 6256.54
+Speaker: SPEAKER_08
+Transcript:  Oh no.
+
+Start time: 6260.19
+End time: 6274.98
+Speaker: SPEAKER_03
+Transcript:  Let me see if I can find the video.  It's on YouTube, here we go.  This is it. Social Media  Marketing World.  Oh god.  Can you get my audio?  You can't get my audio? You may be saved.
+
+Start time: 6276.23
+End time: 6288.54
+Speaker: SPEAKER_08
+Transcript:  Mary McCoy  is going to come up right now and she is  going to sing a song  that I wrote and then  she and Dave Curtis, one of the band members  helped write it. I always wanted at my keynotes  to do rap. I wanted like
+
+Start time: 6289.06
+End time: 6298.70
+Speaker: SPEAKER_03
+Transcript:  to start talking and then have like  a big loud beat come out  and explosion and fireworks.  The word is social. Can you handle it?  And then do a rap but this is not quite that.
+
+Start time: 6299.02
+End time: 6313.00
+Speaker: SPEAKER_08
+Transcript:  So if I point at you and say social you're going to go  Media!  Alright and Mary's going to actually sing  Let's Get Social. I'll point to you  and you'll say social.  Alright cool. Mary McCoy with Continuum  please come on up. This is
+
+Start time: 6313.20
+End time: 6318.60
+Speaker: SPEAKER_03
+Transcript:  Let's Get Social. Just think of all the money  you saved. You didn't really have to go to Social  Media Marketing World because
+
+Start time: 6319.00
+End time: 6320.98
+Speaker: SPEAKER_13
+Transcript:  This may cause me to resign my current job.
+
+Start time: 6321.14
+End time: 6325.59
+Speaker: SPEAKER_03
+Transcript:  This is what you do  for a living, Dwight Silverman.  No it's not.
+
+Start time: 6329.16
+End time: 6330.19
+Speaker: SPEAKER_13
+Transcript:  I promise you it's not.
+
+Start time: 6331.79
+End time: 6332.88
+Speaker: SPEAKER_02
+Transcript:  This poor woman's wondering
+
+Start time: 6333.12
+End time: 6340.88
+Speaker: SPEAKER_03
+Transcript:  why did I agree to do this?  No maybe not. Maybe she's actually enjoying it.  She's into it.  Oh lord I don't know if I should
+
+Start time: 6357.48
+End time: 6371.75
+Speaker: SPEAKER_12
+Transcript:  Face palm baby.  This is not a joke.  Yes it is.  This is why Social  Media Marketing has a bad name, Dwight.  Social!  You're not even doing your job.  You gotta say
+
+Start time: 6373.59
+End time: 6373.85
+Speaker: UNKNOWN
+Transcript:  Social!
+
+Start time: 6375.00
+End time: 6377.53
+Speaker: SPEAKER_03
+Transcript:  Social!  Social!
+
+Start time: 6379.53
+End time: 6381.34
+Speaker: SPEAKER_02
+Transcript:  Social!  Social!
+
+Start time: 6383.20
+End time: 6388.78
+Speaker: SPEAKER_03
+Transcript:  Social!  Social!  Social!
+
+Start time: 6389.36
+End time: 6390.01
+Speaker: UNKNOWN
+Transcript:  Social!
+
+Start time: 6391.00
+End time: 6396.66
+Speaker: SPEAKER_02
+Transcript:  Oh now he's getting into it.  Wow. Alright. That's enough of that.
+
+Start time: 6401.00
+End time: 6402.96
+Speaker: SPEAKER_13
+Transcript:  Fortunately the song isn't even good enough to get stuck in your head.
+
+Start time: 6403.95
+End time: 6432.27
+Speaker: SPEAKER_03
+Transcript:  Yes it's not  an earworm but we thank  Ed Citron for passing  that around.  Alright.  I think we have now done  everything we can to annoy our audience.  You have no audience now.  You'll be watching with interest and maybe we'll get you back after  the area  Aural Arts.  I didn't realize you could get it in Houston.  And you need it. So this is a big deal.
+
+Start time: 6433.00
+End time: 6440.37
+Speaker: SPEAKER_13
+Transcript:  Yeah. It's a  13 cities.  Two of them are offline at the moment because of that other  They say they'll have 50 more
+
+Start time: 6441.04
+End time: 6444.29
+Speaker: SPEAKER_03
+Transcript:  cities if they win.  And zero cities if they lose.
+
+Start time: 6445.10
+End time: 6447.00
+Speaker: SPEAKER_09
+Transcript:  They've steered clear of the west coast so far.
+
+Start time: 6447.85
+End time: 6449.67
+Speaker: SPEAKER_03
+Transcript:  Are they afraid of the 9th  Circuit Court?
+
+Start time: 6451.02
+End time: 6454.94
+Speaker: SPEAKER_09
+Transcript:  It's because of what was that other  service that had the name with Aereo in the name.
+
+Start time: 6455.08
+End time: 6456.09
+Speaker: SPEAKER_13
+Transcript:  Aereo Killer.
+
+Start time: 6457.16
+End time: 6458.96
+Speaker: SPEAKER_09
+Transcript:  That apparently is a bad precedent for them.
+
+Start time: 6459.63
+End time: 6460.96
+Speaker: SPEAKER_03
+Transcript:  There's a service called Aereo Killer?
+
+Start time: 6463.65
+End time: 6480.54
+Speaker: SPEAKER_13
+Transcript:  It came out just  after Aereo kind of announced  what it was going to do.  And they claimed to have similar technology  but I don't think it was exactly the same kind of technology.  Aereo, if you talk to them  they say it really isn't relevant.  But clearly they're avoiding  the west coast like the plague.
+
+Start time: 6481.34
+End time: 6482.96
+Speaker: SPEAKER_02
+Transcript:  That's also the home of Film On which is
+
+Start time: 6484.03
+End time: 6490.25
+Speaker: SPEAKER_13
+Transcript:  just a completely different  Film On is what it, I think, Film On may be  what it started at.  Oh, Aereo Killer was film on.
+
+Start time: 6491.14
+End time: 6519.75
+Speaker: SPEAKER_03
+Transcript:  Yeah, because this basically is just blatant.  They were even on. They're even selling  access to twit on this.  It's just, I mean, it's not, there's no dime  sized antennas or anything. They just  don't steal any content we can  and put it on the air.  Put it on the air.  Alright, hey, hey, it's great to have  you back with us, Mr. Dwight  Silverman. His new home  is in progress.  You can read him  at blog.cron.com  slash techblog.
+
+Start time: 6521.00
+End time: 6528.45
+Speaker: SPEAKER_13
+Transcript:  Or find me at D Silverman. And occasionally  I will be on technology bites.  But I like,  still a great show.
+
+Start time: 6529.75
+End time: 6531.93
+Speaker: SPEAKER_03
+Transcript:  If you're in the Houston area,  it's on K.
+
+Start time: 6533.18
+End time: 6536.80
+Speaker: SPEAKER_13
+Transcript:  And it's on a podcast. It's on  iTunes. Oh, they have a podcast. Oh, alright.
+
+Start time: 6538.09
+End time: 6611.00
+Speaker: SPEAKER_03
+Transcript:  That's a clever idea. I should  try that. You should.  Yeah.  We thank also the Technologizer  here, Harry McCracken from Time Magazine  for stopping by today. Great to have  you. And I see Marie.  Hi, Marie.  Thank you all for joining us. We do this show  every Sunday afternoon, 3pm Pacific,  6pm Eastern Time,  2200 UTC  on twit.tv. If you can  watch live, we appreciate it. We love  having you in the chat  room. But if you can't, we do on demand  version of every show  we do on the network, audio and video  available at twit.tv  or wherever you can subscribe to  netcasts, like iTunes and  the Xbox music and  places like that.  Um, is there anything  else? Are we selling the hoodies?  The hoodies have started to arrive.  We've got new t-shirts coming.  So I had somebody in this  there. Come here. Let's, we actually  have a real viewer now.  Yeah. Is it Jennifer?  Wearing the hoodie? Wearing the hoodie.  Look at this. You just, when did you get this?  I got it on Friday. Jennifer's a middle  school, Jennifer, right? Yes. Middle school  teacher in New Jersey. Where in New
+
+Start time: 6611.08
+End time: 6612.56
+Speaker: SPEAKER_12
+Transcript:  Jersey? On Central Jersey. And she looks
+
+Start time: 6613.18
+End time: 6631.00
+Speaker: SPEAKER_03
+Transcript:  good. Doesn't she? Beautiful. Look at that.  New twit hoodie.  T-shirts. Yeah, just as the weather starts to warm up  we're sending people hoodies.  Marketing Mavericks. What time?  8.30 a.m.  On what day? Tuesdays.  Tuesdays with Tanya Hall. But you can download  that. Just want to make sure we get all the plugs in there.
+
+Start time: 6631.04
+End time: 6634.17
+Speaker: SPEAKER_13
+Transcript:  Maybe she could have the singer of the social  media song on. Let's get
+
+Start time: 6635.36
+End time: 6659.99
+Speaker: SPEAKER_03
+Transcript:  Tanya, would you book her?  And we'll have a special live music  segment. That'll be awesome.  And the T-shirts  go on sale Wednesday  at teespring.com slash  twit. We'll do the same thing where it's a limited time.  Because that way, I don't  know, not so  many people wear them. And you  feel special. Thanks everybody for  joining us. We'll see you next time. Another twit!  Is in the can!
+
+Start time: 6662.72
+End time: 6668.29
+Speaker: UNKNOWN
+Transcript:  Let's  get social  with Bob the Twit.  Doing the twit.
+
+Start time: 6669.44
+End time: 6673.42
+Speaker: SPEAKER_03
+Transcript:  Doing the twit, baby.  There I am on my  chair.
+
+Start time: 6675.04
+End time: 6676.84
+Speaker: SPEAKER_02
+Transcript:  I think I have to tighten this down.
+
+Start time: 6677.02
+End time: 6679.57
+Speaker: SPEAKER_13
+Transcript:  Yeah, you're right. It looks like a door.  Yeah. Yeah.
+
+Start time: 6681.14
+End time: 6682.03
+Speaker: SPEAKER_02
+Transcript:  Is that an antenna
+
+Start time: 6683.61
+End time: 6684.88
+Speaker: SPEAKER_09
+Transcript:  in the back? No,
+
+Start time: 6685.02
+End time: 6696.03
+Speaker: SPEAKER_03
+Transcript:  you have to, because you're so low to the ground, you have  to have a giant flag like a dune  buggy, because nobody can see you.  But it also makes you  a target for hurled objects,  as I found out.
+
