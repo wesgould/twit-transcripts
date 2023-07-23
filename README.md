@@ -20,17 +20,19 @@ I'm also posting some of the scripts I used to transcribe in case you wanted to 
 
 To make it manageable, I've transcribed using Whisper's "base" model. For me, it was the best balance between accuracy and performance. I ran tests of the medium vs base, and while medium was marginally better, for my purposes, it didn't warrant the performance hit. (I couldn't get the medium model to work with Core ML yet.) But what this means is that the transcripts aren't perfect. It messes up names and abbreviations. If there was music, a sound clip being played, or lots of people talking at once, that part of the transcript may be a little wonky.
 
-It doesn't do diarization (yet). So, it doesn't distinguish who is saying what. I hope to incorporate this soon, but the diarization in whispercpp (and whisper in general) is broken. There are some agglomerative clustering hacks some people have pulled off, and Nvidia has its proprietary NeMo tools that may be able to help. For now, I am focusing on transcribing all the shows.
+~~It doesn't do diarization (yet). So, it doesn't distinguish who is saying what. I hope to incorporate this soon, but the diarization in whispercpp (and whisper in general) is broken. There are some agglomerative clustering hacks some people have pulled off, and Nvidia has its proprietary NeMo tools that may be able to help. For now, I am focusing on transcribing all the shows~~.
+
+I got diarization working and its pretty good. It suffers from the same limitations mentioned above: if people overtalk or there is music/etc it will sometimes mis-label or classify the speaker. It also labels it as "SPEAKER_n" and then I have to manually find/replace with the correct name. This isn't too onerous, but as you can imagine when there are almost 20 years of episodes, it can take some time. Feel free to help out! I'd gladly accept the pull requests. 
 
 Since I don't have access to the original .wav format, which is required by whispercpp to work, I had to convert all the lossy mp3s into "lossless" wav. This probably impacts the quality of the transcription, but without having the original .wavs, it's the best I can do.
 
 ## TO-DO
 
 - [X] TWiT
-- [O] MacBreak
-- [o] TWiG
+- [O] MacBreak (Finished the raw transcripts, but need to churn through the diarization)
+- [X] TWiG
 - [ ] Windows Weekly
-- [ ] diarization
+- [X] diarization
 
 Security Now is one of my favorite shows on the network, but Steve Gibson has paid for manual transcription since the first episode. They can be found on his site: grc.com
 
