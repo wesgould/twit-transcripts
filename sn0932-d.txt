@@ -1,0 +1,616 @@
+;FFMETADATA1
+album=Security Now
+genre=Podcast
+encoded_by=Uniblab 5.3
+title=Satellite Insecurity, Part 2
+language=English
+artist=Steve Gibson, Leo Laporte
+album_artist=TWiT
+publisher=TWiT
+track=932
+date=2023
+TRDA=2023-07-26
+comment=<p>Apple vs EU, Cyber Resilience Act, Web Environment Integrity</p>\
+
+encoder=Lavf58.76.100
+
+Start time: 0.24
+End time: 80.92
+Speaker: Leo Laporte
+Transcript:  It's time for Security Now. Steve Gibson is here. Get ready.  We're going to talk about a lot of things of farewell to a hacker we know and love.  No longer with us, sad to say.  We'll also talk about Apple. They're saying, you keep this up, we're leaving the UK.  And a proposal that Google says might eliminate the need for ad blockers.  That and Satellite and Security, Part 2, all coming up next.  Security Now.  This episode is brought to you by Cisco Meraki.  Without a cloud managed network, businesses inevitably fall behind.  Experience the ease and efficiency of Meraki's single platform  to elevate the place where your employees and customers come together.  Cisco Meraki maximizes uptime and minimizes loss to digitally transform your organization.  Meraki's intuitive interface, increased connectivity and multi-site management  keep your organization operating seamlessly and securely wherever your team is.  Let Cisco Meraki's 24-7 available support help your organization's remote, on-site and hybrid teams always do their best work.  Visit Meraki.Cisco.com slash twit.  Podcasts you love.  From people you trust.
+
+Start time: 82.34
+End time: 83.74
+Speaker: Intro
+Transcript:  This is TWIT.
+
+Start time: 88.43
+End time: 176.87
+Speaker: Leo Laporte
+Transcript:  This is Security Now with Steve Gibson.  Episode 932, recorded Tuesday, July 25th, 2023.  Satellite Insecurity, Part 2.  This episode of Security Now is brought to you by Drauda.  Security professionals often undergo manual tasks of collecting evidence.  With Drauda, companies can complete audits, monitor controls and expand security assurance efforts to scale.  Say goodbye to manual evidence collection and hello to automation.  All done at Drauda speed.  Visit drauda.com slash twit to get a demo and 10% off implementation.  And by ACI Learning.  Help your team exceed its potential by giving them the entertaining and cutting edge training they deserve.  Visit go.acilearning.com slash twit to fill out the form and get more information on a free two week training trial for your team.  And by Bitwarden.  Get the open source password manager that can help you stay safe online.  Get started with a free teams or enterprise plan trial or get started for free across all devices forever as an individual user at bitwarden.com slash twit.  It's time for Security Now, the show we cover your safety, your security, your privacy and everything else online with this guy right here, Mr. Steve Gibson.  Hi, Steve.
+
+Start time: 177.20
+End time: 183.20
+Speaker: Steve Gibson
+Transcript:  And basically show you that you have none of the above.  Yes.  Despite all of the efforts.  Which you probably knew.
+
+Start time: 183.63
+End time: 184.12
+Speaker: Leo Laporte
+Transcript:  Which, yeah.
+
+Start time: 185.55
+End time: 305.20
+Speaker: Steve Gibson
+Transcript:  And that makes it much more fun and the reason that we're never going to run out of things to talk about.  That's true.  We're going to we're going to finish our two part episode today on the topic of satellite insecurity in our listener feedback section.  It turns out we've got I think I when I when I was first putting this together yesterday, one of our listeners identified himself as in the satellite security industry.  And since then, I ran across another.  So we've got some listeners who are saying, hey, this is great.  But first, we're going to talk about what Apple recently had to say to the UK.  Answer the question of what's Google's web enforcement integrity?  I'm sorry.  Web environment integrity and why it's become so controversial.  Who's the latest to express unhappiness over Google Analytics?  What happy news to the UK deliver to IOT security community?  And what is a US along those lines not done so far?  Might you, our listener, be qualified listeners that we know how we have more than one be qualified to join the US's forthcoming expeditionary cyber force?  What's the latest on ransomware attack payouts and also on the latest on the massive move it maelstrom?  And who's the most recent major player to announce the adoption of pass keys?  Once we have all the answers to those questions laid out, we're going to spend some time with our faithful listeners, then wrap up.  As I said, this second part of our two part look at the current and unfortunately quite distressing state of satellite insecurity.  And it's it's going to be fun because it's it follows the model of the development of security that we've been tracking now for the 18 plus years of the podcast.  And we do have a great picture of the week thanks to another one of our listeners.
+
+Start time: 306.22
+End time: 359.37
+Speaker: Leo Laporte
+Transcript:  And I have an update from Alan Malventano, my SSD guy.  Remember, we were talking last week about whether A, you should turn off the swap file on Windows and B, if you do have it on whether you should ever have it on an SSD.  And, you know, for years, our recommendation was put it on the fastest drive you've got.  In fact, you put it on the inner circle of the fastest drive you've got.  So you get the best performance on your SSD or your swap file.  Alan says, hey, Leo, you're both right.  Yes, it does add where no, it's not enough to worry about asterisk, assuming you have sufficient DRAM to handle most tasks that are not constantly heavily swapping the disk.  If you are thrashing.  Yeah. If you are on a very memory constrained system, swap can quickly become most of the SSD writes in extreme cases, it could wear drive faster than its rating.  He says, you want me to come on a show with you to and referee.
+
+Start time: 361.76
+End time: 380.56
+Speaker: Steve Gibson
+Transcript:  Actually, I did have one of our listeners compliment us on the fact that we had a discussion.  We obviously had different positions and had a disagreement, but there was no puffery and no no one got upset.  We just sort of, you know, you said this is what you think this I said this way.  Anyway, he said it was really refreshing.
+
+Start time: 381.36
+End time: 382.63
+Speaker: Leo Laporte
+Transcript:  You never hear that anymore, do you?
+
+Start time: 383.48
+End time: 387.00
+Speaker: Steve Gibson
+Transcript:  These days? No, it's all pretty polarized.
+
+Start time: 387.20
+End time: 608.02
+Speaker: Leo Laporte
+Transcript:  Yeah. So, you know, I mean, personally, I can you even still turn off the swap file on on Windows?  I mean, I'm surprised I have none of mine are on.  They're all turned off. They work great.  OK. Now I am going to tell you about our sponsor and then we're going to get into the meat of the show, especially the most important part, the picture of the picture of the week.  Absolutely. But first, it's a word from Drata, our sponsor.  Drata has a question for you.  Is your organization finding it difficult to collect manual evidence and achieve compliance as your organization grows and scales as a leader in cloud compliance software by G2?  Drata streamlines your SOC 2, your ISO 27001, your PCI DSS, GDPR, HIPAA and other compliance frameworks,  providing 24 hour continuous control monitoring so you can focus on what you do best and on scaling securely.  With a suite of more than 75 integrations, Drata easily integrates through applications like AWS and Azure, GitHub, Okta, Cloudflare and more.  Countless security professionals from companies including Lemonade and Notion and Bamboo HR have shared how crucial it has been to have Drata as a trusted partner  in the compliance process. You can expand your security assurance efforts using the Drata platform,  which allows companies to see all of their controls and easily map them to compliance frameworks to gain immediate insight into framework overlap.  Drata's automated dynamic policy templates support companies new to compliance using integrated security awareness training programs and automated reminders to ensure smooth employee onboarding.  As the only player in the industry to build on a private database architecture, your data can never be accessed by anyone outside your organization.  And of course all customers receive a team of compliance experts, including a designated customer success manager.  And Drata's team of former auditors has conducted more than 500 audits. Your Drata team keeps you on track to ensure there are no surprises and no barriers.  Plus Drata's pre-audit calls prepare you for when your audits begin. Drata's audit hub is a solution to faster, more efficient audits.  You can save hours of back and forth communication, never misplace crucial evidence and share documentation instantly.  All interactions and data gathering can occur in Drata between you and your auditor, so you won't have to switch between different tools or correspondence strategies.  With Drata's risk management solution, you can manage end-to-end risk assessment and treatment workflows.  Flag risks, score them and then decide whether to accept, mitigate, transfer or avoid them.  Drata maps appropriate controls to risks, simplifying risk management and automating the process.  Drata's trust center provides real-time transparency into security and compliance posture, which improves sales, security reviews and of course better relationships with customers.  Say goodbye to manual evidence collection and hello to automated compliance by using drata.com.  Drata brings automation to compliance at Drata Speed.  Visit drata.com.  Thank you Drata for their support of the show.  Now I think Steve, you have a picture of the week for us.
+
+Start time: 608.76
+End time: 805.30
+Speaker: Steve Gibson
+Transcript:  So this is a great one. I gave this one the caption, why reading the manual is always a good idea.  But it could also have the caption, there's more than one way to skin the cat.  Imagine that you have a sort of an old school coffee pot, but you know, sort of reminiscent of a teapot where, you know, it's got the main pot and then it's sort of a, what, a pouring spout spigot, you know, sort of like up and pointing out.  Well, the traditional way of pouring coffee from that pot would be to pick it up by its handle and move it over to the cup and, you know, and tilt it until the coffee runs out of the spout.  Right. Well, this picture demonstrates the alternative means of pouring yourself a cup of coffee or what happens if you're trying to figure this out and you haven't read the manual, which is we have a guy blowing.  He's got his whole mouth over the top, the open top of the coffee pot.  He's blowing really hard down into the coffee, which of course forces the coffee up the spout and through a parabolic arc in the air, landing in the coffee cup.  And, you know, in this era, this day and age of, of Photoshopping and fake pictures and things, you wonder, did this really happen?  The coffee landing in the cup looks kind of real. He does have his eyes focused where he's aiming.  He's aiming. Yeah. Yeah. He's like having to, because you have to, he has, he's got to meter his blow in order to get the velocity correct, or he's going to overshoot or undershoot.  I'm sure this was not the first take of this particular operation. Anyway, if this is real, I salute him. Congratulations.  And of course he's going to have a mess because as he stops blowing, then all the coffee that's in flight is going to end up being a mess.  But if this was, this was an actual photo, stop action, caught, you know, midstream, congratulations.  Definitely a great candidate for our Picture of the Week. Well, and actually it made it into the Picture of the Week.  So, and boy, Leo, I've got some other ones, good ones coming. So I had to share a bit of sad news with our listeners.  As you already know, the wider world received the news at the end of last week that the famous and long since reformed hacker, Kevin Mitnick, had quietly passed away the previous Sunday on July 16th, which was just three weeks shy of Kevin's 60th birthday.  He had been fighting pancreatic cancer for more than a year and he left, unfortunately, behind his wife and unborn baby.  So I know that, Leo, you were good friends with Kevin. He was on the back in the tech TV days, the screensavers a number of times, often with Wozniak, who was also a friend of Kevin's.
+
+Start time: 806.24
+End time: 851.02
+Speaker: Leo Laporte
+Transcript:  Yeah, we have played on Sunday on Twitter, I guess that's why you know that. I know I played a little clip from the screensavers where we had Kevin come on.  After eight years, he'd been banned from using the Internet because of his conviction in his jail time and his probation had ended and he came on the screensavers to use the Internet for the first time.  So we brought in Emmanuel Goldstein from the 2600 magazine, famed hacker. He was the devil on on Kevin's left shoulder and Steve Wozniak, the angel on his right shoulder and Steve, by the way, brought him a brand new Mac book to use for a powerbook.  Yeah, very, very nice of him. And and so you can see that it's on YouTube if you search for Kevin Mitnick and the screensavers.
+
+Start time: 851.90
+End time: 873.20
+Speaker: Steve Gibson
+Transcript:  And it had a great cartoonist. Woz had had one of the artists at Apple draw a neat cartoon where it showed the powerbook on a on a table just out of reach from from Kevin, who was behind bars trying to like poke at it and reach it with a stick or a cane or something from from inside his cell.
+
+Start time: 873.20
+End time: 916.20
+Speaker: Leo Laporte
+Transcript:  It was pretty funny. Yeah, it was. It wasn't allowed to use anything, you know, not just a computer, but a smartphone of any kind.  Well, you know, Leo, he could have taken over the world. Yeah, a smartphone from from his cell. I don't know if he was joking, but he said he couldn't even use an electronic toilet. I don't know if that was a joke or serious.  Wow. Yeah, they well, you know, it's a federal crime. I think, you know, there was some agreement that he was perhaps overpunished and over prosecuted for a relatively modern crime. But anyway, he was freed.  Well, and it's sad to see his, you know, finally having a family after all that time. Yeah, miss out on that is very tragic. He was a really sweet guy. I really liked Kevin.
+
+Start time: 917.02
+End time: 2173.20
+Speaker: Steve Gibson
+Transcript:  Yeah. So last Thursday, BBC News carried a story under the headline Apple slams UK surveillance bill proposals.  But the first line of their piece was a showstopper. It read, Apple says it will remove services such as FaceTime and iMessage from the UK, rather than weaken security if new proposals are made law and enacted.  So, okay, I mean, we sort of been waiting to hear from Apple, right? We've heard from Signal and we've heard from WhatsApp. So as we know, since we've been tracking this super engaging struggle between the commercial forces who want to enforce absolute privacy and those in the governments who are wishing to make privacy conditional, the UK is seeking to update their investigative and I can't say this word, Investigatory Powers Act, the IPA, which was originally created to protect the privacy of people who are in the country.  So now, you know, seven years later, they want to update it. It wants to require messaging services to clear their security features with the UK's Home Office before releasing them to customers. The Act also lets the Home Office demand that security features are disabled without telling the public.  And under this forthcoming update, this would have to be immediate upon the Home Office's demand. So WhatsApp, Signal, and all the others have previously expressed their strongest possible opposition to this with Signal making what has been, you know, up to now the strongest public statement, stating that they will simply walk, as they put it, from the UK.  Now, you know, Apple has clearly been in opposition to this too, but until now it hasn't drawn any such sharp line in the sand. But that's what just happened. The UK government has just opened an eight week long, what they call the consultation on the proposed amendments to the IPA.  The government's claiming that they are quote, not seeking to create new powers, unquote, but only to make the Act more relevant to the current technology.  So Apple has submitted its formal nine page response to this now open consultation period. Apple formally opposes three things. Having to tell the Home Office of any changes to product security features before they're released.  The requirement for non UK based companies to comply with changes that would affect their product globally, such as providing a back door to end to end encryption.  And having to take action immediately. If a notice to disable or block a feature is received from the Home Office, rather than waiting until after the demand has been reviewed or appealed, which is the way things are today.  So, the first thing is to make changes to security. Apple says three things. It would not make changes to security features specifically for one country that would weaken a product for all of its users.  The second is to make changes to the security features that would affect the people outside the UK.  And, you know, remember that what the governments with the various governments here are asking for is not simply the ability for these various encrypted services to respond to targeted court ordered surveillance.  You know, that's an entirely different ask. What the governments are seeking now is universal surveillance of all communications of all kinds for all of their citizens.  And, you know, it's hard to argue that that's not new. You know, that's not an update to anything that exists today.  The BBC and their report quoted a cybersecurity expert, Professor Alan Woodward from Surrey University, who said that technology companies are, quote, unlikely to accept the proposals in an understatement.  He said, quote, There is a degree of arrogance and ignorance from the government if they believe some of the larger tech companies will comply with the new requirements without a major fight.  And I think that Signal and Apple have been quite clear that they have no interest in or need to fight in order to avoid breaking any newly enacted legislation.  They'll simply pull their services from those regions which enact laws that seek to violate the privacy of their users.  Period. You know, fight over, you know, nothing to fight about.  Then we'll see what the voters in those areas think of the fact that their government has essentially denied them these services which they have been having and enjoying with no problem.  No problem. And now apparently they can't any longer.  And we'll also see how the bureaucrats, law enforcement and intelligence services like not having any secure messaging services available for them in support of their own needs for privacy.  You know, what's good for the goose.  So the Home Office told the BBC that the Investigatory Powers Act was designed to quote, protect the public from criminals, child sex abusers and terrorists.  You know, that's obviously an honorable goal, but the price for doing so is just too high, at least using this technology.  Anyway, you know, we've been following this fascinating evolution and it is interesting that, you know, here this professor says, oh, you know, the government's ignorant.  They think they could do this. Well, you know, governments create laws, right?  And so, you know, they could create any law that they want to, but no one's forcing Apple to do something it doesn't want to do.  So it'll be interesting to see if, you know, does the UK back down when they realize that, you know, these these companies are serious or is it going to take a period of not having these services available?  And then what? Anyway, really, really interesting.  OK, for Google engineers have put forth a proposal unofficially that immediately generated a huge backlash across the web developer community.  Despite the fact, and in some cases, perhaps due to the fact that this proposal was dropped on GitHub as one of the engineers personal projects, not from Google officially, many Google skeptics see this as Google sort of backdoored means of sliding this quietly into the stream.  You know, but if that's what it was, it didn't work because it quickly hit everyone's radar.  The developers termed this proposal, this basically at a web standards proposal, web environment integrity.  The industry, however, quickly slapped it with the term Web DRM and noted that it would instantly provide a means for websites to refuse to offer their content to any browser running an ad blocker or to disable ad blockers remotely.  And given that Google's revenue stream is largely advertising the fact that this new web standard was proposed sort of off the books by four web developers who all just happen to be employed by Google.  Well, one could be forgiven for questioning or at least wondering about the true motives behind this.  And essentially it does indeed amount to Web DRM, a means for enforcing the display of exactly what any website wishes to to be displayed by empowering websites to selectively remove all user freedom at their web client end to alter the website's display in any way the website chooses.  Now, OK, this is not to say that there could not also be true significant upside user benefits.  For example, allowing a banking website to rigorously controlled what, if any, third party extensions are enabled when a user visits their site, you know, essentially locking the web browser client in order to enhance the visit security.  Well, you could see that could be a good thing, but it's equally obvious that taking this control away from users could be abused.  Excuse me, by allowing any website to decide on behalf of their visitors what browser environments are acceptable.  The engineer authors start off their description of web environment integrity by explaining.  They said.  Users often depend on websites trusting the client environment they run in this trust may assume that the client environment is honest about certain aspects of itself keeps user data and intellectual property secure and is transparent about whether or not a human is using it.  This trust is the backbone of the open Internet critical for the safety of user data and for the sustainability of the website's business.  Some examples of scenarios where users depend on client trust include and they give us for users.  Users, they say, like visiting websites that are expensive to create and maintain, but they often want or need to do it without paying directly.  These websites fund themselves with ads, but the advertisers can only afford to pay for humans to see the ads rather than bots.  This creates a need for human users to prove to websites that they're human, sometimes through tasks like challenges or logins.  OK, second users want to know they're interacting with real people on social websites, but bad actors often want to promote posts with fake engagement, for example, to promote products or make a news story seem more important.  Websites can only show users what content is popular with real people if websites are able to know the difference between a trusted and untrusted environment.  Third, users playing a game on a website want to know whether other players are using software that enforces the game's rules.  And finally, users sometime get tricked into installing malicious software that imitates software like their banking apps to steal from those users.  The bank's Internet interface could protect those users if it could establish that the requests it's getting actually come from the bank's or other trustworthy software.  So, you know, yes, there are undoubtedly some valid use cases, but this is a this is a problem, too.  You know, whether or not this proposal ever advances past the controversy created by its appearance, you know, it points to a tension that appears to be developing.  Should websites be able to reach across the Internet and exert full control over the experiences of their visitors?  When we run a native app on our local computer, we have very limited control over what it does and how it works.  You know, we can launch it and terminate it, but that's about it.  It's not difficult to imagine that many websites would like to enforce that same level of control.  Anyway, I put a link in the show notes for anyone who might be interested in digging deeper into this specific proposal because this thing may just be, you know, immediately shot down like a Chinese weather balloon.  It's probably not worth going any further.  Will, you know, if it ends up taking a hold, we'll certainly be giving it a much deeper look.  I mean, it I looked at the spec, it uses protocols related to WebAuthn.  So it's reusing some of that. It uses public key crypto and this notion of something attesting to the state of the client at the user's end in order to essentially, you know, provide Web DRM.  And, you know, it was interesting to me that Google said, yeah, you know, websites that have ads are going to, you know, they need the advertisers to know that real people are looking at them.  And I'm thinking, uh huh. And those websites also need visitors not to be able to blind themselves willingly by using an ad blocker.  So both sides to that argument.  We've noted a number of times that various EU countries have been complaining and have even now taken to suing organizations within their own borders who are continuing to use Google Analytics, which they state potentially transfers private identifiable data outside of their borders.  But now this concern has come home to roost with a letter that the Federal Trade Commission, you know, our FTC and the U.S. Department of Health and Human Services, HHS, have sent to 130 hospital systems and telehealth providers warning them about their obligations to protect their clients' personal health information.  So listen to this. They wrote the Office of Civil Rights at the U.S. Department of Health and Human Services and the Federal Trade Commission are writing to draw your attention.  And this was sent to 130 hospital systems to draw your attention to serious privacy and security risks related to the use of online tracking technologies that may be present on your website or mobile application and impermissibly disclosing consumers sensitive personal health information to third parties.  Recent research, news reports, FTC enforcement actions and an OCR bulletin have highlighted risks and concerns about the use of technologies such as the Meta slash Facebook pixel and Google Analytics that can track a user's online activities.  These tracking technologies gather identifiable information about users as they interact with a website or mobile app, often in ways which are not avoidable by and largely unknown to users.  Impermissible disclosures of an individual's personal health information to third parties may result in a wide range of harms to an individual or others.  Such disclosures can reveal sensitive information, including health conditions, diagnoses, medications, medical treatments, frequency of visits to health care professionals where an individual seeks medical treatment and more.  In addition, impermissible disclosures of personal health information may result in identity theft, financial loss, discrimination, stigma, mental anguish and or other serious negative consequences to the reputation, health or physical safety of the individual or to others.  Health Insurance Portability and Accountability Act of 1996.  If you are a covered entity or business associate under HIPAA, you must comply with the HIPAA Privacy Security and Breach Notification Rules with regard to protected health information, which is transmitted or maintained in electronic or any other form or medium.  The HIPAA rules apply when the information at a regulated entity collects through tracking technologies or discloses to third parties.  For example, tracking technology vendors includes PHI, personal health information.  HIPAA regulated entities are not permitted to use tracking technologies in a manner that would result in impermissible disclosures of PHI to third parties or other violations of the HIPAA rules.  OCR's December 2022 Bulletin about the Use of Online Tracking Technologies by HIPAA Regulated Entities provides a general overview of how the HIPAA rules apply.  This bulletin discusses what tracking technologies are and reminds regulated entities of their obligations to comply with the HIPAA rules when using tracking technologies.  To the extent you are using the tracking technologies described in this letter, meaning, you know, Meta, Facebook, Pixel, and Google Analytics on your website or app, we strongly encourage you to review the laws cited in this letter and take actions to protect the privacy and security of individuals' health information.  So, yeah, while this is not the same as the, you know, thou shall not use commandment that EU countries are issuing to their own local entities, Google has been analyticizing for the past 17 years now since 2005.  And only now does it appear that people are beginning to say, hey, hold on here a second.  And, you know, just looking at what happens, you know, under the hood of these tracking technologies.  Leo, I know that you've you've covered this.  I thought this was interesting, at least the US side of this.  The European Union has just approved a draft version of what they are calling their Cyber Resilience Act.  It's a set of new cybersecurity related rules for IoT devices.  The act passed the EU's Industry Research and Energy Committee with 61 votes in favor, one against, and 10 abstentions.  Under the new regulations, vendors must get this, vendors must ensure their products meet a certain set of criteria before being sold in the eurozone.  Products will have to come with automatic security updates as the default option.  Yay.  Must ensure data confidentiality using encryption and vendors must inform authorities of any attacks.  And the new rules are expected to enter into effect by next year.  This is great news for the consumer overall, since any products sold globally, which include the eurozone, would need to be in compliance.  So, for example, US consumers would reap the benefits as well.  And in this case, the EU is ahead of the US, since all we have managed to get done here so far is to design an attractive shield emblem that will be placed on any devices that are compliant with a set of standards that don't yet exist.  But hey, at least we have a pretty looking emblem shield.
+
+Start time: 2173.22
+End time: 2177.88
+Speaker: Leo Laporte
+Transcript:  Yes, I liken that to shipping the t-shirt before you have the product.
+
+Start time: 2180.39
+End time: 2187.88
+Speaker: Steve Gibson
+Transcript:  Yeah, look how pretty this is going to be.  We don't know what it means yet.  We don't know what you're going to have to do to get one.  But don't you want it?
+
+Start time: 2188.69
+End time: 2188.83
+Speaker: UNKNOWN
+Transcript:  Yeah.
+
+Start time: 2190.63
+End time: 2211.20
+Speaker: Leo Laporte
+Transcript:  Leo, let's take a break.  All right.  We did talk about it on Twig, because Stacey, as you know, is an IoT guru.  And the NIST guidelines are good.  And if they follow those NIST guidelines, I guess it'll, you know, including the thing you and I both care about probably the most, which is over the air updates.  Firmware updates of your IoT devices.
+
+Start time: 2211.86
+End time: 2225.91
+Speaker: Steve Gibson
+Transcript:  Yes. In fact, I don't think I talked about it on the podcast, but the Zykcell routers had a problem in April, and they're now all being commandeered into a botnet.  Yeah.  Because, you know, sorry about that.  Can't update them.
+
+Start time: 2226.34
+End time: 2558.78
+Speaker: Leo Laporte
+Transcript:  Nope.  Yep.  So that's a big problem, not just for you as a user, but for the Internet as a community.  Let's talk about our fine sponsor, ACI Learning.  And then we will continue on with Steve and his litany of security woes, as I like to think of it.  Our show today brought to you by, and you might say, well, who is this ACI Learning when they're at home?  You know them because it's IT Pro.  And now they're even better than ever.  And today's world IT talent shortages are a big deal.  In fact, it means it's more important that your skills are up to date than ever before.  Almost all CISOs and CIOs agree.  Attracting and retaining cybersecurity talent is increasingly critical to their roles.  Those jobs are out there.  You want to keep your current job.  You want to get promoted.  You want to get a new job.  ACI Learning is your pal.  They help you.  And if you've got an IT team, they help your team invest in the security of your business.  ACI Learning now has more than, I think when we, the last IT Pro ad we did, they said they have 5,800 hours of on-demand training.  It's now more than 7,000 hours.  And it's up to date, by the way, because they have seven studios running all day, Monday through Friday, creating new content because the tests changed.  The products changed.  The rules changed.  And so they got to keep up to date.  They add new episodes every day.  And you will love ACI Learning's content.  In fact, we know people do because it has a 50% higher completion rate than other training videos.  People just enjoy the engaging training, partly because they're learning.  I mean, that's job one, right?  They're informative, but partly because it's intriguing.  And the instructors have a passion for the subject, which communicates right through.  ACI Learning has now partnered with the best in the industry.  They've added Insights, which is their new skills gap analysis tool.  This is interesting.  It'll give you the assurance that you're getting what you thought you were getting when you paid for the training, for instance.  87% of companies have identified skills gaps.  Their IT team knows this, but don't know that.  The times have changed.  They need to know more about that.  Insights is here to revolutionize the way businesses retain, train, and engage employees.  It's a very easy to use assessment tool.  It lets you clearly see and take action on your team's strengths and weaknesses to future proof your business.  The team analysis dashboard allows managers to monitor progress so you know what training you need to assign, how to develop talent.  You've got somebody who's good at this.  Hey, I think they'd be great at cybersecurity.  Let's advance them up.  It offers global industry data to assess how your team stacks up against its peers.  Insights, it'll take into account various factors, job roles, functional areas, emerging technologies to give you.  This is such a useful tool, a comprehensive assessment of the skills needed for success in today's rapidly evolving professional cybersecurity landscape.  You'll feel much better knowing that your team is learning the right thing at the right time.  And hey, maybe you'll do it and Insights will say, hey, they know everything they need to know.  Seems unlikely, but maybe.  But it's just good to know, right?  Check out ACI Learning has this new cyber skills solution too.  This is great.  An entertaining, effective, and engaging cybersecurity training tool not for the IT department, but for other members of your organization.  Non-IT professionals.  Actually, the IT department can do it too.  It depends on their job roles.  The idea is to boost enterprise cybersecurity confidence.  So this flexible training covers everything that we talk about on this show.  Everything you wish your employees knew.  Things like password security, phishing scams, how to avoid them, how to identify them, malware prevention, network safety.  You'll gain access to additional objective specific courses that will help them understand this stuff, including fun stuff,  anime content and documentary style episodes featuring ACI's subject matter experts.  A fun way to learn the stuff all your employees need to know to protect your business.  Look, these are the training solutions your business has been waiting for.  Future proof, your team and your business with Insights and Cyber Skills.  Brand new from ACI Learning.  I just love it how they're really keeping up on the latest and all of this stuff, helping you be more prepared.  Learn more about ACI Learning's premium training options and that new Insights tool.  It's at the website, go.acilearning.com slash twit.  And by the way, for teams from two to a thousand, volume discounts start at just five seats and they can be big, big hefty discounts.  Depending on the size of your team, of course, go.acilearning.com slash twit.  Look, just fill out the form.  You'll get more information and you can do a free two week trial for your team.  That's enough for them to take one course, I think, if they go at it.  And I think that's a really great way to see how much they enjoy it, how good this stuff really is.  I know once you see it, you're going to want to go.acilearning.com slash twit.  We thank them so much for their support of security now as IT Pro has been for a decade a supporter of this show.  It's really great.  Steve, let's go. More to do here.
+
+Start time: 2560.22
+End time: 2605.41
+Speaker: Steve Gibson
+Transcript:  So we know you listen to the podcast, so you already have some qualifications.  Do you like to travel, see far away places and wonder what the people there are saying?  Yes.  Enjoy wearing ridiculous camo when sitting in front of a computer?  Well, you may be just what the U.S. is looking for.  Lieutenant General Timothy Haw, the nominee to become the next head of the NSA and Cybercom,  has pledged to create expeditionary cyber forces that can be deployed into far off lands  to reach important tactical targets in forward locations.  So get ready to pack up your laptop and head out.
+
+Start time: 2607.98
+End time: 2611.10
+Speaker: Leo Laporte
+Transcript:  Wow. Wow. See the world.
+
+Start time: 2611.80
+End time: 2826.56
+Speaker: Steve Gibson
+Transcript:  We're not sitting in some bunker in Colorado anymore.  No, no, no, no.  We're going to update our TSA passport and see the world and wonder what they're saying when you get there.  Wow. That's hysterical.  Yeah. I mean, it's true.  Expeditionary cyber forces. So fun.  OK, so I have in the show notes a chart showing from the beginning that this started being measured in 2019  to now, the percentage of ransomware payouts that have been made per attack, but like based on the number of attacks.  It depicts happily a more or less steady drop in the percentage of ransomware attacks,  which actually result in cash being paid when Coveware began tracking ransom payment rates at the start of 2019.  Eighty five percent of ransomware attacks resulted in payments today.  That number has hit an all time low of just thirty four percent.  Coveware's report, which was just published on Friday, was titled Ransomware monetization rates fall to record low despite jump in average ransom payment.  So the news is not all good, but it's great that today only one out of every three attacks results in payment.  That sure beats eighty five percent from four years ago.  The first three sentences of their report reads in the second quarter of twenty twenty three,  the percentage of ransomware attacks that resulted in the victim paying fell to a record low of thirty four percent.  The trend represents the compounding effects that we've noted previously of companies continuing to invest in security,  continuity assets and meaning you're not put out of business completely when your when your machines are encrypted,  continuity assets and incident response training.  Despite these encouraging statistics, ransomware threat actors and the entire cyber extortion economy continue to evolve their attack and extortion tactics.  Still good news down to one out of three.  So, you know, hopefully that cools things down a little bit because, you know, eighty four percent guarantee of payment.  That was that would have been much harder to resist than one third when there's also, you know,  a non zero chance of the bad of the good guys catching the bad guys, which we've seen a number of times.  In an update on the move it mess, M.S.A. soft reports that the total number of confirmed victims of the progress software move it transfer  sequel injection attacks has now passed three hundred and eighty and Coveware expects that the Russian clop gang behind the attacks  will receive somewhere between seventy five and one hundred million dollars in total.  So unfortunately, it was a worthwhile attack for those guys to launch.  Yeah. And there's that there on the screen is the is the gradual, you know, pretty much it's not a straight line.  It's a wavy line, but it's, you know, from twenty nineteen, it's been heading downwards.  Basically, I think four years ago, everybody got caught with their servers down.
+
+Start time: 2827.52
+End time: 2832.02
+Speaker: Leo Laporte
+Transcript:  It was eighty five percent payouts. Yes. In twenty nineteen.
+
+Start time: 2832.42
+End time: 2908.58
+Speaker: Steve Gibson
+Transcript:  Almost almost a guaranteed payout if if you know, if your company got zapped with ransomware, it was like, oh crap, you know, send them some money.  We need our data back, you know, and now down to one out of three.  So that's great progress. The latest major player to be adding support for pass keys, would you believe Tick Tock?  All right. They said they said we'll begin rolling out pass keys for iOS in certain regions.  And I thought it was interesting that they didn't and they didn't list the US.  They said starting with Asia, Africa, Australia and South America beginning this month.  And they said and anticipate expanding the other geographies and operating systems over time.  And they also know that they become a member of the tick tock.  I mean, the Fido Alliance and Leo, I was watching something the other day, some talking head show that was it was in regards to the to the strike, the Hollywood actors and screenwriters strikes.  Tick Tock has equal revenue to like the big streaming services.  It's massive. Oh, yeah. Oh, yeah.  I had no. This is like, you know, Henry doing his cooking video. Yeah. Yeah.
+
+Start time: 2909.46
+End time: 2952.99
+Speaker: Leo Laporte
+Transcript:  Astonishing. Don't knock it. He's got pretty good income himself.  I'm happy he's paying his own way. Yeah, he's got like two.  And I asked him the other day because I saw him. He was making a chicken cordon bleu sandwich.  And as one does, as one does, I said, ideas for this. He said, I just make them up.  And I asked him, he said, Tick Tock, you know, he has more than two million.  I think it's two point something million, two point two million followers on Tick Tock.  He said, yeah, but it's not my my primary platform anymore.  Instagram is kind of taken over and he really wants YouTube shorts and YouTube to be his place because the payouts are better.  That's the difference. That's the difference.  Yeah. YouTube. Tick Tock's making money, but they keep it.
+
+Start time: 2954.58
+End time: 2966.16
+Speaker: Steve Gibson
+Transcript:  That's the wow. And it's like, what is it?  It's like eight hundred billion dollars or something.  I mean, it was like it was like and it was it was in a chart showing Netflix and Hulu and.  Yeah. But you know what?
+
+Start time: 2966.60
+End time: 2985.44
+Speaker: Leo Laporte
+Transcript:  The content on Tick Tock is much more compelling and people spend more time watching it.  Not you and me. We're old. I don't even.  Yeah. Younger people spend a lot of time scrolling and you know, you got the eyeballs.  The eyeballs is a great place. Plus, you can put more ads in.  You can't put ads in Netflix or you can't.
+
+Start time: 2986.22
+End time: 2989.28
+Speaker: Steve Gibson
+Transcript:  But you can't remember having remember when we had that much time, Leo.
+
+Start time: 2990.44
+End time: 2991.17
+Speaker: Leo Laporte
+Transcript:  Those were the days.
+
+Start time: 2993.28
+End time: 3384.08
+Speaker: Steve Gibson
+Transcript:  OK, so we got some feedback from our listeners.  Alan E said, I agree that I would never save two factor authentication seeds in my password manager,  but it may be the least bad option for protecting shared business accounts on social media accounts in some cases.  And so I just wanted to say I didn't intend to suggest that there was no justifiable use case for having a password manager store time based token secrets.  The question was just a perfect opportunity to highlight and talk about a beautiful example of the inherent trade off that which exists between user convenience and security.  And to that end, Stephen Haver, he said, are we bit warden to T.O.T.P.?  He said it's actually a huge increase in security for people who otherwise can't be bothered to turn on two factor authentication, which can't argue against that.  He says it's also extremely useful with shared logins that are shared with multiple people via a bit warden organization mode account.  He said, but for more tech savvy people, I understand why you would want the greater compartmentalization.  He said, I run a hybrid approach where my less important he has in air quotes T.O.T.P.'s are in bit warden.  The more important ones are in OTP off, as are all of mine.  He said, and the most important ones are WebOthn on, you know, meeting pass keys on my security keys.  He said, in a way, T.O.T.P. seems like a dying format for those who already use a security key as Fido slash U2F slash WebOthn become available on more and more sites.  And, you know, now soon, tick tock.  Whereas he said once there were 40 secrets in my OTP off.  Now I'm down to just a handful.  He says, thanks for a great podcast and super excited to take six point one out for a spin soon.  Signed Stephen. So thank you, Stephen.  And of course, I agree with everything Stephen has just said and hit and with his hybrid approach, which makes sense.  I suspect that for most people, you know, just using Bitwarden will be the way to go.  But again, my point was to use this more of it as an example of the nature of, you know, always the trade off that exists between convenience and security.  You know, super long password, way more secure, way less convenient.  So, you know, you need some way to manage that.  Sackis Kassampalas. I'm sorry if I butchered your name, but I tried.  He said he wrote, hey, Steve, how exactly is threads blocking Europeans using VPNs?  He said, I thought that the idea of a VPN was that they cannot tell where you're located.  Are they blacklisting IPs of the popular third party VPNs?  What about self hosted ones?  OK, so that question has multiple parts.  The first part is that there are there are two ends to every connection.  And every end inherently knows the address and therefore the rough location of the other end of a connection.  So when someone in the EU connects to Metta directly, Metta gets their IP address and can choose to refuse it.  The clearest way to visualize what a VPN does is to see it as two connections,  the user's connection to the VPN service and the VPN services connection to the destination.  So when a customer is connecting through a VPN, Metta doesn't see the customer's IP and their rough location.  Metta is being connected to by the VPN.  So that's the only IP and location that Metta sees.  This brings us to the second part of of of Sakis's question,  which is are they blacklisting IPs of popular third party VPNs?  And the answer to that is probably yes.  That's certainly one way to do what they are doing.  It might also be that in the interest of preserving their users privacy,  VPNs might be deliberately stripping out some user tagging information that a user's web browser would normally provide.  So Metta might either and or be detecting the presence of a middleman in the connection through the means of the metadata in their requests.  But either way, Metta can simply decide not to honor indirect connections through VPNs specifically because they can be used to mask the user's true location.  And finally, as for self hosting VPNs, the question would be where the VPNs traffic would emerge onto the Internet.  Self hosting sort of suggests that the endpoint is still located local to the user.  But then its IP would be geo located and blocked.  So it would be necessary to self host a VPN in such a way that the VPNs traffic emerged onto the Internet from a non blocked region.  You know, that might be doable, for example, by spinning up an AWS or Azure cloud instance.  But that seems like a lot of trouble to go through just to obtain foreign access to threads.  Who's popularity, by the way, appears to have collapsed overnight.  And Leo, on Sunday's Twitch show, you and your two guests talked about the collapse of threads traffic.  One of the guests noted how easy Metta had made it for Instagram users to join threads.  You know, even I joined threads because I have a I have a stagnant Instagram account, you know,  and I wanted to grab my handle just in case threads might amount to something someday.  Are you at S.G.G.R.C. on threads?
+
+Start time: 3384.50
+End time: 3387.20
+Speaker: Leo Laporte
+Transcript:  I that's exactly me.  OK, all right.
+
+Start time: 3387.48
+End time: 3442.77
+Speaker: Steve Gibson
+Transcript:  But, you know, I also wanted to note that threads apparent overnight success was always entirely illusory because when it's made that easy to join,  joining doesn't actually mean anything.  That's true.  You know, it's reminiscent of the news website paywall model.  You know, remember that originally all sites were free and ad supported.  Then some of them thought, hey, look at all the traffic we have.  Let's charge a little bit of money for people coming.  And mostly people said, wait, what?  You want actual money?  I think I'll, you know, I'll find the same news elsewhere.  Thanks very much.  So it's going to be very interesting, I think, to see how over the long term, how MEDA's threads does.  And that's really the only metric that matters.  Well, I can't.
+
+Start time: 3444.40
+End time: 3450.14
+Speaker: Leo Laporte
+Transcript:  Elon gave it a nice big boost over the weekend by changing the name of Twitter to X.
+
+Start time: 3451.07
+End time: 3455.14
+Speaker: Steve Gibson
+Transcript:  Oh, and you know who has the trademark?  Microsoft has one.
+
+Start time: 3455.20
+End time: 3456.20
+Speaker: Leo Laporte
+Transcript:  There are many.
+
+Start time: 3457.78
+End time: 3483.18
+Speaker: Steve Gibson
+Transcript:  Yes. And maybe maybe it will be dilution, but MEDA also owns a trademark, which is very I mean, it looks exactly like, well, close enough.  And and you know, the as we know for a trademark, it is the test is whether a user might reasonably be confused by someone's conflicting use of a registered trademark.
+
+Start time: 3483.38
+End time: 3498.20
+Speaker: Leo Laporte
+Transcript:  And by the way, this is why I'm very glad that Twitter is no longer Twitter and Elon is no longer the chief.  That's a good point.  We had words.  We had a little we had some words with them back in the day.
+
+Start time: 3498.85
+End time: 3500.18
+Speaker: Steve Gibson
+Transcript:  I remember back in the early days.
+
+Start time: 3500.30
+End time: 3509.20
+Speaker: Leo Laporte
+Transcript:  I'm very pleased that they're now X and I will not start a podcast network called X.  It's not a great name, if you ask me.
+
+Start time: 3509.34
+End time: 3514.20
+Speaker: Steve Gibson
+Transcript:  And he can't he can't have or get X dot com, can he?  He has X dot com.
+
+Start time: 3514.32
+End time: 3547.49
+Speaker: Leo Laporte
+Transcript:  Yes, he does.  He's had that since day one.  So the story is hysterical.  I mean, he tried to rename when he so PayPal before it was PayPal was X dot com.  He's had it since then.  And the story is Peter Thiel and Sam Levchin, his co-founders fired Elon because he wanted to read.  He wanted to use X as the name for PayPal.  And they said, no, we're going to call it PayPal.  And so that was when he left PayPal and he took his money with him and of course, started a few other things since then.  He likes PayPal has done.
+
+Start time: 3549.20
+End time: 3553.43
+Speaker: Steve Gibson
+Transcript:  PayPal has done just fine.  So we left.  Yeah, he was apparently difficult.
+
+Start time: 3554.92
+End time: 3565.20
+Speaker: Leo Laporte
+Transcript:  But one of his kids is named X, you know, X is part of the name.  But he likes that letter for unknown because he's you know why?  Because he's nuts.
+
+Start time: 3569.39
+End time: 3578.96
+Speaker: Steve Gibson
+Transcript:  Well, I would argue that Twitter does need some competition.  I mean, it's like some real competition.  And there's a lot.  I can't think of any better.  There's blue sky.
+
+Start time: 3579.97
+End time: 3597.04
+Speaker: Leo Laporte
+Transcript:  There's, of course, Mastodon.  There's a lot of good choices.  The problem is they're fragmenting the overall space.  I have to say, right, because it's meta, a lot of brands, a lot of politicians, a lot of newsmakers are all on threads.  So that may be just how they win is just that's where everybody went.
+
+Start time: 3597.94
+End time: 3628.49
+Speaker: Steve Gibson
+Transcript:  And if if Mediq could actually deliver on some of the challenges that this kind of platform inherently has, you know, which Twitter was struck admittedly struggling with.  But but, you know, honestly, apparently working to fix or like, you know, at least mitigate.  Right.  You know, having a sane platform.  I mean, I've listened to so many people who who are disappointed in what Twitter has become because it used to be a place they could quickly go to get news.  And it's just not that anymore.  Yeah. Yeah.
+
+Start time: 3630.24
+End time: 3635.32
+Speaker: Leo Laporte
+Transcript:  So, you know, I don't think it's good to have something that like that in the world.  Yes.
+
+Start time: 3636.22
+End time: 3670.78
+Speaker: Steve Gibson
+Transcript:  It's a real need.  It is an app.  It's an absolute need.  Yeah.  Matthew and do deck.  He said, Hi, Steve, I'm looking into getting some wireless keyboards for the office.  And I was concerned about the security.  I'm glad of the connection between the keyboard and the dongle.  He says not Bluetooth, one like the Logitech K 400 plus.  He said, Have you found any info on this?  And if man in the middle attacks are a problem for these kinds of devices, what about the security of Bluetooth keyboards?  Are they any better?  OK, so that's a great question.
+
+Start time: 3671.87
+End time: 3675.20
+Speaker: Leo Laporte
+Transcript:  Since I just bought a Bluetooth keyboard.  Tell me I'm glad you did.
+
+Start time: 3675.40
+End time: 3809.20
+Speaker: Steve Gibson
+Transcript:  And that's what my wife is using.  And I'm going to explain why you are both using those.  Oh, good.  Many years ago, we talked about the very early, widely available wireless keyboards, which claimed to be offering encryption.  But we had some fun at the time because the encryption turned out to amount to nothing more than X or ring the bite that the keyboard sent with a static value.  You know, literally it was an X or mask, which would always flip the same bits in the bite, regardless of what was being sent.  So at best, we would call that obfuscation since passively recording the use of the keyboard and performing a frequency analysis of the characters seen would quickly reveal the the exact fixed X or mask.  And once you have that, everything typed could be unscrambled and, you know, anything.  Oh, and anything desired could be injected.  OK, now the keyboard in question uses Logitech's own unifying receiver technology.  It's not horrible security in as much as it uses AES encryption in counter mode.  Unfortunately, they tried to do it on the cheap.  And a security review of the technology four years ago resulted in CVE 2019 13053.  And that CVE was the result of an incomplete fix for CVE 2016 10761 three years before that.  Logitech has publicly stated that they feel is good enough and that they will not be changing anything.  And of course, at this late date, changing anything would be quite disunifying.  Oh, so from a quick look at the current state of Logitech's technology, it appears that allowing an attacker to press a few keys on the keyboard.  This is with the Logitech unifying receiver technology as it is today.
+
+Start time: 3809.26
+End time: 3813.20
+Speaker: Leo Laporte
+Transcript:  That little thing that ships with a dongle if you want, you could put in your computer.
+
+Start time: 3813.46
+End time: 3912.20
+Speaker: Steve Gibson
+Transcript:  Right. Right. And I've got my mouse has one because I like Logitech mice.  The MX mice are great.  Right. So allowing an attacker to press a few keys on the keyboard while sniffing its transmission is all that's needed.  Also, the protocol leaks metadata for things like turning the num lock and cap locks lights on and off and for other functions.  This allows for entirely passive attacks for AES in counter mode to be used securely.  The counters values can never be reused under the same initialization vector.  But enforcing that guarantee is difficult for any bare bones protocol, which is what Logitech created for their mice keyboards, pointers and other peripherals.  So the solution is simple.  Where true security is important.  Just use the full Bluetooth protocol, though, you know, such a keyboard may be more expensive and they probably are than Logitech.  You know, K 400 plus.  Now, all of my own keyboards are wired.  But as I said, my wife uses a Logitech MX keys keyboard.  I think those are all. Yeah, it is a lovely, lovely low profile keyboard.  It uses a full Bluetooth low energy link.  Once it was paired to her Windows 10 machine, she has never had a problem with it.  So I can vouch for that and the and the protocol.
+
+Start time: 3912.52
+End time: 3948.86
+Speaker: Leo Laporte
+Transcript:  I wanted a keyboard, a Bluetooth keyboard that would I have two computers, one monitor, and I wanted a Bluetooth keyboard that would allow me to switch back and forth.  And and that was Bluetooth.  And I also want to clicky keys.  I know you're a clicky key. Oh, boy.  Yeah, I really I'm going to recommend this 200 bucks.  It's not cheap. But the key cron Q1 Pro wireless custom mechanical keyboard.  And I happen to like the Brown switches, the key cron Browns.  This is a really wonderful first keyboard I've really loved in a long time.
+
+Start time: 3949.92
+End time: 3955.20
+Speaker: Steve Gibson
+Transcript:  And does it do you actively switch it to between computers or does it just pair?
+
+Start time: 3955.30
+End time: 3959.81
+Speaker: Leo Laporte
+Transcript:  No, no. Well, and this one and I like it this way.  Function key one is the first computer function.  Q2 is a second. I think.
+
+Start time: 3961.44
+End time: 3967.20
+Speaker: Steve Gibson
+Transcript:  Oh, so you can have both machines on and yeah, yeah, yeah.  That's right. In sort of a KVM style.
+
+Start time: 3967.74
+End time: 3984.19
+Speaker: Leo Laporte
+Transcript:  Yeah, except it's a little more manual because my mouse is the same thing.  I have a Logitech mouse that has three Bluetooth pairings.  So I switch the mouse to two function two on the keyboard and then my HDMI port.  I switch to, you know, port two on the monitor.  Leo, Leo, you qualify for the expeditionary force.
+
+Start time: 3988.22
+End time: 3998.06
+Speaker: Steve Gibson
+Transcript:  Cyber. I do wear my BDU's.  If you've got jammies that look like camo, you're good to go.
+
+Start time: 3998.94
+End time: 4015.06
+Speaker: Leo Laporte
+Transcript:  I it is a little bit manual, but I have had such bad experiences with KVM switches over the years that I just I thought, you know what?  No, that's very cool. It works. It works perfectly every time.  It's really a great way to do it.
+
+Start time: 4015.52
+End time: 4020.49
+Speaker: Steve Gibson
+Transcript:  And you may well want to have the other machine screen still visible while you're over.  And I could do that. Yes, I could do that.
+
+Start time: 4021.30
+End time: 4032.39
+Speaker: Leo Laporte
+Transcript:  In fact, one of the computers I do keep on because it's a server.  So it's always running. So I don't want to I don't want to I want to be able to switch back and forth while they're live.  And that works. Nice. Great. Yeah. Nice.
+
+Start time: 4035.10
+End time: 4127.04
+Speaker: Steve Gibson
+Transcript:  Glenn Lau asked, Is it possible to spin right a phone, iOS or Android to speed up the phone?  And unfortunately, I'm pretty sure that would not work.  While it would be possible to plug the phone into a PC to view it as a drive, only the user facing storage portion would be seen, not the underlying hidden protected kernel and apps, which is really what you'd want to be rewriting.  So, you know, users don't get any access to that from the outside.  Yeah. And we don't want them to, by the way. Right.  Or hey, Morgan. He said, Hi, Steve. I'm a big fan.  I've been listening to security now for years.  I was wondering a couple of weeks ago when you talked about your sync thing set up, you said you don't like containers.  Is it just because of the added complexity or do you have more reasons?  OK, so great question. Only personal preference.  I totally get it that there is a place for containers like Docker.  I agree that they are a terrific solution for many applications.  But just for myself, I've often seen how quickly things can get out of control when the approach, which I would characterize as just throw some more code at it, is taken.  So if I need to run sync thing on Synology and the only way to do that was to be containerized, then that's what I would do.  But Leo, thanks to you, I don't need to do that.  I don't need to do that.  It just feels much better to be running sync thing as a native Synology build.
+
+Start time: 4127.73
+End time: 4137.12
+Speaker: Leo Laporte
+Transcript:  Docker is very lightweight.  The idea is you're using the same operating system on multiple containers.  They're somewhat isolated from one another, so they're pretty lightweight.
+
+Start time: 4137.34
+End time: 4141.20
+Speaker: Steve Gibson
+Transcript:  And it brings all of the dependent libraries and stuff.
+
+Start time: 4141.52
+End time: 4151.66
+Speaker: Leo Laporte
+Transcript:  Exactly. Right.  But Docker is by default not particularly secure.  So that's something that made me nervous about running it on my Synology, which must be secure.
+
+Start time: 4152.20
+End time: 4304.03
+Speaker: Steve Gibson
+Transcript:  Well, and there there's a perfect example of why my kiss approach works for me.  His question reminded me of another aspect of a story that I shared before of how when I attended that Digicert customer advisory meeting in Utah  nearly six years ago, I casually mentioned like during some coffee time, the rack of equipment that I had at the level three data center.  And all the guys around the table turned and looked at me like I had two heads.  So I said, what?  And one of them said, you know, and he was clearly speaking for all of them since they rest of them were like nodding their heads.  He said, Steve, no one does hardware anymore.  And I took that to mean that they'd all moved all of their infrastructure to the cloud and were now paying Amazon or Microsoft or whomever for virtually hosting their entire infrastructures.  But I also noted that everyone but I worked for a major corporation and that none of them but I were paying the bills for their infrastructures.  And, you know, and it is true that I do occasionally need to drive over to level three to exchange a dead SSD or a spinning drive, which has died in a raid.  So it's not an emergency, but it's like, okay, I received email saying we're well, you know, we've lost a drive.  Come, come give us a little TLC.  But in return for that.  And of course, I do also enjoy getting to touch actual hardware, which always feels good.  My infrastructure costs are fixed and very low.  Yeah, I own all the hardware.  So I'm renting space, cooling bandwidth and power.  And these days, that doesn't cost very much because level three actively wants to keep me from virtualizing my infrastructure with AWS or Azure.  You know, I don't tell them that.  But, you know, they have nothing to worry about.  They're not going to be losing me.  When Horay entered his tweet asking, is it just because of the added complexity?  Or do you have more reasons?  Actually, my first thought was, hey, I even avoid compilers wherever possible.  Wow.
+
+Start time: 4305.46
+End time: 4309.50
+Speaker: Leo Laporte
+Transcript:  He hand assembles his code with a pencil and a piece of graph paper.
+
+Start time: 4310.42
+End time: 4610.20
+Speaker: Steve Gibson
+Transcript:  That's right, baby.  People wonder, why has it taken, why has it been taking so long?  Brian Whedon, he said, Steve, love the show this week on satellites.  I work in the space sector on this issue.  As you're prepping next week, I can offer up an open source report that my org puts out, which includes an entire chapter on cyber attacks on satellites.  I have a link in the show notes.  He said, looking forward to next week's part two.  So I followed the link that Brian provided.  And since it's exactly on point for today, I'll share the report's introductory paragraph, which introduces the term counter space.  It reads space security has become an increasingly salient policy issue.  Over the past several years, there has been growing concern from multiple governments over the reliance on vulnerable space capabilities for national security.  And the corresponding proliferation of offensive counter space capabilities that could be used to disrupt, deny, degrade or destroy space systems.  This, in turn, has led to increased rhetoric from some countries about the need to prepare for future conflicts on Earth to extend into space.  And calls for some corners to increase the development of offensive counter space capabilities and put in place more aggressive policies and postures.  We feel strongly, writes his org, that a more open and public debate on these issues is urgently needed.  Space is not the sole domain of militaries and intelligence agencies.  Our global society and economy is increasingly dependent on space capabilities and a future conflict in space could have massive long term negative repercussions that are felt here on Earth.  Even testing of these capabilities could have long lasting negative repercussions for the space environment and all who operate there.  The public should be as aware of the developing threats and risks of different policy options as would be the case for other national security issues in the air, land and sea domains.  The 2023 edition of the report assesses the current and near term future capabilities for each country, along with the potential military utility.  The countries covered in this report are divided up into those who have conducted debris causing anti satellite tests.  The United States, Russia, China and India.  Let me say again.  The countries covered in this report are divided up into those who have conducted debris causing anti satellite tests.  The US, Russia, China, India and those who are developing counter space technologies.  Australia, France, Japan, Japan, Iran, North Korea, wonderful, South Korea and the UK.  It covers events and activities through February 2023 and I have to say when you scroll down and just look at some of the charts.  Wow, I appreciated the idea that that just testing he would he this this report noted that just testing some of these things like debris causing events, meaning you.  You deliberately blast some out of service, no longer used satellite.  To see if you can.  And unfortunately it explodes and a lot more debris now to be tracking.  Wow, and in fact I was watching you.  You tweet was replaying, I guess a recent episode of this week in space in the live feed before Mac break weekly, and you had a guy neat guy on who was talking about exactly this about like the problems with the number of the individual pieces of crap that now have to all be individually  And it actually is causing a problem when you want to launch something new up there because it's got a clear you have to find a clear path.  And so you need to time your launch window so that your whatever it is rocket will be moving through a place where it's not going to hit any of this crap on his way up.
+
+Start time: 4611.22
+End time: 4616.20
+Speaker: Leo Laporte
+Transcript:  Oh my God, to mention the Kessler effect right I mean at some point that is it.
+
+Start time: 4616.58
+End time: 4627.70
+Speaker: Steve Gibson
+Transcript:  That is the Kessler effect is that something hits something else and then that hits something else and you end up with this domino explosion of junk.  Oh Leo, we are not so clever.
+
+Start time: 4628.44
+End time: 4634.86
+Speaker: Leo Laporte
+Transcript:  I you know here's the good news.  It will shield us from the sun so climate change is no longer an issue.
+
+Start time: 4636.48
+End time: 4639.01
+Speaker: Steve Gibson
+Transcript:  Well, it may shield us from departure.
+
+Start time: 4642.06
+End time: 4647.63
+Speaker: Leo Laporte
+Transcript:  It may change the climate in the wrong direction but okay, we still cool off.  We don't have this hot summer.
+
+Start time: 4648.88
+End time: 4667.06
+Speaker: Steve Gibson
+Transcript:  Someday, parents will tell their children, you know, eclipses used to be infrequent events.  Now, it's like, what are the mommy, what are these shadows passing along the ground?  Well, yes, earwig.  That's now.
+
+Start time: 4667.58
+End time: 4669.92
+Speaker: Leo Laporte
+Transcript:  Is that the name of the future earwig?
+
+Start time: 4670.56
+End time: 4678.49
+Speaker: Steve Gibson
+Transcript:  Yeah, we're going to start, we're going to call our, I figured that was safe.  That's not a name that anyone is using today.  No one is using earwig.
+
+Start time: 4679.40
+End time: 4682.87
+Speaker: Leo Laporte
+Transcript:  I can't wait to read your first sci-fi novel Steve.  That will be fun.
+
+Start time: 4683.80
+End time: 4739.45
+Speaker: Steve Gibson
+Transcript:  So, I have no big spin right news this week.  At the start of the work, I am at the start of the work to update spin right.  Well, actually I'm well into it.  Remember that when I began three years ago, I created that new USB drive setup capability since I knew that was going to be needed.  So, I'm in the process now of amalgamating that, that init disk technology into the Windows spin right component.  I'll get that done.  I'll release it for testing to our group.  I'll come back and give the DOS spin right another rev because a few pieces of debris have accumulated there in its orbit.  And then I will end up merging it all together and we will have spin right six one.  So, on that note, Leo, let's take our final break.  And then we're going to look at more about what could go wrong in space.  Oh, boy.
+
+Start time: 4740.24
+End time: 5038.04
+Speaker: Leo Laporte
+Transcript:  I can't wait.  I love it that we have somebody from the Secure World Foundation listening to the show and keeping us honest.  That's promoting cooperative solutions for space sustainability.  Didn't know such a thing existed.  This episode of Security Now is brought to you by Bitwarden.  Boy, am I happy I use Bitwarden.  You know the drill.  You need a password manager, a vault, something that encrypts your passwords, generates long, strong, unique passwords and keeps track of them so you don't have to.  Something that makes sure you're secure.  Bitwarden is the only open source cross platform password manager you can use anywhere, anytime, at home, at work, on the go.  We've all switched.  Steve switched.  I switched.  With Bitwarden, all the data in your vault is end-to-end encrypted.  I mean, I shouldn't even need to say this, but just so you know, there's some other password managers.  A lot of the metadata is not encrypted.  It's all encrypted with Bitwarden.  In the Summer 2023 G2 Enterprise Grid Report, Bitwarden solidified its position as the, get this, highest performing password manager for the enterprise, leaving competitors in the dust.  We're switching over, of course, here.  Bitwarden protects your data and privacy by adding strong, randomly generated passwords for each account.  They're so good you can't remember them.  Good news, you don't have to.  You can even go a step farther with the username generator, which allows you to create unique usernames for each account.  Or, and if you listen to our ads for fast mail, they're one of the five integrated email services that allow you to generate real addresses that are unique to each account that go to your email.  So there are five email alias services out there that Bitwarden will work with automatically.  Because it's open source, you can transparently view all of Bitwarden's code.  It's on GitHub.  It's not just public to the world, though.  GitHub also has professional third-party audits performed every single year.  The results are published completely on their website.  There is no mystery.  Bitwarden is open source security you can trust.  They now have Bitwarden plans for teams or for larger businesses, the enterprise.  Share private data securely with coworkers across departments or the entire company with fully customizable and adaptive plans.  The team's organization option is $3 per month per user.  We are going with the enterprise plan.  That's $5 a month per user here at Twit.  And of course, it all starts with the always free.  This is really important.  Individual plan.  Bitwarden's basic free account, because it's open source, will always be free.  You don't have to worry about them taking away features, unlimited passwords on every device you use.  I upgraded just because I wanted to support them, and this was a few years ago, to $10 a year.  Oh my.  For the premium account.  That does give me two-factor, and I think you're going to want that.  Or get a family plan.  The whole family, just $3.33 a month.  That's up to six users.  And it doesn't have to be blood relatives either.  Bitwarden has launched.  We mentioned this last time.  It's a secrets manager.  It's in beta still, but it keeps those sensitive developer secrets out of source code.  It eliminates the risk for public exposure if you commit it to GitHub and suddenly,  oh, look, there's the API key and the secret.  Oh, not with Bitwarden.  It'll take care of that.  Right now, our friends at Bitwarden have a little thing going on.  They want to hear why you love your password manager.  They are offering cash prizes.  They want short videos.  Bitwarden.com slash talent.  Bitwarden.com slash talent.  Learn how to enter and win.  There are examples.  All the rules, submission instructions.  You have until August 13th, 2023, to tell Bitwarden why you love your password manager.  I should just submit this ad, frankly, because I do love Bitwarden.  We're fans.  Look, if you listen to Security Now, my God, if you're not using a password manager,  what you, we know you're using one.  The only question is which one.  I suggest Bitwarden.  Get started for free forever with a Bitwarden individual plan  or get a free trial of a Teams or enterprise plan.  It's just the best.  Bitwarden.com slash twit.  Bitwarden.com slash twit.  I have no hesitancy.  Highly recommending this.  Bitwarden.com slash twit.  Okay, Steve, let's talk about satellite insecurity part.
+
+Start time: 5039.60
+End time: 5111.97
+Speaker: Steve Gibson
+Transcript:  So, of course, last week we began our coverage of this important topic.  Now, I'm going to confess that I rolled my eyes when our previous U.S.  President Donald Trump announced the creation of Space Force,  a new branch of the military intended to focus upon what happens above our heads.  My eye rolling was mostly due to a lack of appreciation,  which I now have of what is an obvious need.  Satellites are uniquely vulnerable to many forms of attack,  both physical and cyber attacks, you know, are actually happening.  Last week we learned that ground-based missiles are capable of destroying satellites from the ground  and that space-borne robot satellites capable of both repairing friendly satellites  and deliberately damaging hostile satellites are not science fiction.  They exist too.  I was thinking, I don't remember what that James Bond movie was  where the opening scene showed some spaceship, big maw opened.  Moonraker.
+
+Start time: 5114.23
+End time: 5117.96
+Speaker: Leo Laporte
+Transcript:  It was Moonraker. They took the satellites in.  He was stealing the satellites.
+
+Start time: 5118.30
+End time: 5201.16
+Speaker: Steve Gibson
+Transcript:  Yes.  Anyway, so that's not, it was fiction then, not so much now.  So it was against this backdrop that, you know, all of this was triggered by the recent publication of a research paper  which demonstrated that those satellites orbiting above are also disturbingly vulnerable  to ground-based cyber attack, which is our focus today.  The short news blurb, which about this, which initially caught my eye said satellite security decades behind.  And boy, by the time we're finished with this today, you're going to understand exactly how bad, how true that is.  A team of academics from Germany has analyzed the firmware of three low Earth orbit satellite models  and found satellite security practices lagging by decades compared to modern laptops and mobile devices.  Researchers found the firmware to be prone to several types of vulnerabilities lacking basic protection features  such as encryption, wow, and authentication.  The researchers claim they devised attacks that could hijack satellite systems, cut satellites off from their ground stations,  move satellites to new areas, and even crash them to the ground or into other space objects.
+
+Start time: 5201.20
+End time: 5203.10
+Speaker: Leo Laporte
+Transcript:  Oh no, a message to Q.
+
+Start time: 5207.13
+End time: 5264.20
+Speaker: Steve Gibson
+Transcript:  As I, as I mentioned last week, the researchers assembled their research into a paper titled  Space Odyssey and Experimental Software Security Analysis of Satellites.  The research was delivered during the recent 44th IEEE Symposium on Security and Privacy held two months ago in May.  And it was awarded a Distinguished Paper Award for the conference.  So here's what the team described of their finding in their paper's abstract.  They said,  Satellites are an essential aspect of our modern society and have contributed significantly to the way we live today,  most notable through modern telecommunications, global positioning, and Earth observation.  In recent years, and especially in the wake of the new space era, the number of satellite deployments has been, has seen explosive growth.
+
+Start time: 5264.34
+End time: 5300.68
+Speaker: Leo Laporte
+Transcript:  It was, you only live twice. I got the wrong movie. Moonraker would be the obvious one, right?  Ah, of course.  You only live twice. Yep, yep. They captured the satellites.  That's just, that's perfect.  There's James Bond in his space suit because 007 is good anywhere. And here they come.  Uh oh.  Uh oh. Oh no. Oh no!  Anyway, we can do it.  Boy, is that a hokey, is that a hokey looking satellite?  Before CGI, I have to say, we really put up with a lot of crappy looking stuff. We didn't know any better.
+
+Start time: 5301.32
+End time: 5306.87
+Speaker: Steve Gibson
+Transcript:  Yeah, don't watch any old episodes of Lost in Space, Leo. It really does.  They got age well, do they?
+
+Start time: 5307.66
+End time: 5313.75
+Speaker: Leo Laporte
+Transcript:  Danger, Will Robinson.  He was about to fall over every time he waved his arms.  Wow.
+
+Start time: 5315.78
+End time: 6079.16
+Speaker: Steve Gibson
+Transcript:  So, they said, in this paper, we provide a taxonomy of threats against satellite firmware.  We then conduct an experimental security analysis of three real world's firmware images.  We base our analysis on a set of real world attacker models and find several security critical vulnerabilities in all analyzed firmware images.  Actually, 13 critical problems spread among three actual satellites.  They said, the results of our experimental security assessment show that modern in orbit satellites suffer from different software security vulnerabilities and often lack, and often a lack of proper access protection mechanisms.  They also underlined the need to overcome prevailing but obsolete assumptions.  To substantiate our observations, we also performed a survey of 19 professional satellite developers to obtain a comprehensive picture of the satellite security landscape.  Okay, so in other words, after this team of six researchers had uncovered what they thought they had uncovered, they were like, what, really?  So, they did this survey just like as a sanity check to say, to like to confirm that what they thought they saw was like, then the guys were like, yep, that's the way things, that's the way we do it.  So, they begin by explaining a bit of the history of the industry, which I want to share, since it will be so entirely believable and even understandable, though also so obviously wrong to our podcast audience.  So, these guys explained, they said, satellites are sophisticated technical devices that are placed in outer space for research purposes or to provide terrestrial applications with services that leverage the coverage of the Earth's surface from a distance.  While the first satellite, Sputnik, dates back to 1957, we're in the midst of a renaissance of spaceflight, referred to as the New Space Era.  Especially in recent years, we've observed an enormous growth in the number of Earth orbiting satellites. According to the United Nations Office for Outer Space Affairs, UNOOSA, the number of satellites has nearly doubled from 4,867 in 2019 to 9,350 last year in 2022.  The majority of these satellites form mega constellations like Starlink, which plans to launch more than 40,000 satellites in coming years.  So, put that in perspective, we don't quite yet have 10,000. We have 9,350 last year. Starlink wants to put up an additional 40,000.  They said small satellites are at the heart of this New Space Era as their size and the website, the web, as their size and the widespread use of commercial off the shelf, COTS, commercial off the shelf components, makes them affordable, even for small institutions.  Furthermore, they cover a broad spectrum of use cases ranging from commercial applications like Earth observation, machine to machine communication and internet services to research applications such as technology testing, weather and earthquake forecasting and even interplanetary missions.  Although their applications vary widely, small satellites commonly consist of radio equipment and microcontroller boards. Hence, in the broadest sense, they're computer systems connected to a ground station on Earth and sometimes even to other satellites.  Because they rely on wireless connections for command and control and use microcontrollers, they are potentially as vulnerable to attacks as any other connected IT platform on Earth.  Can you say IoT, except not I? You know, it's so it's not Internet of Things, it's space of things.  This issue, they say, has not been very relevant in the past since access to ground stations was expensive and limited to large satellite operators. However, the situation changed fundamentally in recent years.  Get a load of this. I didn't know this. Nowadays, ground stations are even affordable for private individuals and with the emergence of ground station as a service, GAAS models, such as those offered by Amazon Web Services and Microsoft Azure, the entry barrier becomes even lower.  They said we've seen in the mobile network security domain how the providers assumption that the radio equipment required for attacks would be too costly and out of reach for attackers was ultimately disproved by technological advances.  You know, right, like the pineapple and Leo, that thing you have in your pocket.  Oh, the flipper zero. Yeah, that's right. So affordable ground stations create a new novel attack surface where adversaries can communicate with satellites and take advantage of software vulnerabilities.  If they successfully compromise the satellites firmware, they can access the satellite and potentially take over complete control of the system. And in fact, these guys did that.  They said despite warnings being made early, little has been done to address this problem for several reasons. Once again, our favorite anti security thing inertia.  Yeah.  Well, and some lack of understanding. They said while the lack of security standards for satellites and the complex supply chain complicate the situation.  The main reason is the inaccessibility of satellite firmware. Right. It's like it's it's up there. You can't get it.  So they said historically satellite developers have relied on. Oh, yes. Security by obscurity.  The developers of the iridium network even mentioned that their system would be too complex for attackers. Yeah. How'd that work out?  Attackers have nevertheless successfully decrypted the communication of the network.  The inaccessibility of satellites in orbit makes dumping of the firmware by researchers very challenging, if not impossible, impeding progress in this area.  Hence, the developers of satellite firmware act as gatekeepers and do not provide researchers with research subjects.  And just just I'll pause here for a second and think about.  Almost every instance that we talk about here of of a security researcher finding serious problems in some widget.  Widget wasn't supported in any way by the widgets widget maker.  It was them taking the widget apart and sticking some probes into its brains and sucking its firmware out through a JTAG interface.  And then it's all the widget is never the same.  No, that's not good. It's not bad. We see.  It's not good for the widgets. No, but some have to be sacrificed for the greater good.  So here's a problem with your widgets are flying around, you know, miles above you. You can't get them.  So they said previous commentators have acknowledged that the topic is still understudied and conclude that collaboration between satellite development and the security field is required.  Additionally, well-known topics like the security of satellite communication, the security of satellite based Internet services and threat scenarios for satellites have recently gained increasing attention.  Thank God. And it's about time.  However, discussions around individual satellites typically lack technical details of satellite and real world foundations due to the inaccessibility of satellite software.  OK. So we have a situation where the physical isolation that's inherent in anything launched into orbit has supported a laxity of security rigor.  And it also really sounds as though the developers of these systems have not been following along with the startling advances being made in the capabilities of the underground hacking community here on the ground.  As we've seen time and time again, if money can be made through some hack or attack, it's going to happen.  And those attacks are only going to be improving over time.  It is a very good thing that Bitcoin was not a satellite based cryptocurrency or there wouldn't be any satellites left in orbit today.  But in all seriousness, the US, China and Russia don't care about the price of Bitcoin.  What they want is the ability to instantly cripple each other's above Earth command and control infrastructure.  If the you know what suddenly hits the fan, these researchers felt that they were able to significantly contribute to an understanding of satellite based insecurity in three ways.  They said, first, we present a taxonomy of threats against on board satellite firmware, such as systematic review of the attack surfaces allows us to better represent the complex nature of satellites and categorize securely security relevant findings throughout the paper.  Second, we conduct an experimental and comprehensive security analysis of three real world in orbit satellites to better understand the attack surface and the current state of software security in this particular domain.  We focus on low Earth orbit Leo satellites as this this orbit is the main focus of the new space era, meaning these are the ones that are going to be going up a lot and we need to get them secured.  And, you know, if we become dependent on these little puppies, oh, and boy, are they little get a load of this.  They said the most prevalent satellite little Leo's then little Leo's.  That's right.  The most prevalent satellite class is the nano satellite.  Whoa, nano Leo's.  More specifically, the cube sat, which is a standard form factor of 10 centimeter cubes.  Okay, called units or use. Okay, that's four inches on a side.  Wow.  I know these satellites. No, I wonder if they're going to be start calling them cluster satellites that would be bad. Anyway, these satellites typically weigh less than one and a third kilograms per you and are used in many different projects.  After a long period of persuasion, trust building discussions and contracts, you know, they had to sign.  We obtained access to several three satellite firmware images that we were able to analyze.  In other words, you know, they couldn't get them from the air.  So they said, look, we're we're we're Germans.  You can trust us. We're we're going to sign contracts.  We're going to we only will will still tell you what we find.  You you haven't ever bothered to look at your own code.  Please let us look at it. We're going to help you. We're Germans.
+
+Start time: 6079.22
+End time: 6082.84
+Speaker: Leo Laporte
+Transcript:  We know how to find this stuff. That's right. Yes.
+
+Start time: 6083.90
+End time: 7452.12
+Speaker: Steve Gibson
+Transcript:  All vulnerabilities, they said, have been responsibly disclosed to the vendors.  They said, note that the entry barrier to identify these vulnerabilities was complex, given the sensitive nature of these systems.  To the best of our knowledge, our work is the first to demonstrate exploitation of satellite firmware vulnerabilities,  allowing attackers to gain persistent control over the satellite.  Third, and this is where they said we conducted the survey of 19 professionals to ask, are you serious about this?  And there were 17 satellites that they had technical information about.  And those participants had worked on a total, an aggregate of 132 different satellites.  So, you know, this was the right group of people to ask.  So thankfully, satellite communications is not entirely a standards free,  role your own environment, although it is nothing like the Internet.  There is a standards body known as the CCSDS for Consultative Consultative Committee for Space Data Systems, CCSDS.  It's a consortium of numerous space agencies that agree together on the standards that will be used for a satellite's communications.  So the CCSDS provides the protocol standards for communicating with all components and parties involved in spacecraft operations.  The standards cover all the layers of the OSI networking model, usually offering a couple of options per layer.  Two protocols stand out and were examined by these researchers.  There's the higher level protocol, which is like our TCP on the Internet, called the SDS, which is the Space Data Link Security Protocol.  And as I said, it's the data link layer like TLS.  And then there's the lower level protocol, which we would call IP on the Internet.  And that's called the SPP, the Space Packet Protocol.  So their paper then delves into the detailed intercommunications among the various satellite components.  The attackers goals are no different in the sky than they are on the ground.  They would love to take over the entire package if they could.  But failing that, being able to tap into the communications flow might be all that's available.  And if so, they'll take that.  But if even that is out of reach, then denying the services provided by the satellite to its rightful users is the final fallback.  That should all sound familiar because it's exactly what we have down here on the ground.  The researchers explained that the information containment that has historically existed until recently has been crumbling with the many recent changes taking place within the satellite industry.  You know, and that makes sense, right?  If there's only like three companies making and launching satellites, then it's easy to keep your secrets secret.  But as we know, the more people who know a secret, the less secret it is.  They said, For decades, the satellite community and developers have acted as gatekeepers for the topic of satellite security by keeping the software and components of satellites under lock.  They created a barrier of obscurity that prevented any meaningful research on this subject.  Hence, external communities had no way to study satellite internals and potential security issues.  In recent years, this changed as the developments in the space domain have moved towards the use of common off the shelf components.  In other words, not some bizarro one off processor, but a cortex or, you know, a standard chip that either pro or Gidra would be able to reverse the code for.  Also, we have open satellite designs and open source libraries.  They said these factors have been multiplied by the explosive growth in the number of satellites and the inherent increase in the size of the community.  Hence, the number of people holding knowledge about satellites has been steadily increasing.  Overall, we argue that a transformation is slowly happening concerning the effectiveness of security by obscurity in space borne assets.  In other words, it's not going to hold any longer, folks.  And so you can't be relying on that the way you have in the past.  They conclude with this. As a result, we must assume that attackers have detailed knowledge of the target satellite, including detailed documentation and access to firmware images.  Further, several open source satellites already enable attackers to study satellites.  We therefore assume attackers have detailed knowledge of satellites, including their firmware, except for their cryptographic secrets.  So in other words, this is the modern security model, which is being brought to an industry that never had it before.  You know, at least from the standpoint of these researchers, the satellite industry may not have caught up yet.  But the only way for researchers to test current satellite security is with an honest set of assumptions of the threat model.  As we know, it's always necessary to assume that one's adversary knows everything about the design of their target, because too often that's exactly the case.  Another area that they needed to address, they termed the myth of inaccessibility.  They wrote until recently, it was generally assumed that satellites always communicate with prohibitively expensive.  They use the abbreviation G.S.s, meaning ground stations.  As a result, only a few actors could attack a satellite, similar to the assumption for mobile cell phone networks many years ago.  Unfortunately, this assumption had a major impact on the adaptation of security features for satellites, meaning the lack of them.  However, ground station prices have dropped significantly in the past few years.  Today, it's possible to create a fully functional ground station of your own, you know, in your backyard for less than $10,000.  And there are open source communities around developing ground stations.  In addition, G.A.A.S., as we said, ground station as a service provider, such as Amazon Web Services or Microsoft Azure, rent a ground station to the user or allow ground station owners to monetize unused ground station capacity by temporarily renting it to end users.  Right.  What could possibly go wrong?  As a result, one does not even need to own ground station equipment to interact with satellites.  Additionally, transceivers for specific satellite services have become so compact and cheap that Leo even has one in his pocket.  No, so cheap that you just stand outside, stand outside and point to the heavens, Leo.  Furthermore, there are now many Leo satellites constellations in space with satellite to satellite communication capability, so they're able to talk to each other.  At the same time, there is an increasing number of smaller research Leo satellites.  There are already a number of satellites with significant communication capabilities in space that are even intended to be used by third parties.  Therefore, we believe that there is a paradigm shift in the assumption that satellites are inaccessible, which is particularly pronounced for low Earth orbit satellites.  OK, so the researchers examined a trio of satellites with widely varying architectures.  Actually, that was one thing that sort of impeded their research.  There was one that was based on a Leon.  No, it was the AVR 32 that was just announced very recently and its instruction set was not yet well supported by the various disassemblers.  But they so there were three satellites.  One used an arm cortex M3.  Another used, as I said, that much more recent AVR 32 instruction set and the third used a Leon three.  I wonder if Leon's is like for Leo, you know, with an anyway, Leo Nano.  Yeah, a Leo, a Leon three spark V8 processor in all three cases upon reverse engineering the satellites.  In fact, the researchers used the satellites, the current firmware using IDA, IDA Pro and Ghidra, both which we've covered in the past.  In each case, they uncovered multiple remotely exploitable vulnerabilities that led to remote code execution, meaning these things are vulnerable.  To the firmware images, they responsibly disclosed their discoveries of a total of 13 of these.  All of them were bad vulnerabilities across the three satellites they examined.  The good news is that sky bound firmware can be uploaded.  The bad news is that, for example, in the case of that arm cortex M3 processor contained in a satellite which was launched in 2013, the firmware update process, they were told, takes anywhere from several days to a week, depending upon the ground station and link quality.  This is due to the low bandwidth UHF VHF components, which run at, wait for it, 9600 baud and the sharing of bandwidth.  So to share a sense for the sorts of things they found in these 13 items, they wrote insecure by design telecommands.  TCs is an abbreviation for telecommands, which is the process of obviously sending a command up to something in orbit.  So they said, even with no access protection, a satellite should be designed so that telecommands do not compromise the satellite stability without further validation.  Two deliberately present telecommands, this is in one particular satellite, allow arbitrary reading and writing of memory.  On the technical level, they said, the attacker controls all parameters passed to mem copy through command arguments.  Such that these, I know Leo, I hear you in the background. Yes, I know it's unbelievable.  Even have my mic on and you heard me.  Such that these two telecommands are dangerous TCs. Anyone with a custom ground station could utilize them to gain remote code execution and seize control of the satellite.  They said, noteworthy, the ability to execute arbitrary code, which these provide, would allow an attacker to write firmware updates to the flash memory persistently, making the takeover irreversible.  Modern operating systems such as Linux or Windows deploy defenses to prevent trivial exploitation of such vulnerabilities.  But the RTOS in this ARM Cortex M3 based satellite does not feature any such protections.  In particular, neither ASLR, of course, we know that's address space layout randomization, nor stack cookies, which prevents trivial buffer overruns, are used.  To prove the impact of this vulnerability, we built an exploit, sent our payload over the com interface to our rebuilt satellite in the lab and executed arbitrary code.  In our case, we play sound over the connected speaker.  Okay, so just to be clear, this satellite that they're referring to actually had deliberate commands, which were received over its communications link, which allowed any of the machines memory to be read back, written to, or moved around.  I mean, it's again, this is this is like Microsoft that built that command into the early Windows Metafile, right?  That, you know, where you if the metafile interpreter didn't do what you want, you could just put some native code in the Metafile and tell the machine to execute it.  What could possibly possibly possibly go wrong with running your own native code from a from a, you know, a piece of a media file that the machine could be sent?  Anyway, what could possibly go wrong with allowing, you know, firmware to be rewritten in an in orbit satellite using some commands that are not authenticated?  Anyway, so of course, coming from a security where state that the security where state that we have all been living in for many years now, it is it's almost difficult to appreciate what they mean when they say that the security of many of these satellites relies upon a lack of access to satellite  communicating ground stations. In other words, they were not kidding at all. Some of these satellites, as I said, will actually obey by deliberate design remote commands to read, write and move memory around with no concept of protection, just because they thought, well, you know, who can talk to these things?  Very few people, and we're not going to give them our firmware. So they're never going to know what's up there anyway. Here's another example. They call this one trusted ICP size field. Upon receiving an ICP packet, the packet is passed through a free RTOS data queue to the command scheduler, which executes the associated command using the included  arguments. We observed that a function parsing the command structure does not validate the length of arguments field against the total length of the ICP packet. I mean, this is security 101 right or its payload. Thus, any external attacker can specify a malicious field length, which indicates that the arguments  would be longer than they actually are. This causes a command handler function to use more bytes from the memory heap that intended, leading to a buffer over read. Hence, an attacker could include other data in the attacker TC that the telecommand, which leads to a control data leak.  Again, we verified that this works on the real satellite by testing it on our recreated hardware and managed to successfully exploit the vulnerability. The leak itself is reliable and is not impacted by environmental conditions. But extracting specific secrets depends on the heap layout. This vulnerability is reminiscent of the well known open SSL heart bleed vulnerability.  Or how about this one, which describes something they found in a different satellite ops sat uses a flash file system to store files. And I don't know which OS that uses. Maybe they say, oh, I think it's another free RTOS OS. Ops, Opsat uses a flash a flash file system to store files, including the firmware image.  Existing telecommands allow to create new files and write to them, providing the capability to upload a malicious firmware image onto the satellite. To change the file system path pointing to the current image, critical commands must be enabled, which is a global Boolean value in the satellite settings.  Crucially, changing this flag can be done via a telecommand that does not require verification. Hence, external attackers can conduct arbitrary firmware updates, which allows them to seize control over the satellite.  Interestingly, similar critical functionalities are also hidden behind the same flag, indicating that engineers were aware of its critical importance, but decided not to implement further protection.  Okay, so anybody can flip the flag, which is set, which is protecting this. And once you do, it's not protected, as our other important functions. And once it's not protected, then you're able to upload your own firmware, name it what you want, and then change the path to the current image causing the satellite to switch to it.  And here's the last one I'll share. A problem in a widely used library, a widely used, they write a widely used space as we have the space SDK, that would be the ssdk, I guess, this a widely used space SDK utilizes the UFFS library, which implements a low cost flash file system.  I'm sure that's what FFS, you know, flash file system. The library is used on roughly 75 spacecraft. And according to the library's author, who I guess is proud is also used by NASA. They wrote we identified a stack based, I guess that I would be a space stack based buffer overflow vulnerability.  Buffer overflow vulnerability in the file renaming procedure, where the name of the new file is copied to a buffer of static size. I know, without any size check resulting out again, this library is using roughly 75 spacecraft and NASA is using it, resulting in arbitrary code execution.  We experimentally verified that this vulnerability can be exploited to gain arbitrary code execution. In OpsSAT, this function is only exposed in an inaccessible UART debug port, posing no security threat to OpsSAT in its current state.  Still, moving files is a reasonable file system interaction to be exposed via telecommands to semi privileged attackers. Hence, any of the other roughly 75 spacecraft implementing such functionality are also likely to be vulnerable.  Okay, so by this point, everyone should have an idea by now of like, what's been going on? These guys were not kidding when they characterize the satellite industry security as lagging behind by several decades. Thanks to an attitude of well, we're not the PC industry.  We are not connected to the internet. And you can't talk to our birds without special equipment. The security concerns that all of us on the ground here have been fighting for the past several decades and has created endless fodder for this podcast doesn't appear to have sunk in at all.  Sure, there are instances of mistakes that have not been caught, like these guys, but the most glaring insanity are deliberately designed commands, which are insanely powerful and lacking in any authentication, assuming that those commands will never be issued by anybody because, you know, they're not connected to the internet, they require a ground station.  That assumption may have been useful 10 years ago, but it holds today. They implicitly assume that no bad guy will ever be able to get their hands on a radio, even now that Amazon and Microsoft will happily lend you one of theirs.  So I sincerely hope that this work and others similar to it have, or will come to the attention of all of the relevant parties. The good news is that down here on the ground, where we have the internet, and you know, it's been connecting everyone to everyone else for you know, since its beginning, we have had to develop highly, highly connected to the internet.  Insanely well, you know, peaked security awareness. And so hopefully that'll rub off on all of the space bound.
+
+Start time: 7452.42
+End time: 7468.20
+Speaker: Leo Laporte
+Transcript:  You know, I just always assumed that NASA put a lot of effort into secure code and testing and all of that stuff. Maybe NASA does, but obviously there's a lot of commercial space going on.
+
+Start time: 7469.22
+End time: 7476.20
+Speaker: Steve Gibson
+Transcript:  Right, right. You know, and Leo, come on. Would Elon delay the launch of a Starlink?
+
+Start time: 7481.38
+End time: 7481.96
+Speaker: UNKNOWN
+Transcript:  No comment.
+
+Start time: 7483.67
+End time: 7486.55
+Speaker: Steve Gibson
+Transcript:  Just launch it now. We'll fix it in orbit.  We'll fix it in orbit.  That's right.
+
+Start time: 7487.91
+End time: 7553.68
+Speaker: Leo Laporte
+Transcript:  That should be the name of the show.  We'll fix it in orbit.  We'll fix it in orbit.  Steve Gibson, you're the best. We look forward to Tuesday all week long so we can all listen and hear your words of wisdom and your perspective on what's going on in the world around us.  Tuesdays 11, I'm sorry, 1 30 Pacific, 4 30 Eastern, 20 30 UTC. If you want to watch us do it live. Live. If you just can't wait, you just can't wait.  Live.twit.tv has live audio and video streams.  We just kind of run it all the time and often you'll see a show in the making.  After the fact, you can get copies of the show. It is a podcast after all at Steve's site, grc.com.  He has the six standard 64 kilobit audio, but he also has a unique version, the 16 kilobit audio for the bandwidth impaired.  He also has really good transcripts and that's useful not only for reading while you're listening or just reading by itself or searching all that at grc.com.  While you're there, pick up Spinrite version six.  What do you think?  100 days, 90, 50, 40.
+
+Start time: 7555.66
+End time: 7564.92
+Speaker: Steve Gibson
+Transcript:  I've gotten into so much trouble by estimating.  You shouldn't say.  If anyone's told me that Squirrel would have taken seven years, I would have said no.
+
+Start time: 7565.40
+End time: 7595.51
+Speaker: Leo Laporte
+Transcript:  It's always a mistake to estimate the release of software or of anything for that matter.  But here's what I do know.  If you go there to get your copy of version six of the world's best mass storage, maintenance and recovery utility, you will get a free upgrade to six one.  The minute it comes out, you can also participate in the development of six one, the beta test and all of that stuff.  Grc.com. There's lots of other great stuff there.  Leave questions or comments for Steve at grc.com slash feedback.  He's also an ex, his ex handle.
+
+Start time: 7597.73
+End time: 7603.61
+Speaker: Steve Gibson
+Transcript:  God, are we really going to say that?  I think we have to.  Wow.  I don't know.  Is the official that is the official name.
+
+Start time: 7604.78
+End time: 7737.97
+Speaker: Leo Laporte
+Transcript:  Well, but if you go to ex.com, it still says it redirects you to Twitter.com.  So, of course, this was a well thought out transition.  You know, there's still some residual Twitter.  So I guess until that goes away, we'll say on Twitter, his DMS are open and he did make sure that that's the case at sggrc.  That's his Twitter handle.  Soon to be his ex handle, by which we don't mean his former handle.  It's very, very confusing.  You can get on demand versions of the show at our website to twitter.tv slash SN.  We have audio and video.  That's our unique format.  If you want to see Steve smiling mustache, we also have a YouTube channel dedicated to security now.  And you can subscribe, of course, and your favorite podcast player get it automatically.  Now, some of you have said to us, but what about all those awful ads?  Well, there is an ad free version available for you.  A couple of ways you can do that.  You could buy the show by itself at free for two dollars and ninety nine cents a month.  But why not spend a few bucks more support twit seven bucks a month gets you all the shows ad free plus all sorts of other stuff that is not available in public like Hands on Macintosh with Michael Sargent, Hands on Windows with Paul Thurotte, the Untitled Linux show, Scott Wilkinson's home theater geeks.  It's where we launch this week in space because the members pay for it.  Right. Seven bucks a month.  You also get the discord.  Lots of benefits.  If you want to know more, either the seven dollar version of the two ninety nine version, go to twit dot tv slash club twit and all will be revealed.  I think that's it for this episode of security now, Steve.  I have to say we finished your recommendation, the diplomat.  Holy cow.  Did they leave that?  It's just hanging, man.  I that it was not only was it a great season, but what a great way to end it.  And now I'm just dying to find out what happens.  And I guess they're they're shooting right now for season two.  So we won't have to wait.  Can they be during the strike?  Oh, that's a good question.  They must be on hold now.  Oh, yeah.
+
+Start time: 7739.69
+End time: 7752.08
+Speaker: Steve Gibson
+Transcript:  Yeah.  Well, I was delighted that they immediately announced a second season.  It was so so obviously a big win.  Oh, yeah. Great show.  So and it really real it blows cocaine bear out of the water.
+
+Start time: 7752.71
+End time: 7773.74
+Speaker: Leo Laporte
+Transcript:  Did you watch cocaine bear?  Oh, Russell is in both.  I agree.  So I understand your interest in both.  But no, it does.  Lisa and I have yet to finish cocaine bear.  We bought it.  Don't bother.  Nothing good happens.  We tried to watch it several times.  Every once in a while, Lisa will say, you want to finish cocaine bear?  And I say, not tonight, honey.
+
+Start time: 7774.52
+End time: 7781.20
+Speaker: Steve Gibson
+Transcript:  I also tried to watch that command Z thing that was released by Soderbergh.  Supposed to be good.
+
+Start time: 7781.55
+End time: 7783.90
+Speaker: Leo Laporte
+Transcript:  Is it good?  No, no, no, I don't think so.
+
+Start time: 7784.73
+End time: 7793.20
+Speaker: Steve Gibson
+Transcript:  We got about two episodes in.  They're only short.  There was eight minutes and then 15 minutes.  It was just it was dumb.  It was it didn't it didn't make it.
+
+Start time: 7793.40
+End time: 7802.80
+Speaker: Leo Laporte
+Transcript:  I have to say, after succession ended, I kind of felt like, oh, we're done.  TV is never going to be as good as again.  And the diplomat gave me hope again.  I really enjoyed it.
+
+Start time: 7803.64
+End time: 7810.37
+Speaker: Steve Gibson
+Transcript:  And I guess the second half of Dune is probably on hold now, too.  Everything's not old.  Well, wait a minute.  They might have finished Dune.
+
+Start time: 7811.26
+End time: 7818.50
+Speaker: Leo Laporte
+Transcript:  They're probably editing it.  So maybe that one will be OK.  Good. But we're going to go through a long drought.  I have a feeling in the next year or so.
+
+Start time: 7819.52
+End time: 7826.18
+Speaker: Steve Gibson
+Transcript:  Yeah, fortunately, we don't mind baking shows.  And so we've been watching a lot of baking.  I will not be reduced to the British bake off.
+
+Start time: 7827.05
+End time: 7850.53
+Speaker: Leo Laporte
+Transcript:  I will not.  You know, Severance also had an ending that left you hanging in the air like the diplomat like that.  And it is it is definitely on hold because of the writer's strike and now the sex strike.  So we may never we may maybe a while before we find out what happened.  That's hard. That's like those Peter F.  Hamilton books that I just won't read the first of the trilogy.  You can't do it all.
+
+Start time: 7851.52
+End time: 7853.18
+Speaker: Steve Gibson
+Transcript:  Yes, exactly. It's just right.
+
+Start time: 7853.68
+End time: 7857.96
+Speaker: Leo Laporte
+Transcript:  Exactly right. But I loved the diplomat so much.  And what a twist. I'm so glad you did.
+
+Start time: 7858.62
+End time: 7866.00
+Speaker: Steve Gibson
+Transcript:  It was so fun.  And I just I loved the way she was her character.  Yeah. Well, you know what?
+
+Start time: 7866.20
+End time: 7903.81
+Speaker: Leo Laporte
+Transcript:  This is what happens when you have a woman created, produced, directed and written show is the women are no longer just, you know, there for set dress wall flowers.  Yeah.  She was great in it.  Yeah. All right, Mr. G.  A pleasure talking to you. Have a great week.  We'll see you next time on Security.  Bye.  Yeah, I just really loved it.  I'm glad. So good.  Got better and better.  And there were a few holes towards the end.  I could tell they're trying to wrap this up without.  But it's just what and I, you know, I'm looking at I'm going, wait a minute.  That means I know.
+
+Start time: 7905.57
+End time: 7909.36
+Speaker: Steve Gibson
+Transcript:  I know.  We're good. No.  Who was standing where?  Yeah.
+
+Start time: 7910.28
+End time: 7922.57
+Speaker: Leo Laporte
+Transcript:  Well, that's the big question, right?  She's got a little tear coming down.  Yeah.  I well, we'll see.  I don't want to know.  No spoilers.  Everybody should watch it.  Thanks, Steve.  Everybody. Bye.  Bye.
+
+Start time: 7923.44
+End time: 7952.20
+Speaker: SPEAKER_01
+Transcript:  Hey, I'm Rod Pyle, editor in chief of Ad Astra magazine.  And each week I joined with my co-host to bring you this week in space, the latest and greatest news from the final frontier.  We talked to NASA chiefs, space scientists, engineers, educators and artists.  And sometimes we just shoot the breeze over what's hot and what's not in space books and TV.  And we do it all for you, our fellow true believers.  So whether you're an armchair adventurer or waiting for your turn to grab a slot in Elon's Mars rocket, join us on this week in space and be part of the greatest adventure of all time.
+
+Start time: 7963.72
+End time: 7990.27
+Speaker: SPEAKER_00
+Transcript:  If your big plans this year include your big day, plan your look with Indochino.  Customize every detail of a blazer suit or tuxedo online or at a showroom with an expert style guide.  Then sit back for delivery straight to your door.  Suit star at just $4.49 and premium fitted shirts at just $89.  Go to Indochino.com and use code NEWCHAPTER for 10% off any purchase of $3.99 or more.  That's I-N-D-O-C-H-I-N-O.com code NEWCHAPTER.
+
