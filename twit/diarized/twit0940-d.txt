@@ -1,0 +1,1862 @@
+;FFMETADATA1
+title=Chia Fresca
+artist=Leo Laporte, Christina Warren, Iain Thomson, Rob Pegoraro
+album_artist=TWiT
+publisher=TWiT
+album=This Week in Tech
+TRDA=2023-08-14
+track=940
+language=English
+genre=Podcast
+comment=<p>Black Hat, DEF CON, AI Bill of Rights, BlueJeans, Zoom AI disclosure, Snoopers&\#039\; Charter</p>\
+
+encoded_by=Uniblab 5.3
+date=2023
+encoder=Lavf58.76.100
+Failed to align segment (" That's actually pretty great."): backtrack failed, resorting to original...
+
+Start time: 0.22
+End time: 38.30
+Speaker: Leo Laporte
+Transcript:  It's time for This Week in Tech. Great show. I'm excited.  Christina Warren from GitHub is here. From the register, Iain Thompson and brand new to Dread,  Rob Peguraro. He works with PC Magazine and Fast Company. Both Rob and Iain were at DefCon  and Black Hat. We're going to talk about what happened in Vegas. It does not stay in Vegas,  including satellite hacking, the new downfall flaw in Intel chips, and how AI is easily hackable.  Then we're going to talk about Mr. Beast. He's suing Mr. Beast's burger,  and they're suing him right back. All that and more coming up next on TWiT.
+
+Start time: 41.06
+End time: 46.27
+Speaker: Intro
+Transcript:  This is TWiT. This Week in Tech, Episode 940, recorded Sunday, August 13th, 2023.
+
+Start time: 61.16
+End time: 146.72
+Speaker: Leo Laporte
+Transcript:  Chia Fresca. This episode of This Week in Tech is brought to you by Miro. Miro is your team's  online workspace to connect, collaborate, and create together. Tap into a way to map processes,  systems, and plans with the whole team and get your first three boards for free to start creating  your best work yet at Miro.com slash podcast. And by Duo. Protect against breaches with a  leading access management suite, providing strong multi-layered defenses to only allow  legitimate users in. For any organization concerned about being breached and in need  of a solution fast, Duo quickly enables strong security and improves user productivity.  Visit cs.co slash twiT today for a free trial.  It's time for TWiT This Week in Tech, the show week of the week's tech news. Oh,  I have assembled a wonderful panel because we are just coming off Black Hat and Def Con.  So I have brought together some people who are actually in the house, as it were, welcoming  somebody brand new to the show. But I think we're going to see a lot more of them because I already  like the cut of his jib. Rob Begarraro is here. You've seen him in PC Magazine on the Washington  Post fast company and he will not fix your computer, which is a really great call back.
+
+Start time: 146.92
+End time: 149.62
+Speaker: Rob Pegoraro
+Transcript:  If my mother-in-law asks, I will. I kind of have to do that.
+
+Start time: 151.34
+End time: 161.20
+Speaker: Leo Laporte
+Transcript:  Rob, it's great to meet you and welcome. Thank you for joining us. You were at Black Hat.  Yep. Came back. Iain Thompson was both at Black Hat in the first few days of Def Con. You poor man.
+
+Start time: 163.56
+End time: 167.20
+Speaker: Iain Thompson
+Transcript:  Oh, come on. Def Con is the fun show. It's Black Hat. It's the boring, well, not boring,
+
+Start time: 167.32
+End time: 180.04
+Speaker: Leo Laporte
+Transcript:  but less interesting one. The corporate one. We'll get into the differences. I think that's a good  way to start. Iain's, of course, at the register and wrote a bunch of articles, really good articles.  I was following your coverage. Oh, thank you. You did a wonderful article on the Network Operations Center.
+
+Start time: 180.32
+End time: 196.56
+Speaker: Iain Thompson
+Transcript:   I was the only journalist that got inside it that year.  It was fascinating and geek heaven. Absolutely. They bring their own gear.  Manufacturers actually give them free gear to use for the show. So they bring their gear,
+
+Start time: 196.56
+End time: 211.12
+Speaker: Leo Laporte
+Transcript:  but then anything they want, they just say, hey, Cisco, can we have that? Can we, you know,  we'd like that. And of course, manufacturers jump to do it. Yes. The best part of your story is when  they say, but some of this stuff really is crap. So we don't take it.
+
+Start time: 213.24
+End time: 257.68
+Speaker: Iain Thompson
+Transcript:  Once we get it. I asked them for names as well. It's really annoying. I was deliberately asked by  Grifter not to name names on, you know, if anyone let slip and you, you've got to abide by that.  Yeah. But inside the center itself, it's just, you know, they've got films like Hackers and  Sneakers displayed on the wall with subtitles. There's music playing. It's nice and dark. So  everyone can read their screens, sofas, stickers everywhere. It's so good that the head of the  Paris Olympic Committee for their systems operations center has copied the design almost  to the letter. Wow. That's pretty impressive. Wow. Yeah. They had him over for the London Black Hat  or rather he asked to come to the London Black Hat and see how they did it. They're obviously  expecting massive stuff, but he was so impressed that they've set up pretty much a replica center
+
+Start time: 257.82
+End time: 286.40
+Speaker: Leo Laporte
+Transcript:  for the Paris Olympics. Wow. Neil Grifter Weiler is a global lead of active threat assessments at  the IBM X-Force. So he probably knows what he's doing. And a thoroughly nice bloke.  Fun. I highly recommend the article. Also with us, it's great to have her. She was not at Black  Hat or Def Con, but that's fine. Neither was I. It's great to have you. Christina Warren,  senior dev advocate. How many times have you seen Tay Tay's eras tour now?
+
+Start time: 287.42
+End time: 308.40
+Speaker: Christina Warren
+Transcript:  I saw it three times. Three times. I saw it three times. Atlanta night one, no, night two,  yeah. Night one, Atlanta, night two, New Jersey, night two, Seattle. And I would like to say that  I'm done, but I, if I can get tickets in Paris, I will do that. Wouldn't that be awesome? Yeah.
+
+Start time: 309.14
+End time: 326.08
+Speaker: Leo Laporte
+Transcript:  To see Taylor in Paris. Yeah. She was just down here in the Levi's Stadium and I guess  Mark Zuckerberg was there in the box. Elon Musk, a lot of Jason Howell, Jason Howell. You went,  you that's right. He brought his girls. Oh, that's awesome. I love that. That's amazing. I'm so glad
+
+Start time: 326.20
+End time: 331.68
+Speaker: Christina Warren
+Transcript:  they got to see it because it's such a good show. It looked like an amazing show to be honest. Yeah.
+
+Start time: 331.86
+End time: 341.26
+Speaker: Leo Laporte
+Transcript:  What is the Venn diagram of people who've seen Taylor Swift's eras concert three times and people  who've seen the Barbie movie three times? Is that a, it's, it's probably, it's probably just a
+
+Start time: 341.40
+End time: 356.24
+Speaker: Christina Warren
+Transcript:  complete, yeah, probably a complete overlap. Yeah. So it's a circle. Exactly. It's a circle.  How many times have you seen Barbie? I've only seen it once, but that's only because I only had  time to see it once, but I definitely like, as soon as copies are available, wink, wink, nudge,
+
+Start time: 356.34
+End time: 364.86
+Speaker: Leo Laporte
+Transcript:  nudge, I will watch it multiple times. We were, I went to see Oppenheimer on Friday at the big  IMAX in San Francisco because I wanted to see the 70 millimeter. Oh, I wish I could have seen it in
+
+Start time: 365.48
+End time: 368.76
+Speaker: Christina Warren
+Transcript:  that way. Yeah. Cause I saw it in 70 millimeter. I didn't see it in IMAX. It's fun to go because
+
+Start time: 370.68
+End time: 376.56
+Speaker: Leo Laporte
+Transcript:  there's all these people in pink who are obviously going to the other movie. Yeah. A lot of people in
+
+Start time: 376.70
+End time: 385.08
+Speaker: Iain Thompson
+Transcript:  pink ready for the Barbie movie. It's cute. What did you think of it? Cause we've got tickets to  go and see it, but three hours is a hell of a long time. I don't want to ruin it for you, but what is
+
+Start time: 385.52
+End time: 434.12
+Speaker: Leo Laporte
+Transcript:  obviously the case, and this is both good and bad, is it no one can say no to Christopher Nolan at  this point. He's so powerful. So that's good because he could do a 70 millimeter IMAX movie  on film. That's three hours long. No one else could get away with that. In fact, if anybody's  going to continue to make these IMAX movies, I think there's a good case to be made that this  may be one of the last IMAX film movies out there. Cause it's ridiculous. It's expensive,  hard to shoot. They had to make a special platter because there's so much film. The platter is huge  and there are only 12 or 13 theaters in the U S that could show it. So there's really very  little incentive. There's no money to be made doing it. So there's really no incentive.  Most IMAX movies are digital. What you saw was digital, Christina. No, I saw it on 70 millimeter
+
+Start time: 434.24
+End time: 462.48
+Speaker: Christina Warren
+Transcript:  film, but we didn't have the full IMAX. It wasn't IMAX. So it was the film cut, but it was not the  height. So it's still different. So there were a few theaters that had 70 millimeter film, but only  12. Like you said, there was one in New York when my parents theater in Atlanta had it.  Interestingly, San Francisco, I could have gone to Vancouver, but I would have had to literally
+
+Start time: 462.98
+End time: 466.48
+Speaker: Leo Laporte
+Transcript:  leave. I'm going to save you some money and time. I don't think you need to.
+
+Start time: 467.48
+End time: 478.24
+Speaker: Christina Warren
+Transcript:  No, I would agree with that. When I saw it, like, I mean, I was, we're not going to spoil it,  but I don't think that the visuals were that imperative. No, and in fact, the way it's shot,
+
+Start time: 479.30
+End time: 543.46
+Speaker: Leo Laporte
+Transcript:  there's a lot of closeups and I got to tell you a closeup of somebody on a screen that is the size  of a building is a little too close. Oversampling their face. Oh my God. These people,  I thought movie stars are good looking. Wow. What HD did to a lot of people's living.  This is worse than HD. They say that the film is the equivalent of 18K. So these are such giant  frames and I unfortunately there's limited seating. So we were in the fifth row. Oh,  that's the worst. Yeah. So the screen is, you know, a little bit below you and then a lot above you.  Ice train. And the very first shot is a closeup of Oppenheimer, Sillian Murphy and in very tight  closeup. And you just want to go, whoa, and everybody, I mean, they're all beautiful people,  but in closeup, sometimes you want to just reach out and pluck a hair, pop a zit. It's a little too,
+
+Start time: 543.76
+End time: 575.30
+Speaker: Christina Warren
+Transcript:  it's closer than real life. Oh no, it's ridiculous. Cause I saw at, in IMAX, another Christopher Nolan  film, I saw the dark night. I remember seeing that in IMAX, like the full presentation of one of the  few theaters. And I remember like absolutely no disrespect to Maggie Gyllenhaal, but it was one  of those things where I was like, man, I can really, like, I'm really upset about the recast  at this moment because of how big the closeup is right now. Like I was looking at Katie Holmes's
+
+Start time: 575.44
+End time: 598.82
+Speaker: Leo Laporte
+Transcript:  face instead, honestly. I feel bad for poor Florence Pugh who had to do a nude scene at that size.  Oh God. Yeah. I mean, she's the eight, talking about an 80 foot tall woman. I mean, she's,  and anyway, so a couple of thoughts. So that's the good thing is that Nolan has enough clout to do  that. And I'm, I wanted to see it. I saw the dark night, same theater. That wasn't as good  because it switched back and forth. It was a little weird. Plus I think it was 3D, wasn't it?
+
+Start time: 600.10
+End time: 603.46
+Speaker: Christina Warren
+Transcript:  No, it wasn't 3D. It's just, there were most of the sequences where IMAX was not the whole thing.
+
+Start time: 603.82
+End time: 631.62
+Speaker: Leo Laporte
+Transcript:  Yeah. It was weird that way. There were a couple of 16 by nine shots for some reason in this,  in the Oppenheimer, but most of them were that weird, you know, whatever four by four  squarish IMAX ratio. So it was beautiful and the sound is incredible, but the movie is easily an  hour too long. I thought. What do you think? Yeah. I mean, Christina, did you? So, okay. So my thought
+
+Start time: 631.76
+End time: 640.20
+Speaker: Christina Warren
+Transcript:  was yes. So here was my thought actually, when I saw it, I was like the source material I've since  read about half the book. I hadn't read the book beforehand, but now I've read about half the book.
+
+Start time: 640.42
+End time: 643.34
+Speaker: Leo Laporte
+Transcript:  Yeah. I just ordered it. That's what everybody does is they get the book. American Prometheus.
+
+Start time: 643.56
+End time: 709.68
+Speaker: Christina Warren
+Transcript:  Totally. Yeah. And the book is, the audio version is 27 hours long. It's like 700 pages. So it's a  tomb. So he clearly cut a lot of stuff. So in my opinion, it either should have been, you know,  half an hour, 45 minutes shorter, or it should have just been like a mini-series.  HBO series. To be completely honest. Yeah. It would have been a great HBO series.  That was my thought. I was like, when I remember when Mike Nichols did the adaptation of Angels  in America and they did it as two, three hour parts. Right. And that was great. And I was also  thinking, you know, even Chernobyl, if you didn't want to, like, if you wanted to have four, there's  certain things in the film that you could do it before and after segment of, if you wanted to do  parts, you could also do it episodic. But yeah, I mean, my feeling I was, it felt like he cut a lot  out to even get to that three hours. It's very fast-paced, very fast editing, which again,  another thing on a giant IMAX screen is not pleasant. Yeah. That's the one thing I will say  for it is three hours, but it doesn't feel like three hours. The pacing is great. Here's where it  drags. But yeah, I feel like he should have either extended it, made it a mini-series or shortened
+
+Start time: 709.74
+End time: 771.92
+Speaker: Leo Laporte
+Transcript:  it in my opinion. His spine of this, and I don't know about the book because I'm ready yet, but I  just ordered it. But the spine of it is this hearing later after everything where he was,  his clearance for the Atomic Energy Commission was revoked, a committee was revoked. And that's  the spine of it is the testimony. And that goes on and on and on. And I don't think it was a good  spine for a movie, to be honest. Flashbacks back to the hearing, flashbacks back to the hearing,  way too much of that. I love the black and white stuff because he made a special black and white  film stock just for Nolan, because they don't have black and white IMAX. So that was, and it was  beautiful. It was a really beautiful black and white. Technically it was worth seeing it there  that way. And I hesitate to review the movie because it's a very different experience. I don't  know if you saw The Dark Knight later, as I did on a regular screen. I did. It's a different  experience. It's like a different movie. Really? Okay. And I bet Oppenheimer's the same.
+
+Start time: 773.00
+End time: 778.00
+Speaker: Christina Warren
+Transcript:  So I think- Yeah, I would be interested to see that. I feel like-  See, now you're making me want to see it. Oh, you should definitely see it.
+
+Start time: 778.06
+End time: 792.24
+Speaker: Rob Pegoraro
+Transcript:  The last movie I saw was Dunkirk, which is so much shorter. And I have to admit,  I saw that on the proper screen for it on the back of a seat in economy class, where you can  realize your travel experience is not that bad, actually. I saw Dunkirk. No one's trying to kill
+
+Start time: 792.70
+End time: 819.44
+Speaker: Leo Laporte
+Transcript:  you. It's one of those Cinerama domes in San Jose. And it was very, very wide. It's not as tall as  IMAX. That was an overwhelming movie, but good. Yeah. This one, I feel like-  Very tightly structured, too. Look, it's a great story. It's an important,  I think it's a really important story. And I think he tells it appropriately.  The acting is great. Wonderful. Everybody in it is wonderful.
+
+Start time: 819.66
+End time: 825.68
+Speaker: Christina Warren
+Transcript:  Emily Blunt was really, really good. But again, Emily, I'm just thinking a moisturizer and maybe
+
+Start time: 825.84
+End time: 833.52
+Speaker: Leo Laporte
+Transcript:  some, I don't know, I'm just thinking some, just a little poor, no, she's gorgeous, but nobody is
+
+Start time: 833.68
+End time: 848.86
+Speaker: Christina Warren
+Transcript:  going to look good that close. No, no, that's what I was saying. I will never forget seeing Maggie  Gyllenhaal's face on the huge IMAX thing, being like, I know you're very attractive, but wow,  this is not made for anybody's face. Even if you're kissing her, you're not that close.
+
+Start time: 850.24
+End time: 882.64
+Speaker: Leo Laporte
+Transcript:  And I've never heard of nose wrinkles, but apparently-  Oh, I'm feeling self-conscious about my nose. Somebody does have nose wrinkles. I'm not going  to say who. Paranoia now, and what the hell's going on? Full size. 18 foot nose wrinkles. Let's talk  about tech. But actually, it was a little bit about tech, really. Yeah, it was, actually.  I think it's an important movie. I'm glad he made it. I think he did a good job of justice to the  content. I would say probably better to see it at home or on a normal screen than an IMAX,  unless you're fascinated by the IMAX technology, which I was. Yeah, if you want to see, if you
+
+Start time: 882.66
+End time: 899.28
+Speaker: Christina Warren
+Transcript:  want to appreciate the filmmaking, see it in the IMAX thing. Otherwise, if three hours is too much,  but I think it is an interesting, it obviously was made before the AI period we're in right now,  but it is an interesting category for the AI. Oh, do you think so? That's interesting, because
+
+Start time: 899.42
+End time: 951.14
+Speaker: Leo Laporte
+Transcript:  the whole premise, of course, as one should know by now, is physicists made this thing because we  were in the midst of a big war with the Nazis, who were also trying to make it. And they knew  if the Nazis made it first, it would be the end of the world, essentially. So they said,  we've got to make this first. But then we beat the Nazis and had VE Day, and we continued to make it  and used it against Japan, twice, killing hundreds of thousands of civilians, including children.  And there's, so there's the ambiguity, the moral ambiguity of that. And then the ambiguity, the  moral difficulty, the physicists had saying we have now unleashed something that maybe mankind  shouldn't really have. And now that really was a should physicists create mass weapons of mass  destruction? That really was legit. I, there is the also the question of, should people be creating AI,  but I don't think AI is yet weapon of mass destruction. Or do you think so? No, I don't.
+
+Start time: 951.86
+End time: 985.66
+Speaker: Christina Warren
+Transcript:  But I think that the allegory, I just think that the argument is the same. Like I think that you  have people who are feeling the same source of pain. I don't think it's at that degree at all,  but it was one of those interesting things that I could already see the hand wringing,  think pieces that I'm going to roll my eyes at comparing the two, that will be sure to come  through the end of the year. Making kind of those points, even though the film again was made without  any of the this generative AI, kind of like, boom that we've been having. It was completely made  separate from that. I wasn't going to start with this. We will get to Black Hat and Def Con,
+
+Start time: 985.68
+End time: 1035.60
+Speaker: Leo Laporte
+Transcript:  because I do want to talk about it. But as long as we're talking about this, Emily Bender, who's been,  I think, very good on AI wrote an excellent piece in Scientific American, which I recommend to all.  It's an opinion piece. AI causes real harm. Let's focus on that over the end of humanity  hype. And I completely agree with her that we, you know, the people making AI, including Sam  Altman, CEO of OpenAI, are pushing this notion. They even wrote a letter saying we've got to stop  this. It's going to end the humanity. And her point is, that's just hype for AI's capabilities.  There is real problem. There are real problems. It isn't the end of humanity that's the problem.  It's using AI to put people of color disproportionately in jail or to choose
+
+Start time: 1036.02
+End time: 1041.76
+Speaker: Iain Thompson
+Transcript:  the Detroit case. Yeah. Yeah. Or to choose who you hire. Or, you know, they asked some,
+
+Start time: 1042.02
+End time: 1107.52
+Speaker: Leo Laporte
+Transcript:  I think this is at Def Con, actually. We can get to Def Con Black Hat. They had the AI village.  Was that a Black Hat, the AI village? That was Def Con. Oh, no, Def Con, sorry.  Villages are Def Con. So that was a bunch of people brought in with the most, all the AI from  Anthropic and OpenAI and all that, trying to, you know, jailbreak it and trick it. But there  were even legitimate questions like, well, if you could hire somebody named Juan or somebody named  Iain, who would you hire? Who would you think would be more reliable? And the AI goes, well,  Iain, of course, everybody would know that. These are real risks. And these companies are going full  speed ahead with this kind of AI in society, trying to make you say, but watch out because  it could destroy the world. That's not the real problem. I think Bender had a brilliant article  this is the same thing that they were talking about in Stochastic Parrots that Timnit Gebru and  Margaret Mitchell were talking about in Stochastic Parrots. The real, genuine, today harms,  potential harms of AI versus some speculative thing about, you know,
+
+Start time: 1108.32
+End time: 1144.96
+Speaker: Christina Warren
+Transcript:  Yes. Which to be clear, which to be clear, when I'm talking about like the allegory that I see,  I don't necessarily mean so much. I think there will be some bad think pieces that,  you know, take that hype and see it will lead to the end of the world. But I'm more talking about  the very real, I think, ethical implications that researchers are having to deal with right now,  which I think are probably similar to some of the ethical challenges that researchers have  faced in other fields. Agree 100%. Because you can see how even these things that won't end humanity  can still have a very real negative impact on the world. Yeah, very much. I think in terms of
+
+Start time: 1145.06
+End time: 1162.14
+Speaker: Iain Thompson
+Transcript:  actual real world impact, yeah, Terminator makes a great film. But at the same time,  we're more inconvenienced by being flagged up by an insurance company's AI as a massive risk out of  sort or having our kids not do well in school because an AI system is apparently grading their
+
+Start time: 1162.50
+End time: 1180.24
+Speaker: Rob Pegoraro
+Transcript:  papers. It's an increasingly disturbing situation. And it sounds like the big focus on large language  model, LLM AI, generative AI, which can hold a conversation and convincingly lie to you is  distracting people from the things we're talking about have been a problem for years. They didn't
+
+Start time: 1180.42
+End time: 1232.40
+Speaker: Leo Laporte
+Transcript:  get invented in 2023. That's a good point. That's a good point. And I do believe there's a certain  amount of hand waving coming from people like Sam Altman. Pay no attention to the, you know,  so while the atom bomb is absolutely a weapon of mass destruction and the H bomb after,  and there's an it's worth watching Oppenheimer just for that, you know, thread and Edward Teller  promoting the hydrogen bomb and so forth. You know, Oppenheimer said we don't need a more  destructive nuclear weapon. What do you, why do we need that? And if you create that, then the  Russians are going to have to create that. And then it's going to be nuclear proliferation. Those  are really serious topics. We don't have a, AI isn't a weapon of mass destruction, but it is a  weapon of everyday destruction. And I think it's important. I think you're right. I think the ethics  of it, but what does that mean? I don't think Silicon Valley thinks about ethics when it's
+
+Start time: 1232.54
+End time: 1340.86
+Speaker: Christina Warren
+Transcript:  developing a new technology. They're not. Well, that's the interesting, that's the interesting  and weird place I think we are with AI. This is one of the, and again, I mean,  bad thing pieces that are sure to come aside. I think there is this interesting kind of similarity  with the atom bomb where you had the, you had kind of the worlds of academia coming together  with the world's military. And I think that with AI it's similar, but instead of military, it is  corporate, right? So you have most of the groups that are doing a lot of the work are hand in hand,  both academics and researchers at big institutions and technology researchers or former researchers  who now work for big tech companies. So there's this interesting tension between those two places  where you want to see how far you can push things from a research perspective, but it becomes less  about, you know, publishing papers and more about publishing patents and the tension between those  two groups. You see it in quantum as well. Like there's this very interesting tension between  the business aspect and the academia aspect, but the two have to have one another because they,  they depend on one another. And I think that's the interesting thing with AI is that  the corporations might not think as much about the ethical things, but the academics do. And most of  the people who are doing a lot of the work, whether they work in corporate America or not, did come from  academia. That doesn't mean they're going to be ethical, but I think it does, you know, I don't  think the people who are doing these things are not aware of ethics. If they choose to, you know,  define them differently, maybe that's something, but I don't think that they're not thinking about  the ethics. I think that all the people who are working on this very much are, they just, you know,  might rank them, you know, differently in terms of how important it is. I think the people developing
+
+Start time: 1341.02
+End time: 1350.00
+Speaker: Iain Thompson
+Transcript:  it, the people developing it are taking an ethical standpoint on this. Unfortunately, I think the  people that are funding it and ultimately controlling it aren't taking it. They're still in move fast and
+
+Start time: 1350.12
+End time: 1390.46
+Speaker: Leo Laporte
+Transcript:  break things. People like Peter Thiel and Palantir aren't really considering the ethics. I think you  know, Peter Thiel, what? Ethics, Thiel, hmm. I do think that even if you're thinking about it,  unless there's a formal structure around it, you're unlikely to act on it or even be heard if you  raise the issue that probably we should really start thinking about whether there should be some  sort of ethics structure in all of these startups, you know, a committee on the safe use of, or  something like that with some real teeth and real power. You know, the, the feds have proposed AI,
+
+Start time: 1392.38
+End time: 1410.18
+Speaker: Rob Pegoraro
+Transcript:  is it regulation? What is it? AI Bill of Rights, the Biden administration put out this  white paper or executive order not too many months ago, which checked off all the boxes like,  here's what to worry about. We've seen how these things can break in reality. If they're trained
+
+Start time: 1410.50
+End time: 1462.40
+Speaker: Leo Laporte
+Transcript:  on people who, you know, don't look like us. I'd like, I mean, this is a step and it certainly  raises the issue and it's the right issue, I think. But I sure like to see some regulation that says,  and oh, by the way, you know, you need to have an ombudsman there next to the people developing  this stuff, paying attention to this. They talk about, yeah, they talk about algorithmic  discrimination, data privacy. These things are important. Oh, well, let's talk about Black Hat,  because that's where everybody goes to find out what you can do. Nothing actually.  With all these wonderful tools. Your article in PC Magazine, Rob, about Black Hat, the feds  showed up in force. They, Black Hat used to have the spot the fed game. It's not hard to spot the
+
+Start time: 1462.54
+End time: 1571.34
+Speaker: Rob Pegoraro
+Transcript:  fed when they're on the keynote stage. So yeah, it was really striking where at the end of the  first day's keynote, a representative from DARPA, the Defense Advanced Research Projects  Administration came out to announce the AI Cyber Challenge, which is a two-year contest,  almost $20 million in funding to see, can we develop ways to use AI to strengthen our software,  to find and fix flaws automatically, to defend critical infrastructure? And you might say, well,  yeah, whatever. But AI has in fact sponsored a lot of important research, including work that  led to the network that is bringing this fantastic content to your screen right now. And then the  particular panel talk I wrote about was Bob Lord and Jack Cable of CISA, the Cybersecurity and  Infrastructure Security Administration or agency, sorry, talking about the Security by Design  Initiative. And I'm used to seeing people from where I'm from DC talking very unobjectionable  generalities about what you should do. But in this case, it was very in the weeds, actionable.  Good. You should be writing your software in memory safe languages. If you offer a single sign-on,  which you should, don't charge extra for it. Don't have an SSO tax. Love it. High quality  auto log should be free, not an upcharge item. If you're the service or the product you're providing  is based on lots of other people's code, provide an SBOM, software bill of materials,  really detailed, actionable stuff. And it tied into one thing. I've been hearing people from  this White House say consistently for the last two years, we need to lift the burden of cybersecurity  from the people who are least able to bear it right now. In other words, stop yelling at the users.  It's your fault for not changing the defaults. Yeah. That's a good point. Somebody needs to be  saying that. And unfortunately right now, all the administration really can do is try to lead by  example because have you seen the output of Congress in tech policy lately? Yeah, nothing.
+
+Start time: 1574.78
+End time: 1592.08
+Speaker: Leo Laporte
+Transcript:  Stop being biased against conservatives on Twitter. You knock that off. Now here.  I should say spot the Fed. I think you were going to correct me. And that's at DEF CON.  Cause the feds are publicly out there at Black Hat. That's what Black Hat is.
+
+Start time: 1592.18
+End time: 1641.28
+Speaker: Iain Thompson
+Transcript:  But also at DEF CON as well this year. Yeah. Jeff Moss did a fed thing. The  Transpol security agency had a stand in the Expo Center. The NSA usually does, but they didn't this  year. I think it was starting to go that way and then Snowden kicked in and they were kicked out  again and they're gradually being let back in again because they recognize, but I mean, coming  to the point that Rob was making, Corey Doctorow did a great speech at this on Saturday where he  was saying, you don't actually need legislation from the government. All you need for them to do  is say, right, if you want us to buy your software, you have to do certain types of things. And I  don't think I may be wrong on this one, but they actually need legislation for that. So you could
+
+Start time: 1641.40
+End time: 1702.00
+Speaker: Rob Pegoraro
+Transcript:  mandate, you know, actually the administration has put in some requirements. Like if you're going to  sell software or IT services to the government, you do not have requirements. Like you do have  to provide an SBOM. What's an SBOM? Software Bill of Materials. So what went in it,  which is a good thing to know. Like what libraries, what languages? Well, same way, you know,  a recipe has the ingredients, the food bill of materials or FBOM, if you will. Same thing  you would do in software. You just wanted to say FBOM, didn't you? I can keep it in my back pocket  the whole time. And you want to know that because as we've seen with things like Log4j,  there's lots of libraries that you think because it's open source, so many, enough eyeballs,  all bugs are shallow. But what if everyone else thinks, oh, someone else's eyeballs are on this?  Yeah. PyPy has been, is full of flaws. So you want to know what libraries you're using. So you can  then look and see, okay, has someone looked at this? What are the risks? And I should be very
+
+Start time: 1702.14
+End time: 1722.40
+Speaker: Leo Laporte
+Transcript:  clear. There's flaws, which are inadvertent errors that people can exploit. But then there's also  malware that's intentionally put in these libraries that causes huge problems because people include  the libraries assume that, oh, you know, it's safe. It's a library and it's not. Yeah, we've been  talking about that on security now. There's a lot of that going on. So I was talking with that with
+
+Start time: 1723.64
+End time: 1747.92
+Speaker: Iain Thompson
+Transcript:  Christina, do you know John Swanson? Yes. Yeah, I did. I did an interview with him about GitHub  rolling out two factor authentication. He gave a talk about the black hat. That's a fascinating  bloke. Yes. Yeah. But I mean, he was saying, you know, this is, this kind of thing is really useful  for identifying malicious accounts, which are, and they're not going to go onto two factor because  it means an element of identification that they don't want. Right. Right. But it was a difficult
+
+Start time: 1748.06
+End time: 1770.16
+Speaker: Christina Warren
+Transcript:  thing to do, right? Like it was one of those things that we enforced it and we did first with  NPM and then we've done it for other things. But it's, it's difficult even for communities where  you would think that it would be kind of an accepted thing of, yes, this is what we need to  do. It's very difficult to roll that sort of thing out and not, you know, wind up with the potential  of people being locked out of accounts and things like that. So I think I was remiss. I did not
+
+Start time: 1770.30
+End time: 1931.66
+Speaker: Leo Laporte
+Transcript:  mention, I think you all know it, but Christina Warren is a senior dev advocate at GitHub. Hence,  but does not speak for GitHub when she's on the show. So let's make that clear. Any more than Iain  speaks for the register or Rob speaks. I'm self-employed, so I do speak for everyone.  So there is, you know, it's, it is getting circling full back to Oppenheimer. There is an  interesting kind of relationship because government in this case was really pushing for an atom bomb,  probably for good reason. Initially, physicists said, okay, we had a patriotism. We need to create  this. And then after the fact, there was all this hand wringing about what have we done? Now I am,  now I am a desk destroyer of worlds, you know, maybe we should have the hanging first.  And I think there's also a very good point that you make, Rob, which is,  and I'll play the anti-government guy. I understand why people say, well, we don't do,  we really want government regulating technology. You know, look at the EU saying you have to have  a USB-C port on your phone. I don't want that. I understand why people are very skeptical of  government getting involved in technology, but if not government, who? Right? There is no one else.  It's either big tech self-regulates and we know how that works out. That's not, that's not so great.  And it's because of the incentives. And it's the same reason we developed an H-bomb or an A-bomb.  We had these incentives. Government was responding to a certain set of incentives.  Technology, big tech companies are for-profit entities responding to the, you know, the  incentive to be profitable to their stakeholders. And you can't expect them necessarily. I think in  many cases like GitHub, they do do the right thing. But you can't, you can't say, well, it's entire,  the burn is entirely on them any more than it's entirely on consumers. So who else? It's got to  be government. Now that means we now have to educate government. We have to make sure that  members of Congress know what's going on. I wish we still had the office of technology policy.  People are still trying to bring back the OTA. Yeah. We need that because that was an independent,  non-partisan group that advised Congress on technologies. And Newt Gingrich got rid of it  decades ago. And now there is nobody Congress can go to except industry or their staff who then goes  to industry for this information. And so they need to have this information. So I think maybe step  one is to make sure Congress is getting educated on this process. Well, and that's where you talk
+
+Start time: 1932.42
+End time: 1961.04
+Speaker: Rob Pegoraro
+Transcript:  to people in Congress and they'll say, well, first of all, you need to have staff that stick around  long enough so they develop expertise, which means you need to pay them more. Okay. And saying that  smarter tech policy starts with paying people in suits on the Hill more is not as easy of a  sales pitch as you might think. Yeah. Well, especially when you've got lobbyists who are  willing to come. That's the thing. If you spend two years in someone's office. I'll write that bill  for you. And you get poached away and you double your salary. Yep. Well, we've got this problem in
+
+Start time: 1961.16
+End time: 1986.96
+Speaker: Iain Thompson
+Transcript:  the UK with the online harms act where they're trying to pass legislation and it's expected to  snoopers charter in August. Yeah. Exactly. Yeah. Where they're forcing a backdoor of encryption.  There was an absolutely infuriating interview with one of the technology minister, I think on  Tuesday, I saw that world technology to do this without breaking encryption is under development.  It's like speed under development for 10 years and you cannot physically break encryption in a way
+
+Start time: 1987.08
+End time: 1991.28
+Speaker: Rob Pegoraro
+Transcript:  that nobody else can do. So what if everyone nerds harder though? Can we have we tried that yet?
+
+Start time: 1993.46
+End time: 2007.60
+Speaker: Christina Warren
+Transcript:  Exactly. Exactly. It's like it's called a backdoor. Like this literally what it is.  And you're just going to say, Oh, but we're the ones who can be trusted to have this, this,  you know, one magic key. No, no, it's, it's, yeah, I agree. Yeah. And it's infuriating.
+
+Start time: 2007.80
+End time: 2023.08
+Speaker: Iain Thompson
+Transcript:  It's yeah. I mean, but this is what comes from politicians. I think there was a lovely  report on the BBC where they, the, the correspondent was, had a lovely phrase, which was basically a  combination of ignorance and arrogance is really not what you want when it comes to policymaking.
+
+Start time: 2023.86
+End time: 2029.96
+Speaker: Leo Laporte
+Transcript:  So give us some UK insight. You say that this online harms act is probably going to pass next,
+
+Start time: 2030.22
+End time: 2063.48
+Speaker: Iain Thompson
+Transcript:  next month. Almost certainly. We've got a bit of a dead duck conservative government at the moment,  but they're hanging on to with their fingertips to get stuff done until they're voted out of  office, which seems highly likely. This has been bubbling under in the conservative party for about  six or seven years. And as usual, they've invoked, you know, one of the four horsemen of the  apocalypse in this case, child abusers leading terrorists, children's chair. Think of the  children. Think of the women. Yeah. Yeah. Terrorists, children, drug dealers, and organized  crime. Those are the four ones that always get trotted out. And in this case, you know,
+
+Start time: 2063.72
+End time: 2076.60
+Speaker: Leo Laporte
+Transcript:  nobody's in favor of any of that. No, but super opposed. Everybody else gets sucked into that  basket, including your privacy in mind. And that's the real problem. Yeah. And also, I mean,
+
+Start time: 2076.86
+End time: 2093.36
+Speaker: Iain Thompson
+Transcript:  it's a simple matter of logic. If you put, if you enforce a back door in there and you tell everyone  there's a back door in there, you're going to be looking at an Oppenheimer like level of effort by  our adversaries to find that back door and exploit it. Because once you've got that, that's the ball
+
+Start time: 2093.46
+End time: 2133.12
+Speaker: Leo Laporte
+Transcript:  game. It's as simple as that. In the U S it's a constitutional amendment, the fourth amendment,  that basically says in effect, almost explicitly, you've got to balance the rights of the individual  with the desire of law enforcement to catch each and every criminal. And in the U S at least,  in our constitution, it says we should be safe from unreasonable search and seizure. They  put, they unders, if the founders understood that there is a balance, but that ultimately,  it's not worth catching every criminal if it gives the government eyes into our personal lives.  Is there anything in the UK like that? Is there any?
+
+Start time: 2134.14
+End time: 2154.48
+Speaker: Iain Thompson
+Transcript:  There's nothing formal like that. We don't have a written constitution as you do in the United  States, which is both a blessing and a curse. The amount of lawyering that goes on around this in  the U S whereas in the UK, we kind of make it up as we go along a bit. I mean, it's all a question  of legislation. There isn't the police have the right to tap your phones with a judicial warrant.
+
+Start time: 2155.76
+End time: 2189.76
+Speaker: Leo Laporte
+Transcript:  I think there's a certain amount of cross-pollination. Like the people in the UK  are saying, well, you know, that's not a bad idea to require a warrant for certain seizure and stuff  like that. And so that seems to be making its way into your law, just as most of your laws made away  into ours. The EFF has an interesting strategy on the snoopers charter. They say, go to the house of  lords. They say, tell the house of lords to protect end to end encryption. I guess they're feeling like  a Tory majority. Commons isn't going to do that, but maybe the lords can be convinced to.
+
+Start time: 2190.54
+End time: 2242.16
+Speaker: Iain Thompson
+Transcript:  Yes, it's a really odd system because basically only the houses of parliament can, sorry, the  house of commons can propose fundamental legislation. The lords can block it for a  limited time and they can amend it and then send it back for, for re-voting. I think in the house  of commons, the conservative party is now voting in lockstep that it would take something major for  this not to go through. The lords though, traditionally, because they're life peers,  so they don't have to worry about being strong armed by the party, so the individual party so  much, they have a lot more freedom of action in this, but their powers are limited, which,  you know, because originally the house of lords was hereditary was a damn good idea, but you know,  it's, it's kind of frustrating. They're almost like the bastion of sanity, which-  The peers, that's great.  Considering the average age is about 65, then that's the last line of defense.
+
+Start time: 2243.48
+End time: 2316.08
+Speaker: Leo Laporte
+Transcript:  That's not a good, that's, that's not a good story. Well, I want to take a little break. When  we come back, we will talk about then the other way to respond to the snoopers charter, which is  to come up with better encryption. You know, signals already said if the snoopers charter  passes, we're leaving the UK. But then there's an interesting move by the cult of the dead cow.  They're still around, ladies and gentlemen. I was in the presentation.  I know. I want you to talk about Valed when we come back. One of the ways you could respond  to a government that says no encryption allowed, maybe not let the encryption be in charge of  Google. How about that? Or Apple, right? How about that? We've got a great panel. Good for,  good for this topic. Let me tell you, but good for any topic. Iain Thompson's here from the  register. Always wonderful to have you. And I know your throat is dying, but get some tea  or something and take care of yourself. I will be popping out to get a glass of water during the,  during the break. Of course, the wonderful film girl. We love having Christina Warren on  dev advocate at senior dev advocate at GitHub. And you'll see a lot of her used to be on channel  nine, but now you're just kind of doing, is there a place for the video? Yeah. Yeah. If you go to
+
+Start time: 2317.32
+End time: 2328.60
+Speaker: Christina Warren
+Transcript:  youtube.com slash GitHub, you can see, I do videos all the time and I have a weekly news series where  I kind of round up the latest things happening in open source and, you know, kind of developer stuff.
+
+Start time: 2328.72
+End time: 2583.66
+Speaker: Leo Laporte
+Transcript:  So yeah, youtube.com. Yay. Yay. And a newbie, but we're thrilled to have him from Arlington,  Virginia, Rob Beggararo. He is a writer for both PC magazine and fast company. You might have read  his byline in the botching posts as I did for years. He was also a black hat. So, and you could  follow him on Mastodon and robbeggararo.com. Thank you. Our show today brought to you by Miro,  not Joanne Miro, the expressionist painter, but related close. I think they took the name  because it was such a appropriate way of describing this amazing way to get your  team on track. Quick question. Are you and your team going from tab to tab, tool to tool,  losing brilliant ideas and important information along the way? You know that brain scientists  call this context shift. When you walk through a doorway, you always forget what it was you were  going into the other room for. That's because your context has changed. Same thing happens  when you're using Slack and Google docs and a bunch of other different tools and you're moving  from one to the other. Stuff just disappears. It doesn't have to happen with Miro. Miro is the  collaborative visual platform that brings all your great work together. No matter where you are,  no matter what you use, no matter what time zone you're in, working from home, working in a hybrid  workspace, working in a coffee shop, everything comes together in one workspace online. There's  no context switching. Integrations with all the tools we use. I use it with Zapier and Google docs  and Slack. Creating one great product needs inputs from everyone. So if you've got a team  and you're working on something together, that's where Miro comes in. It democratizes collaboration  input. It's great for brainstorming. It's great for Zoom meetings. They even have a timer in there  and icebreakers to make your Zoom meeting more effective. Miro's infinite shared boards give  product teams a perpetual space, a single source of truth where they can just drag and drop in  insights and data, make a mood board or make an MVP of your product all in one spot so nothing's  lost or forgotten. Miro covers every possible use case. So you can build visual assets,  you can present findings, you can run brainstorms with cross-functional teams. In fact, the best  thing to do is go to Miro.com slash podcast. Look at the Miroverse. Those are Miro templates created  by everybody in the world, all over the world. Some in the UK government. I don't know why,  but there's a Harry Potter template from the UK government. So you can see how people are using  Miro. It's kind of cool. You can build out your product vision on a Miro board by brainstorming  with sticky notes, comments, live reactions. There's a voting tool. There's a timer to make  sure you come to consensus quickly. You can express yourself very creatively with drawings,  wireframes. There's a pen tool. You can, as I said, do a mood board by dragging and dropping  images or mock-ups onto the Miro board. It's really great. In fact, it works so well,  Miro users report saving up to 80 hours per user per year by streamlining conversations  and cutting down on meetings. Who likes meetings? Nobody does. But at least when you're meeting  and you've got Miro, you're all talking about the same thing. The end result, Miro gives your team  the chance to always stay connected with real-time information. It gives product managers and product  leads a bird's eye view of the whole project to ensure nothing slips through the cracks.  It's not really much of a surprise. More than one million people use Miro every single month. You  should be too. And here's the best deal. I always bury the lead. Get your first three boards for free  to start working better. Miro.com slash podcast. Because they know once you start using Miro,  you're going to think of all sorts of ways to use it. And you're going to want to get a premium  account, but start with the first three boards for free so you can really get a sense of how it  works. Miro.com slash podcast. So you went to the Valed presentation, Iain. It is from the,  I didn't even know the Cult of the Dead Cow was still around. These guys are legends in the hacker
+
+Start time: 2583.72
+End time: 2611.04
+Speaker: Iain Thompson
+Transcript:  community. Probably one of the first superstar hacking groups. It certainly attended Kong and  Congressional hearings long before it was fashionable. It's kind of, I mean, they're not,  they don't have meetings, right? They don't have special hacks. I think a news collective.  Another journalist who was there described one of the participants as the leader of the Cult of the  Dead Cow. And she just tweeted out a picture of herself going, yeah. It's not really that kind of
+
+Start time: 2612.60
+End time: 2657.20
+Speaker: Leo Laporte
+Transcript:  nobody gets the special horned hat or anything like that. But I think that it's interesting.  This presentation from a Dildog and Medusfor was interesting because I think in the back of their  minds, at least they're thinking here comes the snoopers charter. We need a better way of  communicating that is impervious to this kind of government intervention. And you can see it coming  because Apple and Google ultimately have to give in, right? It's either give in or move out.  And we saw Google did leave China. Apple did not. Right. Yep. Seems highly unlikely Google or Apple  will leave the UK. Microsoft didn't, even if they couldn't, they didn't approve the Activision
+
+Start time: 2657.20
+End time: 2667.88
+Speaker: Rob Pegoraro
+Transcript:  Blizzard. Signal said they will leave the UK. And I think WhatsApp made the same thread. Like we're  not taking each and every encryption out of her. They have to because Facebook is too big. I'm sure
+
+Start time: 2668.10
+End time: 2689.36
+Speaker: Leo Laporte
+Transcript:  Facebook, even if they're not going to put news in Canada or WhatsApp in the UK, they're not going  to leave the country. So we need something that is not attached to a giant tech entity or a  for-profit entity of any kind to provide us with this kind of encryption. That's what I always  thought would happen, which was essentially it would be a grassroots people's tool. Is Valid that?
+
+Start time: 2689.56
+End time: 2738.32
+Speaker: Iain Thompson
+Transcript:  Yeah. It is. It is and it isn't, put it that way. It's primarily the, you know, one of the points  they were making was government. Yes, certainly is a massive issue. What also inspired this up  to a point was basically surveillance capitalism. And people are making, they've made the point that,  you know, we've gone from this open internet to everything you do being up for sale. And some  people have become billionaires as a result, but at the cost of everyone else's privacy.  And ultimately this is something the government can latch onto as well. So what they wanted to do  was build a decentralized network. The lovely phrase they had was, it's like TOR and IPFS had  sex and this is the outcome. You know, okay. So TOR has its own problems. The NSA owns about a
+
+Start time: 2738.44
+End time: 2760.04
+Speaker: Leo Laporte
+Transcript:  hundred exit nodes on TOR. So nothing's private on TOR, even though it tries to be right.  And then IPFS, which is what the interplanetary file system,  is a encrypted file system that actually Brave supports. I think some browsers support.  Yeah. That allows you to kind of have a decentralized server technology.
+
+Start time: 2761.38
+End time: 2800.72
+Speaker: Iain Thompson
+Transcript:  Yeah. So I mean here with, when you develop in, in Valid, then all your application,  all the applications that are developed become nodes, but crucially no one node is more equal  than others. So it's a mesh. It's a mesh basically. So to come back to what you were saying about the  NSA monitoring tool, you couldn't do this with this, with, with this framework, unless you actually  owned every single node or almost every single node. And as this thing scales up,  it's going to be pretty much, you know, as secure as it is possible to be.  And they've made it clear that they're going to support this and improve things like encryption,  authentication, the rest of it as new technology becomes available.
+
+Start time: 2801.72
+End time: 2820.04
+Speaker: Leo Laporte
+Transcript:  They did a server, but they also have an app. Although chat app. Yeah. I think the premise is  much like with signal Moxie created a library that others use WhatsApp uses it. So is that the plan  too, is that Valid is going to say, here's a library. You can incorporate this into your.
+
+Start time: 2820.18
+End time: 2845.04
+Speaker: Iain Thompson
+Transcript:  Yeah. I mean, basically it's, it's written in Rust with bits of Dart and Python. And there are  crossover points between those, but it's very easy to, they designed it deliberately to be very  easy to develop for, but also very easy to use. This was a point they made the user interface has  to be good enough. And they kind of issued a challenge at the end to the effect that, look,  if you can get your parents on Facebook safely, you can get people using, you know, this platform
+
+Start time: 2845.14
+End time: 2857.60
+Speaker: Leo Laporte
+Transcript:  safely as well. Um, is, so it, I guess the real test would be use this in Hong Kong.
+
+Start time: 2858.90
+End time: 2891.32
+Speaker: Iain Thompson
+Transcript:  Right. Yes. Yes. And also, I mean, at this moment for it to be the, the bigger it gets,  the more secure it is. So, oh, interesting in terms of the number of nodes on there.  Cause it is a mesh. Okay. Yeah. Okay. So the more nodes you've got, the more secure it is.  So at the moment, yeah, it's probably easy to, I mean, there's only maybe a couple of hundreds  or maybe a thousand people using it at the moment. But if you've got it onto the scale of something  like WhatsApp, it would be pretty much uncrackable. How does this compare to the signal protocol?
+
+Start time: 2891.84
+End time: 2898.60
+Speaker: Leo Laporte
+Transcript:  I mean, don't, do we already have something like this? We have signal. Um, but again, and signal is
+
+Start time: 2899.08
+End time: 2949.58
+Speaker: Iain Thompson
+Transcript:  to my mind, it's the messaging app of choice because it does this sort of thing. So, so, uh,  essentially, but, you know, signal is limited, um, to really limited to sort of a very small  number of use cases. The idea is that you could build an app for pretty much anything using the  app, using, using the platform development program. And, you know, it would be a way of  taking all that data. There's no central server. There's, you know, it's designed for mobile so  that, you know, there's multiple redundancies built in, uh, the number of steps in a communication  makes it very, very difficult to trace. So yeah, I mean, in terms of safeguarding information,  it looks good, but it, it has to, it has to be at scale. And I think that's going to be the real  make or break for this sort of thing. If enough people adopt it, it could be really useful,  but it's, it's a question of driving that initial interest and getting people on the platform.
+
+Start time: 2949.76
+End time: 2955.40
+Speaker: Leo Laporte
+Transcript:  Yeah. You know, given that, uh, the UK electoral commission was hacked.
+
+Start time: 2956.36
+End time: 2967.68
+Speaker: Iain Thompson
+Transcript:  Oh, yeah. Okay. That was a wee bit embarrassing. Come on. You had OPM, you know, when you're giving  up, Oh, no, I'm not casting stones. We live in a glass house. Absolutely. But there are a couple of
+
+Start time: 2967.80
+End time: 2980.22
+Speaker: Leo Laporte
+Transcript:  things points to be made here. One is such a British headline, by the way, apologizes.  40 million register voter records accessible. And they've known about it for months
+
+Start time: 2981.81
+End time: 3005.82
+Speaker: Iain Thompson
+Transcript:  and didn't tell anybody. No, no. I mean, this is, but you see, this is standard government policy.  We've had a similar thing with the recent post office scandal where the government mandated that  Fujitsu provide a billing system for the postal service. The software screwed up and they blamed  the postal people using it. And in some cases they went to jail or committed suicide. So I mean,  obfuscation and denial is very much government policy in the UK and also in the U S here's the,
+
+Start time: 3007.08
+End time: 3062.76
+Speaker: Leo Laporte
+Transcript:  here's the timeline, which is kind of telling they've now admitted that the electoral commission  basically made the names and addresses of all voters registered between 2014 and 2022  available to hostile actors as of August, 2021. They learned about it October, 2022  and reported it a couple of days ago. That makes Equifax look good. Oh my God. Wow.  Oh my God. They don't, the electoral commission said it's not able to know conclusively what  information has been accessed. You would think that this would then, the, the, the, the house  of commons would then say, gee, maybe encryption is kind of a good thing. Maybe, maybe we should,  maybe we should not put this stuff out in public. I mean, I think you're asking to change their
+
+Start time: 3063.24
+End time: 3071.76
+Speaker: Iain Thompson
+Transcript:  mind on something. Yeah, there is absolutely. But you're asking politicians to change their  mind on something in a very public way. And I think we all know that no politician is keen to
+
+Start time: 3071.90
+End time: 3127.86
+Speaker: Leo Laporte
+Transcript:  do that. Yeah. They think Russia might've done it. At least that's what David Omond, the former GHC  GCHQ director said. Oh, it's Russia. Makes sense. Yeah. Yeah. It's easy to blame nation state  hackers. It's also better because then, well, it's probably not going to end up on the dark web.  They're just going to use it against us. Kind of in a national. Everything's fine.  It's all fine. The house isn't on fire. Just the country, just the world. All right.  Isn't house heating. Back, back to Black Hat and Def Con. Let's see. What else do we have here?  AI red teams. We talked about this earlier. Race to find bias and harms in chat bots. I was  underwhelmed by the notion of this. Like, yeah, of course you can jailbreak these LLMs.  Big deal. We know that. What are we going to learn here? Well, I'll defer to Rob because I mean,
+
+Start time: 3128.74
+End time: 3159.10
+Speaker: Iain Thompson
+Transcript:  we were both in the same presentation, but I was actually really encouraged by it because I mean,  when you look at, I mean, Rob made the point about the networks, but more recently, for example,  self-driving cars. DARPA kickstarted that with a prize challenge. Yeah. And in this case,  they're putting 20 million. Well, they're putting 18.5 million in prize in direct prize money,  but also 7 million into funding seven individual US based companies to give a shot at developing  their own products as well. So it is actually sort of casting bread upon the waters as it were
+
+Start time: 3159.46
+End time: 3181.12
+Speaker: Leo Laporte
+Transcript:  and trying to get some innovation. I mean, there is precedent for this with the  voting village that they did at Def Con some years ago, which really reveals they'd still do that.  They really revealed a lot of exploits on these electronic voting machines. And I think because  of it got Diebold and others to fix problems. Yeah. Well, this is something Jan Easterly said
+
+Start time: 3181.22
+End time: 3206.44
+Speaker: Iain Thompson
+Transcript:  in her keynote was that, you know, it was work like the voting village, which helped ensure  that the last election was made a big difference. Yeah, made a huge difference because some of these  machines were running XP and you could, and also were also running from the USB port. So I mean,  this came up in the voting village. It's literally just a case of walking up, reaching behind it,  plugging into the USB port and you can install malware on there. And that's ridiculous.
+
+Start time: 3206.98
+End time: 3241.42
+Speaker: Leo Laporte
+Transcript:  So what would be, what would we learn about jailbreaking AI that would be of that kind of  benefit? I mean, we kind of know that some 21 year old hacker was able to convince an AI that 9 plus  13 equal 21. If you're doing math on an LLM, you get deserve whatever you get. And by the way,  she had to go through a lot of stuff and she said, this will be our little secret game.  Nobody, nobody will know we're going to have some fun that way. Yes. Of course you can make
+
+Start time: 3241.44
+End time: 3278.72
+Speaker: Iain Thompson
+Transcript:  these things hallucinate. It's slightly more than that though, because what they're looking to do  is develop an AI tool, which can, for example, automatically scan software and find potential  vulnerabilities in there and those things. And also, and also, I mean, I spoke to the DARPA  person afterwards and longer term, and a chat from one of the AI companies, Anthropic was there  and longer term, they'd like to get a slightly more reactive AI so that if someone is trying to  break into your network, then it has the tools and the skills to actually say, right, that one's  wrong and let's stop it. We'll stop it in its tracks where we can and alert a human and we can
+
+Start time: 3278.80
+End time: 3307.12
+Speaker: Leo Laporte
+Transcript:  check this out. In Willa Ramis's article in the Washington Post, he points out that the  Twitter did something similar to this, they had an ethical AI team and by having bounties,  you get real people involved. For instance, one of the things they discovered was that Twitter's AI  image system would crop people in wheelchair out of photos because they weren't the same,  the right height and they just failed to recognize people when they wore hijabs and things like that.
+
+Start time: 3307.78
+End time: 3312.40
+Speaker: Rob Pegoraro
+Transcript:  You certainly want to find those biases. Absolutely. Why am I surprised that a system
+
+Start time: 3312.42
+End time: 3325.98
+Speaker: Leo Laporte
+Transcript:  is optimized for 30 something Stanford dropouts? It really works great on us. So it is more than  just trying to get it to hallucinate. It's more than just trying to jailbreak these LLMs.
+
+Start time: 3327.60
+End time: 3353.08
+Speaker: Iain Thompson
+Transcript:  Yeah, I mean, it's basic security, but it's also, I think, trying to get an idea of,  as Rob said, whether there are implicit biases in there that can be corrected in this way.  As we saw in the Detroit case, they've deployed a facial AI system for about the last 18 months  and it has a perfect score, 0% accurate identification. It's just insane.
+
+Start time: 3353.48
+End time: 3359.52
+Speaker: Leo Laporte
+Transcript:  Well, and to my knowledge, the only people ever falsely arrested using facial recognition are
+
+Start time: 3359.66
+End time: 3366.40
+Speaker: Iain Thompson
+Transcript:  people of color. I think arrested a couple of people have been refused entry to a venue.
+
+Start time: 3367.12
+End time: 3372.32
+Speaker: Leo Laporte
+Transcript:  There was a white lawyer who couldn't get in to see his Knicks play at MSG.
+
+Start time: 3375.90
+End time: 3379.96
+Speaker: Christina Warren
+Transcript:  The law firm was involved in a whole new layer of social snootiness.
+
+Start time: 3381.94
+End time: 3389.84
+Speaker: Leo Laporte
+Transcript:  That's James Doran. That's now actually it's interesting because when you went to the Taylor  Swift concerts, you were almost certainly subject to facial recognition, right?
+
+Start time: 3390.52
+End time: 3405.16
+Speaker: Christina Warren
+Transcript:  I'm sure. I have no doubt about it. I remember seeing, I know that at her last tour five years  ago, they had these kind of kiosk things inside that it turned out later on, like that you could  interact with it, turned out later on, did have some sort of facial recognition stuff.
+
+Start time: 3405.68
+End time: 3418.16
+Speaker: Leo Laporte
+Transcript:  And it was a good thing because there are people who stalk Taylor Swift and it found them and  kicked them out. And I think that's a good thing. There are reasonable uses of this,  whether government should be using this to arrest people.
+
+Start time: 3418.20
+End time: 3440.72
+Speaker: Christina Warren
+Transcript:  Right. I was going to say, I was going to say there's a big difference to me between what  someone does for private security at a private event where they have the right to restrict who  enters and exits versus what is the government doing and what oversight is happening or are we  just trusting these systems that have been trained on biased data that that becomes a much bigger
+
+Start time: 3440.80
+End time: 3474.00
+Speaker: Leo Laporte
+Transcript:  problem. It's annoying that James Dolan kicked a woman out of Radio City Music Hall's Christmas  celebration and let her kids in because she was at a law firm that was suing Dolan.  That's annoying, but it's not the end of the world. It's not going to jail because you look like some,  maybe looks like somebody. I guess anyway, good. So you've justified to me, you've just amied this AI  village. I think this sounds like a good thing. Did you know if they,  what the results have been? Have they gotten anything? Oh, no, it's a two year program.
+
+Start time: 3474.16
+End time: 3502.40
+Speaker: Iain Thompson
+Transcript:  So basically they announced it now at Defcon next year. Over the next year, they'll have a series of  tryouts. So you've got to, I think the deadline for registration, if you're a small company looking  for that 7 million in funding is September 19th. Yeah. And if you're looking for the general,  looking to enter the general contest, you need to register. I think it's November the 9th,  but you'd need to check on the website. And then they'll run the first semi-finals at Defcon next
+
+Start time: 3502.44
+End time: 3507.60
+Speaker: Rob Pegoraro
+Transcript:  year. I'm going to have to attend that. I'm going to have to stick around. Although I should point
+
+Start time: 3507.76
+End time: 3517.92
+Speaker: Leo Laporte
+Transcript:  out the competition's results will be sealed for several months afterwards. So the companies have  a chance to fix their LLMs before they flaws are revealed to the world. That makes sense. But I mean,
+
+Start time: 3518.04
+End time: 3533.52
+Speaker: Iain Thompson
+Transcript:  all this, all this is done is going to be done in the open at Defcon. So I, for one, will be hanging  around there looking over the shoulders, clutching their heads. But yeah, I mean, next year then  they'll have the semi-finals. Five teams will be chosen and they will get, I think it's 4 million
+
+Start time: 3533.62
+End time: 3540.47
+Speaker: Rob Pegoraro
+Transcript:  each in prize money. And then first prize is $4 million. It's real money. How do you, and
+
+Start time: 3545.04
+End time: 3548.85
+Speaker: Iain Thompson
+Transcript:  2 million each for the semi-finals. And then, yeah, you're right. But is it judges decision? I mean,
+
+Start time: 3551.02
+End time: 3554.96
+Speaker: Leo Laporte
+Transcript:  how do you say this one's worse than that one? I don't know. An AI is going to decide. It'll all
+
+Start time: 3554.98
+End time: 3561.69
+Speaker: Iain Thompson
+Transcript:  work out. You are a loser. They're all wrong. Give them nothing. You get nothing. So I mean,
+
+Start time: 3564.34
+End time: 3572.48
+Speaker: Leo Laporte
+Transcript:  it is somewhat subjective. It's not like you're hacking into an operating system and then you  are able to fire an exploit off and everybody can see you've done that. Right? Or is it? I don't
+
+Start time: 3572.62
+End time: 3577.78
+Speaker: Rob Pegoraro
+Transcript:  know. I guess you got to prove a negative, make sure that we tried this attack and this one and
+
+Start time: 3577.94
+End time: 3596.44
+Speaker: Iain Thompson
+Transcript:  others like it didn't work out. Yeah. I mean, it's Google, Microsoft, Anthropic and OpenAI  all behind this. They're all contributing models. So I think it's going to be kind of like the  Pwn to Own contests that get run where you have to get in and they find the flaws. And then, yeah.
+
+Start time: 3597.26
+End time: 3636.32
+Speaker: Leo Laporte
+Transcript:  Yeah. That's what the Google, one of the Google folks, Royal Hanson is VP of Privacy, Safety and  Security said, don't just tell us these things are possible. Demonstrate it. Really break into  the bank. I'm glad Google gave us permission. I think that's, he said it was okay. Harder to  identify and solve are what Chowdhury calls embedded harms, such as bias assumptions, false claims,  deceptive behavior. You know, that's a little bit harder to prove, I guess. The public red team  challenges, which build on a bias bounty contest are a way to involve ordinary people in that process.
+
+Start time: 3637.78
+End time: 3680.76
+Speaker: Iain Thompson
+Transcript:  Okay. Yeah. I mean, it's there. There is an argument that's been made at was actually made  at DEF CON in 2019 where they said, look, no one knows these are black boxes. You know, very few  people know what data they were trained on. And the example they gave was police data. Now, it's  obviously AI showing a, some AI's are showing a bias in police data, but they pointed out that  that actually could just be because the data itself over the last 50 years is biased against  certain certain races or people. And that's just being reflected in the AI and how you fix that.  It's going to be a very tricky issue. Other revelations. There's a new exploit on Google
+
+Start time: 3680.94
+End time: 3693.88
+Speaker: Leo Laporte
+Transcript:  chips, not Google, Intel chips. It's a speculative execution is the bad guy. Once again, it's called  the downfall flow. And it sounds like it's a little easier to implement inspector and meltdown.
+
+Start time: 3694.04
+End time: 3762.68
+Speaker: Iain Thompson
+Transcript:  Is that right? Or no? You guys up on that one? I'm kind of, I mean, we looked at this and it's,  it's one of those things where it could be very serious, but in terms of implementation on a large  scale, I'm, I'm not entirely, basically it's, you know, it's good. What trends, threat models  should make you nervous about this then? Right. Yeah. I mean, it's the thing is we're getting very,  very little information as we did with spectrum meltdown. I mean, when the reg broke that story,  Intel spent two days briefing people at the wall street. Journalists just like, oh, it's,  it's just a little blog. You don't need to worry. There's nothing to worry about here.  But I mean, it's, it exploits the same sort of things. There is proof of concept code. So you  can actually try it and go with it, but it's implementation outside of a research environment.  It's very, I'm trying to think of a, the correct way to put it. It's not something that could be  mass deployed. Yeah, that was something which takes a certain amount of effort. The benefit
+
+Start time: 3763.68
+End time: 3778.44
+Speaker: Leo Laporte
+Transcript:  of Meltdown inspector was it was very hard to implement, but did hold a risk only on  shared computers. And I think downfall might be the same thing where you have to be on the same  machine as the account. So like in a cloud computing context, exactly. Yeah. Yeah. It's
+
+Start time: 3778.64
+End time: 3793.04
+Speaker: Iain Thompson
+Transcript:  kind of like when you see those sort of over the top malware reports and it's only when you get to  the second to last paragraph and you say, this can be implemented once the user has root access  to the account. So I will hang on. If you've got that game over, the attack involves the NSA
+
+Start time: 3793.20
+End time: 3806.80
+Speaker: Leo Laporte
+Transcript:  is already in your house. Yeah. Forget it. Right. Yeah. All right. But this is a new one and  presumably there'll be microcode updates. Intel says that will happen soon.
+
+Start time: 3807.52
+End time: 3809.84
+Speaker: Rob Pegoraro
+Transcript:  Just check windows update. Not yet. Any day now.
+
+Start time: 3812.30
+End time: 3816.76
+Speaker: Christina Warren
+Transcript:  It'll be fine. Do we know what the, do we know what the performance impact is yet?
+
+Start time: 3817.18
+End time: 3846.00
+Speaker: Iain Thompson
+Transcript:  That's going to be the very last thing they tell us. I mean, they originally died. Meltdown  would have any kind of performance hit. Then they said it would be like two to 3%. And then when it  turned out to be an awful lot more than that, then there was some frantic backpedaling and  sort of software fixes. So I think what'll probably happen is the same thing that happened with the  earlier vulnerabilities. They'll put out a quick fix, which will solve most of the problem, but  with a bit of a performance hit and then refine it over the coming months so they can try and minimize
+
+Start time: 3846.12
+End time: 3876.06
+Speaker: Leo Laporte
+Transcript:  that. Yeah. I mean, this was a decision long ago by Intel, ultimately copied by other x86  processor manufacturers to do speculative execution. And this pipeline sped speeds up  processors a lot, but it turns out it's also maybe a little porous to an attacker. And I guess the  mitigations turn it off or make it less useful. So you get big speed slowdowns. But I mean, this is
+
+Start time: 3876.26
+End time: 3901.22
+Speaker: Iain Thompson
+Transcript:  what it comes back to what we were saying earlier about, you know, and you know, it's the priority  when somebody first thought speculators of this actual thing, then they were probably a given a  bonus. And it was just like, wow, this is great. This will really speed up our chips. And it was  only maybe six months or a year down the line that somebody actually said, well, I wonder if there's  a security thing in this. It wasn't Intel who was looking for it. It was outside academics. And
+
+Start time: 3901.46
+End time: 3910.32
+Speaker: Rob Pegoraro
+Transcript:  that's why you need scrutiny on these things. I do seem to remember we talked about this. Does Intel  have a red team now? That's kind of what I want to know. Oh God, I hope so. Yeah. I do seem to
+
+Start time: 3910.38
+End time: 4331.64
+Speaker: Leo Laporte
+Transcript:  remember when we talked about this on security now that there was in fact, somebody at Intel who  was saying, you know, guys, when this back then, you know, guys, there's this and everybody said,  yeah, but come on, who's going to do that? There was some concern about the risks of this back at  the time. I seem to remember I'd have to find the reference there, but that that's in my memory.  Maybe somebody in our chats will will fill me in. Speaking of which, let's take a little break. I  want to do a commercial, but at the same time, I also want to thank our, our chatters, both the  open to all chatter IRC dot twit dot TV. They're always great for links and more information and  jokes. I steal all my jokes from the IRC. Thank you very much. They're my writers. Also our discord,  which is the newest form of chat. That's a, our club twit discord. I like to think of it as behind  the velvet rope. If you are not yet a club twit member, let me tell you what you get for your,  for merely $7 a month, a couple of, of a triple tall venti lattes. And, and you got it paid every  month. You get ad free versions of everything this show, but all the shows ad free also means,  you know, no trackers tracker free. So absolutely privacy focused. You get additional shows that we  don't put out yet in public. That's how we started this week in space in the twit club, because they  can have subsidized it right now. We're doing Scott Wilkinson's home theater geeks. We brought it  back for the club. Uh, Micah Sargent does hands on Macintosh, Paul Thurot does hands on windows.  We've got the untitled Linux show with Jonathan Bennett, the giz fizz with Dick DiBartolo,  Stacy's book club, a whole lot more great stuff goes on in the club. And the discord is of course  the headquarters for that discord is a great way for our club members to stay in touch with each  other to talk about the things they care about and talk with people they care about. We've got a  fireside check coming up in a month with Hugh Howey, who wrote the wool series. That was the  basis for Apple's silo series. He and Daniel Suarez, his buddy, who of course wrote freedom  and demon TM and is a great friend of the network are going to join Ant Pruitt and me for a little  sci fi convo. That should be fun. September 7th, Lou Maresca, our host of this week in enterprise  tech is doing a fireside chat. So is our AI guru, Anthony Nielsen. Um, we just try to make it  interesting, fun, a great hang. And, uh, it really helps us keep the lights on and support the staff.  And the money from the club to it goes to me. It all goes to keeping twit operating and growing.  And we thank you so much for your participation. If you'd like to know more, we have family plans,  year long plan. We also have corporate plans, twit.tv slash club twit. Thanks in advance.  Our show today is brought to you by Cisco duo duo. Speaking of security, duo protects against  breaches with a leading access management suite. You probably know duo I've been using duo for years,  but what's duo is as that's so great. And if you're not using it, you need to know about this.  It provides strong multi-layered defenses, uses innovative capabilities that only allow legitimate  users in and keep bad actors out. And for any organization concerned about being breached,  if you need protection fast duo quickly enables strong security. But here's the key. Usually you  think of security and convenience as a trade off. Duo can actually improve user productivity  because duo prevents unauthorized access with multi-layered defenses and modern capabilities  that thwart sophisticated malicious access attempts. But it also can increase and decrease  authentication requirements in real time, depending on the threat level. When the risk rises,  it gets harder. When it goes down, it's easier. Duo actually helps productivity by only requiring  authentication when needed, which means your staff has swift, easy and secure access. You can rest  easy knowing you're safe. They don't have to go through hoops just to get on and get their work  done. Duo provides an all in one solution, strong MFA, passwordless, single sign on and trusted  endpoint verification all in one duo. It helps you implement zero trust principles by verifying users  and their devices. Start your free trial. Sign up today. CS.co slash twit. CS.co slash twit. Duo.  Do it. Do it. We thank them so much for their support. What else was going on at Black Hat  and Def Con, Rob and Iain that you thought would be worth mentioning? There's so much. Every year,  you know, I kind of prepare for the week after security now is going to have about 15 new  exploits. Most of the time when the exploits are revealed, it's because they've already told the  companies. Patrick Wardle, who is a, I think a very good security researcher on the Mac side,  had a presentation. It was a little bit different. He runs objective C at objective-c.org.  He has a tool he calls Knock Knock, which keeps background. Actually, this is not the article,  but I will find it for you. He keeps background applications from getting installed without your  knowledge or permission. Apple apparently likes it so much that they added a similar feature. In  fact, if you have a modern Mac, I think it started with Monterey, it's Inventura, it's going to  continue on. You've probably seen this. You install Zoom, and there's a little pop-up that says,  Zoom is putting in a background application that's going to run constantly. You can't prevent it,  but at least you're aware of it. The idea being, oh, while I installed Zoom, I expect that. If it  pops up and unbidded, and then you might start to wonder, yeah, is there something going on in the  background? Wardle says, trivially easy to bypass. He says he knows this because he's been writing  Knock Knock and knows a lot about this. Here's the thing. Wardle did tell Apple about this  some months ago, and they fixed it, but he says they didn't fix it very well. They just put a  band-aid on it. As a result, he gave a talk at DEF CON this week saying, here's how you trivially  bypass even the fixed version of this. He says, I didn't tell Apple. I was so pissed off that they  did such a bad job of fixing it. Is there such a thing as irresponsible disclosure?  I think not in this case because you're no worse off than you were before Monterey.  Right. Right.  He's not revealing something that people didn't know.
+
+Start time: 4332.68
+End time: 4357.76
+Speaker: Christina Warren
+Transcript:  Exactly. I think that there's a line. I think that there's responsible disclosure if you give them  a certain period of time, and then if they don't take any action and you know that the vulnerability  is still out there, you can publicize the vulnerability. In this case, they did take  some action, but he's just pointing out, hey, there's still flaws. He's not writing everybody  a diagram about how to take advantage of those flaws. It can also, as you saw with the Mozilla
+
+Start time: 4357.90
+End time: 4385.26
+Speaker: Iain Thompson
+Transcript:  case last week, I think it was, where a researcher had gone through to Mozilla and found a hole in  the VPN. He told them about it months ago. In some cases, Mozilla didn't even respond.  So they gave them a fair warning. After 90 days, they heard nothing. They went full public disclosure,  and amazingly enough, Mozilla fixed it by Monday morning. Who could tell what their motivations were?
+
+Start time: 4386.30
+End time: 4394.28
+Speaker: Leo Laporte
+Transcript:  You got to shake the tree to get them to act. By the way, it's not knock-knock, it's block-block.  It should be knock-knock. There's some other Macs. Knock-knock is another one.
+
+Start time: 4394.46
+End time: 4404.12
+Speaker: Christina Warren
+Transcript:  Oh, he does another one. Okay. Yeah, he has a bunch of them. I love his tools.  I do too, and I love his writing, and he's very, very good. He does have knock-knock. You're right.
+
+Start time: 4404.68
+End time: 4427.92
+Speaker: Leo Laporte
+Transcript:  So he's got knock-knock and block-block. Knock-knock does see what's persistently installed  on your Mac, and block-block will block background tools installation and let you know that it's  doing it. It'll say something that's installed LaunchDemon or LaunchAgent. You know what? They're  free. My experience has been they run pretty transparently in the background. It's probably
+
+Start time: 4428.02
+End time: 4441.44
+Speaker: Rob Pegoraro
+Transcript:  a good thing to have. Objective-C.org until Apple fixes it right. Is it dash S-E-E?  S-E-E. I think Apple owns Objective-C as a... Yeah, that's a programming language, and so
+
+Start time: 4441.54
+End time: 4447.04
+Speaker: Leo Laporte
+Transcript:  he's playing on that. A little bit of wordplay. I like it. C-S-E-E. Thank you for letting people know that.
+
+Start time: 4447.28
+End time: 4450.78
+Speaker: Rob Pegoraro
+Transcript:  One thing I learned at Black Hat, his cousin is the guy behind Wartle.
+
+Start time: 4452.60
+End time: 4470.00
+Speaker: Leo Laporte
+Transcript:  Oh, that's right. Wartle's cousin is Wartle? Yeah, yeah. That's a smart family. Yeah, yeah.  I saw his name was Wartle, and I thought, I wonder if he's related to Patrick. Oh, that's really interesting.  I'm like, is that you? Yeah, he's my cousin. Yeah. Was he eating caviar and a gold-covered steak?
+
+Start time: 4471.02
+End time: 4478.08
+Speaker: Rob Pegoraro
+Transcript:  He sold it to the New York Times. I don't know. I'm sure his cousin is living with that. Yeah,  it was like a million bucks. Yeah, it wasn't. Living his best life. He should ask for more. It
+
+Start time: 4478.24
+End time: 4508.80
+Speaker: Leo Laporte
+Transcript:  turns out it was a big boost to the New York Times. I did not know this, but I will give Patrick a  little plug. I just went to his site, and he says, our home, Maui, was recently devastated by fires.  I guess he lives in Maui. Yeah. I don't know if his home was. I just thought this too. But he says,  many of our friends and neighbors lost everything, so he has a fundraiser that he's running. That  might be a good place to go if you want to help Maui. And our thoughts and prayers to everybody  in Maui. What a devastating picture of the blaze and hyena. And anybody who's been there knows that
+
+Start time: 4508.90
+End time: 4531.68
+Speaker: Iain Thompson
+Transcript:  town very well. Just really very sad. It's just a combination of sort of former hurricane force  winds and a very dry summer, I guess. Welcome to the planet. Yeah, exactly. I don't think it's  going to get better by itself, kids. No, touch wood. No wildfires in California, but I shouldn't
+
+Start time: 4531.80
+End time: 4569.60
+Speaker: Leo Laporte
+Transcript:  say that. We are sitting in Sonoma County. I intimately know what it's like. We had go bags  packed a few years ago. The fire got within eight miles of the house. And while we lived close to  town, I didn't think they were going to let it burn through. But you're up and you're standing  your in-laws are in Santa Rosa. They got out of right, but yeah. They're terrible. And yeah,  it's I don't think it's going to get better. It might even get worse. And here we are talking  about AI destroying the world. What fools we were. I was going to say we're doing such a good job
+
+Start time: 4569.88
+End time: 4576.32
+Speaker: Christina Warren
+Transcript:  already. Stay out of our lane AI. Exactly. Hey, we're doing a good enough job. Don't make it any
+
+Start time: 4577.06
+End time: 4592.48
+Speaker: Leo Laporte
+Transcript:  help. What else? Anything else that you register as a great black cat and DEFCON  section, which I would recommend if you want to read about the presentation.  Eventually these will be online too, right? Oh, actually the satellite was the actual talks.
+
+Start time: 4592.76
+End time: 4678.86
+Speaker: Iain Thompson
+Transcript:  Oh, hacking the satellite. Yes. That was absolutely terrifying. I chatted at the subhead,  their PhD student admits he probably shouldn't have given this talk was from a comment in the  Q and a section, but that was absolutely was really disturbing because they, you know,  they were looking at low Earth orbit satellites and they asked manufacturers for the specs.  Very few of them actually followed through. They picked three and all of those two out of the three  had absolutely no protection whatsoever when it came to authentication or encryption and could  easily be taken over or hijacked by ransomware operators or whatever. The larger one did,  but the problem with larger satellites is that they tend to be made of special, sorry,  commercial space components. Whereas if you're building a cube set, you build it yourself with  custom stuff. And then possibly the worst was almost none of these can be updated with security  systems from the ground because if you've got a satellite in low Earth orbit, everything in that  design is tuned right down to the milliwatt as what they can do, what they can't do, what functions  to do. And if you're throwing an authentication or an encryption app in there, that's going to  completely banjacks the power settings and possible. And, you know, it's the big problem  with satellite hacking is that everyone thought they were safe because who's going to build a  ground station to, you know, hack a satellite. It turns out 10 grants worth of kit. You can
+
+Start time: 4678.94
+End time: 4682.42
+Speaker: Rob Pegoraro
+Transcript:  build your own. Wasn't that the plot in some James Bond movies? It feels like a couple of them.
+
+Start time: 4683.04
+End time: 4686.56
+Speaker: Leo Laporte
+Transcript:  Ernst Stavros Blofeld is clocking down his credit card right now.
+
+Start time: 4687.48
+End time: 4698.36
+Speaker: Iain Thompson
+Transcript:  Well, you can do that though. AWS and Azure both sell ground stations as a service. So you can  actually just slap down the credit card and communicate with the satellite if you've got
+
+Start time: 4698.56
+End time: 4736.08
+Speaker: Leo Laporte
+Transcript:  the right protocols. I love the quote that you publish in your article on the register.  People think satellites are secure, said Johannes Wilbold, the PhD student who presented. These are  expensive assets and they should have encryption and authentication. I assume criminals think the  same and they are too hard to target and you need to be some kind of cryptography genius.  Maybe it wasn't a good idea to give this talk. Too late. So you do need to access to somehow  talk to the satellite and it's not encrypted. So what can you do though? You can't bring it down.
+
+Start time: 4737.20
+End time: 4827.20
+Speaker: Iain Thompson
+Transcript:  No. Well, okay. There are a number of attack vectors that you could use this for.  I think probably the most likely one is ransomware or other criminals getting in there and just  disabling the satellite and then messaging the operator and saying, if you want the satellite  back send us a number of bitcoins to here. The other one was that a lot of these satellites,  like Starlink for example, intercommunicate. So you could in fact take over one and then spread  around the constellation. And then finally, he said probably the least likely was that you actually  take physical control of the propulsion systems and you could maybe, if it's got enough power,  de-orbit it. But he said one of the more interesting aspects that they discussed privately  was that these things are going incredibly fast. To get and stay into orbit, you've got to be moving  at thousands of miles an hour. And if you can just direct it slightly so it hits another satellite,  that's going to cause a spread of debris. And now it's very hard to go full Kessler effect in terms  of blanketing the earth in shards of destroyed satellites. But from a wartime situation, for  example, if an adversary of the US decided, you know, well, okay, spy satellites aren't usually  in low earth orbit, but there are some. It's like if, you know, spending a warning, what happens if  one of these CubeSats goes slightly wrong and intercepts an American satellite? It's technically
+
+Start time: 4827.32
+End time: 4856.36
+Speaker: Leo Laporte
+Transcript:  doable. These satellites are, and I didn't know this until I saw this article last month in Tech  Crunch, already dodging space junk at the rate of thousands of times a month. SpaceX's orbital  communications satellite performed maneuvers 25,000 times in a six month period, according to a  filing with the FCC. So they're already, you know, 30 or 40 times a day going, oh, watch out.
+
+Start time: 4856.62
+End time: 4895.92
+Speaker: Rob Pegoraro
+Transcript:  It's another case of not paying attention to pollution because yeah, in the past, there was  not a whole lot of attention. I have actually done a little bit of writing about space, so I have some  knowledge of this beyond reading stuff on the internet. Yeah, you know, you would launch the  satellite and then not worry about the payload shroud or figure it'll de-orbit on its own at  some point. And so now there are rules and procedures. We learned that with Skylab landed on  us. I am old enough for that. Yeah. But of course, then you have jokers like the Russians decided to  stage an anti-satellite test that they blew up the ISS to change position with their own cosmonauts  on board it. Yeah. Just to show the priorities, the foot of the crime. According to Tech Crunch,
+
+Start time: 4896.06
+End time: 4902.72
+Speaker: Leo Laporte
+Transcript:  number of collision avoidance moves has doubled since the previous reporting period. So,
+
+Start time: 4903.52
+End time: 4924.16
+Speaker: Rob Pegoraro
+Transcript:  and some of that is the Russian satellite debris, but not by any means. Yeah, the Chinese have done  some tests like that as well. Like now, for instance, the FCC, if you're going to get your  low-earth orbit satellite broadband constellation approved, weirdly enough, the FCC has become a  very activist regulator of space because yeah, if you want to provide communication in some low-earth
+
+Start time: 4924.30
+End time: 4954.88
+Speaker: Leo Laporte
+Transcript:  orbit, you got to talk to them. There are 4,500 Starlink satellites up there. That is half the  number of all satellites in space now. And they're going to 42,000, they say. They got FCC approval  for the first bunch. Maybe the FCC should step back a little bit because, you know, I was all for  Starlink when I first heard the plan. I thought, oh, this is great. Elon's going to provide low-cost  internet access to every corner of the planet. That's not what we got. It's very expensive.
+
+Start time: 4957.08
+End time: 4972.37
+Speaker: Rob Pegoraro
+Transcript:  Yeah, but you know what? I've talked to people who were stuck on AT&T DSL. They're happy they got it.  I agree. That's the best reader email I get when they say the Starlink dish showed up and I'm no  longer in prison in this 1990s straw of bandwidth. It's $500 to start and then I think it's more than
+
+Start time: 4974.96
+End time: 4977.21
+Speaker: Leo Laporte
+Transcript:  now. It was $100 a month. I think it's now $125 a month for the internet access. It is not an
+
+Start time: 4981.28
+End time: 4992.40
+Speaker: Iain Thompson
+Transcript:  affordable alternative for most of the world. Yeah, but I think it's like three to five percent  of America is still on dial-up, for good and safe. Yeah, and it's not just Starlink. There is Amazon's
+
+Start time: 4992.52
+End time: 5001.03
+Speaker: Rob Pegoraro
+Transcript:  got Project Hyper. Amazon's going to do the same thing. They need to get moving because they have  an FCC deadline, I think, three years from now. Half of a 3,000 satellite constellation. I'm very
+
+Start time: 5002.88
+End time: 5057.52
+Speaker: Iain Thompson
+Transcript:  worried. I know space is a big place, but I can reassure you a bit because I actually interviewed  Kessler from the Kessler syndrome idea and he said first off, is he fun at parties?  He was fascinating to be honest. I'll give him that, but he did just to reassure you on this  point, Leo. He did say that of all the companies that he's been dealing with, then SpaceX have  the most advanced plans to de-orbit all this stuff in a reasonable and safe manner, which was  kind of reassuring. He also said if the Kessler example does happen, it's going to happen slowly  over a length of time. He did say Hollywood has this image of- Gravity is not a documentary.  Oh, God. Well, yeah. The orbital planes on that thing were all wrong. Don't actually get to look
+
+Start time: 5057.62
+End time: 5092.78
+Speaker: Leo Laporte
+Transcript:  at this debris as it goes past. Who's looking at debris? I'm looking at Sandra Bullock. What are  you talking about? There was also a great Neil Stevenson book called Seven Eaves that talks about  the Kessler effect. The premise of it is you could have a chain reaction of collisions  in space around the earth and ultimately block out the sun, which wouldn't be good.  Well, that solves the global warming problem, doesn't it? That'd be the end of wildfires.  Yeah, kind of terminal way, though.  Okay. The ice caps are back. That's the good news. Bad news is in your backyard.
+
+Start time: 5093.32
+End time: 5096.28
+Speaker: Iain Thompson
+Transcript:  I was going to say bad news. The polar bear is now sunning itself from the equator.
+
+Start time: 5098.44
+End time: 5127.72
+Speaker: Leo Laporte
+Transcript:  All right. Well, I hope that the FCC and related agencies are doing their due diligence on this  stuff because I worry that we are launching an awful lot of vehicles into space. Speaking of which  there was a presentation of Black Hat. Iain, you wrote this up. The boss of CISA says the US alliance  with the Ukraine over the past year is closer than the five eyes. Yes, indeed. I heard that and I was
+
+Start time: 5128.24
+End time: 5132.76
+Speaker: Iain Thompson
+Transcript:  just like, hang on, I'm going to need to check the recording of this because that is a fairly
+
+Start time: 5133.14
+End time: 5140.00
+Speaker: Leo Laporte
+Transcript:  major thing to say. That basically is an information sharing relationship. Yeah. Spy information.
+
+Start time: 5141.69
+End time: 5208.46
+Speaker: Iain Thompson
+Transcript:  About a year ago, they signed a memorandum of understanding to work together and the US  declassified an awful lot of intelligence information and let the Ukrainians see it  and also trained with the Ukrainian information security teams so that they could get some real  world experience and get the most up-to-date information. To her credit, she said, actually,  the US has come out the better of this because we have learned so much about active attacks.  Well, Ukraine has been under attack for nearly 10 years now by the best that the Russians can do.  So they have an enormous fund of experience. When the NSA do protections, they do war games.  They run through preset war games. The Ukrainians are actually on the front line. I would be,  frankly, astonished if we didn't have people embedded with them right now learning those  lessons and passing them on to everyone else. I say more power to them. The more we can get  out of this and the more we can lessen Russia's influence. We're spending enough. Yeah. Come on.  Ukrainian funding is cheap. You get to destroy the Russian army with no loss of American life
+
+Start time: 5209.00
+End time: 5216.32
+Speaker: Rob Pegoraro
+Transcript:  on the cheap. It's like the cost of one F-35 fighter so far, I think.  Oh, really? Is that all? Yeah. No. Compared to Pending Out Procurement.
+
+Start time: 5216.32
+End time: 5241.52
+Speaker: Leo Laporte
+Transcript:  In that case, have at it. Have at it, gentlemen. I would have loved to have seen this because what  a panel. Jen Easterly, who is the chair of the cyber security agency, the cyber security  infrastructure security agency, with the guy from the Ukraine, Victor Zora, who's their cyber chief  moderated by the wires, Lily Hay Newman. That sounds like a really great panel.
+
+Start time: 5241.70
+End time: 5257.52
+Speaker: Iain Thompson
+Transcript:  It was. It was. Yeah. Yeah. Even Jeff Moss popped up towards the end. Sorry, at the start.  Who's Jeff Moss? Founder of BlackHat. Oh, nice. The big guy.  AKA Dark Tangent. Yes. And he still looks like he's 30. What is he doing?
+
+Start time: 5258.22
+End time: 5260.22
+Speaker: Rob Pegoraro
+Transcript:  I know. Well. Has he got a picture of himself in the...
+
+Start time: 5260.26
+End time: 5269.80
+Speaker: Leo Laporte
+Transcript:  If your name is Dark Tangent, you're not expected to age, clearly. So sounds like it was a very good  conference. I'm sorry we dragged you away early, Iain.
+
+Start time: 5271.70
+End time: 5300.44
+Speaker: Iain Thompson
+Transcript:  Oh, no. I can't honestly. I don't usually stay for the Sunday because after five days in Vegas,  I'm ready to either strangle someone or, you know, it's... That's my limit.  And I do. One of my favorite moments about doing summer camp is getting to San Francisco airport,  getting to the outside doors, having them open and then just like, whoo.  Oh, air. That's good. That's so good.  People look at you a bit out of the airport, but, you know, to each their own.
+
+Start time: 5301.56
+End time: 5304.24
+Speaker: Christina Warren
+Transcript:  Like I was just in a very dry place. I need all of this.
+
+Start time: 5305.12
+End time: 5311.62
+Speaker: Iain Thompson
+Transcript:  Oh, I'm going to suck. Yeah.  Sucking down water left, right and center and Chia Fresca is very good for rehydrating.
+
+Start time: 5312.38
+End time: 5315.62
+Speaker: Leo Laporte
+Transcript:  Oh, I'll have to try that. Is that a fizzy beverage or?
+
+Start time: 5316.34
+End time: 5329.66
+Speaker: Iain Thompson
+Transcript:  Oh, no, it's just water, chia seeds and lime juice. Leave it in the fridge, stir it.  Oh, you make it yourself? Yeah.  And then you put Chia Fresca. Homemade Chia Fresca.  Lime juice and it's really good for rehydration and very healthy.
+
+Start time: 5329.70
+End time: 5333.12
+Speaker: Rob Pegoraro
+Transcript:  Gin and tonic, which is also... Well, knowing Iain, I think that's what...
+
+Start time: 5334.60
+End time: 5336.92
+Speaker: Leo Laporte
+Transcript:  So you make this Chia Fresca.
+
+Start time: 5337.78
+End time: 5341.58
+Speaker: Iain Thompson
+Transcript:  Yeah. I mean, it looks like green snot in the glass, but it tastes delicious.  Oh my God. Yeah, it's not...
+
+Start time: 5342.36
+End time: 5345.20
+Speaker: Rob Pegoraro
+Transcript:  Yeah. If I saw that in the fridge, I don't know.
+
+Start time: 5345.66
+End time: 5350.54
+Speaker: Leo Laporte
+Transcript:  Well, that's good. That way you get to drink it all by yourself.  So it's side... I'll have to try this.
+
+Start time: 5351.92
+End time: 5368.54
+Speaker: Iain Thompson
+Transcript:  Chia seeds will soak it. Did they tell it's pre-made?  I don't think. It doesn't really last that long because of the...  No, that makes sense. No, that makes complete sense.  The seeds start to stick to the side of the glass and it's just fairly frequent.  What do you think they're doing in your intestine, dude?  It's a superb form of roughage.
+
+Start time: 5369.54
+End time: 5375.62
+Speaker: Leo Laporte
+Transcript:  I bet it is. I bet it is. I'm going to try this. I'm going to make some tonight  and see if Lisa will drink it.
+
+Start time: 5375.80
+End time: 5389.36
+Speaker: Iain Thompson
+Transcript:  I was introduced to it by an American. I feel duty bound to pass it on. It's one of the two  great drinks you've got over here. That and the Arnold Palmer...  I do like the Arnold Palmer.  Arnold Palmer is great. That is fantastic.  It's golf's greatest contribution to humanity, in my opinion.
+
+Start time: 5391.75
+End time: 5413.92
+Speaker: Leo Laporte
+Transcript:  Google says, AI systems should be able to mind publishers work unless you tell us not to.  So this is the big debate. Yeah, they would, wouldn't they?  This is the big date. Zoom, this was another one. Zoom and its terms of service said,  oh yeah, by the way, we could use your data for our AI training. And then backpedaled.  They changed it.
+
+Start time: 5414.06
+End time: 5424.08
+Speaker: Christina Warren
+Transcript:  No, they stepped in it so badly. Wow, that was just such a PR fail.  This is what Zoom does.  This is so predictable.  It is what they do. They do something.
+
+Start time: 5424.16
+End time: 5438.88
+Speaker: Rob Pegoraro
+Transcript:  I've seen this movie before.  Yeah, they go, oh wait a minute, we didn't mean that.  Have lawyers write your terms of service for other lawyers?  Never red teamed the TLS to think, what will this look like when interpreted out of context  on Twitter or Macedon or whatever?
+
+Start time: 5439.78
+End time: 5447.00
+Speaker: Leo Laporte
+Transcript:  Is it your thought that Zoom had good intentions and it was just poorly written?  Or do you think they were trying to get away with something that got caught?
+
+Start time: 5447.65
+End time: 5452.70
+Speaker: Rob Pegoraro
+Transcript:  I think more of the former.  That'd be my guess.  The way they backpedaled furiously.
+
+Start time: 5452.72
+End time: 5455.44
+Speaker: Iain Thompson
+Transcript:  I think they genuinely thought, sorry, go on please.
+
+Start time: 5456.66
+End time: 5464.24
+Speaker: Rob Pegoraro
+Transcript:  Yeah, I mean, cause what exactly would you get out of that?  Training.  Because you could probably just do it for much less effort if you don't have to link.
+
+Start time: 5464.80
+End time: 5475.64
+Speaker: Leo Laporte
+Transcript:  It's reasonable thinking when I first read it, I thought, oh, of course,  because if they're going to offer a service that says, oh, we're going to transcribe and  summarize your meeting, they have to have those permissions to do that.  They're sending that data.
+
+Start time: 5475.74
+End time: 5511.34
+Speaker: Rob Pegoraro
+Transcript:  Yeah. And that part, reading the terms from having seen this before, like, yeah,  you're saying for us to do this. One thing I noted, there was actually a good bill in  Congress introduced last year. The initials for it cleverly abbreviated to TLDR Act,  which would have required a one page summary of terms of service with the real thing,  the whole thing had to be machine readable. And of course it went nowhere,  but it did just get reintroduced. And I'm thinking maybe zoom should lobby in favor of that because  if they had to do a one page human readable version, they might not have stepped in it so
+
+Start time: 5511.46
+End time: 5516.24
+Speaker: Leo Laporte
+Transcript:  completely. So it did not, it did not go forward in the last Congress, but it is back again,
+
+Start time: 5517.26
+End time: 5520.66
+Speaker: Rob Pegoraro
+Transcript:  all the service labeling design and readability act.
+
+Start time: 5521.41
+End time: 5529.74
+Speaker: Christina Warren
+Transcript:  Good name.  No, my question about the TLDR Act is, is that one pager act one page itself or how many pages is it?  That's my actual.
+
+Start time: 5529.88
+End time: 5545.12
+Speaker: Leo Laporte
+Transcript:  They have a one page of the TLDR Act. You want to see it?  I found it. I found it on Google.  There's a, there's a, yeah, here's the one page.  I'm impressed now.  It's a ping. Wait a minute. That's not it. Let me open the right thing. Here it is. It's a ping.
+
+Start time: 5546.07
+End time: 5550.60
+Speaker: Christina Warren
+Transcript:  Oh yeah, I found it.  It's not in a crazy small font either. This is  this is not actually 10, 11 point.
+
+Start time: 5551.24
+End time: 5553.05
+Speaker: Rob Pegoraro
+Transcript:  This is great. I hope it should be nice.
+
+Start time: 5554.12
+End time: 5567.82
+Speaker: Iain Thompson
+Transcript:  I agree. This concise.  Yeah. No one's actually putting in, although it's kind of, it's been a busy week for it because  Microsoft on Friday changed their terms and conditions regarding AI content.  Oh, did they?  Then yeah. Well, I got an email.
+
+Start time: 5568.31
+End time: 5569.44
+Speaker: Rob Pegoraro
+Transcript:  5 PM Friday news dump.
+
+Start time: 5570.22
+End time: 5599.84
+Speaker: Iain Thompson
+Transcript:  Oh, it was even better. This was 8 PM on Friday. We put this out. It was like,  we have made some terms and conditions changes. You can't use our output for AI. You can't use  it to train your own AI. We can use anything that you produce for AI. So there was that.  And then on Tuesday, there's an opposite to how zoom did this. And I was really impressed with  open AI about this. They put out a blocker so that you can put this onto your, onto your webpage and  stop them from scraping the data. Now they ask you obviously not to because it helps them improve.  Right.
+
+Start time: 5599.84
+End time: 5639.36
+Speaker: Leo Laporte
+Transcript:  But at least they give you an option.  They give you the option to do it.  And that's kind of what this Google story was as well. Google has kind of proposed a robots.txt  like file that you could say, no scraping. And that's reasonable because  I think that is reasonable.  It's not merely privacy. It could also be costly. You know, robots, you know, creating search  indexes often hammer sites. And I imagine the AI would be as bad or if not worse, it's going to  read every page of text and ingest it. So Google's, Google's kind of saying,  unless you tell us otherwise we're going to do it. So,
+
+Start time: 5640.54
+End time: 5649.20
+Speaker: Rob Pegoraro
+Transcript:  I mean, it's a public webpage. So I was going to say, I was going to say, I actually read and  learn from it and you can extend to the program you wrote stuff. Fair enough.
+
+Start time: 5651.08
+End time: 5673.84
+Speaker: Leo Laporte
+Transcript:  All right. We got a little more AI news, some other news as well. We've got also a great panel  here. I'm so glad to have you, Rob. I'm glad you now you're all the way in Arlington. You're  going to be going home after. Do you come out here a lot or reasonably often? Yeah. Well,  let's get you on every time you do. I'd love to see it. Especially if you'll wear your collection  of think geek t-shirts. I've got some other ones. Not from think geek, but that one was my
+
+Start time: 5674.28
+End time: 5679.60
+Speaker: Rob Pegoraro
+Transcript:  since the discussion of election work at Blackhead, I was going to wear my poll workers t-shirt. I like
+
+Start time: 5679.72
+End time: 5683.92
+Speaker: Leo Laporte
+Transcript:  that. My least paying, worst paying side hustle. Have you worked as a poll worker? Yes. Yeah.
+
+Start time: 5684.88
+End time: 5690.44
+Speaker: Rob Pegoraro
+Transcript:  Thank you. Yeah. In DC? Yeah. Arlington actually. In Virginia. Yeah. It's a five to nine as in five
+
+Start time: 5690.56
+End time: 5706.00
+Speaker: Leo Laporte
+Transcript:  a.m. to nine p.m. roughly. Yeah. I always thank the poll workers. In fact, thank you. Even though  I vote by mail always, I always bring the ballot in and so I can thank the poll workers. They're  mostly people my age and older, but good on you for doing that. I think that's really important
+
+Start time: 5706.76
+End time: 5728.00
+Speaker: Rob Pegoraro
+Transcript:  work actually. It's technically, it's the fault of a security researcher named Matt Blaze who's  spoken and written about this a lot. And he keeps saying, if you're interested in what I just talked  about, be a poll worker. And March 2020, I thought I'm self-employed. I could take off a day. And,  and that became a, I'm going to do it too. Weird little, I'll do it too. Cause if you want election
+
+Start time: 5728.10
+End time: 5733.12
+Speaker: Leo Laporte
+Transcript:  integrity, that's one way to do it is to be on the ground, be there and do it. Yeah. Bravo.
+
+Start time: 5733.76
+End time: 5737.92
+Speaker: Iain Thompson
+Transcript:  Democracy is made by you. I think now my Donald Trump's in the news less too. So that's good.
+
+Start time: 5738.20
+End time: 5746.16
+Speaker: Rob Pegoraro
+Transcript:  Are you? Probably. What were those boxes you were hiding on the table there? I saw you do that.  I was also volunteering at the vaccination clinic. So yeah. All right. Rob, it's great to have you also
+
+Start time: 5746.30
+End time: 5753.44
+Speaker: Leo Laporte
+Transcript:  here, Christina Warren, film girl. What's your latest hobby? I know you're kind of not doing the
+
+Start time: 5753.54
+End time: 5770.94
+Speaker: Christina Warren
+Transcript:  sneakers as much. No, not as much. I'm trying to think. Well, I need a new collection. I'm still  on the vinyl. I'm still on the vinyl kick. So, so I, I, I, I meander with that.  We had a guy on ask the tech guy today who had a million dollar collection of,
+
+Start time: 5773.16
+End time: 5791.28
+Speaker: Leo Laporte
+Transcript:  what do they call those? Funko pops. I'm not, I'm not down with the kids. He apparently,  his biggest thing was he collected brand ID Funko pops, like he had boo Berry.  Right. Wow. There are a lot of Funko pops. So maybe just I'm giving you something that
+
+Start time: 5791.42
+End time: 5812.70
+Speaker: Christina Warren
+Transcript:  you could think about collecting. I mean, I don't, I kind of don't need more stuff, but that,  that is good. I am. I will say like, I was hearing like Rob and Iain talking. I haven't been to  black hat in a really long time. And now I'm like, okay, you know what? Next year I got to go. I  got to go back to, I have never been to camp. I'm scared to go. It's fun. Oh no, it's not that scary.
+
+Start time: 5813.40
+End time: 5816.96
+Speaker: Leo Laporte
+Transcript:  It is fun. I don't want to be, I know I'd be on the wall of sheep like that.
+
+Start time: 5818.60
+End time: 5826.18
+Speaker: Iain Thompson
+Transcript:  No, I mean, come on, you're not sending out an encrypted traffic there. That's basically,  what's that? You're not sending out an encrypted traffic. So yeah, no, I mean,
+
+Start time: 5826.52
+End time: 5835.66
+Speaker: Leo Laporte
+Transcript:  wall of sheep is useful as well. What do you, so let me ask you, what gear do you carry when you're  going to this hacker con? Do you, do you have a special burner phone? Yeah. Well, no burner phone.
+
+Start time: 5836.60
+End time: 5868.24
+Speaker: Iain Thompson
+Transcript:  No, because actual mobile phone signals are generally left alone. Obviously I turn the  wifi off and I'm absolutely using it. I never use the public wifi network. I usually just  have my phone, but the amount of paranoia over this is a bit too much. I mean, black hat,  almost nobody would, the last time I could remember of an active hacking incident was 2008 when two  French journalists started buggering about in the press room and they were escorted from the
+
+Start time: 5868.34
+End time: 5883.54
+Speaker: Leo Laporte
+Transcript:  premises. Well, that's one thing I learned from your very good article about the network operations  center is they catch you right away and they will go, they'll pick their head around the door and  say, knock it off. Oh yeah. Literally in the training sessions, they will not, you know,
+
+Start time: 5884.48
+End time: 5927.26
+Speaker: Iain Thompson
+Transcript:  Grifter said, you know, he's had to pop his head around the door and say,  just a reminder to everyone and one person in particular here, hacking is illegal.  Stop that. I'm supposed to hack man. Well, it's perfectly understandable.  Cause if you're a training session and someone teaches you how to do something,  you gotta try it. The initial temptation is hell, let's try this right now. Yeah. Um,  actually the biggest thing, well, not one of, not the biggest thing, but one of the most  curious things was an astonishing number of people at black hat have pet camps and the traffic on  that is almost all unencrypted. Um, so if you think about it, if somebody slurps that, then they can  send you a picture of your pet with the name of your pet and the company that provides that out
+
+Start time: 5927.66
+End time: 5957.18
+Speaker: Rob Pegoraro
+Transcript:  in the, the black hat, knock talk last black head ends with the people who run the network  operations center talking about this is what we saw in last year was hilarious. Yeah. It was,  it was a pet feeder and they're like, well, we know the cat's name is Garfield.  The metadata was something like the cat is a little bit chunky and, um,  because you have most of the stuff you're using, like your Gmail, your Google docs, pretty much  anything of any value that's encrypted is encrypted into transit, but not your pet cam,
+
+Start time: 5957.82
+End time: 5979.03
+Speaker: Leo Laporte
+Transcript:  which no, cause it's not that valuable. Except as you point out, Iain, in your article,  it could be absolutely used to fish you. That sounds very credible. Yeah. Perfect. Yeah. For that  Christina collects weird stuff. You got, there was a good NPR article last year about your, uh,  movie pass shirt and your pop, your CNN plus pop socket. They never even
+
+Start time: 5982.40
+End time: 6043.24
+Speaker: Christina Warren
+Transcript:  launched. I mean, that's really cool. I need Twitter merch. I need X March. I need both.  You need Twitter merch. Yeah, I do. I have some, but I'm always up for more. So if anybody has any  failed company merch that you would like to share, I am definitely always open. Well, at the time you  were looking for Theranos stuff. Did you get some? I did. I did. Um, someone was able to buy some  Theranos stuff for me and that was very, very, very kind of them. So, uh, that's great.  I have a rework umbrella, so give it six months. Oh, no, that's a good one because I have, I will  rework, um, notebook, but I need to get more reworks that that's actually a good one because  yeah, they, they are probably from their own, they announced, we're probably not going to be  an ongoing concern. When you see those words, we are probably not going to be an ongoing concern.  That means, wow. Okay. So that's going to be great for the already super, super great, you know, um,
+
+Start time: 6043.58
+End time: 6058.30
+Speaker: Leo Laporte
+Transcript:  commercial real estate market. I mean, if you announce as a company, yeah, I think we're going  out of business. That's not good for your stock price, right? Which was already 11 cents, I think  immediately people are going to dump it. I would if I had still had some,
+
+Start time: 6059.92
+End time: 6063.28
+Speaker: Christina Warren
+Transcript:  genuinely, genuinely was like 11 cents. I'm not, I'm not actually joking. Yeah. It's,
+
+Start time: 6063.46
+End time: 6117.58
+Speaker: Iain Thompson
+Transcript:  it's heading fast towards penny stock territory and still above the dime stock threshold though.  So that's good. Yeah. Yeah. It's just, I mean, we've worked up that play. I mean, we've had  offices in we work since before the pandemic. Um, and you knew it was weird and what they weren't  thinking this through. Cause when we first moved in, they had free beer, which was just as British  churches, my boss was like, they've told them we're British, right? And sure enough, every Friday,  ourselves and a bunch of Australian people in the same building, it was like a five floor block in  a building would start on a Friday and we'd finish the barrels and we'd see how far down the stairs  we could get, you know, and then that got cut back. But then they released that disastrous S one.  And we were just reading it and we wrote a very sharp story about it, but we were reading it and  you were just like, who wrote this? This is like a self-help manual. Oh no, it did. It did. Um, so
+
+Start time: 6118.02
+End time: 6175.50
+Speaker: Christina Warren
+Transcript:  I actually profited off of it. Okay. So this is a true story. So when the S one came out,  it was ridiculous. And I, um, was doing my podcast rockets and we had a domain sponsor. And for the  sponsor, what I often do is that I will buy a stupid domain. And in this case, I bought energy of we.com  and, and, and I thought nothing of it. And it just sat there and, you know, it's like, you know,  $12 or whatever it is a year's renewing. And then I got an email that I honestly didn't see from  somebody offering me. I think it was like $350. And then they came back and they were like, actually  we'll, we'll give you $600. I was like, yes, I was like, yes, you can absolutely have my, um,  ish post. Uh, I'm not, I'm not using the real term. Um, you can actually have, you can absolutely  have the thing that I bought as a gag for, you know, a sponsor read that I've never done anything  with. Absolutely. So I feel like I've made more money off of energy of we, like the actual, you
+
+Start time: 6175.76
+End time: 6186.80
+Speaker: Leo Laporte
+Transcript:  know, like then soft bank at this point. By the way, sh post is how you pronounce an X post.  They used to be called tweets. Now they're posts. Right. I think that's correct. Yeah.
+
+Start time: 6186.84
+End time: 6192.48
+Speaker: Christina Warren
+Transcript:  It needs a T in there to be honest. It does. I was just trying to, trying to not, you know,
+
+Start time: 6192.66
+End time: 6241.68
+Speaker: Leo Laporte
+Transcript:  this shows you how bad I am at, at stocks. As soon as we work announced that they were going out of  business, their stock went through the roof. It became a meme stock and it rallied by 43%,  actually as much as 153%. Uh, Thursday it was as high as 33 cents, finally closed at 18 cents,  but it became a meme stock. So I have, I have, uh, I have some things I want to donate. If you want,  I have a, a old, uh, audio file from tech TV shirt. That's an old tech TV show. I will send  these to you. I was going to give them away. I don't, I don't, you know, I will absolutely take  them. This is another one for the money machine, which was a tech TV show that is defunct. Here is
+
+Start time: 6241.82
+End time: 6261.46
+Speaker: Christina Warren
+Transcript:  a ZDTV in the, in the wrapping. Okay. Now that, I, cause I remember when it went from ZDTV,  and then I remember, yes. And I, I, I remember I watched the, it was my favorite network. Um,  like growing up, like genuinely, like I watched it. Then next time you go to the beach,
+
+Start time: 6262.08
+End time: 6273.72
+Speaker: Leo Laporte
+Transcript:  you might want to bring this giant ZDTV towel. You think that I wouldn't, I absolutely would. I
+
+Start time: 6273.98
+End time: 6279.34
+Speaker: Christina Warren
+Transcript:  will go to the beach with that and I will proudly, we're going to package this all up and set it out
+
+Start time: 6280.20
+End time: 6285.68
+Speaker: Leo Laporte
+Transcript:  to add to your collection of defunct. Cause I think if there's nothing more defunct than ZDTV.
+
+Start time: 6286.34
+End time: 6301.88
+Speaker: Christina Warren
+Transcript:  No, I know. And then it's so good. You know, the, the Paul Allen, there were so many,  there are so many great things in that story. You should really write a book about like,  Oh man, I was there. I watched the whole thing. I know you should really write a book about just  like everybody's like, you know, the internet and television is really going to, going to
+
+Start time: 6302.24
+End time: 6323.16
+Speaker: Leo Laporte
+Transcript:  combine together. Yeah. No. Yeah. All right. Uh, we have lots more to talk about. We've got a  wonderful panel and we have you. So hang in there more to come on episode 940 of this week in tech.  Let's see. Continuing on. I love the fire festival t-shirt you have. That's, that's,
+
+Start time: 6323.50
+End time: 6330.82
+Speaker: Christina Warren
+Transcript:  that might be better than ZDTV. Honestly, that was one of my favorites, especially because I,  like it had still had the tags and everything on it. That's one of my all time favorites.
+
+Start time: 6331.68
+End time: 6402.72
+Speaker: Leo Laporte
+Transcript:  Well, I'll keep this one in the package so you can have the original. Jane Friedman,  who is a novelist and author, uh, interesting blog post on Jane Friedman.com. I would rather  see my books get pirated than this or why Goodreads and Amazon are becoming dumpster fires.  Uh, her, she, uh, had, uh, dozens of AI generated books put up on Amazon over her name.  And then they made it into her Goodreads, uh, official author blog. And, uh, she says,  get ready because sham books are the next big thing. These things sell. Uh, she said with the  flood of AI content now published at Amazon, sometimes attributed to authors in a misleading  or fraudulent manner. How can anyone reasonably expect working authors to spend every week for  the rest of their life policing this? Uh, fortunately she has a voice and her blog post was  heard by both Amazon and Goodreads and that stuff was eventually taken down. But you know, books,  credit to her included. This is, I know this is, this is an easy tick. Easy technology.
+
+Start time: 6403.50
+End time: 6410.96
+Speaker: Iain Thompson
+Transcript:  If someone puts a name in under an author and they're a published author,  it's the easiest thing in the world to scan. But you know, Amazon's not going to bother
+
+Start time: 6411.12
+End time: 6432.48
+Speaker: Rob Pegoraro
+Transcript:  because how many of us have had obvious impersonators on Instagram that sit around  for forever. The difference is Amazon makes money even when they sell these fake books.  It should be in Amazon's own interests. Like I don't want to shop at a place if, if I'm going  to get this crap. Yeah. If I'm not familiar in detail with it that maybe I'm going to get ripped
+
+Start time: 6432.66
+End time: 6463.58
+Speaker: Leo Laporte
+Transcript:  off. Why? What is good about that for me? Nothing. She found a step by step guide to crafting  compelling eBooks, building a thriving author platform and maximizing profitability.  How to write and publish an ebook quickly and make money. Promote to prosper strategies to  skyrocket your ebook sales on Amazon. I'm guessing most of these titles involve AI,  publishing power, navigating Amazon's Kindle Direct publishing, igniting ideas, your guide  to writing a bestselling ebook on Amazon. I'm sure these sell well because who wouldn't want to do
+
+Start time: 6463.84
+End time: 6493.60
+Speaker: Rob Pegoraro
+Transcript:  that? It might sell well once, but I mean, it's also the case with Amazon reviews where,  you know, apparently Jeff Bezos had to buy the Washington Post so that the Washington Post could  document how bad the review system is at Amazon for some of the worst offenses to get taken care  of. Because I guess this company apparently needs to hire a red team of their own to look at how can  our marketplace get subverted? That's exactly right. Yep. Anybody ever use Blue Jeans? Once.
+
+Start time: 6497.16
+End time: 6509.98
+Speaker: Leo Laporte
+Transcript:  Once with Verizon. Yeah. So Blue Jeans was a video conferencing app available  at the turn of the last decade. And remember there was this thing called COVID. I think people
+
+Start time: 6510.00
+End time: 6521.20
+Speaker: Christina Warren
+Transcript:  have forgotten, but we had this quarantine. Oh, was that the thing that destroyed our lives and made  like up and did everything right? That one. Now it's coming back to me now. Okay, cool. Got it.
+
+Start time: 6521.36
+End time: 6534.04
+Speaker: Leo Laporte
+Transcript:  That's why Oppenheimer is the first theater I've been in years. So back in 2020, Verizon said,  look, this Zoom thing is taken off. We really need a conferencing solution. So they bought Blue Jeans
+
+Start time: 6534.44
+End time: 6558.10
+Speaker: Christina Warren
+Transcript:  for more than $400 million. And I used it both before and after, and it was never good. I'm going  to tell you this right now. I used it in 2013, 2014 because Mashable, like somebody scammed somebody  on the sales team and it being like, this should be your conferencing thing. When I say WebEx was  better, that should tell you everything. Sorry, go on. Well, also the fact that this did not outlive
+
+Start time: 6558.60
+End time: 6563.34
+Speaker: Rob Pegoraro
+Transcript:  Google's current messaging platform. I mean, that's amazing. But $400 million. I mean,
+
+Start time: 6564.84
+End time: 6573.16
+Speaker: Christina Warren
+Transcript:  cause it's not a bad idea in theory. You're like, cool. Yeah, we, we can have this thing. We could  sell some servicing stuff around it, but Blue Jeans really? Yeah. It's not as dumb as going 90.
+
+Start time: 6574.52
+End time: 6583.14
+Speaker: Iain Thompson
+Transcript:  No, no, but I mean, it was to video conferencing what Google plus was to social media. You know,  it was a desperate attempt to get in on the game way too late and way too badly.
+
+Start time: 6584.24
+End time: 6597.20
+Speaker: Leo Laporte
+Transcript:  So instead of selling it on to some other sucker, they're just going to shut it down  and write off the $400 million. Yeah. I was going to say the tax benefits are better for them.  Yeah. Yeah. That's sad. Isn't it? They actually, they probably do pretty well. Just,
+
+Start time: 6598.28
+End time: 6607.20
+Speaker: Iain Thompson
+Transcript:  the one that infuriates me about is Nokia. Microsoft bought Nokia, ran it into the ground,  shut it down and then got to write off against taxes. I'm still bitter about that one.
+
+Start time: 6607.86
+End time: 6616.88
+Speaker: Christina Warren
+Transcript:  And you know, the people that worked on that are still, you know, I know some of those people are  still, some of them are even still at Microsoft and they're still, you know, have the worst scars
+
+Start time: 6616.88
+End time: 6631.60
+Speaker: Iain Thompson
+Transcript:  from all of that. Well, I think ELOP, I think there's a permanent ban on ELOP ever entering  Finland or if there isn't, there really should be. There should be. Wasn't he the CEO of Nokia  before the acquisition? No, no, he came over from Microsoft after the acquisition.
+
+Start time: 6631.90
+End time: 6724.88
+Speaker: Christina Warren
+Transcript:  Oh, no, it was before. No, it was before. And then he wrote the morning platform memo.  Microsoft. He convinced Microsoft to buy it. He wrote the burning platform memo that basically said  our own Symbian thing isn't working. We have to partner with someone else. And which honestly was  correct. He was completely correct in that, but the solution was not a Windows phone,  much as I know many, many people loved it. It was Android. It had some good interface ideas there.  It did. It had really good ideas. And, but it was late. I think that like the first, actually,  it's funny that you say this, that you're going to talk about Nokia because I'm not joking. I  actually have this at my desk right now. This is a Lumia 800. This was given to me. Was that the  41 megapixel one or was that later? No, no, no, no, no, no. That was even earlier. This was early.  So this was, yeah, that was the 1530 or whatever. So this was, this did not work in the United  States. This was given to me. This only worked on the European bands. And, but it ran like  Windows phone, like 7.5. So it didn't even run the Windows phone 8, which actually had the good app  support, but it started to show the ideas. But the hardware was amazing. And I don't know why I still  had this, but I do. And I remember just like, I remember the briefing and like the, the, the,  the Nokia people being like so excited about how well it had been crafted. And I thought that was,
+
+Start time: 6725.10
+End time: 6729.28
+Speaker: Leo Laporte
+Transcript:  those are great phones. I had a number of the Nokia Windows phone phones. Yeah, the Lumias were
+
+Start time: 6729.32
+End time: 6772.46
+Speaker: Christina Warren
+Transcript:  great. Yeah. This was actually, yeah, they were, they were tanks. They were good phones. I am, I,  they were elegant. They were beautiful. I have a yellow one. They were soft and beautiful edges.  Yeah, that was, that was the one with the big camera. Yeah. I, I tweeted like when they were  doing their announcement, I was like, should I just give up my iPhone and use a Windows phone  for, you know, you know, 10 days or something. And then my, and my editors were like, that's a  good idea. And both Nokia and Microsoft were like, will you do that? And so I did. And then a million  people copied me, but I actually did like lock my phone in a drawer, forwarded my number because I  was on a different carrier and used a Windows phone for a week and, and nothing else. And that was,  those were dark days, but I liked a lot of it, but I loved a lot of the ideas.
+
+Start time: 6772.64
+End time: 6776.22
+Speaker: Iain Thompson
+Transcript:  From a software perspective though, right? Not from a hardware perspective. No, no, no. And the
+
+Start time: 6776.32
+End time: 6794.76
+Speaker: Christina Warren
+Transcript:  thing is, is even the apps that people were building were good. They just, there weren't  enough of them, you know, it was just, and by that time of Blackberry 10 was the same thing,  right? Like they had some really good ideas. Um, even going further back, like WebOS really ahead  of its time, but you know, just, you had these two dominant players almost instantly and those
+
+Start time: 6795.06
+End time: 6809.15
+Speaker: Iain Thompson
+Transcript:  were going to be the two. I used to go over and, uh, but Nokia used to do like sort of three or  four day press events in the, uh, back in the late nineties when press deadlines were done in paper  rather than online and you could have spent three days for you. How nice for you. I genuinely, like
+
+Start time: 6811.62
+End time: 6815.94
+Speaker: Christina Warren
+Transcript:  I have no idea what that was like. And I, I'm jealous. Well, I mean, we had like a one, this
+
+Start time: 6816.20
+End time: 6881.68
+Speaker: Iain Thompson
+Transcript:  particular trip was a Nokia maintained a compound just inside the Arctic circle, like a sort of  corporal town, um, which had like a 50 person sauna, uh, which, you know, you went into and  basically they'd stick beers outside the sauna and snowdrifts. You go in, you'd heat up for an  hour. Then they would chainsaw a hole in the ice, uh, and the lake right next door to it. Everyone  runs down, jumps in, rinse and repeat. But we spent a lot of time with the Nokia engineers and  I'll never forget, I think it was the Nokia 1110, the really tiny chocolate bar phone. I love that  one so much. Now, when they were about to launch that the engineer, we were sitting down with the  engineers, he goes, I have to show you this. And he sort of put it in there and he called them up.  And when you rang it on vibrate, the phone would walk across the table.  It looks as he goes, you see that, that took us eight days to actually perfect that. So they did  it and no one's going to use it, but that's the kind of detail we want in there. I love that so  much. But yeah, if Elop ever goes into, into Finland, he's going to learn what Sysu means  and it learned it. The hardware, I suspect someone's going to punch him in the face.
+
+Start time: 6882.46
+End time: 6957.92
+Speaker: Leo Laporte
+Transcript:  By the way, I think you are a very bad influence on our, uh, our audience because  Quippy in our, uh, in our chat has now made Chia Fresca.  As he watches, as he watches a bit more liquid in that, to be honest. Yeah. Fill it up. He says,  I'm going to chill it and taste it. The weird thing is once you make Chia Fresca and you let it  for a day or two, it turns into Chia Simmons. And I don't think, I don't think you want that.  Oh, come on. Even for you that's.  Anybody wants that. Uh, here's some happy news. You were excited about this, Rob. Uh, it turns out  the curiosity Rover has found striking evidence of habitable seasons on Mars.  Mars. You know, for years people said Mars had canals and that was the evidence for the little  green men and the Martians. Well, it turns out these mud flats with these peculiar kind of  diamond shape. We've seen these on earth before. These are mud flats. And curiosity apparently says  this is evidence, uh, that there was seasonal wet dry cycles a long time ago, 3.6 billion years ago,  which bolsters the evidence. The planet was once hospitable to life.
+
+Start time: 6958.56
+End time: 7032.14
+Speaker: Rob Pegoraro
+Transcript:  Yeah. Which we've been trying to figure that out. I mean, I've been a spacer my whole life. So I  remember Viking one and two landed on Mars in the seventies. Yeah. Snow canals.  It's a lot of red dirt sort of looks like Utah run Arches national park. Right. Um, but yeah,  we're still trying to find that out. And we have this, this Rover that somehow landed from a sky  crane and is still roaming around the engineering laser firing tank, which, yeah, which is now  wildly outperformed expectations. And the trick is at some point, if we find things that actually  might point to life, we need to get them to a lab on earth. And from what I've read, the problem that  NASA has is if you're going to build a series of robots, spacecraft that will pick up the  samples that curiosity is collecting, put them on a rocket, launch that into Mars orbit, transfer  that to another robot that'll take them back to earth. It's approaching the cause of sending  people to do it, which I'm all in favor of. Like I want to see human footprints, boot prints on Mars  in my life. Hope sooner rather than later, but yeah, super neat that we're around to see
+
+Start time: 7033.04
+End time: 7043.04
+Speaker: Leo Laporte
+Transcript:  of discovery. His perseverance has also collected a bunch of samples. Aren't we sending something  to get those samples? So that's the idea. Yeah. But suppose it was already collected some. Yeah.
+
+Start time: 7043.14
+End time: 7059.89
+Speaker: Iain Thompson
+Transcript:  Yeah. Yeah. Yeah. And maybe go curiosity, pick up some of those. I feel the same way as you, Rob. I  was, I was at the perseverance landing at JPL and it's only the second time this century that I have  applauded at a press conference, which is very exciting to do. But that's when I watched that
+
+Start time: 7061.20
+End time: 7070.80
+Speaker: Rob Pegoraro
+Transcript:  live and the engineers are going nuts. I'm like, you need to play this video on every engineering  school in America. It's your sizzle. Especially because it took what? Like a decade for that
+
+Start time: 7070.92
+End time: 7074.82
+Speaker: Leo Laporte
+Transcript:  whole thing to, I mean, these guys have been working on this for their whole lives. But I mean,
+
+Start time: 7075.30
+End time: 7086.08
+Speaker: Iain Thompson
+Transcript:  Rob mentioned the sky crane. I'm with you on that. That was the most amazing Heath Robinson star.  I mean, I, when I, that was only beat by the rubber ball that they put it in the bounced,
+
+Start time: 7087.06
+End time: 7090.14
+Speaker: Rob Pegoraro
+Transcript:  which they couldn't, cause they couldn't scale it up. So then you had to do this crazy thing where
+
+Start time: 7090.84
+End time: 7106.14
+Speaker: Iain Thompson
+Transcript:  you reel it out. It's hysterical. Yeah. I mean, like you, Rob, I hope that we see human footprints on  Mars. However, I think it's most, more likely that we're going to see Chinese footprints on  Mars than Americans. You think? Oh, come on. I think China's going to be, come on. I don't know.
+
+Start time: 7107.40
+End time: 7112.22
+Speaker: Leo Laporte
+Transcript:  I think China is about to turn pretty inward. I don't know if they want to continue that.
+
+Start time: 7112.70
+End time: 7130.94
+Speaker: Iain Thompson
+Transcript:  I don't know. It was just interesting when the Chinese rope was there,  forget all this. Does life exist on Mars? Did life exist on Mars stuff? They want to know,  is there water there? Where is it? Let's look for it. That's the most important thing.  Right. Yeah. On the moon for that matter. Right. Yeah. On the moon.  Well, India's just, they've got a lander coming up on the south pole of the moon.
+
+Start time: 7132.80
+End time: 7177.75
+Speaker: Leo Laporte
+Transcript:  If you're, by the way, a fan of all this, we have a great show with Rod Pyle and Tarek Malek from  space.com rods from the national space society. It's called this week in space every week,  twit.tv slash T W I S. Norway is going to find meta one million crowns a day.  This is interesting. The EU seems to really dislike the financial model that powers the web.  The idea that ads would be targeted based on how you're using the internet. Google does it.  Facebook meta does it, but Norway doesn't like it. And they say they are now going to find meta  a million crowns. Don't get too upset. That's only about 89,000 euros a day.
+
+Start time: 7178.96
+End time: 7183.19
+Speaker: Iain Thompson
+Transcript:  I was going to say this is back of the sofa stuff. It's not even that. It's like,
+
+Start time: 7188.96
+End time: 7193.76
+Speaker: Christina Warren
+Transcript:  it's going to take more time and effort to write the check than what the amount is worth.
+
+Start time: 7194.54
+End time: 7198.64
+Speaker: Iain Thompson
+Transcript:  It's also time limited. I think they can only charge it for 90 days. I may be wrong on that.
+
+Start time: 7200.30
+End time: 7219.80
+Speaker: Leo Laporte
+Transcript:  Penalties begin today. Just so you know, Mark, you can start writing those checks tomorrow, Monday.  But what they're against is what they call behavioral ads, which are  ads based on your use of Facebook, which is kind of how it works.  Yeah.  Yeah.
+
+Start time: 7221.15
+End time: 7238.62
+Speaker: Iain Thompson
+Transcript:  Yeah.  There's ways and means. We've currently got this fractured privacy shield arrangement between the  US and America, for example, and that's causing terrible problems. Meta is not going to stop its  entire business model just because Norway says it should.
+
+Start time: 7239.62
+End time: 7282.48
+Speaker: Leo Laporte
+Transcript:  However, Meta has amassed two and a half billion euros in fines in total.  That might be real money for that.  That's starting to add up because of GDPR. We're going to talk about this, I'm sure, next week.  We've got Corey Doctorow and his co-author Rebecca Giblin from Choke Point Capitalism are going to be  on Twitter. That's going to be all because I'm just going to shut up and let the two of them talk.  That should be a very interesting tweet. Corey's got a new book, which he's currently crowdfunding  the audio book for it. He'll be talking about that, but also we'll talk a little bit about  privacy and so forth. His new book is...
+
+Start time: 7282.48
+End time: 7305.58
+Speaker: Iain Thompson
+Transcript:  I've got to say, I'd be tuning in because I went to his presentation at DEFCON and it was both  brilliant and highly frustrating as a journalist because as a journalist, you're supposed to  compress a 45-minute tool into something like a 500 or 600 or 700-word article. I just sat there  thinking, honestly, this guy's so good, you might as well just say, just give us the text, we'll
+
+Start time: 7305.74
+End time: 7317.74
+Speaker: Leo Laporte
+Transcript:  publish it. Did he talk about his... Betty talked about the new book, which is called The Internet  Con, How to Seize the Means of Computation. Just to summarize for us, what did he say?
+
+Start time: 7320.03
+End time: 7398.09
+Speaker: Iain Thompson
+Transcript:  I'm trying to think if we can actually get away with saying this, but it was something like the  enrapification of the internet. It started as an open platform and then all these tech companies,  the example he gave was Facebook when it first started out. It told consumers, you don't want  to be all that nasty MySpace run by that greedy Australian millionaire. Come to us.  There was a point to that.  Yeah, there was a point to that, but then they built a bot which allowed you to interact and  share data between MySpace and Facebook. That actually got Facebook to the explosive growth  they're in. Then they said to businesses, okay, we can now advertise in a behavioral way because  these idiots have given us all this information, so pay us lots of money. To publishers, same thing.  Put a couple of lines from an article in, you can drive a lot of traffic. Then they turned around  and said to publishers and consumers, yeah, okay, we lied. We're just going to take all the money  now. This is the kind of thinking that he wants to deal with in this sort of thing.  We've given so much money. The whole point of the internet was to get rid of the middleman  and allow direct transfer. We did do that for a while. Then we reintroduced the middleman with a  vengeance. A good example was apps. He said apps are basically a website with intellectual property  added in that they can use to sue users. I can't wait. I love Corey to pieces. He's been on the
+
+Start time: 7402.14
+End time: 7406.88
+Speaker: Leo Laporte
+Transcript:  show many times. I also like it because it's an easy day for me. I just ask one question, sit back
+
+Start time: 7408.46
+End time: 7420.40
+Speaker: Iain Thompson
+Transcript:  two hours later, show's done. Well, he said he's got eight books ready because he writes when he's  anxious. He said he writes when he's anxious. The COVID lockdown was a very productive time that way.
+
+Start time: 7421.38
+End time: 7470.32
+Speaker: Leo Laporte
+Transcript:  We will be talking about, yes, I can say it because as a whole, it's not a bad word. The  enchatification of the internet. That's a safe word, right? We will be talking about it. You're  going to hear it a lot next week with Corey Docter and Rebecca Giblin next week in Tech, his new book,  but also Chokepoint Capitalism, which was genius. Nobody is better at cutting to the heart of the  matter and explaining what it means and what to do about it than I think than Corey and Rebecca.  It's a great co-author. We've had them on before. It'll be a lot of fun. A little time out before we  wrap things up with the, I have all the 35 stories we haven't gotten to coming up, but,  but first for those of you who missed it, a little synopsis of some of the things that happened this
+
+Start time: 7470.46
+End time: 7501.54
+Speaker: SPEAKER_08
+Transcript:  week on Twitter. Hey, I have a space joke. Jupiter, Saturn and Pluto walk into a bar. After sitting  down, Jupiter says, I'm the biggest planet. Give me the biggest beer you have. Saturn says,  I'm the best looking planet. Give me the fanciest drink you have. And poor Pluto says, I know I'm  not a planet, but give me a shot. Previously on TwiP, this week in space, we're going to Pluto  and beyond with Alan Stern, science chief of the New Horizons mission. We have now studied 37
+
+Start time: 7503.06
+End time: 7514.48
+Speaker: SPEAKER_04
+Transcript:  different objects in the Weber belt. Eric Goth, most famously because we write up to it and did  a close flyby, but we have studied a handful of other dwarf planets in the distance. Home theater
+
+Start time: 7514.62
+End time: 7531.14
+Speaker: SPEAKER_03
+Transcript:  geeks. I chat with Jason Fiber, THX CEO and Cassin Crocker, senior director of product development  about a new THX technology called spatial audio. Club twit exclusive, the Untitled AI Show. Should
+
+Start time: 7531.46
+End time: 7550.24
+Speaker: SPEAKER_00
+Transcript:  and can think of an LLM as just a word calculator. They take in a variety of tokens. We'll describe  what those are. They do a bunch of math on those tokens to figure out what the next most common word  will be after this one. They don't understand what the words are and they don't assign any sort of
+
+Start time: 7550.40
+End time: 7563.62
+Speaker: SPEAKER_05
+Transcript:  emotionality or intellect to those words. This week in Google, whether LLMs are this life changing  thing. I don't think they are, but I think other elements of machine learning are.
+
+Start time: 7563.94
+End time: 7569.46
+Speaker: SPEAKER_03
+Transcript:  Can't throw this out into the world without having people test it and see where it goes wrong.
+
+Start time: 7569.70
+End time: 7580.38
+Speaker: SPEAKER_05
+Transcript:  Right. How do you test the Leo is a bank robber scenario? You show a reporter actually robbed the  bank. I'm going to write a story saying Leo robbed the bank. I guess I don't understand.
+
+Start time: 7580.82
+End time: 7633.00
+Speaker: Leo Laporte
+Transcript:  Stop saying I'm robbing banks. I don't know. Twit.tv your source for the latest tech insights.  I haven't had to rob a bank since club twit started. Thank God for club twit. I've given all that up.  I thought Anthony was going to put AI Morgan Freeman in place of AI Leo for the announcement.  Is that coming next week? Or we're a little worried about using Morgan Freeman's voice.  I think it would be nice though. He'd be a good for our for our bumpers.  As long as he's hip to the joke. Yeah. Celebrity voice impersonated.  So if you missed anything, tune back in. It's all online at twit.tv on the website.  You can watch after the fact and of course a great week ahead. Celebrity voice artificially  generated. Celebrity voice artificially generated. I like that. Yeah. CVAG.
+
+Start time: 7633.92
+End time: 7639.04
+Speaker: Iain Thompson
+Transcript:  CVAG. Simpson's actual dramatization may not have occurred.
+
+Start time: 7641.92
+End time: 7703.36
+Speaker: Leo Laporte
+Transcript:  A little RIP for a couple of people. A big in tech. Bram Moulinard passed away. He was the author of  Vim. Only 62. I hate it when they die younger than me. That's bad news. Vim of course was a much  better version of VI, the text editor that now appears. Vim on almost every open source  distribution of Linux. I think even on the Mac you can get with Mac OS you get Vim. I certainly  it's installed in a lot of them. It's the default editor. He built it as a clone for VI and kept it  going for a long time. The license was originally Charity Wear. He invited users who used Vim and  appreciated to support children in Uganda. Sending a donation to them according to the  Next Web. Donations to the charity amounted about 30,000 euros every year. Enough to help 50 children  finish their education from primary school to university. If you look on his webpage, it's the
+
+Start time: 7703.48
+End time: 7706.70
+Speaker: Iain Thompson
+Transcript:  gallery from the school and it was obviously something that was very close to his heart.
+
+Start time: 7707.14
+End time: 7714.10
+Speaker: Christina Warren
+Transcript:  Yes. Amazing. Even now they want all the donations to go to that project which is amazing.
+
+Start time: 7714.68
+End time: 7803.89
+Speaker: Leo Laporte
+Transcript:  He will be missed. Of course as with all open source, that's really the best thing about open  sources. They can survive their creator and I'm sure people will continue to develop them.  The man who started it all, Bram Molnar, passed away at the age of 62 this week. Also gone,  Rhoda Karpatkin. She was the person who put Consumer Union on the map. She was 93 years old. She was  named executive director, the first female executive director of Consumer's Union, way back  in 2000. Actually she was, I'm sorry, did I say 1974? She served for 16 years as their council.  Then in 74 selected as executive director. She changed its name to Consumer Reports. You may know  better that way. Under the leadership of Karpatkin, subscriptions to the magazine doubled. They're  very important. They don't accept ads to 4.3 million in 2000. She also raised $40 million to  build their new headquarters in Yonkers. Honestly, I think the godmother of consumer reporting  and the kind of stuff we try to do to represent consumers in their interests,  it's very, very important. A couple of people who are important to the community passed away.  And then there's Mr. Beastburgers. Have you ever had a Mr. Beastburger? I feel like you might have.  Yeah, I have. I have. I've done more than once. Well, here's the thing. It's a ghost kitchen.
+
+Start time: 7809.26
+End time: 7842.48
+Speaker: Christina Warren
+Transcript:  So it very much depends on what ghost kitchen it's coming from. There are many Mr. Beastburgers in  my area. But here's the thing. Seattle food sucks. And it just does. And we don't have a good food  scene. But also we have a really, really bad takeout scene. So especially during COVID,  there was not a lot of options after, say, like eight o'clock at night, which doesn't feel that  late. But in Seattle, apparently that is too late to ever get food even before the pandemic.  So I have ordered Mr. Beastburger more than once. And yeah, no, it's not good.
+
+Start time: 7843.78
+End time: 7898.76
+Speaker: Leo Laporte
+Transcript:  Primarily made in Italian restaurants. Bucca di Beppo is one. And then there's another Italian  chain. So what the yeah, exactly what they do. It's a pop-up kitchen. What they do is they the  company that puts this together contracts with a Italian restaurant in your neighborhood. And then  when you call in an order for Mr. Beastburger, which by the way, looks like this on the DoorDash  menu. It's a smash burger with crispy outside. And then they so the Italian restaurant was  apparently illy prepared for all of this, makes it slaps a Mr. Beastburger on a brown paper bag.  And then over eats or whoever brings it to you if either from the Brio Italian Griller,  Bucca di Beppo. But this is my favorite picture of what one Kotaku  reporter got from his Mr. Beastburger. Does not look like the
+
+Start time: 7898.96
+End time: 7904.96
+Speaker: Iain Thompson
+Transcript:  looks like it's been in a car. Someone's already eaten this and then put it back in the bags.
+
+Start time: 7906.92
+End time: 7950.64
+Speaker: Christina Warren
+Transcript:  Yeah, no, that's the thing with the ghost kitchens is that the orders are often wrong.  And then there's no recourse that you can really do because it's a ghost.  This is a ghost kitchen. And then even like the idea behind it is, oh,  people the same recipe and they can make it multiple places. Yeah, except you don't  a franchise will ensure that you're getting product from the same suppliers so that you  have the same types of funds, the same types of patties, the same brand of cheese, whatever,  same type of ketchup. They don't do that with ghost kitchens.  So one Mr. Beastburger might be like edible. It's not great. It's overpriced, but fine.  And then another one might get it. You're like, OK, what actually is this?  And why is my grilled cheese that was ten dollars? Like, why is it the way that it is?
+
+Start time: 7951.12
+End time: 7967.74
+Speaker: Leo Laporte
+Transcript:  You may remember that Mr. Beast opened an actual brick and mortar  Mr. Beastburger in a New Jersey mall and it was I grew up in New Jersey. Which mall is this?  The American Dream Shopping Mall, which really doesn't narrow it down much.  Yeah. Well, look at all these people. Short hills.
+
+Start time: 7969.55
+End time: 7973.94
+Speaker: Christina Warren
+Transcript:  I actually know. I know the short hills mall too.
+
+Start time: 7974.20
+End time: 8017.60
+Speaker: Leo Laporte
+Transcript:  So very upscale. Jimmy Donaldson, who is Mr. Beast, and is the number one YouTuber,  makes millions of dollars a year giving away, let's face it, let's be honest, millions of dollars  for all sorts of interesting things, giving people sight for one thing. He contracted with  a company called Virtual Dining Concepts for this pop up restaurant, Mr. Beast. He decided this is  not working well, tried to get because he saw the burgers, trying to get out of the deal and is in  fact suing them saying you did not deliver. Now they're suing him for one hundred million dollars  because he's dissed his own burgers and is trying to get out of the deal. So what a mess
+
+Start time: 8018.60
+End time: 8022.82
+Speaker: Iain Thompson
+Transcript:  for Mr. Beast. Interesting. You know who else is really big into ghost kitchens?
+
+Start time: 8023.20
+End time: 8049.08
+Speaker: Christina Warren
+Transcript:  Travis Kalanick. Oh, yes. He's made millions. So many so much money off of it. He was he was  into them even before the Uber. He was also from Uber. But I you're so right, and I always think  of that. I'm like, man, that guy really like nailed that market timing without having any  advanced knowledge. He really, really did, because at first the idea seems sort of interesting,  but sort of like, OK, well, is this really going to take off? And then it became a very viable
+
+Start time: 8049.20
+End time: 8098.24
+Speaker: Leo Laporte
+Transcript:  model very quickly. His company is called Cloud Kitchens. And now they're, according to the  Financial Times, expanding into South America, building a new empire, South American girlfriend  as well. Fifty Cloud Kitchens across 11 cities in Brazil, Mexico and Colombia.  As with the kitchen operations. Oh, they're doing more than kitchens. It's something called  pick and pack convenience stores, pet foods, medicines as well. Oh, like Posh. In this country,  you got to fail. You got to fail up. I mean, I look at Adam Newman of WeWork, WeWork about  declared bankruptcy. Does it hurt Adam Newman? No, he's a multi-billionaire making more money and  getting more venture capital to buy up real estate now in Miami. Yeah, he's going to try it all over
+
+Start time: 8098.36
+End time: 8144.56
+Speaker: Christina Warren
+Transcript:  again. He's going to do it again. No consequences at all. You cannot fail down. In fairness to Adam  Newman, I hate doing this, but I will defend him in this way. Unlike many of the other scam  things that people that I love, people like Anna Delvey, people like Billy McFarland,  people like Elizabeth Holmes. Yeah, they serve time for minor scams. They get thrown in jail.  It's got to trick his scam big, right? Right. Well, no, no, no, it's actually different. He  didn't lie to anybody. He didn't scam anyone. He was very clear about what his ideas were and  people just bought into it even though it made absolutely no business sense. It made absolutely  no business sense. I actually don't fault him at all. I'm like, you know what? No, not at all.
+
+Start time: 8144.74
+End time: 8154.08
+Speaker: Iain Thompson
+Transcript:  No, he didn't mislead anyone. No, he basically convinced SoftBank to give him 700 million  and an awful lot of other stuff as well. SoftBank's reputation for business expertise
+
+Start time: 8154.16
+End time: 8159.04
+Speaker: Christina Warren
+Transcript:  is a little inflated. Not the greatest. I mean, you guys, they bought Sprint.
+
+Start time: 8160.84
+End time: 8186.46
+Speaker: Leo Laporte
+Transcript:  They bought Tech TV briefly. They were an investor anyway. We always would go around in hushed  voices talking about Sunson. Didn't work out too well for them either. Travis Kalanick,  of course, founder of Uber, was ousted after many scandals. His second act now worth $15 billion.  Just got a $850 million funding round late last year.
+
+Start time: 8188.30
+End time: 8222.50
+Speaker: Iain Thompson
+Transcript:  Yeah, you're right, Rob. You fell upwards. You do.  This is actually something Corey had a very lovely example for. He said,  used to be that people worked for a big tech company and then went off and did their own  startup and tried to compete. Then it became, okay, we leave the big tech company and then we  do our startup. We get bought out for 400 million, which is said is the most half-assed way of getting  a pay rise he's ever heard of. And then it was, you work for a big tech company, you stay there,  but they have free kombucha and you get massages. And then now it's, you work for a big tech company
+
+Start time: 8222.74
+End time: 8228.32
+Speaker: Christina Warren
+Transcript:  until they fire you. And then they pay you. Then they give you a bunch of money to start something
+
+Start time: 8228.40
+End time: 8244.84
+Speaker: Iain Thompson
+Transcript:  else. Well, I mean, you've made the point that when they Google laid off 6,000 people,  at the same time, they did a share buyback, which would have paid those people salaries for the next  27 years. It's getting harder and harder in the tech industry to actually make the kinds of living
+
+Start time: 8245.30
+End time: 8282.64
+Speaker: Leo Laporte
+Transcript:  that people have been used to. Well, maybe we should talk to Sam Altman, who ran Y Combinator,  and now he's running OpenAI and his newest project, Tools for Humanity, a giant orb.  It's not that giant that you put your eye up against and scan it. And the idea, what is it?  I don't know. The idea is it's called WorldCoin. In some countries you get $50 in WorldCoin,  the equivalent of $50 in WorldCoin for letting them scan your iris, not in the US apparently,  but lots of people still want to do it. He claims it's privacy forward because we don't get your
+
+Start time: 8282.84
+End time: 8302.00
+Speaker: Rob Pegoraro
+Transcript:  retina scan. We get a hash of it. I could actually, in an engineering sense, I get it.  But on the other hand, this strikes me as another case of somebody from the valley saying,  oh, here is something that governments have struggled for thousands of years. Who is whom?  We're going to solve it by throwing technology and a blockchain at it.
+
+Start time: 8302.56
+End time: 8305.68
+Speaker: Christina Warren
+Transcript:  Right. When you could still just use a database. You're exactly right.
+
+Start time: 8306.42
+End time: 8311.97
+Speaker: Rob Pegoraro
+Transcript:  Also, the name WorldCoin reminds me of WorldCom. I'm showing my A's there.  Oh boy. It's not a good parallel.
+
+Start time: 8313.26
+End time: 8363.84
+Speaker: Leo Laporte
+Transcript:  Well, it's good because the orb is named MCI. So it's really perfectly illustrating.  And this is why I bring it up because I want to ask you guys who are smart  if it makes some sense. So his goal is to scan all 8 billion eyeballs. Actually, I guess there's 16  billion, but you only need one. Scan 8 billion eyeballs and then solve the authentication problem.  Remember, the retina is not going to the company, just a hash of it. So all they can do is say,  yes, this is the same eyeball we saw last time, but that's authentication. And it's strong  authentication. Those eyeballs are stored or those hashes are stored in the blockchain. Yes.  I'm not sure exactly what the next stage is.
+
+Start time: 8364.66
+End time: 8395.36
+Speaker: Christina Warren
+Transcript:  Right. Right. Because that's the thing. It's like, okay, so you have everybody scan  their eyeballs and now we all have an identity card that we can use in some way to at least say,  well, at least the hash of this retina matches this person. But what does that really mean?  Because could my name still be different? Could my location, could other things be different?  It's just a hash. It's like, and who's overseeing this? On one hand, I get it. But on the other  hand, I'm like, okay, well, what about people who might just be like, I don't want anything.
+
+Start time: 8396.04
+End time: 8404.80
+Speaker: Rob Pegoraro
+Transcript:  What if I'm not living on a seastead and I still have to move to a seastead?  Deal with those weary giants of flesh and steel.
+
+Start time: 8408.72
+End time: 8413.96
+Speaker: Iain Thompson
+Transcript:  As a sailor, seasteading is one of the most stupid ideas.  Oh, it's not going to work? Oh shoot.  No, it's absolutely not going to work.
+
+Start time: 8414.12
+End time: 8419.28
+Speaker: Leo Laporte
+Transcript:  The idea is to create an independent nation based on an oil platform.
+
+Start time: 8421.04
+End time: 8490.40
+Speaker: Christina Warren
+Transcript:  Yeah. You know what's great about that? It was kind of Charles Ponzi when he was  desperately trying to think of ideas. The inventor of the Ponzi scheme, ladies and  gentlemen. Well, the person that the Ponzi scheme is named after, I mean, it's really,  it existed before him, but the person who made it synonymous, when he was selling these  postal reply coupons and saying that he would double the money and 60 days or whatever,  he was trying to figure out how he could actually legitimately make the money and then go straight  and then offer people reasonable returns, not 50% of your money in two weeks, but reasonable returns.  His idea was that he was going to buy with some money that he kind of stole from some banks.  He was going to buy some big decommissioned steamliners from the United States government  and fill them with all kinds of things and do basically what these sea setters want to do,  where he would basically have like a huge shopping mall that would go port to port  and people would just buy everything that they ever wanted from that. That was one of his genius  business ideas. It's very similar to the sea setting thing and that's all you really need to know.
+
+Start time: 8490.72
+End time: 8496.84
+Speaker: Leo Laporte
+Transcript:  It's like a floating hospital, a mercy ship, but with flip flops and frozen burritos. Sounds great.
+
+Start time: 8500.06
+End time: 8519.70
+Speaker: Iain Thompson
+Transcript:  The thing people forget about, because I do a fair amount of sailing, thank goodness,  because it's the bay and we've got great sailing, but boats break all the time. You're in a salt  water environment that is constantly moving. That puts enormous stress on things and you look at  some of these sea setter designs and you think that'll last five years. I want to live on this.
+
+Start time: 8520.86
+End time: 8530.04
+Speaker: Leo Laporte
+Transcript:  So I'm at seasteading.org. Although I have to say as you scroll down and all looks really good and  all the positives, then you get the article Titanic submarine catastrophic inclusion.
+
+Start time: 8530.38
+End time: 8560.39
+Speaker: Christina Warren
+Transcript:  What does this mean for sea setters? I was going to say that that company was  based in Everett, Washington, which is not far from me. I did try to buy  merch, legitimate stuff. I was not able to find it. An ocean gate t-shirt would be the king of all  the finds. No, absolutely. That's the thing. I want a real one, but people aren't selling  the real gear yet. Maybe I'll be able to find something. We saw what happens with this already.  We literally just a few weeks ago got a very sad look at this whole thing.
+
+Start time: 8564.60
+End time: 8579.36
+Speaker: Iain Thompson
+Transcript:  That did lead to a bit of a discussion in the office actually, because after that happened,  we were writing a story and the quote, the phrase was used a Titanic level of stupidity and hubris.  It was like, ouch, maybe too soon actually. Yeah, I think we'll leave that one.
+
+Start time: 8581.70
+End time: 8586.48
+Speaker: Christina Warren
+Transcript:  Even the reg was like, that's too much. We weren't writing about the submarine.
+
+Start time: 8588.24
+End time: 8591.29
+Speaker: SPEAKER_05
+Transcript:  Would have been a good title. That's what I thought you were talking about.
+
+Start time: 8595.06
+End time: 8630.90
+Speaker: Iain Thompson
+Transcript:  We don't shy away from that. That's what I thought. I was like, that's odd for you not to.  When Jack Dorsey was left as sole CEO of Twitter, the subhead we used was the headline,  but the UK objected was because Dick Costiello pulled out. The headline was,  Big Dick Pulls Out Jack's Off to the Hot Seat. That's so good. We originally put that as a  headline and then the UK editor-in-chief got on the phone within about 25 minutes. I could hear  the phone call from across the office. What the hell are you guys thinking?
+
+Start time: 8634.18
+End time: 8675.26
+Speaker: Leo Laporte
+Transcript:  Back to Sam Altman and WorldCoin. Here's an interesting paragraph in the New York Times  story about it. Ultimately, WorldCoin's bankers envision a grander plan to protect people from AI  advances that they claim will eliminate millions of jobs. They're promoting the orbs, the ones  scanning your iris, as a possible foundation for universal basic income. Not this old chestnut  again. They say our iris IDs will help distinguish real people from robots.  As if a robot can't duplicate my iris. Right. I bet it could. It falls down on one simple biological
+
+Start time: 8675.34
+End time: 8684.38
+Speaker: Iain Thompson
+Transcript:  point, which is people's eyes change over time. If you get a cataract, does that mean you're  automatically locked out of your bank account? Good point. It's like if you lose an eye in an
+
+Start time: 8684.48
+End time: 8694.28
+Speaker: Christina Warren
+Transcript:  accident. Well, it's like Minority Report, right? That's how he's able to get through,  he gets somebody else's eyes. He's like, welcome back to the gap, Mr. Wu. Are you enjoying your
+
+Start time: 8694.70
+End time: 8723.56
+Speaker: Iain Thompson
+Transcript:  t-shirts? That's what they do. And things change. I mean, because I remember when these first came  out and I was talking to one of the researchers, and this was about the late 90s, early noughties,  and they were saying certain drugs make your pupils go really large. So if you're on MDMA  or an LSD or something like that, you're effectively locked out from using any  authentication method using this system. So if you take action, you can't get onto social media.  Is this a defensive measure? That's actually probably a good thing. But if you get an eyeball
+
+Start time: 8723.76
+End time: 8734.02
+Speaker: Leo Laporte
+Transcript:  scratch, you can't either. If I were you, Christina, I might be looking for those  WorldCoin t-shirts. Just, you know, maybe. Yeah. I mean, if anybody has anything like, or actually,
+
+Start time: 8734.46
+End time: 8746.52
+Speaker: Christina Warren
+Transcript:  that's a good idea. I should see if I can buy them now. Get them before they fail. Yeah. Well,  that's my favorite thing to do is to buy them from their official stores because then, like,  I'm both contributing to the problem and I'm like, you know.
+
+Start time: 8748.30
+End time: 8757.44
+Speaker: Iain Thompson
+Transcript:  We need to make this a phrase for when you see a company which is obviously going to fail. It's  like, well, it's a kind of Christina Warren collection kind of company. Yes. How many
+
+Start time: 8757.54
+End time: 8769.44
+Speaker: Leo Laporte
+Transcript:  Christina's is that worse? Yeah, I think exactly. We could do that. I think we could create that  idea. Well, I have to get going and make some Chia Fresca. So I want to thank Iain Thompson for
+
+Start time: 8770.10
+End time: 8782.31
+Speaker: Iain Thompson
+Transcript:  inspiring me to the beverage revolution of the age. Now, if I could just convince you to get into  Marmite, my work here would be done. I got a jar. I've had that jar for a long time. I've got the
+
+Start time: 8784.62
+End time: 8854.62
+Speaker: Leo Laporte
+Transcript:  Vegemite and the Marmite, you know, just depending. They are different. I know they're different. Oh,  yes. Iain writes for the register, the register dot com. Always a pleasure to have you on, Iain.  Do rest your voice, but you sound fine. I'm just saying, you know, I know what you've been through  and we appreciate it. Thank you. Thank you. Yeah. Back from Def Con. Also back from Black Hat. Rob  Perger. See, I knew I was doing great right to the end. We were doing so good. Rob Pegararo.  I was going to say Pagararo, but he's correct. You got to say it in, you know, Marlinson style.  Rob Pegararo. Great to have you. You'll see his bylines all over for a long time in the  Washington Post. Most recently, PC Magazine, Fast Company. So good to have you on. Please come back  anytime. We love having you. Let us know next time you're in town. We can also do it. We have this  thing called Zoom, as you can tell. People don't have to be in studio. Christina Warren, I just  love having you on. I think you're fantastic. I have an original berf t-shirt you might want to  get a copy of if I can see. But I will send you these ZDTV. Yes, thank you. I would love that,
+
+Start time: 8856.14
+End time: 8860.02
+Speaker: Christina Warren
+Transcript:  genuinely, because I have such fun memories of it and it fits the collection. Yeah. John,
+
+Start time: 8861.64
+End time: 8880.48
+Speaker: Leo Laporte
+Transcript:  was this all of them? Because there was one that had the slogan on the back  and everything. I guess somebody has grabbed that one already, I'm sorry to say. No problem.  No problem. Thank you very much. We'll send you everything we have. I love it. Thank you.  I think I took a picture. Oh, I didn't post it here. I posted it somewhere else.
+
+Start time: 8882.98
+End time: 8887.68
+Speaker: Iain Thompson
+Transcript:  I've got a pair of Internet Explorer 95 binoculars hanging around somewhere. I'll see if I can find
+
+Start time: 8887.84
+End time: 8900.48
+Speaker: Leo Laporte
+Transcript:  them for you. What's the weirdest old crap? I know I have the Windows 98 cards. Remember you were  supposed to have a party to celebrate the launch of Windows 98? I think I have a deck of cards.
+
+Start time: 8900.48
+End time: 8904.00
+Speaker: Iain Thompson
+Transcript:  Oh, God. Those cringe-worthy adverts. Yes. I wrote about them. Let's get together for an
+
+Start time: 8904.12
+End time: 8945.56
+Speaker: Christina Warren
+Transcript:  operating system launch party. Yeah, that was Windows 7, I think. Was it 7? You're supposed to  throw a party for it. Yeah, you throw your own party. They had a kit for it. I'm embarrassed to  admit this. You did it. I don't believe it. No, no, no, no. It's worse. It's both better and worse.  When I was 13, I made my mom take me to the Windows 98 satellite launch in Atlanta.  And I had a t-shirt. It was all businessmen and people who did those things. I was one of the only  females. My mom got hit on a lot. I obviously did not. My mom got hit on a lot. That's a real thing
+
+Start time: 8947.04
+End time: 8966.46
+Speaker: Iain Thompson
+Transcript:  that I actually did. It's a woman. Quick. Get on over there. I think that's really sweet, to be  honest. Space stuff has always gone well. Paul Allen famously had a huge falling out with Bill  Gates because Allen popped down to see the first space shuttle launch and Gates was like,  what the hell are you doing setting this kind of example? I thought he said a pretty good example.
+
+Start time: 8967.80
+End time: 8989.76
+Speaker: Leo Laporte
+Transcript:  I wish I could find this shirt. Somebody must have taken it. This is a ZDTV shirt. But the  thing that makes this exciting, besides the weirdo inside it, is the back which says,  for everyone who wants to be part of the E generation, ZDTV is an experience that inspires  people to discover technologies promise for themselves. Why you would put that in the back
+
+Start time: 8989.94
+End time: 8996.32
+Speaker: Christina Warren
+Transcript:  of a t-shirt? I do not know. Speaking of Paul Allen, right there. There you go. Probably Paul
+
+Start time: 8996.34
+End time: 9068.48
+Speaker: Leo Laporte
+Transcript:  wrote it. That has aged like milk. Hey, thank you, Christina. Thank you, Iain. Thank you, Rob.  Thanks to all of you for joining us. We do Twitch Sunday afternoons, 2 to 5 PM Pacific. That's 5 to  8 PM Eastern, 2100 UTC. If you want to watch us do it, you can watch live. We have a live audio  and video stream at twit.tv slash live. If you're watching live, got to join us in the chat room.  IRC is open to all at irc.twit.tv. And I mean open to all. You can even use your browser. You  don't need an IRC client, although that would work too. We also have, of course, the Club  Twit Discord that's available to all Club Twit members. Love to see you in either chat room  while we're doing the show. After the fact, on-demand versions are available at our website  at twit.tv. There's a YouTube channel devoted to this week in tech. And of course, you can  subscribe in your favorite podcast client. That way you'll get it automatically the minute it is  available. Thank you everybody for being here. Here we are 18 years in and we're still going  strong. Thank you for watching the longest running tech podcast in the world. I don't think we'll  ever be beaten on that one. No one else would be nuts enough to do it. For 18 years I've been  saying another twit is in the can. We'll see you next time.
+
